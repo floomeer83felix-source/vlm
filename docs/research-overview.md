@@ -134,7 +134,11 @@
 
 **不再采用GitHub Issue推送通知**：早期测试的 `.github/workflows/vlm-push-notifier.yml` 已从 main 移除；自动生成的Issue #2已关闭。改为ChatGPT内的**每小时条件检查任务**：只针对未审查的Codex结果尝试审查及写入计划；不是实时GitHub webhook，也不保证任何自动写入成功。以任务书和研究总览的提交及被审查Codex SHA为唯一事实进度标志，不因ChatGPT自身推送重复分析或开放GPU。用户也可随时在此对话请求立即审查。
 
-**Codex轻量领取方式**：已规划在GitHub文档checkout根目录提供 `AGENTS.md` 持续指导；每次新会话同步 `main` 后读取 `docs/next-steps.md`，执行唯一READY任务并上传结果；不运行常驻Codex监控，以节约额度。启动位置如果是另一个本地实验文件夹，不能默认它读得到GitHub文档checkout的AGENTS.md。
+**Codex轻量领取方式（按用户实际工作方式调整）**：用户始终使用同一个Codex聊天框，不创建新会话。每次用户在原聊天发送“继续下一轮”指令，Codex安全刷新独立GitHub文档checkout `main`，重新读取 `AGENTS.md`、`docs/next-steps.md`、`docs/codex-results.md`，仅执行尚未交付的唯一READY任务并上传脱敏结果，然后停止本轮操作并保留聊天。既有聊天不会自动感知GitHub更改，ChatGPT每小时自动审查也无法向该Codex聊天发送消息或唤醒它；不运行Codex常驻监控，以节省额度。实验工作区不是Git文档checkout，禁止在实验目录盲目同步远端。
+
+### 2026-10-08 · 长期使用同一个 Codex 聊天框（最新协作约定）
+
+用户明确要求所有本地执行继续保留同一Codex对话，不新开会话。本次相应更新main的AGENTS.md与docs/next-steps.md：每轮用户发短指令→Codex安全刷新文档repo main→重新读取最新任务书与结果文件→完成唯一READY任务并提交→停止本轮操作但不关闭对话。自动GitHub审查与Codex开始新一轮是两个独立动作，**没有ChatGPT到现有Codex聊天的自动唤醒通道**。当前科学研究任务状态未因此升级：VLM-PTS-001仍READY、VLM-003/004仍BLOCKED，GPU/视频下载仍HOLD。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
