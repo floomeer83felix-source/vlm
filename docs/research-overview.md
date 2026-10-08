@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-08（北京时间；VLM-BATCH-003已验收，下一轮VLM-BATCH-004 READY）  
+> 更新：2026-10-08（北京时间；VLM-BATCH-004已验收，VLM-BATCH-005为唯一READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -79,7 +79,8 @@
 | 本地Windows环境/锁/账本验证 VLM-001 | **ACCEPTED（文档审计交付）；锁等运行前置仍未知** | Codex，ChatGPT验收 |
 | 数据字段核对 VLM-002 | **ACCEPTED（报告完成、G1仍HOLD）** | Codex，ChatGPT审查 |
 | 三项连续安全任务包 VLM-BATCH-003 | **ACCEPTED（仅静态交付，G1保持HOLD）** | Codex，ChatGPT审查 |
-| 合法数据请求与toy合同验证 VLM-BATCH-004 | **READY（0 GPU、0视频）** | Codex |
+| 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
+| 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **READY（仅低成本文档/CPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -189,6 +190,16 @@ Codex报告本次新增GPU/QA/下载/视频解码/新测试调用=0、原研究�
 3. C：用真实toy测试结果和已审文献形成G1的可证伪去留判据，并记录尚缺权限、时钟和来源的阻碍。
 
 只允许两份小型脱敏报告+两个toy代码文件+一条父任务汇总；不能发邮件/Issue、下载视频/完整数据、调用模型、改原研究工作区或连跑下一批。**toy单测通过只说明代数合同在合成样本上自洽，不能替代视频PTS、标注必要性、来源独立或GPU实际成本。**
+
+### 2026-10-08 · VLM-BATCH-004 验收及数据阻碍止损计划（当前）
+
+审查提交 [462ccde](https://github.com/floomeer83felix-source/vlm/commit/462ccdec4a999ef62e67a1cb52e7392fd7e14517) 及五处变更：`docs/codex-artifacts/VLM-BATCH-004/`两份报告、`prototypes/`两份纯合成toy代码及`docs/codex-results.md`追加回报；范围符合前次授权，旧研究文件未在该提交中修改。
+
+**ACCEPT 交付，不放行 G1/GPU。** A：VES-Bench中英数据许可/无答案字段/同版时钟询问草案完成，**未联系作者，官方联系渠道未知**。B：执行者报告标准库CPU unittest第一次9/10（错误预期与双重改动样例冲突），修正toy用例后第二轮10/10，0跳过；GitHub公开源码静态审阅通过基本一致性，但本助手因运行环境无法访问公开原文件，**未独立复跑这10个测试**，不可说第三方确认通过。C：G1许可、正式必要区间、同版PTS与来源独立性仍未通过；三套候选数据均HOLD，模型/媒体调用=0（执行者声明）。
+
+**对toy的额外审查发现**：现 `pair_contract` 虽要求传入的每个参考区间被某锚点覆盖，**却未强制参考区间至少3段且彼此不重叠**；其`time_bins`聚合也不能证明时间细粒度分布完全匹配。toy仅保证局部合成断言，与真实视频证据充分性、实际token预算和独立来源无关。
+
+新唯一READY为 [VLM-BATCH-005](./codex-artifacts/VLM-BATCH-005/README.md)：A限量核实官方数据咨询/使用路径（不对外发送），B补强toy反例与实际CPU回归，C为“继续gold参考区间诊断”与“改为无gold观测鲁棒性问题”形成可证伪的路线决策。**本批完成后停止重复静态盘点，须ChatGPT与用户对数据申请或课题转向作下一次选择**，不得无期限优化toy或用它代替实证。当前 `VLM-003`/`VLM-004`、真实媒体、GPU、自动邮件/Issue、正式新manifest均BLOCKED，核心机制保留数仍为0。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
