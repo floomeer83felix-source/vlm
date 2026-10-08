@@ -46,3 +46,10 @@
 - **进程与未知**：6条Python未匹配研究目录或主要入口；GPU仍有桌面应用及权限不足条目，不能声称整机空闲。4个已查锁文件存在，未申请或改动锁，持有状态UNKNOWN。450份历史指纹覆盖缺项、VFR／真实PTS桥接、全量权重与视频哈希未确认。
 - **资源与建议**：新增模型／GPU前向／数据集下载0，原研究资产修改0；仅文档checkout产生交付物。建议ChatGPT审核后仅对VLM-002元数据核查GO，推理／下载／后续BLOCKED任务HOLD，不自行放行。
 - **附件与追溯**：[workspace-audit.md](codex-artifacts/VLM-001/workspace-audit.md)含证据类型、局限及安全相对路径／SHA。只提交本摘要和附件，提交成功即停止。
+
+### VLM-002 2026-10-08 北京时间 — 完成（G1 HOLD）
+
+- **范围**：依据 `19a4e42` 的READY任务，仅查TRACE/VES-Bench、HERBench，前两者关键信息不足后简查CaST-Bench。读取官方页面、README、许可、版本／文件目录与Viewer info字段，不读实际标注行或答案。
+- **事实**：VES公开revision与348个视频路径可确认，联合必要区间是官方声明；Viewer仅给video列，注释／视频许可及真实问答区间字段UNKNOWN。HER列schema和非商业CC BY-NC-SA许可可确认，但视频沿上游条款；MRFS依赖模型／selector，详细字典404。CaST的test元数据80题、目录56个MP4；字典给`mm:ss`区间与逐秒框，注释CC BY4.0、视频另适用SAV条款。版本、来源与官方链接详见附件。
+- **限制与资源**：均未实证三段必要／非重叠、<12锚点、区间外池、真实PTS或≥40独立来源。23个受控直接响应共214936B、最大42968B；初始检索工具流量未独立计量，不填0。3项404保留，未扩大访问链。新增模型前向／视频／完整标注下载0，原工作区与环境修改0。
+- **建议与附件**：所有候选G1仍HOLD；优先澄清VES许可和无答案区间字典，是否继续由ChatGPT审查。[dataset-metadata-review.md](codex-artifacts/VLM-002/dataset-metadata-review.md)为唯一附件。仅提交这两处，完成即停止，VLM-003／004不执行。
