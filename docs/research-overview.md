@@ -146,6 +146,14 @@
 
 当前仅完成公开仓库侧文件交付，**尚未在用户Windows机器上安装或实际验证计划任务**；需要用户让现有Codex聊天按文档本地配置并测试。原有桌面Codex聊天目前没有经验证的“由纯Git脚本无模型成本直接注入消息”的入口，因此本方案只自动识别并本地留下提示，仍需用户在同一个聊天框发送“继续下一轮”。若需要完全无人值守，必须另行授权Codex原生thread automation，并接受每次唤醒可能消耗额度的现实。研究任务READY/BLOCKED和GPU禁止条件**未变更**。
 
+### 2026-10-08 · 取消 Windows 每30分钟本地 Git 监控方案（最新决定）
+
+用户明确取消上一轮提出的 Windows Task Scheduler + PowerShell / Git 定期检查方案。在公开仓库main删除低成本轮询脚本 `tools/watch-ready-task.ps1` 和安装说明 `docs/automation/windows-ready-watch.md`，从 AGENTS.md 与任务书撤下引用。上一段“试行方案”仅保留为**历史记录，当前已撤销，不得执行**。
+
+该方案此前只是在GitHub写好了文件，**没有证据表明已在用户 Windows 实验机中安装计划任务**。若用户或Codex已经在本地创建了名为 `VLM Ready Watch` 的 Windows 计划任务，应在本地任务计划程序中停用并删除；远端删除仓库文件不会停止已安装的本地任务。
+
+保留“用户在同一个 Codex 聊天框发指令→Codex安全刷新main并执行唯一READY任务”的既有交接规则。原有ChatGPT每小时Codex结果审查自动化不属于被取消的半小时Windows脚本，暂时保持开启。研究任务门槛、当前READY/BLOCKED状态及GPU限制均未改变。
+
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
 1. 读 [Codex执行结果](./codex-results.md) 最后新增记录及对应提交；
