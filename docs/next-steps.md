@@ -1,6 +1,6 @@
 # VLM 下一步工作安排（ChatGPT 维护）
 
-> 协作规则：**ChatGPT 负责研究规划与审查，Codex 仅执行本文件中标记 READY 的单个任务**，执行事实写入 [codex-results.md](./codex-results.md)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
+> 协作规则：**ChatGPT 负责研究规划与审查，Codex 仅执行本文件中标记 READY 的单个任务**，执行事实写入 [codex-results.md](./codex-results.md)，必要的脱敏文本证据上传 [codex-artifacts/](./codex-artifacts/)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
@@ -10,7 +10,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-001 | P0 | **READY** | Codex | Windows 本地实验工作区**只读状态盘点** | 有来源可追溯的环境/锁/账本概览、风险及 HOLD/GO 建议；上传脱敏反馈 |
+| VLM-001 | P0 | **READY** | Codex | Windows 本地实验工作区**只读状态盘点** | 一份脱敏工作区审计附件 + 一条回报，说明环境/锁/账本、未知项、风险与 HOLD/GO 建议 |
 | VLM-002 | P1 | BLOCKED（等 VLM-001 审核） | Codex | 查证候选公开证据数据集的许可、schema、时间区间与视频桥接；**仅元数据** | 能确定是否满足预注册诊断所需的标注契约；未授权不得下载视频 |
 | VLM-003 | P1 | BLOCKED（等 VLM-002 与方案审查） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
@@ -30,7 +30,7 @@
 3. 只读核对现有 conda `pytorch` 环境中 Python、PyTorch、CUDA/驱动、模型及处理器版本；**不安装、升级或新建环境**。
 4. 只读检查调用账本：最后运行的 run ID、planned/started/terminal 状态与数量、是否有 started 未终态、最新成功记录与异常记录；不泄漏原始答案/隐私标签。
 5. 判断本地已否具备下一研究阶段的前提：源身份隔离、SHA/PTS 可追溯、GPU 串行和持久账本；把未验证的项目列为“未确认”而非“通过”。
-6. 若本地工作区与这个公开文档仓库是两个目录，**不要把工作区整体推入公共仓库**；只通过文档仓库的 `docs/codex-results.md` 发送脱敏摘要。
+6. 若本地工作区与这个公开文档仓库是两个目录，**不要把工作区整体推入公共仓库**；只通过文档仓库的 `docs/codex-results.md` 发送脱敏反馈，并将必要的小型文本证据放到 `docs/codex-artifacts/VLM-001/`；不得整体上传原工作区。
 
 ### 禁止事项
 
@@ -51,7 +51,10 @@
 
 ### 输出要求与反馈路径
 
-**唯一可写的研究协作文件：** `docs/codex-results.md`（以及提交这一文件所需的 Git 元数据）。使用下面链接中的固定模板追加一条 `VLM-001` 记录，含：
+**本任务仅允许新增/修改两处交付物：**
+
+1. 在已建立的目录 `docs/codex-artifacts/VLM-001/` **新建** `workspace-audit.md`，内容遵循 [附件模板与脱敏规范](./codex-artifacts/VLM-001/README.md)。这里只写必要的环境/资源/账本**汇总**，不贴原始代码、日志、视频、绝对个人路径。
+2. 在 `docs/codex-results.md` **追加**一条 `VLM-001` 记录，简述执行状态，并链接 `codex-artifacts/VLM-001/workspace-audit.md`。不要修改原有历史条目。记录至少包含：
 
 - 检查北京时间、执行机操作系统与 GPU 证明、工作区 Git commit（如有）、工具/环境版本；
 - 本地活动进程、锁/账本、模型/数据/脚本是否存在的简短事实表（每项说明证据类型）；
@@ -60,11 +63,11 @@
 - 是否可以进入 VLM-002 的 **建议** GO/HOLD（Codex 不具有放行权）；
 - 相关非敏感本地报告文件的路径或 SHA，可不上传日志正文。
 
-反馈以 **约300—600字中文摘要**为宜；必要结构表可另附。完成后仅提交这一个协作文件到公开仓库 `main`，不要顺手上传代码/数据。若无法安全写入 GitHub，停止并直接在本地对话报告阻碍，不要强推或覆盖他人提交。
+反馈以 **约300—600字中文摘要**为宜；必要结构表可另附。完成后仅提交**上述两处文件**到公开仓库 `main`，不要顺手上传代码、数据、模型、原始评分或其他文件。提交前检查 `git diff --cached --name-only` 和两个文件内容。若无法安全写入 GitHub，停止并直接在本地对话报告阻碍，不要强推或覆盖他人提交。
 
 ### 结束条件
 
-**提交一次 VLM-001 反馈即停止 Codex 当前任务。** 不继续运行 VLM-002/003/004；等待 ChatGPT 通过 GitHub 核实、审核并安排下一项工作。
+**提交 VLM-001 的脱敏附件与回报即停止 Codex 当前任务。** 不继续运行 VLM-002/003/004；等待 ChatGPT 通过 GitHub 核实、审核并安排下一项工作。
 
 ## 三、研究判断依据（当前有效）
 
@@ -76,7 +79,7 @@
 ## 四、GitHub 协作原则
 
 - **ChatGPT 编辑**：`docs/next-steps.md`、`docs/research-overview.md`；必要时另存复核结论。
-- **Codex 编辑**：只向 `docs/codex-results.md` 追加按任务ID标识的事实反馈；不回写或删改旧条目，纠错用新条目。
+- **Codex 编辑**：只向 `docs/codex-results.md` 追加按任务ID标识的事实反馈，并将本轮任务所需的脱敏文本附件放到 `docs/codex-artifacts/<任务ID>/`；不回写或删改旧条目，纠错用新条目。
 - **原始快照**：`docs/research-progress-2026-10-08.md` 永久保留为当日历史记录，不改写过去结论。
 - 每次用户在 ChatGPT 请求“审查最新结果/安排下一步”，ChatGPT 先读三个协作文件和本轮差异，给出接受/退回/HOLD并更新任务文档。
 - 不默认后台持续轮询、自动运行、自动合并或自动放行GPU；需要时由用户发起下一轮。
