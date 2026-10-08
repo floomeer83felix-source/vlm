@@ -13,12 +13,13 @@
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
 | VLM-BATCH-003 | P1 | **ACCEPTED（静态交付；G1 HOLD）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [三份审计报告](./codex-artifacts/VLM-BATCH-003/README.md)与[Codex回报](./codex-results.md)由提交 [31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)交付；只接受审计，不批准新实验 |
-| VLM-BATCH-004 | P1 | **READY（请求草案+toy测试+去留决策）** | Codex | A: VES许可及schema请求草案；B: 纯合成CPU技术合同和单测；C: G1决策/测试报告 | [本批README](./codex-artifacts/VLM-BATCH-004/README.md)，2份脱敏报告+2个隔离toy代码+1条回报；0模型/媒体下载 |
+| VLM-BATCH-004 | P1 | **ACCEPTED（toy报告通过；G1 HOLD）** | Codex | VES请求草案、toy CPU测试、G1决策报告 | [提交462ccde](https://github.com/floomeer83felix-source/vlm/commit/462ccdec4a999ef62e67a1cb52e7392fd7e14517) 五项文件已审查；Codex报告10/10 toy通过，未独立重跑，不放行真实实验 |
+| VLM-BATCH-005 | P1 | **READY（3项低成本审查）** | Codex | A官方访问渠道，B补强toy边界测试，C研究去留裁决 | [任务合同](./codex-artifacts/VLM-BATCH-005/README.md)：两份报告、两个toy代码修改、一条回报；0GPU/0外部联系 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（G1数据门仍HOLD，需本批审查与新授权） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一 READY 父任务是 VLM-BATCH-004（3项连续安全工作）；VLM-BATCH-003已验收，旧VLM-PTS-001包含于上一包，不得重做。数据G1门仍HOLD、VLM-003/004仍BLOCKED。** 用户继续使用同一个Codex聊天框，按最新main任务包一次执行A/B/C、统一上传后停止，不自动领取新包。不启动GPU或下载版权媒体，允许仅在独立文档checkout新建纯合成Python标准库toy合同和测试。Windows定时Git检查已取消；ChatGPT每小时审查是条件任务，实际更新以GitHub提交为准。
+**当前唯一READY父任务是VLM-BATCH-005。BATCH-004按462ccde交付验收，G1仍HOLD；VLM-003/004仍BLOCKED。** Codex在同一个聊天框安全刷新main，只执行BATCH-005的A/B/C，统一提交后停止；不联系外部人员、不下载媒体、不跑GPU。BATCH-005结束后由ChatGPT及用户决定是否正式申请数据或调整科学问题，不再默认重复静态盘点。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
