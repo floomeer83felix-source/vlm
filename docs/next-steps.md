@@ -139,7 +139,7 @@ VLM-002 的 [元数据审查](./codex-artifacts/VLM-002/dataset-metadata-review.
 
 > 继续下一轮：先安全同步GitHub文档仓库main，重新读取AGENTS.md、docs/next-steps.md、docs/codex-results.md，只执行尚未交付的唯一READY任务，按要求上传报告后停止。
 
-GitHub的更新不会自动唤醒空闲Codex，ChatGPT的每小时审查自动化也无法直接给该Codex聊天框发消息。为节约额度，已提供 [Windows每30分钟纯Git READY检查器](./automation/windows-ready-watch.md) 及 [脚本](../tools/watch-ready-task.ps1)。该检查器只在检测到新的、尚未回报的READY任务时写入本机通知文件；不调用Codex模型，也**不能自动给原Codex聊天发送消息**。首次安装Windows任务计划程序必须在本地完成。
+GitHub的更新不会自动唤醒空闲Codex，ChatGPT的每小时审查自动化也无法直接给该Codex聊天框发消息。用户已取消 Windows 每30分钟 Git/PowerShell 检查方式，不应安装或使用该本地计划任务；本项目仍由用户在同一个 Codex 聊天框发送“继续下一轮”来领取任务。
 
 ## 五、研究判断依据（当前有效）
 
