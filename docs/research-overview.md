@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-08（北京时间；VLM-001 审查验收，VLM-002 元数据核验放行）  
+> 更新：2026-10-08（北京时间；VLM-002 报告审查完成，VLM-PTS-001 有界放行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -77,7 +77,8 @@
 | 三份第一阶段研究审查草案 | 已在PR #1提交，待审核合并 | ChatGPT |
 | 任务/反馈/附件协作机制 | 已建立在main；首个附件路径已建立 | ChatGPT |
 | 本地Windows环境/锁/账本验证 VLM-001 | **ACCEPTED（文档审计交付）；锁等运行前置仍未知** | Codex，ChatGPT验收 |
-| 数据字段核对 VLM-002 | **READY（仅公开元数据）** | Codex |
+| 数据字段核对 VLM-002 | **ACCEPTED（报告完成、G1仍HOLD）** | Codex，ChatGPT审查 |
+| 时间戳/帧桥接静态审计 VLM-PTS-001 | **READY（0 GPU）** | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
 | 正式创新与外部验证 | 未开始 | ChatGPT 规划 / Codex 执行 |
@@ -117,6 +118,23 @@
 **放行：VLM-002 READY**，只准调查公开TRACE/VES-Bench、HERBench（必要时CaST-Bench）的官网、许可、数据版本、证据标注schema及同版本视频时间映射**元数据**；无模型/视频/大文件下载、无GPU前向、无工作区修改。新建交付位置 [VLM-002附件目录](./codex-artifacts/VLM-002/) 并在 [Codex结果文件](./codex-results.md) 追加报告，完成即停止。
 
 **仍然 HOLD**：VLM-003（manifest/新输入合同冻结）、VLM-004（新GPU实验）、自动续作；在新模型问答前仍需实证核实OS锁持有与GPU占用、目标源真实PTS/证据桥接、独立性及成本/权限。数据公开并不自动通过G1数据门，更不是算法创新证据。
+
+### 2026-10-08 · VLM-002 审查与工作流调整（当前）
+
+**审查来源与归档SHA**：Codex 提交 [2c9e568](https://github.com/floomeer83felix-source/vlm/commit/2c9e568c95ce021b38c9ac3155bfb3ecc28f0b7f)，仅新增 [VLM-002元数据报告](./codex-artifacts/VLM-002/dataset-metadata-review.md) 及在 [Codex回报](./codex-results.md) 追加一条结果。ChatGPT检查了提交范围、全文报告的证据级别、数据集版本追溯和结论边界。审查性质为**执行者公开元数据审计的文件级复核**；未亲自下载数据或独立核验目标数据schema样本/媒体许可。
+
+**ACCEPT VLM-002 的文档交付；G1数据门仍HOLD**。
+- TRACE/VES-Bench：论文声明每题联合必要证据区间，公开媒体清单与revision可追溯，但本次没有确认实际问答/区间字段、标注与视频许可证或源PTS/剪辑版本桥接；不能据此开始先导。
+- HERBench：公开列与非商业数据许可可追溯，嵌套支持字典缺失；MRFS是模型+选帧器下的首次答对帧数，**不是参考必要证据区间**；媒体上游条款待核。
+- CaST-Bench：公开文档给mm:ss区间及对象框结构，仍没有证明实际多段联合必要性、长视频适用性、clip原点与真实PTS。
+- 三者均没有通过 >=40操作性独立视频来源、三段不重叠必要区间、<12锚帧、固定12帧区间外候选池及合法媒体使用的完整G1门槛。报告的公开查询预算214936字节、无新GPU调用和无媒体下载是执行者报告，并非本助手重新执行联网计量。
+- **科学判断**：不将“找到了公开数据集”当成实验成立；VLM-003的manifest冻结、VLM-004的GPU前向仍BLOCKED。避免重复失败的404/AGQA访问链。
+
+**下一小任务**：只放行 [VLM-PTS-001](./codex-artifacts/VLM-PTS-001/README.md) 静态检查本地时间戳/FPS/PTS/VFR及裁剪桥接代码合同，目的在于限定未来实验的测量风险；0新模型调用、0视频解码、0下载，不更改现有环境或研究资产。完成后Codex上传 `timestamp-contract-audit.md` 和回报即停止。这一任务**不能改变G1 HOLD**。
+
+**不再采用GitHub Issue推送通知**：早期测试的 `.github/workflows/vlm-push-notifier.yml` 已从 main 移除；自动生成的Issue #2已关闭。改为ChatGPT内的**每小时条件检查任务**：只针对未审查的Codex结果尝试审查及写入计划；不是实时GitHub webhook，也不保证任何自动写入成功。以任务书和研究总览的提交及被审查Codex SHA为唯一事实进度标志，不因ChatGPT自身推送重复分析或开放GPU。用户也可随时在此对话请求立即审查。
+
+**Codex轻量领取方式**：已规划在GitHub文档checkout根目录提供 `AGENTS.md` 持续指导；每次新会话同步 `main` 后读取 `docs/next-steps.md`，执行唯一READY任务并上传结果；不运行常驻Codex监控，以节约额度。启动位置如果是另一个本地实验文件夹，不能默认它读得到GitHub文档checkout的AGENTS.md。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
