@@ -142,7 +142,7 @@
 
 ### 2026-10-08 · Windows 每30分钟零Codex模型检查的试行方案
 
-用户认可优先使用廉价Git检查来节省Codex额度。已向main添加 [`tools/watch-ready-task.ps1`](../tools/watch-ready-task.ps1) 和 [安装与限制说明](./automation/windows-ready-watch.md)，并更新根目录AGENTS.md与下一步任务交接说明。脚本计划通过**本地Windows任务计划程序**每30分钟读取远端 `main`，识别尚未回报的唯一READY任务，使用本机 `%LOCALAPPDATA%` 状态文件防重复提醒；**脚本自身不调用模型、不写GitHub、不启动Codex或GPU**。
+用户认可优先使用廉价Git检查来节省Codex额度。当时曾向main添加 `tools/watch-ready-task.ps1` 与 `docs/automation/windows-ready-watch.md`（**现已取消并删除，不再适用**），并更新根目录AGENTS.md与下一步任务交接说明。脚本计划通过**本地Windows任务计划程序**每30分钟读取远端 `main`，识别尚未回报的唯一READY任务，使用本机 `%LOCALAPPDATA%` 状态文件防重复提醒；**脚本自身不调用模型、不写GitHub、不启动Codex或GPU**。
 
 当前仅完成公开仓库侧文件交付，**尚未在用户Windows机器上安装或实际验证计划任务**；需要用户让现有Codex聊天按文档本地配置并测试。原有桌面Codex聊天目前没有经验证的“由纯Git脚本无模型成本直接注入消息”的入口，因此本方案只自动识别并本地留下提示，仍需用户在同一个聊天框发送“继续下一轮”。若需要完全无人值守，必须另行授权Codex原生thread automation，并接受每次唤醒可能消耗额度的现实。研究任务READY/BLOCKED和GPU禁止条件**未变更**。
 
