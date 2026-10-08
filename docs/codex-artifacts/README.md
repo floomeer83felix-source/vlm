@@ -8,13 +8,13 @@
 - 执行结果登记：[../codex-results.md](../codex-results.md)（由 Codex 追加概况、进度、阻碍）。
 - 总体研究总结：[../research-overview.md](../research-overview.md)（由 ChatGPT 审查后维护）。
 - 历史进展快照：[../research-progress-2026-10-08.md](../research-progress-2026-10-08.md)（不修改）。
-- **证据附件：** 本目录按任务号建子目录，例如 [VLM-001/](./VLM-001/)（已完成）、[VLM-002/](./VLM-002/)（当前 READY）；每份附件在 codex-results.md 中索引。
+- **证据附件：** 任务级目录：[VLM-001/](./VLM-001/)（完成）、[VLM-002/](./VLM-002/)（完成/G1 HOLD）、[VLM-PTS-001/](./VLM-PTS-001/)（当前 READY）；每份附件在 codex-results.md 中索引。
 
-## 目前只需提交的材料
+## 当前只需提交的材料
 
-**VLM-001 已于2026-10-08被ChatGPT验收**，附件为 [VLM-001/workspace-audit.md](./VLM-001/workspace-audit.md)，不得重新执行。
+VLM-001、VLM-002 的文档交付已验收，不重复运行。VLM-002 的 **G1数据门仍HOLD**。
 
-**当前唯一 READY：VLM-002（公开证据数据集元数据核验）**，按 [VLM-002/README.md](./VLM-002/README.md) 提交 `VLM-002/dataset-metadata-review.md`，并在 `docs/codex-results.md` 追加 VLM-002 摘要与链接。不运行模型、不下载视频/压缩包或完整数据集，不修改原研究资产，完成即停。
+**当前唯一 READY：VLM-PTS-001（FPS/PTS/VFR静态桥接合同审计）**，按 [VLM-PTS-001/README.md](./VLM-PTS-001/README.md) 新建 `VLM-PTS-001/timestamp-contract-audit.md`，并在 `docs/codex-results.md` 追加任务摘要与链接。零模型推理、零视频解码、零环境修改和零额外下载，只读少量相关源码，完成即停。
 
 若存在高度敏感的路径、输出或许可不允许公开，**不要上传该材料**；只写“未公开”及类别、脱敏说明和本地相对位置/哈希（如可安全披露）。无法安全提交时，直接向用户报告，不强推。
 
