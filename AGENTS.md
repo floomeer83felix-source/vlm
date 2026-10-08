@@ -5,13 +5,13 @@ This is the **public document-coordination checkout** for floomeer83felix-source
 ## Collaboration roles
 
 - **ChatGPT** owns research review, scientific conclusions, `docs/next-steps.md` (task READY/BLOCKED status), and `docs/research-overview.md` (rolling decisions).
-- **Codex** acts only as a bounded local executor for **one authorized task per session**; it uploads sanitized factual evidence under `docs/codex-artifacts/<task-id>/` and appends a task entry to `docs/codex-results.md`.
-- **User** decides whether/when to start a Codex session and must explicitly authorize restricted GPU/model, data download, env migration, protected labels, background monitoring, or PR merge actions.
+- **Codex** acts only as a bounded local executor for **one authorized task per execution round (one user message in the SAME long-running Codex chat)**; it uploads sanitized factual evidence under `docs/codex-artifacts/<task-id>/` and appends a task entry to `docs/codex-results.md`.
+- **User** normally keeps one Codex conversation throughout the project. After ChatGPT updates the GitHub plan, the user sends a short message in that SAME conversation to start the next round. Restricted GPU/model operations, data download, environment migration, protected labels, background monitoring, and PR merge still require explicit authorization.
 - No GitHub Issue alerts. This document does not authorize continuous Codex background work.
 
-## At the beginning of every NEW Codex session
+## At the start of EVERY execution round (reuse the SAME Codex conversation)
 
-1. Read the local `AGENTS.md` (this file) and **refresh only the separate document checkout**, not the original experiment directory. If Git is available and this is the docs checkout:
+1. **Do not rely on previous chat context or cached task states.** In the existing Codex conversation, when the user says to continue or check for the next task, reread this file if available and **refresh only the separate GitHub document checkout**, never the original experimental directory. If Git is available in the docs checkout:
    - `git status --short`
    - `git fetch origin main`
    - `git show origin/main:docs/next-steps.md`
@@ -35,6 +35,10 @@ This is the **public document-coordination checkout** for floomeer83felix-source
 - The initial methodological hypothesis and all novelty claims remain tentative; consult `docs/research-overview.md`, not memory, as the latest signed-off scientific position.
 - **Stop when blocked**; write UNKNOWN and return control instead of inventing data or spending quota investigating a closed path.
 
-## Note on watching for new instructions
+## One persistent chat and how to check new instructions
 
-Codex's repo guidance is loaded **when a new session starts**; simply updating `AGENTS.md` on GitHub does not wake an idle local Codex or update an already open session. There is **no authorized always-on Codex watch** here. A separate ChatGPT periodic check may review new pushed results, but its writes should be verified from GitHub. At the user's next Codex session, fetch/read the latest `docs/next-steps.md` and execute only the new READY task.
+**The user intends to use ONE continuous Codex chat for the entire project. Do not ask them to create a new session.** Initial repository instructions may have been read earlier, but remote edits to `AGENTS.md` or `docs/next-steps.md` do **not** automatically refresh the already-open chat. At each new user instruction, run safe `git fetch origin main` in the separate documentation checkout (or fetch the latest file contents from GitHub when no checkout is available), then reread `docs/next-steps.md`, `docs/codex-results.md`, and the task-specific README. Treat repository `main` as the current authority, not previously pasted or cached text. Only execute the one READY task if no matching completed result already exists; otherwise stop and report why.
+
+The user may paste this minimal message **in the SAME chat**: “继续下一轮：先安全同步 GitHub 文档仓库 main，重新读取 AGENTS.md、docs/next-steps.md、docs/codex-results.md，只执行尚未交付的唯一 READY 任务，按要求上传报告后停止。”
+
+No constant Codex polling or self-waking has been authorized. ChatGPT may check GitHub hourly and revise the plan, but it **cannot send a new message directly into the existing Codex chat**, and changing a GitHub file alone never wakes Codex. The user triggers each next execution round by messaging the existing Codex chat, without resetting the conversation.
