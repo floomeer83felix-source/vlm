@@ -12,12 +12,13 @@
 |---|---|---|---|---|---|
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
-| VLM-BATCH-003 | P1 | **READY（一次3项静态/文档任务包）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [任务包说明](./codex-artifacts/VLM-BATCH-003/README.md)，3份脱敏附件 + 1条汇总结果；0GPU/0视频下载/0原资产修改 |
+| VLM-BATCH-003 | P1 | **ACCEPTED（静态交付；G1 HOLD）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [三份审计报告](./codex-artifacts/VLM-BATCH-003/README.md)与[Codex回报](./codex-results.md)由提交 [31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)交付；只接受审计，不批准新实验 |
+| VLM-BATCH-004 | P1 | **READY（请求草案+toy测试+去留决策）** | Codex | A: VES许可及schema请求草案；B: 纯合成CPU技术合同和单测；C: G1决策/测试报告 | [本批README](./codex-artifacts/VLM-BATCH-004/README.md)，2份脱敏报告+2个隔离toy代码+1条回报；0模型/媒体下载 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（G1数据门仍HOLD，需本批审查与新授权） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一可执行的父任务是 VLM-BATCH-003（3项低成本静态/合同子任务）；VLM-PTS-001 被合并其中，不能单独领取。VLM-001/002 的交付已验收，但 G1数据门仍HOLD；VLM-003/004仍BLOCKED。** 用户一直使用**同一个Codex聊天框**；每轮安全刷新独立文档仓库main并核对结果。Codex可在同一执行轮连续做完任务包A/B/C，然后统一上传、停止，不需中途三次等待审查；不得自行扩大到下一批次。已取消Windows定时Git检查；ChatGPT约每小时检测新Codex回报而非实时推送，并以GitHub实际写入为准。
+**当前唯一 READY 父任务是 VLM-BATCH-004（3项连续安全工作）；VLM-BATCH-003已验收，旧VLM-PTS-001包含于上一包，不得重做。数据G1门仍HOLD、VLM-003/004仍BLOCKED。** 用户继续使用同一个Codex聊天框，按最新main任务包一次执行A/B/C、统一上传后停止，不自动领取新包。不启动GPU或下载版权媒体，允许仅在独立文档checkout新建纯合成Python标准库toy合同和测试。Windows定时Git检查已取消；ChatGPT每小时审查是条件任务，实际更新以GitHub提交为准。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -103,7 +104,7 @@
 
 **VLM-002 已于2026-10-08按任务交付验收，G1数据门仍HOLD。** 不再重复相同官方页面和404访问链；除非ChatGPT另行明确立项，否则不下载整套数据或媒体。
 
-## 四、VLM-BATCH-003：三项研究准备工作（当前唯一 READY 任务包）
+## 四、VLM-BATCH-003：三项研究准备工作（历史任务包，已验收）
 
 ### 放大单轮任务规模的理由
 
@@ -125,18 +126,42 @@
 - 如果先前已有 `### VLM-BATCH-003` 的完成/部分完成/阻塞记录，禁止重复执行；转请ChatGPT审查。遇到Git冲突或敏感信息泄露风险停下，不强推或扩大权限。
 - **整包提交后停止本轮操作，但保留同一Codex聊天**；由ChatGPT集中科学审查并决定下一个任务包。其他任务仍BLOCKED。
 
-### Codex在同一聊天领取任务包
+### 历史任务包验收
 
-> 继续下一轮：安全刷新独立GitHub文档仓库main，重新读取AGENTS.md、docs/next-steps.md与docs/codex-results.md；只执行尚未回报的唯一READY父任务包VLM-BATCH-003，按任务包README连续完成A/B/C并统一上传4处允许文件后停止。不执行GPU或BLOCKED任务，不创建新聊天。
+2026-10-08 22:25北京时间，Codex以[提交31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)交付A/B/C三份报告及1条汇总。ChatGPT已核对提交范围和证据边界：**ACCEPT 文档与静态审计交付；真实PTS/媒体对应、历史独立来源、G1数据适用性均仍HOLD**。本节只保留历史任务定义，**严禁再次执行**；后续参照新第五节。
 
-## 五、研究判断依据（当前有效）
+## 五、VLM-BATCH-004：数据阻碍与toy合同验证（当前唯一 READY）
+
+### 为什么安排这一批
+
+VLM-BATCH-003确证的主要风险：最近12帧路径仍按index/FPS表示时间，历史789源节点中仅339有可复用摘要、450缺项，目标VES/HER/CaST的真实参考区间、媒体许可/版本与≥40独立源仍未通过G1。继续重复静态盘点收益低。本轮改为**取得合法数据的最小请求准备 + 可运行CPU纯合成测量合同 + 明确去留标准**。旧实验数据和真实媒体、模型一概不动。
+
+### 同一个Codex聊天框一次做完三项
+
+- **A** 只起草VES-Bench许可、无答案schema/参考区间、视频版本/时间坐标请求（中英文），不发送邮件/Issue、不猜邮箱。
+- **B** 在单独文档Git仓库的 `prototypes/` 新建Python标准库**纯合成**时间戳、源分组、D1/D2输入不变量参考原型与unittest；**实际运行toy CPU单测**，不导入原研究源码、不解码视频、不调用模型或修改环境。额外查配对时间分布与视觉token预算公平性，未知不能当通过。
+- **C** 根据A/B做G1数据门HOLD条件树与toy测试报告。提出少量最有信息量的后续动作，未通过许可/真实证据前不得开展四臂/GPU实验。
+
+**唯一交付合同：** [VLM-BATCH-004/README.md](./codex-artifacts/VLM-BATCH-004/README.md)，严格规定两个脱敏Markdown、两个toy代码文件与一条 `docs/codex-results.md` 追加结果。A→B→C连续执行，若部分未知则诚实标UNKNOWN，不反复请求数据。
+
+### 预算、界限与结束
+
+- 新模型/QA/训练/评分前向**0**，视频解码/视频、模型及完整数据集下载**0**，研究资产/既有conda/PyTorch/CUDA/锁/旧账本修改**0**；不发送联系邮件或GitHub Issue，不合并PR或自动后台运行。
+- 本次仅允许创建 `docs/codex-artifacts/VLM-BATCH-004/ves-access-request.md`、`docs/codex-artifacts/VLM-BATCH-004/g1-decision-and-toy-test.md`、`prototypes/toy_g1_contract.py`、`prototypes/test_toy_g1_contract.py` 并在 `docs/codex-results.md` 追加一个父任务结果；公开文件必须脱敏。
+- 如果同任务ID已有结果记录、资料泄漏、不可安全提交或Git冲突即停止；不可强推、重复GPU调用或修改ChatGPT维护文件。整包完成后保留原Codex聊天框，等待下次研究审查。
+
+### Codex启动本批的最短指令
+
+> 继续下一轮：安全刷新独立GitHub文档checkout的main，读取AGENTS.md、docs/next-steps.md、docs/codex-results.md和docs/codex-artifacts/VLM-BATCH-004/README.md；一次做完READY任务包A/B/C并提交5处允许文件。0模型/媒体，禁止BLOCKED任务。保留当前聊天框。
+
+## 六、研究判断依据（当前有效）
 
 - 历史已测试候选没有保留；不重跑100题基线、300题先导、撤回/替换、关系观察、密采、弱实例绑定、原生Sparse12或GAP7。
 - 暂定下一科学问题：固定12源帧且覆盖公开参考必需时间区间时，非参考区间不同帧组成是否会改变问答正确率与误伤？**这是待证伪的现象，不是已通过创新审查的新算法。**
 - 新数据/实验不可仅凭已有汇总直接开跑：优先核实标注与真实视频源对齐、许可、来源独立性、预算及评分隔离。
 - 本次阶段一文献/预注册草案在 [PR #1](https://github.com/floomeer83felix-source/vlm/pull/1) 中，**尚未并入main，供审查参考**。
 
-## 六、GitHub 协作原则
+## 七、GitHub 协作原则
 
 - **ChatGPT 编辑**：`docs/next-steps.md`、`docs/research-overview.md`；必要时另存复核结论。
 - **Codex 编辑**：只向 `docs/codex-results.md` 追加按任务ID标识的事实反馈，并将本轮任务所需的脱敏文本附件放到 `docs/codex-artifacts/<任务ID>/`；不回写或删改旧条目，纠错用新条目。
