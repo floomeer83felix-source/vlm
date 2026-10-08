@@ -8,12 +8,13 @@
 - 执行结果登记：[../codex-results.md](../codex-results.md)（由 Codex 追加概况、进度、阻碍）。
 - 总体研究总结：[../research-overview.md](../research-overview.md)（由 ChatGPT 审查后维护）。
 - 历史进展快照：[../research-progress-2026-10-08.md](../research-progress-2026-10-08.md)（不修改）。
-- **证据附件：** 本目录按任务号建子目录，比如 [VLM-001/](./VLM-001/)；每份附件可在 codex-results.md 中以相对链接索引。
+- **证据附件：** 本目录按任务号建子目录，例如 [VLM-001/](./VLM-001/)（已完成）、[VLM-002/](./VLM-002/)（当前 READY）；每份附件在 codex-results.md 中索引。
 
 ## 目前只需提交的材料
 
-**VLM-001（Windows 本地只读盘点）**：完成后，上传一份简短的
-[`VLM-001/workspace-audit.md`](./VLM-001/README.md)（README 内有模板要求），并在 `docs/codex-results.md` 按模板追加本次任务的结果及链接。**不用上传代码树全集或原始日志**；简短摘要与必要证据类型足以供 ChatGPT 决定下一步。
+**VLM-001 已于2026-10-08被ChatGPT验收**，附件为 [VLM-001/workspace-audit.md](./VLM-001/workspace-audit.md)，不得重新执行。
+
+**当前唯一 READY：VLM-002（公开证据数据集元数据核验）**，按 [VLM-002/README.md](./VLM-002/README.md) 提交 `VLM-002/dataset-metadata-review.md`，并在 `docs/codex-results.md` 追加 VLM-002 摘要与链接。不运行模型、不下载视频/压缩包或完整数据集，不修改原研究资产，完成即停。
 
 若存在高度敏感的路径、输出或许可不允许公开，**不要上传该材料**；只写“未公开”及类别、脱敏说明和本地相对位置/哈希（如可安全披露）。无法安全提交时，直接向用户报告，不强推。
 
