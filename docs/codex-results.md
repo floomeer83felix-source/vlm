@@ -53,3 +53,11 @@
 - **事实**：VES公开revision与348个视频路径可确认，联合必要区间是官方声明；Viewer仅给video列，注释／视频许可及真实问答区间字段UNKNOWN。HER列schema和非商业CC BY-NC-SA许可可确认，但视频沿上游条款；MRFS依赖模型／selector，详细字典404。CaST的test元数据80题、目录56个MP4；字典给`mm:ss`区间与逐秒框，注释CC BY4.0、视频另适用SAV条款。版本、来源与官方链接详见附件。
 - **限制与资源**：均未实证三段必要／非重叠、<12锚点、区间外池、真实PTS或≥40独立来源。23个受控直接响应共214936B、最大42968B；初始检索工具流量未独立计量，不填0。3项404保留，未扩大访问链。新增模型前向／视频／完整标注下载0，原工作区与环境修改0。
 - **建议与附件**：所有候选G1仍HOLD；优先澄清VES许可和无答案区间字典，是否继续由ChatGPT审查。[dataset-metadata-review.md](codex-artifacts/VLM-002/dataset-metadata-review.md)为唯一附件。仅提交这两处，完成即停止，VLM-003／004不执行。
+
+### VLM-BATCH-003 2026-10-08 22:25 北京时间 — 完成
+
+- **范围**：按main `17a88e2` 最新AGENTS与任务包连续完成A/B/C。复用上轮未提交的PTS审计；只读必要源码、聚合字段及已验收报告，PR #1仅参考固定head `df892ee7` 草案，未合并。
+- **A 完成／运行UNKNOWN**：[时间戳合同](codex-artifacts/VLM-BATCH-003/timestamp-contract-audit.md)。最近runner仍index/FPS；历史PyAV路径与纯PTS模块存在，但不构成当前12帧／裁剪版本桥接。列明时钟字段、融合平均标签风险及未来测试设计，本轮不执行。
+- **B 完成／独立性HOLD**：[来源审计](codex-artifacts/VLM-BATCH-003/source-provenance-audit.md)。789历史节点、339可用摘要、450未提供摘要；缺项不是污染数或独立事件数，具体split原因分布UNKNOWN。30 prepared、20 selected是已有操作性统计，不能承诺40独立来源。给出保守组件、跨split污染和toy验收合同。
+- **C 完成／G1 HOLD**：[G1合同](codex-artifacts/VLM-BATCH-003/g1-feasibility-contract.md)。三候选许可／支持／同版PTS等缺口保留；列出无答案投影字段、D1/D2的12唯一帧不变量与最多3项澄清建议，没有新manifest、可行题数或创新结论。
+- **资源与停止**：新增数据集检索／研究数据下载／模型QA／视频解码／测试运行0，原代码／环境／锁／账本修改0；只同步文档和参考PR。仅提交3附件＋本摘要，完成即停，不执行VLM-003／004，等待ChatGPT整包审查。
