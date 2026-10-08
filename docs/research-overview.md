@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-08（北京时间；VLM-002已验收，安排一次三项低风险任务包 VLM-BATCH-003）  
+> 更新：2026-10-08（北京时间；VLM-BATCH-003已验收，下一轮VLM-BATCH-004 READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -78,7 +78,8 @@
 | 任务/反馈/附件协作机制 | 已建立在main；首个附件路径已建立 | ChatGPT |
 | 本地Windows环境/锁/账本验证 VLM-001 | **ACCEPTED（文档审计交付）；锁等运行前置仍未知** | Codex，ChatGPT验收 |
 | 数据字段核对 VLM-002 | **ACCEPTED（报告完成、G1仍HOLD）** | Codex，ChatGPT审查 |
-| 三项连续安全任务包 VLM-BATCH-003 | **READY（A 时间戳、B 来源隔离、C G1合同；0 GPU）** | Codex |
+| 三项连续安全任务包 VLM-BATCH-003 | **ACCEPTED（仅静态交付，G1保持HOLD）** | Codex，ChatGPT审查 |
+| 合法数据请求与toy合同验证 VLM-BATCH-004 | **READY（0 GPU、0视频）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -167,6 +168,27 @@
 Codex同一个聊天框一次领取唯一READY父任务，连续执行这三个低风险子任务，**只上传3份脱敏Markdown＋向Codex结果文件追加1条VLM-BATCH-003汇总**。不需要中途三次科学审查；其中一项有UNKNOWN时仍可完成独立安全项，但不能擅自补跑模型或下载数据。ChatGPT集中验收后再安排下一批。当前所有子任务均尚未执行，**无新的问答准确率、无机制保留**。
 
 **保持HOLD**：VLM-003/004、新GPU/QA/训练、完整数据集与媒体下载、环境/锁/账本修改、来源独立性与真实PTS/G1数据门。原先Windows每30分钟Git自动检查方案仍已取消。ChatGPT每小时审查自动任务（如实际运行成功）应只处理**父任务ID VLM-BATCH-003**的新增回报，避免单独审查包内A/B/C导致提前派新任务。
+
+### 2026-10-08 22:25后 · VLM-BATCH-003 四文件交付验收、放行 VLM-BATCH-004（当前决策）
+
+**审查来源**：Codex主分支提交 [31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)，严格只包含[A时间戳合同](./codex-artifacts/VLM-BATCH-003/timestamp-contract-audit.md)、[B来源审计](./codex-artifacts/VLM-BATCH-003/source-provenance-audit.md)、[C数据门合同](./codex-artifacts/VLM-BATCH-003/g1-feasibility-contract.md)三份新脱敏附件和[Codex结果文件](./codex-results.md)的一条追加回报；未改ChatGPT任务/总览或原始历史快照。本轮检查了GitHub提交文件范围、报告内容与彼此一致性；**未进入Windows本地逐个验证代码或重算私有来源表**。
+
+**验收结论：ACCEPT VLM-BATCH-003 文档/静态合同交付，不等于科学G1通过，更不授权GPU。**
+
+- **A**：Codex报告最近多图/12帧路径使用 `frame_index/fps` 估算时间；旧的 `active_vlm/reference_pts.py` 整数PTS+有理时基原语以及历史PyAV解码路径存在，但未与最新12帧/媒体裁剪合同闭环。双帧平均时间标签不能用于证明“看过”参考区间。真实PTS/VFR/RGB版本绑定未实测。
+- **B**：历史聚合口径 **789节点＝339份可复用摘要＋450份缺失摘要**；缺项不能当污染数，也不能拿30 prepared、20 selected充当独立事件数。项目来源组件只提供操作性隔离，跨parent/clip、同事件多视角及保护域覆盖不足仍UNKNOWN；`≥40`独立来源未证实。
+- **C**：无答案schema、clip/PTS/来源版本、12唯一源帧与配对干预门被清楚列为设计前置；VES-Bench、HERBench、CaST-Bench的实际许可/必要区间/同版视频映射仍不满足G1。没有新manifest、实验结果、新算法或正式四臂运行。
+
+**新增科学审查提醒**：D1/D2仅保证同帧数不保证**时间分布、分辨率/视觉token成本及构造质量**相同；如果这些混杂不能先冻结或量化，即使以后准确率改变也不能把变化单独归因于“问题相似的背景帧”。这应成为下轮合同测试的明确失败/UNKNOWN条件。
+
+Codex报告本次新增GPU/QA/下载/视频解码/新测试调用=0、原研究资产修改=0；上述资源数字是执行者声明。**保留** VLM-003/VLM-004、G1数据门、真实媒体桥接、GPU/锁和完整来源独立性 HOLD；并且 retain 0，不夸大科学进展。
+
+**下一唯一 READY：** [VLM-BATCH-004](./codex-artifacts/VLM-BATCH-004/README.md)（同一Codex聊天框一次连续完成三项低风险工作）：
+1. A：写VES官方数据许可/无答案区间schema/同版媒体信息询问**草案**，不发送、不猜邮箱；
+2. B：在独立公开文档Git checkout中构建Python标准库**纯合成**PTS/来源组件/12帧不变量toy原型与unittest，运行CPU小测试，不涉及真实媒体/原研究代码；
+3. C：用真实toy测试结果和已审文献形成G1的可证伪去留判据，并记录尚缺权限、时钟和来源的阻碍。
+
+只允许两份小型脱敏报告+两个toy代码文件+一条父任务汇总；不能发邮件/Issue、下载视频/完整数据、调用模型、改原研究工作区或连跑下一批。**toy单测通过只说明代数合同在合成样本上自洽，不能替代视频PTS、标注必要性、来源独立或GPU实际成本。**
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
