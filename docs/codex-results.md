@@ -38,3 +38,11 @@
 **暂无。** 待 Codex 执行第一项 VLM-001 并在此处追加回报。
 
 <!-- Codex: 在本标记后追加每次任务记录，不删除旧内容；也请保留上方模板供下轮使用。 -->
+
+### VLM-001 2026-10-08 20:29 北京时间 — 完成
+
+- **范围与环境**：仅审计Windows本地工作区。Windows 11专业版build 26200，RTX3090 24GiB，驱动610.47；conda24.11.3，既有pytorch环境Python3.9.21／Torch2.5.1、构建CUDA12.4、Transformers4.57.6。证据为CIM、nvidia-smi、安装元数据及静态版本文件，未测GPU运算。研究目录无Git，文档checkout基线为 `7a9751b9b952c597fe5b3f6f74cfe20f1c8baaed`。
+- **事实**：本地源码、入口、三模型权重／配置、视频索引与账本存在；最新manifest的11项代码SHA匹配。4份问答账本分别有80／60／72／120个唯一开始与终态，started未终态均0，未重算科学结果。最新问答run为 `gap_directed_defusion_fresh20`，计划80行、complete；随后参考数据元数据run终态HOLD。
+- **进程与未知**：6条Python未匹配研究目录或主要入口；GPU仍有桌面应用及权限不足条目，不能声称整机空闲。4个已查锁文件存在，未申请或改动锁，持有状态UNKNOWN。450份历史指纹覆盖缺项、VFR／真实PTS桥接、全量权重与视频哈希未确认。
+- **资源与建议**：新增模型／GPU前向／数据集下载0，原研究资产修改0；仅文档checkout产生交付物。建议ChatGPT审核后仅对VLM-002元数据核查GO，推理／下载／后续BLOCKED任务HOLD，不自行放行。
+- **附件与追溯**：[workspace-audit.md](codex-artifacts/VLM-001/workspace-audit.md)含证据类型、局限及安全相对路径／SHA。只提交本摘要和附件，提交成功即停止。
