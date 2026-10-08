@@ -16,7 +16,7 @@
 | VLM-003 | P1 | BLOCKED（等 VLM-002 与方案审查） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前只有 VLM-PTS-001（静态时间戳/帧桥接审计）可执行。VLM-001、VLM-002 均完成文档交付验收，VLM-002 G1数据门仍HOLD；VLM-003/VLM-004仍BLOCKED。** Codex只能在本地被用户启动时读取最新任务书并执行一次READY任务；不要常驻轮询或因GitHub推送自动启动Codex。ChatGPT在可用的自动任务中约每小时检查一次新Codex结果，不代表实时push webhook，自动审查成功必须以本文件及研究总览实际写入为准。
+**当前只有 VLM-PTS-001（静态时间戳/帧桥接审计）可执行。VLM-001、VLM-002 均完成文档交付验收，VLM-002 G1数据门仍HOLD；VLM-003/VLM-004仍BLOCKED。** 用户全程使用**同一个 Codex 聊天框**；每次用户在该聊天框发送“继续下一轮”时，Codex都必须安全刷新文档仓库main、重新读取最新任务书/结果文件，并执行尚未交付的唯一READY任务。不要常驻轮询，也不要因GitHub推送自行启动下一轮。ChatGPT在可用的自动任务中约每小时检查一次新Codex结果，不代表实时push webhook，自动审查成功必须以本文件及研究总览实际写入为准。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -125,13 +125,21 @@ VLM-002 的 [元数据审查](./codex-artifacts/VLM-002/dataset-metadata-review.
 
 **PASS只表示静态接口风险已查清**，不会自动消除VLM-002数据G1 HOLD、旧450来源指纹隔离缺口、锁持有未知或创新性门槛。
 
-### Codex 如何领取更新任务（不持续消耗额度）
+### Codex 如何在同一个聊天框领取更新任务（不持续消耗额度）
 
-1. 在**单独的GitHub文档checkout**启动Codex，不要把此Git仓库当作实验工作区（旧实验目录未初始化Git）。
-2. 每次**开始新会话**，先 `git fetch origin main` 并安全查看 `git show origin/main:docs/next-steps.md`；只有工作树无冲突才能按正常流程同步本地文档checkout。不对原实验目录盲目执行 `git pull`。
-3. 根目录的 `AGENTS.md` 提供常驻Codex规则；务必让**新会话**读取最新版本，已打开的会话不保证热加载。
-4. 只执行任务看板唯一的READY任务；若没有READY或该任务ID已有交付回报就STOP。
-5. 上传脱敏结果后STOP。**不得让Codex常驻轮询或自动执行BLOCKED任务。**
+**用户一直使用现有 Codex 聊天框，不需要建立新会话。** 在用户发送“继续下一轮”这类指令时，Codex按下面流程开始新执行轮次：
+
+1. 确认GitHub**文档仓库 checkout**的位置，不要对非Git的本地实验目录盲目git pull。
+2. 在文档checkout执行 `git status --short` 和 `git fetch origin main`；读取 `git show origin/main:AGENTS.md`、`git show origin/main:docs/next-steps.md`、`git show origin/main:docs/codex-results.md`、`git show origin/main:docs/research-overview.md`。若工作树干净且可快进，按安全方式同步；存在冲突则STOP并报告，不reset/rebase/force push。
+3. **每一轮都重新读取GitHub上的最新任务状态**，忽略此前聊天中曾经READY的旧任务、缓存的AGENTS文本。AGENTS.md对已开启聊天不会自动热加载，所以要主动查看最新文件。
+4. 只有任务看板中恰好一项READY、该任务ID尚未在Codex结果中交付时，才执行这一项；否则STOP并报告。
+5. 只按任务专用README上传脱敏结果，完成后STOP本轮操作，**但保留同一个聊天框**。等待用户在同一聊天发送下一条简短指令；不要长时间轮询、自动执行BLOCKED任务或启动GPU。
+
+**用户在原Codex聊天框只需发一句：**
+
+> 继续下一轮：先安全同步GitHub文档仓库main，重新读取AGENTS.md、docs/next-steps.md、docs/codex-results.md，只执行尚未交付的唯一READY任务，按要求上传报告后停止。
+
+GitHub的更新不会自动唤醒空闲Codex，ChatGPT的每小时审查自动化也无法直接给该Codex聊天框发消息。
 
 ## 五、研究判断依据（当前有效）
 
