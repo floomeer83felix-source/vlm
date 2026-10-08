@@ -35,12 +35,6 @@ This is the **public document-coordination checkout** for floomeer83felix-source
 - The initial methodological hypothesis and all novelty claims remain tentative; consult `docs/research-overview.md`, not memory, as the latest signed-off scientific position.
 - **Stop when blocked**; write UNKNOWN and return control instead of inventing data or spending quota investigating a closed path.
 
-## Optional no-model 30-minute READY check (Windows)
-
-The user approved a **cheap Git/PowerShell gate** to avoid waking Codex on every poll. The Windows script [`tools/watch-ready-task.ps1`](./tools/watch-ready-task.ps1), documented in [`docs/automation/windows-ready-watch.md`](./docs/automation/windows-ready-watch.md), can be run by **Windows Task Scheduler** every 30 minutes after the user sets it up locally. It only fetches and reads `main`, checks whether one READY task is not already reported, and writes a local de-duplicated pending-task note under `%LOCALAPPDATA%\VLMResearch\TaskWatch\`. It **never** invokes a Codex model or starts a GPU experiment.
-
-**Critical:** This lightweight checker cannot inject a turn into an already-open Codex desktop chat. When the user sees a new pending task, they send a short continuation instruction in the SAME Codex chat. A Codex native thread automation can run unattended within the existing conversation, but its half-hourly wake-ups may consume quota even without a new task; do not claim the cheap gate automatically wakes the existing thread. Do not configure a fully autonomous Codex CLI runner or new conversations unless the user separately approves a change in workflow.
-
 ## One persistent chat and how to check new instructions
 
 **The user intends to use ONE continuous Codex chat for the entire project. Do not ask them to create a new session.** Initial repository instructions may have been read earlier, but remote edits to `AGENTS.md` or `docs/next-steps.md` do **not** automatically refresh the already-open chat. At each new user instruction, run safe `git fetch origin main` in the separate documentation checkout (or fetch the latest file contents from GitHub when no checkout is available), then reread `docs/next-steps.md`, `docs/codex-results.md`, and the task-specific README. Treat repository `main` as the current authority, not previously pasted or cached text. Only execute the one READY task if no matching completed result already exists; otherwise stop and report why.
