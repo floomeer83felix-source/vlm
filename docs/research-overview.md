@@ -12,6 +12,7 @@
 | 原始阶段快照 | [research-progress-2026-10-08.md](./research-progress-2026-10-08.md) | 历史事实，不覆盖 |
 | ChatGPT 下达任务 | [next-steps.md](./next-steps.md) | ChatGPT 负责维护 READY/BLOCKED 与验收标准 |
 | Codex 回传执行事实 | [codex-results.md](./codex-results.md) | Codex 只追加结果，保留失败/未知 |
+| Codex 脱敏审计附件 | [codex-artifacts/](./codex-artifacts/) | Codex 仅提交当前 READY 任务允许的小型文本附件；原始研究资产不上载 |
 | ChatGPT 审查与全局判断 | 本文件 | ChatGPT 根据反馈更新结论、记录决策 |
 | 第一阶段研究审查草案 | [GitHub PR #1](https://github.com/floomeer83felix-source/vlm/pull/1) | 仍为草稿PR，包含历史负结果审计、文献重合矩阵、预注册草案；尚未合并 |
 
@@ -74,7 +75,7 @@
 |---|---|---|
 | 原进展快照核对 | 完成（公开文档级） | ChatGPT |
 | 三份第一阶段研究审查草案 | 已在PR #1提交，待审核合并 | ChatGPT |
-| 双文件任务/反馈协作机制 | 已建立在main | ChatGPT |
+| 任务/反馈/附件协作机制 | 已建立在main；首个附件路径已建立 | ChatGPT |
 | 本地Windows环境/锁/账本验证 VLM-001 | **READY，尚未收到反馈** | Codex |
 | 数据字段核对 VLM-002 | BLOCKED | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
@@ -91,9 +92,13 @@
 
 用户明确要求恢复研究；开始文档审计、文献矩阵和预注册草案；GitHub草稿PR #1中包含三份材料。由于缺本地工作区访问，不启动新的GPU调用。
 
-### 2026-10-08 · 更改长期协作方式（当前）
+### 2026-10-08 · 更改长期协作方式
 
 根据用户要求：**由Codex用本地权限执行具体小任务，把事实结果上传 GitHub；ChatGPT负责研究审查、任务规划和滚动总览**。在main建立 `next-steps.md`、`codex-results.md`、`research-overview.md`。首个可执行任务仅限 VLM-001 Windows 只读状态审计，不自动开展下一项。此文件之后随每次审查持续更新。
+
+### 2026-10-08 · 建立单独的 Codex 附件接收目录（当前）
+
+在公开仓库 `main` 创建 `docs/codex-artifacts/` 与 `docs/codex-artifacts/VLM-001/`，规范为每个任务仅提交必要的**脱敏、小型文本证据**，例如 Windows 工作区结构、锁/进程/调用账本聚合审计，不上传模型、原始日志、视频或敏感路径。同步更新 `next-steps.md` 和 `codex-results.md`，要求 VLM-001 交付 `workspace-audit.md` 加一条结果记录。新增的目录和协议是协作基础设施，并非已得到本地状态审计结果；VLM-001 仍为 READY，后续任务仍 BLOCKED。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
