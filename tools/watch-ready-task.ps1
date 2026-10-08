@@ -109,6 +109,6 @@ try {
     exit 0
 }
 catch {
-    Write-Error ("VLM watcher stopped safely: " + $_.Exception.Message)
+    [Console]::Error.WriteLine(("VLM watcher stopped safely: " + $_.Exception.Message))
     exit 2
 }
