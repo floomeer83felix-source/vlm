@@ -14,7 +14,7 @@
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
 | VLM-BATCH-003 | P1 | **READY（一次3项静态/文档任务包）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [任务包说明](./codex-artifacts/VLM-BATCH-003/README.md)，3份脱敏附件 + 1条汇总结果；0GPU/0视频下载/0原资产修改 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
-| VLM-003 | P1 | BLOCKED（等 VLM-002 与方案审查） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
+| VLM-003 | P1 | BLOCKED（G1数据门仍HOLD，需本批审查与新授权） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
 **当前唯一可执行的父任务是 VLM-BATCH-003（3项低成本静态/合同子任务）；VLM-PTS-001 被合并其中，不能单独领取。VLM-001/002 的交付已验收，但 G1数据门仍HOLD；VLM-003/004仍BLOCKED。** 用户一直使用**同一个Codex聊天框**；每轮安全刷新独立文档仓库main并核对结果。Codex可在同一执行轮连续做完任务包A/B/C，然后统一上传、停止，不需中途三次等待审查；不得自行扩大到下一批次。已取消Windows定时Git检查；ChatGPT约每小时检测新Codex回报而非实时推送，并以GitHub实际写入为准。
