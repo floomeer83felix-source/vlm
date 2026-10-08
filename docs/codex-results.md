@@ -61,3 +61,10 @@
 - **B 完成／独立性HOLD**：[来源审计](codex-artifacts/VLM-BATCH-003/source-provenance-audit.md)。789历史节点、339可用摘要、450未提供摘要；缺项不是污染数或独立事件数，具体split原因分布UNKNOWN。30 prepared、20 selected是已有操作性统计，不能承诺40独立来源。给出保守组件、跨split污染和toy验收合同。
 - **C 完成／G1 HOLD**：[G1合同](codex-artifacts/VLM-BATCH-003/g1-feasibility-contract.md)。三候选许可／支持／同版PTS等缺口保留；列出无答案投影字段、D1/D2的12唯一帧不变量与最多3项澄清建议，没有新manifest、可行题数或创新结论。
 - **资源与停止**：新增数据集检索／研究数据下载／模型QA／视频解码／测试运行0，原代码／环境／锁／账本修改0；只同步文档和参考PR。仅提交3附件＋本摘要，完成即停，不执行VLM-003／004，等待ChatGPT整包审查。
+
+### VLM-BATCH-004 2026-10-08 22:41 北京时间 — 完成（toy通过；G1 HOLD）
+
+- **A 完成／未发送**：[VES请求草案](codex-artifacts/VLM-BATCH-004/ves-access-request.md)中英双语，分开询问注释／视频许可、无答案区间字典及媒体／源组时钟资料。联系地址UNKNOWN，未猜邮箱、发送邮件或Issue。
+- **B 完成／实际CPU测试**：[toy合同](../prototypes/toy_g1_contract.py)与[unittest](../prototypes/test_toy_g1_contract.py)仅标准库和虚构输入，无研究源码imports。既有Python3.9.21执行10项：首次9过1失败，用例同时改锚点而先报身份错，预期为预处理错；仅修正新toy用例并补输入校验后，第二轮10过0失败0跳过。两轮框架均报告0.005秒，不含启动。无真实token仍TOKEN_BUDGET_UNKNOWN，时间匹配资料缺失明确标记。
+- **C 完成／不放行**：[G1去留与测试报告](codex-artifacts/VLM-BATCH-004/g1-decision-and-toy-test.md)给出许可→必要支持→真实PTS版本→至少40保守源→12帧／混杂→再授权条件树。toy不认证实际数据、来源、语义充分性或新算法；无法取得合法支持时交ChatGPT调整问题。
+- **资源与停止**：两轮toy CPU单测；模型／GPU／QA／视频解码／研究数据下载／原资产及环境修改0，外部联系0。仅提交两报告、两代码和本摘要，完成即停，VLM-003／004继续BLOCKED。
