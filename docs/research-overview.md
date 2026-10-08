@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-08（北京时间）  
+> 更新：2026-10-08（北京时间；VLM-001 审查验收，VLM-002 元数据核验放行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-用户已于2026-10-08明确要求恢复研究。本次恢复已经完成**文档审计/任务规划层面**的工作，但**没有**访问 Windows 本地完整研究工作区、没有新模型前向、没有数据集媒体下载，也没有得到新的科学实验结果。Codex 的第一个任务是本地只读状态核查，后续任务是否解封以回报审查为准。
+用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
 ### 主要约束
 
@@ -76,8 +76,8 @@
 | 原进展快照核对 | 完成（公开文档级） | ChatGPT |
 | 三份第一阶段研究审查草案 | 已在PR #1提交，待审核合并 | ChatGPT |
 | 任务/反馈/附件协作机制 | 已建立在main；首个附件路径已建立 | ChatGPT |
-| 本地Windows环境/锁/账本验证 VLM-001 | **READY，尚未收到反馈** | Codex |
-| 数据字段核对 VLM-002 | BLOCKED | Codex |
+| 本地Windows环境/锁/账本验证 VLM-001 | **ACCEPTED（文档审计交付）；锁等运行前置仍未知** | Codex，ChatGPT验收 |
+| 数据字段核对 VLM-002 | **READY（仅公开元数据）** | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
 | 正式创新与外部验证 | 未开始 | ChatGPT 规划 / Codex 执行 |
@@ -96,9 +96,27 @@
 
 根据用户要求：**由Codex用本地权限执行具体小任务，把事实结果上传 GitHub；ChatGPT负责研究审查、任务规划和滚动总览**。在main建立 `next-steps.md`、`codex-results.md`、`research-overview.md`。首个可执行任务仅限 VLM-001 Windows 只读状态审计，不自动开展下一项。此文件之后随每次审查持续更新。
 
-### 2026-10-08 · 建立单独的 Codex 附件接收目录（当前）
+### 2026-10-08 · 建立单独的 Codex 附件接收目录
 
 在公开仓库 `main` 创建 `docs/codex-artifacts/` 与 `docs/codex-artifacts/VLM-001/`，规范为每个任务仅提交必要的**脱敏、小型文本证据**，例如 Windows 工作区结构、锁/进程/调用账本聚合审计，不上传模型、原始日志、视频或敏感路径。同步更新 `next-steps.md` 和 `codex-results.md`，要求 VLM-001 交付 `workspace-audit.md` 加一条结果记录。新增的目录和协议是协作基础设施，并非已得到本地状态审计结果；VLM-001 仍为 READY，后续任务仍 BLOCKED。
+
+### 2026-10-08 20:29后 · VLM-001 文档验收及 VLM-002 有界放行（当前）
+
+**审核材料**：Codex的 [VLM-001工作区审计](./codex-artifacts/VLM-001/workspace-audit.md)、[Codex回报](./codex-results.md)与 [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986)；该提交只包含新增审计附件和追加回报两个文件，没有修改原历史快照或ChatGPT任务/总览。**审查性质为GitHub文件审查及内部一致性核验，不等同于ChatGPT直接访问Windows本地现场**。
+
+审计方报告：
+- Windows 11、RTX3090 24GiB、既有conda pytorch（Python3.9.21、PyTorch2.5.1、CUDA构建12.4），环境存在但未加载模型或测试GPU前向。
+- 原工作区的Qwen3-VL-4B、InternVL3-2B、SigLIP文件与研究入口存在；最新manifest的11个代码哈希均匹配；未对所有模型/视频做全量哈希。
+- 四份所检查QA账本分别有80、60、72、120个唯一started与terminal，所查的合计332次无started未终态；这是已选4账本的状态核查，**不是历史全部run的覆盖性证明，也不是本轮新QA**。
+- 6个Python进程未明确映射到项目入口；GPU仍有其他应用/权限不全的条目，整机空闲不能确认。4个OS锁文件存在，但持有者状态UNKNOWN。
+- 历史研究状态仍为PAUSED；参考数据访问最后报告HOLD。旧数据还存在约450份指纹覆盖缺项，基于FPS/索引的时间映射还不能证明真实PTS，独立来源及媒体版本桥接没有通过。
+- Codex报告新增模型前向/视频解码/数据集下载=0，研究资产修改=0；本次没有提供新的问答准确率或核心机制。
+
+**验收决策：ACCEPT VLM-001（仅任务交付）**。已经达到“安全脱敏汇总 + 来源可追溯 + 未知项与风险如实披露 + 不重复前向”的文档协议。四份账本核验、存在性与版本检查为**执行者报告**，需要原始复算时仍应在本地进行。
+
+**放行：VLM-002 READY**，只准调查公开TRACE/VES-Bench、HERBench（必要时CaST-Bench）的官网、许可、数据版本、证据标注schema及同版本视频时间映射**元数据**；无模型/视频/大文件下载、无GPU前向、无工作区修改。新建交付位置 [VLM-002附件目录](./codex-artifacts/VLM-002/) 并在 [Codex结果文件](./codex-results.md) 追加报告，完成即停止。
+
+**仍然 HOLD**：VLM-003（manifest/新输入合同冻结）、VLM-004（新GPU实验）、自动续作；在新模型问答前仍需实证核实OS锁持有与GPU占用、目标源真实PTS/证据桥接、独立性及成本/权限。数据公开并不自动通过G1数据门，更不是算法创新证据。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
