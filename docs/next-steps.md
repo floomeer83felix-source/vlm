@@ -1,6 +1,6 @@
 # VLM 下一步工作安排（ChatGPT 维护）
 
-> 协作规则：**ChatGPT 负责研究规划与审查，Codex 仅执行本文件中标记 READY 的单个任务**，执行事实写入 [codex-results.md](./codex-results.md)，必要的脱敏文本证据上传 [codex-artifacts/](./codex-artifacts/)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
+> 协作规则：**ChatGPT 负责研究规划与审查；Codex 每轮领取本文件中唯一 READY 的任务或任务包。一个任务包可依书面协议连续完成多项安全子任务，统一反馈后再审核**。执行事实写入 [codex-results.md](./codex-results.md)，脱敏附件上传 [codex-artifacts/](./codex-artifacts/)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
@@ -12,11 +12,12 @@
 |---|---|---|---|---|---|
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
-| VLM-PTS-001 | P1 | **READY（仅静态代码审计）** | Codex | 审查本地FPS/帧索引与真实PTS/VFR、裁剪版本桥接的静态契约 | [提交脱敏时间戳审计报告](./codex-artifacts/VLM-PTS-001/README.md)和Codex回报；0视频解码/0模型调用/0环境改动 |
+| VLM-BATCH-003 | P1 | **READY（一次3项静态/文档任务包）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [任务包说明](./codex-artifacts/VLM-BATCH-003/README.md)，3份脱敏附件 + 1条汇总结果；0GPU/0视频下载/0原资产修改 |
+| VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（等 VLM-002 与方案审查） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前只有 VLM-PTS-001（静态时间戳/帧桥接审计）可执行。VLM-001、VLM-002 均完成文档交付验收，VLM-002 G1数据门仍HOLD；VLM-003/VLM-004仍BLOCKED。** 用户全程使用**同一个 Codex 聊天框**；每次用户在该聊天框发送“继续下一轮”时，Codex都必须安全刷新文档仓库main、重新读取最新任务书/结果文件，并执行尚未交付的唯一READY任务。不要常驻轮询，也不要因GitHub推送自行启动下一轮。ChatGPT在可用的自动任务中约每小时检查一次新Codex结果，不代表实时push webhook，自动审查成功必须以本文件及研究总览实际写入为准。
+**当前唯一可执行的父任务是 VLM-BATCH-003（3项低成本静态/合同子任务）；VLM-PTS-001 被合并其中，不能单独领取。VLM-001/002 的交付已验收，但 G1数据门仍HOLD；VLM-003/004仍BLOCKED。** 用户一直使用**同一个Codex聊天框**；每轮安全刷新独立文档仓库main并核对结果。Codex可在同一执行轮连续做完任务包A/B/C，然后统一上传、停止，不需中途三次等待审查；不得自行扩大到下一批次。已取消Windows定时Git检查；ChatGPT约每小时检测新Codex回报而非实时推送，并以GitHub实际写入为准。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -102,44 +103,31 @@
 
 **VLM-002 已于2026-10-08按任务交付验收，G1数据门仍HOLD。** 不再重复相同官方页面和404访问链；除非ChatGPT另行明确立项，否则不下载整套数据或媒体。
 
-## 四、VLM-PTS-001：时间戳与源媒体版本静态契约审计（当前唯一READY）
+## 四、VLM-BATCH-003：三项研究准备工作（当前唯一 READY 任务包）
 
-### 为什么现在做
+### 放大单轮任务规模的理由
 
-VLM-002 的 [元数据审查](./codex-artifacts/VLM-002/dataset-metadata-review.md)指出：
-- VES-Bench最匹配“联合必要区间”的论文定义，但实际QA区间schema、视频/注释许可、媒体版本和PTS仍UNKNOWN；
-- HERBench列schema可见，但不能把MRFS当作必要锚帧真值；视频上游许可与嵌套支持区间未核；
-- CaST-Bench提供mm:ss的证据区间字段描述，但真实PTS/clip零点和三段必要性仍未证明。
+用户希望减少Codex每做完一项就等待新的ChatGPT安排的往返。在**不突破已授权资源边界**的前提下，把原 [VLM-PTS-001](./codex-artifacts/VLM-PTS-001/README.md) 时间戳审计与两个互补的静态/技术合同任务统一打包。此前的VLM-001、VLM-002交付已完成；尚未形成可靠的新证据区间/独立来源/时间桥接数据门，**不能**按旧预注册直接构造四臂或做新问答。
 
-因此当前**不能**冻结D1/D2新实验manifest。为了避免未来即使找到数据仍因原有FPS/帧索引时间戳损害证据判定，先做极小范围的静态时间戳契约审计（不是实验）。
+### 可连续执行的三项子任务
 
-### 本轮Codex任务和验收
+1. **A 现有PTS/帧索引/VFR/裁剪时间桥接**：静态追踪必要解码代码与manifest字段，输出时间坐标合同、缺口、未来测试建议，不运行视频解码/模型。
+2. **B 历史来源独立性、重合与指纹缺口**：只读研究现有聚合manifest及源组schema，厘清30 prepared/20 selected与约450份指纹覆盖缺项的统计定义，给出保守来源去重和探索集污染控制合同；不遍历大批媒体、不读取标准答案、不补做视频哈希。
+3. **C G1数据可行性和无答案manifest合同**：在VLM-002已审查公开元数据和A/B报告基础上提出D1/D2固定12帧诊断的技术前置条件、失败码与数据集HOLD清单；**不新下载数据、不假定有40个独立源、不宣称G1 PASS、不编写或运行实验**。
 
-请阅读 [VLM-PTS-001/README.md](./codex-artifacts/VLM-PTS-001/README.md) 的全部协议，完成以下**一项任务**：
+**执行细节、逐项字段、提交文件名与阻塞规则：** [`docs/codex-artifacts/VLM-BATCH-003/README.md`](./codex-artifacts/VLM-BATCH-003/README.md)。这是本批的唯一有效交付合同；旧PTS任务README只作历史输入，不再单独交付。
 
-1. 只读检查本地现有视频采帧、稀疏解码器、时间戳打包和manifest字段的必要代码片段（安全相对路径/函数名/摘要即可）；明确`frame_index/fps`、真实PTS、VFR、裁剪时间零点、同版本媒体文件哈希的关系与缺口。
-2. 检查已有PTS-aware依赖与测试声明（静态检查），列出最小可核验的输入/输出字段合同、错误标记与未来测试方案；**不修改代码、不运行视频、不启动模型**。
-3. 新建 `docs/codex-artifacts/VLM-PTS-001/timestamp-contract-audit.md`，只上传脱敏文本、字段/风险矩阵、未知项；在 `docs/codex-results.md` 追加 `VLM-PTS-001` 摘要并链接附件。仅提交这两个文件到main。
-4. 原本地Windows RTX3090研究目录、模型、实验日志、锁、conDA/PyTorch/CUDA保持原样，0 GPU/QA、0下载、0视频解码；不得读取/上传私有答案。
-5. 一旦提交完成就停止，不继续VLM-003/004。GitHub冲突不强推，未知写UNKNOWN。
+### 边界、提交与反馈（不可放宽）
 
-**PASS只表示静态接口风险已查清**，不会自动消除VLM-002数据G1 HOLD、旧450来源指纹隔离缺口、锁持有未知或创新性门槛。
+- 用户在**原来的同一个Codex聊天**发送一次继续指令，Codex安全同步文档仓库main，检查`codex-results.md`是否已存在本任务包回报，然后一次完成A→B→C；A/B单项无法核实时可先记UNKNOWN并继续其余独立安全项，不虚构缺口。
+- **0新增GPU模型调用、0训练、0评分前向、0视频解码、0视频/模型/完整标注下载、0本地研究资产修改、0新conda/CUDA修改**。原锁与旧账本不可更改或重放。
+- 只在公开仓库 `docs/codex-artifacts/VLM-BATCH-003/` 新增 **3个脱敏Markdown附件**（分别为 `timestamp-contract-audit.md`、`source-provenance-audit.md`、`g1-feasibility-contract.md`），以及向 `docs/codex-results.md` **追加1条 VLM-BATCH-003 汇总记录**。只提交这4处变动，不改ChatGPT维护的任务书、总览、AGENTS或任何历史结果。
+- 如果先前已有 `### VLM-BATCH-003` 的完成/部分完成/阻塞记录，禁止重复执行；转请ChatGPT审查。遇到Git冲突或敏感信息泄露风险停下，不强推或扩大权限。
+- **整包提交后停止本轮操作，但保留同一Codex聊天**；由ChatGPT集中科学审查并决定下一个任务包。其他任务仍BLOCKED。
 
-### Codex 如何在同一个聊天框领取更新任务（不持续消耗额度）
+### Codex在同一聊天领取任务包
 
-**用户一直使用现有 Codex 聊天框，不需要建立新会话。** 在用户发送“继续下一轮”这类指令时，Codex按下面流程开始新执行轮次：
-
-1. 确认GitHub**文档仓库 checkout**的位置，不要对非Git的本地实验目录盲目git pull。
-2. 在文档checkout执行 `git status --short` 和 `git fetch origin main`；读取 `git show origin/main:AGENTS.md`、`git show origin/main:docs/next-steps.md`、`git show origin/main:docs/codex-results.md`、`git show origin/main:docs/research-overview.md`。若工作树干净且可快进，按安全方式同步；存在冲突则STOP并报告，不reset/rebase/force push。
-3. **每一轮都重新读取GitHub上的最新任务状态**，忽略此前聊天中曾经READY的旧任务、缓存的AGENTS文本。AGENTS.md对已开启聊天不会自动热加载，所以要主动查看最新文件。
-4. 只有任务看板中恰好一项READY、该任务ID尚未在Codex结果中交付时，才执行这一项；否则STOP并报告。
-5. 只按任务专用README上传脱敏结果，完成后STOP本轮操作，**但保留同一个聊天框**。等待用户在同一聊天发送下一条简短指令；不要长时间轮询、自动执行BLOCKED任务或启动GPU。
-
-**用户在原Codex聊天框只需发一句：**
-
-> 继续下一轮：先安全同步GitHub文档仓库main，重新读取AGENTS.md、docs/next-steps.md、docs/codex-results.md，只执行尚未交付的唯一READY任务，按要求上传报告后停止。
-
-GitHub的更新不会自动唤醒空闲Codex，ChatGPT的每小时审查自动化也无法直接给该Codex聊天框发消息。用户已取消 Windows 每30分钟 Git/PowerShell 检查方式，不应安装或使用该本地计划任务；本项目仍由用户在同一个 Codex 聊天框发送“继续下一轮”来领取任务。
+> 继续下一轮：安全刷新独立GitHub文档仓库main，重新读取AGENTS.md、docs/next-steps.md与docs/codex-results.md；只执行尚未回报的唯一READY父任务包VLM-BATCH-003，按任务包README连续完成A/B/C并统一上传4处允许文件后停止。不执行GPU或BLOCKED任务，不创建新聊天。
 
 ## 五、研究判断依据（当前有效）
 
