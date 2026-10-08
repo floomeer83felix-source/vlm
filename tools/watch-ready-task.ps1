@@ -95,7 +95,7 @@ try {
         "Remote commit: $sha",
         "Task board: https://github.com/floomeer83felix-source/vlm/blob/main/docs/next-steps.md",
         'In the EXISTING Codex chat, say:',
-        '继续下一轮：安全刷新独立GitHub文档checkout的main，重新读取AGENTS.md、next-steps.md和codex-results.md，只执行尚未交付的唯一READY任务，上传脱敏报告后停止。'
+        'Continue the next round in this SAME Codex chat. Refresh the separate docs checkout main; reread AGENTS.md, docs/next-steps.md, docs/codex-results.md; execute only the single unreported READY task, upload its sanitized report, then stop.'
     ) -join "`r`n"
     # Create a local note. No automatic Codex/model invocation.
     [System.IO.File]::WriteAllText($pendingFile, $note, [System.Text.UTF8Encoding]::new($false))
