@@ -67,8 +67,41 @@ jobs:
           changed=""
           for path in "${paths[@]}"; do
             # Escape markdown code delimiters; the paths remain untrusted text.
-            safe_path="${path//`/\\`}"
-            changed+="- \`$safe_path\`"$'\n'
+            changed+="- ${path}"
+          done
+          if [[ -z "$changed" ]]; then
+            changed="- No changed filenames returned by the GitHub API."$'\n'
+          fi
+          if (( total_files > 40 )); then
+            changed+="- … and $(( total_files - 40 )) more files."$'\n'
+          fi
+
+          body="$(cat <<EOF
+          Automatically generated from a push to \`main\` by GitHub Actions.
+
+          - Repository: $REPOSITORY
+          - Commit: https://github.com/$REPOSITORY/commit/$AFTER_SHA
+          - Compare: https://github.com/$REPOSITORY/compare/$BEFORE_SHA...$AFTER_SHA
+          - Classification: $kind
+
+          **Changed files**
+          $changed
+          **Suggested next step:** $next_step
+
+          This alert reports GitHub changes only; it does **not** mean ChatGPT has
+          automatically reviewed the science or that a GPU experiment may run.
+          EOF
+          )"
+
+          echo "## VLM push alert" >> "$GITHUB_STEP_SUMMARY"
+          printf '%s\n' "- Commit: $short_sha" "- Category: $kind" "- Changed files: $total_files" >> "$GITHUB_STEP_SUMMARY"
+
+          # Assignment subscribes the repository owner to the issue, so they
+          # can receive GitHub inbox/email/mobile notifications per preferences.
+          issue_url="$(gh issue create --repo "$REPOSITORY" --title "$title" --body "$body" --assignee "$NOTIFY_USER")"
+          echo "- Notification issue: $issue_url" >> "$GITHUB_STEP_SUMMARY"
+          echo "Created notification: $issue_url"
+\n'
           done
           if [[ -z "$changed" ]]; then
             changed="- No changed filenames returned by the GitHub API."$'\n'
