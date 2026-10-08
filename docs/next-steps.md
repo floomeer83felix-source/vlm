@@ -131,7 +131,7 @@
 
 2026-10-08 22:25北京时间，Codex以[提交31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)交付A/B/C三份报告及1条汇总。ChatGPT已核对提交范围和证据边界：**ACCEPT 文档与静态审计交付；真实PTS/媒体对应、历史独立来源、G1数据适用性均仍HOLD**。本节只保留历史任务定义，**严禁再次执行**；后续参照新第五节。
 
-## 五、VLM-BATCH-004：数据阻碍与toy合同验证（当前唯一 READY）
+## 五、VLM-BATCH-004：数据阻碍与toy合同验证（历史已完成）
 
 ### 为什么安排这一批
 
@@ -151,18 +151,32 @@ VLM-BATCH-003确证的主要风险：最近12帧路径仍按index/FPS表示时�
 - 本次仅允许创建 `docs/codex-artifacts/VLM-BATCH-004/ves-access-request.md`、`docs/codex-artifacts/VLM-BATCH-004/g1-decision-and-toy-test.md`、`prototypes/toy_g1_contract.py`、`prototypes/test_toy_g1_contract.py` 并在 `docs/codex-results.md` 追加一个父任务结果；公开文件必须脱敏。
 - 如果同任务ID已有结果记录、资料泄漏、不可安全提交或Git冲突即停止；不可强推、重复GPU调用或修改ChatGPT维护文件。整包完成后保留原Codex聊天框，等待下次研究审查。
 
-### Codex启动本批的最短指令
+### 本批已完成，以下仅供历史追溯
 
-> 继续下一轮：安全刷新独立GitHub文档checkout的main，读取AGENTS.md、docs/next-steps.md、docs/codex-results.md和docs/codex-artifacts/VLM-BATCH-004/README.md；一次做完READY任务包A/B/C并提交5处允许文件。0模型/媒体，禁止BLOCKED任务。保留当前聊天框。
+Codex已经在 [462ccde](https://github.com/floomeer83felix-source/vlm/commit/462ccdec4a999ef62e67a1cb52e7392fd7e14517) 提交5处成果。ChatGPT检查了提交范围、文档和toy用例源码；Codex报告修正后10项unittest通过，但本助手未独立重跑。**本批ACCEPTED，不再执行。**
 
-## 六、研究判断依据（当前有效）
+## 六、VLM-BATCH-005：数据访问出口、toy负例与路线裁决（当前唯一READY）
+
+[完整任务包README](./codex-artifacts/VLM-BATCH-005/README.md)已在main创建。本次在**同一个Codex聊天框**连续完成：
+
+1. A：限量查看TRACE/VES-Bench官方公开资料，核实可信的数据访问/咨询渠道和许可证说明；不发送邮件、Issue或表单。
+2. B：仅修改公开文档checkout下两份纯合成toy代码，补强“至少3个互不重叠区间”、时间分布、来源UNKNOWN以及公平性UNKNOWN等反例，运行标准库CPU unittest。
+3. C：提出保留gold参考区间D1/D2诊断还是转向无gold依赖科学问题的明确判断与停止阈值。所有数据集G1继续HOLD。
+
+只允许新增两份脱敏Markdown、更新两份toy Python并向Codex结果文件追加1条任务包回报；详见README中的精确文件名。全程0GPU/模型前向、0视频解码/下载、0原实验资产修改、0对外联系。单次提交后停止，不执行VLM-003/004。
+
+**本包结束后不默认继续相同的静态盘点。** 后续若需实际联系数据作者或修改研究命题，由ChatGPT根据证据向用户提出决策；真实GPU实验还需独立许可与G1通过。
+
+> 发给原Codex聊天：继续下一轮；刷新GitHub main，读AGENTS.md、next-steps.md、codex-results.md与BATCH-005 README，只执行其A/B/C，按要求上传5处文件后停止。
+
+## 七、研究判断依据（当前有效）
 
 - 历史已测试候选没有保留；不重跑100题基线、300题先导、撤回/替换、关系观察、密采、弱实例绑定、原生Sparse12或GAP7。
 - 暂定下一科学问题：固定12源帧且覆盖公开参考必需时间区间时，非参考区间不同帧组成是否会改变问答正确率与误伤？**这是待证伪的现象，不是已通过创新审查的新算法。**
 - 新数据/实验不可仅凭已有汇总直接开跑：优先核实标注与真实视频源对齐、许可、来源独立性、预算及评分隔离。
 - 本次阶段一文献/预注册草案在 [PR #1](https://github.com/floomeer83felix-source/vlm/pull/1) 中，**尚未并入main，供审查参考**。
 
-## 七、GitHub 协作原则
+## 八、GitHub 协作原则
 
 - **ChatGPT 编辑**：`docs/next-steps.md`、`docs/research-overview.md`；必要时另存复核结论。
 - **Codex 编辑**：只向 `docs/codex-results.md` 追加按任务ID标识的事实反馈，并将本轮任务所需的脱敏文本附件放到 `docs/codex-artifacts/<任务ID>/`；不回写或删改旧条目，纠错用新条目。
