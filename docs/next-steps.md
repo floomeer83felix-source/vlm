@@ -11,11 +11,12 @@
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
-| VLM-002 | P1 | **READY（仅元数据）** | Codex | 查证公开证据数据集许可、标注schema、版本与时间桥接 | 提交[元数据审查附件](./codex-artifacts/VLM-002/README.md)要求的报告和一条Codex回报；如实列明 PASS/FAIL/UNKNOWN |
+| VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
+| VLM-PTS-001 | P1 | **READY（仅静态代码审计）** | Codex | 审查本地FPS/帧索引与真实PTS/VFR、裁剪版本桥接的静态契约 | [提交脱敏时间戳审计报告](./codex-artifacts/VLM-PTS-001/README.md)和Codex回报；0视频解码/0模型调用/0环境改动 |
 | VLM-003 | P1 | BLOCKED（等 VLM-002 与方案审查） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**现在只有 VLM-002（公开元数据核查）可执行。VLM-001 已验收，不再重复。VLM-003/VLM-004 仍 BLOCKED，禁止自动连续领取。** 本次 GO 不包括下载媒体、读取完整数据集、模型调用、环境修改或GPU实验；后续升级由 ChatGPT 审查与用户授权后写入下一版任务书。
+**当前只有 VLM-PTS-001（静态时间戳/帧桥接审计）可执行。VLM-001、VLM-002 均完成文档交付验收，VLM-002 G1数据门仍HOLD；VLM-003/VLM-004仍BLOCKED。** Codex只能在本地被用户启动时读取最新任务书并执行一次READY任务；不要常驻轮询或因GitHub推送自动启动Codex。ChatGPT在可用的自动任务中约每小时检查一次新Codex结果，不代表实时push webhook，自动审查成功必须以本文件及研究总览实际写入为准。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -71,7 +72,7 @@
 
 **VLM-001 已由 ChatGPT 于2026-10-08按GitHub交付验收通过。** 其在当次审计中仍未知的GPU锁持有状态、全量旧账本覆盖、真实PTS与来源独立性均未因此转为通过；模型推理仍 HOLD。
 
-## 三、VLM-002：公开参考证据数据集元数据核验（当前唯一 READY 任务）
+## 三、VLM-002：公开参考证据数据集元数据核验（历史任务，已完成，G1 HOLD）
 
 ### 目标与输入
 
@@ -99,16 +100,47 @@
 2. 在 [`docs/codex-results.md`](./codex-results.md) **追加** VLM-002中文摘要并链接前述附件，保留此前VLM-001结果，不删改旧条目。
 3. 只向公开仓库main提交上述两个文件；确保没有附带视频、模型、私人路径、原始注释/答案。发现提交冲突停止，不强推。
 
-**完成 VLM-002 即停止；不可自行执行 VLM-003/004。** “数据源有公开schema”的结论并不等于数据门通过，更不等于新GPU实验已被授权。
+**VLM-002 已于2026-10-08按任务交付验收，G1数据门仍HOLD。** 不再重复相同官方页面和404访问链；除非ChatGPT另行明确立项，否则不下载整套数据或媒体。
 
-## 四、研究判断依据（当前有效）
+## 四、VLM-PTS-001：时间戳与源媒体版本静态契约审计（当前唯一READY）
+
+### 为什么现在做
+
+VLM-002 的 [元数据审查](./codex-artifacts/VLM-002/dataset-metadata-review.md)指出：
+- VES-Bench最匹配“联合必要区间”的论文定义，但实际QA区间schema、视频/注释许可、媒体版本和PTS仍UNKNOWN；
+- HERBench列schema可见，但不能把MRFS当作必要锚帧真值；视频上游许可与嵌套支持区间未核；
+- CaST-Bench提供mm:ss的证据区间字段描述，但真实PTS/clip零点和三段必要性仍未证明。
+
+因此当前**不能**冻结D1/D2新实验manifest。为了避免未来即使找到数据仍因原有FPS/帧索引时间戳损害证据判定，先做极小范围的静态时间戳契约审计（不是实验）。
+
+### 本轮Codex任务和验收
+
+请阅读 [VLM-PTS-001/README.md](./codex-artifacts/VLM-PTS-001/README.md) 的全部协议，完成以下**一项任务**：
+
+1. 只读检查本地现有视频采帧、稀疏解码器、时间戳打包和manifest字段的必要代码片段（安全相对路径/函数名/摘要即可）；明确`frame_index/fps`、真实PTS、VFR、裁剪时间零点、同版本媒体文件哈希的关系与缺口。
+2. 检查已有PTS-aware依赖与测试声明（静态检查），列出最小可核验的输入/输出字段合同、错误标记与未来测试方案；**不修改代码、不运行视频、不启动模型**。
+3. 新建 `docs/codex-artifacts/VLM-PTS-001/timestamp-contract-audit.md`，只上传脱敏文本、字段/风险矩阵、未知项；在 `docs/codex-results.md` 追加 `VLM-PTS-001` 摘要并链接附件。仅提交这两个文件到main。
+4. 原本地Windows RTX3090研究目录、模型、实验日志、锁、conDA/PyTorch/CUDA保持原样，0 GPU/QA、0下载、0视频解码；不得读取/上传私有答案。
+5. 一旦提交完成就停止，不继续VLM-003/004。GitHub冲突不强推，未知写UNKNOWN。
+
+**PASS只表示静态接口风险已查清**，不会自动消除VLM-002数据G1 HOLD、旧450来源指纹隔离缺口、锁持有未知或创新性门槛。
+
+### Codex 如何领取更新任务（不持续消耗额度）
+
+1. 在**单独的GitHub文档checkout**启动Codex，不要把此Git仓库当作实验工作区（旧实验目录未初始化Git）。
+2. 每次**开始新会话**，先 `git fetch origin main` 并安全查看 `git show origin/main:docs/next-steps.md`；只有工作树无冲突才能按正常流程同步本地文档checkout。不对原实验目录盲目执行 `git pull`。
+3. 根目录的 `AGENTS.md` 提供常驻Codex规则；务必让**新会话**读取最新版本，已打开的会话不保证热加载。
+4. 只执行任务看板唯一的READY任务；若没有READY或该任务ID已有交付回报就STOP。
+5. 上传脱敏结果后STOP。**不得让Codex常驻轮询或自动执行BLOCKED任务。**
+
+## 五、研究判断依据（当前有效）
 
 - 历史已测试候选没有保留；不重跑100题基线、300题先导、撤回/替换、关系观察、密采、弱实例绑定、原生Sparse12或GAP7。
 - 暂定下一科学问题：固定12源帧且覆盖公开参考必需时间区间时，非参考区间不同帧组成是否会改变问答正确率与误伤？**这是待证伪的现象，不是已通过创新审查的新算法。**
 - 新数据/实验不可仅凭已有汇总直接开跑：优先核实标注与真实视频源对齐、许可、来源独立性、预算及评分隔离。
 - 本次阶段一文献/预注册草案在 [PR #1](https://github.com/floomeer83felix-source/vlm/pull/1) 中，**尚未并入main，供审查参考**。
 
-## 五、GitHub 协作原则
+## 六、GitHub 协作原则
 
 - **ChatGPT 编辑**：`docs/next-steps.md`、`docs/research-overview.md`；必要时另存复核结论。
 - **Codex 编辑**：只向 `docs/codex-results.md` 追加按任务ID标识的事实反馈，并将本轮任务所需的脱敏文本附件放到 `docs/codex-artifacts/<任务ID>/`；不回写或删改旧条目，纠错用新条目。
