@@ -169,3 +169,24 @@ toy枚举117种观测模板、336个一致世界—观测配对；理想三值�
 **验证**：[合成测试](../prototypes/test_charades_metadata_audit.py)保留原13方法，增8项：现存／缺失叶、不同行名同文件身份、异身份／缺失拒绝、samefile失败、两条链重解析点拒绝、全零identity拒绝、canonical不稳定拒绝。本轮1次21 PASS，0 FAIL/ERROR/SKIP，suite0.033秒，不含启动。另对固定任务根与尚未创建的.part路径作一次只读复核：路径门PASS、LOCALAPPDATA规范包含PASS、已知研究／文档根与4个登记云根不重合；没有创建或写入隔离数据文件。
 
 **边界**：本轮数据GET／下载／CSV解析／真实资格统计均0，没有更新本地来源manifest或修改存储落点；合成测试只用虚构临时对象。0GPU／模型／视频／STA／真实解码／原研究资产或环境修改。修复了这一个路径检查阻塞，不意味着整个数据／ZIP／schema／科学门已通过。仅提交两代码和本条追加共3处；成功push后停止，保留原聊天，后续元数据执行需明确新安排，不自动重跑BATCH-009。
+
+### VLM-BATCH-010 2026-10-09 15:43 北京时间 — 受限获取与统计完成；HOLD_RANGE_CONFLICT
+
+基线mainabe39e1，重新读取唯一READY任务与冻结协议；009／009-FIX不重跑、不改写。仅提交[下载与schema](codex-artifacts/VLM-BATCH-010/download-and-schema.md)、[资格与决定](codex-artifacts/VLM-BATCH-010/qualification-and-decision.md)及本条，共3处；既有审计源码未改动。
+
+| 步骤 | 状态与实际证据 |
+|---|---|
+| 1 | DONE：用户原单包／非商业授权仍适用；旧incoming/extracted为空、旧GET0 manifest已核并保留 |
+| 2 | DONE：固定变量路径身份／双链无reparse／stable canonical、研究与docs及4登记云根隔离、空间≥150MiB和新空写探针通过，未更换位置 |
+| 3 | DONE：重新读取官网/license/README，唯一官方HTTPS S3锚点及本轮HEAD200/ZIP/3519822B，许可一致 |
+| 4 | DONE：实际1尝试／1成功GET／0重试，收到并落盘3519822B，8MiB流式硬限；SHA256 c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866；official_sha256 UNKNOWN |
+| 5 | DONE：14 ZIP成员、9591127B声明解压、CRC及路径/类型/预算检查PASS；仅8白名单提取，另外6不提取／执行，包内license与官网一致 |
+| 6 | DONE／QUALITY HOLD：真实11列、157类、7985/1863行；原动作49809/16691，数值有效35211/11664，无效14598/5027，含异常行5896/1537，完整分母保留，主因end>length；未修正或缩放 |
+| 7 | DONE／语义UNKNOWN：P1 gap>0组252/95，>0.5组227/86，>1组206/82，涉及视频215/77；混合歧义52/24，非物理实例／ordinal真值证书 |
+| 8 | DONE／语义UNKNOWN：P2 overlap pair66089/31634，strong49454/24059；有效异类pair分母96802/45696；不是模型错误或关系真值 |
+| 9 | DONE／来源PTS UNKNOWN：subject214/53、union267、cross-split交集0，video ID交集0；粗length合并桶<30秒3837、30—<60秒5943、60—<300秒68、≥300秒0，不充媒体时长证明 |
+| 10 | DONE：DATA_SCHEMA结构已核、DATA_INTERVAL_QUALITY HOLD_RANGE_CONFLICT；P1/P2仅规则通过子集的非零候选，STOP_OR_UNKNOWN不扩展；retained机制0，长视频单独确认FAIL，GPU无授权 |
+
+Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒（不含启动）；未为本次获取修改代码。真实标准库审计1次成功返回，摘要／CSV／ZIP／文件版本hash和010 manifest只在固定隔离树，不进入GitHub。约29.5%原动作未通过数值规则、约75.5%行含异常；原因未核，不声称数据损坏或单位已知。发现冲突后停止进一步数据诊断，仅整理已有宏观收据，未查看实例／身份明细或调整parser。正小计数1—9抑制，时长只披露合并粗桶，避免反推split小单元。
+
+资源：唯一官方数据正文3519822B，另3公共文本正文76881B，HTTP头／工具流量未计量；未获取其它数据、媒体、STA、Ego、模型／特征。0真实模型／GPU／QA／训练／评分／解码、0原研究代码／环境／锁／账本修改、0外部联系／新标签／PR合并／自动化；不公开真实CSV、文字、video/subject映射或账户路径。原一次下载授权已消耗，不能再次获取。下一真正信息需求是独立核清动作起止与length的时间合同及规则适用性，应另行明确受限只读任务；不自动创建011或放行视频/GPU。成功push后停止并保留同一聊天。
