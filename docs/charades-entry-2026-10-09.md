@@ -1,6 +1,6 @@
 # Charades / Charades-STA：免申请数据入口与研究命题匹配（2026-10-09）
 
-> **状态：USER_SELECTED_CHARADES / PUBLIC-DOCUMENT REVIEW ONLY / NO DATA DOWNLOAD / RETAIN 0.**
+> **本文件是BATCH-008之前的历史数据初筛（当时尚无下载授权）；2026-10-09用户随后已明确批准仅官方约3MB原始标注包。当前状态请读[任务看板](./next-steps.md)、[隔离安全协议](./charades-metadata-safety-protocol-2026-10-09.md)及[BATCH-009 README](./codex-artifacts/VLM-BATCH-009/README.md)。禁止视频／STA／GPU，科学机制仍retain0。**
 > 用户因Ego4D申请表`Failed to fetch`，已明确同意本轮先切换为Charades数据准入与科学问题验证。此前对Ego4D的申请意愿是历史，**没有签署、提交成功或取得访问凭据的确认**。本文件不是Charades全部使用场景的法律许可意见，也不授权下载、训练、GPU或发表个人视频。
 
 ## 1. 经过官方页面核对的资源与限制
