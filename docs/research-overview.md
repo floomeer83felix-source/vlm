@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户最新选择路线2，BATCH-006为唯一READY；0GPU）  
+> 更新：2026-10-09（北京时间；BATCH-006十任务已验收，普通选帧新算法NO-GO，等待路线选择）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -79,7 +79,8 @@
 | 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
 | 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
 | 路线决策 VLM-ROUTE-006 | **ROUTE2_SELECTED（取代旧路线1）** | 用户与ChatGPT |
-| 路线2创新红队与无gold数据门 VLM-BATCH-006 | **READY（10项有界：文献/静态/CPU toy统计，0GPU）** | Codex |
+| 路线2创新红队与无gold数据门 VLM-BATCH-006 | **ACCEPTED（十项交付；科学NO_GO_OR_PIVOT）** | Codex，ChatGPT审查 |
+| 下一科学投资方向 VLM-DECISION-007 | **WAIT_USER_DIRECTION（无READY）** | 用户与ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -230,7 +231,7 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 
 **新预注册**：[docs/route2-no-gold-preregistration.md](./route2-no-gold-preregistration.md)，明确主要S_q-S_t配对正确率差H0=0；辅以同一候选池、source group、时间分层、多样性/负对照、真实token预算和评分隔离。次级措辞扰动仅在有独立确认合法等义问题对时执行；无证据HOLD。
 
-**安全边界**：[VLM-BATCH-006任务README](./codex-artifacts/VLM-BATCH-006/README.md)仅允许正式文献方法/消融核验、现有代码/聚合schema静态检查、预注册与否决条件文档，**0 GPU/模型QA、0视频解码/媒体下载、0原研究目录修改、0对外联系**。一轮最多三份脱敏Markdown与一条追加回报；需要用户在同一Codex聊天框触发。NG1合法数据、NG2实际媒体PTS/来源与预算及NG3运行授权仍HOLD。若创新重合严重，下一次审查允许NO-GO而不是强行追加启发式。
+**历史执行边界**：[VLM-BATCH-006任务README](./codex-artifacts/VLM-BATCH-006/README.md)已批准的是十项低风险文献/静态/合成统计工作（四份报告、两份新toy代码及一条回报），并未授权GPU或媒体；现已交付并审查，**不得重跑BATCH-006**。NG1合法数据、NG2真实媒体PTS/来源/预算与NG3样本功效仍HOLD；普通选帧算法在NG0未通过。
 
 ### 2026-10-09 · 用户调整Codex单批工作量：BATCH-006十任务版（最新授权边界）
 
@@ -241,6 +242,25 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **提交范围变更**：原定3份脱敏Markdown＋1条汇总，更新为4份脱敏Markdown（`novelty-and-identifiability.md`、`static-readiness-gates.md`、`prereg-and-toy-tests.md`、`scientific-decision.md`）、2份**新**toy Python（`toy_route2_pairing.py`及其unittest）、1条父任务结果共**7处文件**。10项须逐项标DONE/UNKNOWN/BLOCKED，合并后只审查一次。不能重写旧toy、旧账本或历史实验文件。
 
 **保守预算未变**：0 GPU/模型QA/训练/评分调用、0真实视频解码/媒体下载、0原研究环境/锁/账本更改、0外部联系，至多12个公开官方论文HTML页面和一次小型toy回归；不访问完整受限身份映射或答案。CPU toy统计通过不代表真实数据可执行、创新性成立或新GPU放行。遇未知标UNKNOWN，遇权限/Git冲突停止，不能用多任务规模作为扩大权限的理由。
+
+### 2026-10-09 · VLM-BATCH-006十项集中验收：NO_GO_OR_PIVOT，等待VLM-DECISION-007（最新）
+
+**审查提交**：[e581039](https://github.com/floomeer83felix-source/vlm/commit/e581039970106dbec741adf502e48e5f948adad4)。差异严格为 [四份研究报告](./codex-artifacts/VLM-BATCH-006/README.md)（创新与可识别性、静态门、预注册与toy、科学裁决），新建两个 `prototypes/toy_route2_pairing*.py` 纯合成Python文件及向 `docs/codex-results.md` 追加一条父任务记录；既有AGENTS/规划文件、历史产物及原研究资产均不在提交差异中。十项按证据完整记录，部分UNKNOWN正是正确处理而非执行失败。
+
+**正式结论**：**ACCEPT VLM-BATCH-006 有界文档与toy交付；NO-GO 将一般问题相关选帧S_q对时间分层S_t的比较包装成新算法或《计算机学报》核心机制。** 方法对照显示Q-Frame、NAACL2024 MIF/MDF、DIG2026等已有直接先例；文献有限且RL正式方法未取得，因此仅能否决宽泛创新主张，不可推断精确窄因子实验全球无人研究。 **retain 0**，不允许自命名新机制。
+
+**值得谨慎保留的“未知”**：合法事前等义q/q′下让措辞仅改变selector，而将回答prompt固定，以及固定帧仅改prompt形成的正交2×2干预；该设计目前既无已证新颖性，也无已确认合法等义题对、可分离代码入口或实际处理器成本。在缺这些条件时不能运行，更不能以S_shuf替代等义对。作为测量/负结果研究可以有价值，但不是已通过期刊新方法。
+
+**现实执行门**：现有旧选帧链仍混有SigLIP相关性与MMR/diversity，`question`同字段传selector和回答prompt，帧时钟仍以index/FPS为主，真实PTS、clip原点、媒体SHA/版本与保守来源组未新增实证。新数据媒体与QA许可、终态评分隔离新队列、实际视觉token和GPU成本、独立来源及功效参数仍UNKNOWN或现入口FAIL。旧20操作性组、789历史节点/450缺项不是新独立确认数据。旧gold必要区间G1不是路线2条件，**但NG1—NG3不能绕过**。
+
+**统计与测试**：Codex报告标准库CPU纯合成配对估计器11项unittest全PASS、0失败/跳过；代码可静态审查，区分来源组等权Δ与题目池Δ、失败0与缺臂拒绝。ChatGPT尝试在隔离执行环境取得公开GitHub源码以独立重跑，但网络DNS失败，未执行测试；因此11/11**仅执行者报告**，不作为真实测量或NG通关。
+
+**止损决定**：当前**不自动发布下一批10任务**。根据[任务看板](./next-steps.md)设置 **VLM-DECISION-007=WAIT_USER_DIRECTION**。供用户选择：
+1. A 将窄2×2/问题措辞链路分离作为**条件性测量/复现**，接受它目前不是新方法，只有具备合法QA与等义pair时再安排实质新的验证；
+2. B 若坚持高水平期刊新机制目标，转向**真正不同的研究对象与可识别贡献**，经用户明确批准后再设计一批8—10项不重复工作的安全任务；
+3. C 暂停本方向，封存负结果。
+
+**负责人倾向B（如果核心目标仍是新算法方法）**，而不是沿着S_q/S_t再造采样启发式。VLM-003/004、GPU、真实视频解码/下载、外部咨询、原研究环境更改全部继续BLOCKED；TRACE咨询稿仍UNSENT。用户选择之前没有READY任务，保留原Codex聊天。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
