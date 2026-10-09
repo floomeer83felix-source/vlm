@@ -2,7 +2,8 @@
 import unittest
 from dataclasses import replace
 from fractions import Fraction as F
-from toy_g1_contract import Frame, Source, ContractError, timeline, inside, source_groups, pair_contract
+from toy_g1_contract import (Frame, Source, ContractError, timeline, inside,
+                             source_groups, pair_contract, validate_reference_intervals)
 
 
 class ToyTests(unittest.TestCase):
@@ -19,9 +20,11 @@ class ToyTests(unittest.TestCase):
         refs = [(F(i), F(i)+F(1, 4), "closed") for i in range(3)]
         return a, b, [f.key for f in a[:3]], refs
 
-    def pair(self, a=None, b=None, **kw):
-        x, y, anchors, refs = self.scenario()
-        return pair_contract(x if a is None else a, y if b is None else b, anchors, refs,
+    def pair(self, a=None, b=None, anchors=None, refs=None, **kw):
+        x, y, default_anchors, default_refs = self.scenario()
+        return pair_contract(x if a is None else a, y if b is None else b,
+                             default_anchors if anchors is None else anchors,
+                             default_refs if refs is None else refs,
                              F(0), F(0), F(1), F(1, 10), **kw)
 
     def test_vfr_and_explicit_nonzero_origin(self):
@@ -82,7 +85,64 @@ class ToyTests(unittest.TestCase):
     def test_temporal_bins_and_token_mismatch(self):
         self.reject("TEMPORAL_MATCH_MISMATCH", self.pair, time_bins=(0, 12, 30))
         self.reject("TOKEN_BUDGET_MISMATCH", self.pair, toy_token_counts=(100, 101))
-        self.assertEqual(self.pair(time_bins=(0, 30))["warnings"], ["TOKEN_BUDGET_UNKNOWN"])
+        self.assertEqual(self.pair(time_bins=(0, 30))["warnings"],
+                         ["TOKEN_BUDGET_UNKNOWN", "TEMPORAL_FINE_MATCH_UNVERIFIED"])
+
+    def test_at_least_three_intervals_is_enforced_by_pair(self):
+        _, _, _, refs = self.scenario()
+        for invalid in ([], refs[:1], refs[:2]):
+            self.reject("AT_LEAST_THREE_REFERENCE_INTERVALS", self.pair, refs=invalid)
+
+    def test_reference_overlap_unordered_and_duplicate(self):
+        _, _, _, refs = self.scenario()
+        self.reject("REFERENCE_INTERVALS_OVERLAP", self.pair,
+                    refs=[(0, F(3, 2), "closed")]+refs[1:])
+        self.reject("REFERENCE_INTERVALS_UNORDERED", self.pair, refs=[refs[1], refs[0], refs[2]])
+        self.reject("REFERENCE_INTERVALS_OVERLAP", self.pair, refs=[refs[0], refs[0], refs[2]])
+
+    def test_invalid_reference_endpoints_and_shape(self):
+        _, _, _, refs = self.scenario()
+        for endpoint in (None, True, float("nan"), "not-a-time"):
+            self.reject("INVALID_REFERENCE_ENDPOINT", self.pair,
+                        refs=[(endpoint, 1, "closed")]+refs[1:])
+        for item in ((0, 0, "closed"), (1, 0, "closed"), (0, 1, "unknown"), (0,)):
+            self.reject("INVALID_REFERENCE_INTERVAL", self.pair, refs=[item]+refs[1:])
+
+    def test_touching_intervals_respect_endpoint_semantics(self):
+        closed = [(i, i+1, "closed") for i in range(3)]
+        self.reject("REFERENCE_INTERVALS_OVERLAP", validate_reference_intervals, closed)
+        half_open = [(i, i+1, "half-open") for i in range(3)]
+        self.assertEqual(len(validate_reference_intervals(half_open)), 3)
+
+    def test_missing_interval_coverage_and_extra_outside_anchor(self):
+        a, _, _, refs = self.scenario()
+        self.reject("REFERENCE_UNCOVERED", self.pair, refs=refs[:2]+[(10, F(41, 4), "closed")])
+        self.reject("ANCHOR_OUTSIDE_REFERENCE", self.pair, b=a,
+                    anchors=[f.key for f in a[:4]])
+
+    def test_equal_coarse_bins_do_not_certify_fine_time(self):
+        out = self.pair(time_bins=(0, 30), toy_token_counts=(100, 100))
+        self.assertEqual(out["structural"], "PASS_TOY_ONLY")
+        self.assertIn("TEMPORAL_FINE_MATCH_UNVERIFIED", out["warnings"])
+        self.assertEqual(out["fairness"], "UNKNOWN")
+
+    def test_matched_toy_clocks_still_have_unknown_real_tokens(self):
+        a, _, _, _ = self.scenario()
+        out = self.pair(b=a, time_bins=(0, 30), toy_token_counts=(100, 100))
+        self.assertEqual(out["warnings"], ["TOKEN_BUDGET_UNKNOWN"])
+        self.assertEqual(out["fairness"], "UNKNOWN")
+        self.assertEqual(out["real_G1"], "HOLD")
+
+    def test_unknown_evidence_cannot_override_protected_component(self):
+        known = Source("toy-known", ("toy-P", "episode", "1"))
+        unknown = Source("toy-unknown", coverage_known=False)
+        heldout = Source("toy-heldout", protected=True, coverage_known=False)
+        self.assertEqual(source_groups([known, unknown], [(known.name, unknown.name)])[0]["status"],
+                         "UNKNOWN")
+        group = source_groups([known, unknown, heldout],
+                              [(known.name, unknown.name), (unknown.name, heldout.name)])[0]
+        self.assertEqual(group["status"], "BLOCKED")
+        self.assertEqual(group["real_event_independence"], "UNKNOWN")
 
 
 if __name__ == "__main__":

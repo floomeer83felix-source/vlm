@@ -66,6 +66,28 @@ def inside(time, interval):
     return lo <= time <= hi if semantics == "closed" else lo <= time < hi
 
 
+def validate_reference_intervals(intervals):
+    require(isinstance(intervals, (tuple, list)) and len(intervals) >= 3,
+            "AT_LEAST_THREE_REFERENCE_INTERVALS")
+    result = []
+    for item in intervals:
+        require(isinstance(item, (tuple, list)) and len(item) == 3,
+                "INVALID_REFERENCE_INTERVAL")
+        try:
+            lo, hi = rational(item[0]), rational(item[1])
+        except ContractError:
+            raise ContractError("INVALID_REFERENCE_ENDPOINT") from None
+        require(lo < hi and item[2] in ("closed", "half-open"),
+                "INVALID_REFERENCE_INTERVAL")
+        if result:
+            previous_lo, previous_hi, previous_kind = result[-1]
+            require(lo >= previous_lo, "REFERENCE_INTERVALS_UNORDERED")
+            require(lo > previous_hi or (lo == previous_hi and previous_kind == "half-open"),
+                    "REFERENCE_INTERVALS_OVERLAP")
+        result.append((lo, hi, item[2]))
+    return tuple(result)
+
+
 @dataclass(frozen=True)
 class Source:
     name: str
@@ -118,6 +140,7 @@ def source_groups(sources, potential_edges=()):
 def pair_contract(d1, d2, anchors, intervals, origin, parent_offset, scale,
                   guard, time_bins=None, toy_token_counts=None):
     require(len(d1) == len(d2) == 12, "TWELVE_FRAMES_REQUIRED")
+    intervals = validate_reference_intervals(intervals)
     t1 = timeline(d1, origin, parent_offset, scale)
     t2 = timeline(d2, origin, parent_offset, scale)
     require(len({f.version for f in d1 + d2}) == 1, "MEDIA_VERSION_MISMATCH")
@@ -162,5 +185,7 @@ def pair_contract(d1, d2, anchors, intervals, origin, parent_offset, scale,
                 counts[hit[0]] += 1
             return counts
         require(histogram(t1) == histogram(t2), "TEMPORAL_MATCH_MISMATCH")
+        if t1 != t2:
+            warnings.append("TEMPORAL_FINE_MATCH_UNVERIFIED")
     return {"structural": "PASS_TOY_ONLY", "fairness": "UNKNOWN",
             "warnings": warnings, "real_G1": "HOLD", "semantic_sufficiency": "UNKNOWN"}

@@ -68,3 +68,10 @@
 - **B 完成／实际CPU测试**：[toy合同](../prototypes/toy_g1_contract.py)与[unittest](../prototypes/test_toy_g1_contract.py)仅标准库和虚构输入，无研究源码imports。既有Python3.9.21执行10项：首次9过1失败，用例同时改锚点而先报身份错，预期为预处理错；仅修正新toy用例并补输入校验后，第二轮10过0失败0跳过。两轮框架均报告0.005秒，不含启动。无真实token仍TOKEN_BUDGET_UNKNOWN，时间匹配资料缺失明确标记。
 - **C 完成／不放行**：[G1去留与测试报告](codex-artifacts/VLM-BATCH-004/g1-decision-and-toy-test.md)给出许可→必要支持→真实PTS版本→至少40保守源→12帧／混杂→再授权条件树。toy不认证实际数据、来源、语义充分性或新算法；无法取得合法支持时交ChatGPT调整问题。
 - **资源与停止**：两轮toy CPU单测；模型／GPU／QA／视频解码／研究数据下载／原资产及环境修改0，外部联系0。仅提交两报告、两代码和本摘要，完成即停，VLM-003／004继续BLOCKED。
+
+### VLM-BATCH-005 2026-10-09 08:28 北京时间 — 完成（18项toy通过；G1 HOLD）
+
+- **A 完成／未联系**：[官方渠道](codex-artifacts/VLM-BATCH-005/official-access-route.md)。6项官方页面／版本接口共50299B，全200，定位项目→仓库／HF入口，仓库has_issues=true；许可、专用申请及实际区间字段仍UNKNOWN，没有猜邮箱或发送消息，旧请求草案未改。
+- **B 完成／CPU实测**：仅修改[标准库toy](../prototypes/toy_g1_contract.py)与[测试](../prototypes/test_toy_g1_contract.py)。保留原10方法、增8负例，强制≥3有序非重叠区间，拒无效端点；粗bin相同细时间不同明确UNKNOWN，真实token仍UNKNOWN，保护组件不被缺证据洗白。Python3.9.21本轮1次18过、0失败／error／跳过，suite0.010秒，不含启动。
+- **C 完成／待选择**：[路线裁决](codex-artifacts/VLM-BATCH-005/research-path-decision.md)。路线1仅在许可、无答案必要支持、同版PTS和≥40保守源等证明成立后再申请G1；否则建议停止gold覆盖前提，另审无参考区间真值鲁棒性问题，列时间、画质、token与检索四类替代解释。用户需决定是否咨询或调整命题，没有新科学结果。
+- **资源与停止**：0模型／GPU／QA、0视频解码／媒体下载、0外部联系、0原研究资产及环境修改。只提交本轮5处；完成后停止，不再默认静态调查，VLM-003／004仍BLOCKED。
