@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户选择路线1，官方询问终稿已备妥，外部发送未授权）  
+> 更新：2026-10-09（北京时间；用户最新选择路线2，BATCH-006为唯一READY；0GPU）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -50,24 +50,21 @@
 
 - 可说：当前候选在已测试样本上未取得稳定净收益；干预可能同时纠错和误伤；按成本与验证协议不值得继续试同类变体。
 - 不可说：模型一定忽略了视觉、必需证据一定未被看到、所有主动视觉方法无效、或另一骨干上必然相同。
-- 尚缺：可验证的参考时段与同版本原视频桥接、独立长视频外部验证、第二模型泛化、训练方法的多种子验证、可靠的算法创新性界定。
+- 尚缺：可验证的参考时段与同版本原视频桥接、独立长视频外部验证、第二模型泛化、训练方法的多种子验证、可靠的算法创## 3. 下一阶段研究命题（路线2；假设而非新算法）
 
-## 3. 下一阶段的研究命题（假设，不是机制）
+**用户2026-10-09最新选择路线2：不要求“gold必要证据区间已经覆盖”，转而研究固定12个唯一源帧预算下的选帧策略配对效果和选择路径鲁棒性。** 先前路线1与[TRACE咨询草案](./outreach/trace-ves-bench-inquiry-draft.md)仅保留为**历史且未发送**；禁止擅自发表或联系作者。
 
-**固定视觉观察预算与已标注证据覆盖条件下，其他非参考时段输入帧的组成，是否会引起可重复的正确率/误伤变化？**
+**主问题H-P**：相同合法长视频QA问题、冻结模型/处理器和候选源帧池、相同12唯一帧预算，问题相关SigLIP选帧S_q与问题无关的时间分层S_t相比，在保守独立来源组上的配对期望正确率差是否不为0？H0：Δ=0；双侧H1：Δ≠0。补充对照包括问题无关多样性S_d、question-shuffled S_shuf。重点控制真实源PTS、时间bin内偏移、实际视觉token/分辨率及来源污染；策略总效应不等于“问题相关性纯因果”。
 
-这是用来辨识一种更具体的证据利用敏感性现象，**不是宣称已找到新算法**。该命题与多证据检索/融合、时序一致性与干扰鲁棒性文献存在重合风险，创新审查必须持续进行。暂定参考对照为冻结模型和12源帧的强多图基线，加上配对的中性背景/高问题相似度背景输入，注释仅用于离线实验设计，不流入部署策略。
+**副问题H-S（条件可行时）**：仅对有合法、事前证明意义等价的两种问题措辞，把改写单独施加于选择器而固定最终回答提示，再与固定选帧仅改回答提示作正交比较，观察选帧链路与语言提示链路的响应差异；若缺可用等价改写对，则不做，不由模型自动制造新标签。
 
-在任何模型调用前必须先完成以下逐级门槛：
+**当前创新结论：retain 0。** [新定向创新初审](./route2-novelty-screen.md)指出Q-Frame、MIF/MDF、DIG及2026多个方法已覆盖问题感知取帧、问题类型和多样性控制；扰动敏感性也已有研究，**不能把旧启发式改名为“新方法”**。需要Codex在BATCH-006核查正式方法/消融有无直接先例，并允许建议NO-GO。
 
-1. **本地真实状态**：知道进程、GPU锁、开始/终态账本、原工作区与环境版本；
-2. **参考证据数据可用性**：具备可靠标注和源视频同版本时间映射；许可证允许使用；
-3. **严格预注册**：单一科学问题、样本来源与排除、强基线、固定预算、单次前向持久账本、费用上限、全部失败分母；
-4. **先导科学现象**：数据支持该现象在新来源上值得独立确认；若为0或混杂严重立即停止；
-5. **创新性**：与AVP/A.I.R./TRACE/PACE/HERBench/VideoStir等全文与代码存在实质不同的计算机制；
-6. **确认与论文论证**：源独立新样本、MLVU/LongVideoBench等适当外部验证、InternVL3-2B、必要时≥3训练种子，实际端到端成本与强基线。
+**当前新门槛**：NG0文献与可辨识性审查、NG1独立评分可用的合法视频与QA许可、NG2媒体版本/真实PTS/来源隔离/预算技术门、NG3预注册/功效/独立确认方案，现均**未通过**。旧G1必要gold区间是路线1历史前提，不再作为路线2门槛，但“无gold区间”绝不意味合法答案标签可给选择器或媒体不需许可。真正GPU、视频下载、改变锁/环境、重新运行旧任务均继续HOLD。
 
-不能因为“模型调用成功”或“小样本某一臂赢了”跳过上述科学门。
+已写入 [路线2可证伪预注册](./route2-no-gold-preregistration.md)与[创新重合审查](./route2-novelty-screen.md)；仅开放 [VLM-BATCH-006](./codex-artifacts/VLM-BATCH-006/README.md) 的三个低风险子任务：A方法与消融红队、B无gold数据与接口静态门、C科学预注册与GO/NO-GO。任务结果不足以自动提出实验授权或保留期刊级机制。
+
+述科学门。
 
 ## 4. 当前执行看板（2026-10-08）
 
@@ -81,7 +78,8 @@
 | 三项连续安全任务包 VLM-BATCH-003 | **ACCEPTED（仅静态交付，G1保持HOLD）** | Codex，ChatGPT审查 |
 | 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
 | 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
-| 路线决策 VLM-ROUTE-006 | **ROUTE1_SELECTED / AWAIT_USER_SEND_APPROVAL（无READY）** | 用户与ChatGPT |
+| 路线决策 VLM-ROUTE-006 | **ROUTE2_SELECTED（取代旧路线1）** | 用户与ChatGPT |
+| 路线2创新红队与无gold数据门 VLM-BATCH-006 | **READY（仅文献/静态/预注册，0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -223,6 +221,16 @@ ChatGPT复核 [TRACE官方README](https://github.com/buaa-colalab/TRACE)公开�
 ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和发送流程](./outreach/trace-ves-bench-inquiry-draft.md)。文件标记**DRAFT / UNSENT**，公开存档在用户的文档协调仓库，仅供本人审核。**对TRACE团队尚未发送任何Issue、邮件或外部联系**。须用户再次明确批准具体渠道和正文之后，才可考虑实际对外投递；若渠道限制新建Issue，停止并让用户选择正式替代渠道，不能绕过权限。
 
 **当前状态**：VLM-ROUTE-006 = ROUTE1_SELECTED / AWAIT_USER_SEND_APPROVAL；**不存在READY Codex父任务**。真实许可/必要区间/版本PTS/保守独立来源、G1、VLM-003/004和模型GPU实验均HOLD；按前次止损决策禁止继续机械重复旧元数据检索和toy审计。
+
+### 2026-10-09 · 用户最新改选路线2（取代路线1；VLM-BATCH-006 READY）
+
+**决定变更**：用户明确要求不再以gold必要区间覆盖为前提，制定新的可证伪假设、创新审查并安排无GPU任务。因此先前同日的路线1选择及[TRACE未发送咨询稿](./outreach/trace-ves-bench-inquiry-draft.md)已**不再是当前行动项**，但作为真实历史保留；**没有授权发送Issue/邮件**，不可暗中继续路线1。更新主分支任务板：VLM-ROUTE-006=ROUTE2_SELECTED；VLM-BATCH-006=唯一READY。
+
+**科学初审**：[Q-Frame ICCV2025](https://openaccess.thecvf.com/content/ICCV2025/html/Zhang_Q-Frame_Query-aware_Frame_Selection_and_Multi-Resolution_Adaptation_for_Video-LLMs_ICCV_2025_paper.html)、[NAACL2024 MIF/MDF](https://aclanthology.org/2024.findings-naacl.162/)、[DIG CVPR2026](https://openaccess.thecvf.com/content/CVPR2026/html/Li_Divide_then_Ground_Adapting_Frame_Selection_to_Query_Types_for_CVPR_2026_paper.html)、[CVPR2026 RL selector](https://openaccess.thecvf.com/content/CVPR2026/html/Qin_Efficient_Frame_Selection_for_Long_Video_Understanding_via_Reinforcement_Learning_CVPR_2026_paper.html)、[VideoStir ACL2026](https://aclanthology.org/2026.acl-long.1656/)等已涵盖query-aware选帧或intent retrieval；[2024 VideoQA empirical study](https://arxiv.org/abs/2408.04223)报告时间理解和输入问题扰动缺陷。上述仅官方公开摘要/项目页**定向初审**，不能声称selector-only与prompt-only正交比较不存在先例；必须全文/代码对比。**retain 0**，不批准新算法、论文创新或GPU。
+
+**新预注册**：[docs/route2-no-gold-preregistration.md](./route2-no-gold-preregistration.md)，明确主要S_q-S_t配对正确率差H0=0；辅以同一候选池、source group、时间分层、多样性/负对照、真实token预算和评分隔离。次级措辞扰动仅在有独立确认合法等义问题对时执行；无证据HOLD。
+
+**安全边界**：[VLM-BATCH-006任务README](./codex-artifacts/VLM-BATCH-006/README.md)仅允许正式文献方法/消融核验、现有代码/聚合schema静态检查、预注册与否决条件文档，**0 GPU/模型QA、0视频解码/媒体下载、0原研究目录修改、0对外联系**。一轮最多三份脱敏Markdown与一条追加回报；需要用户在同一Codex聊天框触发。NG1合法数据、NG2实际媒体PTS/来源与预算及NG3运行授权仍HOLD。若创新重合严重，下一次审查允许NO-GO而不是强行追加启发式。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
