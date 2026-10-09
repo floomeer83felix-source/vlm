@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；BATCH010一次官方下载/记录统计已验收，但时间数值质量HOLD；BATCH011唯一READY只读核验）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；BATCH011数值复算已验收、时间合同继续HOLD；当前无READY）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -25,12 +25,13 @@
 | VLM-BATCH-009 | P1 | **STOPPED_SAFELY（路径名称误判；NO_DOWNLOAD）** | Codex | 授权与隔离预检、HEAD检查、通用元数据审计工具及合成测试；真实ZIP/CSV资格因保守路径阻塞未执行 | [首次提交bc16e38](https://github.com/floomeer83felix-source/vlm/commit/bc16e38eab35f454bc3e0ccc3c805c15c6009ed8)：5处约定交付，GET0/正文0B/P1P2 UNKNOWN；正确安全停止，**禁止原父任务重跑** |
 | VLM-BATCH-009-FIX | P1 | **ACCEPTED（路径身份检查修复；未下载）** | Codex | 修正Windows absolute/resolve仅字符串不等的误报，加入samefile/设备inode/双链无reparse与缺失叶核验 | [修复提交dda8481](https://github.com/floomeer83felix-source/vlm/commit/dda8481a330c4cfa1e734511ad59e7d8f7571d4f)：2通用Python改动+一条附加结果；执行者报告21项合成测试通过、固定路径只读复核PASS；**未独立核Windows，也未下载或读CSV** |
 | VLM-BATCH-010 | P1 | **ACCEPTED（一次官方下载与聚合交付；TIME_QUALITY HOLD）** | Codex | 官方小包1成功GET/3,519,822B、ZIP CRC/白名单、CSV schema、短域P1/P2记录候选聚合 | [提交8153a18](https://github.com/floomeer83felix-source/vlm/commit/8153a18af651afcbf0c5a455f3b61817e09755c0)：严格2报告+1追加、原源码不改；66,500区间中19,625不通过既定数值规则，主因end>length；资格数仅过滤子集临时值，**不放行模型/视频** |
-| VLM-BATCH-011 | P1 | **READY（10项只读时间合同诊断；0下载/0媒体/GPU）** | Codex | 核官方length/动作时间规范、版本sha、异常端点互斥归因及量级桶、原347 P1组和97,723 P2 pair可信性、止损 | [十项README](./codex-artifacts/VLM-BATCH-011/README.md)：仅读现有隔离CSV/类表，独立通用stdlib诊断和合成单测；2脱敏报告+2新脚本+1结果；不更改旧源码、下载文件或原研究环境 |
+| VLM-BATCH-011 | P1 | **ACCEPTED（独立数值复算交付；时间语义HOLD）** | Codex，ChatGPT审查 | 只读原SHA固定CSV、官方README证据分级、互斥主因/δρ/异常行分布、独立复算P1/P2、测试及脱敏 | [提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)：精确5处交付；原66,500/19,625、P1=347、P2=97,723均复现，但**时间合同仍无同版媒体/标注桥接**；不可当最终真值/新算法证据 |
+| VLM-RESEARCH-DECISION-012 | P0 | **WAIT_USER_DIRECTION（非READY）** | 用户、ChatGPT | 科学止损：下一步是否寻找独立可审计的同版时间桥接证据，或转向有合法长时域媒体+真值的独立基准；先例风险需评估 | 2025年ACL [Perfect Times](https://aclanthology.org/2025.acl-long.1000/)已使用Charades视频研究动作完成/持续和时间关系MCQA，[公开作者仓库](https://github.com/ologin/PerfectTimes)含更新的事件序列注释；**仅公开文档先例事实，未取得其注释/视频许可**。无用户新决定前不自动下发下载/GPU任务 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务：VLM-BATCH-011，仅对BATCH010已取得的本地Charades原CSV做时间区间合同/异常数值诊断，0下载、0媒体/模型/GPU。** [BATCH010提交8153a18](https://github.com/floomeer83felix-source/vlm/commit/8153a18af651afcbf0c5a455f3b61817e09755c0)按照3处白名单交付，执行者报告1次官方小包GET成功3,519,822B、SHA256 c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866、14 ZIP成员CRC通过/提取8白名单、11列/157类/7,985训练+1,863测试行和标准库21合成用例通过；这些是执行者本机报告，ChatGPT未登录原Windows独立复算。**核心科学阻塞：66,500条动作token中19,625条（29.5%）不通过旧`0≤start<end≤length`，含异常行7,433/9,848（75.5%），主要是end>length**。有效子集中P1同类分离组347、P2异类重叠pair97,723，均仅PROVISIONAL RECORD-LEVEL，不代表完整样本/时序真值。官方[README](https://prior.allenai.org/projects/data/charades/README.txt)称length以秒计，不能未经证据缩放或截断标注。BATCH-011仅做本地只读固定CSV/version与公开官方时间合同、匿名差额桶/主因/独立交叉计算，**不再次下载、不修改原审计代码和任何原研究资产、无需新GPU许可**；在原Codex聊天由用户主动触发，完成后再STOP并等待ChatGPT审查。科学创新retain0，短域无法单独确认长视频，PTS UNKNOWN。
+**当前没有任何READY任务。** [BATCH-011提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)已验收约定的2份报告、2份新无数据标准库诊断脚本与1条回报，执行者报告旧文件SHA核验及独立CSV解析复算原66,500 token、19,625不通过数值区间、P1 347组、P2 97,723 pair完全相符；合成unittest先14 PASS、增强披露后15 PASS，但增强版未再用真实CSV重跑。只读数据未改/0新下载；ChatGPT只对公开报告与源码做静态审查，不独立登录Windows复算。**HOLD_TIME_CONTRACT不变**：官方README仅说明length秒、action类-始-末结构，未确认所有端点与length同源/同版/同原点；δ>1至5的记录至少8,747条，不能靠小数舍入/瞎猜缩放消除。347 P1组中270组、97,723 P2 pair中67,280 pair与同视频其它异常标注共存，记录候选不能认证完整动作实例或自然语言问答。独立发现2025年ACL [Perfect Times](https://aclanthology.org/2025.acl-long.1000/)已有基于Charades的时间关系/动作完成类VLM问答；普通生成式时间QA不构成新颖机制。当前唯一非READY决策`VLM-RESEARCH-DECISION-012=WAIT_USER_DIRECTION`，优先核合法同版时间桥接及真正自然长视频的独立来源，否则STOP此数据作为核心机制证明；不创建下一Codex READY、不再次下载CSV、也不授权视频/STA/GPU或原研究目录改动。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -278,7 +279,9 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **BATCH-010只准3处GitHub提交**：新增`docs/codex-artifacts/VLM-BATCH-010/download-and-schema.md`、`qualification-and-decision.md`两份脱敏结果，以及只向`docs/codex-results.md`末尾追加一条010父任务回报；不改已发布的009原型/test、协议、历史或研究计划。ZIP、CSV、任何subject/video映射、真实行和私有绝对路径都不得上传。**没有新模型/GPU/视频/STA/下载其它数据权限**；用户主动在原Codex聊天发送“执行BATCH-010”后才可开始。
 
-## 十四、VLM-BATCH-011：Charades时间字段数值冲突的独立只读诊断（当前唯一READY）
+## 十四、VLM-BATCH-011：Charades时间合同独立数值诊断（已验收，禁止重做）
+
+**本节先前记录BATCH011的执行计划；该父任务已由1aed0de一次提交完成，不得再执行。最终科学状态见下方第十五节。**
 
 **源事实与严格层级**：BATCH010官方ZIP SHA`c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866`，train CSV SHA`59273c6dc2139ec7eb95b980fd26bc8529774b1ede0602f6ca90b546ed12f0fc`、test CSV SHA`8b8b207b55fb95b949018027f69d83bd46cd844d15834f8f592ee8e7446173eb`（仅文件级，不是官方发布的独立SHA证明）。标注字段真实11列、7985/1863个视频行和157类别，原动作token 49809/16691；合法数值区间35211/11664，无效14598/5027。约75.5%视频行至少包含一个被旧规则拒绝的token，主因`end>length`；当前不能把剩余47k记录当物理事件完整真值。P1 347个同类有分离pair的组、P2 97723个异类相交pair**只是旧合同下幸存子集的几何候选，不是有效问答/新算法模型实验的许可**。
 
@@ -288,7 +291,17 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **只允许5处GitHub交付**：`docs/codex-artifacts/VLM-BATCH-011/`的2份脱敏报告，`prototypes/`的2份新通用只读脚本（非旧审计器修改），`docs/codex-results.md`末尾1条父任务回报。禁视频/STA、模型/GPU、真实视频PTS测量、原研究工作区与锁/conda更改、任何数据/标注再次下载及外部联系。出现审计器不稳定/真实hash不符立即停止、不得覆盖旧收据。Codex成功单次push后停止，待ChatGPT验收。
 
-## 十五、当前研究判断（跨批保持）
+## 十五、BATCH-011验收及研究路线决策门（没有READY）
+
+**交付验收**：实际[提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)恰好改5处：`docs/codex-artifacts/VLM-BATCH-011/`两份脱敏报告、`prototypes/`两份全新stdlib脚本、`docs/codex-results.md`追加一次。无ZIP/CSV/个人映射进入GitHub，未修改旧原型/原科研资产。执行者报告原隔离ZIP/train/test SHA均与010固定值一致，旧规则的66,500原token/46,875通过/19,625失败、P1 347组/P2 97,723pair及其它参照聚合一致。它证明**两个解析实现按同一个条件给出相同计数**，不证明该条件被真实媒体时间语义支持。执行者报告合成测试首次14 PASS，增强补充披露后15 PASS，**增强后的完整程序未再实跑真实CSV**；ChatGPT仅审查GitHub结果与代码，不声称本机复算。
+
+**新增记录级事实**：越过length的动作区间中，至少8,747条超过1而不超过5（以文档所述秒尺度解释）；异常token/视频行总比率约29.5%/75.5%，Train/Test异常行比例约73.8%/82.5%。347个P1合格同类组有270个所在行另有数值异常；97,723个P2有效几何重叠pair有67,280个所在行另有异常。余项77组与30,443对也只是在“当前数值规则且整行未包含异常”的**关联计数**，不是跨媒体/语义验证成功的真值样本。当前`DATA_INTERVAL_QUALITY=HOLD_RANGE_CONFLICT`，`TIME_CONTRACT=HOLD`，`DATASET_FOR_NATURAL_LONGVIDEO=FAIL`，`ORIGINAL_MECHANISM=RETAIN0`，`GPU=BLOCKED`。
+
+**外部新颖性危险信号（公开资料，不扩展数据授权）**：[ACL2025正式长文 Perfect Times](https://aclanthology.org/2025.acl-long.1000/)已从Charades视频构造时间关系与动作完成/持续的多语种VLM问答；[作者公开仓库](https://github.com/ologin/PerfectTimes)声称包含更新的时间顺序动作注释`video_annotations.csv`及问答生成器。该工作不是P1“同类重复实例”命题的严格同一对象证明，但直接覆盖了“用Charades动作时间关系自然语言QA得到新基准/机制”这一宽泛新颖性宣称。不要下载其视频/注释或直接调用repo脚本，版权/来源修订和科学先例对比仍待独立授权/定义。
+
+**研究下一门`WAIT_USER_DIRECTION`而不是BATCH012自动READY**：A. 如果继续Charades，则先找到**无需未获授权媒体的可靠同版标注时间坐标来源、修订记录和与length同原点的证据**，并且提出相对于ACL2025 Perfect Times与TAL/TMR强基线独有的可辨识问题；若找不到则STOP Charades作为核心证据。B. 如果目标是自然长视频VLM创新，优先选择**可公开申请/无需审批而具合法原媒体和可验证时间真值、跨源独立的真正长时域基准**，重新单独授权最小必要数据；不要因Charades样本非零而继续无边界元数据/合成研究。用户未选定前0新READY、0第二次原Charades小包下载、0新数据/视频/STA、0GPU及原Windows资产改动。
+
+## 十六、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -296,7 +309,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 十六、GitHub协作规范（不改变）
+## 十七、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
