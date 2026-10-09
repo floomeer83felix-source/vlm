@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；BATCH012官方采样口径工程对齐已验收，B/C时间真值继续HOLD；没有READY任务）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；用户选择方案A边界媒体试点；等待独立视频访问批准、无READY任务）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -28,12 +28,12 @@
 | VLM-BATCH-011 | P1 | **ACCEPTED（独立数值复算交付；时间语义HOLD）** | Codex，ChatGPT审查 | 只读原SHA固定CSV、官方README证据分级、互斥主因/δρ/异常行分布、独立复算P1/P2、测试及脱敏 | [提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)：精确5处交付；原66,500/19,625、P1=347、P2=97,723均复现，但**时间合同仍无同版媒体/标注桥接**；不可当最终真值/新算法证据 |
 | VLM-RESEARCH-DECISION-012 | P0 | **USER_SELECTED_CHARADES_ALIGNMENT（已决策，非READY）** | 用户、ChatGPT | 用户明确选择先修复Charades评测规则误配，暂不换数据集；但不批准原CSV编辑或数据/媒体/GPU再次获取 | [BATCH-012十项协议](./codex-artifacts/VLM-BATCH-012/README.md)：首先只读验证现有ZIP内官方`Charades_v1_localize.m`，再严格区分官方25时点相容性、越界质量、P1/P2语义；避免将评测兼容冒充真值修复 |
 | VLM-BATCH-012 | P1 | **ACCEPTED（官方帧级label对齐；B/C时间真值HOLD）** | Codex，ChatGPT审查 | 固定ZIP原`Charades_v1_localize.m`只读源码与规则核对、纯stdlib 25点模拟/分层统计、19合成测试、匿名差异 | [提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)：恰好5处；官方正cell705,470、旧strict正cell398,287、差异307,183=官方正cell的43.54%；**只说明原strict不能代表官方frame-label政策，不认证视频端点/P1P2真值或新算法** |
-| VLM-RESEARCH-GATE-013 | P0 | **WAIT_USER_SCOPE_DECISION（非READY）** | 用户、ChatGPT | BATCH012工程标签口径已解决；是否需要未来一次独立授权、最小视频时钟/标注边界验证，或保留Charades为短视频工程对照并寻找合法真正长时域数据 | **目前不授权任何视频、STA、GPU、额外数据下载或原研究环境更改**；B/C仍HOLD，先定义单个新增证据、媒体许可、样本来源与费用上限后再询问用户。不能自动创建013 READY |
+| VLM-RESEARCH-GATE-013 | P0 | **ROUTE_A_SELECTED / WAIT_EXPLICIT_MEDIA_APPROVAL（非READY）** | 用户、ChatGPT | 用户选定方案A：继续Charades，准备以极少量同版媒体核验CSV length与媒体时钟/标注end；**尚未批准视频传输** | [两视频有界试点提案](./charades-media-boundary-pilot-proposal-2026-10-09.md)：官方只公开13GB 480p ZIP整体入口、逐视频获取能否在总≤64MiB的HTTP Range上完成UNKNOWN；拟先取2个train视频（越界1+严格对照1），V1仅CPU时钟/容器/PTS，V2任何视觉复核另授权；不能下载13GB整包或调用GPU |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前没有任何READY任务。** [BATCH-012提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)依README五处交付，执行者报告从SHA固定原Charades.zip中只读核对4649字节官方`Charades_v1_localize.m`原文与源码行；确认25个`(j/25)*length`采样点（j=0..24）、`start<=t<=end`、同类布尔OR，**官方不先要求`end<=length`**。纯stdlib模拟器19合成单测PASS，随后1次本机只读原CSV计算：官方正label cell705,470，对照旧严格准入后398,287，旧规则遗漏307,183个正cell（占官方正cell 43.54%）。总分母9,848视频×25点×157类=38,653,400 cells。**A OFFICIAL_LABEL_SAMPLING_COMPATIBILITY=VERIFIED_WITHIN_STATED_SCOPE**（只是原ZIP源码与标准库正标签政策；未执行MATLAB/mAP/媒体时钟）；**B TIME_RANGE_QUALITY=HOLD**（19,625条旧规则不通过不等于19,625条错误或已被修复）；**C P1/P2_EVENT_TRUTH=HOLD**（原严格规则347组同类重复与97,723异类overlap pair仍仅几何候选）。BATCH012已交付并停止，未来不能重跑该父任务。2025 ACL Perfect Times等直接先例仍需在新研究设计中扣除，长视频数据外推FAIL，创新retain0，GPU/视频/STA未批准。下一状态`VLM-RESEARCH-GATE-013=WAIT_USER_SCOPE_DECISION`（非READY）：先由用户决定是否为真实边界/媒体时钟的**最小新证据**另行批准合法视频访问，或把Charades保留短域基准而寻找真正长视频公开资源；不自动开新下载或GPU任务。
+**目前仍没有任何READY任务；用户已经选择方案A（Charades真实视频/标注时间边界试点），但没有授权媒体下载或解码。** [BATCH012](./codex-artifacts/VLM-BATCH-012/three-tier-aggregate-and-go-no-go.md)只在官方frame标签政策上限域VERIFIED，原19,625条旧strict拒绝不是19,625条实测媒体错误，P1/P2事件真值/媒体PTS仍HOLD。ChatGPT已形成[单独授权的最小视频试点方案](./charades-media-boundary-pilot-proposal-2026-10-09.md)，冻结先验比较：最多2个train片段（其中1个`start<L<end`且`end-L∈(1,5]`，1个无数值冲突对照）、仍旧只在本机独立目录保留、先V1容器/PTS/时钟核对，V2人工/可视核验另授权。2026-10-09重新核对官方Charades项目页：**公开入口是13GB 480p整ZIP，未发现官网单视频链接；ZIP是否支持按需Range获取2个成员且总网络正文≤64MiB尚UNKNOWN**。即使用户以后批准V1，也须先确证来源/Range/成员/限额，如果只能取13GB则STOP，禁止替用户扩大范围。本轮仅更新GitHub管理文档，**未发任何视频Range GET、未下载/播放/解码媒体、未运行GPU、未访问原Windows视频目录**。无新授权不产生READY或Codex执行令。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -315,7 +315,9 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **仅允许5处GitHub提交**：`docs/codex-artifacts/VLM-BATCH-012/`两份脱敏报告，`prototypes/`两份纯stdlib全新对齐器+合成测试，`docs/codex-results.md`末尾**一条**012父任务回报。0其它原始数据/标注/官方脚本全文上传、0旧程序修改、0源目录写入、0下载/视频/STA/推理GPU/训练、0原Windows研究文件/conda/锁/账本触碰。一个正常push成功后停止当前轮，由ChatGPT审查再决定是否仍需同版媒体时间证据或改数据集。**修复A不自动宣布B/C PASS**。
 
-## 十七、VLM-RESEARCH-GATE-013：官方评测口径已解决，科学证据范围待用户决策（无READY）
+## 十七、VLM-RESEARCH-GATE-013：选择方案A，视频/时钟最小试点等待单独授权（无READY）
+
+**最新替代决定（2026-10-09）**：用户已明确选择方案A，不再等待选择A/B；但仅选择研究方向**不构成媒体下载授权**。具体试点范围、官方整ZIP无法逐视频直接点取的风险、预算及未来授权条件以[方案A试点提案](./charades-media-boundary-pilot-proposal-2026-10-09.md)为准。以下保留了BATCH012验收时的历史判断。
 
 **BATCH012审查报告**：[官方代码/政策](./codex-artifacts/VLM-BATCH-012/official-evaluator-code-and-policy.md)、[三层宏观对照](./codex-artifacts/VLM-BATCH-012/three-tier-aggregate-and-go-no-go.md)、[提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)。按唯一SHA固定Charades ZIP内官方评测器的文本静态证据，25点时间采样为`(j/25)*length`（零基j=0…24；对应MATLAB先除后乘操作次序），原动作class区间`start<=t<=end`两端包含，多同类动作仅令对应真值cell置1，而不是累积事件实例。官方frame-localization**不要求**先通过`end<=length`才构造正label；旧`0<=start<end<=length`是我们额外的严格时间区间资格筛选，不能代表官方评价政策。
 
