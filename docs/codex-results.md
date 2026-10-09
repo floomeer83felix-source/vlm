@@ -190,3 +190,26 @@ toy枚举117种观测模板、336个一致世界—观测配对；理想三值�
 Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒（不含启动）；未为本次获取修改代码。真实标准库审计1次成功返回，摘要／CSV／ZIP／文件版本hash和010 manifest只在固定隔离树，不进入GitHub。约29.5%原动作未通过数值规则、约75.5%行含异常；原因未核，不声称数据损坏或单位已知。发现冲突后停止进一步数据诊断，仅整理已有宏观收据，未查看实例／身份明细或调整parser。正小计数1—9抑制，时长只披露合并粗桶，避免反推split小单元。
 
 资源：唯一官方数据正文3519822B，另3公共文本正文76881B，HTTP头／工具流量未计量；未获取其它数据、媒体、STA、Ego、模型／特征。0真实模型／GPU／QA／训练／评分／解码、0原研究代码／环境／锁／账本修改、0外部联系／新标签／PR合并／自动化；不公开真实CSV、文字、video/subject映射或账户路径。原一次下载授权已消耗，不能再次获取。下一真正信息需求是独立核清动作起止与length的时间合同及规则适用性，应另行明确受限只读任务；不自动创建011或放行视频/GPU。成功push后停止并保留同一聊天。
+
+### VLM-BATCH-011 2026-10-09 16:12 北京时间 — 只读独立诊断完成；HOLD_TIME_CONTRACT
+
+基线main5496956，安全同步并重新读取最新AGENTS、唯一READY任务、结果及指定010／安全协议。报告：[官方时间合同与完整性](codex-artifacts/VLM-BATCH-011/official-time-contract-and-data-integrity.md)、[宏观诊断与裁决](codex-artifacts/VLM-BATCH-011/aggregate-range-diagnostics-and-decision.md)；新[标准库诊断器](../prototypes/charades_time_contract_diagnostic.py)及[纯合成测试](../prototypes/test_charades_time_contract_diagnostic.py)，共5处交付，不修改旧原型或任何原数据。
+
+| 任务 | 状态与可核事实 |
+|---|---|
+| 1 | DONE：固定root身份核验及原ZIP/train/test SHA与任务书完全一致；类表与固定ZIP唯一类表字节一致，157类；无获取／重解压／源树写入 |
+| 2 | DONE／UNKNOWN：读取已固定官方README公开文本缓存，SHA与010一致；length秒、三元组结构、2017新增length、25点frame-mAP DOCUMENTED；全部端点同单位／同原点／同版媒体仍UNKNOWN，无新HTTP |
+| 3 | DONE：先合成14 PASS，再独立csv/Decimal／区间算术1次实算；66500 token、7985/1863行、有效46875/失败19625及所有参考P1/P2键与010相符，只复用旧路径安全检查 |
+| 4 | DONE：主因parse→length→time→class→negative→order→range→OK互斥且原计数sum=66500；flag可重叠，不将其和当不同坏token；小主因及其关联range宏观值补充隐匿 |
+| 5 | DONE：δ桶(0,0.1]221、(1,5]8747、>5的两桶0；ρ(0,0.01]610、(0.1,1]545、>1为0；中间桶／位置大边际隐藏以防反推小格，未给实际样本 |
+| 6 | DONE：全9848行异常token负担0/1/2—3/4—7/8+为2415/2190/3390/1761/92；Train/Test异常行率约73.8%/82.5%，仅字段层描述，不认证媒体时钟或独立源 |
+| 7 | DONE／PROVISIONAL：原P1 gap>0组347、>0.5组313、>1组288复现；270个gap>0组位于另含invalid的行，不生成ordinal，其他可反推小余项的关联不披露 |
+| 8 | DONE／PROVISIONAL：原P2 overlap97723/strong73513复现，67280 overlap pair所在行含invalid；pair不独立，不作为模型误判／关系真值 |
+| 9 | DONE：源行／ID／文字／细表不输出；正小格及linked/complementary margins跨split/all联动隐藏，额外保护候选总数减关联值产生的小余项；不上传实跑JSON |
+| 10 | DONE：DOCUMENTED／NUMERICALLY_OBSERVED／UNKNOWN分层；HOLD_TIME_CONTRACT、创新retain0、Charades单独长域FAIL、PTS未知、GPU BLOCKED，不猜缩放或截断 |
+
+测试与时序：既有Python3.9.21，首次14合成方法PASS、0 FAIL/ERROR/SKIP，suite0.003秒后才读取真实来源。独立算术实跑1次，引用来源SHA固定、只读，未在真实样本上调规则。公开前审查发现“候选总数−异常行关联数”的小余项风险，随后仅合成新增抑制测试，最终15 PASS、0 FAIL/ERROR/SKIP，suite0.003秒。未再读真实CSV；最终源码算术不变、披露守卫加强，仅作合成验证，不声称最终源码再次实跑。源树／ZIP／CSV／manifest写入0。
+
+至少8747条差额在1—5的CSV秒尺度内，不能都解释为≤0.1微小舍入，但不能据此证明单位错、数据坏或固定剪辑偏移。P1和P2多数记录候选与异常行共存，77—347组／30443—97723 pair只是两种数值口径的关联计数变化，不是可靠事件或QA数界。下一唯一支持需求是可独立核验的同版标注／媒体时间坐标说明，由ChatGPT另行限定；不联系作者、不获取媒体或自动建012。
+
+本轮研究HTTP／数据下载0B、0GPU／模型／QA／训练／评分／视频／STA／特征／真实解码、0原研究环境／锁／账本改动、0外部联系／新标签／PR合并／后台自动化。只上传上述2报告＋2新纯stdlib文件＋本追加，原009/FIX/010结果及计划／总览均保留，成功push后停止并保留原聊天。
