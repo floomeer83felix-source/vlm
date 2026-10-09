@@ -62,7 +62,7 @@
 
 **当前新门槛**：NG0文献与可辨识性审查、NG1独立评分可用的合法视频与QA许可、NG2媒体版本/真实PTS/来源隔离/预算技术门、NG3预注册/功效/独立确认方案，现均**未通过**。旧G1必要gold区间是路线1历史前提，不再作为路线2门槛，但“无gold区间”绝不意味合法答案标签可给选择器或媒体不需许可。真正GPU、视频下载、改变锁/环境、重新运行旧任务均继续HOLD。
 
-已写入 [路线2可证伪预注册](./route2-no-gold-preregistration.md)与[创新重合审查](./route2-novelty-screen.md)；仅开放 [VLM-BATCH-006](./codex-artifacts/VLM-BATCH-006/README.md) 的三个低风险子任务：A方法与消融红队、B无gold数据与接口静态门、C科学预注册与GO/NO-GO。任务结果不足以自动提出实验授权或保留期刊级机制。
+已写入 [路线2可证伪预注册](./route2-no-gold-preregistration.md)与[创新重合审查](./route2-novelty-screen.md)；仅开放 [VLM-BATCH-006](./codex-artifacts/VLM-BATCH-006/README.md) 这一READY父任务，**现按用户要求扩为10个低风险子任务**（文献红队3项、静态数据/接口4项、统计合同与CPU合成测试2项、科学裁决1项），四份报告＋两份全新toy代码＋一条汇总，不准新增真实媒体或模型实验。任务结果不足以自动解除数据/创新性门或保留期刊级机制。
 
 述科学门。
 
@@ -79,7 +79,7 @@
 | 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
 | 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
 | 路线决策 VLM-ROUTE-006 | **ROUTE2_SELECTED（取代旧路线1）** | 用户与ChatGPT |
-| 路线2创新红队与无gold数据门 VLM-BATCH-006 | **READY（仅文献/静态/预注册，0GPU）** | Codex |
+| 路线2创新红队与无gold数据门 VLM-BATCH-006 | **READY（10项有界：文献/静态/CPU toy统计，0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -231,6 +231,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **新预注册**：[docs/route2-no-gold-preregistration.md](./route2-no-gold-preregistration.md)，明确主要S_q-S_t配对正确率差H0=0；辅以同一候选池、source group、时间分层、多样性/负对照、真实token预算和评分隔离。次级措辞扰动仅在有独立确认合法等义问题对时执行；无证据HOLD。
 
 **安全边界**：[VLM-BATCH-006任务README](./codex-artifacts/VLM-BATCH-006/README.md)仅允许正式文献方法/消融核验、现有代码/聚合schema静态检查、预注册与否决条件文档，**0 GPU/模型QA、0视频解码/媒体下载、0原研究目录修改、0对外联系**。一轮最多三份脱敏Markdown与一条追加回报；需要用户在同一Codex聊天框触发。NG1合法数据、NG2实际媒体PTS/来源与预算及NG3运行授权仍HOLD。若创新重合严重，下一次审查允许NO-GO而不是强行追加启发式。
+
+### 2026-10-09 · 用户调整Codex单批工作量：BATCH-006十任务版（最新授权边界）
+
+用户明确要求每轮安排约10项相关工作，以减少Codex提交与ChatGPT审查的往返。核对GitHub main：**尚无VLM-BATCH-006执行结果**，所以直接更新现有唯一READY父任务的[README](./codex-artifacts/VLM-BATCH-006/README.md)，不新增10个分散的READY任务、不开新Codex对话。
+
+**十项内容**：1正式文献方法/消融审查，2直接创新重合否决，3混杂/可识别性，4只读selector→IMAGE12/Qwen接口，5合法QA/视频与评分隔离，6真实PTS/media revision/来源保护，7时间/视觉token/成本公平性，8配对估计量/全分母/功效输入，9新建纯合成CPU统计合同与至少6项标准库unittest，10综合NG0—NG3科学NO-GO/条件研究决策。
+
+**提交范围变更**：原定3份脱敏Markdown＋1条汇总，更新为4份脱敏Markdown（`novelty-and-identifiability.md`、`static-readiness-gates.md`、`prereg-and-toy-tests.md`、`scientific-decision.md`）、2份**新**toy Python（`toy_route2_pairing.py`及其unittest）、1条父任务结果共**7处文件**。10项须逐项标DONE/UNKNOWN/BLOCKED，合并后只审查一次。不能重写旧toy、旧账本或历史实验文件。
+
+**保守预算未变**：0 GPU/模型QA/训练/评分调用、0真实视频解码/媒体下载、0原研究环境/锁/账本更改、0外部联系，至多12个公开官方论文HTML页面和一次小型toy回归；不访问完整受限身份映射或答案。CPU toy统计通过不代表真实数据可执行、创新性成立或新GPU放行。遇未知标UNKNOWN，遇权限/Git冲突停止，不能用多任务规模作为扩大权限的理由。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
