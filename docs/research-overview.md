@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户愿意审阅Ego4D官方许可，尚未签署/获批，仍无READY）  
+> 更新：2026-10-09（北京时间；用户切换到Charades公开数据入口，BATCH-008唯一READY／0下载／0GPU）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -64,6 +64,8 @@
 
 **直接先例约束**：[NeuS-QA (AAAI2026)](https://ojs.aaai.org/index.php/AAAI/article/view/37834)已做时序逻辑+视频自动机及模型检查；[VideoHV-Agent (CVPR2026)](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Think_Then_Verify_A_Hypothesis-Verification_Multi-Agent_Framework_for_Long_Video_CVPR_2026_paper.html)已做答案假设和判别线索验证；[VideoSEAL (ICML2026)](https://proceedings.mlr.press/v306/qiu26v.html)已将规划与回答权限分离并做像素验证；[Open-o3-Video](https://proceedings.mlr.press/v306/meng26e.html)、[ENTER](https://arxiv.org/abs/2501.14194)、[VideoStir](https://aclanthology.org/2026.acl-long.1656/)均已覆盖不同结构化证据操作。**以上是公开方法/摘要级初筛，不构成任何候选原创性认证**。新包必须尽可能由证据**否决**它们，允许全淘汰。
 
+**最新数据入口变化（用户明确同意）**：由于Ego4D许可表单出现`Failed to fetch`，先使用 [Charades/Charades-STA公开项目说明与license](./charades-entry-2026-10-09.md)做**可验证短时域标注科学问题的前置核验**；以[十项BATCH-008协议](./codex-artifacts/VLM-BATCH-008/README.md)为准，只查公开许可、STA衍生文本标注权利、字段与时间join、多实例动作与重叠混淆现象、来源/PTS、长视频外推与先例否决。原始Charades约30秒的视频不能直接当长视频论文最终确认集；目前尚未批准下载任何视频或3MB标注。新方向retain0、GPU/真实数据门HOLD，BATCH-007不复活。
+
 **最新验收决定**：[BATCH-007十项交付](./codex-artifacts/VLM-BATCH-007/downselect-and-stop-decision.md)已按[d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)完成并通过文档/静态代码验收，但**三个当前形式候选均被同输入的经典强基线模拟而不保留（retain0）**：M1=三值/开放世界监控，M2=依赖缓存，M3=version-space判别线索；这是具体算子的NO-GO，不是全领域不可能创新。真实证据标签、视频许可、PTS/来源、视觉感知可信性和费用门均未通过，GPU/HOLD。当前**没有READY**，进入VLM-RESEARCH-GATE-008等用户提供实质新问题或证据资源，不自动安排BATCH-008。
 
 ## 4. 当前执行看板（2026-10-09）
@@ -82,7 +84,8 @@
 | 路线2创新红队与无gold数据门 VLM-BATCH-006 | **ACCEPTED（十项交付；科学NO_GO_OR_PIVOT）** | Codex，ChatGPT审查 |
 | 核心科研路线选择 VLM-DECISION-007 | **B_SELECTED（转向不同的核心机制）** | 用户与ChatGPT |
 | 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
-| Ego4D数据授权准入 VLM-RESEARCH-GATE-008 | **USER_WILLING_TO_REVIEW / WAIT_USER_SELF_SIGN（非READY）** | 用户本人，ChatGPT记录 |
+| 数据入口切换 VLM-RESEARCH-GATE-008 | **CHARADES_SELECTED / EGO4D_DEFERRED（非READY）** | 用户与ChatGPT |
+| Charades准入与可证伪现象 BATCH-008 | **READY（十项公开文献/字段/许可核查，0下载／0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -296,6 +299,18 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **科学转向是“资源→问题”**：官网[Episodic Memory](https://ego4d-data.org/docs/benchmarks/episodic-memory/)已明确MQ活动多实例时间窗与NLQ回答窗口，[MQ字段](https://ego4d-data.org/docs/data/annotations-schemas/)含视频/clip ID、relative time、activity segments；可将**反复活动的实例定位/时间混淆**作为候选可反证问题，但它不是新算法，必须先核以前的temporal grounding/episodic retrieval强先例和标签适用范围。人工标注“所有看见的moment”仍不能无条件证明任意未标事件在全域不存在。用户获得许可前不得使用任何注释或视频；许可后仍须分开确认正式权利范围、同媒体版本PTS/clip/source独立、评分隔离、最小数据下载预算/路径、真实视频CPU或GPU用户单独授权。
 
 **下一步用户只需回报一个不敏感状态**：未提交、已提交待审批、已获批准、条款不接受或申请异常；不可传AWS凭据、个人资料、签名协议。状态未获批准前，不建议另开十任务包，不恢复旧VLM-003/004，不改RTX3090实验工作区，保留原Codex聊天。
+
+### 2026-10-09 · 用户改用免申请的Charades数据入口，开放BATCH-008（最新）
+
+**用户指令**：针对Ego4D申请时报`Failed to fetch`，用户同意将下一批研究从等待Ego4D签约改为Charades/Charades-STA公开元数据与合适科学问题核验。此前的Ego4D申请意愿、未获批准、原研究负结果均保留作历史，不代表用户已经实际提交或获批。ChatGPT将[任务看板](./next-steps.md)的VLM-RESEARCH-GATE-008改为`CHARADES_SELECTED / EGO4D_DEFERRED`，并设置**VLM-BATCH-008唯一READY**。
+
+**公开官方依据**：[AllenAI Charades](https://prior.allenai.org/projects/charades)提供9,848部室内日常活动视频、66,500条动作时间注释、约3MB标注评测文件及13GB 480p视频入口；[专属License for Non-Commercial Use](https://prior.allenai.org/projects/data/charades/license.txt)允许协议规定的非商业科研、限制公开发布改造数据/任何第三方分发，并规定短片段/静帧学术示例条件；不要求事先签Ego4D式个人许可，但**不等于任何使用都无版权义务**。[Charades-STA TALL作者仓库](https://github.com/jiyanggao/TALL)提供句子—视频时间区间train/test外链并提醒annotation曾清理；STA衍生文本使用权、可验证版本及与Charades源时间轴join**仍UNKNOWN**。原始Charades平均长度约30秒（[ECCV2016数据论文](https://publications.ri.cmu.edu/hollywood-in-homes-crowdsourcing-data-collection-for-activity-understanding)），它是短时域科学现象初筛与流水线入口，不是自然长视频独立数据集。
+
+**新研究候选**：P1同类活动在同一视频内重复出现引起的**事件实例错配**，P2不同动作重叠造成的**时间边界/标签混淆**；必须先证明现有标注足以定义有效样本及清晰客观正确性。66,500总interval数不证明有多少合法的P1样本，不能由STA文字直接推“第一次/第二次”真值；如果只重复既有TAL/TMR研究则NO-GO，创新retain0。真正长视频长间隔推理仍须另外合法长视频、来源独立和真值。
+
+**唯一低风险任务**：[VLM-BATCH-008 10项具体协议](./codex-artifacts/VLM-BATCH-008/README.md)：1原license条款，2 STA独立权利，3原标注schema，4两套标注同源join与revision，5同类重复实例可辨识性，6重叠动作边界指标，7强相关TAL/TMR先例，8来源分组/真实PTS/媒体版本，9短视频向长视频外推限制，10五门科研GO/NO-GO与唯一真正新增信息行动。Codex**只能**创建5份脱敏Markdown并向`docs/codex-results.md`追加一条总报告（共6处），不新增toy或改旧报告，单次提交后停止。
+
+**安全约束不变**：目前用户没有授权下载即使3MB的注释压缩包、13GB视频、STA Drive文件、模型权重，也没有批准CPU解码/GPU/问答运行；0原Windows源资产/conda/CUDA/锁/账本更改、0人工标注、0外部联系、0隐私身份/答案上传。只有许可、字段和新颖性门有进一步必要且有效时，才向用户**单独申请最小标注包下载许可**；全部不达标则STOP。历史BATCH-007 ACCEPTED、M1/M2/M3 retain0；VLM-003/004依旧BLOCKED。继续使用原Codex聊天。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
