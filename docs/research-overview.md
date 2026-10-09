@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户批准独立ffprobe工具获取/隔离部署，BATCH-014唯一READY，尚未执行）  
+> 更新：2026-10-09（北京时间；BATCH014因Gyan工具直连ZIP超时安全停机，工具未安装；等待用户续传/暂停决策，无READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -97,7 +97,8 @@
 | Charades两视频官方Range与CPU时钟核验 BATCH-013 | **STOPPED_SAFELY（原任务已结束，0媒体传输）** | Codex，ChatGPT审查 |
 | BATCH-013-FIX受限协调器/ZIP64补齐 | **ACCEPTED_CODE_ONLY（合成27 PASS报告，0真实媒体）** | Codex，ChatGPT审查 |
 | 独立CPU ffprobe工具门 VLM-CPU-TOOL-GATE-014 | **USER_APPROVED_ISOLATED_FFPROBE_INSTALL（有限授权、尚未执行）** | 用户、ChatGPT |
-| 发布者SHA固定的独立ffprobe部署 BATCH-014 | **READY（工具ZIP总GET≤150MiB；不发媒体请求）** | Codex |
+| 发布者SHA固定的独立ffprobe部署 BATCH-014 | **STOPPED_SAFELY / CPU_TOOL_BLOCKED（部分ZIP超时；0部署）** | Codex，ChatGPT审查 |
+| 工具部分包恢复或止损 VLM-CPU-TOOL-GATE-015 | **WAIT_USER_CONTINUATION_CHOICE（非READY）** | 用户、ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -459,6 +460,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **新唯一READY任务**：[VLM-BATCH-014十项隔离工具任务](./codex-artifacts/VLM-BATCH-014/README.md)要求：（1）旧项目/唯一READY/无旧父结果，（2）原实验树与真实LOCALAPPDATA/云目录物理隔离、磁盘≥1GiB，（3）FFmpeg→Gyan供应链及固定SHA+GPL说明，（4）至少12个纯合成安全用例先PASS，（5）明确禁代理/TLS/重定向、工具全部GET正文合计**≤150MiB**、本地总占用**≤512MiB**、一次成功ZIP下载有限重试，（6）标准库ZIP中央目录/路径/ZIPCRC/压缩安全且只提取唯一`ffprobe.exe`及必要许可，（7）绝对私有路径一次`ffprobe -version`健康检查，不读任何视频/CSV，（8）**只静态审查**原BATCH013-FIX网络协调器可能默认继承Python系统`ProxyHandler`的风险，不修改/放行该媒体客户端，（9）用户隐私/预算/供应链收据，（10）工具、视频和科学门分别记录并停止。只交2份脱敏报告、2份新的纯标准库安装器与synthetic unittest、`docs/codex-results.md`末尾1条父任务回报，共5处；不能提交.exe、ZIP或私有安装路径、历史代码/计划改动。
 
 **仍在HOLD的媒体门与科学限度**：BATCH013原父任务已STOPPED_SAFELY并上传回报，不能重跑；BATCH013-FIX是ACCEPTED_CODE_ONLY，虽然27个合成用例由执行者报告通过，但真206/ZIP64/packet媒体时钟未验证。当前`urllib.request.build_opener(NoRedirect())`对媒体HTTP默认代理配置存在风险，需要后续独立新父任务**修复/验证无代理**后，才能考虑已有限授权的最多2个Charades视频、媒体全部GET正文≤64MiB和本地媒体≤128MiB的V1试点。014取得独立ffprobe也不会自动消费媒体授权或建立时间真值。Charades A官方25点frame label已限域VERIFIED；B时间边界质量/C同类事件实例真值继续HOLD，创新retain0、单独自然长时域验证FAIL、GPU仍BLOCKED。
+
+### 2026-10-09 · BATCH-014工具下载安装超时后验收：部分包保留，禁止重跑（最新）
+
+**已验收文件与可信度**：[提交6bec3ab](https://github.com/floomeer83felix-source/vlm/commit/6bec3ab3e7e41571b8878e30c36b26ca710fd060)严格5处（[供应链与隔离收据](./codex-artifacts/VLM-BATCH-014/tool-source-integrity-and-isolation.md)、[就绪/代理门](./codex-artifacts/VLM-BATCH-014/ffprobe-readiness-and-proxy-hold.md)、新`prototypes/isolated_ffprobe_installer.py`及虚构unittest、`docs/codex-results.md`只追加一个014结果）。Codex执行者报告安全sync/固定隔离预检、FFmpeg官网→Gyan.dev第三方x64/GPLv3发布来源与9.0.2同站checksum固定`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`一致，工具客户端显式`ProxyHandler({})`/TLS/NoRedirect。首次合成测试发现长度超额剩余预算预读未拒绝并修复，随后修正新根父目录处理，**最终16个synthetic unittest通过（执行者本地回报，ChatGPT静态阅读源码/方法，未独立在Windows跑）**。这属于按安全边界合规终止的工程交付，而不是工具可执行性PASS。
+
+**硬资源收据与根因**：所有本轮GET正文**13,186,907字节**，包括官网文本27,484B、Gyan页52,159B、发布方checksum64B以及**固定9.0.2 ZIP GET仅13,107,200B后直连socket timeout**；4次GET/3次HEAD，ZIP成功全包0、额外重试0。私有部分ZIP和持久账本两个文件共13,107,774B，精确峰值存储UNKNOWN，保守上界14,155,776B；工具完整包SHA、真实ZIP结构/CRC、解压和`ffprobe -version`均**未执行/UNKNOWN**，0 ffprobe.exe安装。发布者SHA文本匹配不是实际不完整ZIP SHA已验证。原文档checkout除本次5处外没有其他变更，0原Windows实验工作区/Conda/CUDA/模型/锁/旧数据修改，0 Charades媒体/Range/PTS/帧/STA/GPU。
+
+**专门留待未来的新门，不作自动补救**：`VLM-BATCH-014=STOPPED_SAFELY / CPU_TOOL_BLOCKED`，014回报已经存在，不允许Codex重跑原父任务、覆盖part/账本/从零算150MiB。当前唯一`VLM-CPU-TOOL-GATE-015=WAIT_USER_CONTINUATION_CHOICE`（**没有READY**）；如果用户愿意继续，应另行制定单个有界新父任务，优先核实原冻结对象的Content-Length、稳定ETag与206 Range续传可行性，并验证现存私有part长度/最后位置/文件hash与原累计账本**连续记账**；如果不支持可靠续传则STOP、不能换镜像或一次性任意重下工具，未取得新执行权限不能发任何新工具正文GET。不得因历史“允许下载ffprobe”自动反复重试，需用户选择新方向。若暂停则保留现状，不删除用户部分文件。
+
+**学术和网络门仍未改变**：[BATCH013-FIX媒体网络客户端](../prototypes/charades_range_media_clock_pilot.py)还存在`urllib.request.build_opener(NoRedirect())`隐式ProxyHandler风险，014工具安装器禁代理不能替媒体端背书。CPU工具即使未来安装成功，仍需新媒体验证协议及代理防回归；目前视频GET/真实packet-PTS均0，B时间质量与C事件真值继续HOLD，Charades作为自然长视频独立基准FAIL，原始方法创新retain0，模型/GPU不可用。本轮ChatGPT只更新GitHub任务看板/总览，未访问用户Windows/工具部分包或触发后台下载。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
