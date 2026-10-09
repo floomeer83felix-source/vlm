@@ -213,3 +213,24 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 至少8747条差额在1—5的CSV秒尺度内，不能都解释为≤0.1微小舍入，但不能据此证明单位错、数据坏或固定剪辑偏移。P1和P2多数记录候选与异常行共存，77—347组／30443—97723 pair只是两种数值口径的关联计数变化，不是可靠事件或QA数界。下一唯一支持需求是可独立核验的同版标注／媒体时间坐标说明，由ChatGPT另行限定；不联系作者、不获取媒体或自动建012。
 
 本轮研究HTTP／数据下载0B、0GPU／模型／QA／训练／评分／视频／STA／特征／真实解码、0原研究环境／锁／账本改动、0外部联系／新标签／PR合并／后台自动化。只上传上述2报告＋2新纯stdlib文件＋本追加，原009/FIX/010结果及计划／总览均保留，成功push后停止并保留原聊天。
+
+### VLM-BATCH-012 2026-10-09 18:22 北京时间 — 官方采样合同对齐；A限域VERIFIED／B与C HOLD
+
+基线main72eee14，安全同步并核唯一READY／无重复回报，读取AGENTS、协议、010/011及最新任务书。仅新[源码政策报告](codex-artifacts/VLM-BATCH-012/official-evaluator-code-and-policy.md)、[三层宏观对照](codex-artifacts/VLM-BATCH-012/three-tier-aggregate-and-go-no-go.md)、[标准库对齐器](../prototypes/charades_official_time_alignment.py)、[合成测试](../prototypes/test_charades_official_time_alignment.py)及本条，共5处；原CSV、旧代码／结果、计划／总览不改。
+
+| 任务 | 状态与真实证据 |
+|---|---|
+| 1 | DONE：固定root身份及ZIP/train/test/类表SHA与冻结值一致；类表157，原包额度不再获取，无源树写入 |
+| 2 | DONE：只读中央目录安全验证后，内存读取唯一Charades_v1_localize.m，4649B/155行，SHA83eb3a2f30c87cc45db76235886f8d5331edb943acfdee8bab5656c5d51e0096，目标CRC PASS；未打开其他脚本文本／提取／执行.m |
+| 3 | DONE：A标签构造、B互斥质量与非互斥flags、C事件真值分别冻结；原token全分母66500，无截断／缩放／统一舍入 |
+| 4 | DONE：按源L22/24、L125/138/141、L58，25点binary64先除后乘、两端inclusive、同类bool OR；实际有限可解析端点及正length路径模拟，无帧矩阵／score输出 |
+| 5 | DONE：先运行19合成方法，1次19 PASS、0 FAIL/ERROR/SKIP，suite0.007秒（不含启动）；覆盖越界命中、短段miss、零/极短length、同类合并、浮点次序与隐匿，后才统计真实CSV |
+| 6 | DONE：实际只读聚合1次；official正cell530129/175341，总705470，strict301498/96789，总398287，额外307183，占official43.54%；全cell分母38653400；这是标签差异，不是mAP或模型错误 |
+| 7 | DONE／B HOLD：within46875，crosses_end及关联大边际隐藏，starts_outside合法类别0，invalid小格隐藏；end>L/start≥L质量flags保留。至少19000条end>L且strict拒绝记录仍网格命中（固定1000宽粗桶），不认证原端点正确 |
+| 8 | DONE／C HOLD：旧strict合法记录本轮均命中点，strict∩grid-hit仍P1=347/P2=97723；其270组/67280对关联另含strict拒绝token的行；纯official point labels扩大为精确event候选NOT_COMPARABLE |
+| 9 | DONE：小格、父子差额、linked Train/Test/Total和quality关联计数在实跑前已设抑制；只公开宏观cell与粗桶，真实行／IDs／矩阵／原.m全文／私人路径／本地JSON均不上传 |
+| 10 | DONE：A VERIFIED_WITHIN_STATED_SCOPE用于短域label政策工程对比；B TIME_RANGE_QUALITY HOLD，C EVENT_TRUTH HOLD，创新retain0、Charades自然长域单独FAIL、PTS未知、GPU BLOCKED |
+
+源码明确t=(j−1)/25·L、s≤t≤e，而非先end≤L过滤；因此旧strict不应被称作官方frame-label构造。模拟保持double操作次序及原端点，不产生mAP，未验证MATLAB/JIT／跨语言解析全域逐bit重现或媒体帧身份。正class/point cell是同类OR后的统计，不是动作token／实例／独立N；official额外cell不意味着19,625条都是真实正确。
+
+本轮源SHA和中央目录／目标CRC只读，旧CSV及旧原型未改；真实CSV分析1次，规则未按真实数据调整。0研究HTTP／新包／视频／STA／Ego／帧／特征／模型下载、0GPU／QA／训练／预测评分／真实解码、0执行MATLAB、0原隔离树／manifest／研究环境／锁／账本写入、0外部联系／人工标签／PR合并／后台任务。发布只含5规定产物，原始数据继续固定隔离保管；成功push后停止，保留原聊天，不自动安排013或解除科学门。
