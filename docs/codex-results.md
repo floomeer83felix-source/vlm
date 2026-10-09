@@ -136,3 +136,24 @@ toy枚举117种观测模板、336个一致世界—观测配对；理想三值�
 仅暂列P1／P2两项未验证测量问题，各需一次固定revision的资格计数作为新增事实，不是已证实创新。下一步只建议由用户／ChatGPT另审原Charades约3MB官方注释评测包的最小授权、独立保管和脱敏计数；此批未下载、不创建数据目录，不自动放行STA、13GB媒体、GPU或下一包。
 
 资源：12个不同直接官方网页／论文HTML均200，正文响应794823B；另一次3query定位检索，搜索工具网络流量未计量，不把正文字节当全部流量。未打开PDF／Drive／zip／视频／标注或特征文件；0真实模型／GPU／QA／训练／评分、0视频解码、0原研究代码／环境／锁／账本修改、0历史实验／toy重跑、0私有身份或答案读取、0外部联系／Issue／新标注／付费API／PR合并／自动化。仅提交指定5报告及本条追加共6处，成功push后停止，保留当前聊天。
+
+### VLM-BATCH-009 2026-10-09 14:46 北京时间 — BLOCKED_STORAGE_REALPATH_MISMATCH／NO_DOWNLOAD
+
+基线main71a24ab，安全同步并重新读取最新唯一READY任务及冻结协议，确认无本批先前记录。用户已批准非商业研究的官方单包元数据分析；**硬路径复核失败即停止，不放宽检查或改变目录**。报告：[下载前置与schema阻塞](codex-artifacts/VLM-BATCH-009/download-integrity-and-schema.md)、[资格与科学停止决定](codex-artifacts/VLM-BATCH-009/qualification-and-science-decision.md)。
+
+| 任务 | 本轮状态／实际事实 |
+|---|---|
+| 1 | DONE：官网license与BATCH-008正文逐字节一致；确认仅原官方小包、非商业、隔离统计和禁止分发 |
+| 2 | BLOCKED：固定变量路径的PowerShell父子隔离／reparse／4个已知云根／空间≥150MiB和新目录写测试先PASS，下载前Python absolute/resolve一致性复核报STORAGE_REALPATH_MISMATCH；最终不通过 |
+| 3 | HEAD_ONLY／NO_DOWNLOAD：唯一官方HTTPS S3锚点，HEAD200/application-zip、3519822B，ETag/Last-Modified已记录；**数据GET0、成功0、重试0、落盘正文0B**，archive SHA／实际ZIP大小UNKNOWN |
+| 4 | UNKNOWN／未开始：无ZIP，签名／CRC／中央目录不能验收；新工具只做合成安全逻辑测试 |
+| 5 | UNKNOWN／未开始：未解压、未取得真实CSV/header/encoding/class table，不执行包内代码 |
+| 6 | UNKNOWN／未开始：真实行、非法区间／ID／缺字段／重复分母未统计，不能填0异常 |
+| 7 | UNKNOWN／未开始：P1所有实际候选数和分母未知，无ordinal/negative问题生成 |
+| 8 | UNKNOWN／未开始：P2所有实际pair/group/video总数未知，无模型／因果／边界结果 |
+| 9 | UNKNOWN／未开始：真实subject交集、时长与source/PTS/clip版本均未取得新证据 |
+| 10 | DONE（停止裁决）：STOP_OR_UNKNOWN、DATA_SCHEMA未验证、候选统计UNKNOWN；长域单独确认继续FAIL，机制retain0，不安排下一下载／GPU任务 |
+
+新[通用标准库工具](../prototypes/charades_metadata_audit.py)及[合成测试](../prototypes/test_charades_metadata_audit.py)没有真实行、身份或私人路径。Python3.9.21两轮suite：首次13方法中12通过、1个反斜杠成员子断言失败（Windows ZipInfo规范化掩盖原始名）；补原始成员名／NUL／特殊字符／文件父路径冲突检查且保留断言，第二轮13 PASS、0 FAIL/ERROR/SKIP。两轮suite各0.002秒，不含启动；发生在数据获取之前，不代表真实ZIP／CSV通过。未运行实际CSV审计CLI。
+
+实际网络仅当前官网／license／README三项文本及数据HEAD，无数据正文请求。隔离目录仅最小准备与来源HEAD元数据，无.part／ZIP／CSV；路径失败后不作进一步诊断、不修改目录或比较规则。0视频／STA／Ego／模型／特征下载、0真实模型／GPU／QA／评分／解码、0原研究资产／环境／锁／账本变更、0私人答案／来源映射读取、0外部联系／新标注／PR合并／历史重跑／自动化。仅提交规定5处并停止；后续应由用户／ChatGPT另审只读路径诊断，不重做本已回报父任务，保留同一聊天。
