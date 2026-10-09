@@ -75,3 +75,22 @@
 - **B 完成／CPU实测**：仅修改[标准库toy](../prototypes/toy_g1_contract.py)与[测试](../prototypes/test_toy_g1_contract.py)。保留原10方法、增8负例，强制≥3有序非重叠区间，拒无效端点；粗bin相同细时间不同明确UNKNOWN，真实token仍UNKNOWN，保护组件不被缺证据洗白。Python3.9.21本轮1次18过、0失败／error／跳过，suite0.010秒，不含启动。
 - **C 完成／待选择**：[路线裁决](codex-artifacts/VLM-BATCH-005/research-path-decision.md)。路线1仅在许可、无答案必要支持、同版PTS和≥40保守源等证明成立后再申请G1；否则建议停止gold覆盖前提，另审无参考区间真值鲁棒性问题，列时间、画质、token与检索四类替代解释。用户需决定是否咨询或调整命题，没有新科学结果。
 - **资源与停止**：0模型／GPU／QA、0视频解码／媒体下载、0外部联系、0原研究资产及环境修改。只提交本轮5处；完成后停止，不再默认静态调查，VLM-003／004仍BLOCKED。
+
+### VLM-BATCH-006 2026-10-09 09:22 北京时间 — 完成（证据缺口保留；NO_GO_OR_PIVOT）
+
+基线main328f450，重新读取最新版十项README；路线2不再用gold必要区间构造输入。四份报告链接：[新颖性与识别性](codex-artifacts/VLM-BATCH-006/novelty-and-identifiability.md)、[静态门](codex-artifacts/VLM-BATCH-006/static-readiness-gates.md)、[预注册与toy](codex-artifacts/VLM-BATCH-006/prereg-and-toy-tests.md)、[综合裁决](codex-artifacts/VLM-BATCH-006/scientific-decision.md)。
+
+| 任务 | 状态与事实 |
+|---|---|
+| 1 | UNKNOWN：核查5直接先例，4个预印本方法／消融HTML；RL正式全文、MIF最终版细节未取得，不推为新空白 |
+| 2 | DONE：普通S_q/S_t等已有直接重合；S_shuf和措辞路径因子独特性仍UNKNOWN |
+| 3 | DONE：列10项强反解释与未来控制，仅策略总体效应，不作注意力因果宣称 |
+| 4 | DONE：静态追踪现question→SigLIP→旧MMR12→IMAGE/Qwen；query与prompt共用字段，无新执行 |
+| 5 | UNKNOWN：新QA／媒体许可与目标版隔离未确认，旧终态scorer代码存在不代表新数据通过 |
+| 6 | UNKNOWN：真实PTS／clip／来源门缺实证；450缺项不是污染数，不重哈希或复用封存 |
+| 7 | UNKNOWN：真实token、时间漂移、selector／wall成本未实测，12帧不保证等算力 |
+| 8 | DONE：来源组等权Δ及全失败分母、缺臂边界、检验条件和功效UNKNOWN参数明确 |
+| 9 | DONE：新[标准库toy](../prototypes/toy_route2_pairing.py)和[unittest](../prototypes/test_toy_route2_pairing.py)；Python3.9.21本轮1次11 PASS、0 FAIL/ERROR/SKIP，suite0.001秒，原toy未改 |
+| 10 | DONE：NG0普通新方法FAIL、窄设计UNKNOWN；NG1/NG3 UNKNOWN，NG2现接口不满足及新证据UNKNOWN；结论NO_GO_OR_PIVOT |
+
+直接取得9个官方HTML响应共2129480B，未超12页；论文编号定位另用少量检索工具，方法结论只据官方实读资料。0 PDF／媒体／完整标注下载、0模型／GPU／QA／真实评分、0视频解码、0原研究资产／环境／锁／账本修改、0外部联系／PR合并。仅提交4报告＋2新toy＋本条回报共7处，完成即停，VLM-003／004继续BLOCKED。
