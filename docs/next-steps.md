@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；BATCH013因无ffprobe安全停止，FIX仅代码交付验收，等待工具独立审批；无READY）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；用户批准隔离安装CPU ffprobe，BATCH-014唯一READY、未执行；视频仍HOLD）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -31,12 +31,13 @@
 | VLM-RESEARCH-GATE-013 | P0 | **USER_APPROVED_V1_CONDITIONAL（视频许可已批准，非实际下载）** | 用户、ChatGPT | 用户已额外批准最多2段Charades官方480p视频、远程GET正文累计≤64MiB、本地视频/临时文件≤128MiB，以及仅现有CPU容器和packet-PTS时间钟核验 | [已批准V1试点提案](./charades-media-boundary-pilot-proposal-2026-10-09.md)与[受限BATCH-013任务](./codex-artifacts/VLM-BATCH-013/README.md)；13GB整档、画面查看/解码、STA、GPU/模型与原科研目录仍禁止；按需Range不可行立刻STOP |
 | VLM-BATCH-013 | P1 | **STOPPED_SAFELY（缺既有ffprobe，0媒体/GET）** | Codex，ChatGPT审查 | V1前置：SHA/源目录及工具检查，阻塞后仅交离线合成HTTP/ZIP安全组件 | [原013提交f86a1e8](https://github.com/floomeer83felix-source/vlm/commit/f86a1e8e7a2e31b40d9c1bd7f1b135d16ae25204)：规定5处交付；ffprobe有限范围未找到、16合成用例PASS（执行者报）、0网络请求/0视频；原父任务**已结束，禁止重跑** |
 | VLM-BATCH-013-FIX | P1 | **ACCEPTED_CODE_ONLY（ZIP64/协调器/执行门；27合成测试）** | Codex，ChatGPT审查 | 原013完成后独立修补Python协调器/ZIP64/私有ledger/下载+packet-clock合成链路与防重复执行；本轮只有3处提交 | [提交75af33c](https://github.com/floomeer83felix-source/vlm/commit/75af33c56342bce4af94f7d70d1cada7ebdb8667)：2源码+1结果，执行者报27/27合成PASS、0真实媒体GET、0ffprobe；**代码未通过真实206/PTS环境验证，不是媒体实验GO** |
-| VLM-CPU-TOOL-GATE-014 | P0 | **WAIT_USER_TOOL_SCOPE_APPROVAL（非READY）** | 用户、ChatGPT | 缺CPU ffprobe；是否单独批准下载/部署经独立核来源与体积校验的工具到`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`，不更改全局PATH/conda/原实验目录 | 即使以后批准安装，仍须先复核代理默认继承风险（`urllib.request.build_opener`默认可能读取系统代理，和“不得经代理取媒体”边界冲突），网络客户端安全审查与新父任务单独READY；**不能自动重做013或进行Range/视频访问** |
+| VLM-CPU-TOOL-GATE-014 | P0 | **USER_APPROVED_ISOLATED_FFPROBE_INSTALL（有限部署授权，不是安装已完成）** | 用户、ChatGPT | 用户已明确允许只为CPU packet-PTS试点在独立`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`取得、校验并部署一个ffprobe，禁止PATH/Conda/GPU/媒体 | FFmpeg官网推荐的[Gyan.dev Windows构建](https://www.gyan.dev/ffmpeg/builds/)9.0.2 Essentials ZIP约109MB、发布方固定SHA和GPLv3；严格150MiB工具GET总正文/512MiB私有磁盘，完整协议见[BATCH-014](./codex-artifacts/VLM-BATCH-014/README.md)；没有授权重跑013或视频Range |
+| VLM-BATCH-014 | P1 | **READY（仅隔离部署CPU ffprobe，媒体代理安全继续HOLD）** | Codex | 10项：已有环境及源/校验SHA固定，ffmpeg.org→Gyan来源链、纯合成下载/ZIP test先PASS，≤150MiB工具包，固定SHA，ZIP白名单只提取ffprobe及许可证，隔离运行一次`-version`，静态审计013-FIX默认ProxyHandler风险 | [完整任务书](./codex-artifacts/VLM-BATCH-014/README.md)：公开只交2份脱敏报告+2份独立通用std-lib工具安装/合成test源码+1条父回报；不修改旧媒体协调器，不发任何Charades媒体请求/查看画面/GPU；工具就绪后仍须另行创建新媒体父任务并先修代理风险 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前没有任何READY父任务。** [BATCH-013原结果f86a1e8](https://github.com/floomeer83felix-source/vlm/commit/f86a1e8e7a2e31b40d9c1bd7f1b135d16ae25204)在本机未定位到既有、非原科研conda的CPU`ffprobe`时按协议**安全停止**：metadata哈希与有限路径检查据执行者回报PASS，但存储预检未全部执行；真实官方网页/HEAD/Range GET全0、媒体正文0B、最终视频0、PTS未知。原013交付2份脱敏报告、2份合成安全源代码、1条父结果共5处且**不可重跑**。其后[独立修复75af33c](https://github.com/floomeer83felix-source/vlm/commit/75af33c56342bce4af94f7d70d1cada7ebdb8667)只改同两份通用Python与追加1条FIX收据共3处，执行者报告合成测试从16扩至27且27全PASS，增加单盘ZIP64 EOCD/extra、持久化网络账本、两成员传输/CPU packet时钟mock协调及父任务防重复入口，**不包含实际媒体或服务器测试**。ChatGPT只审查GitHub源码/报告，没有远程运行用户Windows；静态复核另发现`urllib.request.build_opener(NoRedirect())`仍可能继承系统代理配置，在真实GET之前必须补足“禁代理直连”证明/修复。用户原有**最多两视频/64MiB总正文/128MiB本地/仅CPU packet-PTS**的条件授权不等于工具安装或旧父任务重复执行许可。当前`VLM-CPU-TOOL-GATE-014=WAIT_USER_TOOL_SCOPE_APPROVAL`，等待用户针对隔离CPU ffprobe工具获取/部署单独决定，并须在任何未来联网操作前审查代码安全和新父任务；0新READY，0外网媒体/ffprobe/GPU，B/C时间真值继续HOLD。
+**当前唯一READY父任务是VLM-BATCH-014：经用户独立批准的Windows本地CPU`ffprobe`隔离部署；尚未安装，也不得执行Charades媒体试点。** 来源冻结为[FFmpeg官方预编译Windows入口](https://ffmpeg.org/download.html#build-windows)所列[Gyan.dev](https://www.gyan.dev/ffmpeg/builds/)发布的9.0.2 release essentials ZIP（供应商页约109MB），固定`https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip`与发布方SHA256`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`，先验证官方页面/同站checksum与该固定指纹一致，否则STOP。不把发布方SHA误称独立数字签名。工具下载所有GET正文总限150MiB、工具压缩及解压/临时/许可本地占用总限512MiB，最低剩余磁盘1GiB、仅新建`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`且不能碰原Windows RTX3090研究工作区/Conda/PATH/同步目录，只有`ffprobe.exe -version`可调用，0视频/视频Range/packet-PTS/媒体GPU。本批单独交2份脱敏报告/2份stdlib新源码+1条Codex结果，先通过纯合成反例测试、再限额联网下载部署，失败安全STOP。之前BATCH-013已经STOPPED_SAFELY，013-FIX只验收27项合成代码；原网络协调器`urllib.request.build_opener(NoRedirect())`可能继承系统代理，**媒体代理直连安全=HOLD**，014仅提供代码风险报告，不修改已完成父任务、不解封媒体V1。用户需在原Codex聊天主动启动014；GitHub READY并不表示有后台下载。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -344,7 +345,9 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **十项执行与严格交付**：[BATCH013完整README](./codex-artifacts/VLM-BATCH-013/README.md)顺序为①授权/环境/源SHA②确定性私有样本③官方Range协议④安全ZIP索引⑤仅需两MP4受控下载⑥CPU ffprobe packet时间⑦与CSV时间合同比对⑧科学止损⑨预算/身份/合成单测⑩三层裁决；第⑨测试**必须在任何真实GET之前通过**，允许前置排列。只交5处：`docs/codex-artifacts/VLM-BATCH-013/`2份**脱敏**报告；`prototypes/`2份不含真实数据的通用stdlib代码和合成unittest；`docs/codex-results.md`末尾1条013父结果。**单次普通push后STOP**；任何下载失败/源无法安全索引即`BLOCKED`，不是必须花完授权额度。
 
-## 十九、BATCH-013-FIX已验收代码交付，CPU工具与联网安全仍待审批（无READY）
+## 十九、BATCH-013-FIX代码交付验收与CPU工具授权更新（历史）
+
+**后续状态更新**：本节此前称“未获工具安装许可”，但用户已在2026-10-09明确批准**仅独立CPU ffprobe工具**的下载/隔离安装。原013不可重跑；当前唯一READY为下方BATCH014。媒体访问/代理直连仍HOLD，详见[工具任务](./codex-artifacts/VLM-BATCH-014/README.md)。以下旧文本保留为决策历史。
 
 **明确区分父任务和修复**：原013提交[f86a1e8](https://github.com/floomeer83felix-source/vlm/commit/f86a1e8e7a2e31b40d9c1bd7f1b135d16ae25204)完成5处交付，但由于PATH、常见位置及有限登记runtime候选未找到既有ffprobe，正确在第1项停止。没有选真实视频、未访问官网Range/HEAD、媒体GET/正文0B、PTS/clock UNKNOWN；不能称已下载失败或官方服务器不支持206。新的[75af33c代码修复](https://github.com/floomeer83felix-source/vlm/commit/75af33c56342bce4af94f7d70d1cada7ebdb8667)共3处：更改已有通用协调器与synthetic unittest、`docs/codex-results.md`追加一条独立`BATCH-013-FIX`，没有再次运行原013。Codex报告5轮合成测试最终27/27 PASS，ZIP64/受限传输/本地ledger/取两成员/mock-ffprobe链条与父任务完成后禁止执行检查得到合成覆盖；**ChatGPT仅核文件/源码及测试方法，未在用户Windows实测或真实GET**。这只能标`ACCEPTED_CODE_ONLY`。
 
@@ -352,7 +355,19 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **唯一待用户决定的`VLM-CPU-TOOL-GATE-014=WAIT_USER_TOOL_SCOPE_APPROVAL`**：是否批准由Codex在**不触碰原科研环境、不改PATH/Conda**的独立`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`部署一个经过公开来源、哈希与安装体积审计的**CPU ffprobe工具**，只为未来V1 packet-PTS研究使用。**目前没有安装许可**；来源、最终文件大小、合法分发与下载预算亦未最终冻结，故不得自行下载或安装。若用户同意，先只建立独立来源/体积核验的最小协议；同时由ChatGPT检查代理防护并另授新唯一READY父任务，**不重跑已结束013**。如果拒绝则保持媒体试点阻塞，原≤2视频/64MiB许可不会自动扩大。B/C事件真值、GPU和视频画面仍HOLD。
 
-## 二十、当前研究判断（跨批保持）
+## 二十、VLM-BATCH-014：独立ffprobe工具供应链/最小部署（当前唯一READY）
+
+**新增明确用户授权（2026-10-09）**：允许我们**仅在**Windows`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`部署经来源、发布方SHA与体积核验的CPU ffprobe，不改原Conda/PATH/研究工作区/CUDA或其它软件，不自动启动视频/媒体/Packet-PTS、GPU/视觉。ChatGPT这轮只更新Github任务与研究文档，**没有访问用户Windows、没有下载工具或视频**。
+
+**独立供应链依据**：[FFmpeg官方](https://ffmpeg.org/download.html#build-windows)公开承认直接只提供源码并给出Windows预编译[Gyan.dev](https://www.gyan.dev/ffmpeg/builds/)入口。Gyan明确发布`ffprobe.exe`且其64位静态包按其说明为GPLv3，release essentials固定FFmpeg 9.0.2，ZIP页称约109 MB。本次**冻结而非使用随日期变化的latest**：`https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip`，与同发布者`.sha256`文本严格核对固定`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`。发布方SHA只是**同源完整性检验**，没有独立开发者数字签名证明；HTTPS重定向/包内容/许可版本任何一项改变就STOP。默认无代理直连、不安装7z、winget、conda或修改PATH。
+
+**资源限额与执行门**：本批**只针对工具**所有GET正文合计`≤150MiB`，私有ZIP/临时/只提取ffprobe与许可证总本地占用`≤512MiB`，磁盘剩余≥1GiB；必须检查实际LOCALAPPDATA/云同步/原工作区物理路径隔离及reparse、事先跑合成HTTP和ZIP安全单测≥12、无任意软件或数据执行；只有发布方checksum一致、完整ZIP SHA匹配、白名单ZIP安全、`ffprobe.exe -version`成功才标工具就绪。不得向公共Git提交工具包、exe或私人目录信息。
+
+**单一任务[完整README](./codex-artifacts/VLM-BATCH-014/README.md)共10项**：①项目/权限/单READY②隔离与磁盘③供应链/GPL和固定checksum④先做synthetic安全反例⑤无代理TLS/限额下载ZIP⑥安全CRC及白名单提取⑦独立exe仅`-version`⑧媒体网络协调器代理漏洞**静态**审查，留下一批修复⑨资源和脱敏收据⑩工具/媒体分门决定。**只允许5处GitHub交付**：`docs/codex-artifacts/VLM-BATCH-014/`2脱敏报告、`prototypes/`两份独立stdlib安装工具+纯合成测试、`docs/codex-results.md`末尾一次父任务回报。成功提交后STOP，原Codex聊天继续留存。
+
+**科研主门继续HOLD**：BATCH014成功仅是工具的`CPU_TOOL=AVAILABLE`，**不是**已从Charades官网取得两段媒体、更不是视频时钟/原标注结束点或P1/P2语义真值已验证。BATCH013及其FIX都已结束；后续必须先单独修复媒体客户端`urllib`代理继承问题，并由ChatGPT新建唯一READY父任务后才可在旧用户限额授权内考虑有界媒体访问。不能自动重跑013。TIME_BOUNDARY_QUALITY=HOLD，P1/P2 EVENT_TRUTH=HOLD，NOVELTY RETAIN0，长域FAIL作为Charades单独确认，GPU BLOCKED。
+
+## 二十一、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -360,7 +375,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 二十一、GitHub协作规范（不改变）
+## 二十二、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
