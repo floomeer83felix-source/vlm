@@ -94,3 +94,24 @@
 | 10 | DONE：NG0普通新方法FAIL、窄设计UNKNOWN；NG1/NG3 UNKNOWN，NG2现接口不满足及新证据UNKNOWN；结论NO_GO_OR_PIVOT |
 
 直接取得9个官方HTML响应共2129480B，未超12页；论文编号定位另用少量检索工具，方法结论只据官方实读资料。0 PDF／媒体／完整标注下载、0模型／GPU／QA／真实评分、0视频解码、0原研究资产／环境／锁／账本修改、0外部联系／PR合并。仅提交4报告＋2新toy＋本条回报共7处，完成即停，VLM-003／004继续BLOCKED。
+
+### VLM-BATCH-007 2026-10-09 10:24 北京时间 — 完成（RETAIN 0／STOP THIS PORTFOLIO）
+
+基线main3cbe50c，按最新版十项README研究M1／M2／M3；原选帧路线仅用公开历史摘要，不读原评分或重跑。五份报告：[先例与已否决路线](codex-artifacts/VLM-BATCH-007/prior-art-and-rejected-directions.md)、[候选机制规范](codex-artifacts/VLM-BATCH-007/candidate-mechanism-specs.md)、[形式边界与toy](codex-artifacts/VLM-BATCH-007/formal-limits-and-toy-results.md)、[可行性与强基线](codex-artifacts/VLM-BATCH-007/feasibility-and-baselines.md)、[最终否决](codex-artifacts/VLM-BATCH-007/downselect-and-stop-decision.md)。
+
+| 任务 | 状态与事实 |
+|---|---|
+| 1 | DONE：旧负结果与不可重投边界、至少5种换名否决；不把历史探索当确认 |
+| 2 | DONE／UNKNOWN：10个不同官方URL尝试，9个HTTP200；NeuS SSL失败；MIT定位实际为视觉论文，TMS方法UNKNOWN，不由缺全文宣称创新空白 |
+| 3 | DONE／NO-GO：M1三值一致世界合同；未覆盖且无可信正事件必须UNKNOWN，现实感知不满足toy oracle |
+| 4 | DONE／NO-GO：M2版本／源／证据依赖与撤销合同；普通完整依赖cache可模拟最小算子，OR／循环／冲突不由AND toy认证 |
+| 5 | DONE／NO-GO：M3允许观察到一致假设的映射；无gold筛选，强判别clue／版本空间规划可模拟，正式先例不足仍UNKNOWN |
+| 6 | DONE：同观测不同never的双世界、恒UNKNOWN零coverage、缓存等价及不可区分合法动作反例 |
+| 7 | DONE：新[标准库原型](../prototypes/toy_mechanism_counterexamples.py)与[测试](../prototypes/test_toy_mechanism_counterexamples.py)，共194行；Python3.9.21本轮1次12 PASS、0 FAIL／ERROR／SKIP，suite0.007秒，不含启动 |
+| 8 | DONE／UNKNOWN：三类独立真值、许可／隔离／PTS版本／来源／视觉验证器／资源门；必须新人工标签时当前授权NOT FEASIBLE，不取得实际标签 |
+| 9 | DONE：同计算对象、同输入／成本的三值监控／TMS/cache／判别clue强基线；全planned失败分母、source聚类和功效未知参数，不承诺真实QA次数 |
+| 10 | DONE／RETAIN 0：六门分别判定；未形成充分创新或现实GO。任务交付是否ACCEPT由ChatGPT审查；停止本候选组合，不擅自生成下一READY任务 |
+
+toy枚举117种观测模板、336个一致世界—观测配对；理想三值规则错误TRUE／FALSE均0，故意unknown→0产生89个假never认证配对。不是视频结果或新算法优势。新颖性审查使用用户指定GPT-6.1-sol ultra子任务。
+
+文献访问10个URL尝试／9响应，响应正文总3405089B；仅公开HTML，部分是摘要证据。1项SSL失败不绕过证书／重试，错误TMS定位不换页；URL及证据级别见先例报告。0 PDF／媒体／模型／完整QA下载、0 GPU／模型／训练／QA／真实评分、0视频解码／导帧、0原研究目录／环境／进程／锁／账本修改、0旧实验重跑／新人工标注／外部联系／付费API／PR合并／自动化。仅提交指定8处，成功push后停止本轮，保留当前聊天框。
