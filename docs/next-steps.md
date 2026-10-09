@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；用户选定Charades评测标准对齐，BATCH-012唯一READY；原CSV和GPU继续HOLD）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；BATCH012官方采样口径工程对齐已验收，B/C时间真值继续HOLD；没有READY任务）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -21,18 +21,19 @@
 | VLM-BATCH-007 | P1 | **ACCEPTED（10项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex | 历史与先例、M1/M2/M3形式定义、双世界反例、toy、数据/强基线及否决 | [d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)：5报告+2toy+1追加符合范围；执行者报12/12 CPU单测；M1/M2/M3当前算子均可由现有逻辑/依赖缓存/判别规划模拟，无新增核心机制通过 |
 | VLM-RESEARCH-GATE-008 | P0 | **CHARADES_SELECTED / EGO4D_DEFERRED（历史Ego4D未提交确认）** | 用户与ChatGPT | 因Ego4D表单报Failed to fetch，用户同意改用公开Charades／Charades-STA进行数据准入核验 | [新数据路径说明](./charades-entry-2026-10-09.md)：不是已下载数据/合法验证/新模型实验批准；原Ego4D申请意愿保留历史但不再是当前任务 |
 | VLM-BATCH-008 | P1 | **ACCEPTED（10项文档交付；数据/创新/长域GO仍HOLD）** | Codex | Charades许可、STA权利、schema/join、重复实例与重叠假设、来源PTS、长域缺口、五门裁决 | [提交2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)：严格5份脱敏报告+1条追加；Charades原license/schema仅文档条件准入，实际重复样本计数UNKNOWN，STA许可HOLD，普通新算法NO-GO，Charades单独长域FAIL |
-| VLM-DATA-GATE-009 | P0 | **USER_APPROVED_METADATA_ONLY（一次官方ZIP获取已完成，不可重下）** | 用户与ChatGPT | 用户非商业研究仅授权本地已取得Charades小包作为CSV/时间区间及评测代码对齐材料 | 现在可在[唯一BATCH012协议](./codex-artifacts/VLM-BATCH-012/README.md)内**只读打开固定ZIP里的官方定位评测器脚本文本、既有CSV和类表**，不执行.m、不解压源代码、不扩权到媒体/STA/GPU/原实验工作区、不可再次GET |
+| VLM-DATA-GATE-009 | P0 | **USER_APPROVED_METADATA_ONLY（官方下载已完成；仅读已有资料）** | 用户与ChatGPT | 已批准并完成唯一Charades官方注释ZIP取得；011/012只读核查及原评测脚本查验属于既定有限元数据用途 | **禁止第二次下载、原CSV/ZIP编辑、原始标注与脚本公开分发、视频/STA/GPU/模型使用及原实验目录变更**；BATCH012已结束，若需媒体/额外数据必须用户再明确批准 |
 | VLM-BATCH-009 | P1 | **STOPPED_SAFELY（路径名称误判；NO_DOWNLOAD）** | Codex | 授权与隔离预检、HEAD检查、通用元数据审计工具及合成测试；真实ZIP/CSV资格因保守路径阻塞未执行 | [首次提交bc16e38](https://github.com/floomeer83felix-source/vlm/commit/bc16e38eab35f454bc3e0ccc3c805c15c6009ed8)：5处约定交付，GET0/正文0B/P1P2 UNKNOWN；正确安全停止，**禁止原父任务重跑** |
 | VLM-BATCH-009-FIX | P1 | **ACCEPTED（路径身份检查修复；未下载）** | Codex | 修正Windows absolute/resolve仅字符串不等的误报，加入samefile/设备inode/双链无reparse与缺失叶核验 | [修复提交dda8481](https://github.com/floomeer83felix-source/vlm/commit/dda8481a330c4cfa1e734511ad59e7d8f7571d4f)：2通用Python改动+一条附加结果；执行者报告21项合成测试通过、固定路径只读复核PASS；**未独立核Windows，也未下载或读CSV** |
 | VLM-BATCH-010 | P1 | **ACCEPTED（一次官方下载与聚合交付；TIME_QUALITY HOLD）** | Codex | 官方小包1成功GET/3,519,822B、ZIP CRC/白名单、CSV schema、短域P1/P2记录候选聚合 | [提交8153a18](https://github.com/floomeer83felix-source/vlm/commit/8153a18af651afcbf0c5a455f3b61817e09755c0)：严格2报告+1追加、原源码不改；66,500区间中19,625不通过既定数值规则，主因end>length；资格数仅过滤子集临时值，**不放行模型/视频** |
 | VLM-BATCH-011 | P1 | **ACCEPTED（独立数值复算交付；时间语义HOLD）** | Codex，ChatGPT审查 | 只读原SHA固定CSV、官方README证据分级、互斥主因/δρ/异常行分布、独立复算P1/P2、测试及脱敏 | [提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)：精确5处交付；原66,500/19,625、P1=347、P2=97,723均复现，但**时间合同仍无同版媒体/标注桥接**；不可当最终真值/新算法证据 |
 | VLM-RESEARCH-DECISION-012 | P0 | **USER_SELECTED_CHARADES_ALIGNMENT（已决策，非READY）** | 用户、ChatGPT | 用户明确选择先修复Charades评测规则误配，暂不换数据集；但不批准原CSV编辑或数据/媒体/GPU再次获取 | [BATCH-012十项协议](./codex-artifacts/VLM-BATCH-012/README.md)：首先只读验证现有ZIP内官方`Charades_v1_localize.m`，再严格区分官方25时点相容性、越界质量、P1/P2语义；避免将评测兼容冒充真值修复 |
-| VLM-BATCH-012 | P1 | **READY（10项官方帧级评测对齐+三层质量分级；无下载/视频/GPU）** | Codex | 读取已获授权ZIP内官方localize脚本文本**仅内存只读、不执行**；用stdlib/合成测试交叉核对25时点标签谓词、end>length影响、质量类型与P1/P2保守资格差异 | [任务README](./codex-artifacts/VLM-BATCH-012/README.md)：只准2脱敏报告+2新通用stdlib文件+1条结果，不允许改原CSV、旧审计器、原研究环境；找不到同ZIP评测代码就HOLD/STOP而非声称已修复 |
+| VLM-BATCH-012 | P1 | **ACCEPTED（官方帧级label对齐；B/C时间真值HOLD）** | Codex，ChatGPT审查 | 固定ZIP原`Charades_v1_localize.m`只读源码与规则核对、纯stdlib 25点模拟/分层统计、19合成测试、匿名差异 | [提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)：恰好5处；官方正cell705,470、旧strict正cell398,287、差异307,183=官方正cell的43.54%；**只说明原strict不能代表官方frame-label政策，不认证视频端点/P1P2真值或新算法** |
+| VLM-RESEARCH-GATE-013 | P0 | **WAIT_USER_SCOPE_DECISION（非READY）** | 用户、ChatGPT | BATCH012工程标签口径已解决；是否需要未来一次独立授权、最小视频时钟/标注边界验证，或保留Charades为短视频工程对照并寻找合法真正长时域数据 | **目前不授权任何视频、STA、GPU、额外数据下载或原研究环境更改**；B/C仍HOLD，先定义单个新增证据、媒体许可、样本来源与费用上限后再询问用户。不能自动创建013 READY |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务为VLM-BATCH-012：用户已明确同意继续修复Charades的官方评测标准与我们原数值门槛的不一致，暂不换数据集。** [BATCH-011提交1aed0de](https://github.com/floomeer83felix-source/vlm/commit/1aed0dea70faa7a446e63637be4772f4668270a2)已被验收为数值复算，原66,500中19,625不满足自设的`0≤start<end≤length`；P1 347/P2 97,723都是旧strict规则下记录级候选。官方[README](https://prior.allenai.org/projects/data/charades/README.txt)规定localization取25个等间隔时间点，不等于要求每条动作end均≤length。**此次首先必须从固定SHA ZIP只读核`Charades_v1_localize.m`的真实谓词与单位/重叠规则，而不是仅依照README推断；然后分别报告A官方帧级评测label采样相容性、B时间区间越界/数据质量、C可用于重复实例/重叠时序QA科学真值，三层不互相提升。** 0第二次数据下载、0提取或执行脚本、0修改原ZIP/CSV和旧原型、0视频/STA/GPU/真实VLM、0改动原RTX3090工作区。仅允许通用stdlib纯CPU合成测试与匿名聚合。详细[10项协议](./codex-artifacts/VLM-BATCH-012/README.md)要求固定文件SHA、完整分母、不凭“官方兼容”宣布19,625条都正确、交付五处后STOP。科学创新retain0，Charades约30秒不能单独验证自然长视频。原Codex聊天由用户主动发送执行信号；GitHub更新不自动执行。
+**当前没有任何READY任务。** [BATCH-012提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)依README五处交付，执行者报告从SHA固定原Charades.zip中只读核对4649字节官方`Charades_v1_localize.m`原文与源码行；确认25个`(j/25)*length`采样点（j=0..24）、`start<=t<=end`、同类布尔OR，**官方不先要求`end<=length`**。纯stdlib模拟器19合成单测PASS，随后1次本机只读原CSV计算：官方正label cell705,470，对照旧严格准入后398,287，旧规则遗漏307,183个正cell（占官方正cell 43.54%）。总分母9,848视频×25点×157类=38,653,400 cells。**A OFFICIAL_LABEL_SAMPLING_COMPATIBILITY=VERIFIED_WITHIN_STATED_SCOPE**（只是原ZIP源码与标准库正标签政策；未执行MATLAB/mAP/媒体时钟）；**B TIME_RANGE_QUALITY=HOLD**（19,625条旧规则不通过不等于19,625条错误或已被修复）；**C P1/P2_EVENT_TRUTH=HOLD**（原严格规则347组同类重复与97,723异类overlap pair仍仅几何候选）。BATCH012已交付并停止，未来不能重跑该父任务。2025 ACL Perfect Times等直接先例仍需在新研究设计中扣除，长视频数据外推FAIL，创新retain0，GPU/视频/STA未批准。下一状态`VLM-RESEARCH-GATE-013=WAIT_USER_SCOPE_DECISION`（非READY）：先由用户决定是否为真实边界/媒体时钟的**最小新证据**另行批准合法视频访问，或把Charades保留短域基准而寻找真正长视频公开资源；不自动开新下载或GPU任务。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -302,7 +303,9 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **研究下一门`WAIT_USER_DIRECTION`而不是BATCH012自动READY**：A. 如果继续Charades，则先找到**无需未获授权媒体的可靠同版标注时间坐标来源、修订记录和与length同原点的证据**，并且提出相对于ACL2025 Perfect Times与TAL/TMR强基线独有的可辨识问题；若找不到则STOP Charades作为核心证据。B. 如果目标是自然长视频VLM创新，优先选择**可公开申请/无需审批而具合法原媒体和可验证时间真值、跨源独立的真正长时域基准**，重新单独授权最小必要数据；不要因Charades样本非零而继续无边界元数据/合成研究。用户未选定前0新READY、0第二次原Charades小包下载、0新数据/视频/STA、0GPU及原Windows资产改动。
 
-## 十六、VLM-BATCH-012：Charades官方定位评测标准与质量分层修复（唯一READY）
+## 十六、VLM-BATCH-012：官方定位评测政策对齐已验收（禁止重做）
+
+**以下十项为历史已执行计划，不再是Codex新授权。BATCH012只完成官方标签政策工程对齐，未修正原动作或通过媒体真值门。**
 
 **用户2026-10-09明确答复“同意”**：优先修复当前Charades的`end>length`检查与官方frame-localization标准的不一致，暂时不转向另一个数据集。此次是**口径/评测兼容性修复**，不是修改或重新发布原始标注。原ZIP和两个CSV仍在Windows固定隔离目录；用户没有批准任何新媒体、STA、GPU或原Windows研究环境改动。
 
@@ -312,7 +315,15 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **仅允许5处GitHub提交**：`docs/codex-artifacts/VLM-BATCH-012/`两份脱敏报告，`prototypes/`两份纯stdlib全新对齐器+合成测试，`docs/codex-results.md`末尾**一条**012父任务回报。0其它原始数据/标注/官方脚本全文上传、0旧程序修改、0源目录写入、0下载/视频/STA/推理GPU/训练、0原Windows研究文件/conda/锁/账本触碰。一个正常push成功后停止当前轮，由ChatGPT审查再决定是否仍需同版媒体时间证据或改数据集。**修复A不自动宣布B/C PASS**。
 
-## 十七、当前研究判断（跨批保持）
+## 十七、VLM-RESEARCH-GATE-013：官方评测口径已解决，科学证据范围待用户决策（无READY）
+
+**BATCH012审查报告**：[官方代码/政策](./codex-artifacts/VLM-BATCH-012/official-evaluator-code-and-policy.md)、[三层宏观对照](./codex-artifacts/VLM-BATCH-012/three-tier-aggregate-and-go-no-go.md)、[提交e46f1d7](https://github.com/floomeer83felix-source/vlm/commit/e46f1d794118c5c2efbb0f15f0fc84dad5d4f04b)。按唯一SHA固定Charades ZIP内官方评测器的文本静态证据，25点时间采样为`(j/25)*length`（零基j=0…24；对应MATLAB先除后乘操作次序），原动作class区间`start<=t<=end`两端包含，多同类动作仅令对应真值cell置1，而不是累积事件实例。官方frame-localization**不要求**先通过`end<=length`才构造正label；旧`0<=start<end<=length`是我们额外的严格时间区间资格筛选，不能代表官方评价政策。
+
+**三层结论不能串门**：A`OFFICIAL_LABEL_SAMPLING_COMPATIBILITY=VERIFIED_WITHIN_STATED_SCOPE`（仅限合法原ZIP评测器文本转义与有限规范数值模拟；未经MATLAB端到端mAP/媒体帧认证）；B`TIME_RANGE_QUALITY=HOLD`（仍有19,625原动作不满足额外strict规则，不能因frame-hit宣称每条端点真实正确）；C`P1/P2_EVENT_TRUTH=HOLD`（实例身份、完整正负事实、媒体PTS/同版映射、自然来源独立性尚无证据）。执行者报告官方正cell705,470、strict正cell398,287，差异307,183个（43.54%的official positive cells），非独立动作N，也不是mAP。原strict可评同类重复347组与异类交叠97,723对仍未升级科研真值。纯合成unittest 19 PASS，原CSV只读分析一次，ChatGPT仅静态审查GitHub结果，**未独立实算用户Windows上的原CSV**。
+
+**科学止损与下一最小证据门**：既有[ACL2025 Perfect Times](https://aclanthology.org/2025.acl-long.1000/)与动作时序QA工作使简单Charades时间QA缺原创性；Charades本身均长约30秒，不能单独提供自然长视频论文最终确认。为避免一轮轮工程复盘，暂停分配新任务：用户可选择①未来另行核定具体**合法小规模视频＋同版媒体PTS/帧时钟**证据以评估B/C（必须先明确授权、样本上限及隔离来源，现未允许），或者②把Charades保留为**短视频工程/官方frame-mAP对照**，先做无需下载的长域新数据集许可/时间合同研究方案，之后再明确授权所需数据。**任何选项都不自动放行GPU或原研究环境。** 无新用户指令前`VLM-RESEARCH-GATE-013=WAIT_USER_SCOPE_DECISION`、0READY、0媒体/STA/额外数据/模型调用。
+
+## 十八、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -320,7 +331,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 十八、GitHub协作规范（不改变）
+## 十九、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
