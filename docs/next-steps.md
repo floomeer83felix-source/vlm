@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；用户选择核心机制重立题，BATCH-007为唯一READY）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；BATCH-007已验收、机制创新retain0、当前无READY）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -18,12 +18,13 @@
 | VLM-ROUTE-006 | P0 | **ROUTE2_SELECTED（取代先前路线1）** | 用户与ChatGPT | 新主问题：无gold必要区间、固定12帧选帧策略与输入路径鲁棒性 | [新的科学预注册](./route2-no-gold-preregistration.md)及[创新初审](./route2-novelty-screen.md)；TRACE咨询稿保留UNSENT且不执行 |
 | VLM-BATCH-006 | P1 | **ACCEPTED（十项有界交付；科研NO_GO_OR_PIVOT）** | Codex | 文献/创新/混杂、静态接口/许可/PTS、统计合同及toy、科学决策 | [e581039](https://github.com/floomeer83felix-source/vlm/commit/e581039970106dbec741adf502e48e5f948adad4)：4报告、2 toy、1追加已审；执行者报11/11 CPU测试通过；普通 S_q/S_t 新算法NO-GO，窄2×2仍UNKNOWN |
 | VLM-DECISION-007 | P0 | **B_SELECTED（新机制研究，不继续旧采帧路线）** | 用户与ChatGPT | 保留长视频VLM高水平论文目标；旧S_q/S_t选帧/2×2提示仅作历史，不作为核心创新 | [机制重立题](./mechanism-reset-2026-10-09.md)与下一唯一READY BATCH-007；没有保留的创新机制 |
-| VLM-BATCH-007 | P1 | **READY（一次10项核心机制红队；0GPU）** | Codex | 1历史否决，2机制先例；3—5三个互斥候选；6理论反例，7纯符号toy CPU；8数据证据门，9强基线；10一票否决/至多保留一个条件候选 | [任务README](./codex-artifacts/VLM-BATCH-007/README.md)：5份脱敏报告+2个新toy Python+1条父任务汇总，严禁真实媒体/模型 |
+| VLM-BATCH-007 | P1 | **ACCEPTED（10项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex | 历史与先例、M1/M2/M3形式定义、双世界反例、toy、数据/强基线及否决 | [d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)：5报告+2toy+1追加符合范围；执行者报12/12 CPU单测；M1/M2/M3当前算子均可由现有逻辑/依赖缓存/判别规划模拟，无新增核心机制通过 |
+| VLM-RESEARCH-GATE-008 | P0 | **WAIT_USER_DIRECTION（不可执行）** | 用户与ChatGPT | 若仍寻求核心机制创新，须改变实质可辨识的科学对象/获得合法新证据，而非再换名或重复静态toy | 用户未提供明确新科学目标/可用实证资源前，无BATCH-008 READY；不授权GPU/下载/外部联系 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务：VLM-BATCH-007，内部10项有界、无GPU科学工作。** 用户明确选择原DECISION-007的B，旧BATCH-006已ACCEPTED且科研NO-GO，绝不重做。新研究先对**三个相互竞争的形式机制候选**建立反例、直接先例和可执行数据门；任何候选都未通过创新门，retain 0。Codex在原唯一聊天框安全刷新main，一次完成十项、提交8处指定文件后停止，不自动领取下一包。原Windows研究工作区/环境/锁/账本不动，0模型QA/GPU/真实视频/媒体下载/外部联系。TRACE咨询草案依旧UNSENT。
+**当前没有任何READY任务。VLM-BATCH-007十项交付已ACCEPTED，科研裁决为 RETAIN 0 / STOP THIS PORTFOLIO。** 现M1负证据债务=M1三值/开放世界监控同构、M2局部撤销=完整依赖缓存同构、M3答案区分义务=版本空间/判别clue规划同构；这是当前形式定义没有差异化运算，不是整领域不可能创新。新候选还缺可合法验证的负事件/依赖/可区分性真值、同版真实PTS与来源、可靠感知器、计算预算。下一状态 VLM-RESEARCH-GATE-008=WAIT_USER_DIRECTION：不再按用户偏好的10项数量硬凑新READY，未经新明确科学方向/资源授权不执行Codex、GPU、媒体或外部联系；原Codex聊天保留、TRACE草案仍UNSENT。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -183,28 +184,16 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - 原路线2：在无gold必要区间下，把问题相关选帧S_q与时间分层选帧S_t比较作为核心算法。已由 [BATCH-006提交e581039](https://github.com/floomeer83felix-source/vlm/commit/e581039970106dbec741adf502e48e5f948adad4) 所做十项审查否决**作为新算法的创新主张**；仅做条件性现象测量/窄提示路径实验的可能仍UNKNOWN，不继续当本期研究主线。
 - **最新用户选择B（2026-10-09）**：保持长视频VLM/《计算机学报》水平的研究目标，放弃上述已高度重合的选帧方法方向，重新寻找可证伪**核心计算机制**。不承诺论文/新算法已成立，retain 0。
 
-## 八、VLM-BATCH-007：一次10项核心机制否决式科研工作（唯一READY）
+## 八、VLM-BATCH-007：10项核心机制科研审查（已验收，禁止重做）
 
-**科研立题材料**：[机制重设与初步先例](./mechanism-reset-2026-10-09.md)。研究3个**互斥**候选：M1 对开放世界负事实维护尚欠证据义务并保守UNKNOWN；M2 证据版本和来源依赖下撤销受影响的局部结论；M3 候选假设的可区分条件/不可识别状态。候选均有直接强先例（NeuS-QA、VideoSEAL、VideoHV、经典TMS等），**不可称已经创新**，只允许形式定义后择优或全否决。
+2026-10-09，Codex通过[提交 d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)交付[任务协议](./codex-artifacts/VLM-BATCH-007/README.md)约定的全部8处文件：5份新脱敏报告、2份新标准库toy代码与codex-results中的单条父回报。ChatGPT已核对GitHub提交范围、五报告与两toy代码的科学边界，**ACCEPT有界交付；科研STOP THIS PORTFOLIO**。Codex报告用Python3.9.21执行12项合成unittest，12 PASS/0FAIL/ERROR/SKIP；ChatGPT没有在本地实验机上独立运行它们，故本结论仅验收执行者测试收据和静态论证。toy的117种观察模板/336个一致world-view配对及89次不当unknown→0造成的假认证都是**合成枚举，不能推成真实视频结果**。
 
-**[十项任务协议/交付文件名/停止规则](./codex-artifacts/VLM-BATCH-007/README.md)**（唯一有效执行授权，以下摘要不能放宽）：
+- **M1 NO-GO**：[形式定义](./codex-artifacts/VLM-BATCH-007/candidate-mechanism-specs.md)可由普通三值partial-world监控复现；稀疏未观察域不能为「never」给真实证明。所有槽可见与完美感知是toy公理，现实感知不满足已验证门。恒UNKNOWN虽避免假认证但coverage=0。
+- **M2 NO-GO**：定义的依赖无效化和局部更新可以用相同typed key与revision guard的普通AND/OR依赖缓存等价表达；toy仅检最小AND DAG，不证明OR、循环、矛盾、实际source identity可靠性。
+- **M3 NO-GO**：同世界/答案映射/可能观察与成本的version-space/discriminative-clue planner能逐步模拟当前候选规则；独立真实`Ω`、观察响应`Γ`及答案真值当前不可用。未取得某先例全文不等于创新通过。
+- **强先例与现实门**：NeuS-QA本轮SSL失败、一个MIT经典TMS定位错题，证据仅UNKNOWN；VideoHV/VideoSEAL等部分只读摘要，不因缺全文而认为新颖。现实负性事件标签、完整依赖真值、可区别观察oracle，以及媒体/QA许可、同版PTS/clip、来源独立、可靠视觉探测器、真实token/GPU预算均未验证。**retained mechanism = 0**。
 
-1. 历史否决机制与换名禁区清单； 
-2. 最接近的时序逻辑/证据核验/事件图/经典TMS公开方法级先例（≤10个不同官方公开页面）；
-3. M1 开放世界负事实与证据债务的真/假/UNKNOWN、充分条件与反例；
-4. M2 带媒体版本/时间/来源的依赖图可撤销结论与平凡缓存基线；
-5. M3 多候选假设可区分证据义务与VideoHV/PACE的等价性审查；
-6. 纯理论双世界不可辨识反例与恒UNKNOWN退化基线；
-7. 只用标准库Python、**程序内部生成的虚构时刻/事件**穷举反例并实际运行toy CPU unittest；
-8. 新候选需要的合法QA/事件标签、完整性、真实PTS/来源与验证器证据门；
-9. 对应最强**机制级**基线、可证伪指标、时间/GPU/token/源独立及功效所需未知输入；
-10. N/T/U/D/B/F六门矩阵，最多**保留一项仍需证据的条件候选**或**RETAIN 0**，如存在直接先例/不可行就NO-GO。**没有自动发布下一批或请求GPU的权限。**
-
-**只允许共8处文件**：`docs/codex-artifacts/VLM-BATCH-007/` 下 `prior-art-and-rejected-directions.md`、`candidate-mechanism-specs.md`、`formal-limits-and-toy-results.md`、`feasibility-and-baselines.md`、`downselect-and-stop-decision.md`，新 `prototypes/toy_mechanism_counterexamples.py`、`prototypes/test_toy_mechanism_counterexamples.py`，以及 `docs/codex-results.md` **一条追加**。一轮处理1—10、统一提交、停止；UNKNOWN如实披露，不为完成度删掉失败。
-
-**最高优先级硬限制**：0模型/GPU/问答/训练/评分调用，0真实视频解码/帧导出/视频/模型/完整标注下载，0本地原实验代码/conda/CUDA/锁/账本修改，0重新跑历史基线，0访问私人答案与来源身份表，0对外邮件/Issue/表单，0合并PR；只做少量官方方法HTML、已批准汇总/极少量只读接口及虚构toy CPU测试。遇危险/冲突停止，安全独立子任务可标UNKNOWN继续。**不创建新Codex聊天**。
-
-> 发给**原Codex聊天框**：继续下一轮。安全同步GitHub main并重读AGENTS.md、docs/next-steps.md、docs/codex-results.md以及BATCH-007最新版README；按编号1—10在同一轮连续完成且严格0GPU/0真实媒体/0本地资产修改；最后只提交任务书指定的8处文件后停下。创新一票否决优先，允许全部NO-GO。
+**研究负责人裁决：STOP当前M1/M2/M3组合，不再自动发BATCH-008。** 保持长视频VLM高水平论文目标并不授权无限重复机制命名、摘要盘点或toy优化。今后只有在用户明确提供了**新的实质科学对象、有效合法数据/证据资源或其他可审查的创新线索**后，才重新设置一轮有限的创新性和可执行性门。研究范围变化之前，VLM-RESEARCH-GATE-008继续 WAIT_USER_DIRECTION。VLM-003/VLM-004、GPU/真实媒体/外部联系/原研究工作区修改继续BLOCKED。无需另开Codex聊天。
 
 ## 九、当前研究判断（跨批保持）
 
