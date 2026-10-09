@@ -16,12 +16,12 @@
 | VLM-BATCH-004 | P1 | **ACCEPTED（toy报告通过；G1 HOLD）** | Codex | VES请求草案、toy CPU测试、G1决策报告 | [提交462ccde](https://github.com/floomeer83felix-source/vlm/commit/462ccdec4a999ef62e67a1cb52e7392fd7e14517) 五项文件已审查；Codex报告10/10 toy通过，未独立重跑，不放行真实实验 |
 | VLM-BATCH-005 | P1 | **ACCEPTED（toy18/18自报；G1 HOLD）** | Codex | A官方渠道；B合成负例；C路线裁决 | [提交7d1daf7](https://github.com/floomeer83felix-source/vlm/commit/7d1daf725fae5c7a921274e575101966ffed99a8) 五处交付已审查；18/18为Codex报告，非真实媒体验证 |
 | VLM-ROUTE-006 | P0 | **ROUTE2_SELECTED（取代先前路线1）** | 用户与ChatGPT | 新主问题：无gold必要区间、固定12帧选帧策略与输入路径鲁棒性 | [新的科学预注册](./route2-no-gold-preregistration.md)及[创新初审](./route2-novelty-screen.md)；TRACE咨询稿保留UNSENT且不执行 |
-| VLM-BATCH-006 | P1 | **READY（0GPU：创新红队＋数据门＋预注册复核）** | Codex | A公开文献方法/消融比对；B无gold合法数据及静态接口门；C可证伪预注册和NO-GO报告 | [任务包协议](./codex-artifacts/VLM-BATCH-006/README.md)：3份脱敏报告及1条父任务结果；严禁模型/视频操作 |
+| VLM-BATCH-006 | P1 | **READY（一次10项连续低成本工作；0GPU）** | Codex | 1—3创新性与识别性；4—7静态接口/合法来源/PTS与预算；8—9统计合同和纯合成CPU测试；10总裁决 | [完整十项协议](./codex-artifacts/VLM-BATCH-006/README.md)：4份脱敏报告+2份新toy Python+1条汇总；禁止真实媒体/模型调用 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（G1数据门仍HOLD，需本批审查与新授权） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一 READY 父任务是 VLM-BATCH-006（A创新性红队审查、B无gold数据与静态接口可行性、C预注册与GO/NO-GO决策），已明确选择路线2并取代路线1。** 原路线1 TRACE咨询稿仅保留UNSENT历史记录，禁止自动发布。新的NG0创新审查/NG1合法数据/NG2本地接口/NG3预注册目前均未通过；旧G1 gold区间门不再是路线2必要条件，但真实媒体许可、PTS/来源和独立评分依然HOLD。VLM-003/004及任何GPU、视频下载、环境改动继续BLOCKED。Codex仅在**原来的同一聊天**安全刷新main执行唯一READY包并停止；不要后台轮询或重复已完成任务。
+**当前唯一READY父任务仍是VLM-BATCH-006，现已依用户要求由3项扩为10项内部子任务。** 仅在同一个Codex聊天中连续做完有界任务1—10并统一回报，不必每项等待ChatGPT。此变更只扩大静态核验、文献对照、合成CPU验证，**未**授权任何真实GPU/QA、视频解码或下载、原研究环境修改或外部联系。最新路线2取代路线1，TRACE咨询草案继续UNSENT。NG0创新性/NG1合法数据/NG2真实PTS与来源及预算/NG3预注册均未通过；VLM-003/004继续BLOCKED。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -194,15 +194,26 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **两份由ChatGPT写入的正式草案**：[路线2预注册](./route2-no-gold-preregistration.md)和[创新重合初审](./route2-novelty-screen.md)。初审明确 Q-Frame、MIF/MDF、DIG、CVPR2026选帧等工作已覆盖query-aware方法，**目前retain 0、新方法创新性尚未成立**。
 
-### VLM-BATCH-006（当前唯一 READY）
+### VLM-BATCH-006（唯一READY：一次连续10项）
 
-[完整任务说明](./codex-artifacts/VLM-BATCH-006/README.md)：用户在**同一个Codex聊天**发一次继续指令后连续执行：
+用户希望每次安排约10项相互衔接的科研工作，减少Codex与ChatGPT频繁换轮。维持**一个READY父任务**、一个现有Codex聊天、一次汇总提交、一次集中审查，不改资源红线。详细执行与失败退路见 [**新版十项任务README**](./codex-artifacts/VLM-BATCH-006/README.md)（取代旧的A/B/C三项版本）。
 
-1. **A创新红队**：阅读至少5项最近直接先例的公开正式方法/实验/消融，核查是否已有selector-only与prompt-only因素分离、严格预算比较；任何已被做过的贡献标NO-GO。
-2. **B静态可执行性**：只读小范围本地代码/聚合schema，审查无gold数据门的合法QA评分、视频/注释许可、PTS/clip/SHA、源组排除、选帧与回答提示分离及真实token成本。不能重用历史20源或把789历史节点当外部独立来源。
-3. **C科学预注册红队**：主效应/强对照/负对照、全计划分母、统计功效所需参数、混杂与明确停止规则；可建议NO-GO，不得凑出伪创新。
+1. **文献方法核对**：至少5项直接先例的公开正式方法/消融与预算证据，至多12个官方公开页面。
+2. **创新重合否决**：逐条检查query-aware选帧、selector-only×prompt-only、问题类型对照是否直接已有先例。
+3. **科学可识别性**：明确策略总体效应和时间/画质/token/query type等强反解释。
+4. **静态模型与selector接口**：只读小范围现有Qwen3-VL/SigLIP/IMAGE12数据流、选择器与回答提示耦合风险。
+5. **合法数据与评分隔离**：分清视频/QA许可、答案终态隔离及既有探索/保护来源排除。
+6. **真实帧/来源身份门**：PTS/timebase、clip/版本、帧唯一key与保守来源组的证据/UNKNOWN矩阵。
+7. **时间/token/成本公平性**：冻结候选池与12唯一帧，设计处理器token和时间bin内偏移的未来验收合同。
+8. **估计量与功效框架**：主要配对Δ、纠错误伤全分母、来源组聚类、缺失和功效参数表。
+9. **纯合成CPU统计验证**：新建小型toy paired-estimator+unittest，真实运行标准库CPU单测；不读真题。
+10. **整包科研GO/NO-GO**：给NG0—NG3门、复现/条件研究/停止结论及最多3项新增信息动作，允许明确NO-GO。
 
-整轮**只允许**新建3份脱敏Markdown至本任务包目录、向docs/codex-results.md追加**一条VLM-BATCH-006汇总回报**；不修改研究原工作区/模型/锁/旧账本、环境或ChatGPT文档，不下载媒体、不运行真实视频/GPU、不得对外联系。上传后停止，等待集中审查。旧VLM-003/004保持BLOCKED且原预注册PR #1不合并。
+**只能提交7处**：`docs/codex-artifacts/VLM-BATCH-006/`下 `novelty-and-identifiability.md`、`static-readiness-gates.md`、`prereg-and-toy-tests.md`、`scientific-decision.md` 四份报告；`prototypes/toy_route2_pairing.py` 和 `prototypes/test_toy_route2_pairing.py` 两份toy；向 `docs/codex-results.md` 末尾追加**一条BATCH-006结果**，按1—10分别标 DONE/UNKNOWN/BLOCKED。不改旧文件/旧toy；一个子任务遇到无证据可标UNKNOWN后做其他独立安全项，风险/冲突必须STOP。
+
+**硬边界**：0真实模型前向、0GPU、0视频解码/帧导出/下载、0读取私有答案/源身份表、0原Windows研究工作区/环境/锁/账本修改、0外部联系、0合并PR。允许的仅是**12页以内官方公开文献HTML查阅与少量本地静态文件、小型Python标准库合成测试**。所有新方法创新仍为待审查，不能以toy测试通过替代NG0—NG3。
+
+> Codex在**原聊天框**可接指令：“安全同步main并重新读取AGENTS、next-steps、results及VLM-BATCH-006最新版README；一次执行里面编号1—10的安全子任务，按七处文件协议统一提交和追加一条回报后停止。不得执行GPU/下载/旧路线1。”
 
 ## 九、研究判断依据（当前有效）
 
