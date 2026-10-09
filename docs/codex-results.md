@@ -115,3 +115,24 @@
 toy枚举117种观测模板、336个一致世界—观测配对；理想三值规则错误TRUE／FALSE均0，故意unknown→0产生89个假never认证配对。不是视频结果或新算法优势。新颖性审查使用用户指定GPT-6.1-sol ultra子任务。
 
 文献访问10个URL尝试／9响应，响应正文总3405089B；仅公开HTML，部分是摘要证据。1项SSL失败不绕过证书／重试，错误TMS定位不换页；URL及证据级别见先例报告。0 PDF／媒体／模型／完整QA下载、0 GPU／模型／训练／QA／真实评分、0视频解码／导帧、0原研究目录／环境／进程／锁／账本修改、0旧实验重跑／新人工标注／外部联系／付费API／PR合并／自动化。仅提交指定8处，成功push后停止本轮，保留当前聊天框。
+
+### VLM-BATCH-008 2026-10-09 12:07 北京时间 — 完成（文档初筛；机制RETAIN 0／长视频GO HOLD）
+
+基线main eb2c53f；安全fast-forward后重新读取唯一READY任务、AGENTS、结果、最新README及指定历史摘要。只审公开网页和脱敏历史，不取得任何研究数据。五份报告：[许可与出处](codex-artifacts/VLM-BATCH-008/licenses-and-provenance.md)、[标注与join](codex-artifacts/VLM-BATCH-008/annotation-and-join-contract.md)、[可证伪问题与先例](codex-artifacts/VLM-BATCH-008/falsifiable-questions-and-novelty.md)、[时钟／来源与长域差距](codex-artifacts/VLM-BATCH-008/temporal-provenance-and-longvideo-gap.md)、[五门裁决](codex-artifacts/VLM-BATCH-008/data-science-go-no-go.md)。
+
+| 任务 | 状态与确证／限制 |
+|---|---|
+| 1 | DONE：官方非商业研究／评估用途初筛；禁止公开改造数据及第三方分发，必要学术短例有条件允许；主体与具体披露匹配仍UNKNOWN |
+| 2 | DONE／UNKNOWN：TALL公开格式与anno cleaning声明可见，独立代码／STA注释许可及外链clean revision未知；Charades-Ego许可正文与原许可相同，不更宽松 |
+| 3 | DONE：官方README直接给id/subject/scene/actions/length等；真实行与端点政策未知；v1定位是25时刻frame-mAP，不是实例det-mAP |
+| 4 | DONE／UNKNOWN：固定类区间与sentence moment语义分开，ID／split／媒体revision／时间映射合同明确；实际join未验，不造ordinal或negative真值 |
+| 5 | DONE／UNKNOWN：P1同类分离实例资格、wrong-instance与完整分母合同；66,500总区间不能推重复资格，数量／完整物理实例序列未知 |
+| 6 | DONE／UNKNOWN：P2异类重叠、tIoU／边界／归因、强TAD/TMR、纠错／误伤和泄漏防线；真实资格与模型现象未测 |
+| 7 | DONE／NO-GO：六论文页（5正式摘要＋1方法预印本）核直接对象；普通TAL/TMR、多moment／边界核验不是新机制，窄错误测量价值UNKNOWN |
+| 8 | DONE／UNKNOWN：subject字段不证明participant-by-split隔离，267用户不等于独立N；无媒体则PTS、clip/version和来源门不能通过 |
+| 9 | DONE／NO-GO（单独长域确认）：官方论文平均约30秒，只能短域PoC；拼接不作自然长视频独立确认，合法长域真值／资源仍UNKNOWN |
+| 10 | DONE：LEGAL/SCHEMA仅原Charades文档条件PASS，IDENTIFIABILITY未知、普通新算法NOVELTY FAIL、Charades单独LONGVIDEO FAIL；机制retain0，最终GO HOLD |
+
+仅暂列P1／P2两项未验证测量问题，各需一次固定revision的资格计数作为新增事实，不是已证实创新。下一步只建议由用户／ChatGPT另审原Charades约3MB官方注释评测包的最小授权、独立保管和脱敏计数；此批未下载、不创建数据目录，不自动放行STA、13GB媒体、GPU或下一包。
+
+资源：12个不同直接官方网页／论文HTML均200，正文响应794823B；另一次3query定位检索，搜索工具网络流量未计量，不把正文字节当全部流量。未打开PDF／Drive／zip／视频／标注或特征文件；0真实模型／GPU／QA／训练／评分、0视频解码、0原研究代码／环境／锁／账本修改、0历史实验／toy重跑、0私有身份或答案读取、0外部联系／Issue／新标注／付费API／PR合并／自动化。仅提交指定5报告及本条追加共6处，成功push后停止，保留当前聊天。
