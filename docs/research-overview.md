@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-08（北京时间；VLM-BATCH-004已验收，VLM-BATCH-005为唯一READY）  
+> 更新：2026-10-09（北京时间；VLM-BATCH-005已验收，下一步等待用户选择研究路线）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -80,7 +80,8 @@
 | 数据字段核对 VLM-002 | **ACCEPTED（报告完成、G1仍HOLD）** | Codex，ChatGPT审查 |
 | 三项连续安全任务包 VLM-BATCH-003 | **ACCEPTED（仅静态交付，G1保持HOLD）** | Codex，ChatGPT审查 |
 | 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
-| 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **READY（仅低成本文档/CPU）** | Codex |
+| 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
+| 路线决策 VLM-ROUTE-006 | **WAIT_USER_DECISION（当前无READY）** | 用户与ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -200,6 +201,18 @@ Codex报告本次新增GPU/QA/下载/视频解码/新测试调用=0、原研究�
 **对toy的额外审查发现**：现 `pair_contract` 虽要求传入的每个参考区间被某锚点覆盖，**却未强制参考区间至少3段且彼此不重叠**；其`time_bins`聚合也不能证明时间细粒度分布完全匹配。toy仅保证局部合成断言，与真实视频证据充分性、实际token预算和独立来源无关。
 
 新唯一READY为 [VLM-BATCH-005](./codex-artifacts/VLM-BATCH-005/README.md)：A限量核实官方数据咨询/使用路径（不对外发送），B补强toy反例与实际CPU回归，C为“继续gold参考区间诊断”与“改为无gold观测鲁棒性问题”形成可证伪的路线决策。**本批完成后停止重复静态盘点，须ChatGPT与用户对数据申请或课题转向作下一次选择**，不得无期限优化toy或用它代替实证。当前 `VLM-003`/`VLM-004`、真实媒体、GPU、自动邮件/Issue、正式新manifest均BLOCKED，核心机制保留数仍为0。
+
+### 2026-10-09 · VLM-BATCH-005 验收与研究路线选择门（最新决定）
+
+**审查对象**：Codex提交 [7d1daf7](https://github.com/floomeer83felix-source/vlm/commit/7d1daf725fae5c7a921274e575101966ffed99a8)，仅两份 [A官方访问渠道](./codex-artifacts/VLM-BATCH-005/official-access-route.md)、[C研究路线备忘录](./codex-artifacts/VLM-BATCH-005/research-path-decision.md) Markdown、两份 `prototypes/` toy Python代码及 [Codex结果](./codex-results.md)中一条新增回报。文件范围与授权一致，未修改ChatGPT维护的计划/总览或早期研究快照。报告称无GPU/模型/真实媒体下载/研究工作区变更，是执行者声明，ChatGPT未直接访问Windows现场。
+
+**决策：ACCEPT VLM-BATCH-005 文档与toy合同交付；G1、GPU与VLM-003/004继续HOLD。**
+
+- **A 官方渠道**：执行者报告共访问6项官方公开页面、50299B，定位 [TRACE项目页](https://buaa-colalab.github.io/TRACE/)、[官方GitHub仓库](https://github.com/buaa-colalab/TRACE)及 [HF VES-Bench](https://huggingface.co/datasets/buaaplay/VES-Bench)。仓库开放Issues只能说明可以公开提问，**不是正式数据申请或作者答复保证**；注释与上游视频研究许可、真实无答案支持区间schema、同版媒体PTS/clip及独立来源仍UNKNOWN，未发送Issue/邮件/表单。
+- **B 纯合成合同**：新 `validate_reference_intervals` 静态代码要求至少3个有序、有效且两两不重叠的必要区间；测试新增8项，原10项保留。Codex报告本轮Python3.9.21标准库 `unittest` **18项全过、0错误/跳过**。ChatGPT审查了公开测试与源文件，但**未在本地独立执行**；即便18/18属实，也只验证虚构时间/来源/输入合同，实际视频时钟、RGB、token预算、标注必要性与来源独立性一概不自动通过。
+- **C 科研决策**：路线1保留“固定12帧、覆盖公开gold必要证据”的原假设，但必须先获得明确媒体与注释许可、可验证的联合必要证据区间、实际同版PTS/clip与足够保守独立来源。路线2另行预注册不依赖gold区间真值的观测鲁棒性问题，须把时间bin内漂移、画质、实际视觉token及检索规则偏差视为强反解释；不能把新问题直接宣传为创新方法。两路线均不可跳过版权、来源、评分隔离及用户GPU授权。
+
+**科学止损**：连续多轮公开元数据、静态报告和toy测试仍没有获得可执行合法证据数据。继续同类盘点不会提供新的因果证据。下一步不是自动生成BATCH-006，而是 [VLM-ROUTE-006](./next-steps.md) **WAIT_USER_DECISION**：用户选择是否批准经审阅后向TRACE官方仓库咨询许可和无答案字段（未批准时不得发送），或转为不依赖gold必要区间的新预注册问题（也不是立即做GPU实验）。没有用户选择则**没有READY父任务**。科研机制retain 0，原数据G1 HOLD，真实PTS/来源隔离未证实。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
