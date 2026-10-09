@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户切换到Charades公开数据入口，BATCH-008唯一READY／0下载／0GPU）  
+> 更新：2026-10-09（北京时间；BATCH-008十项文档验收，等待用户单独审批最小Charades原注释包）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -85,7 +85,8 @@
 | 核心科研路线选择 VLM-DECISION-007 | **B_SELECTED（转向不同的核心机制）** | 用户与ChatGPT |
 | 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
 | 数据入口切换 VLM-RESEARCH-GATE-008 | **CHARADES_SELECTED / EGO4D_DEFERRED（非READY）** | 用户与ChatGPT |
-| Charades准入与可证伪现象 BATCH-008 | **READY（十项公开文献/字段/许可核查，0下载／0GPU）** | Codex |
+| Charades准入与可证伪现象 BATCH-008 | **ACCEPTED（10项文档；真实数据与长域仍HOLD）** | Codex，ChatGPT审查 |
+| Charades最小注释核验 VLM-DATA-GATE-009 | **WAIT_USER_DOWNLOAD_APPROVAL（无READY）** | 用户本人 / ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -311,6 +312,24 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **唯一低风险任务**：[VLM-BATCH-008 10项具体协议](./codex-artifacts/VLM-BATCH-008/README.md)：1原license条款，2 STA独立权利，3原标注schema，4两套标注同源join与revision，5同类重复实例可辨识性，6重叠动作边界指标，7强相关TAL/TMR先例，8来源分组/真实PTS/媒体版本，9短视频向长视频外推限制，10五门科研GO/NO-GO与唯一真正新增信息行动。Codex**只能**创建5份脱敏Markdown并向`docs/codex-results.md`追加一条总报告（共6处），不新增toy或改旧报告，单次提交后停止。
 
 **安全约束不变**：目前用户没有授权下载即使3MB的注释压缩包、13GB视频、STA Drive文件、模型权重，也没有批准CPU解码/GPU/问答运行；0原Windows源资产/conda/CUDA/锁/账本更改、0人工标注、0外部联系、0隐私身份/答案上传。只有许可、字段和新颖性门有进一步必要且有效时，才向用户**单独申请最小标注包下载许可**；全部不达标则STOP。历史BATCH-007 ACCEPTED、M1/M2/M3 retain0；VLM-003/004依旧BLOCKED。继续使用原Codex聊天。
+
+### 2026-10-09 · VLM-BATCH-008十项Charades文档验收与下一最小数据门（最新）
+
+**已验收提交**：[2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)仅涉及[五份Charades审核报告](./codex-artifacts/VLM-BATCH-008/README.md)及 `docs/codex-results.md` 单条汇总共6处，符合授权；无新增原研究代码／toy或提交数据。ChatGPT已核验文件内容、证据层次和研究止损，**ACCEPT文档交付**，而不是批准数据获取、科学创新、视频/GPU实验。Codex自报12个官方/论文HTML页面共约795kB响应正文、0媒体/标注/模型获取、0本地原工作区改动；这是执行者资源陈述，不是ChatGPT对其远端Windows的独立监控。
+
+**研究五门裁决**：
+
+| 门 | 当前结果 | 学术含义 |
+|---|---|---|
+| LEGAL | 原Charades官方非商业研究许可类别**条件可讨论**；具体主体/用途合规待用户确认；STA权利UNKNOWN | 不得把“无需先填表”说成可商用/无限分发或已经正式授权所有场景 |
+| SCHEMA | 官方README有id/subject/actions三元组/length/split文档，可核字段；**真实CSV与端点尚未验** | 官方帧级localize评测25个时间点mAP，**不是**实例det-mAP/tIoU，拟新增指标不可借官方评测脚本声称已验证 |
+| IDENTIFIABILITY | P1同类独立重复实例资格UNKNOWN；P2异类重叠实例资格UNKNOWN | 总66,500区间数不等于合法实例资格；不能将记录顺序当“第一次/第二次”或未标当never |
+| NOVELTY | 常规多标签TAD/TMR、多moment定位作为新算法**FAIL**；窄错误测量可能性UNKNOWN，retain 0 | TALL、Dual DETRs、FlashMMR/TIME等直接先例已高度重合，需拒绝换名式创新 |
+| LONGVIDEO | Charades均长约30秒，**单独作为自然长视频验证FAIL**；合法长域外部数据UNKNOWN | 拼接短片不产生独立自然长域确认或小时级长时推理证据 |
+
+**唯一新增事实路径**：经用户单独批准，才可从[AllenAI官方Charades页](https://prior.allenai.org/projects/charades)获得官方约3MB`Annotations & Evaluation Code`压缩包，放在公共Git checkout及旧RTX3090研究环境外的**独立隔离目录**，仅读CSV/类表/README/license并检查真实header、version hash、视频时长/时间格式、同类不重叠与异类重叠资格和invalid/ambiguous分母，输出不能重建受限样本的脱敏聚合统计。**当前没有下载授权、没有已验证的样本资格或实验许可**；STA的Drive注释、Charades视频13GB/原始帧、GPU、真实PTS认证、新问答／旧实验全HOLD。
+
+**当前用户决策门**：[任务看板](./next-steps.md)记录`VLM-DATA-GATE-009=WAIT_USER_DOWNLOAD_APPROVAL`；**没有新READY、不给原Codex直接“继续”指令**。用户需明确非商业研究用途符合原许可，并对最低必要官方标注包下载及隔离存放授权。得到许可后，由ChatGPT另定一次受限的数据资格计数合同和停止条件；若拒绝则保留HOLD。哪怕资格数非0，也不是新机制PASS，仍需另选合法自然长视频外部确认材料及科学差异化才可谈实验预算。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
