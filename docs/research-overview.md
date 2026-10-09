@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户选择Charades方案A两视频边界核验方向、待独立媒体授权，无READY）  
+> 更新：2026-10-09（北京时间；用户明确批准有界≤2官方视频/64MiB的V1 CPU packet-PTS试点，BATCH-013唯一READY，尚未执行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -93,7 +93,8 @@
 | 现有Charades时间合同独立核验 BATCH-011 | **ACCEPTED（数值交付；同版时间语义HOLD）** | Codex，ChatGPT审查 |
 | 下一科研路线 VLM-RESEARCH-DECISION-012 | **USER_SELECTED_CHARADES_ALIGNMENT（非READY的用户决策）** | 用户、ChatGPT |
 | Charades官方评测对齐及时间质量分层 BATCH-012 | **ACCEPTED（工程frame label对齐；质量/事件HOLD）** | Codex，ChatGPT审查 |
-| 未来科研证据范围 VLM-RESEARCH-GATE-013 | **ROUTE_A_SELECTED / WAIT_EXPLICIT_MEDIA_APPROVAL（非READY）** | 用户、ChatGPT |
+| 未来科研证据范围 VLM-RESEARCH-GATE-013 | **USER_APPROVED_V1_CONDITIONAL（媒体试点限额授权）** | 用户、ChatGPT |
+| Charades两视频官方Range与CPU时钟核验 BATCH-013 | **READY（最多2视频/64MiB全部GET正文/0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -423,6 +424,18 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **两阶段证据协议（尚未执行）**：[详细方案A](./charades-media-boundary-pilot-proposal-2026-10-09.md)预计最多2个train split视频：一个在CSV中满足`start<length<end`且`end-length`在(1,5]，一个同等时长量级、尽量不同subject且无数值异常的匹配对照。仅私有本地固定选择，不能公开原video/subject身份或行。**V1**若另获用户批准，媒体下载正文总量拟≤64MiB（包含ZIP末尾/目录等range读取）、本地媒体总占用拟≤128MiB、固定独立Windows目录`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-MediaPilot\`，只读用**已存在**CPU ffprobe/ffmpeg观察容器duration/start_time、stream time_base、首尾帧PTS，和CSV length/end对照。若Range不支持、回整包200、ZIP成员不可确定、要装依赖或需要超过预算，**立即STOP**，不能改用镜像、13GB整包或原RTX3090实验环境。**V2**任何可视核对/人工事件边界认定/模型分析必须**再单独授权**。
 
 **科学边界**：V1即使可行，只检验**最多两例**的容器/媒体时钟与CSV一致性，不代表全部19,625条越界时段已修复；不能以PTS时钟报告确认动作起止的视觉真值。原BATCH012的A frame-label政策仍`VERIFIED_WITHIN_STATED_SCOPE`，B`TIME_RANGE_QUALITY=HOLD`，C`P1/P2_EVENT_TRUTH=HOLD`，创新retain0、自然长域Charades独立确认FAIL、GPU/视频下载依旧**未获授权**。下一唯一门：用户是否单独批准上述**最多两段、总网络≤64MiB、仅V1 CPU媒体钟**的条件式试点；在此之前不得新增READY或触发Codex视频任务。
+
+### 2026-10-09 · 用户正式批准Charades最多两段官方480p视频的V1时钟核验（最新）
+
+**用户额外明确授权**：在已选择方案A继续Charades的基础上，用户回复“批准”确认：[V1两视频条件式试点](./charades-media-boundary-pilot-proposal-2026-10-09.md)。授权仅涵盖**最多2段Charades官方480p视频**、全部HTTP GET响应正文（包括ZIP tail/central directory/local headers、媒体数据和失败已读字节）**总≤64MiB**，本地本轮媒体＋临时文件合计**≤128MiB**，且仅使用本机既有CPU`ffprobe`核**MP4容器元信息、视频packet PTS/DTS与timebase**。不授权13GB整ZIP、视频画面/音频人工观察、像素帧解码/抽帧、视觉事件标注、Qwen/GPU/模型训练/推理、STA、Ego4D或原RTX3090实验目录/conda/CUDA/锁/账本改动。**许可范围是条件授权，不保证一定有可获取的两段视频；本轮ChatGPT未下载任何媒体或访问用户Windows。**
+
+**官方访问技术门**：[AllenAI Charades下载页](https://prior.allenai.org/projects/charades)公开的480p链接指向整个约13GB`Charades_v1_480.zip`，不是已验证的独立MP4直链。必须从官方域名稳定S3对象用HTTPS `206 Content-Range`按需检验ZIP EOCD/ZIP64、中央目录及两成员，实际206不支持、服务器返回200整包、索引无法可靠解析、源版本/压缩CRC/成员映射不唯一、或总流量超过64MiB预算，**立即STOP，不允许下载整包或改第三方镜像**。限最多12个Range GET、全部正文全局字节ledger、逐块stream/响应范围与同对象ETag确认、媒体本地128MiB实存硬限。要在真正网络GET之前首先通过与所有相关错误分支覆盖的**纯合成HTTP/ZIP标准库unittest**，不能靠真实服务响应现场修改来源选择和规则。
+
+**冻结样本与隔离路径**：原合法取得的Charades注释仍只读保留在`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-Metadata\`，SHA与BATCH010-012固定；新媒体仅写独立`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-MediaPilot\`，事先校验Windows实际物理路径、无reparse/symlink/junction/云同步、无与Git checkout或原研究资产相交、≥512MiB磁盘空闲及工具已安装。私有确定性选1训练视频`0≤start<length<end,end-length∈(1,5]`，另选1整行无数值越界的train对照，时长粗匹配且优先不同subject。身份、zip成员名、精确端点与媒体sha只存本地，公共GitHub只提交匿名总体计数/结论，不得反推出两例来源。
+
+**V1证据与不能做什么**：现有CPU`ffprobe`只读取容器/视频包的PTS等元信息，**不使用`-show_frames`或输出像素/截图，不视觉判断动作实例是否出现**。单个MP4的container/stream duration、start、video packet首末时刻可能不完全等价；时钟差异应分`CLOCK_APPROX_MATCH / DIFFERS / UNKNOWN`而非恣意把某种时刻当真实视频末帧。即便成功最多2例，也只支持这两例的媒体/CSV时间原点线索，不能推广19,625条旧strict不通过动作、P1=347组、P2=97,723对，更不能令B时间质量/C实例真实边界/论文创新自动通过。BATCH012官方frame label政策继续限域VERIFIED，B/C保持HOLD，创新retain0，Charades不足自然长视频独立confirm。
+
+**唯一READY父任务**：[VLM-BATCH-013完整受限10项执行README](./codex-artifacts/VLM-BATCH-013/README.md)。在原Codex聊天由用户主动启动，安全读取AGENTS/任务看板/结果和协议，按源完整性→隔离/已有工具→合成test→私有2例选择→206 ZIP索引安全→小量最多两MP4→CPU packet PTS→匿名时钟裁决执行。**只许5处公共GitHub提交**：2份脱敏报告、2份独立通用stdlib pilot与synthetic test、`docs/codex-results.md`尾部一条父任务回报；绝不上传原video/压缩片段/具体video/subject映射/小格PTS/帧/私人路径，也不触碰旧计划。任一前置不通过就交BLOCKED收据后STOP，不因用户已授权就必须消耗所有预算或完成媒体取得。成功普通push即停留原Codex聊天，等待ChatGPT验收。任何V2视觉真实性、更多数据、GPU预算均须以后**单独向用户申请**。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
