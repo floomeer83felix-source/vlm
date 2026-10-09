@@ -234,3 +234,26 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 源码明确t=(j−1)/25·L、s≤t≤e，而非先end≤L过滤；因此旧strict不应被称作官方frame-label构造。模拟保持double操作次序及原端点，不产生mAP，未验证MATLAB/JIT／跨语言解析全域逐bit重现或媒体帧身份。正class/point cell是同类OR后的统计，不是动作token／实例／独立N；official额外cell不意味着19,625条都是真实正确。
 
 本轮源SHA和中央目录／目标CRC只读，旧CSV及旧原型未改；真实CSV分析1次，规则未按真实数据调整。0研究HTTP／新包／视频／STA／Ego／帧／特征／模型下载、0GPU／QA／训练／预测评分／真实解码、0执行MATLAB、0原隔离树／manifest／研究环境／锁／账本写入、0外部联系／人工标签／PR合并／后台任务。发布只含5规定产物，原始数据继续固定隔离保管；成功push后停止，保留原聊天，不自动安排013或解除科学门。
+
+### VLM-BATCH-013 2026-10-09 20:15 北京时间 — BLOCKED_EXISTING_FFPROBE_NOT_FOUND／零媒体传输
+
+基线main46bc361，安全同步并核唯一READY、无重复回报，读AGENTS、V1方案／任务书及指定历史。用户2段／64MiB GET／128MiB本地／CPU限定未扩大。报告：[Range与隐私阻塞收据](codex-artifacts/VLM-BATCH-013/remote-range-and-privacy-receipt.md)、[病例时钟与科学决定](codex-artifacts/VLM-BATCH-013/clock-case-control-and-science-decision.md)；新[安全组件](../prototypes/charades_range_media_clock_pilot.py)及[纯合成测试](../prototypes/test_charades_range_media_clock_pilot.py)。
+
+| 步骤 | 状态与实际事实 |
+|---|---|
+| 1 | BLOCKED_CPU_TOOL：PATH未定位ffprobe，5个常见位置及3个应用已登记runtime精确候选均0；不全盘扫描／安装／读取原conda。原ZIP/train/class SHA PASS，新媒体路径祖先身份与已知metadata/docs/研究隔离、空间≥512MiB已核；完整云/写权限前置未完成，不标全PASS |
+| 2 | NOT_RUN：工具门失败即停止真实流程，未读实际ID/subject冻结两例，未建私有映射；只验证合成确定性选择 |
+| 3 | NOT_RUN：当前官网锚点／HEAD／ETag／实际206未知，0官方请求，未触及13GB对象 |
+| 4 | NOT_RUN／UNKNOWN：真实EOCD/ZIP64/central/member安全未知；代码仅支持受限经典结构，ZIP64/descriptor/未知extra明确STOP |
+| 5 | NOT_RUN：0视频、0.part、0CRC/SHA媒体收据；未创建MediaPilot根或真实ledger，不替换源／候选 |
+| 6 | NOT_RUN：ffprobe版本及容器／packet PTS未知，0ffprobe执行、0帧／像素／音频访问 |
+| 7 | UNKNOWN：CASE_OVERFLOW与CASE_CONTROL均CLOCK_UNKNOWN，未用CSV/FPS填媒体钟，无精确私有时长／PTS披露 |
+| 8 | DONE（边界）：V1不提供动作实例真值／整体19,625条解释，不外推P1/P2／长域；A沿012限域VERIFIED，B/C HOLD |
+| 9 | DONE（合成）／真实未核：标准库16方法1次16 PASS，0 FAIL/ERROR/SKIP，suite0.006秒；验证206/200、错范围/跳转/编码、跨请求失败预算、EOCD/local/CRC/安全拒绝、2成员、ffprobe与隐私等，未连接服务器 |
+| 10 | DONE（停止）：V1_ACCESS BLOCKED_PRECONDITION、V1_CLOCK UNKNOWN，当前执行NO_GO；实际Range访问路径本身仍UNKNOWN，创新retain0、长域单独FAIL、GPU BLOCKED |
+
+**实现状态PARTIAL_FAIL_CLOSED_COMPONENTS**：受限Range／经典ZIP／预算／去识别clock组件仅合成验证；端到端协调器未放行，入口即便未来找到工具仍显式阻塞，不能称已交付可自动运行的两视频抓取器。不会拿真实服务器响应现场改结构／选择／容差。之后只做本地合成验证及阻塞交付，不开展真实视频步骤。
+
+资源：本轮官方网页GET/媒体HEAD/Range GET均0，响应正文总0B，媒体及临时媒体峰值0B，最终视频0，私有选择／PTS文件与媒体ledger未创建。0GPU／模型／QA／训练／评分／解码／画面音频人工核验、0原研究目录／conda／CUDA／锁／账本及旧源码修改、0外部联系／新标注／镜像／PR合并／自动化；原metadata树只读。
+
+当前最小缺失事实是可验证的既有非原科研conda ffprobe入口；如需要安装或释放后续完整协调器须由用户／ChatGPT另行限定任务，本轮不做。只提交两报告、两新源码及本条5处，成功普通push后停止，保留同一聊天，不重复013或自动安排014。
