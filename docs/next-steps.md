@@ -15,12 +15,12 @@
 | VLM-BATCH-003 | P1 | **ACCEPTED（静态交付；G1 HOLD）** | Codex | A: PTS/VFR/媒体桥接；B: 历史来源隔离与指纹缺口；C: G1无答案元数据/12帧技术合同 | [三份审计报告](./codex-artifacts/VLM-BATCH-003/README.md)与[Codex回报](./codex-results.md)由提交 [31e8151](https://github.com/floomeer83felix-source/vlm/commit/31e8151901c1c75739670acefec211f920313244)交付；只接受审计，不批准新实验 |
 | VLM-BATCH-004 | P1 | **ACCEPTED（toy报告通过；G1 HOLD）** | Codex | VES请求草案、toy CPU测试、G1决策报告 | [提交462ccde](https://github.com/floomeer83felix-source/vlm/commit/462ccdec4a999ef62e67a1cb52e7392fd7e14517) 五项文件已审查；Codex报告10/10 toy通过，未独立重跑，不放行真实实验 |
 | VLM-BATCH-005 | P1 | **ACCEPTED（toy18/18自报；G1 HOLD）** | Codex | A官方渠道；B合成负例；C路线裁决 | [提交7d1daf7](https://github.com/floomeer83felix-source/vlm/commit/7d1daf725fae5c7a921274e575101966ffed99a8) 五处交付已审查；18/18为Codex报告，非真实媒体验证 |
-| VLM-ROUTE-006 | P0 | **WAIT_USER_DECISION（不可执行）** | 用户与ChatGPT | 选择数据许可沟通或不依赖gold区间的研究命题重构 | 用户明确选定路线且ChatGPT更新计划后才能开放新READY；不授权Codex自行联系/GPU |
+| VLM-ROUTE-006 | P0 | **ROUTE1_SELECTED · AWAIT_USER_SEND_APPROVAL（不可执行）** | 用户与ChatGPT | 继续固定12帧gold区间研究；TRACE/VES-Bench官方咨询稿已备妥等待审阅及单独发送授权 | [咨询终稿/流程](./outreach/trace-ves-bench-inquiry-draft.md)已保存并明确UNSENT；不授权Codex代发或启动GPU |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（G1数据门仍HOLD，需本批审查与新授权） | Codex | 冻结新诊断实验 manifest、来源去重、四臂输入契约与预算估算 | 数据来源、分母、帧/PTS、成本与错误处理均可审计 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前无READY任务。BATCH-005已验收，进入VLM-ROUTE-006用户路线决策门；G1、VLM-003/004和新GPU继续HOLD。** 在用户选择前不重复静态审计、toy改动、外部联系、完整数据下载或模型调用；保留同一个Codex聊天框。
+**当前无READY任务。用户已于2026-10-09选择路线1（保留12帧gold区间诊断），TRACE/VES-Bench咨询终稿已备妥，但明确未批准外部发送。VLM-ROUTE-006改为等待用户审阅与单独发送授权；G1、VLM-003/004和新GPU继续HOLD。** 不要因路线选择自动创建Issue、发送邮件、触发Codex后续任务、下载媒体或运行模型。继续使用同一个Codex聊天框。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -174,14 +174,14 @@ Codex已经在 [462ccde](https://github.com/floomeer83felix-source/vlm/commit/46
 
 Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/commit/7d1daf725fae5c7a921274e575101966ffed99a8)：两份脱敏报告、两份toy文件更新、Codex结果一条追加；ChatGPT核对提交范围与研究结论。执行者报告18项CPU单测通过；本助手未在本地独立运行。公开项目仓库Issues可用，不代表正式授权或专用数据申请。G1、GPU、真实PTS与来源独立性继续HOLD。
 
-## 七、VLM-ROUTE-006：等待用户选择（非Codex任务）
+## 七、VLM-ROUTE-006：路线1已选定，等待咨询稿确认（非Codex任务）
 
 此前关于固定12帧且确保覆盖gold必要证据区间的科学诊断，目前缺合法注释/视频许可、正式必要区间字段、同版本源媒体PTS和足够保守独立来源。重复相同的静态盘点不再有信息收益。本轮**不产生新的READY任务**，请用户选择：
 
 - **路线1：保留gold参考区间诊断**。优先使用[现有中英咨询草案](./codex-artifacts/VLM-BATCH-004/ves-access-request.md)，经用户明确授权后，才可通过[TRACE官方GitHub仓库](https://github.com/buaa-colalab/TRACE)的公开Issues等合适渠道，询问注释与视频使用许可、无答案schema、版本与时钟信息。尚未获回复/许可时G1持续HOLD；本计划不授权Codex发帖。
 - **路线2：转向无gold参考区间真值的可证伪鲁棒性测量问题**。需要重新评估与既有时间采样/检索/鲁棒性工作的重合与混杂，重新预注册假设、强基线、真实时间和来源隔离、视觉token成本与评分安全边界；转向也不免除合法数据和GPU单独许可。
 
-**研究建议**：优先选择路线1作一次明确授权且范围很小的询问；若不能拿到合法可信字段，再转路线2。若不愿公开发问，可直接选路线2。用户没作决定前，保留WAIT_USER_DECISION，Codex只等待，不启动新批次。
+**最新决策（2026-10-09）**：用户明确选择路线1并要求准备官方咨询流程与最终正文、**未经确认不得对外发送**。ChatGPT已在独立文档仓库保存[TRACE/VES-Bench英文咨询稿、中文对照和执行流程](./outreach/trace-ves-bench-inquiry-draft.md)，仅作为待审批草案；状态为DRAFT/UNSENT，官方GitHub Issues虽显示启用但未确认普通账户有新建权限或该入口为正式申请渠道。下一步是由用户审阅稿件、确认公开程度与发送授权。只有另获明确发送许可后才可能正式发帖。未经该许可无READY任务，Codex不得发Issue、邮件或开展GPU。若官方答复仍无许可/字段证据则G1继续HOLD；不存在自动研究放行。
 
 ## 八、研究判断依据（当前有效）
 
