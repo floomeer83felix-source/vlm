@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；VLM-BATCH-005已验收，下一步等待用户选择研究路线）  
+> 更新：2026-10-09（北京时间；用户选择路线1，官方询问终稿已备妥，外部发送未授权）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -81,7 +81,7 @@
 | 三项连续安全任务包 VLM-BATCH-003 | **ACCEPTED（仅静态交付，G1保持HOLD）** | Codex，ChatGPT审查 |
 | 合法数据请求与toy合同验证 VLM-BATCH-004 | **ACCEPTED（toy测试报告通过，G1 HOLD）** | Codex，ChatGPT审查 |
 | 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
-| 路线决策 VLM-ROUTE-006 | **WAIT_USER_DECISION（当前无READY）** | 用户与ChatGPT |
+| 路线决策 VLM-ROUTE-006 | **ROUTE1_SELECTED / AWAIT_USER_SEND_APPROVAL（无READY）** | 用户与ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -213,6 +213,16 @@ Codex报告本次新增GPU/QA/下载/视频解码/新测试调用=0、原研究�
 - **C 科研决策**：路线1保留“固定12帧、覆盖公开gold必要证据”的原假设，但必须先获得明确媒体与注释许可、可验证的联合必要证据区间、实际同版PTS/clip与足够保守独立来源。路线2另行预注册不依赖gold区间真值的观测鲁棒性问题，须把时间bin内漂移、画质、实际视觉token及检索规则偏差视为强反解释；不能把新问题直接宣传为创新方法。两路线均不可跳过版权、来源、评分隔离及用户GPU授权。
 
 **科学止损**：连续多轮公开元数据、静态报告和toy测试仍没有获得可执行合法证据数据。继续同类盘点不会提供新的因果证据。下一步不是自动生成BATCH-006，而是 [VLM-ROUTE-006](./next-steps.md) **WAIT_USER_DECISION**：用户选择是否批准经审阅后向TRACE官方仓库咨询许可和无答案字段（未批准时不得发送），或转为不依赖gold必要区间的新预注册问题（也不是立即做GPU实验）。没有用户选择则**没有READY父任务**。科研机制retain 0，原数据G1 HOLD，真实PTS/来源隔离未证实。
+
+### 2026-10-09 · 用户确认路线1，咨询稿供确认但禁止外发（最新）
+
+用户选择**保留固定12互异源帧、以gold联合必要证据区间覆盖为诊断前提的路线1**，要求准备TRACE/VES-Bench官方咨询的下一步流程和最终正文、**未经用户确认不对外发送**。这个选择仅决定科研方向，不解除G1，也**不是授权发GitHub Issue、邮件、表单、下载或GPU**。
+
+ChatGPT复核 [TRACE官方README](https://github.com/buaa-colalab/TRACE)公开声明600道问题/348个视频和联合必要参考区间，以及GitHub REST公开仓库元数据（Issues启用、仓库许可对象为空、未见既有Issues）。该入口可作为候选公开咨询渠道，但Issues启用并不保证任何具体账户具备发表权限、不是专用许可申请入口；数据注释与上游媒体使用许可、正式无答案字段、同版媒体的PTS/clip桥接目前仍UNKNOWN。不索取带答案样本和实际媒体，不将公开可见性误认为使用授权。
+
+ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和发送流程](./outreach/trace-ves-bench-inquiry-draft.md)。文件标记**DRAFT / UNSENT**，公开存档在用户的文档协调仓库，仅供本人审核。**对TRACE团队尚未发送任何Issue、邮件或外部联系**。须用户再次明确批准具体渠道和正文之后，才可考虑实际对外投递；若渠道限制新建Issue，停止并让用户选择正式替代渠道，不能绕过权限。
+
+**当前状态**：VLM-ROUTE-006 = ROUTE1_SELECTED / AWAIT_USER_SEND_APPROVAL；**不存在READY Codex父任务**。真实许可/必要区间/版本PTS/保守独立来源、G1、VLM-003/004和模型GPU实验均HOLD；按前次止损决策禁止继续机械重复旧元数据检索和toy审计。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
