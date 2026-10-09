@@ -5,11 +5,15 @@ import struct
 import unittest
 import zipfile
 import zlib
+import pathlib
+import hashlib
+import tempfile
 from unittest import mock
 from charades_range_media_clock_pilot import (
     PilotError,Ledger,URL,NET_LIMIT,DISK_LIMIT,validate_range,read_response,eocd,
     central_directory,match_two,local_header,expand_member,select_cases,safe_name,
     validate_extra,ffprobe_command,classify_clock,public_receipt,NoRedirect,run_pilot)
+from charades_range_media_clock_pilot import zip64_fields,authorize_parent,official_anchor,transfer_two
 
 
 class Response:
@@ -82,6 +86,30 @@ class PilotTests(unittest.TestCase):
         with self.assertRaises(PilotError): eocd(toy_zip()+b'trailing',len(toy_zip())+8)
         with self.assertRaises(PilotError): validate_extra(struct.pack('<HH',1,0))
 
+    def test_zip64_eocd_64bit_offsets_supported(self):
+        record_offset=5*1024*1024*1024
+        central_offset=record_offset-512
+        record=struct.pack('<4sQ2H2L4Q',b'PK\x06\x06',44,45,45,0,0,2,2,512,central_offset)
+        locator=struct.pack('<4sLQL',b'PK\x06\x07',0,record_offset,1)
+        end=struct.pack('<4s4H2LH',b'PK\x05\x06',0,0,2,2,512,0xffffffff,0)
+        tail=record+locator+end
+        self.assertEqual(eocd(tail,record_offset+len(tail)),(central_offset,512,2))
+        changed=bytearray(tail); struct.pack_into('<L',changed,56+16,2)
+        with self.assertRaises(PilotError): eocd(changed,record_offset+len(changed))
+
+    def test_zip64_extra_strict_field_order_and_missing_values(self):
+        body=struct.pack('<QQQ',100,80,5*1024*1024*1024)
+        extra=struct.pack('<HH',1,len(body))+body
+        self.assertEqual(zip64_fields(extra,0xffffffff,0xffffffff,0xffffffff,0),(100,80,5*1024*1024*1024,0))
+        with self.assertRaises(PilotError): zip64_fields(extra,100,80,0,0)
+        with self.assertRaises(PilotError): zip64_fields(b'',0xffffffff,80,0,0)
+
+    def test_zip64_local_header_consistent_size(self):
+        name=b'SYNTHETIC.mp4'; body=struct.pack('<QQ',100,80); extra=struct.pack('<HH',1,16)+body
+        header=struct.pack('<4s5H3L2H',b'PK\x03\x04',45,0,8,0,0,123,0xffffffff,0xffffffff,len(name),len(extra))
+        entry={'flags':0,'method':8,'crc':123,'compressed':80,'size':100,'name_bytes':name}
+        self.assertEqual(local_header(header,name+extra,entry),len(name)+len(extra))
+
     def test_zip_paths_special_names_and_case_duplicates(self):
         for name in ('../bad.mp4','/bad.mp4','C:/bad.mp4','a\\b.mp4','NUL.txt','bad|name'):
             with self.assertRaises(PilotError): safe_name(name)
@@ -96,6 +124,8 @@ class PilotTests(unittest.TestCase):
             changed=bytearray(data); struct.pack_into('<H',changed,off+8,flags)
             with self.assertRaises(PilotError): records(changed)
         changed=bytearray(data); struct.pack_into('<L',changed,off+38,0xa1ff<<16)
+        with self.assertRaises(PilotError): records(changed)
+        changed=bytearray(data); struct.pack_into('<H',changed,off+8,0x40)
         with self.assertRaises(PilotError): records(changed)
 
     def test_local_header_crc_size_and_name_match(self):
@@ -143,11 +173,114 @@ class PilotTests(unittest.TestCase):
         text=json.dumps(public_receipt({'private_id':'SYNTHETIC-SECRET','duration':1}))
         self.assertNotIn('SYNTHETIC-SECRET',text); self.assertNotIn('duration',text)
 
+    def test_nonfinite_clock_metadata_is_unknown_not_mismatch(self):
+        from charades_range_media_clock_pilot import endpoint_relation
+        probe={'streams':[{'time_base':'1/10','avg_frame_rate':'10/1','r_frame_rate':'10/1','start_time':'0','duration':'1'}],
+               'format':{'duration':'Infinity'},'packets':[{'pts':'0','duration':'10'}]}
+        self.assertEqual(classify_clock(probe,'1'),'CLOCK_UNKNOWN')
+        self.assertEqual(endpoint_relation(probe,{'length':'1','ends':['2']}),'END_CLOCK_UNKNOWN')
+
     def test_missing_tool_stops_before_network_or_storage(self):
         with mock.patch('charades_range_media_clock_pilot.find_ffprobe',side_effect=PilotError('BLOCKED_EXISTING_FFPROBE_NOT_FOUND')), \
              mock.patch('charades_range_media_clock_pilot.urllib.request.build_opener') as network:
             with self.assertRaises(PilotError): run_pilot()
             network.assert_not_called()
+
+    def test_canonical_tool_redirect_into_conda_still_rejected(self):
+        from charades_range_media_clock_pilot import find_ffprobe
+        with mock.patch('charades_range_media_clock_pilot.shutil.which',return_value=None), \
+             mock.patch('charades_range_media_clock_pilot.pathlib.Path.is_file',return_value=True), \
+             mock.patch('charades_range_media_clock_pilot.pathlib.Path.resolve',return_value=pathlib.Path('SYNTHETIC/.conda/ffprobe.exe')):
+            with self.assertRaisesRegex(PilotError,'FFPROBE_NOT_FOUND'): find_ffprobe()
+
+    def test_preflight_only_never_creates_network_after_tool_success(self):
+        with mock.patch('charades_range_media_clock_pilot.find_ffprobe',return_value=pathlib.Path('SYNTHETIC-TOOL')), \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run',return_value=mock.Mock(stdout=b'ffprobe version SYNTHETIC')), \
+             mock.patch('charades_range_media_clock_pilot.urllib.request.build_opener') as network:
+            result=run_pilot()
+            self.assertEqual(result['status'],'PREFLIGHT_ONLY')
+            network.assert_not_called()
+
+    def test_completed_parent_rejected_no_repeat(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder); (root/'docs').mkdir()
+            (root/'docs/next-steps.md').write_text('| VLM-BATCH-999 | P1 | **READY** | safe |',encoding='utf-8')
+            (root/'docs/codex-results.md').write_text('### VLM-BATCH-999 completed',encoding='utf-8')
+            with self.assertRaisesRegex(PilotError,'ALREADY_REPORTED'): authorize_parent('VLM-BATCH-999',root)
+
+    def test_official_anchor_exact_unique_source(self):
+        from charades_range_media_clock_pilot import URL
+        good='<a href="'+URL+'">Data (scaled to 480p, 13 GB)</a>'
+        official_anchor(good)
+        with self.assertRaises(PilotError): official_anchor(good+good)
+        with self.assertRaises(PilotError): official_anchor(good.replace(URL,'https://invalid.example/file.zip'))
+
+    def test_persistent_ledger_atomic_restore_no_reset(self):
+        with tempfile.TemporaryDirectory() as folder:
+            file=pathlib.Path(folder)/'ledger.json'; ledger=Ledger(file)
+            ledger.begin(0,3); ledger.add(2); ledger.finish('STOPPED')
+            self.assertEqual(json.loads(file.read_text())['body_bytes'],2)
+            with self.assertRaisesRegex(PilotError,'ALREADY_EXISTS'): Ledger(file)
+
+    def test_coordinator_transfer_two_with_synthetic_range_client(self):
+        data=toy_zip()
+        ledger=Ledger()
+        class Client:
+            total=len(data)
+            def __init__(self): self.ledger=ledger
+            def get(self,start,end):
+                ledger.begin(start,end); ledger.add(end-start+1); ledger.finish('COMPLETE')
+                return data[start:end+1]
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder)
+            for name in ('incoming','media','local-audit'): (root/name).mkdir()
+            saved=transfer_two(Client(),[{'id':'SYNTHETIC-A'},{'id':'SYNTHETIC-B'}],root)
+            self.assertEqual(len(saved),2)
+            self.assertEqual((root/'media/case-0.mp4').read_bytes(),b'TOY BYTES A')
+            self.assertFalse(list((root/'incoming').iterdir()))
+            self.assertEqual(ledger.state['saved_videos'],2)
+
+    def test_execute_coordinator_complete_with_mocked_http_and_probe(self):
+        from charades_range_media_clock_pilot import PAGE,URL
+        data=toy_zip(); real_sha=hashlib.sha256
+        def hash_only_synthetic_license(value=b''):
+            if value==b'SYNTHETIC-LICENSE':
+                return mock.Mock(hexdigest=lambda:'a734f9263490d2a0567da2e39f109f3cf535896e4efb91caaefa27644ac628f0')
+            return real_sha(value)
+        class Head:
+            status=200; headers={'Content-Type':'application/zip','Content-Length':str(len(data)),'ETag':'toy-etag'}
+            def geturl(self): return URL
+            def __enter__(self): return self
+            def __exit__(self,*args): pass
+        class Client:
+            def __init__(self,ledger,total,etag):
+                self.ledger=ledger; self.total=total; self.etag=etag; self.opener=mock.Mock(open=lambda *a,**k:Head())
+            def text(self,url,limit):
+                value=('<a href="'+URL+'">Data (scaled to 480p, 13 GB)</a>').encode() if url==PAGE else b'SYNTHETIC-LICENSE'
+                self.ledger.begin(0,limit-1); self.ledger.add(len(value)); self.ledger.finish('COMPLETE'); return value
+            def get(self,start,end):
+                self.ledger.begin(start,end); self.ledger.add(end-start+1); self.ledger.finish('COMPLETE')
+                return data[start:end+1]
+        with tempfile.TemporaryDirectory() as folder:
+            base=pathlib.Path(folder); meta=base/'synthetic-metadata'; meta.mkdir()
+            (meta/'classes.txt').write_text('toy-class Synthetic')
+            (meta/'train.csv').write_text('id,subject,actions,length\nSYNTHETIC-A,PERSON-A,toy-class 0 12,10\nSYNTHETIC-B,PERSON-B,toy-class 0 5,10\n')
+            probe={'streams':[{'time_base':'1/10','avg_frame_rate':'10/1','r_frame_rate':'10/1','start_time':'0','duration':'10'}],
+                   'format':{'duration':'10'},'packets':[{'pts':'0','duration':'1'},{'pts':'99','duration':'1'}]}
+            def fake_subprocess(command,**kwargs):
+                return mock.Mock(stdout=b'ffprobe version SYNTHETIC') if '-version' in command else mock.Mock(stdout=json.dumps(probe).encode())
+            with mock.patch('charades_range_media_clock_pilot.find_ffprobe',return_value=pathlib.Path('SYNTHETIC-TOOL')), \
+                 mock.patch('charades_range_media_clock_pilot.subprocess.run',fake_subprocess), \
+                 mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
+                 mock.patch('charades_range_media_clock_pilot.fixed_preflight',return_value=(base/'synthetic-pilot',{'classes':meta/'classes.txt','train':meta/'train.csv'})), \
+                 mock.patch('charades_range_media_clock_pilot.RangeClient',Client), \
+                 mock.patch('charades_range_media_clock_pilot.hashlib.sha256',hash_only_synthetic_license), \
+                 mock.patch('unittest.TextTestRunner.run',return_value=mock.Mock(testsRun=24,wasSuccessful=lambda:True)):
+                out=run_pilot(True,'VLM-BATCH-999')
+            self.assertEqual(out['status'],'CASE_LIMITED_COMPLETE')
+            self.assertEqual(out['saved_videos'],2)
+            self.assertNotIn('SYNTHETIC-A',json.dumps(out))
+            self.assertEqual(out['CASE_CONTROL'],'LENGTH_APPROX_MATCH')
 
 
 if __name__=='__main__': unittest.main()
