@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH012官方标签政策对齐验收，时间边界和科学真值仍HOLD，目前无READY）  
+> 更新：2026-10-09（北京时间；用户选择Charades方案A两视频边界核验方向、待独立媒体授权，无READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -93,7 +93,7 @@
 | 现有Charades时间合同独立核验 BATCH-011 | **ACCEPTED（数值交付；同版时间语义HOLD）** | Codex，ChatGPT审查 |
 | 下一科研路线 VLM-RESEARCH-DECISION-012 | **USER_SELECTED_CHARADES_ALIGNMENT（非READY的用户决策）** | 用户、ChatGPT |
 | Charades官方评测对齐及时间质量分层 BATCH-012 | **ACCEPTED（工程frame label对齐；质量/事件HOLD）** | Codex，ChatGPT审查 |
-| 未来科研证据范围 VLM-RESEARCH-GATE-013 | **WAIT_USER_SCOPE_DECISION（非READY）** | 用户、ChatGPT |
+| 未来科研证据范围 VLM-RESEARCH-GATE-013 | **ROUTE_A_SELECTED / WAIT_EXPLICIT_MEDIA_APPROVAL（非READY）** | 用户、ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -413,6 +413,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **三层门独立冻结**：A`OFFICIAL_LABEL_SAMPLING_COMPATIBILITY=VERIFIED_WITHIN_STATED_SCOPE`（本ZIP源码至有限、可解析、正length的25点label模拟；没运行MATLAB/端到端模型/真实媒体PTS，不认证浮点所有边界）；B`TIME_RANGE_QUALITY=HOLD`（原66,500 token中19,625不通过旧strict门，至少8,747条`end-length`介于1–5个CSV秒尺度，不擅自裁切/放缩/“救回正确”）；C`P1/P2_EVENT_TRUTH=HOLD`（原严格347同类分离组及97,723异类重叠pair仍是区间几何候选，即使grid-hit资格相同也不构成自然语言实例顺序真值）。创新机制retained0，Charades短域不独立证明自然长视频论文，原媒体/视觉/时钟/外部来源均未认证，GPU依旧BLOCKED。对外最可复用的是**官方评测标签构造与数据质量筛选分离**的准入机制，未来换数据集也先做此项口径核实以免重复损失。
 
 **下一步不是无边界再检查**：BATCH012`ACCEPTED`，当前**没有任何READY**，用户需要先决定`VLM-RESEARCH-GATE-013=WAIT_USER_SCOPE_DECISION`：是否为B/C真值验证另行提出**合法且最小媒体样本+同版视频时钟证据**的独立授权，还是将Charades留作短视频工程对照、优先为真正自然长视频研究寻找合法可用的长时域公开素材（先做公开许可/时间合同准入，不直接下载）。没有用户明确的新媒体/STA/GPU许可，Codex不能继续下载、解码、运行模型或更新原研究工作区。先例[ACL2025 Perfect Times](https://aclanthology.org/2025.acl-long.1000/)仍限制简单Charades时序QA创新宣称，不因工程修复自动放宽。原ZIP与CSV留在约定的私有隔离目录，不能转存GitHub。
+
+### 2026-10-09 · 用户选择方案A：Charades最小媒体PTS/标注边界试点，媒体授权仍单独等待（最新）
+
+**用户决定**：在BATCH012官方25时点标签模拟成功、时间质量与事件真值继续HOLD后，用户回复“A”，即选择**继续Charades的真实视频—标注时间边界核验**，暂时不转向新数据集。此选择是研究路径决策，**没有独立授权下载或读取任何视频字节**；原BATCH010元数据单包授权已使用，不能扩大。ChatGPT只核公开官方项目页、README、license并完成[两视频有界试点提案](./charades-media-boundary-pilot-proposal-2026-10-09.md)与[任务看板](./next-steps.md)状态更新，未发媒体Range GET、无新文件访问或模型执行，当前没有任何Codex READY任务。
+
+**关键准入风险**：[AllenAI官方Charades项目页](https://prior.allenai.org/projects/charades)公开视频入口为**480p整ZIP约13GB**和原版整包约55GB，**没有明确列出官方逐视频URL**。公开[官方README](https://prior.allenai.org/projects/data/charades/README.txt)描述转码mp4及原版帧率/分辨率保持行为，不能自动推论480p版的PTS与CSV`length`和动作端点都同一版本；[non-commercial license](https://prior.allenai.org/projects/data/charades/license.txt)限制向第三方分发/修改后公开发布原数据。一个极小两视频试点在权限、媒体选取和HTTP Range技术上**尚未证明实际可获取**；HEAD信息不足以证明206 Range或可低流量读取ZIP成员。**必须拒绝为了做两个视频实验而直接下载13GB整包**，除非另有用户明确新授权（本研究当前不建议）。
+
+**两阶段证据协议（尚未执行）**：[详细方案A](./charades-media-boundary-pilot-proposal-2026-10-09.md)预计最多2个train split视频：一个在CSV中满足`start<length<end`且`end-length`在(1,5]，一个同等时长量级、尽量不同subject且无数值异常的匹配对照。仅私有本地固定选择，不能公开原video/subject身份或行。**V1**若另获用户批准，媒体下载正文总量拟≤64MiB（包含ZIP末尾/目录等range读取）、本地媒体总占用拟≤128MiB、固定独立Windows目录`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-MediaPilot\`，只读用**已存在**CPU ffprobe/ffmpeg观察容器duration/start_time、stream time_base、首尾帧PTS，和CSV length/end对照。若Range不支持、回整包200、ZIP成员不可确定、要装依赖或需要超过预算，**立即STOP**，不能改用镜像、13GB整包或原RTX3090实验环境。**V2**任何可视核对/人工事件边界认定/模型分析必须**再单独授权**。
+
+**科学边界**：V1即使可行，只检验**最多两例**的容器/媒体时钟与CSV一致性，不代表全部19,625条越界时段已修复；不能以PTS时钟报告确认动作起止的视觉真值。原BATCH012的A frame-label政策仍`VERIFIED_WITHIN_STATED_SCOPE`，B`TIME_RANGE_QUALITY=HOLD`，C`P1/P2_EVENT_TRUTH=HOLD`，创新retain0、自然长域Charades独立确认FAIL、GPU/视频下载依旧**未获授权**。下一唯一门：用户是否单独批准上述**最多两段、总网络≤64MiB、仅V1 CPU媒体钟**的条件式试点；在此之前不得新增READY或触发Codex视频任务。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
