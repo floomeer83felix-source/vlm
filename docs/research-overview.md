@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH-007十项交付验收，三候选均未通过机制创新门，当前无READY）  
+> 更新：2026-10-09（北京时间；用户愿意审阅Ego4D官方许可，尚未签署/获批，仍无READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -82,7 +82,7 @@
 | 路线2创新红队与无gold数据门 VLM-BATCH-006 | **ACCEPTED（十项交付；科学NO_GO_OR_PIVOT）** | Codex，ChatGPT审查 |
 | 核心科研路线选择 VLM-DECISION-007 | **B_SELECTED（转向不同的核心机制）** | 用户与ChatGPT |
 | 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
-| 研究重立题决策 VLM-RESEARCH-GATE-008 | **WAIT_USER_DIRECTION（无READY）** | 用户与ChatGPT |
+| Ego4D数据授权准入 VLM-RESEARCH-GATE-008 | **USER_WILLING_TO_REVIEW / WAIT_USER_SELF_SIGN（非READY）** | 用户本人，ChatGPT记录 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -286,6 +286,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 - **现实门**：负事件完整性标签、真实支持/依赖/可区分观察标签均不在已确认合法资源中；媒体/QA许可、同版PTS与clip变换、来源独立、可信视觉验证器、实际token/GPU成本仍UNKNOWN/HOLD。不能拿旧QA分数或toy真值填这些空白。
 
 **研究止损与下一门**：[docs/next-steps.md](./next-steps.md)将BATCH-007改为ACCEPTED，新增 `VLM-RESEARCH-GATE-008=WAIT_USER_DIRECTION`，**当前0项READY**。用户如继续追求长视频VLM高水平期刊创新，需先明确**不同且可检验的核心对象、与现有算子不能简单模拟的差异，以及获得可合法验证证据的现实路径**。否则不安排另一批凭空构想的10任务包，也不默许下载、联系作者、GPU或修改原实验环境。用户继续保留原Codex聊天。
+
+### 2026-10-09 · 用户同意推进Ego4D许可审阅（申请意向，非数据授权；最新）
+
+**决议状态**：在前期M1/M2/M3机制组合被NO-GO之后，用户表示愿意通过Ego4D官方渠道本人审阅并在认可条款时接受协议。ChatGPT不替用户签署、申请或领取AWS密钥；**当前仅USER_WILLING_TO_REVIEW，不能断言已提交/被批准/允许下载或发表研究结果**。在[任务板](./next-steps.md)将VLM-RESEARCH-GATE-008改为`WAIT_USER_SELF_SIGN`、无新READY；Codex不得代操作。
+
+**官方入口与执行说明**：[Ego4D许可申请页](https://ego4ddataset.com/ego4d-license/)和[官方Start Here](https://ego4d-data.org/docs/start-here/)，详情见新[本人申请与字段准入清单](./ego4d-access-checklist-2026-10-09.md)。表单支持Individual/Organization；普通个人自己按Individual审阅协议并经HelloSign签署，机构只有具授权代表才能签。官网说明审批后一般约48小时发AWS凭据，凭据14天有效，这不是保证；2026年初[官方GitHub Issues](https://github.com/facebookresearch/Ego4d/issues)有表单失败/无邮件报告，出现问题不自动替用户联系或反复提交。申请需个人资料，**不得上传到公开GitHub或聊天**。
+
+**科学转向是“资源→问题”**：官网[Episodic Memory](https://ego4d-data.org/docs/benchmarks/episodic-memory/)已明确MQ活动多实例时间窗与NLQ回答窗口，[MQ字段](https://ego4d-data.org/docs/data/annotations-schemas/)含视频/clip ID、relative time、activity segments；可将**反复活动的实例定位/时间混淆**作为候选可反证问题，但它不是新算法，必须先核以前的temporal grounding/episodic retrieval强先例和标签适用范围。人工标注“所有看见的moment”仍不能无条件证明任意未标事件在全域不存在。用户获得许可前不得使用任何注释或视频；许可后仍须分开确认正式权利范围、同媒体版本PTS/clip/source独立、评分隔离、最小数据下载预算/路径、真实视频CPU或GPU用户单独授权。
+
+**下一步用户只需回报一个不敏感状态**：未提交、已提交待审批、已获批准、条款不接受或申请异常；不可传AWS凭据、个人资料、签名协议。状态未获批准前，不建议另开十任务包，不恢复旧VLM-003/004，不改RTX3090实验工作区，保留原Codex聊天。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
