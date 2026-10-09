@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH-006十任务已验收，普通选帧新算法NO-GO，等待路线选择）  
+> 更新：2026-10-09（北京时间；用户已选择核心机制重新立题，BATCH-007唯一READY，0GPU）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -50,23 +50,23 @@
 
 - 可说：当前候选在已测试样本上未取得稳定净收益；干预可能同时纠错和误伤；按成本与验证协议不值得继续试同类变体。
 - 不可说：模型一定忽略了视觉、必需证据一定未被看到、所有主动视觉方法无效、或另一骨干上必然相同。
-- 尚缺：可验证的参考时段与同版本原视频桥接、独立长视频外部验证、第二模型泛化、训练方法的多种子验证、可靠的算法创## 3. 下一阶段研究命题（路线2；假设而非新算法）
+- 尚缺：同版本原视频时间桥接、独立长视频外部验证、第二模型泛化、训练方法多种子验证及可信创新性审查。
 
-**用户2026-10-09最新选择路线2：不要求“gold必要证据区间已经覆盖”，转而研究固定12个唯一源帧预算下的选帧策略配对效果和选择路径鲁棒性。** 先前路线1与[TRACE咨询草案](./outreach/trace-ves-bench-inquiry-draft.md)仅保留为**历史且未发送**；禁止擅自发表或联系作者。
+## 3. 最新科学问题（原DECISION-007已选择B：重新寻找核心计算机制）
 
-**主问题H-P**：相同合法长视频QA问题、冻结模型/处理器和候选源帧池、相同12唯一帧预算，问题相关SigLIP选帧S_q与问题无关的时间分层S_t相比，在保守独立来源组上的配对期望正确率差是否不为0？H0：Δ=0；双侧H1：Δ≠0。补充对照包括问题无关多样性S_d、question-shuffled S_shuf。重点控制真实源PTS、时间bin内偏移、实际视觉token/分辨率及来源污染；策略总效应不等于“问题相关性纯因果”。
+**2026-10-09 用户最新选择B**：继续长视频VLM研究与高水平论文目标，但放弃以query-aware/uniform采帧比较、selector-only×prompt-only措辞敏感性为本次**核心算法贡献**。上述内容仍是历史测量草案，不再是当前READY执行命题。项目目前**retain 0**，没有新颖算法已成立或GPU实验已批准。
 
-**副问题H-S（条件可行时）**：仅对有合法、事前证明意义等价的两种问题措辞，把改写单独施加于选择器而固定最终回答提示，再与固定选帧仅改回答提示作正交比较，观察选帧链路与语言提示链路的响应差异；若缺可用等价改写对，则不做，不由模型自动制造新标签。
+[机制复位总方案](./mechanism-reset-2026-10-09.md)提出**三个互斥的形式候选**，且每个都有强已知先例风险：
 
-**当前创新结论：retain 0。** [新定向创新初审](./route2-novelty-screen.md)指出Q-Frame、MIF/MDF、DIG及2026多个方法已覆盖问题感知取帧、问题类型和多样性控制；扰动敏感性也已有研究，**不能把旧启发式改名为“新方法”**。需要Codex在BATCH-006核查正式方法/消融有无直接先例，并允许建议NO-GO。
+- **M1 开放世界负事实证据义务**：在稀疏且不完全的视频观察下，判定「从未发生/仅有/此前没有」何时必须UNKNOWN；研究需要什么覆盖/探测器假设才能输出条件证书，而非把“没看见”当“没有”。该方向可能属于经典三值时序逻辑/有限轨迹监控的已知情形。
+- **M2 有来源和版本的可撤销断言**：矛盾新证据到来时，仅失效受依赖的子结论；强基线是经典truth-maintenance及结构化事件图。若只是普通依赖图缓存/重问，应NO-GO。
+- **M3 答案假设可区分性义务**：对仍与当前观察相容的候选答案定义可区分谓词与不可识别状态；VideoHV/PACE/NeuS-QA已有假设检验及线索检索，若无实质不同算子，NO-GO。
 
-**当前新门槛**：NG0文献与可辨识性审查、NG1独立评分可用的合法视频与QA许可、NG2媒体版本/真实PTS/来源隔离/预算技术门、NG3预注册/功效/独立确认方案，现均**未通过**。旧G1必要gold区间是路线1历史前提，不再作为路线2门槛，但“无gold区间”绝不意味合法答案标签可给选择器或媒体不需许可。真正GPU、视频下载、改变锁/环境、重新运行旧任务均继续HOLD。
+**直接先例约束**：[NeuS-QA (AAAI2026)](https://ojs.aaai.org/index.php/AAAI/article/view/37834)已做时序逻辑+视频自动机及模型检查；[VideoHV-Agent (CVPR2026)](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Think_Then_Verify_A_Hypothesis-Verification_Multi-Agent_Framework_for_Long_Video_CVPR_2026_paper.html)已做答案假设和判别线索验证；[VideoSEAL (ICML2026)](https://proceedings.mlr.press/v306/qiu26v.html)已将规划与回答权限分离并做像素验证；[Open-o3-Video](https://proceedings.mlr.press/v306/meng26e.html)、[ENTER](https://arxiv.org/abs/2501.14194)、[VideoStir](https://aclanthology.org/2026.acl-long.1656/)均已覆盖不同结构化证据操作。**以上是公开方法/摘要级初筛，不构成任何候选原创性认证**。新包必须尽可能由证据**否决**它们，允许全淘汰。
 
-已写入 [路线2可证伪预注册](./route2-no-gold-preregistration.md)与[创新重合审查](./route2-novelty-screen.md)；仅开放 [VLM-BATCH-006](./codex-artifacts/VLM-BATCH-006/README.md) 这一READY父任务，**现按用户要求扩为10个低风险子任务**（文献红队3项、静态数据/接口4项、统计合同与CPU合成测试2项、科学裁决1项），四份报告＋两份全新toy代码＋一条汇总，不准新增真实媒体或模型实验。任务结果不足以自动解除数据/创新性门或保留期刊级机制。
+**当前明确授权**：[VLM-BATCH-007十项任务](./codex-artifacts/VLM-BATCH-007/README.md)（唯一READY）：历史否决、机制先例红队、M1/M2/M3形式定义、双世界不可辨识反例、小型纯符号CPU穷举测试、新合法标注和真实PTS/来源门、最强机制级对照/预注册、最后的N/T/U/D/B/F否决矩阵。只可交付5份脱敏Markdown、2份新toy Python及1条Codex回报。**不运行GPU、真实媒体、QA或改Windows原资产**，不得把toy逻辑成立当真实感知可信。
 
-述科学门。
-
-## 4. 当前执行看板（2026-10-08）
+## 4. 当前执行看板（2026-10-09）
 
 | 项目 | 状态 | 负责方 |
 |---|---|---|
@@ -80,7 +80,8 @@
 | 官方访问渠道、toy反例与研究路线裁决 VLM-BATCH-005 | **ACCEPTED（toy18/18执行者报告，G1 HOLD）** | Codex，ChatGPT审查 |
 | 路线决策 VLM-ROUTE-006 | **ROUTE2_SELECTED（取代旧路线1）** | 用户与ChatGPT |
 | 路线2创新红队与无gold数据门 VLM-BATCH-006 | **ACCEPTED（十项交付；科学NO_GO_OR_PIVOT）** | Codex，ChatGPT审查 |
-| 下一科学投资方向 VLM-DECISION-007 | **WAIT_USER_DIRECTION（无READY）** | 用户与ChatGPT |
+| 核心科研路线选择 VLM-DECISION-007 | **B_SELECTED（转向不同的核心机制）** | 用户与ChatGPT |
+| 三候选形式机制否决研究 VLM-BATCH-007 | **READY（十项；有限文献与纯符号CPU；0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -261,6 +262,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 3. C 暂停本方向，封存负结果。
 
 **负责人倾向B（如果核心目标仍是新算法方法）**，而不是沿着S_q/S_t再造采样启发式。VLM-003/004、GPU、真实视频解码/下载、外部咨询、原研究环境更改全部继续BLOCKED；TRACE咨询稿仍UNSENT。用户选择之前没有READY任务，保留原Codex聊天。
+
+### 2026-10-09 · 用户选择B并立项 VLM-BATCH-007 十项机制研究（最新）
+
+**用户决定**：保留长视频VLM高水平期刊目标，但不以S_q/S_t、MMR、局部密采、GAP7、旧Evidence Memory、普通event graph及stop/zoom/router作新算法换名。ChatGPT已将 VLM-DECISION-007 标记 **B_SELECTED**，并在主分支[任务看板](./next-steps.md)设 **VLM-BATCH-007为唯一READY**。原 BATCH-006 的7处交付已验收，普通采帧新颖性NO-GO、retain0；不重复。
+
+**新科学分叉（都只是候选）**：M1 open-world negative claim的观察完整性/UNKNOWN债务，M2来源/版本证据依赖下的局部撤销，M3候选答案不可区分集的证据义务。明确近邻：NeuS-QA逻辑/automata、VideoHV假设验证、VideoSEAL独立answer authority、VideoStir/ENTER事件图、传统Truth-Maintenance。无法证明具体独特的计算算子/可辨识目标时**必须NO-GO**，不可将“有时序逻辑/多证据图/能拒答”包装为创新。已写[机制重立题与文献URL](./mechanism-reset-2026-10-09.md)，不是科学通过证书。
+
+**新任务包协议**：[VLM-BATCH-007/README.md](./codex-artifacts/VLM-BATCH-007/README.md)。用户要求一轮约10项；本轮分十任务：1历史否决，2最近先例，3M1定义，4M2定义，5M3定义，6双世界/不可能性反例，7虚构小世界标准库CPU穷举unittest，8合法媒体/标签/真实PTS/来源/视觉探测器前置，9强baseline/成本/预注册，10六门否决并最多留下1个**条件待核候选**或RETAIN0。只允许新建5份脱敏报告与2份toy代码，Codex追加**一条**父结果；统一提交后停止，留在**同一个Codex聊天框**。
+
+**新旧安全门**：本包0模型/GPU/问答/训练/评分调用，0视频解码/媒体或整套标注下载、0原Windows工作区/环境/锁/账本修改、0外部联系、0新增人工标注。现实资料的许可、真实PTS、来源独立、标签真值与GPU预算仍UNKNOWN/HOLD；保守拒答与toy穷举不证明真实VLM的可靠性或新颖性。BATCH-007提交后ChatGPT独立审查，否则不得自动派BATCH-008。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
