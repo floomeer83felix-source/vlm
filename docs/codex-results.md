@@ -157,3 +157,15 @@ toy枚举117种观测模板、336个一致世界—观测配对；理想三值�
 新[通用标准库工具](../prototypes/charades_metadata_audit.py)及[合成测试](../prototypes/test_charades_metadata_audit.py)没有真实行、身份或私人路径。Python3.9.21两轮suite：首次13方法中12通过、1个反斜杠成员子断言失败（Windows ZipInfo规范化掩盖原始名）；补原始成员名／NUL／特殊字符／文件父路径冲突检查且保留断言，第二轮13 PASS、0 FAIL/ERROR/SKIP。两轮suite各0.002秒，不含启动；发生在数据获取之前，不代表真实ZIP／CSV通过。未运行实际CSV审计CLI。
 
 实际网络仅当前官网／license／README三项文本及数据HEAD，无数据正文请求。隔离目录仅最小准备与来源HEAD元数据，无.part／ZIP／CSV；路径失败后不作进一步诊断、不修改目录或比较规则。0视频／STA／Ego／模型／特征下载、0真实模型／GPU／QA／评分／解码、0原研究资产／环境／锁／账本变更、0私人答案／来源映射读取、0外部联系／新标注／PR合并／历史重跑／自动化。仅提交规定5处并停止；后续应由用户／ChatGPT另审只读路径诊断，不重做本已回报父任务，保留同一聊天。
+
+### VLM-BATCH-009-FIX 2026-10-09 15:00 北京时间 — 用户直接授权的路径检查修复完成
+
+依据用户本轮“修复”，仅诊断并修复上条阻塞，不重新执行已回报的BATCH-009或新增数据请求。安全同步main仍为bc16e38；任务书的旧READY状态未覆盖已存在的父结果，计划与原阻塞历史未改。
+
+**根因与证据**：Windows对固定任务根返回另一规范名称，Path.absolute与Path.resolve词法不同，但os.path.samefile为真，device/inode一致且inode非零；规范名称再次resolve稳定，实际目录仍位于解析后的LOCALAPPDATA内。逻辑／规范两条祖先链均无symlink／reparse；原目录与父目录身份不同，不依赖全零文件ID误判。旧检查把名称不相等直接等同存储风险，造成保守误报；本轮确认的是命名差异，不猜具体账户／别名形式，也不披露私人路径。
+
+**修改**：[工具](../prototypes/charades_metadata_audit.py)改为双祖先链检查、现有锚点的samefile及device/inode双核验、规范名称稳定性和缺失叶的后缀一致性。保留固定变量路径、reparse拒绝、身份未知／不同拒绝，不跳过检查、不换目录。后续新建.part仍必须经现有父目录身份核验；ZIP／下载／CSV规则均未修改。
+
+**验证**：[合成测试](../prototypes/test_charades_metadata_audit.py)保留原13方法，增8项：现存／缺失叶、不同行名同文件身份、异身份／缺失拒绝、samefile失败、两条链重解析点拒绝、全零identity拒绝、canonical不稳定拒绝。本轮1次21 PASS，0 FAIL/ERROR/SKIP，suite0.033秒，不含启动。另对固定任务根与尚未创建的.part路径作一次只读复核：路径门PASS、LOCALAPPDATA规范包含PASS、已知研究／文档根与4个登记云根不重合；没有创建或写入隔离数据文件。
+
+**边界**：本轮数据GET／下载／CSV解析／真实资格统计均0，没有更新本地来源manifest或修改存储落点；合成测试只用虚构临时对象。0GPU／模型／视频／STA／真实解码／原研究资产或环境修改。修复了这一个路径检查阻塞，不意味着整个数据／ZIP／schema／科学门已通过。仅提交两代码和本条追加共3处；成功push后停止，保留原聊天，后续元数据执行需明确新安排，不自动重跑BATCH-009。

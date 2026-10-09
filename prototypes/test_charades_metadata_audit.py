@@ -2,8 +2,13 @@
 import unittest
 import zipfile
 import stat
+import os
+import pathlib
+import tempfile
+from unittest import mock
 from charades_metadata_audit import (
-    AuditError, MIB, safe_members, csv_rows, summarize, public_summary)
+    AuditError, MIB, safe_members, csv_rows, summarize, public_summary,
+    check_ancestors, verify_existing_identity)
 
 
 def row(key="toy-video", subject="toy-person", actions="c000 0 1", length="10"):
@@ -21,6 +26,78 @@ def members(extra=()):
 
 
 class MetadataTests(unittest.TestCase):
+    def test_existing_identity_and_missing_leaf_preserve_storage(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            check_ancestors(root)
+            check_ancestors(root/'new'/'toy.part')
+            self.assertFalse((root/'new').exists())
+
+    def test_different_paths_same_identity_can_be_proved(self):
+        with tempfile.TemporaryDirectory() as folder:
+            a = pathlib.Path(folder)/'toy-a'
+            b = pathlib.Path(folder)/'toy-b'
+            a.write_bytes(b'synthetic-only')
+            os.link(a,b)
+            self.assertNotEqual(a,b)
+            verify_existing_identity(a,b)
+
+    def test_different_identity_still_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            a = pathlib.Path(folder)/'toy-a'; b = pathlib.Path(folder)/'toy-b'
+            a.mkdir(); b.mkdir()
+            with self.assertRaisesRegex(AuditError,'STORAGE_IDENTITY_MISMATCH'):
+                verify_existing_identity(a,b)
+            with self.assertRaisesRegex(AuditError,'STORAGE_IDENTITY_UNVERIFIED'):
+                verify_existing_identity(a,a/'absent')
+
+    def test_samefile_false_still_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p = pathlib.Path(folder)
+            with mock.patch('charades_metadata_audit.os.path.samefile',return_value=False):
+                with self.assertRaisesRegex(AuditError,'STORAGE_IDENTITY_MISMATCH'):
+                    verify_existing_identity(p,p)
+
+    def test_reparse_attribute_still_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p = pathlib.Path(folder)
+            with mock.patch('charades_metadata_audit.pathlib.Path.lstat',
+                            return_value=mock.Mock(st_file_attributes=0x400,st_mode=stat.S_IFDIR)):
+                with self.assertRaisesRegex(AuditError,'STORAGE_REPARSE'):
+                    check_ancestors(p)
+
+    def test_zero_identity_not_a_certificate(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p = pathlib.Path(folder)
+            with mock.patch('charades_metadata_audit.pathlib.Path.stat',
+                            return_value=mock.Mock(st_ino=0)):
+                with self.assertRaisesRegex(AuditError,'STORAGE_IDENTITY_MISMATCH'):
+                    verify_existing_identity(p,p)
+
+    def test_canonical_chain_reparse_still_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            a = pathlib.Path(folder)/'toy-logical'; b = pathlib.Path(folder)/'toy-canonical'
+            a.mkdir(); b.mkdir()
+            real_lstat = pathlib.Path.lstat
+            def resolved(p, strict=False):
+                return b if p==a else p
+            def metadata(p):
+                return mock.Mock(st_file_attributes=0x400,st_mode=stat.S_IFDIR) if p==b else real_lstat(p)
+            with mock.patch('charades_metadata_audit.pathlib.Path.resolve',resolved), \
+                 mock.patch('charades_metadata_audit.pathlib.Path.lstat',metadata):
+                with self.assertRaisesRegex(AuditError,'STORAGE_REPARSE'):
+                    check_ancestors(a)
+
+    def test_unstable_canonical_name_still_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            a = pathlib.Path(folder)/'toy-a'; b = pathlib.Path(folder)/'toy-b'
+            a.mkdir(); b.mkdir()
+            def resolved(p, strict=False):
+                return b if p==a else a if p==b else p
+            with mock.patch('charades_metadata_audit.pathlib.Path.resolve',resolved):
+                with self.assertRaisesRegex(AuditError,'STORAGE_CANONICAL_UNSTABLE'):
+                    check_ancestors(a)
+
     def test_p1_positive_gaps_fixed_sensitivity(self):
         s = summarize([row(actions="c000 0 1;c000 2 3;c000 5 6")], [], {"c000"})
         for key in ("p1_gap_gt0_groups", "p1_gap_gt05_groups", "p1_gap_gt1_groups", "p1_videos"):

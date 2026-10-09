@@ -26,14 +26,38 @@ class AuditError(ValueError):
     """Only fixed error codes; do not put source paths or records in exceptions."""
 
 
+def verify_existing_identity(logical, canonical):
+    """Path spelling is not file identity; require both OS identity checks."""
+    left, right = pathlib.Path(logical), pathlib.Path(canonical)
+    if not left.exists() or not right.exists():
+        raise AuditError("STORAGE_IDENTITY_UNVERIFIED")
+    a, b = left.stat(), right.stat()
+    if not a.st_ino or not b.st_ino or not os.path.samefile(left, right) or (
+            a.st_dev, a.st_ino) != (b.st_dev, b.st_ino):
+        raise AuditError("STORAGE_IDENTITY_MISMATCH")
+
+
 def check_ancestors(path):
+    """Reject links on BOTH names; accept only proved, stable spelling aliases."""
     path = pathlib.Path(path).absolute()
-    for part in (path,) + tuple(path.parents):
-        if part.exists() or part.is_symlink():
-            s = part.lstat()
-            if part.is_symlink() or getattr(s, "st_file_attributes", 0) & 0x400:
-                raise AuditError("STORAGE_REPARSE")
-    if path.resolve() != path:
+    resolved = path.resolve(strict=False)
+    for start in (path, resolved):
+        for part in (start,) + tuple(start.parents):
+            if part.exists() or part.is_symlink():
+                s = part.lstat()
+                if part.is_symlink() or getattr(s, "st_file_attributes", 0) & 0x400:
+                    raise AuditError("STORAGE_REPARSE")
+    anchor, tail = path, []
+    while not anchor.exists():
+        if anchor == anchor.parent:
+            raise AuditError("STORAGE_IDENTITY_UNVERIFIED")
+        tail.insert(0, anchor.name)
+        anchor = anchor.parent
+    canonical_anchor = anchor.resolve(strict=True)
+    if canonical_anchor.resolve(strict=True) != canonical_anchor:
+        raise AuditError("STORAGE_CANONICAL_UNSTABLE")
+    verify_existing_identity(anchor, canonical_anchor)
+    if resolved != canonical_anchor.joinpath(*tail):
         raise AuditError("STORAGE_REALPATH_MISMATCH")
 
 
