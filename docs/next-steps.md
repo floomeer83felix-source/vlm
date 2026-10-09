@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；BATCH-007已验收、机制创新retain0、当前无READY）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；用户愿意审阅Ego4D正式许可，尚未提交/获批，当前无READY）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -19,12 +19,12 @@
 | VLM-BATCH-006 | P1 | **ACCEPTED（十项有界交付；科研NO_GO_OR_PIVOT）** | Codex | 文献/创新/混杂、静态接口/许可/PTS、统计合同及toy、科学决策 | [e581039](https://github.com/floomeer83felix-source/vlm/commit/e581039970106dbec741adf502e48e5f948adad4)：4报告、2 toy、1追加已审；执行者报11/11 CPU测试通过；普通 S_q/S_t 新算法NO-GO，窄2×2仍UNKNOWN |
 | VLM-DECISION-007 | P0 | **B_SELECTED（新机制研究，不继续旧采帧路线）** | 用户与ChatGPT | 保留长视频VLM高水平论文目标；旧S_q/S_t选帧/2×2提示仅作历史，不作为核心创新 | [机制重立题](./mechanism-reset-2026-10-09.md)与下一唯一READY BATCH-007；没有保留的创新机制 |
 | VLM-BATCH-007 | P1 | **ACCEPTED（10项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex | 历史与先例、M1/M2/M3形式定义、双世界反例、toy、数据/强基线及否决 | [d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)：5报告+2toy+1追加符合范围；执行者报12/12 CPU单测；M1/M2/M3当前算子均可由现有逻辑/依赖缓存/判别规划模拟，无新增核心机制通过 |
-| VLM-RESEARCH-GATE-008 | P0 | **WAIT_USER_DIRECTION（不可执行）** | 用户与ChatGPT | 若仍寻求核心机制创新，须改变实质可辨识的科学对象/获得合法新证据，而非再换名或重复静态toy | 用户未提供明确新科学目标/可用实证资源前，无BATCH-008 READY；不授权GPU/下载/外部联系 |
+| VLM-RESEARCH-GATE-008 | P0 | **EGO4D_USER_REVIEW_WILLING / WAIT_USER_SELF_SIGN（非READY）** | 用户本人 / ChatGPT | 优先建立合法Ego4D数据使用入口：用户自行读最终协议、决定是否签署并报告脱敏审批状态 | [官方许可操作清单](./ego4d-access-checklist-2026-10-09.md)；用户仅表示愿意办理，**未提交/未获准不能假定**，Codex不代签/不获取个人信息/不下载数据 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前没有任何READY任务。VLM-BATCH-007十项交付已ACCEPTED，科研裁决为 RETAIN 0 / STOP THIS PORTFOLIO。** 现M1负证据债务=M1三值/开放世界监控同构、M2局部撤销=完整依赖缓存同构、M3答案区分义务=版本空间/判别clue规划同构；这是当前形式定义没有差异化运算，不是整领域不可能创新。新候选还缺可合法验证的负事件/依赖/可区分性真值、同版真实PTS与来源、可靠感知器、计算预算。下一状态 VLM-RESEARCH-GATE-008=WAIT_USER_DIRECTION：不再按用户偏好的10项数量硬凑新READY，未经新明确科学方向/资源授权不执行Codex、GPU、媒体或外部联系；原Codex聊天保留、TRACE草案仍UNSENT。
+**当前没有任何READY任务。** BATCH-007已验收并停止原M1/M2/M3组合；用户现明确**愿意本人审阅Ego4D正式数据许可，并在接受条款时自行申请**，故VLM-RESEARCH-GATE-008转为**WAIT_USER_SELF_SIGN**。这是申请意向，不是已提交、获准、可下载、可做GPU或可发表的许可。优先查看[官方申请清单](./ego4d-access-checklist-2026-10-09.md)及官方表单。没有获批与新资源准入证据前，不发布BATCH-008 READY、不唤醒Codex、不下载视频/标注、不修改Windows原研究工作区、不发Issue/邮件或取得私人AWS凭据。TRACE旧草案继续UNSENT。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -195,7 +195,17 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **研究负责人裁决：STOP当前M1/M2/M3组合，不再自动发BATCH-008。** 保持长视频VLM高水平论文目标并不授权无限重复机制命名、摘要盘点或toy优化。今后只有在用户明确提供了**新的实质科学对象、有效合法数据/证据资源或其他可审查的创新线索**后，才重新设置一轮有限的创新性和可执行性门。研究范围变化之前，VLM-RESEARCH-GATE-008继续 WAIT_USER_DIRECTION。VLM-003/VLM-004、GPU/真实媒体/外部联系/原研究工作区修改继续BLOCKED。无需另开Codex聊天。
 
-## 九、当前研究判断（跨批保持）
+## 九、最新数据路径决定：Ego4D协议由用户亲自审阅（非Codex任务）
+
+**用户2026-10-09明确表示“愿意”走Ego4D正式许可路径**。ChatGPT仅登记申请意向，**没有替用户同意或签署法律协议，更没有提交任何数据许可表单或获得AWS访问权**。官方入口：[Ego4D用户许可表](https://ego4ddataset.com/ego4d-license/)；操作与来源：[Ego4D准入清单](./ego4d-access-checklist-2026-10-09.md)，以官网最终协议为准；个人可自行签个人许可，仅有正式签署权限才签机构协议。成功申请后可按官网流程获邮件审核，官网所写约48小时/14天凭据为通常说明，不保证实际时间；最近GitHub Issues也有用户反映表单故障，任何异常须按事实报状态、不擅自代联系。
+
+**状态严格分层**：用户愿意审阅 `USER_WILLING` ≠ 用户已提交 `SUBMITTED` ≠ 正式获批 `APPROVED` ≠ 已批准下载/使用/公开衍生评估结果 `AUTHORIZED_SCOPE_CONFIRMED`。当前只处于第一层；用户回来只需说 `未提交/已提交待审批/已获批准/条款不接受/表单异常`，不要传邮箱、住址、PDF签章或AWS凭据。
+
+**下一科研问题只作为匹配候选，不是新算法**：Ego4D MQ已有标注活动实例区间，可探索长视频反复活动的时间实例混淆及强对照；NLQ有可查询的回答窗口。必须先与已有时序grounding/事件检索文献去重、核目标视频-clip修订/PTS/来源组和数据研究/论文披露许可；不从MQ未标注活动推出全视频“不存在”。获批后仍需逐项批准最小数据子集下载/真实视频解码/GPU预算及原研究工作区变更。
+
+**无需向原Codex聊天框发送“继续”**，没有READY父任务，历史BATCH-007不重跑，旧VLM-003/004仍BLOCKED。保留同一Codex聊天框。
+
+## 十、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -203,7 +213,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 十、GitHub协作规范（不改变）
+## 十一、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
