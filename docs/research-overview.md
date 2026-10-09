@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；013缺CPU ffprobe安全停止，013-FIX源码27项合成测试已交付；待工具/网络安全独立审批，无READY）  
+> 更新：2026-10-09（北京时间；用户批准独立ffprobe工具获取/隔离部署，BATCH-014唯一READY，尚未执行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -96,7 +96,8 @@
 | 未来科研证据范围 VLM-RESEARCH-GATE-013 | **USER_APPROVED_V1_CONDITIONAL（媒体试点限额授权）** | 用户、ChatGPT |
 | Charades两视频官方Range与CPU时钟核验 BATCH-013 | **STOPPED_SAFELY（原任务已结束，0媒体传输）** | Codex，ChatGPT审查 |
 | BATCH-013-FIX受限协调器/ZIP64补齐 | **ACCEPTED_CODE_ONLY（合成27 PASS报告，0真实媒体）** | Codex，ChatGPT审查 |
-| 独立CPU ffprobe及网络安全工具门 VLM-CPU-TOOL-GATE-014 | **WAIT_USER_TOOL_SCOPE_APPROVAL（非READY）** | 用户、ChatGPT |
+| 独立CPU ffprobe工具门 VLM-CPU-TOOL-GATE-014 | **USER_APPROVED_ISOLATED_FFPROBE_INSTALL（有限授权、尚未执行）** | 用户、ChatGPT |
+| 发布者SHA固定的独立ffprobe部署 BATCH-014 | **READY（工具ZIP总GET≤150MiB；不发媒体请求）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -448,6 +449,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **独立审查新发现：网络代理隐患**。当前Python静态源码有`urllib.request.build_opener(NoRedirect())`：NoRedirect仅拒绝HTTP重定向，但标准库的默认ProxyHandler可能继承系统或环境代理。原试点限定直接官方HTTPS来源、禁止代理/镜像，故未来真实Range GET之前必须补充**明确禁用代理/验证直连**的安全审查及synthetic防回归测试。也不能把新增ZIP64解析的有限合成覆盖当成所有13GB真档可处理。**新代码本身代码交付ACCEPTED_CODE_ONLY，不是执行GO**。
 
 **下一门`VLM-CPU-TOOL-GATE-014=WAIT_USER_TOOL_SCOPE_APPROVAL`，当前没有READY。** Codex进一步查找独立`ffprobe`也未发现现成入口，提出过是否在`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`隔离部署仅CPU工具的问题。**用户尚未单独批准下载安装新CPU工具**，因此目前不能获取其安装包或改PATH、Conda、原科研工作区；来源/许可证/安装体积与哈希仍须先核定。用户原已批准**最多2个视频/64MiB全部GET正文/128MiB本地/仅CPU packet-PTS**的条件试点仍限定范围，但不等于工具安装批准或旧父任务复跑许可。得到新的独立用户决定后，应先由ChatGPT制定隔离工具的供应链/成本上限与代理安全修复，发放**全新唯一READY父任务**，失败就STOP。BATCH012 A官方frame标签政策仍限域VERIFIED，B时间边界质量与C事件真值均HOLD，Charades不是独立长视频证明，科学创新retain0，GPU/V2视频画面核验继续BLOCKED。
+
+### 2026-10-09 · 用户批准独立CPU ffprobe工具供应链获取与隔离部署（最新）
+
+**本轮新增的清晰用户授权**：在BATCH013因“没有找到现有非原科研Conda的ffprobe”安全停止、[BATCH013-FIX提交75af33c](https://github.com/floomeer83felix-source/vlm/commit/75af33c56342bce4af94f7d70d1cada7ebdb8667)仅补齐有限ZIP64与协调器合成测试之后，用户明确回复**“批准”**独立CPU ffprobe安装方案。授权**只**为后续V1两视频packet时间轴研究准备工具；可以在固定Windows独立根`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\`内经来源/发布者SHA/ZIP安全核验获取并白名单提取一份CPU ffprobe.exe，最多运行一次`-version`。**这不是再次运行BATCH013、Charades视频下载/Range、帧解码/视觉研究、GPU/模型、Conda/CUDA/RTX3090原研究资产编辑或全局PATH更改许可**。ChatGPT这轮只写GitHub文档，没有实际下载工具或进入用户Windows，工具状态仍UNKNOWN。
+
+**供应链冻结与范围校验**：[FFmpeg官方下载页](https://ffmpeg.org/download.html#build-windows)声明其直接提供源码，推荐Gyan.dev与BtbN这类第三方Windows编译提供者；[Gyan.dev Windows构建页](https://www.gyan.dev/ffmpeg/builds/)列出含ffprobe的x64静态发布包，release essentials 9.0.2 ZIP官网约109MB、GPLv3，2026-10-09从官网对应SHA链接解出固定`https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip`及其[发布者checksum文本](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip.sha256) SHA256 `60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`。**这只是发布同源hash校验，不是发布者数字签名或独立供应链密码学证明；FFmpeg项目没有直接签署此Windows二进制。** 如具体URL、版本、当前hash/许可证或ZIP数据不符合上述冻结值，即STOP，不改用latest/镜像/7z工具/系统安装器，不扩大许可。
+
+**新唯一READY任务**：[VLM-BATCH-014十项隔离工具任务](./codex-artifacts/VLM-BATCH-014/README.md)要求：（1）旧项目/唯一READY/无旧父结果，（2）原实验树与真实LOCALAPPDATA/云目录物理隔离、磁盘≥1GiB，（3）FFmpeg→Gyan供应链及固定SHA+GPL说明，（4）至少12个纯合成安全用例先PASS，（5）明确禁代理/TLS/重定向、工具全部GET正文合计**≤150MiB**、本地总占用**≤512MiB**、一次成功ZIP下载有限重试，（6）标准库ZIP中央目录/路径/ZIPCRC/压缩安全且只提取唯一`ffprobe.exe`及必要许可，（7）绝对私有路径一次`ffprobe -version`健康检查，不读任何视频/CSV，（8）**只静态审查**原BATCH013-FIX网络协调器可能默认继承Python系统`ProxyHandler`的风险，不修改/放行该媒体客户端，（9）用户隐私/预算/供应链收据，（10）工具、视频和科学门分别记录并停止。只交2份脱敏报告、2份新的纯标准库安装器与synthetic unittest、`docs/codex-results.md`末尾1条父任务回报，共5处；不能提交.exe、ZIP或私有安装路径、历史代码/计划改动。
+
+**仍在HOLD的媒体门与科学限度**：BATCH013原父任务已STOPPED_SAFELY并上传回报，不能重跑；BATCH013-FIX是ACCEPTED_CODE_ONLY，虽然27个合成用例由执行者报告通过，但真206/ZIP64/packet媒体时钟未验证。当前`urllib.request.build_opener(NoRedirect())`对媒体HTTP默认代理配置存在风险，需要后续独立新父任务**修复/验证无代理**后，才能考虑已有限授权的最多2个Charades视频、媒体全部GET正文≤64MiB和本地媒体≤128MiB的V1试点。014取得独立ffprobe也不会自动消费媒体授权或建立时间真值。Charades A官方25点frame label已限域VERIFIED；B时间边界质量/C同类事件实例真值继续HOLD，创新retain0、单独自然长时域验证FAIL、GPU仍BLOCKED。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
