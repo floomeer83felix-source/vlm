@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户批准官方3MB原标注包，已立BATCH-009唯一READY，尚未下载）  
+> 更新：2026-10-09（北京时间；BATCH-009安全停止，FIX修复通过；BATCH-010续接唯一READY，仍未下载）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -86,8 +86,10 @@
 | 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
 | 数据入口切换 VLM-RESEARCH-GATE-008 | **CHARADES_SELECTED / EGO4D_DEFERRED（非READY）** | 用户与ChatGPT |
 | Charades准入与可证伪现象 BATCH-008 | **ACCEPTED（10项文档；真实数据与长域仍HOLD）** | Codex，ChatGPT审查 |
-| Charades最小原标注许可 VLM-DATA-GATE-009 | **USER_APPROVED_METADATA_ONLY（有限授权；非已下载）** | 用户本人 / ChatGPT |
-| 原Charades标注资格统计 BATCH-009 | **READY（10项安全前置/单包下载/标准库解析；0视频／0GPU）** | Codex |
+| Charades最小原标注许可 VLM-DATA-GATE-009 | **USER_APPROVED_METADATA_ONLY（许可未消耗：GET0）** | 用户本人 / ChatGPT |
+| 原Charades标注资格统计 BATCH-009 | **STOPPED_SAFELY（GET0，P1/P2 UNKNOWN）** | Codex，ChatGPT审查 |
+| Windows存储检查修复 BATCH-009-FIX | **ACCEPTED（仅修复/测试；未下载）** | Codex，ChatGPT审查 |
+| 续接官方最小元数据包 BATCH-010 | **READY（十项受限真实统计；0视频／0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -341,6 +343,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **安全协议和唯一任务**：[独立数据安全协议](./charades-metadata-safety-protocol-2026-10-09.md)和[BATCH-009十项任务书](./codex-artifacts/VLM-BATCH-009/README.md)。只有官方页面标为3MB的注释/评测S3链接，下载上限8MiB及一次有限重试；ZIP中央目录和路径/链接/尺寸/加密检查；白名单读取CSV和class table，不执行任何压缩包脚本、不读视频；对真实header、坏区间/重复ID、同类严格不重叠的P1组、异类重叠的P2组、train/test subject交集**只做脱敏总数**。用现有Python标准库纯CPU处理，并为聚合逻辑建立合成单测；允许交付两份脱敏研究报告、两份不含真实数据的通用stdlib代码和结果日志的一条追加，共5处文件。单次提交后停止，不自动申请下一步。
 
 **研究门仍HOLD**：原Charades license/schema此前仅文档条件PASS，新统计未运行。即使获得非零资格总数，也不提供自然语言“第一次/第二次”序列真值、不证实真实媒体PTS或模型性能；该数据均长约30秒，仍不能直接支撑自然长视频核心机制论文。M1/M2/M3已NO-GO、创新retain0、STA权利UNKNOWN、GPU和旧VLM-003/004 BLOCKED。用户后续在**原Codex聊天**发执行信号才真正开始，本轮不后台下载。
+
+### 2026-10-09 · BATCH-009安全阻塞/FIX修复审查，启动唯一受限续接BATCH-010（最新）
+
+**本轮用户通知“已上传结果”后ChatGPT核对GitHub**：包含[首次结果bc16e38](https://github.com/floomeer83felix-source/vlm/commit/bc16e38eab35f454bc3e0ccc3c805c15c6009ed8)和[后续修复dda8481](https://github.com/floomeer83felix-source/vlm/commit/dda8481a330c4cfa1e734511ad59e7d8f7571d4f)两次提交。首次5处变更（2份报告、2份通用审计/test、1条父结果），执行者在Python`absolute()`与`resolve()`路径字符串不等时**在实际数据GET前STOP**。此前PowerShell检查本地隔离目录/云同步/空间PASS；官方唯一S3入口`HEAD200`，报告`Content-Length=3,519,822B`、ZIP类型；未取得正文，GET/重试0、CSV/ZIP真实数据0、P1/P2/source与真实PTS均UNKNOWN。**科学状态不是完成数据统计，而是受控安全停止**。
+
+**修复回报边界**：后续FIX修改`prototypes/charades_metadata_audit.py`、其test及追加一条结果，共3处，解释Windows给同一目录返回不同规范拼写；新逻辑要求`os.path.samefile`及nonzero dev/inode一致、两条祖先链无reparse点、规范链稳定和新叶归属一致。执行者报告固定隔离根只读复核PASS与21项标准库合成unittest全PASS，**ChatGPT仅审查提交及静态源码，未访问/独立运行用户Windows路径测试**。FIX无数据GET、ZIP/CSV下载、真实统计，也不授权自动重做父任务009。任务板因此将009设为`STOPPED_SAFELY`，009-FIX独立记为`ACCEPTED_PRECHECK_FIX`。
+
+**新READY**：[VLM-BATCH-010完整受限任务](./codex-artifacts/VLM-BATCH-010/README.md)在**未使用的用户原有一次官方小包许可内**继续；不增加视频、STA、GPU、原研究目录/旧锁/conda或模型使用权限。用户必须在原Codex聊天主动发继续信号，执行前**再次完整核对**官方许可/HTTPS S3、固定Windows`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-Metadata\`路径/原研究和公共Git隔离、≥150MiB空余、同目录物理身份与两条链无reparse点。官方ZIP体量限制8MiB流式硬拒绝，ZIP成员安全/CRC及仅CSV/类别表白名单，生成本地原始元数据的**匿名宏观聚合**，GitHub仅交两份脱敏报告和一条010父结果（3处），不修改已验收审计代码和历史。任一新安全检查失败STOP而非边运行边修代码。
+
+**仍未成立**：没有真实同视频同类非重叠P1资格数、异类并发P2资格数、实际subject交集、合法自然长视频外部确认、真实PTS或新VLM算法贡献。前轮机制retained0，Charades短域不是长时域数据；即便010成功，也只能判记录层资格与是否进一步科学投入，不放行任何视频/GPU。任务板[docs/next-steps.md](./next-steps.md)唯一READY=010，之前009/FIX不准重跑，保留原Codex聊天。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
