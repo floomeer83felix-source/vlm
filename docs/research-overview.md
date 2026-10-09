@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH-008十项文档验收，等待用户单独审批最小Charades原注释包）  
+> 更新：2026-10-09（北京时间；用户批准官方3MB原标注包，已立BATCH-009唯一READY，尚未下载）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -86,7 +86,8 @@
 | 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
 | 数据入口切换 VLM-RESEARCH-GATE-008 | **CHARADES_SELECTED / EGO4D_DEFERRED（非READY）** | 用户与ChatGPT |
 | Charades准入与可证伪现象 BATCH-008 | **ACCEPTED（10项文档；真实数据与长域仍HOLD）** | Codex，ChatGPT审查 |
-| Charades最小注释核验 VLM-DATA-GATE-009 | **WAIT_USER_DOWNLOAD_APPROVAL（无READY）** | 用户本人 / ChatGPT |
+| Charades最小原标注许可 VLM-DATA-GATE-009 | **USER_APPROVED_METADATA_ONLY（有限授权；非已下载）** | 用户本人 / ChatGPT |
+| 原Charades标注资格统计 BATCH-009 | **READY（10项安全前置/单包下载/标准库解析；0视频／0GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -330,6 +331,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **唯一新增事实路径**：经用户单独批准，才可从[AllenAI官方Charades页](https://prior.allenai.org/projects/charades)获得官方约3MB`Annotations & Evaluation Code`压缩包，放在公共Git checkout及旧RTX3090研究环境外的**独立隔离目录**，仅读CSV/类表/README/license并检查真实header、version hash、视频时长/时间格式、同类不重叠与异类重叠资格和invalid/ambiguous分母，输出不能重建受限样本的脱敏聚合统计。**当前没有下载授权、没有已验证的样本资格或实验许可**；STA的Drive注释、Charades视频13GB/原始帧、GPU、真实PTS认证、新问答／旧实验全HOLD。
 
 **当前用户决策门**：[任务看板](./next-steps.md)记录`VLM-DATA-GATE-009=WAIT_USER_DOWNLOAD_APPROVAL`；**没有新READY、不给原Codex直接“继续”指令**。用户需明确非商业研究用途符合原许可，并对最低必要官方标注包下载及隔离存放授权。得到许可后，由ChatGPT另定一次受限的数据资格计数合同和停止条件；若拒绝则保留HOLD。哪怕资格数非0，也不是新机制PASS，仍需另选合法自然长视频外部确认材料及科学差异化才可谈实验预算。
+
+### 2026-10-09 · 用户批准Charades最小标注下载并冻结Windows隔离安全协议（最新）
+
+**明确的新授权**：用户确认其研究符合Charades非商业学术许可，并**仅**批准从官方[Charades项目页](https://prior.allenai.org/projects/charades)下载约3MB `Annotations & Evaluation Code` ZIP，用于独立隔离目录CSV、时间区间、P1/P2候选资格及来源聚合统计；明示**不授权视频（包括13GB版）、STA、GPU、原研究环境改动**。ChatGPT未替用户下载或访问其Windows电脑，尚无真实标注分析结果。
+
+**存储位置冻结**：Windows环境变量`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-Metadata\`，默认分`incoming/`（单个ZIP）、`extracted/`（仅train/test CSV、类别表、合法README/license）、`local-audit/`（本地manifest及非公开中间聚合）。Codex执行前要检查目录确实不在原RTX3090工作区、公有docs Git checkout、OneDrive等同步目录且无reparse/junction、≥150MiB空闲；未知就STOP，不换到另一个路径。公有仓库不能出现用户绝对路径、真实数据行/subject/video映射、原始描述或微小可逆分组。
+
+**安全协议和唯一任务**：[独立数据安全协议](./charades-metadata-safety-protocol-2026-10-09.md)和[BATCH-009十项任务书](./codex-artifacts/VLM-BATCH-009/README.md)。只有官方页面标为3MB的注释/评测S3链接，下载上限8MiB及一次有限重试；ZIP中央目录和路径/链接/尺寸/加密检查；白名单读取CSV和class table，不执行任何压缩包脚本、不读视频；对真实header、坏区间/重复ID、同类严格不重叠的P1组、异类重叠的P2组、train/test subject交集**只做脱敏总数**。用现有Python标准库纯CPU处理，并为聚合逻辑建立合成单测；允许交付两份脱敏研究报告、两份不含真实数据的通用stdlib代码和结果日志的一条追加，共5处文件。单次提交后停止，不自动申请下一步。
+
+**研究门仍HOLD**：原Charades license/schema此前仅文档条件PASS，新统计未运行。即使获得非零资格总数，也不提供自然语言“第一次/第二次”序列真值、不证实真实媒体PTS或模型性能；该数据均长约30秒，仍不能直接支撑自然长视频核心机制论文。M1/M2/M3已NO-GO、创新retain0、STA权利UNKNOWN、GPU和旧VLM-003/004 BLOCKED。用户后续在**原Codex聊天**发执行信号才真正开始，本轮不后台下载。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
