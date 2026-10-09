@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；用户已选择核心机制重新立题，BATCH-007唯一READY，0GPU）  
+> 更新：2026-10-09（北京时间；BATCH-007十项交付验收，三候选均未通过机制创新门，当前无READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -64,7 +64,7 @@
 
 **直接先例约束**：[NeuS-QA (AAAI2026)](https://ojs.aaai.org/index.php/AAAI/article/view/37834)已做时序逻辑+视频自动机及模型检查；[VideoHV-Agent (CVPR2026)](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Think_Then_Verify_A_Hypothesis-Verification_Multi-Agent_Framework_for_Long_Video_CVPR_2026_paper.html)已做答案假设和判别线索验证；[VideoSEAL (ICML2026)](https://proceedings.mlr.press/v306/qiu26v.html)已将规划与回答权限分离并做像素验证；[Open-o3-Video](https://proceedings.mlr.press/v306/meng26e.html)、[ENTER](https://arxiv.org/abs/2501.14194)、[VideoStir](https://aclanthology.org/2026.acl-long.1656/)均已覆盖不同结构化证据操作。**以上是公开方法/摘要级初筛，不构成任何候选原创性认证**。新包必须尽可能由证据**否决**它们，允许全淘汰。
 
-**当前明确授权**：[VLM-BATCH-007十项任务](./codex-artifacts/VLM-BATCH-007/README.md)（唯一READY）：历史否决、机制先例红队、M1/M2/M3形式定义、双世界不可辨识反例、小型纯符号CPU穷举测试、新合法标注和真实PTS/来源门、最强机制级对照/预注册、最后的N/T/U/D/B/F否决矩阵。只可交付5份脱敏Markdown、2份新toy Python及1条Codex回报。**不运行GPU、真实媒体、QA或改Windows原资产**，不得把toy逻辑成立当真实感知可信。
+**最新验收决定**：[BATCH-007十项交付](./codex-artifacts/VLM-BATCH-007/downselect-and-stop-decision.md)已按[d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)完成并通过文档/静态代码验收，但**三个当前形式候选均被同输入的经典强基线模拟而不保留（retain0）**：M1=三值/开放世界监控，M2=依赖缓存，M3=version-space判别线索；这是具体算子的NO-GO，不是全领域不可能创新。真实证据标签、视频许可、PTS/来源、视觉感知可信性和费用门均未通过，GPU/HOLD。当前**没有READY**，进入VLM-RESEARCH-GATE-008等用户提供实质新问题或证据资源，不自动安排BATCH-008。
 
 ## 4. 当前执行看板（2026-10-09）
 
@@ -81,7 +81,8 @@
 | 路线决策 VLM-ROUTE-006 | **ROUTE2_SELECTED（取代旧路线1）** | 用户与ChatGPT |
 | 路线2创新红队与无gold数据门 VLM-BATCH-006 | **ACCEPTED（十项交付；科学NO_GO_OR_PIVOT）** | Codex，ChatGPT审查 |
 | 核心科研路线选择 VLM-DECISION-007 | **B_SELECTED（转向不同的核心机制）** | 用户与ChatGPT |
-| 三候选形式机制否决研究 VLM-BATCH-007 | **READY（十项；有限文献与纯符号CPU；0GPU）** | Codex |
+| 三候选形式机制否决研究 VLM-BATCH-007 | **ACCEPTED（十项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex，ChatGPT审查 |
+| 研究重立题决策 VLM-RESEARCH-GATE-008 | **WAIT_USER_DIRECTION（无READY）** | 用户与ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -272,6 +273,19 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **新任务包协议**：[VLM-BATCH-007/README.md](./codex-artifacts/VLM-BATCH-007/README.md)。用户要求一轮约10项；本轮分十任务：1历史否决，2最近先例，3M1定义，4M2定义，5M3定义，6双世界/不可能性反例，7虚构小世界标准库CPU穷举unittest，8合法媒体/标签/真实PTS/来源/视觉探测器前置，9强baseline/成本/预注册，10六门否决并最多留下1个**条件待核候选**或RETAIN0。只允许新建5份脱敏报告与2份toy代码，Codex追加**一条**父结果；统一提交后停止，留在**同一个Codex聊天框**。
 
 **新旧安全门**：本包0模型/GPU/问答/训练/评分调用，0视频解码/媒体或整套标注下载、0原Windows工作区/环境/锁/账本修改、0外部联系、0新增人工标注。现实资料的许可、真实PTS、来源独立、标签真值与GPU预算仍UNKNOWN/HOLD；保守拒答与toy穷举不证明真实VLM的可靠性或新颖性。BATCH-007提交后ChatGPT独立审查，否则不得自动派BATCH-008。
+
+### 2026-10-09 · BATCH-007十项正式验收与三机制组合停止（最新）
+
+**审查对象**：[Codex提交d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)。差异正好为5份 `docs/codex-artifacts/VLM-BATCH-007/` 脱敏报告、`prototypes/toy_mechanism_counterexamples.py`及其单测、以及 `docs/codex-results.md` 的1条追加，**共8处**。ChatGPT读取五报告和两份toy源码，并核对任务1—10的证据层级、可反证条件和强基线，认为**ACCEPT交付**，但**不保留任何新计算机制**。未独立执行Windows原实验或toy；执行者报告Python3.9.21单次12 unittest全PASS、0失败/异常/跳过，只可当执行者测试收据。
+
+**正式结论：RETAIN 0 / STOP THIS PORTFOLIO。**
+- **M1（负事实证据债务）**：相容世界的TRUE/FALSE/UNKNOWN在当前公理下与经典三值开放世界监控等价；未知时域不可给真实never真值。toy117观察模板/336world-view配对在完美oracle假设下0误认证；错误把unknown补False产生89个**合成**假认证配对，不能说实测视频事件/新性能。
+- **M2（来源依赖局部撤销）**：最小AND依赖闭包可由普通缓存达到相同更新轨迹，toy仅16个invalid masks/AND DAG，不覆盖完整OR、循环、视觉冲突；无新可验证的算子。
+- **M3（答案可区分义务）**：同可行世界与合法观察response的version-space/判别clue planner可模拟现合同；真实world/support/answer映射缺独立验证，无新颖性或完整性证明。
+- **文献证据限界**：NeuS-QA访问SSL失败，MIT的TMS链接实际上是错题；VideoHV/VideoSEAL等部分仅官方摘要。文献不足不等于新颖；当前一票否决是**同输入经典算子可模拟**，不是声称所有已发表系统都包含同一精确算法。
+- **现实门**：负事件完整性标签、真实支持/依赖/可区分观察标签均不在已确认合法资源中；媒体/QA许可、同版PTS与clip变换、来源独立、可信视觉验证器、实际token/GPU成本仍UNKNOWN/HOLD。不能拿旧QA分数或toy真值填这些空白。
+
+**研究止损与下一门**：[docs/next-steps.md](./next-steps.md)将BATCH-007改为ACCEPTED，新增 `VLM-RESEARCH-GATE-008=WAIT_USER_DIRECTION`，**当前0项READY**。用户如继续追求长视频VLM高水平期刊创新，需先明确**不同且可检验的核心对象、与现有算子不能简单模拟的差异，以及获得可合法验证证据的现实路径**。否则不安排另一批凭空构想的10任务包，也不默许下载、联系作者、GPU或修改原实验环境。用户继续保留原Codex聊天。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
