@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-09（北京时间；用户已切换Charades，BATCH-008唯一READY且禁止下载/GPU）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-09（北京时间；BATCH-008文档已验收，当前等待用户对3MB官方标注下载的独立批准）。本文是执行入口，不代表任何新模型实验已运行。
 
 ## 一、任务看板
 
@@ -20,12 +20,13 @@
 | VLM-DECISION-007 | P0 | **B_SELECTED（新机制研究，不继续旧采帧路线）** | 用户与ChatGPT | 保留长视频VLM高水平论文目标；旧S_q/S_t选帧/2×2提示仅作历史，不作为核心创新 | [机制重立题](./mechanism-reset-2026-10-09.md)与下一唯一READY BATCH-007；没有保留的创新机制 |
 | VLM-BATCH-007 | P1 | **ACCEPTED（10项交付；RETAIN 0 / STOP THIS PORTFOLIO）** | Codex | 历史与先例、M1/M2/M3形式定义、双世界反例、toy、数据/强基线及否决 | [d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)：5报告+2toy+1追加符合范围；执行者报12/12 CPU单测；M1/M2/M3当前算子均可由现有逻辑/依赖缓存/判别规划模拟，无新增核心机制通过 |
 | VLM-RESEARCH-GATE-008 | P0 | **CHARADES_SELECTED / EGO4D_DEFERRED（历史Ego4D未提交确认）** | 用户与ChatGPT | 因Ego4D表单报Failed to fetch，用户同意改用公开Charades／Charades-STA进行数据准入核验 | [新数据路径说明](./charades-entry-2026-10-09.md)：不是已下载数据/合法验证/新模型实验批准；原Ego4D申请意愿保留历史但不再是当前任务 |
-| VLM-BATCH-008 | P1 | **READY（10项Charades许可、标注、科学问题核验；0下载/0GPU）** | Codex | 1—2许可与STA权利；3—4 schema和时间join；5—7重复实例/重叠定位假设及先例；8—9来源PTS/长视频外推；10五门GO/NO-GO | [10项详细协议](./codex-artifacts/VLM-BATCH-008/README.md)，只交5份脱敏报告+1条结果，禁止下载哪怕3MB标注包 |
+| VLM-BATCH-008 | P1 | **ACCEPTED（10项文档交付；数据/创新/长域GO仍HOLD）** | Codex | Charades许可、STA权利、schema/join、重复实例与重叠假设、来源PTS、长域缺口、五门裁决 | [提交2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)：严格5份脱敏报告+1条追加；Charades原license/schema仅文档条件准入，实际重复样本计数UNKNOWN，STA许可HOLD，普通新算法NO-GO，Charades单独长域FAIL |
+| VLM-DATA-GATE-009 | P0 | **WAIT_USER_DOWNLOAD_APPROVAL（不可执行）** | 用户本人 / ChatGPT；获批准后再制定Codex低风险任务 | 是否另行允许仅下载原Charades官方约3MB的Annotations & Evaluation Code，用于独立隔离目录中的只读字段和资格统计 | **尚未授权，不能执行**；禁止STA包/13GB视频/视频解码/GPU/上传数据；先确认学术非商业适用性、存储位置和保留许可，批准后才下达具体执行协议 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务为VLM-BATCH-008，10项有界公共文档/许可/科学假设核验，0下载、0GPU。** 用户明确同意停止等待Ego4D申请故障，转向[Charades入口说明](./charades-entry-2026-10-09.md)，**但没有批准数据集或标注包下载**；Ego4D此前“愿意审阅签约”只留历史，不推断实际提交。Codex保持原聊天框，安全刷新main后按[BATCH-008任务README](./codex-artifacts/VLM-BATCH-008/README.md)连续完成，限五份脱敏报告+1条单父任务回报后停止。Charades平均约30秒，是短时域标注与来源检查，不是长视频论文最终确认集。STA文本标注权利、join与revision需另核，时钟/来源/实例计数、独立长视频数据、创新与真实GPU均HOLD。严禁视频/标注下载、真实视频处理、模型前向或修改原Windows研究环境/账本。
+**当前没有任何READY任务。** 已独立审查并验收[BATCH-008提交2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)约定的5份报告与1条父回报。证据显示Charades原license与schema仅在**非商业研究用途／官方文档层**有条件可用；STA独立衍生注释许可、版本和真实join未核。P1同类分离重复实例及P2异类重叠的有效资格数均UNKNOWN，普通TAD/TMR新算法创新NO-GO，Charades作为真正长视频独立确认集FAIL。下一门`VLM-DATA-GATE-009=WAIT_USER_DOWNLOAD_APPROVAL`：仅建议请用户单独批准官方下载约3MB原标注/评测包，隔离保管后做**不含模型、不碰媒体**的资格计数；现在未获授权，不能下载或让Codex执行。G1旧路线、VLM-003/004、GPU、原研究环境继续HOLD，原Codex聊天保留。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -206,7 +207,9 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **无需向原Codex聊天框发送“继续”**，没有READY父任务，历史BATCH-007不重跑，旧VLM-003/004仍BLOCKED。保留同一Codex聊天框。
 
-## 十、当前数据入口：Charades／Charades-STA 文档准入与问题核验（唯一READY）
+**本节记录已完成的历史任务，以下十项不可再次执行；最新状态以任务看板与第十一节为准。**
+
+## 十、Charades／Charades-STA 文档准入与科学问题核验（BATCH-008已验收）
 
 **用户最新确认（2026-10-09）**：先不等待Ego4D的`Failed to fetch`问题解决，改以免事前申请的[Charades](https://prior.allenai.org/projects/charades)与[Charades-STA](https://github.com/jiyanggao/TALL)作为可合法独立评测**候选**。官方[Charades License for Non-Commercial Use](https://prior.allenai.org/projects/data/charades/license.txt)明示非商业研究、限制公开改造数据和第三方分发；有公开下载链接**不**免除许可。STA文本时间标注来自单独作者仓库和修订，权利/版本还需核实。当前**未取得任何数据**，不授权下载约3MB官方标注或约13GB视频。
 
@@ -227,7 +230,19 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **科研止损**：Charades平均约30秒，仅能支持短时域活动或自然语言时刻定位的初步闭环，不能单独成为长视频核心机制论文的验证集；公开TAL/TMR已有强基线。保留原M1/M2/M3否决、retain0、旧VLM-003/004 BLOCKED。
 
-## 十一、当前研究判断（跨批保持）
+## 十一、VLM-DATA-GATE-009：等待用户单独批准最小Charades元数据核验（无READY）
+
+**验收证据**：[BATCH-008科学五门裁决](./codex-artifacts/VLM-BATCH-008/data-science-go-no-go.md)与[提交2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)。五门中`LEGAL`与`SCHEMA`只在Charades官方非商业科研／README文档层面条件PASS；`IDENTIFIABILITY`=UNKNOWN，普通TAD/TMR首次机制`NOVELTY`=FAIL，Charades单独证明自然长视频`LONGVIDEO`=FAIL。STA许可／清理revision／join仍UNKNOWN，不纳入下一次获取。
+
+**唯一新信息**：是否有足够的同视频同类别**确定不重叠区间组**（P1）和同视频**不同类可靠重叠区间对**（P2），并给出实际无效/歧义/资格分母。这只能从版本固定的原始Charades官方`Annotations & Evaluation Code`（网页约3MB）中获得，不能从66,500总注释声明推断。下一阶段只建议用户单独批准它的**最低必要获取、CSV schema/区间/subject/split完整性及聚合计数**。
+
+**等待的授权**：用户明确确认其用途受[原Charades许可](https://prior.allenai.org/projects/data/charades/license.txt)的非商业研究条件覆盖，且允许**仅从[AllenAI官方项目页](https://prior.allenai.org/projects/charades)获取约3MB原官方标注评测压缩包**。待用户确认独立于公共文档checkout与原Windows实验工作区的本地存储目录，以及是否只读提取内含CSV、README、license和类表、只汇总脱敏计数后，ChatGPT再提供**具体一次性协议**并开启唯一READY任务。用户这轮仅报告Codex提交，**尚未批准下载**。
+
+**先验硬边界（批准后仍需单独冻结）**：0原视频/视频帧/13GB媒体、0Charades-STA Drive注释、0模型/GPU/QA/训练、0实际视频PTS认证、0原研究代码/环境/进程/锁/旧账本修改、0向公共GitHub提交注释行/原视频/subject-video映射/可逆个人来源/全文data archive、0对外联系。可公开的仅脱敏schema、版本哈希和**避免再识别的聚合区间计数**。如发现许可不适用、CSV/版本不可验证、P1/P2资格不成立或创新直接先例完全覆盖，停止进一步资源申请。
+
+**科学止损**：即使元数据计数>0，也只证实短域验证样本资格，不证明物理实例序列完整、不证明模型错误/新算法机制，也不解封真正的长时域独立数据门。用户拒绝下载也可保持HOLD，不自动转回Ego4D申请或做新toy。
+
+## 十二、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -235,7 +250,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 十二、GitHub协作规范（不改变）
+## 十三、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
