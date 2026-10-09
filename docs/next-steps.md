@@ -27,7 +27,7 @@
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务为VLM-BATCH-009：用户已经明确批准只获取Charades官网约3MB原始“Annotations & Evaluation Code”用于隔离元数据资格分析。** 这并非已成功下载/已通过合法数据或科学创新门；本ChatGPT轮次**只创建GitHub安全协议和Codex任务书，没有访问用户Windows或下载数据**。在原Codex聊天由用户主动触发前不执行。固定独立默认路径`%LOCALAPPDATA%\\VLM-Research-Isolated\\Charades-v1-Metadata\\`，执行前须核不与文档仓库/原RTX3090工作区重叠，无重解析点且≥150MiB空余，失败则STOP。BATCH-009一次只允许官方小包8MiB限额下载、标准库安全ZIP白名单、CSV统计P1/P2与来源组**匿名汇总**。STA、视频、13GB媒体、GPU、原研究环境与帐本、历史实验仍BLOCKED；Charades单独长视频验证FAIL，科研机制retain0，Ego4D仍搁置。
+**当前唯一READY父任务为VLM-BATCH-009：用户已经明确批准只获取Charades官网约3MB原始“Annotations & Evaluation Code”用于隔离元数据资格分析。** 这并非已成功下载/已通过合法数据或科学创新门；本ChatGPT轮次**只创建GitHub安全协议和Codex任务书，没有访问用户Windows或下载数据**。在原Codex聊天由用户主动触发前不执行。固定独立默认路径`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-Metadata\`，执行前须核不与文档仓库/原RTX3090工作区重叠，无重解析点且≥150MiB空余，失败则STOP。BATCH-009一次只允许官方小包8MiB限额下载、标准库安全ZIP白名单、CSV统计P1/P2与来源组**匿名汇总**。STA、视频、13GB媒体、GPU、原研究环境与帐本、历史实验仍BLOCKED；Charades单独长视频验证FAIL，科研机制retain0，Ego4D仍搁置。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -231,17 +231,15 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **科研止损**：Charades平均约30秒，仅能支持短时域活动或自然语言时刻定位的初步闭环，不能单独成为长视频核心机制论文的验证集；公开TAL/TMR已有强基线。保留原M1/M2/M3否决、retain0、旧VLM-003/004 BLOCKED。
 
-## 十一、VLM-DATA-GATE-009：用户已批准官方最小包，执行仍由BATCH-009限定
+## 十一、VLM-DATA-GATE-009：用户已批准最小原标注包（仅有限授权）
 
-**验收证据**：[BATCH-008科学五门裁决](./codex-artifacts/VLM-BATCH-008/data-science-go-no-go.md)与[提交2544df9](https://github.com/floomeer83felix-source/vlm/commit/2544df98fa363bc62ec888682121d879f24bcec2)。五门中`LEGAL`与`SCHEMA`只在Charades官方非商业科研／README文档层面条件PASS；`IDENTIFIABILITY`=UNKNOWN，普通TAD/TMR首次机制`NOVELTY`=FAIL，Charades单独证明自然长视频`LONGVIDEO`=FAIL。STA许可／清理revision／join仍UNKNOWN，不纳入下一次获取。
+**前轮审查前提**：[BATCH-008科学五门裁决](./codex-artifacts/VLM-BATCH-008/data-science-go-no-go.md)仅支持原Charades非商业研究／README字段**文档条件准入**，STA权利仍UNKNOWN，P1/P2实际合法资格计数未取得，普通TAD/TMR新算法与Charades作为单独长视频确认集仍NO-GO。不能凭官方66,500区间总数推断同视频重复实例有多少。
 
-**唯一新信息**：是否有足够的同视频同类别**确定不重叠区间组**（P1）和同视频**不同类可靠重叠区间对**（P2），并给出实际无效/歧义/资格分母。这只能从版本固定的原始Charades官方`Annotations & Evaluation Code`（网页约3MB）中获得，不能从66,500总注释声明推断。下一阶段只建议用户单独批准它的**最低必要获取、CSV schema/区间/subject/split完整性及聚合计数**。
+**用户最新明确授权（2026-10-09）**：用户确认自己的非商业研究用途符合[官方许可](https://prior.allenai.org/projects/data/charades/license.txt)，允许从[AllenAI Charades官方页面](https://prior.allenai.org/projects/charades)仅下载列为**Annotations & Evaluation Code (3 MB)**的小包，独立隔离存放，用作CSV字段、时间区间、同类重复候选、异类重叠候选和保守来源分组的聚合资格统计。此权限**不**涵盖视频/帧/STA、模型/GPU、原研究环境改动、向第三方分享标注。
 
-**等待的授权**：用户明确确认其用途受[原Charades许可](https://prior.allenai.org/projects/data/charades/license.txt)的非商业研究条件覆盖，且允许**仅从[AllenAI官方项目页](https://prior.allenai.org/projects/charades)获取约3MB原官方标注评测压缩包**。待用户确认独立于公共文档checkout与原Windows实验工作区的本地存储目录，以及是否只读提取内含CSV、README、license和类表、只汇总脱敏计数后，ChatGPT再提供**具体一次性协议**并开启唯一READY任务。用户这轮仅报告Codex提交，**尚未批准下载**。
+已由ChatGPT冻结[Windows隔离存储与安全协议](./charades-metadata-safety-protocol-2026-10-09.md)，并下达[唯一READY父任务BATCH-009](./codex-artifacts/VLM-BATCH-009/README.md)。**ChatGPT自身未下载、未建目录、未取得真实CSV、未读用户电脑。** 只有用户主动在已有Codex聊天发启动消息，并且本地路径、安全、许可、官方资源链接检查全部通过后，才可执行这次受限获取。执行后仅能上传脱敏总体计数与通用代码；数据本身永久不进入公共GitHub。
 
-**先验硬边界（批准后仍需单独冻结）**：0原视频/视频帧/13GB媒体、0Charades-STA Drive注释、0模型/GPU/QA/训练、0实际视频PTS认证、0原研究代码/环境/进程/锁/旧账本修改、0向公共GitHub提交注释行/原视频/subject-video映射/可逆个人来源/全文data archive、0对外联系。可公开的仅脱敏schema、版本哈希和**避免再识别的聚合区间计数**。如发现许可不适用、CSV/版本不可验证、P1/P2资格不成立或创新直接先例完全覆盖，停止进一步资源申请。
-
-**科学止损**：即使元数据计数>0，也只证实短域验证样本资格，不证明物理实例序列完整、不证明模型错误/新算法机制，也不解封真正的长时域独立数据门。用户拒绝下载也可保持HOLD，不自动转回Ego4D申请或做新toy。
+**科学边界**：即使P1/P2资格组大于0，也只说明短片记录层有候选时段，不确认自然语言「第一次/第二次」真值、真实媒体PTS、独立自然长视频或模型准确率，更不自动创建GPU/下载媒体权限。
 
 ## 十二、VLM-BATCH-009：真实标注首次独立核验（当前唯一READY）
 
