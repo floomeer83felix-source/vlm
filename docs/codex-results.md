@@ -271,3 +271,24 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 **工具缺口未解**：除013已查PATH／8候选外，本轮对4个有限软件根中FFmpeg相关目录作只读定位，仍未找到既有ffprobe，没有扫描原研究／Conda。已向用户询问是否允许独立安装到专用CPU工具树、不改Conda或全局PATH；截至本提交未收到安装批准，因此没有工具下载或安装。原013第1项明确禁止自行安装，本轮不推定“修复”已覆盖该新增操作。
 
 本轮真实研究HTTP／媒体GET正文0B、0工具／媒体下载安装、0真实ffprobe、0视频／帧／音频／GPU／模型／原研究环境／隔离原数据／锁／账本更改。仅合成临时对象有测试写入，媒体试点根与真实ledger／私有病例仍未创建，A/B/C科学状态沿既有结论。代码修复可审查，实际工具就绪及服务运行仍UNKNOWN；成功push后停止，保留当前聊天与安装选择问题，不自动执行013或新媒体任务。
+
+### VLM-BATCH-014 2026-10-09 — BLOCKED_TIMEOUT；固定工具获取安全停止，媒体继续HOLD
+
+安全同步main至`afd21abd9da1d42a331e913eb81e4981a4bc6eed`，读取AGENTS、最新任务/结果/014及指定013/FIX历史，核唯一READY与无014回报。仅本次[来源完整性与隔离收据](codex-artifacts/VLM-BATCH-014/tool-source-integrity-and-isolation.md)、[工具就绪与代理门](codex-artifacts/VLM-BATCH-014/ffprobe-readiness-and-proxy-hold.md)、[新标准库安装器](../prototypes/isolated_ffprobe_installer.py)、[合成测试](../prototypes/test_isolated_ffprobe_installer.py)及本条5处；不修改任务书/总体总结/旧代码或原研究资产。
+
+| 步骤 | 最终状态与事实 |
+|---|---|
+| 1 | DONE：独立docs checkout安全fast-forward，唯一READY、无重复父结果 |
+| 2 | DONE：固定LOCALAPPDATA工具树、x64/Windows10+、祖先身份/reparse/云根/原研究与兄弟树排除、空闲≥1GiB与新文件权限通过；私人绝对路径不公开 |
+| 3 | DONE：FFmpeg官网推荐第三方Gyan，固定9.0.2/GPLv3/同站checksum一致；两别名HEAD锁固定对象，完整包SHA未验证 |
+| 4 | DONE：初15方法14 PASS/1 FAIL，修正已知长度超剩余全局预算的预读拒绝后15 PASS；首次真实初始化在任何网络/目录创建前因父目录缺失停止，核0请求，修新安装器同一固定树并加不覆盖用例，最终16 PASS、0 FAIL/ERROR/SKIP，suite0.470秒；全部先于正式网络 |
+| 5 | BLOCKED_TIMEOUT：显式no-proxy/默认TLS/禁跳转的唯一包GET超时；三文本GET完成，工具ZIP部分正文13,107,200B，累计13,186,907B，GET4/HEAD3、成功完整ZIP0、重试0；无替代来源/预算重置 |
+| 6 | UNKNOWN_NOT_RUN：无完整包，真实ZIP结构/白名单/CRC未知；提取0 |
+| 7 | BLOCKED_PRECONDITION：ffprobe.exe未创建，版本调用0，版本/exe SHA/Authenticode UNKNOWN |
+| 8 | DONE：旧媒体源码L132 build_opener(NoRedirect())及标准库默认ProxyHandler静态核验，可能继承env/系统代理；不读代理值、不执行/修改旧媒体客户端，代理门HOLD |
+| 9 | DONE：私有最终2文件13,107,774B（部分包+574B账本），无exe；精确峰值UNKNOWN，初始ledger0不是峰值收据，保守文件字节上界14,155,776B＜512MiB；无原始日志/身份/二进制上传 |
+| 10 | DONE：CPU_TOOL=BLOCKED，MEDIA_NETWORK_CLIENT_PROXY=HOLD，V1_MEDIA_ACCESS=NOT_RUN，B/C_EVENT_TRUTH=HOLD，创新RETAIN0，GPU BLOCKED |
+
+冻结发布方包SHA仍为`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`，实际64B校验文本匹配；不能将其当作本轮不完整ZIP SHA通过或独立数字签名。官网约109MB只作展示值，不是完整下载大小。包HEAD精确大小没有进入最终持久ledger，故不编造精确数字。部分工具包和本轮私有账本保留原固定新工具树，未改名完整ZIP、未清理/覆盖以重试；未来恢复需新限定父任务审查，已回报014不得重跑。
+
+本轮0 Charades网页/媒体/Range GET、0视频/STA/标注/特征/模型下载、0 PTS/真实解码/人工动作核验/GPU/模型/QA/训练，0原研究目录/Conda/Python/PyTorch/CUDA/PATH/原CSV ZIP/旧账本/旧源码改动，0外部联系/PR/后台调度。工具获取失败不能被称作工具READY或研究机制成立；按规定提交本轮5处，正常push后停止，保留同一聊天，等待ChatGPT审查。
