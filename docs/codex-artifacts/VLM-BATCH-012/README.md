@@ -18,7 +18,7 @@
 - 类表源于固定ZIP、原有校验记录`7b95127e60300d6a69849d161869eb3e9657fa320fc9e92b6f2c9403b49c1887`。
 SHA不一致/任何已授权包缺失→`BLOCKED_SOURCE`，STOP，禁止重新获取、重新提取或修改数据。
 
-**官方评测器取得方式限定**：只用现有标准库`zipfile.ZipFile`在内存中`open('Charades_v1_localize.m')`读取原已授权ZIP中的**唯一同名普通文件成员**。必须先安全验证ZIP central directory、路径/加密/链接/文件名冲突/CRC，禁止遍历或打开其他脚本/视频/图像；仅允许该评测器文本≤256KiB、UTF-8/ASCII解码，且**不写出到磁盘、不导入/执行MATLAB、不上传完整脚本或样本**。ZIP没有目标脚本、格式不明、逻辑不能确定→`OFFICIAL_EVALUATOR_UNKNOWN`并STOP对齐宣称，可继续不涉及实际文件的安全合成对照与总结。可以对公开README做链接和短引证，不能拿网络镜像假装本ZIP源码。
+**官方评测器取得方式限定**：只用现有标准库`zipfile.ZipFile`检查中央目录后，按**唯一且严格匹配basename** `Charades_v1_localize.m` 找到安全成员对象（可位于ZIP安全子目录），再通过 `z.open(member)` 在内存中只读原已授权ZIP内的这份文本。若同名多份、存在路径逃逸/特殊成员或无法确定唯一来源，立即STOP；不得因为文件位于ZIP子目录就改从网络镜像获取。必须先安全验证ZIP central directory、路径/加密/链接/文件名冲突/CRC，禁止遍历或打开其他脚本/视频/图像；仅允许该评测器文本≤256KiB、UTF-8/ASCII解码，且**不写出到磁盘、不导入/执行MATLAB、不上传完整脚本或样本**。ZIP没有目标脚本、格式不明、逻辑不能确定→`OFFICIAL_EVALUATOR_UNKNOWN`并STOP对齐宣称，可继续不涉及实际文件的安全合成对照与总结。可以对公开README做链接和短引证，不能拿网络镜像假装本ZIP源码。
 
 ## 10项独立可审查工作（全程不改源CSV）
 
