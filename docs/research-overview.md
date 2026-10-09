@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH-011完成独立CSV数值复核仍HOLD_TIME_CONTRACT，无READY／等待研究路线决定）  
+> 更新：2026-10-09（北京时间；用户选择Charades官方25时点标准对齐修复，BATCH-012唯一READY，时间真值与GPU继续HOLD）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -91,7 +91,8 @@
 | Windows存储检查修复 BATCH-009-FIX | **ACCEPTED（仅修复/测试；未下载）** | Codex，ChatGPT审查 |
 | 续接官方最小元数据包 BATCH-010 | **ACCEPTED（ZIP/CSV结构与聚合交付；区间质量HOLD）** | Codex，ChatGPT审查 |
 | 现有Charades时间合同独立核验 BATCH-011 | **ACCEPTED（数值交付；同版时间语义HOLD）** | Codex，ChatGPT审查 |
-| 下一科研路线 VLM-RESEARCH-DECISION-012 | **WAIT_USER_DIRECTION（非READY）** | 用户、ChatGPT |
+| 下一科研路线 VLM-RESEARCH-DECISION-012 | **USER_SELECTED_CHARADES_ALIGNMENT（非READY的用户决策）** | 用户、ChatGPT |
+| Charades官方评测对齐及时间质量分层 BATCH-012 | **READY（只读现有ZIP评测器/CSV，0媒体/下载/GPU）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -384,6 +385,23 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **直接学术先例新信息**：2025年ACL长文[Perfect Times](https://aclanthology.org/2025.acl-long.1000/)（Loginova & Ortega Loguinova）已经将Charades短视频用于动作完成、持续/时间关系的多语种多选VLM问答；[作者公开repo](https://github.com/ologin/PerfectTimes)还列出更新的时间顺序动作注释和问题模板。**已有公开论文覆盖的是宽泛的Charades temporal MCQA，不能据此断言P1严格同类实例错配已被完全解决。** 但不能将“基于Charades区间自动造时序问答”当新论文核心贡献。新增衍生注释的独立法律权利/来源修订和时钟映射未核；不下载或复制其数据/视频。
 
 **最新科研决策**：BATCH-011`ACCEPTED`；`TIME_CONTRACT=HOLD`，`DATASET_AS_NATURAL_LONGVIDEO=FAIL`，`ORIGINAL_METHOD=RETAIN0`，`PTS=UNKNOWN`，`GPU/VIDEO/STA=BLOCKED`，用户已经授权的一次官方ZIP下载额度全部消耗，原ZIP/CSV只能按原许可保留本地，禁止任何公有重发布。**当前没有READY Codex父任务**；新`VLM-RESEARCH-DECISION-012=WAIT_USER_DIRECTION`由用户与ChatGPT确定是先找合法可证的同版时间坐标修订证明，还是优先寻找合法自然长时域视频+真值材料。不能因为009—011已花力气就继续在同一短视频数据上制造重复式toy/时间诊断，也不能直接拿另一个公开GitHub repo的更新标注替换原ZIP。
+
+### 2026-10-09 · 用户确定保留Charades，优先修复官方评测口径与数值范围门混淆（最新）
+
+**用户最新决定**：同意先不换数据集，将下轮由`WAIT_USER_DIRECTION`改为**Charades官方定位评测标准对齐与时间质量分层修复**；此“修复”严格表示**校验器和评测口径的修复、区分本来不同的问题**，不是认为源CSV损坏已证实或允许动原数据。上批[011独立只读核验](./codex-artifacts/VLM-BATCH-011/aggregate-range-diagnostics-and-decision.md)确定66,500原动作token中19,625不能通过我们自设的`0≤start<end≤length`，含异常视频行7,433。旧P1同类分离347组、P2异类重叠97,723 pair仅记录几何，`TIME_CONTRACT=HOLD`不变。不能因机器重新算出一致数字就宣称时钟语义成立。
+
+**新的关键官方证据**：[Charades README](https://prior.allenai.org/projects/data/charades/README.txt)区分`actions`三元组、`length`为视频秒数与`Charades_v1_localize.m`在视频时长范围内等间隔采样25个时间点（0, L/25, …, 24L/25），其定义不直接要求`end≤length`才能纳入每点官方目标标签。然而源码实际起止比较、同类别聚合、无效端点策略需首先**从已获许可的固定SHA ZIP中只读核对原评测器文本**；不能凭README替代原脚本，不能执行MATLAB或下载官方评测器第二份。
+
+**五项受控目标与科学门**：
+1. 源完整性/许可：BATCH010官方ZIP SHA`c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866`，CSV与类表指纹须匹配，原Windows`%LOCALAPPDATA%\VLM-Research-Isolated\Charades-v1-Metadata\`目录只读、身份隔离核验；不新GET、不改ZIP/CSV。
+2. 官方源码层`OFFICIAL_FRAME_COMPATIBILITY`：从ZIP内存读取唯一`Charades_v1_localize.m`文本，最多256KiB，核评测实际25点/端点/同类合并行为与现有`end>length`区间在采样点的贡献，只有取得脚本证据才准制作可比公式与标准库模拟；未取得就UNKNOWN/STOP。
+3. 数据质量层`TIME_BOUNDARY_QUALITY`：把越界情况独立分`within`、`crosses video end`、`starts outside`、`invalid`并展示宏观分母；哪怕官方frame采样能接受越界条目，也**不**认证原标注端点精确、同一时间轴或物理事件真值。
+4. 科学真值层`P1/P2_EVENT_TRUTH`：旧347/97723候选在严格筛选下只是几何资格，新官方评测对照不能生成可靠first/second QA、真实媒体PTS、模型错误、自然长视频或新机制；创新retain0，高水平论文目标不因评测器对齐自动PASS。
+5. 可复现与隐私：只汇总训练/测试总体、官方帧级正label cell个数和与strict政策的差异、无效/越界类型、P1/P2保守效应；不输出frame×video×class矩阵、CSV行、脚本文本全文、受限标注或个人身份映射。合成反例先PASS，才可读真实CSV。未有模型预测不能计算官方mAP。
+
+**唯一Codex READY**：[VLM-BATCH-012十项任务书](./codex-artifacts/VLM-BATCH-012/README.md)。Codex仅可提交该README指定2份脱敏报告、2份新标准库纯CPU源码+合成测试、`docs/codex-results.md`追加一条结果，共5处；旧原型/ZIP/CSV/研究环境/锁/账本不能编辑，0视频/帧/STA/新数据集/GPU/模型推理，0外部联系/PR合并。ZIP内原`.m`仅内存只读，不能执行或上传，校验失败STOP。**ChatGPT本轮只更新GitHub任务，没有从用户Windows读取原ZIP、没有运行校验/模拟或解决时间真值。** 保留用户原Codex聊天并需主动发送执行消息，提交结果后STOP等待科学审查。
+
+**学术定位与下一岔路**：2021 AGQA补充材料曾指出部分Charades动作起止时间并不准确（不能仅靠官方评测兼容纠正）；2025 ACL`Perfect Times`已有基于Charades时间关系VLM问答，继续使用Charades需明确短域评测/原始区间真值/论文创新的不同证据。即使本轮`OFFICIAL_LABEL_SAMPLING_COMPATIBILITY=VERIFIED`，`TIME_RANGE_QUALITY`和`EVENT_TRUTH`仍可HOLD。Charades约30秒不单独支持自然长视频论文；再进一步的媒体/PTS/长域合法资源必须另行选择与获权，不自动安排BATCH013。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
