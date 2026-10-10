@@ -292,3 +292,24 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 冻结发布方包SHA仍为`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`，实际64B校验文本匹配；不能将其当作本轮不完整ZIP SHA通过或独立数字签名。官网约109MB只作展示值，不是完整下载大小。包HEAD精确大小没有进入最终持久ledger，故不编造精确数字。部分工具包和本轮私有账本保留原固定新工具树，未改名完整ZIP、未清理/覆盖以重试；未来恢复需新限定父任务审查，已回报014不得重跑。
 
 本轮0 Charades网页/媒体/Range GET、0视频/STA/标注/特征/模型下载、0 PTS/真实解码/人工动作核验/GPU/模型/QA/训练，0原研究目录/Conda/Python/PyTorch/CUDA/PATH/原CSV ZIP/旧账本/旧源码改动，0外部联系/PR/后台调度。工具获取失败不能被称作工具READY或研究机制成立；按规定提交本轮5处，正常push后停止，保留同一聊天，等待ChatGPT审查。
+
+### VLM-BATCH-015 2026-10-10 — 固定对象206续传完成；CPU_TOOL=AVAILABLE_PUBLISHER_HASH_VERIFIED，媒体HOLD
+
+安全fast-forward独立docs checkout至main `67590a0`，读取AGENTS/任务书/结果/015合同、014来源和工具报告及旧安装器，启动时核唯一READY=015、014已回报且015无结果。新[原part/双账本与远端身份收据](codex-artifacts/VLM-BATCH-015/local-part-ledger-and-remote-identity.md)、[完整性部署与科学裁决](codex-artifacts/VLM-BATCH-015/resume-integrity-install-and-science-decision.md)、[独立标准库续传器](../prototypes/isolated_ffprobe_resumer.py)、[合成回归](../prototypes/test_isolated_ffprobe_resumer.py)及本条，共5处；014公共文件和旧私有账本未改、原part仅按本批授权追加。
+
+| 步骤 | 状态与真实证据 |
+|---|---|
+| 1 | DONE：独立docs安全同步、单READY/无重复父结果，原014不重跑 |
+| 2 | DONE：固定工具树身份/no reparse/已知cloud roots/原研究及兄弟树排除、x64/Windows10+/空闲≥1GiB；原part13,107,200B/PK签名、旧ledger574B/累计13,186,907B/4GET/3HEAD/4事件及末PACKAGE STOPPED吻合；只有2旧文件 |
+| 3 | DONE：首26方法全PASS，suite1.447秒；合成阶段加“失败探测不得解锁后缀”后最终27方法全PASS，0 FAIL/ERROR/SKIP，suite1.400秒；全部先于真实网络，真实响应后不改代码 |
+| 4 | DONE：固定Gyan9.0.2对象两次HEAD资格一致，Content-Length114,768,076B/ZIP类型/同强ETag；ETag只留私有ledger，显式no-proxy/默认TLS/禁跳转 |
+| 5 | DONE：1B原尾端探测206逐字匹配，随后唯一If-Range后缀GET101,660,876B；两请求实际206、精确范围/长度/identity/同ETag通过，0重试/整包重下/网页GET |
+| 6 | DONE：拼合part114,768,076B，完整SHA与冻结发布方60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba完全一致并最终重核；不追认014原ETag |
+| 7 | DONE：真实ZIP安全/预算及全成员CRC PASS，只独占提取ffprobe.exe、LICENSE、README.txt三文件；旧part/旧ledger保留，无extractall/其他exe或DLL提取 |
+| 8 | DONE：一次ffprobe -version、timeout10秒、返回0、9.0.2-essentials_build-www.gyan.dev；exe SHA私有复核一致，Authenticode UNKNOWN_NOT_CHECKED；0媒体输入 |
+| 9 | DONE：新独占续传ledger继承旧事件/预算、读前持久保守预留；本轮实际/预留101,660,877B相等，两轮实际/计费114,847,784B；前缀和旧ledger SHA不变；最大观测逻辑和325,212,443B，瞬时账本预留上界326,261,019B＜512MiB，精确物理峰值未测 |
+| 10 | DONE：TOOL_RANGE_SUPPORT VERIFIED_206、CPU工具仅publisher-hash scope AVAILABLE；媒体PROXY_HOLD/V1_MEDIA_ACCESS NOT_RUN、B/C HOLD、创新RETAIN0、GPU BLOCKED |
+
+资源：015新增HEAD2/GET2（探测1B+后缀101,660,876B），014+015总HEAD5/GET6，重试0；继承13,186,907B，新增101,660,877B，总114,847,784B≤157,286,400B，剩余42,438,616B，未新增额度。最终私有6文件逻辑字节220,068,317B，新ledger1,823B/旧ledger574B，无 `.next`残留；完整原part不改名/不删。峰值逻辑和含提取原子发布两个硬链接名的保守重复计数，不能称物理磁盘分配峰值；另1MiB涵盖瞬时账本，不隐瞒计量边界。
+
+强ETag与1字节探测只证明本次对象稳定/边界一致；完整发布方SHA才验证现存旧前缀和新后缀共同组成冻结包。发布方同站SHA不是独立签名或无恶意软件保证，版本检查不是媒体时钟/语义真值。0 Charades请求/媒体Range/视频/STA/标注/特征/模型下载，0 PTS/视觉解码/画面或动作人工核验/GPU/模型/QA/训练，0原科研环境/Python/PyTorch/CUDA/Conda/PATH/旧CSV ZIP/旧账本/旧源码/任务书或总体总结改动，0外部联系/PR/后台调度。私有ETag/部分指纹/exe SHA/本地ledger/工具包/exe不上传；只提交规定5处，正常push后停止，保留原聊天等待ChatGPT审查，不解除旧媒体代理门或自动执行新任务。
