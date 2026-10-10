@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-10（北京时间；唯一REAL-PILOT-001一次性前置资格审查安全停止，原MLVU镜像来源记录不足以认证第三方原视频用于本次研究的权利；真实QA0、GPU0，当前0 READY，等待用户补齐许可证据或选择合规替代来源）。不自动续跑/下载。
+> 更新日期：2026-10-10（北京时间；用户确认Ego4D个人协议签署、数据访问仍待审；HourVideo官方开放说明已核，等待本人HF gate批准；已直接在GitHub制作离线标注资格检查Python工具与说明。0 READY，不下载标注/媒体、不运行GPU、不恢复旧实验）。
 
 ## 一、任务看板
 
@@ -496,6 +496,10 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 [用户提供的真实交付272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)相对授权基线1886254仅一提交、**精确两处**：新增58行[脱敏阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)及`docs/codex-results.md`末尾10行，无代码/原资产改动。ChatGPT按文档证据接受执行者`NO_ELIGIBLE_DATA_STOP/PREFLIGHT_BLOCKED`的安全止损，不将它记作真实实验完成。Codex回报：只沿旧可信清单限域读取MLVU来源收据、README及必要存在性元信息，未读QA/视频；A3(a)源视频本次用途权利UNKNOWN，因此立即STOP；A3(b-f)、A4锁/模型及A5/B全部NOT_RUN；新run0、Qwen启动0/48、SigLIP0、GPU0秒/7200秒、媒体读取0。未现场独立核Windows或私人许可原件，这些动作和0调用由执行者申报；文档范围GitHub可核。
 
 **法律/实验门需更加准确**：[MLVU官方GitHub](https://github.com/JUNJIE99/MLVU)将数据声明为CC-BY-NC-SA-4.0、研究/非商业用途，并注明原视频版权非项目方所有；[官方HF数据入口](https://huggingface.co/datasets/MLVU/MVLU)要求登录并接受访问条件。不能认为非所有权就当然需要逐个作者书面许可，也不能认为镜像下载/hash或单页README足以证明此次使用符合所有适用条款、例外和获取条件。当前用户镜像收据对应**具体资产/用途/授权链仍UNKNOWN**，禁止ChatGPT自判LICENSE_PASS，按适用法律及现有许可自行合规评估；不代用户登录/签署或补抓视频。最短路径不是再发文献审查任务，而是由用户决定提交/核实合法取得和研究用途的官方访问收据（无需上传数据或私人凭据）或明确换有清楚原媒体使用权+QA标签的来源，才另行审视实验授权。下游12×2长视频资格、源独立性、锁/GPU和模型未测，不能得出当前机器没有实验能力、MLVU非法或策略效果负面。**现为0 READY、0实验GPU额度自动续用；该一次性父任务已结案，不重跑，不自动开启下一任务**。
+
+### 2026-10-10 · Ego4D已签署，HourVideo等待期实际准备：离线资格工具已交付（当前最新）
+
+用户提供Dropbox Sign签署成功截图，证明Ego4D访问协议电子签名完成，**并不代表官方审批或临时AWS凭据已获批准**。目前优先不再派新Codex文档父任务；ChatGPT直接交付[离线Python标注层资格工具](../tools/hourvideo_dev_preflight.py)与[用法、HF gate/答案文件区别](./hourvideo-wait-period-lab.md)。HourVideo作者2025-03-06宣布附答案`dev_v1.0_annotations.json`已发布，旧`dev_v1.0.json`无GT；HF官方数据repo可列文件、需要用户登录同意共享联系方式等条件才可取得受控标注；Ego4D签署不能替代HF gate。该离线工具只解析用户将来**自行合法获取并明确指定的本地开发集JSON**，校验至少12视频各2个有合法正确标签题、≥20分钟和至少4个≥30分钟的**元数据层数量**，输出匿名汇总；含纯虚构样例自检`--self-test`，当前**未访问真实标注或运行实际自检**。不认证视频真实时长/文件/合法使用/时钟/进程锁/GPU可用。源码不联网、不读GPU、不上传QA、答案、视频UID、音频/图片；不改原始含canary文件。Ego4D/HourVideo原视频的使用许可、release/UID映射、12×2具体实体均需后续合法可取证据。旧REAL-PILOT-001仍按272d7f4结案，所有H1创新`RETAIN0`、Charades`FINAL_MEDIA_STOP`、0 READY与无GPU新授权保持。**下一用户动作**仅本人阅读并接受[官方HourVideo HF gate](https://huggingface.co/datasets/HourVideo/HourVideo)，等待Ego4D审批；不交账号、token或私人数据给ChatGPT。完成后再决定是否批准本机一次性标注核验，而非自动续跑旧Pilot。
 
 ## 二十九、当前研究判断（跨批保持）
 
