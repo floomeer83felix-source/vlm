@@ -19,12 +19,13 @@ from charades_range_media_clock_pilot import (
     validate_extra,ffprobe_command,classify_clock,public_receipt,NoRedirect,run_pilot)
 from charades_range_media_clock_pilot import zip64_fields,authorize_parent,official_anchor,transfer_two
 from charades_range_media_clock_pilot import PAGE,LICENSE,RangeClient,build_media_opener,fixed_request
+from charades_range_media_clock_pilot import strong_etag,head_identity
 
 
 class Response:
     def __init__(self,body,status=206,headers=None):
         self.body=io.BytesIO(body); self.status=status; self.calls=0
-        self.headers=headers if headers is not None else {'Content-Range':'bytes 0-3/100','Content-Length':'4','ETag':'toy-etag','Content-Encoding':'identity'}
+        self.headers=headers if headers is not None else {'Content-Range':'bytes 0-3/100','Content-Length':'4','ETag':'"toy-etag"','Content-Encoding':'identity'}
     def geturl(self): return URL
     def read(self,n): self.calls+=1; return self.body.read(n)
     def __enter__(self): return self
@@ -54,26 +55,26 @@ class PilotTests(unittest.TestCase):
 
     def test_good_206_exact_body_count(self):
         ledger=Ledger(); ledger.begin(0,3)
-        self.assertEqual(read_response(Response(b'toy!'),0,3,100,'toy-etag',ledger),b'toy!')
+        self.assertEqual(read_response(Response(b'toy!'),0,3,100,'"toy-etag"',ledger),b'toy!')
         self.assertEqual(ledger.state['body_bytes'],4)
 
     def test_200_rejected_before_body(self):
         r=Response(b'SYNTHETIC WHOLE ARCHIVE',status=200); ledger=Ledger(); ledger.begin(0,3)
-        with self.assertRaisesRegex(PilotError,'REQUIRES_206'): read_response(r,0,3,100,'toy-etag',ledger)
+        with self.assertRaisesRegex(PilotError,'REQUIRES_206'): read_response(r,0,3,100,'"toy-etag"',ledger)
         self.assertEqual(r.calls,0); self.assertEqual(ledger.state['body_bytes'],0)
 
     def test_range_encoding_length_etag_and_domain_rejected(self):
         good=Response(b'toy!').headers
         for key,value in (('Content-Range','bytes 1-4/100'),('Content-Encoding','gzip'),('Content-Length','40'),('ETag','different')):
             bad=dict(good); bad[key]=value
-            with self.assertRaises(PilotError): validate_range(206,bad,0,3,100,'toy-etag',URL)
-        with self.assertRaises(PilotError): validate_range(206,good,0,3,100,'toy-etag','https://invalid.example/')
+            with self.assertRaises(PilotError): validate_range(206,bad,0,3,100,'"toy-etag"',URL)
+        with self.assertRaises(PilotError): validate_range(206,good,0,3,100,'"toy-etag"','https://invalid.example/')
         with self.assertRaisesRegex(PilotError,'REDIRECT_FORBIDDEN'): NoRedirect().redirect_request(None)
 
     def test_cumulative_budget_and_failure_bytes_not_reset(self):
-        ledger=Ledger(); ledger.state['body_bytes']=NET_LIMIT-3
+        ledger=Ledger(); ledger.state['body_bytes']=NET_LIMIT-3; ledger.state['charged_bytes']=NET_LIMIT-3
         with self.assertRaises(PilotError): ledger.begin(0,3)
-        ledger.begin(0,2); ledger.add(2); ledger.finish('STOPPED')
+        ledger.begin(0,2); ledger.reserve(2); ledger.add(2); ledger.finish('STOPPED')
         self.assertEqual(ledger.state['body_bytes'],NET_LIMIT-1)
         with self.assertRaises(PilotError): ledger.add(2)
 
@@ -85,7 +86,7 @@ class PilotTests(unittest.TestCase):
 
     def test_truncated_response_keeps_read_account(self):
         ledger=Ledger(); ledger.begin(0,3)
-        with self.assertRaisesRegex(PilotError,'TRUNCATED'): read_response(Response(b'to'),0,3,100,'toy-etag',ledger)
+        with self.assertRaisesRegex(PilotError,'TRUNCATED'): read_response(Response(b'to'),0,3,100,'"toy-etag"',ledger)
         self.assertEqual(ledger.state['body_bytes'],2)
 
     def test_eocd_and_directory_classic_valid(self):
@@ -202,14 +203,15 @@ class PilotTests(unittest.TestCase):
 
     def test_canonical_tool_redirect_into_conda_still_rejected(self):
         from charades_range_media_clock_pilot import find_ffprobe
-        with mock.patch('charades_range_media_clock_pilot.shutil.which',return_value=None), \
+        with mock.patch('charades_metadata_audit.check_ancestors'), \
+             mock.patch('charades_range_media_clock_pilot.shutil.which',return_value=None), \
              mock.patch('charades_range_media_clock_pilot.pathlib.Path.is_file',return_value=True), \
              mock.patch('charades_range_media_clock_pilot.pathlib.Path.resolve',return_value=pathlib.Path('SYNTHETIC/.conda/ffprobe.exe')):
             with self.assertRaisesRegex(PilotError,'FFPROBE_NOT_FOUND'): find_ffprobe()
 
     def test_preflight_only_never_creates_network_after_tool_success(self):
-        with mock.patch('charades_range_media_clock_pilot.find_ffprobe',return_value=pathlib.Path('SYNTHETIC-TOOL')), \
-             mock.patch('charades_range_media_clock_pilot.subprocess.run',return_value=mock.Mock(stdout=b'ffprobe version SYNTHETIC')), \
+        with mock.patch('charades_range_media_clock_pilot.authorize_parent'), mock.patch('charades_range_media_clock_pilot.find_ffprobe',return_value=pathlib.Path('SYNTHETIC-TOOL')), \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run',return_value=mock.Mock(stdout=b'ffprobe version 9.0.2-SYNTHETIC')), \
              mock.patch('charades_range_media_clock_pilot.urllib.request.build_opener') as network:
             result=run_pilot()
             self.assertEqual(result['status'],'PREFLIGHT_ONLY')
@@ -232,7 +234,7 @@ class PilotTests(unittest.TestCase):
     def test_persistent_ledger_atomic_restore_no_reset(self):
         with tempfile.TemporaryDirectory() as folder:
             file=pathlib.Path(folder)/'ledger.json'; ledger=Ledger(file)
-            ledger.begin(0,3); ledger.add(2); ledger.finish('STOPPED')
+            ledger.begin(0,3); ledger.reserve(2); ledger.add(2); ledger.finish('STOPPED')
             self.assertEqual(json.loads(file.read_text())['body_bytes'],2)
             with self.assertRaisesRegex(PilotError,'ALREADY_EXISTS'): Ledger(file)
 
@@ -243,7 +245,7 @@ class PilotTests(unittest.TestCase):
             total=len(data)
             def __init__(self): self.ledger=ledger
             def get(self,start,end):
-                ledger.begin(start,end); ledger.add(end-start+1); ledger.finish('COMPLETE')
+                ledger.begin(start,end); ledger.reserve(end-start+1); ledger.add(end-start+1); ledger.finish('COMPLETE')
                 return data[start:end+1]
         with tempfile.TemporaryDirectory() as folder:
             root=pathlib.Path(folder)
@@ -262,7 +264,7 @@ class PilotTests(unittest.TestCase):
                 return mock.Mock(hexdigest=lambda:'a734f9263490d2a0567da2e39f109f3cf535896e4efb91caaefa27644ac628f0')
             return real_sha(value)
         class Head:
-            status=200; headers={'Content-Type':'application/zip','Content-Length':str(len(data)),'ETag':'toy-etag'}
+            status=200; headers={'Content-Type':'application/zip','Content-Length':str(len(data)),'ETag':'"toy-etag"'}
             def geturl(self): return URL
             def __enter__(self): return self
             def __exit__(self,*args): pass
@@ -271,9 +273,9 @@ class PilotTests(unittest.TestCase):
                 self.ledger=ledger; self.total=total; self.etag=etag; self.opener=mock.Mock(open=lambda *a,**k:Head())
             def text(self,url,limit):
                 value=('<a href="'+URL+'">Data (scaled to 480p, 13 GB)</a>').encode() if url==PAGE else b'SYNTHETIC-LICENSE'
-                self.ledger.begin(0,limit-1); self.ledger.add(len(value)); self.ledger.finish('COMPLETE'); return value
+                self.ledger.begin(0,limit-1); self.ledger.reserve(len(value)); self.ledger.add(len(value)); self.ledger.finish('COMPLETE'); return value
             def get(self,start,end):
-                self.ledger.begin(start,end); self.ledger.add(end-start+1); self.ledger.finish('COMPLETE')
+                self.ledger.begin(start,end); self.ledger.reserve(end-start+1); self.ledger.add(end-start+1); self.ledger.finish('COMPLETE')
                 return data[start:end+1]
         with tempfile.TemporaryDirectory() as folder:
             base=pathlib.Path(folder); meta=base/'synthetic-metadata'; meta.mkdir()
@@ -282,14 +284,14 @@ class PilotTests(unittest.TestCase):
             probe={'streams':[{'time_base':'1/10','avg_frame_rate':'10/1','r_frame_rate':'10/1','start_time':'0','duration':'10'}],
                    'format':{'duration':'10'},'packets':[{'pts':'0','duration':'1'},{'pts':'99','duration':'1'}]}
             def fake_subprocess(command,**kwargs):
-                return mock.Mock(stdout=b'ffprobe version SYNTHETIC') if '-version' in command else mock.Mock(stdout=json.dumps(probe).encode())
+                return mock.Mock(stdout=b'ffprobe version 9.0.2-SYNTHETIC') if '-version' in command else mock.Mock(stdout=json.dumps(probe).encode())
             with mock.patch('charades_range_media_clock_pilot.find_ffprobe',return_value=pathlib.Path('SYNTHETIC-TOOL')), \
                  mock.patch('charades_range_media_clock_pilot.subprocess.run',fake_subprocess), \
                  mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
                  mock.patch('charades_range_media_clock_pilot.fixed_preflight',return_value=(base/'synthetic-pilot',{'classes':meta/'classes.txt','train':meta/'train.csv'})), \
                  mock.patch('charades_range_media_clock_pilot.RangeClient',Client), \
                  mock.patch('charades_range_media_clock_pilot.hashlib.sha256',hash_only_synthetic_license), \
-                 mock.patch('unittest.TextTestRunner.run',return_value=mock.Mock(testsRun=24,wasSuccessful=lambda:True)):
+                 mock.patch('unittest.TextTestRunner.run',return_value=mock.Mock(testsRun=60,skipped=[],wasSuccessful=lambda:True)):
                 out=run_pilot(True,'VLM-BATCH-999')
             self.assertEqual(out['status'],'CASE_LIMITED_COMPLETE')
             self.assertEqual(out['saved_videos'],2)
@@ -309,7 +311,7 @@ class PilotTests(unittest.TestCase):
         with mock.patch('urllib.request.getproxies',side_effect=AssertionError('SYSTEM_PROXY')) as combined, \
              mock.patch('urllib.request.getproxies_registry',create=True,side_effect=AssertionError('REGISTRY_PROXY')) as registry, \
              mock.patch('urllib.request.getproxies_environment',side_effect=AssertionError('ENV_PROXY')) as environment:
-            RangeClient(Ledger(),100,'toy-etag')
+            RangeClient(Ledger(),100,'"toy-etag"')
         combined.assert_not_called(); registry.assert_not_called(); environment.assert_not_called()
 
     def test_default_tls_verified_and_insecure_context_refused(self):
@@ -340,18 +342,18 @@ class PilotTests(unittest.TestCase):
             with self.assertRaisesRegex(PilotError,'SOURCE_OR_METHOD'): fixed_request(source,method,headers)
 
     def test_media_get_requires_bounded_range_and_identity(self):
-        good={'Accept-Encoding':'identity','Range':'bytes=0-3','If-Range':'toy-etag'}
+        good={'Accept-Encoding':'identity','Range':'bytes=0-3','If-Range':'"toy-etag"'}
         self.assertEqual(fixed_request(URL,'GET',good).get_header('Range'),'bytes=0-3')
         for changes in ({'Range':''},{'Range':'bytes=0-'},{'Range':'bytes=3-0'},
                         {'If-Range':''},{'If-Range':'bad\r\nvalue'},{'Accept-Encoding':'gzip'}):
             with self.assertRaises(PilotError): fixed_request(URL,'GET',dict(good,**changes))
 
     def test_shared_opener_for_page_license_head_and_range(self):
-        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); seen=[]
+        ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"'); seen=[]
         def respond(request,**kwargs):
             seen.append((request.full_url,request.get_method()))
             if request.get_method()=='HEAD':
-                response=Response(b'',status=200,headers={'Content-Length':'100','Content-Type':'application/zip','ETag':'toy-etag'})
+                response=Response(b'',status=200,headers={'Content-Length':'100','Content-Type':'application/zip','ETag':'"toy-etag"'})
             elif request.full_url in (PAGE,LICENSE):
                 response=Response(b'toy!',status=200,headers={'Content-Length':'4','Content-Encoding':'identity'})
                 response.geturl=lambda:request.full_url
@@ -369,12 +371,12 @@ class PilotTests(unittest.TestCase):
 
     def test_range_client_error_status_and_source_no_body(self):
         for status in (200,416,302):
-            ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'SYNTHETIC',status=status)
+            ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"'); response=Response(b'SYNTHETIC',status=status)
             with mock.patch.object(client.opener,'open',return_value=response):
                 with self.assertRaises(PilotError): client.get(0,3)
             self.assertEqual(response.calls,0); self.assertEqual(ledger.state['body_bytes'],0)
             self.assertEqual(ledger.state['events'][-1]['status'],'STOPPED')
-        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'toy!')
+        ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"'); response=Response(b'toy!')
         response.geturl=lambda:'https://invalid.example/media.zip'
         with mock.patch.object(client.opener,'open',return_value=response):
             with self.assertRaises(PilotError): client.get(0,3)
@@ -383,7 +385,7 @@ class PilotTests(unittest.TestCase):
     def test_text_error_status_encoding_and_size_no_body(self):
         for status,headers in ((302,{'Content-Length':'4'}),(200,{'Content-Length':'4','Content-Encoding':'gzip'}),
                               (200,{}),(200,{'Content-Length':'40'})):
-            ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'toy!',status=status,headers=headers)
+            ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"'); response=Response(b'toy!',status=status,headers=headers)
             response.geturl=lambda:PAGE
             with mock.patch.object(client.opener,'open',return_value=response):
                 with self.assertRaises(PilotError): client.text(PAGE,8)
@@ -391,13 +393,13 @@ class PilotTests(unittest.TestCase):
             self.assertEqual(ledger.state['events'][-1]['status'],'STOPPED')
 
     def test_text_unknown_source_stops_before_open_or_ledger(self):
-        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag')
+        ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"')
         with mock.patch.object(client.opener,'open') as opener:
             with self.assertRaises(PilotError): client.text('https://invalid.example/license',8)
         opener.assert_not_called(); self.assertEqual(ledger.state['get_attempts'],0)
 
     def test_client_partial_failure_budget_not_reset(self):
-        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'to')
+        ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"'); response=Response(b'to')
         with mock.patch.object(client.opener,'open',return_value=response):
             with self.assertRaisesRegex(PilotError,'TRUNCATED'): client.get(0,3)
         self.assertEqual(ledger.state['body_bytes'],2); self.assertEqual(ledger.state['get_attempts'],1)
@@ -424,6 +426,149 @@ class PilotTests(unittest.TestCase):
         self.assertIn('ProxyHandler({})',factory); self.assertIn('create_default_context()',factory)
         for name in ('RangeClient','run_pilot'):
             text=ast.unparse(nodes[name]); self.assertIn('fixed_request(',text); self.assertIn('.opener.open(',text)
+
+    def test_missing_parent_has_zero_tool_storage_network(self):
+        with mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool, \
+             mock.patch('charades_range_media_clock_pilot.fixed_preflight') as storage, \
+             mock.patch('charades_range_media_clock_pilot.build_media_opener') as network, \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run') as process:
+            with self.assertRaises(PilotError): run_pilot(True,None)
+        tool.assert_not_called(); storage.assert_not_called(); network.assert_not_called(); process.assert_not_called()
+
+    def test_old_completed_013_rejected_before_version(self):
+        with mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool, \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run') as process:
+            with self.assertRaisesRegex(PilotError,'ALREADY_REPORTED'): run_pilot(True,'VLM-BATCH-013')
+        tool.assert_not_called(); process.assert_not_called()
+
+    def test_keywords_cannot_spoof_frozen_017_authority(self):
+        import charades_range_media_clock_pilot as pilot
+        board='| VLM-BATCH-017 | P1 | **READY** | synthetic |'
+        with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,'','Charades_v1_480.zip 64 128 ffprobe']):
+            with self.assertRaisesRegex(PilotError,'MEDIA_SCOPE'): authorize_parent('VLM-BATCH-017',pathlib.Path('SYNTHETIC'))
+        with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,'']):
+            with self.assertRaises(PilotError): authorize_parent('VLM-BATCH-999',pathlib.Path('SYNTHETIC'))
+
+    def test_frozen_contract_and_history_must_all_match(self):
+        import charades_range_media_clock_pilot as pilot
+        board='| VLM-BATCH-017 | P1 | **READY** | synthetic |'; contract='SYNTHETIC EXACT CONTRACT'
+        sections={p:'### '+p+' synthetic complete' for p in pilot.HISTORY_SHA}
+        results='\n\n'.join(sections.values())
+        pins={p:hashlib.sha256(v.encode()).hexdigest() for p,v in sections.items()}
+        with mock.patch.object(pilot,'CONTRACT_SHA',hashlib.sha256(contract.encode()).hexdigest()), \
+             mock.patch.object(pilot,'HISTORY_SHA',pins):
+            with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,results,contract]):
+                authorize_parent('VLM-BATCH-017',pathlib.Path('SYNTHETIC'))
+            with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,results+' CHANGED',contract]):
+                with self.assertRaisesRegex(PilotError,'HISTORICAL'): authorize_parent('VLM-BATCH-017',pathlib.Path('SYNTHETIC'))
+
+    def test_authorized_default_is_read_only_no_version(self):
+        with mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
+             mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool, \
+             mock.patch('charades_range_media_clock_pilot.fixed_preflight') as storage, \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run') as process:
+            out=run_pilot(False,'VLM-BATCH-017')
+        self.assertEqual(out['version_runs'],0); tool.assert_not_called(); storage.assert_not_called(); process.assert_not_called()
+
+    def test_synthetic_gate_before_asset_or_tool_access(self):
+        with mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
+             mock.patch('unittest.TextTestRunner.run',return_value=mock.Mock(testsRun=51,skipped=[],wasSuccessful=lambda:True)), \
+             mock.patch('charades_range_media_clock_pilot.fixed_preflight') as storage, \
+             mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool:
+            with self.assertRaisesRegex(PilotError,'SYNTHETIC_GATE'): run_pilot(True,'VLM-BATCH-017')
+        storage.assert_not_called(); tool.assert_not_called()
+
+    def test_metadata_failure_before_version_or_http(self):
+        with mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
+             mock.patch('unittest.TextTestRunner.run',return_value=mock.Mock(testsRun=60,skipped=[],wasSuccessful=lambda:True)), \
+             mock.patch('charades_range_media_clock_pilot.fixed_preflight',side_effect=PilotError('SOURCE_SHA_MISMATCH')), \
+             mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool, \
+             mock.patch('charades_range_media_clock_pilot.build_media_opener') as network:
+            out=run_pilot(True,'VLM-BATCH-017')
+        self.assertEqual(out['version_runs'],0); self.assertEqual(out['get_attempts'],0)
+        tool.assert_not_called(); network.assert_not_called()
+
+    def test_fsync_reservation_persisted_before_read(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=pathlib.Path(folder)/'SYNTHETIC.json'; ledger=Ledger(path); ledger.begin(0,3)
+            response=Response(b'toy!'); actual_read=response.read; real_fsync=os.fsync
+            def read(n):
+                saved=json.loads(path.read_text()); self.assertEqual(saved['charged_bytes'],4)
+                self.assertEqual(saved['body_bytes'],0); self.assertGreater(sync.call_count,0)
+                return actual_read(n)
+            response.read=read
+            with mock.patch('charades_range_media_clock_pilot.os.fsync',wraps=real_fsync) as sync:
+                self.assertEqual(read_response(response,0,3,100,'"toy-etag"',ledger),b'toy!')
+
+    def test_timeout_and_short_read_never_refund(self):
+        for timeout in (True,False):
+            ledger=Ledger(); ledger.begin(0,3); response=Response(b'to')
+            if timeout: response.read=mock.Mock(side_effect=TimeoutError('SYNTHETIC'))
+            with self.assertRaises((TimeoutError,PilotError)): read_response(response,0,3,100,'"toy-etag"',ledger)
+            self.assertEqual(ledger.state['charged_bytes'],4)
+            self.assertEqual(ledger.state['body_bytes'],0 if timeout else 2)
+            ledger.finish('STOPPED'); ledger.begin(10,10); ledger.reserve(1); ledger.add(1)
+            self.assertEqual(ledger.state['charged_bytes'],5)
+
+    def test_pending_reservation_prevents_duplicate_read(self):
+        ledger=Ledger(); ledger.begin(0,3); ledger.reserve(4)
+        with self.assertRaises(PilotError): ledger.reserve(1)
+        with self.assertRaises(PilotError): ledger.add(5)
+        self.assertEqual(ledger.state['charged_bytes'],4)
+
+    def test_ledger_write_failure_blocks_response_read(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=pathlib.Path(folder)/'SYNTHETIC.json'; ledger=Ledger(path); ledger.begin(0,3)
+            response=Response(b'toy!')
+            with mock.patch('charades_range_media_clock_pilot.os.fsync',side_effect=OSError('SYNTHETIC FSYNC')):
+                with self.assertRaises(OSError): read_response(response,0,3,100,'"toy-etag"',ledger)
+            self.assertEqual(response.calls,0); self.assertTrue(path.with_suffix('.next').exists())
+            with self.assertRaises(PilotError): Ledger(path)
+
+    def test_text_and_range_share_conservative_total_budget(self):
+        ledger=Ledger(); ledger.state['charged_bytes']=NET_LIMIT-4
+        client=RangeClient(ledger,100,'"toy-etag"')
+        response=Response(b'to',status=200,headers={'Content-Length':'2'}); response.geturl=lambda:PAGE
+        with mock.patch.object(client.opener,'open',return_value=response): self.assertEqual(client.text(PAGE,2),b'to')
+        with mock.patch.object(client.opener,'open') as network:
+            with self.assertRaises(PilotError): client.get(0,3)
+        network.assert_not_called(); self.assertEqual(ledger.state['charged_bytes'],NET_LIMIT-2)
+
+    def test_text_read_prepaid_not_recovered_on_truncation(self):
+        ledger=Ledger(); client=RangeClient(ledger,100,'"toy-etag"')
+        response=Response(b'to',status=200,headers={'Content-Length':'4'}); response.geturl=lambda:LICENSE
+        with mock.patch.object(client.opener,'open',return_value=response):
+            with self.assertRaisesRegex(PilotError,'TRUNCATED'): client.text(LICENSE,4)
+        self.assertEqual(ledger.state['charged_bytes'],4); self.assertEqual(ledger.state['body_bytes'],2)
+
+    def test_weak_etag_and_changed_source_total_rejected(self):
+        for value in ('W/"weak"','unquoted',None):
+            with self.assertRaises(PilotError): strong_etag(value)
+        response=Response(b'',status=200,headers={'Content-Type':'application/zip','Content-Length':'13000000000','ETag':'"strong"'})
+        self.assertEqual(head_identity(response),(13000000000,'"strong"'))
+        for headers in ({'Content-Encoding':'gzip'},{'ETag':'W/"weak"'},{'Content-Length':'unknown'}):
+            changed=Response(b'',status=200,headers=dict(response.headers,**headers))
+            with self.assertRaises(PilotError): head_identity(changed)
+        wrong=Response(b'toy!'); wrong.headers['Content-Range']='bytes 0-3/101'
+        ledger=Ledger(); ledger.begin(0,3)
+        with self.assertRaises(PilotError): read_response(wrong,0,3,100,'"toy-etag"',ledger)
+        self.assertEqual(wrong.calls,0); self.assertEqual(ledger.state['charged_bytes'],0)
+
+    def test_13gb_whole_get_and_range_over_budget_forbidden(self):
+        with self.assertRaises(PilotError): fixed_request(URL,'GET',{'Accept-Encoding':'identity'})
+        ledger=Ledger(); client=RangeClient(ledger,13000000000,'"strong"')
+        with mock.patch.object(client.opener,'open') as network:
+            with self.assertRaises(PilotError): client.get(0,13000000000-1)
+        network.assert_not_called()
+
+    def test_global_ffprobe_priority_conflict_cannot_switch_tools(self):
+        from charades_range_media_clock_pilot import find_ffprobe
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder); tool=root/'VLM-Research-Isolated/CPU-Tools/ffprobe/bin/ffprobe.exe'
+            tool.parent.mkdir(parents=True); tool.write_bytes(b'SYNTHETIC NOT EXECUTABLE')
+            with mock.patch.dict(os.environ,{'LOCALAPPDATA':str(root),'VLM_ORIGINAL_WORKSPACE':str(root/'SYNTHETIC-RESEARCH')}), \
+                 mock.patch('charades_range_media_clock_pilot.shutil.which',return_value=str(root/'OTHER.exe')):
+                with self.assertRaisesRegex(PilotError,'PRIORITY_CONFLICT'): find_ffprobe()
 
 
 if __name__=='__main__': unittest.main()

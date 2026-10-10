@@ -334,3 +334,26 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 本轮研究HTTP GET/HEAD/Range（Charades页面、许可、媒体及Gyan）全部0，正文0B、真实媒体落盘0、真实ffprobe调用0、PTS/画面解码/人工动作核验/GPU/模型0；GitHub文档Git同步和推送仅属授权交接。0原科研目录/Conda/Python/PyTorch/CUDA/PATH/系统代理/工具隔离包与账本/原CSV ZIP变更，0外部联系/PR/后台调度。CPU工具可用仅沿015已验收报告，本轮未重新验证；A沿012限域，B时间质量/C事件真值HOLD、Charades单独长域FAIL、创新RETAIN0。
 
 边界如实保留：旧默认预检先调用ffprobe版本；执行父任务门是READY/既有结果/README关键字检查，不能解析完整许可语义；媒体ledger仍读取后add，未升级015式读前保守计费。本轮不运行这些真实入口、不扩大代理修复为完整媒体访问GO；后续须独立任务审查执行门、记账与真实服务。正常push后停止，保留原聊天等待ChatGPT验收，不自动创建017或启动媒体。
+
+### VLM-BATCH-017 2026-10-10 — BLOCKED_SYNTHETIC_GATE_FAILED；离线补强交付，真实媒体未开始
+
+独立docs checkout安全同步main `9e7bd45`，核唯一017 READY/无结果，重读AGENTS/任务板/结果/017合同、013原协议、015工具收据、016源码/威胁报告和总览。本轮仅[访问与预算阻塞收据](codex-artifacts/VLM-BATCH-017/media-v1-access-and-budget-receipt.md)、[两例时钟与科学裁决](codex-artifacts/VLM-BATCH-017/two-case-clock-and-science-decision.md)、[媒体协调器](../prototypes/charades_range_media_clock_pilot.py)、[合成测试](../prototypes/test_charades_range_media_clock_pilot.py)及本条5处；历史013—016公共产物、原metadata/工具账本和科研环境不改。
+
+| 合同步骤 | 最终状态与实际证据 |
+|---|---|
+| 1 | DONE：安全fast-forward、单READY/无既有017结果；017合同与013/014/015/016回报规范文本SHA绑定通过，许可先于任何主流程副作用 |
+| 2 | DONE（代码）：严格只准017、禁关键词冒充、默认不调用工具；读前原子flush/fsync不可退reserve，actual/charged分离，文本/Range统一64MiB/GET≤12；强ETag、固定015 bin/收据SHA/无PATH回退，016禁代理/TLS/源守卫保留 |
+| 3 | 最终离线DONE但执行门曾失败：原40方法保留+16新方法；首外部55PASS/1FAIL（漏reserve的mock夹具）后56PASS，suite4.837秒；唯一execute内置合成失败即停止；随后只合成诊断并补祖先mock，双上下文最终56PASS，0FAIL/ERROR/SKIP，suite6.629/10.190秒 |
+| 4 | BLOCKED_BEFORE_PREFLIGHT：主流程正式metadata SHA/物理隔离/CPU工具版本均NOT_RUN，版本实际调用0 |
+| 5 | NOT_RUN：未读取正式train行、冻结实际两候选或建selection.json；样本算法不改 |
+| 6 | NOT_RUN：项目/许可GET0、S3 HEAD0/Range0、工具GET0；官方当前强ETag/206/ZIP结构UNKNOWN，不归因服务器 |
+| 7 | NOT_RUN：真实保存视频0、MediaPilot根未建、真实私有媒体占用0B |
+| 8 | NOT_RUN：CASE_OVERFLOW/CASE_CONTROL均未运行，packet-PTS调用0，0画面/人工动作核验 |
+| 9 | DONE（阻塞范围）：实际与保守已计研究正文0B，真实ledger不存在，media根/ledger存在性只读复核false；不拿合成ledger当实跑记录，无私人路径/ID/PTS上传 |
+| 10 | DONE：MEDIA_RANGE_206 UNKNOWN、V1_CLOCK UNKNOWN，B/C HOLD，A沿012限域、创新RETAIN0/长域FAIL/GPU BLOCKED，安全停止不安排018 |
+
+**一次机会的完整简史**：外部首56方法55PASS/1FAIL/0ERROR/SKIP、suite3.981秒，修旧mock客户端漏reserve；第二轮56全PASS。静态核017实际合同/历史SHA、预算、原40名字及科学/ZIP/代理函数保持后，仅启动一次明确017 `--execute`；它在内置套件返回SYNTHETIC_GATE_FAILED，没有越过该门。离线临时合成LOCALAPPDATA/原工作区变量复现为55PASS/1ERROR（旧Conda路径测试的AuditError），原因是旧resolve mock与新增祖先检查不兼容；补夹具check_ancestors mock后两上下文56全PASS，未重启execute、未在真实网络响应后改策略。该次内置旧mock没有完全屏蔽祖先stat，不宣称完全0身份元数据触达；没有真实工具内容读取/调用或主流程原ZIP/CSV读取。
+
+保守预扣、fsync故障、短读/超时不退、跨文档/Range总预算、旧013/未授权父任务版本0、冻结合同/历史漂移、无工具回退、弱ETag/错total、13GB整GET拒绝均有新增纯合成反例。原40场景保留，夹具按预扣/强ETag/严格许可规则适配；没有降低预算或改变冻结选择/ZIP/时钟公式/packet命令。最终PASS证明离线代码和测试夹具状态，不追认已经停止的execute为成功，也不允许同父任务再试。
+
+本轮真实研究HTTP及正文0、预留0、版本/PTS调用0、媒体文件/媒体私有峰值0；GitHub授权Git同步/交付另列，不算研究HTTP。0真实下载视频/整档/STA/工具/特征/模型、0视觉解码/人工重标注/GPU/训练，0原科研/Conda/CUDA/PATH/锁/元数据或工具包及旧账本写入、0外部联系/PR/后台调度。正式本机SHA/CPU工具/隔离门仍未跑，只沿015旧验收事实，不伪造病例钟或科学成功。仅五处正常push后停止，保留原聊天，等待ChatGPT审查新限定任务；不自动重跑017或安排018。

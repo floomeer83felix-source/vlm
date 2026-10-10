@@ -8,6 +8,7 @@ import io
 import json
 import os
 import pathlib
+import platform
 import re
 import shutil
 import ssl
@@ -33,6 +34,12 @@ LICENSE='https://prior.allenai.org/projects/data/charades/license.txt'
 SOURCE_SHA={'zip':'c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866',
  'train':'59273c6dc2139ec7eb95b980fd26bc8529774b1ede0602f6ca90b546ed12f0fc',
  'classes':'7b95127e60300d6a69849d161869eb3e9657fa320fc9e92b6f2c9403b49c1887'}
+PARENT='VLM-BATCH-017'
+CONTRACT_SHA='85b346843ae49109a17b25334e75315b6b4527e8c0e178c346f68c0cf8ac508a'
+HISTORY_SHA={'VLM-BATCH-013':'ffdf1fc7c47b646680452bd321d106ca1cfe89b02ee91fb62f5bd8be0e7fb25a',
+ 'VLM-BATCH-014':'95e63d4df628c652f46aef2a1143313abd3cbe7a3c36bf2e9a38333715d1aec7',
+ 'VLM-BATCH-015':'ddcda98bef4e47c586c99776e7926363a15016765a6a82e4808892d475c646af',
+ 'VLM-BATCH-016':'3744bc4c941d61ccbdcb01f2ab4ab3e9dce33317fca570c4d071339697e3d78f'}
 
 
 class PilotError(ValueError): pass
@@ -46,33 +53,33 @@ def number(x):
 
 
 def find_ffprobe():
-    candidates=[shutil.which('ffprobe')]
-    if os.environ.get('LOCALAPPDATA'):
-        candidates.insert(0,str(pathlib.Path(os.environ['LOCALAPPDATA'])/'VLM-Research-Isolated/CPU-Tools/ffprobe/bin/ffprobe.exe'))
-    candidates += ['C:/ffmpeg/bin/ffprobe.exe','C:/Program Files/ffmpeg/bin/ffprobe.exe',
-                   'C:/ProgramData/chocolatey/bin/ffprobe.exe','C:/Tools/ffmpeg/bin/ffprobe.exe']
-    if os.environ.get('LOCALAPPDATA'):
-        candidates.append(str(pathlib.Path(os.environ['LOCALAPPDATA'])/'Microsoft/WinGet/Links/ffprobe.exe'))
-    bundle=pathlib.Path.home()/'.cache/codex-runtimes/codex-primary-runtime/dependencies'
-    candidates += [str(bundle/p) for p in ('bin/override/ffprobe.exe','bin/fallback/ffprobe.exe','native/ffmpeg/bin/ffprobe.exe')]
-    for value in candidates:
-        if not value: continue
-        p=pathlib.Path(value)
-        if any('conda' in part.lower() or part.lower()=='vlm' for part in p.parts): continue
-        if p.is_file():
-            resolved=p.resolve()
-            if any('conda' in part.lower() or part.lower()=='vlm' for part in resolved.parts): continue
-            original=os.environ.get('VLM_ORIGINAL_WORKSPACE')
-            if original:
-                blocked=pathlib.Path(original).resolve()
-                if resolved==blocked or blocked in resolved.parents: continue
-            return resolved
-    raise PilotError('BLOCKED_EXISTING_FFPROBE_NOT_FOUND')
+    from charades_metadata_audit import check_ancestors
+    if not os.environ.get('LOCALAPPDATA') or not os.environ.get('VLM_ORIGINAL_WORKSPACE'):
+        raise PilotError('BLOCKED_EXISTING_FFPROBE_NOT_FOUND')
+    root=pathlib.Path(os.environ['LOCALAPPDATA'])/'VLM-Research-Isolated/CPU-Tools/ffprobe'
+    p=root/'bin/ffprobe.exe'; check_ancestors(p)
+    if not p.is_file(): raise PilotError('BLOCKED_EXISTING_FFPROBE_NOT_FOUND')
+    resolved=p.resolve(); blocked=pathlib.Path(os.environ['VLM_ORIGINAL_WORKSPACE']).resolve()
+    if (resolved==blocked or blocked in resolved.parents or
+        any('conda' in part.lower() for part in resolved.parts)):
+        raise PilotError('BLOCKED_EXISTING_FFPROBE_NOT_FOUND')
+    other=shutil.which('ffprobe')
+    if other and pathlib.Path(other).resolve()!=resolved: raise PilotError('FFPROBE_PRIORITY_CONFLICT')
+    receipt=root/'local-audit/resume-015-ledger.json'; check_ancestors(receipt)
+    state=json.loads(receipt.read_text(encoding='utf-8'))
+    digest=hashlib.sha256()
+    with p.open('rb') as f:
+        for chunk in iter(lambda:f.read(65536),b''): digest.update(chunk)
+    if (state.get('status')!='AVAILABLE_PUBLISHER_HASH_VERIFIED' or state.get('version_runs')!=1 or
+        not state.get('full_sha_verified') or not state.get('archive_crc_verified') or
+        digest.hexdigest()!=state.get('executable_sha')): raise PilotError('FFPROBE_RECEIPT_MISMATCH')
+    return resolved
 
 
 class Ledger:
     def __init__(self,path=None):
-        self.path=path; self.state={'get_attempts':0,'body_bytes':0,'peak_local_bytes':0,'events':[]}
+        self.path=path; self.state={'get_attempts':0,'head_attempts':0,'body_bytes':0,'charged_bytes':0,
+                                  'peak_local_bytes':0,'events':[],'version_runs':0}
         if path is not None:
             if path.exists(): raise PilotError('LEDGER_ALREADY_EXISTS')
             self.save()
@@ -81,17 +88,27 @@ class Ledger:
         from charades_metadata_audit import check_ancestors
         tmp=self.path.with_suffix('.next')
         check_ancestors(self.path); check_ancestors(tmp)
-        with tmp.open('x',encoding='utf-8') as f: json.dump(self.state,f)
+        with tmp.open('x',encoding='utf-8') as f:
+            json.dump(self.state,f); f.flush(); os.fsync(f.fileno())
         os.replace(tmp,self.path)
     def begin(self,start,end):
-        if not 0<=start<=end or self.state['get_attempts']>=GET_LIMIT or self.state['body_bytes']+end-start+1>NET_LIMIT:
+        if not 0<=start<=end or self.state['get_attempts']>=GET_LIMIT or self.state['charged_bytes']+end-start+1>NET_LIMIT:
             raise PilotError('NETWORK_PREFLIGHT_BUDGET')
         self.state['get_attempts']+=1
-        self.state['events'].append({'requested_start':start,'requested_end':end,'read':0,'status':'STARTED'})
+        self.state['events'].append({'requested_start':start,'requested_end':end,'read':0,'reserved':0,
+                                     'pending':0,'status':'STARTED'})
         self.save()
+    def reserve(self,n):
+        event=self.state['events'][-1]
+        if not 0<n<=65536 or event['pending'] or self.state['charged_bytes']+n>NET_LIMIT:
+            raise PilotError('NETWORK_RESERVATION_BUDGET')
+        self.state['charged_bytes']+=n; event['reserved']+=n; event['pending']=n
+        self.save()  # fsync before read; reserve never refunded, including timeout/short read.
     def add(self,n):
-        if n<0 or self.state['body_bytes']+n>NET_LIMIT: raise PilotError('NETWORK_BODY_BUDGET')
-        self.state['body_bytes']+=n; self.state['events'][-1]['read']+=n; self.save()
+        event=self.state['events'][-1]
+        if not 0<n<=event['pending'] or self.state['body_bytes']+n>NET_LIMIT:
+            raise PilotError('NETWORK_BODY_BUDGET')
+        self.state['body_bytes']+=n; event['read']+=n; event['pending']-=n; self.save()
     def finish(self,status):
         self.state['events'][-1]['status']=status; self.save()
     def disk(self,n):
@@ -106,7 +123,23 @@ def validate_range(status,headers,start,end,total,etag,final_url):
     match=re.fullmatch(r'bytes (\d+)-(\d+)/(\d+)',headers.get('Content-Range',''))
     if not match or tuple(map(int,match.groups()))!=(start,end,total): raise PilotError('RANGE_MISMATCH')
     if headers.get('Content-Length')!=str(end-start+1): raise PilotError('RANGE_LENGTH')
-    if not etag or headers.get('ETag')!=etag: raise PilotError('RANGE_ETAG')
+    strong_etag(etag)
+    if headers.get('ETag')!=etag: raise PilotError('RANGE_ETAG')
+
+
+def strong_etag(etag):
+    if not isinstance(etag,str) or not re.fullmatch(r'"[\x21\x23-\x7e]+"',etag):
+        raise PilotError('STRONG_ETAG_REQUIRED')
+    return etag
+
+
+def head_identity(head):
+    if (head.status!=200 or head.geturl()!=URL or 'zip' not in head.headers.get('Content-Type','').lower()
+        or head.headers.get('Content-Encoding','identity').lower()!='identity'):
+        raise PilotError('HEAD_SOURCE_UNVERIFIED')
+    raw=head.headers.get('Content-Length','')
+    if not re.fullmatch(r'[0-9]+',raw) or int(raw)<=0: raise PilotError('HEAD_SIZE_ETAG_UNKNOWN')
+    return int(raw),strong_etag(head.headers.get('ETag'))
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -141,12 +174,14 @@ def read_response(response,start,end,total,etag,ledger):
     validate_range(response.status,response.headers,start,end,total,etag,response.geturl())
     remaining=end-start+1; parts=[]
     while remaining:
-        amount=min(65536,remaining,NET_LIMIT-ledger.state['body_bytes'])
+        amount=min(65536,remaining,NET_LIMIT-ledger.state['charged_bytes'])
         if amount<=0: raise PilotError('NETWORK_BODY_BUDGET')
+        ledger.reserve(amount)
         block=response.read(amount)
         if not block: raise PilotError('RANGE_TRUNCATED')
         if len(block)>amount: raise PilotError('READER_EXCEEDED_REQUEST')
         ledger.add(len(block)); parts.append(block); remaining-=len(block)
+        if len(block)!=amount: raise PilotError('RANGE_TRUNCATED')
     ledger.finish('COMPLETE')
     return b''.join(parts)
 
@@ -177,10 +212,11 @@ class RangeClient:
                 if length is None or not 0<int(length)<=limit: raise PilotError('TEXT_SIZE_UNKNOWN')
                 remaining=int(length); body=[]
                 while remaining:
-                    amount=min(65536,remaining); part=r.read(amount)
+                    amount=min(65536,remaining); self.ledger.reserve(amount); part=r.read(amount)
                     if not part: raise PilotError('TEXT_TRUNCATED')
                     if len(part)>amount: raise PilotError('TEXT_READER_OVERRUN')
                     self.ledger.add(len(part)); body.append(part); remaining-=len(part)
+                    if len(part)!=amount: raise PilotError('TEXT_TRUNCATED')
                 self.ledger.finish('COMPLETE'); return b''.join(body)
         except Exception:
             self.ledger.finish('STOPPED'); raise
@@ -391,13 +427,15 @@ def endpoint_relation(probe,chosen):
 
 def public_receipt(state,clock=None):
     return {'get_attempts':state.get('get_attempts',0),'response_body_bytes':state.get('body_bytes',0),
+            'charged_body_bytes':state.get('charged_bytes',0),'head_attempts':state.get('head_attempts',0),
+            'version_runs':state.get('version_runs',0),
             'peak_local_bytes':state.get('peak_local_bytes',0),'saved_videos':state.get('saved_videos',0),
             'CASE_OVERFLOW':(clock or {}).get('CASE_OVERFLOW','CLOCK_UNKNOWN'),
             'CASE_CONTROL':(clock or {}).get('CASE_CONTROL','CLOCK_UNKNOWN')}
 
 
 def authorize_parent(parent,docs):
-    if not re.fullmatch(r'VLM-BATCH-\d{3}',parent): raise PilotError('PARENT_TASK_INVALID')
+    if not isinstance(parent,str) or not re.fullmatch(r'VLM-BATCH-\d{3}',parent): raise PilotError('PARENT_TASK_INVALID')
     board=(docs/'docs/next-steps.md').read_text(encoding='utf-8')
     results=(docs/'docs/codex-results.md').read_text(encoding='utf-8')
     active=[]
@@ -405,23 +443,30 @@ def authorize_parent(parent,docs):
         columns=[c.strip() for c in line.split('|')]
         if len(columns)>4 and re.fullmatch(r'VLM-BATCH-\d{3}',columns[1]) and columns[3].startswith('**READY'):
             active.append(columns[1])
-    if active!=[parent]: raise PilotError('PARENT_NOT_UNIQUE_READY')
     if re.search(r'^### '+re.escape(parent)+r'\s',results,re.M): raise PilotError('PARENT_ALREADY_REPORTED')
+    if parent!=PARENT: raise PilotError('PARENT_MEDIA_SCOPE_UNVERIFIED')
+    if active!=[PARENT]: raise PilotError('PARENT_NOT_UNIQUE_READY')
     readme=(docs/'docs/codex-artifacts'/parent/'README.md').read_text(encoding='utf-8')
-    if not all(x in readme for x in ('Charades_v1_480.zip','64','128','ffprobe')):
+    if hashlib.sha256(readme.encode('utf-8')).hexdigest()!=CONTRACT_SHA:
         raise PilotError('PARENT_MEDIA_SCOPE_UNVERIFIED')
+    for previous,digest in HISTORY_SHA.items():
+        section=re.search(r'^### '+re.escape(previous)+r'\s.*?(?=^### |\Z)',results,re.M|re.S)
+        if not section or hashlib.sha256(section.group().rstrip().encode('utf-8')).hexdigest()!=digest:
+            raise PilotError('HISTORICAL_RECEIPT_CHANGED')
 
 
 def fixed_preflight():
     from charades_metadata_audit import check_ancestors
     import winreg
+    if os.name!='nt' or platform.machine().lower() not in ('amd64','x86_64'): raise PilotError('WINDOWS_X64_REQUIRED')
     base=pathlib.Path(os.environ['LOCALAPPDATA']).absolute()
     meta=base/'VLM-Research-Isolated/Charades-v1-Metadata'
     pilot=base/'VLM-Research-Isolated/Charades-v1-MediaPilot'
     original_value=os.environ.get('VLM_ORIGINAL_WORKSPACE')
     if not original_value: raise PilotError('ORIGINAL_WORKSPACE_EXCLUSION_UNKNOWN')
     docs=pathlib.Path(__file__).resolve().parent.parent
-    forbidden=[meta,docs,pathlib.Path(original_value).absolute()]
+    tools=base/'VLM-Research-Isolated/CPU-Tools/ffprobe'
+    forbidden=[meta,tools,docs,pathlib.Path(original_value).absolute()]
     for key in ('OneDrive','OneDriveConsumer','OneDriveCommercial','Dropbox','BOX_SYNC'):
         if os.environ.get(key): forbidden.append(pathlib.Path(os.environ[key]).absolute())
     def names(key):
@@ -454,7 +499,7 @@ def fixed_preflight():
                                     raise
                     except FileNotFoundError: pass
         except FileNotFoundError: pass
-    check_ancestors(pilot); check_ancestors(meta)
+    check_ancestors(pilot); check_ancestors(meta); check_ancestors(tools)
     if pilot.exists(): raise PilotError('PILOT_ROOT_ALREADY_EXISTS')
     if base.resolve(strict=True) not in pilot.resolve().parents: raise PilotError('PILOT_CONTAINMENT')
     for target in (pilot,pilot.resolve()):
@@ -499,7 +544,7 @@ def transfer_two(client,selection,root):
     from charades_metadata_audit import check_ancestors
     tail=client.get(max(0,client.total-128*1024),client.total-1)
     offset,size,count=eocd(tail,client.total,client.get)
-    if client.ledger.state['body_bytes']+size>NET_LIMIT: raise PilotError('CENTRAL_NETWORK_BUDGET')
+    if client.ledger.state['charged_bytes']+size>NET_LIMIT: raise PilotError('CENTRAL_NETWORK_BUDGET')
     directory=client.get(offset,offset+size-1)
     all_entries=central_directory(directory,count,offset)
     entries=match_two(all_entries,[x['id'] for x in selection])
@@ -513,7 +558,7 @@ def transfer_two(client,selection,root):
         next_offset=min((x['offset'] for x in all_entries if x['offset']>pos),default=offset)
         if pos+30+n+e+entry['compressed']>next_offset: raise PilotError('LOCAL_MEMBER_OVERLAP')
         windows.append((pos+30+n+e,entry))
-    if client.ledger.state['body_bytes']+sum(e['compressed'] for _,e in windows)>NET_LIMIT:
+    if client.ledger.state['charged_bytes']+sum(e['compressed'] for _,e in windows)>NET_LIMIT:
         raise PilotError('MEDIA_NETWORK_BUDGET')
     if owned_disk_bytes(root)+2*sum(e['size'] for _,e in windows)+AUDIT_RESERVE>DISK_LIMIT:
         raise PilotError('MEDIA_STORAGE_PREFLIGHT')
@@ -535,19 +580,27 @@ def transfer_two(client,selection,root):
     return saved
 
 
-def run_pilot(execute=False,parent='VLM-BATCH-013'):
-    # Repair/preflight mode never accesses the network or media store.
-    executable=find_ffprobe()
-    version=subprocess.run([str(executable),'-version'],capture_output=True,timeout=10,check=True)
-    if not version.stdout.startswith(b'ffprobe version'): raise PilotError('FFPROBE_VERSION_UNVERIFIED')
-    if not execute: return {'status':'PREFLIGHT_ONLY','ffprobe':'AVAILABLE','response_body_bytes':0,'saved_videos':0}
+def run_pilot(execute=False,parent=None):
     docs=pathlib.Path(__file__).resolve().parent.parent; authorize_parent(parent,docs)
+    # Even authorized default mode is read-only: no tool, metadata, directory or HTTP.
+    if not execute: return {'status':'PREFLIGHT_ONLY','ffprobe':'NOT_RUN','response_body_bytes':0,'saved_videos':0,'version_runs':0}
     # Same fixed synthetic suite is mandatory even for a later approved executor.
     import unittest
     suite=unittest.defaultTestLoader.loadTestsFromName('test_charades_range_media_clock_pilot')
     checked=unittest.TextTestRunner(stream=io.StringIO()).run(suite)
-    if not checked.wasSuccessful() or checked.testsRun<12: raise PilotError('SYNTHETIC_GATE_FAILED')
-    root,sources=fixed_preflight()
+    if not checked.wasSuccessful() or checked.testsRun<52 or checked.skipped: raise PilotError('SYNTHETIC_GATE_FAILED')
+    early={'version_runs':0}
+    try:
+        root,sources=fixed_preflight()
+        early['metadata_isolation_gate']='PASS'
+        executable=find_ffprobe()
+        early['version_runs']=1
+        version=subprocess.run([str(executable),'-version'],capture_output=True,timeout=10,check=True)
+        if not re.match(br'^ffprobe version 9\.0\.2(?:[-\s]|$)',version.stdout): raise PilotError('FFPROBE_VERSION_UNVERIFIED')
+        early['tool_gate']='PASS'
+    except Exception as e:
+        result=public_receipt(early); result.update(status='BLOCKED',reason=str(e) if isinstance(e,PilotError) else type(e).__name__)
+        result.update({k:v for k,v in early.items() if k.endswith('_gate')}); return result
     classes={line.split()[0] for line in sources['classes'].read_text(encoding='utf-8-sig').splitlines() if line.strip()}
     with sources['train'].open('r',encoding='utf-8-sig',newline='') as f:
         rows=[{k:r.get(k) for k in ('id','subject','actions','length')} for r in csv.DictReader(f)]
@@ -556,6 +609,7 @@ def run_pilot(execute=False,parent='VLM-BATCH-013'):
     for name in ('incoming','media','local-audit'): (root/name).mkdir(exist_ok=False)
     with (root/'local-audit/selection.json').open('x',encoding='utf-8') as f: json.dump(selection,f,default=str)
     ledger=Ledger(root/'local-audit/network-ledger.json')
+    ledger.state.update(early); ledger.disk(owned_disk_bytes(root)); ledger.save()
     client=RangeClient(ledger,0,'')
     clock={}
     try:
@@ -563,10 +617,9 @@ def run_pilot(execute=False,parent='VLM-BATCH-013'):
         license_body=client.text(LICENSE,16*1024)
         if hashlib.sha256(license_body).hexdigest()!='a734f9263490d2a0567da2e39f109f3cf535896e4efb91caaefa27644ac628f0':
             raise PilotError('OFFICIAL_LICENSE_CHANGED')
+        ledger.state['head_attempts']=1; ledger.save()
         with client.opener.open(fixed_request(URL,'HEAD',{'Accept-Encoding':'identity'}),timeout=30) as head:
-            if head.status!=200 or head.geturl()!=URL or 'zip' not in head.headers.get('Content-Type','').lower(): raise PilotError('HEAD_SOURCE_UNVERIFIED')
-            total=int(head.headers['Content-Length']); etag=head.headers.get('ETag')
-            if total<=0 or not etag: raise PilotError('HEAD_SIZE_ETAG_UNKNOWN')
+            total,etag=head_identity(head)
         client.total=total; client.etag=etag
         ledger.state['source']={'total':total,'etag':etag}; ledger.save()
         saved=transfer_two(client,selection,root)
@@ -583,7 +636,9 @@ def run_pilot(execute=False,parent='VLM-BATCH-013'):
         result=public_receipt(ledger.state,clock); result['status']='CASE_LIMITED_COMPLETE'
         return result
     except Exception as e:
-        ledger.state['stopped']=str(e) if isinstance(e,PilotError) else type(e).__name__; ledger.save()
+        ledger.state['stopped']=str(e) if isinstance(e,PilotError) else type(e).__name__
+        try: ledger.disk(owned_disk_bytes(root)); ledger.save()
+        except Exception: ledger.state['stopped']='BLOCKED_ACCOUNTING_PERSISTENCE'
         result=public_receipt(ledger.state,clock); result['status']='BLOCKED'; result['reason']=ledger.state['stopped']
         return result
 
@@ -592,7 +647,7 @@ if __name__=='__main__':
     try:
         parser=argparse.ArgumentParser(description=__doc__)
         parser.add_argument('--execute',action='store_true')
-        parser.add_argument('--parent-task',default='VLM-BATCH-013')
+        parser.add_argument('--parent-task',default=None)
         args=parser.parse_args()
         result=run_pilot(args.execute,args.parent_task)
         print(json.dumps(result))
