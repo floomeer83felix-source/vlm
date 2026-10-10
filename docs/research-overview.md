@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；BATCH016媒体端禁代理代码层验收；BATCH017唯一READY且必须先补记账/执行门，真实两视频V1尚未运行）  
+> 更新：2026-10-10（北京时间；BATCH017代码交付验收但内置合成门安全STOP，真实媒体0；等待用户是否开启独立新任务，0READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -101,7 +101,8 @@
 | 工具部分包恢复或止损 VLM-CPU-TOOL-GATE-015 | **USER_SELECTED_SAME_OBJECT_RESUME（研究方向已定、非READY）** | 用户、ChatGPT |
 | 同源工具ZIP仅一次断点续传 BATCH-015 | **ACCEPTED（固定发布方整包SHA和CPU ffprobe可用）** | Codex，ChatGPT审查 |
 | 媒体客户端显式禁代理/固定HTTPS BATCH-016 | **ACCEPTED_CODE_ONLY（40合成PASS收据，真实媒体0）** | Codex，ChatGPT审查 |
-| 条件式两例Charades媒体时钟试点 BATCH-017 | **READY（先读前持久计费＋父授权，再合成≥52 PASS，才可真实V1）** | Codex |
+| 条件式两例Charades媒体时钟试点 BATCH-017 | **STOPPED_SAFELY / CODE_DELIVERABLES_ACCEPTED（内置合成失败，0真实媒体）** | Codex，ChatGPT审查 |
+| Charades最终媒体试点继续/停止决策 VLM-RESEARCH-CHOICE-018 | **WAIT_USER_NEXT_PILOT_DECISION（非READY）** | 用户、ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -507,6 +508,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **先前用户有明确的V1有限媒体授权**：最多2段官方480p视频、研究GET全部HTTP正文≤64MiB=67,108,864B、本地媒体/临时≤128MiB=134,217,728B、CPU既有ffprobe仅packet PTS和容器元信息，**不授权13GB整包、镜像/系统代理/STA、视频图像/动作人工观看、训练模型/GPU/原科研workspace改动**。BATCH015 ffprobe9.0.2工具现已在独立CPU-Tools隔离目录按供应商固定ZIP SHA与一次version由执行者报告可用，没有消耗媒体预算。因此ChatGPT推出[唯一BATCH017完整十项协议](./codex-artifacts/VLM-BATCH-017/README.md)：**先**修父任务许可在ffprobe/任何副作用前核验、所有官网文本及媒体Range的实际读取前持久保守reserve网络额度、崩溃不退、GET≤12/禁重试；**再**在纯虚构场景使原40项测试保留加≥12项共≥52 PASS；**再**只读核Windows原metadata ZIP/CSV/类表固定SHA和隔离、既有CPU ffprobe工具，以冻结的确定算法选1越界`0≤start<length<end,end-length∈(1,5]`与1严格合法训练视频，先选后核远端。只有所有门PASS，才准一次性有界访问官网文本和官方S3 ZIP的HEAD/206尾部ZIP64目录/指定两成员，预算不够/返回200整档/强ETag缺/ZIP不可安全解析即STOP；成功只做两例MP4容器与video packet PTS/CSV `length`的类别化对照。不允许抄出两视频身份/精确PTS或人工动作边界真值。新父任务完成只交2匿名报告、两项现有媒体代码/tests修改和一条总回报（5处），**不自动启动018**。
 
 **科学状态**：即使017取得真实两个MP4的container、first/last video packet时刻并与`length`对比，最多得到2例时钟与版本线索，`OFFICIAL_FRAME_LABEL=A_VERIFIED_WITHIN_012_SCOPE`维持；`B_TIME_BOUNDARY_QUALITY=HOLD`、`C_P1/P2_EVENT_TRUTH=HOLD`，不能认为原19,625条strict拒绝标注都真实错误/都可修正；独立自然长视频适用性FAIL、原创机制retained0、GPU继续BLOCKED。ChatGPT本轮只发布GitHub协议，不执行媒体HTTP或直接读取用户Windows；**READY不等于两段视频已经下载或可下载**。
+
+### 2026-10-10 · BATCH017仅代码及合成夹具成功，实际execute在内置合成门安全STOP（最新）
+
+**GitHub交付验收与实际执行必须分开**：[BATCH017提交1641817](https://github.com/floomeer83felix-source/vlm/commit/1641817a05911d008373963d5cea88a45f1cb8b6)严格5处：两份脱敏[真实访问与预算收据](./codex-artifacts/VLM-BATCH-017/media-v1-access-and-budget-receipt.md)、[两臂时钟科学门](./codex-artifacts/VLM-BATCH-017/two-case-clock-and-science-decision.md)，修改`prototypes/charades_range_media_clock_pilot.py`及其仅合成test，`docs/codex-results.md`尾部只追加一次父任务报告。ChatGPT通过连接的GitHub逐项检查文件、读源码与风险，**未登录用户Windows重新运行**。本批保守父任务权限先于任何工具/存储/网络，017合同及013—016历史段SHA绑定、只接受017且检查READY和既有回报、非执行模式无工具副作用；媒体`Ledger`增加`charged_bytes`及独立`body_bytes`，每次真实`response.read`之前先对≤64KiB块持久原子fsync保守预扣（失败/短读不退）、官网和许可文本/媒体Range共用原64MiB上限与GET≤12；强ETag、固定015 CPU ffprobe私有路径及只读私有部署收据校验、016显式禁代理/TLS/无跳转/固定URL逻辑保留。**这些是按代码审查和执行者测试的工程修复结论，不是实际媒体证据。**
+
+**真实执行停于哪一道门**：Codex先在普通本地环境将原40合成测试扩展为56（新增16），首轮55PASS/1FAIL是旧模拟Range缺`reserve`，修正后56全PASS。**仅一次真正`--execute --parent-task VLM-BATCH-017`**，但是此入口自带的合成`unittest`在原Windows研究工作区环境变量下，因为旧“拒绝Conda路径”的合成测试`Path.resolve` mock与新的祖先`check_ancestors`冲突，抛`AuditError`，所以报`BLOCKED_SYNTHETIC_GATE_FAILED`并停止。后续仅离线在合成`LOCALAPPDATA`及模拟原工作区环境中复现并补虚构路径mock，最后普通上下文56/56 PASS、模拟工作区上下文56/56 PASS；**未再启动真实execute，不允许把最终回归PASS追认为真实试点PASS**。这还暴露测试隔离细节：出错的旧mock没有完全屏蔽只读祖先文件身份stat，因此仅能说没有正式受保护内容的读取或工具调用，不能夸称对所有真实文件元数据完全0触达。
+
+**无用户媒体消耗与真值绝不升级**：本批0真实官方项目/许可GET、0 S3 HEAD或Range GET、0媒体研究HTTP实际正文与保守预留字节、0 Gyan工具GET、0新MP4/MediaPilot根或实际网络ledger；原train/ZIP/classes SHA的**正式本机预检未执行**，已部署ffprobe的**本轮正式路径/版本调用未执行**，两例身份根本未选择/未获取、packet-PTS=NOT_RUN。不能凭这批判定服务器是否206/ZIP可读、媒体`length`是否对应真实视频钟、动作`end`是否正确，亦不可产生任何P1/P2实例事实。科学层A`OFFICIAL_FRAME_LABEL=VERIFIED_WITHIN_012_SCOPE`，B`TIME_RANGE_QUALITY=HOLD`，C`P1/P2_EVENT_TRUTH=HOLD`，原创机制`RETAIN0`，Charades作为自然长时域唯一数据`FAIL`、GPU/模型/视频可视真值`BLOCKED`均未改变。
+
+**当前科研管理决定**：`BATCH017=CODE_DELIVERABLES_ACCEPTED / EXECUTION_STOPPED_SAFELY`，旧017唯一execute已经用过并在`docs/codex-results.md`有回报，**严禁复跑或抹去ledger/历史结果**。目前`VLM-RESEARCH-CHOICE-018=WAIT_USER_NEXT_PILOT_DECISION`、**没有READY任务**。用户需明确决定是否在旧媒体许可上限内给一个**全新且只再一次**的有界CPU时钟试点父任务（前置必须正式执行上下文和普通上下文合成检查均PASS），或止损结束Charades媒体获取，把它保留为短视频标签政策/质量工程对照，之后转向具有真实长视频与可审核时钟/许可合同的数据源。**不经用户再次明确选择就不能自动创建018 READY或重新发起网络请求。**
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
