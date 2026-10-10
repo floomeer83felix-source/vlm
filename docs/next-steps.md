@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-10（北京时间；用户同意结束静态审查循环并转向真实长视频实验优先；BATCH020已有交付并结案，当前0 READY，尚无数据/私有资产/GPU执行许可）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-10（北京时间；用户明确批准唯一VLM-REAL-PILOT-001：已有合法数据限域只读预检，全部PASS才做最长120分钟GPU、最多48次Qwen前向的长视频配对试验；没有新数据/权重下载或环境变更权限）。本文是执行入口，不代表实验已开始。
 
 ## 一、任务看板
 
@@ -44,11 +44,12 @@
 | VLM-RESEARCH-POST018-DIRECTION | P0 | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅非媒体静态审查）** | 用户、ChatGPT | 用户2026-10-10在018最后尝试结束后明确回复“好的”，同意先对真正长视频数据源与原创推理机制公开资料筛选 | ChatGPT已形成[静态证据种子](./long-video-static-screening-seed-2026-10-10.md)与[受限BATCH019任务书](./codex-artifacts/VLM-BATCH-019/README.md)；没有新媒体/annotation包/模型下载或GPU授权，也不重新打开Charades媒体路线 |
 | VLM-BATCH-019 | P1 | **ACCEPTED_STATIC_DELIVERABLES / DATA_AND_NOVELTY_HOLD（已结案非READY）** | Codex，ChatGPT审查 | 六长视频来源许可/时长/时间轴及2026最近先例纯公开静态筛选，八项按报告交付 | [24b771e](https://github.com/floomeer83felix-source/vlm/commit/24b771ef9c83e929579372a982ea17cd6edbbdb8)：严格四Markdown报告+结果尾部23行，共5文件、0代码修改；六候选与六必查+五追加先例已审。Ego4D/HourVideo法律和版本同钟未闭合，LVB Table3六格合计3,761与摘要3,763静态冲突未消，NLQ clip≠小时输入；H1/H3仅待否证问题、H2普通实体记忆NO_GO、NOVELTY=RETAIN0；**不授权下载/标注/GPU** |
 | VLM-BATCH-020 | P1 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / LEGAL_BRIDGE_HOLD（已结案非READY）** | Codex，ChatGPT审查 | [fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)：三份公开Markdown审查报告和结果追加，提交范围符合合同；普通H1组合无新算子，Ego4D↔HourVideo权利及同版时间映射未闭合 | 静态交付结案，不补跑、不自动021。用户已决定终止连续文档微批次，转向[单次实验优先提案](./experiment-first-reset-2026-10-10.md)；没有新的视频、标注、模型或GPU授权，NOVELTY=RETAIN0 |
+| VLM-REAL-PILOT-001 | P0 | **READY（一次性条件式真实长视频配对实验：预检全PASS才允许GPU）** | Codex（用户在原长期聊天主动触发） | 在既有可信数据登记的**合法本机长视频**限域只读核对许可/同版QA/历史账本/排他锁和原模型；只有12个不同≥20min视频各2题、同版合法可评分和GPU串行条件全PASS才冻结24题并运行均匀12帧 vs 已有SigLIP检索12帧（冻结Qwen3-VL-4B-Instruct）。**48次Qwen前向总上限，120分钟GPU累计硬限。** | [唯一完整合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)：公有仓库仅一份脱敏汇总报告+结果文件尾部一条；不得下载媒体/答案/权重、改环境、重跑历史、触碰Charades私有资产、启用云API；任何数据/合法用途/版本/安全/模型失败→0GPU STOP。该任务是基线**诊断**，不是新算法GO。push一次后STOP，绝不自动派第二轮 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前0个READY父任务。** BATCH-020已在本方向调整之前交付[三份静态报告+一条结果](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)并结案，其普通H1`NO_GO`、Ego4D/HourVideo合法同版`HOLD`。用户同意停止前20轮式文档与安全微批次循环；科研目标转为[一次真实长视频配对基线实验提案](./experiment-first-reset-2026-10-10.md)。提案在**另获明确本地资料与GPU许可**且素材合法、具可评分标签、锁与环境安全之后，按12个≥20min独立长视频×2道已有QA、同Qwen3-VL-4B的均匀12帧与冻结SigLIP检索12帧两臂（总最多48次前向）获得可核纠错/误伤/全分母/计算成本；**提案不是READY和实际实验批准**。没有合法数据即0GPU、明确STOP；不把旧选帧方法或H1/H2/H3当原创算法。Charades`FINAL_MEDIA_STOP`、`V1_CLOCK=UNKNOWN`、`NOVELTY=RETAIN0`、`GPU=BLOCKED`保持，禁止Codex自动开始021/下载或模型运行。
+**当前唯一READY父任务是VLM-REAL-PILOT-001（真实长视频，条件式一次运行，仍未启动）。** 用户针对[实验优先重整提案](./experiment-first-reset-2026-10-10.md)明确回复“可以，快开始吧”，同意限定现有合法本地资产的只读数据/来源/QA/账本/锁前置核查，并且仅当所有资格与使用权限均有证据通过时，在原Windows RTX3090上做**最多48次Qwen3-VL-4B QA前向、累计120分钟GPU**的均匀12帧与冻结SigLIP检索12帧配对基线诊断。12个不同≥20min自然长视频×2道已有合法QA（24对），不能重跑既有started或失败样本。详细的[条件式实验合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)要求预检任一不清楚则0GPU、0数据下载而立即STOP并交阻塞收据。授权**不是**对所有旧数据版权的法律认定，也不开放新模型权重、字幕/标注下载、训练、CUDA/Conda/PATH变更、旧Charades路线或人工标签；既有旧锁不删，原科研与账本不覆盖。只在原Codex聊天被用户实际触发后执行一次并交一个脱敏实测/阻塞结果，ChatGPT只能事后审核，不自动启动任务。科学创新仍`RETAIN0`；这次只检验真实QA现象与预算，不复活历史H1/H2/H3。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -483,6 +484,12 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 用户明确指出此前20个批次缺真实长视频科学成果，并同意终止继续BATCH020式静态文档研究，转向可执行、可否证的真正长视频实验路线。BATCH020已先于这次转向提交[fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)，其四处Markdown变更经ChatGPT文件审查符合合同，普通H1核心算子`NO_GO`、Ego4D↔HourVideo同版及使用许可`HOLD`；只能按静态结案，不能撤销已执行事实或要求重跑。
 
 新的[实验优先试验方案](./experiment-first-reset-2026-10-10.md)为**不含GPU执行授权的研究计划**：优先在用户另行明示可只读核实的已合法持有自然长视频与现有QA标签里确定12视频×2题，严格旧GPU账本/锁、来源/许可/QA隔离门；待另外审批后用同冻结Qwen3-VL模型、同12帧Qwen输入，对比均匀与既有SigLIP检索，最多48次Qwen QA前向，公开只报告脱敏的配对纠错/误伤/失败分母、按视频区间与全时延显存成本。无许可/标签/环境便STOP，不开连续文档批次补未知；即使跑完也**不自称新算法**，只凭真实且反复可核的长视频失误决定未来机制是否值得设计。保留旧Charades最终媒体止损、现有目录/环境与旧运行账本；`READY=0`、`DOWNLOAD_APPROVED=NO`、`GPU=BLOCKED`、`NOVELTY=RETAIN0`。
+
+### 2026-10-10 · 用户批准一次性条件式本机实测：VLM-REAL-PILOT-001（唯一READY，最新）
+
+用户在阅读[实验优先重整方案](./experiment-first-reset-2026-10-10.md)及ChatGPT提议的**“单轮私有已有资产预检→全部合格才运行最多48次Qwen、GPU累计最多120分钟→统一回报”**后明确回复“可以，快开始吧”。这构成**限定范围**的本轮预检及条件式GPU授权，不代表真实权限、许可、数据质量、独占锁或环境已经通过，也不代表ChatGPT能够直接启动用户Windows实验。此次不再开另一个纯网页/文档研究批次；任务目标是可验证的实际配对QA和资源数，或者严格0GPU的源资格阻塞，二者都必须诚实报告。
+
+[冻结合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)规定唯一READY/no prior result、仅既有已登记用户合法持有资料限域只读、权益/样本≥12不同原生≥20分钟视频×2已有合法QA/来源版号与评测隔离/历史started账本/Windows OS锁与GPU进程预检；全PASS才可建新的隔离私有run并执行同一Qwen3-VL-4B、同帧上限的均匀12帧和现有SigLIP查询相关12帧对照（总48 Qwen启动尝试、GPU时间累计≤120分钟），冻结失败分母并计额外检索成本。不得假定旧MLVU合法可用或自动扫描全机，不下载受限视频/QA/模型、签协议、重装环境或合并/改旧研究树；未知即`NO_ELIGIBLE_DATA_STOP`，0GPU。不允许依靠BATCH018剩余额度重开Charades；研究现象不等于新算法，`NOVELTY=RETAIN0`。Codex只提交一份脱敏`paired-longvideo-pilot-receipt.md`和`codex-results.md`尾一条，正常push后停止，不自动派续跑。
 
 ## 二十九、当前研究判断（跨批保持）
 
