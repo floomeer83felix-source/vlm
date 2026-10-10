@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；用户批准纯公开H1强先例红队＋Ego4D/HourVideo合法同版链静态深挖，BATCH020唯一READY；下载/GPU均禁止）  
+> 更新：2026-10-10（北京时间；BATCH020静态结果已结案，用户批准停止连环文档任务并转向有条件真实长视频基线试验；0READY/无新增GPU授权）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -106,7 +106,7 @@
 | Charades最后一次双环境门限V1试点 BATCH-018 | **ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP（非READY）** | Codex，ChatGPT审查 |
 | BATCH018之后长域科研方向选择 VLM-RESEARCH-POST018-DIRECTION | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅公开网页，无媒体）** | 用户、ChatGPT |
 | 六长视频资源与原创机制公开静态审查 BATCH-019 | **ACCEPTED_STATIC_DELIVERABLES / NO_DATA_OR_NOVELTY_GO（非READY）** | Codex执行、ChatGPT验收 |
-| H1强先例与Ego4D/HourVideo合法同版桥接 BATCH-020 | **READY（八项纯公开静态反证；三Markdown＋一追加）** | Codex执行，ChatGPT审查 |
+| H1强先例与Ego4D/HourVideo合法同版桥接 BATCH-020 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / DATA_HOLD（非READY）** | Codex执行、ChatGPT静态验收 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -574,6 +574,12 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **方向决策**：用户在BATCH019四份公开报告验收后回复“按你的建议”，按ChatGPT提出的低风险优先级，进一步核**H1是否在COVER/普通区间并集/正确时钟换算/置信弃答基线之外有可证伪的新操作**，以及**Ego4D和HourVideo同源原媒体/标注的法律许可与canonical→HourVideo实际版本映射是否公开可追溯**。不扩大为H2/H3新算法开发、Charades补救或媒体/模型实验。现有[COVER arXiv 2608.07434](https://arxiv.org/abs/2608.07434)已覆盖有条件的temporal coverage，不能把联合分数或名义风险保证无独立标签即称原创；[Ego4D官方start here](https://ego4d-data.org/docs/start-here/)要求协议访问原数据与标注，[HourVideo README](https://github.com/keshik6/HourVideo)明禁benchmark数据加入训练集，两者不能被各自软件许可豁免。两数据集来源同源，不能假装独立外测；标准化/裁剪公开字段也不认证单文件PTS与QA标签同钟。
 
 **任务与硬停止**：[VLM-BATCH-020完整八项任务书](./codex-artifacts/VLM-BATCH-020/README.md)为唯一READY，Codex只能在同一个长期聊天收到用户新一轮主动消息、确认唯一READY且此前无020父回报后执行：公开网页官方许可/版本审计、H1核心算子与最强零假说形式反证、两个不可区分世界、最多一个真正残余问题（若存在），最后独立纸面LEGAL/TIMEBASE/GT/NOVELTY/COST五门。全程禁止任何视频/字幕/QA/标注JSON或论文PDF文件下载、账户注册/签署数据协议/联系作者、ffprobe/代码/模型/GPU/原私有实验资产。只上传`docs/codex-artifacts/VLM-BATCH-020/`三份Markdown和`docs/codex-results.md`尾部一条共4处，不能改ChatGPT任务/总览/旧报告。正常push即STOP，不自动021。现有`NOVELTY=RETAIN0`、`LEGAL_MEDIA=HOLD`、`TIMEBASE=UNKNOWN`、`EVENT_GT=HOLD`、`DEVICE_COST=UNKNOWN`、`GPU=BLOCKED`与Charades`FINAL_MEDIA_STOP`持续有效。静态否证若让H1 NO_GO，就应退出H1，而非擅自改为新实验。
+
+### 2026-10-10 · 用户要求以科学实测取代静态文档批次（最新）
+
+**事实和责任**：20个阶段虽交付了安全与许可审计，但没有真正自然长视频的有界模型配对实测、新颖核心算子或可发表效果；ChatGPT之前过度把风险审查拆成连续文档任务，未及时调整策略。用户指出缺少实质性进展并同意终止旧路径。GitHub上BATCH020已由Codex[提交fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)，不能当作未执行而删除，静态交付按范围结案，不再补做或开021类文献审查。020报告普通H1联合时间风险策略被正确映射+区间并集+COVER+弃答强零假说覆盖，`H1_NOVELTY_NO_GO`；Ego4D/HourVideo协议、同版媒体与长域真值门仍HOLD。没有GPU/模型/媒体实测。
+
+**新唯一工作计划不是READY**：[experiment-first-reset-2026-10-10.md](./experiment-first-reset-2026-10-10.md)。目标是**首次真正长视频固定模型配对基线结果**，只在后续独立许可范围内对用户已合法持有/明确授权的数据做资格预检，通过后才可能按建议的12个不同≥20min视频×2合法QA、Qwen3-VL-4B-Instruct冻结、均匀12帧对照现存SigLIP≤12帧检索进行最多48次前向；全调用/选帧预计算/wallclock/峰值显存计量、纠错/误伤/失败全分母、按视频不确定区间。旧本地MLVU是否存在、可否访问、许可/版本/长时子集**均待证**，不能因论文条款直接调用。若没有合法真实长视频或QA真值则0GPU STOP，不自行另找下载和无限出报告。此轮仅GitHub规划，未进行本地清点、视频解码、模型运行；用户的“好的”**不等于私有资产或GPU使用批准**。不把旧选帧、普通H1/H2/H3当创新；须先发现可重现且强已有baseline不能解释的真实现象，再考虑一个独立新机制和外域核验。Charades FINAL_MEDIA_STOP、B/C HOLD、NOVELTY RETAIN0、GPU BLOCKED持续；当前0 READY，不自动安排下一执行批次。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
