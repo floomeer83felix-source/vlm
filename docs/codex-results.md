@@ -357,3 +357,26 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 保守预扣、fsync故障、短读/超时不退、跨文档/Range总预算、旧013/未授权父任务版本0、冻结合同/历史漂移、无工具回退、弱ETag/错total、13GB整GET拒绝均有新增纯合成反例。原40场景保留，夹具按预扣/强ETag/严格许可规则适配；没有降低预算或改变冻结选择/ZIP/时钟公式/packet命令。最终PASS证明离线代码和测试夹具状态，不追认已经停止的execute为成功，也不允许同父任务再试。
 
 本轮真实研究HTTP及正文0、预留0、版本/PTS调用0、媒体文件/媒体私有峰值0；GitHub授权Git同步/交付另列，不算研究HTTP。0真实下载视频/整档/STA/工具/特征/模型、0视觉解码/人工重标注/GPU/训练，0原科研/Conda/CUDA/PATH/锁/元数据或工具包及旧账本写入、0外部联系/PR/后台调度。正式本机SHA/CPU工具/隔离门仍未跑，只沿015旧验收事实，不伪造病例钟或科学成功。仅五处正常push后停止，保留原聊天，等待ChatGPT审查新限定任务；不自动重跑017或安排018。
+
+### VLM-BATCH-018 2026-10-10 — 两成员有界获取完成，V1两臂CLOCK_UNKNOWN；最后机会停止
+
+独立docs安全fast-forward至main `3e1abe4`，重读AGENTS/任务/结果/018合同、017访问及科学报告、016安全源码/015工具收据/总览，启动时唯一018 READY且无回报。仅新[前置与HTTP资源收据](codex-artifacts/VLM-BATCH-018/preflight-and-http-resource-receipt.md)、[两例PTS与科研裁决](codex-artifacts/VLM-BATCH-018/two-case-pts-and-research-decision.md)、[协调器](../prototypes/charades_range_media_clock_pilot.py)、[原合成测试](../prototypes/test_charades_range_media_clock_pilot.py)及本条五处；013—017不重跑/不改历史。
+
+| 步骤 | 本轮真实结果 |
+|---|---|
+| 1 | DONE：安全Git/单READY/无重复回报，018父门先于工具/元数据/目录/HTTP |
+| 2 | DONE：018完整合同SHA规范重算，017历史段落SHA加入，013—016旧pin保留；原预扣/TLS/禁代理/NoRedirect/固定URL/ZIP/样本/时钟算法和限额未改 |
+| 3 | DONE：原56场景保留+3新方法，总59；普通discover59PASS/suite6.546秒，独立子进程loadTestsFromName普通/模拟各59PASS、suite6.546/6.474秒，均0FAIL/ERROR/SKIP；同测试集合SHA33b41c66276b80f9be73456c57b386291dee9671d96efd1b71900196ad039387；未有失败后仍执行 |
+| 4 | DONE：真实execute仅1次；程序内置普通/模拟环境各59PASS，SOURCE_SHA_AND_ISOLATION PASS、015固定bin/私有部署及exeSHA核验PASS、9.0.2版本实际调用1次/返回0，无工具下载回退 |
+| 5 | DONE：固定SHA train按原公式先选并私有冻结1越界/1严格合法对照、两个唯一身份，随后才看远端；未重选/泄露ID |
+| 6 | DONE：项目/许可锚及固定许可SHA、唯一S3 HEAD强ETag/identity/长度、后续精确If-Range206/ZIP索引/local头守卫通过；无镜像/代理/跳转或200整包正文回退 |
+| 7 | DONE：两指定成员CRC/大小/预算通过、保存2 MP4；GET10/HEAD1、actual=charged=1,979,817B，无重试/整包下载 |
+| 8 | DONE（采集）/UNKNOWN（同钟）：CPU v:0/file/show_packets探测2次，CASE_OVERFLOW及CASE_CONTROL均CLOCK_UNKNOWN；B帧标志触发冻结守卫，未改阈值/重新probe/看画面 |
+| 9 | DONE：10事件COMPLETE，read=reserved/pending0；最终6私有文件逻辑和882,420B，最大观测逻辑和1,243,981B；加1MiB核算2,292,557B＜128MiB，精确物理峰值未测；只公开聚合指标 |
+| 10 | DONE：SOURCE_SHA_AND_ISOLATION/FFPROBE_VERSION PASS、MEDIA_ZIP_RANGE206 VERIFIED_FOR_SELECTED_MEMBERS、V1_CLOCK UNKNOWN；B/C HOLD、A沿012限域、创新RETAIN0/长域FAIL/GPU BLOCKED；最后机会停止不安排019 |
+
+本轮实际与不可退保守研究正文1,979,817B≤67,108,864B，总GET10≤12、S3 HEAD1；CPU版本1次+两容器/packet探测2次，共3次ffprobe调用，没有追加/重试。最终私有媒体根6文件（两MP4、两clock审计、选择映射、网络ledger），incoming为空、无ledger.next，两视频私有SHA与探测记录只读复核一致。峰值按文件名逻辑和记录，原子发布时硬链接名重复保守计数，不当物理分配峰值；原小额AUDIT_RESERVE不改，额外1MiB核算本次观测峰值仍远低于128MiB。014/015工具预算/旧包/旧账本不重置或挪为媒体额度；无用户原科研/Conda/PATH/CUDA/锁/原CSV ZIP写入。
+
+两个B帧标志触发原classify_clock早期UNKNOWN，不能写同钟MATCH/DIFFERS或异常end已物理确认；保留原始video packet/容器元数据仅于私有clock文件，不输出个体ID/subject/class、精确长度/FPS/PTS/DTS/end、单成员偏移/大小、私有hash/绝对路径/代理值。安全获取成功只证明此次固定来源/两预选成员可取，不是事件真值或长视频研究成功。0观看/像素解码/人工重标注/STA/模型/GPU/训练，0其它工具或数据下载，0外部联系/PR/后台调度。
+
+按用户最后机会合同停止Charades媒体获取，不消费余留额度再开批；Charades仅可作短域工程对照，长视频合法数据和科学重新定位交由ChatGPT评估，当前原创机制仍RETAIN0。只五处普通push后停止，保留原聊天等待验收，不自动019/V2/GPU或新数据路线。

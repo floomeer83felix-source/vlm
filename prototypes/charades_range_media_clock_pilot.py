@@ -34,12 +34,13 @@ LICENSE='https://prior.allenai.org/projects/data/charades/license.txt'
 SOURCE_SHA={'zip':'c616913ef79c2ddde06d9c562eae57bb8901d459d7568a0d27bf09cbf33ae866',
  'train':'59273c6dc2139ec7eb95b980fd26bc8529774b1ede0602f6ca90b546ed12f0fc',
  'classes':'7b95127e60300d6a69849d161869eb3e9657fa320fc9e92b6f2c9403b49c1887'}
-PARENT='VLM-BATCH-017'
-CONTRACT_SHA='85b346843ae49109a17b25334e75315b6b4527e8c0e178c346f68c0cf8ac508a'
+PARENT='VLM-BATCH-018'
+CONTRACT_SHA='29ab41e003fe1c002ca726392232a16b073587b91d0ff036396067bc3b465f57'
 HISTORY_SHA={'VLM-BATCH-013':'ffdf1fc7c47b646680452bd321d106ca1cfe89b02ee91fb62f5bd8be0e7fb25a',
  'VLM-BATCH-014':'95e63d4df628c652f46aef2a1143313abd3cbe7a3c36bf2e9a38333715d1aec7',
  'VLM-BATCH-015':'ddcda98bef4e47c586c99776e7926363a15016765a6a82e4808892d475c646af',
- 'VLM-BATCH-016':'3744bc4c941d61ccbdcb01f2ab4ab3e9dce33317fca570c4d071339697e3d78f'}
+ 'VLM-BATCH-016':'3744bc4c941d61ccbdcb01f2ab4ab3e9dce33317fca570c4d071339697e3d78f',
+ 'VLM-BATCH-017':'057e9d968b686ac39bfd45b01a685f6a2f76c538169ba3e4b02df2f07d2fff38'}
 
 
 class PilotError(ValueError): pass
@@ -429,6 +430,7 @@ def public_receipt(state,clock=None):
     return {'get_attempts':state.get('get_attempts',0),'response_body_bytes':state.get('body_bytes',0),
             'charged_body_bytes':state.get('charged_bytes',0),'head_attempts':state.get('head_attempts',0),
             'version_runs':state.get('version_runs',0),
+            'synthetic_test_counts':state.get('synthetic_test_counts',[]),
             'peak_local_bytes':state.get('peak_local_bytes',0),'saved_videos':state.get('saved_videos',0),
             'CASE_OVERFLOW':(clock or {}).get('CASE_OVERFLOW','CLOCK_UNKNOWN'),
             'CASE_CONTROL':(clock or {}).get('CASE_CONTROL','CLOCK_UNKNOWN')}
@@ -580,16 +582,33 @@ def transfer_two(client,selection,root):
     return saved
 
 
+def synthetic_gate():
+    """Both relevant contexts, synthetic roots only; called after real parent authorization."""
+    import unittest
+    import tempfile
+    from unittest import mock
+    counts=[]
+    for simulated_execution in (False,True):
+        with tempfile.TemporaryDirectory(prefix='vlm-synthetic-') as folder:
+            with mock.patch.dict(os.environ,{'LOCALAPPDATA':folder}):
+                if simulated_execution: os.environ['VLM_ORIGINAL_WORKSPACE']='SYNTHETIC-RESEARCH'
+                else: os.environ.pop('VLM_ORIGINAL_WORKSPACE',None)
+                suite=unittest.defaultTestLoader.loadTestsFromName('test_charades_range_media_clock_pilot')
+                checked=unittest.TextTestRunner(stream=io.StringIO()).run(suite)
+                if not checked.wasSuccessful() or checked.testsRun<58 or checked.skipped:
+                    raise PilotError('SYNTHETIC_GATE_FAILED')
+                counts.append(checked.testsRun)
+    if counts[0]!=counts[1]: raise PilotError('SYNTHETIC_CONTEXT_COUNT_CHANGED')
+    return counts
+
+
 def run_pilot(execute=False,parent=None):
     docs=pathlib.Path(__file__).resolve().parent.parent; authorize_parent(parent,docs)
     # Even authorized default mode is read-only: no tool, metadata, directory or HTTP.
     if not execute: return {'status':'PREFLIGHT_ONLY','ffprobe':'NOT_RUN','response_body_bytes':0,'saved_videos':0,'version_runs':0}
     # Same fixed synthetic suite is mandatory even for a later approved executor.
-    import unittest
-    suite=unittest.defaultTestLoader.loadTestsFromName('test_charades_range_media_clock_pilot')
-    checked=unittest.TextTestRunner(stream=io.StringIO()).run(suite)
-    if not checked.wasSuccessful() or checked.testsRun<52 or checked.skipped: raise PilotError('SYNTHETIC_GATE_FAILED')
-    early={'version_runs':0}
+    counts=synthetic_gate()
+    early={'version_runs':0,'synthetic_test_counts':counts}
     try:
         root,sources=fixed_preflight()
         early['metadata_isolation_gate']='PASS'

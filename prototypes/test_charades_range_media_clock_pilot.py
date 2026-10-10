@@ -451,16 +451,16 @@ class PilotTests(unittest.TestCase):
 
     def test_frozen_contract_and_history_must_all_match(self):
         import charades_range_media_clock_pilot as pilot
-        board='| VLM-BATCH-017 | P1 | **READY** | synthetic |'; contract='SYNTHETIC EXACT CONTRACT'
+        board='| VLM-BATCH-018 | P1 | **READY** | synthetic |'; contract='SYNTHETIC EXACT CONTRACT'
         sections={p:'### '+p+' synthetic complete' for p in pilot.HISTORY_SHA}
         results='\n\n'.join(sections.values())
         pins={p:hashlib.sha256(v.encode()).hexdigest() for p,v in sections.items()}
         with mock.patch.object(pilot,'CONTRACT_SHA',hashlib.sha256(contract.encode()).hexdigest()), \
              mock.patch.object(pilot,'HISTORY_SHA',pins):
             with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,results,contract]):
-                authorize_parent('VLM-BATCH-017',pathlib.Path('SYNTHETIC'))
+                authorize_parent('VLM-BATCH-018',pathlib.Path('SYNTHETIC'))
             with mock.patch.object(pathlib.Path,'read_text',side_effect=[board,results+' CHANGED',contract]):
-                with self.assertRaisesRegex(PilotError,'HISTORICAL'): authorize_parent('VLM-BATCH-017',pathlib.Path('SYNTHETIC'))
+                with self.assertRaisesRegex(PilotError,'HISTORICAL'): authorize_parent('VLM-BATCH-018',pathlib.Path('SYNTHETIC'))
 
     def test_authorized_default_is_read_only_no_version(self):
         with mock.patch('charades_range_media_clock_pilot.authorize_parent'), \
@@ -569,6 +569,36 @@ class PilotTests(unittest.TestCase):
             with mock.patch.dict(os.environ,{'LOCALAPPDATA':str(root),'VLM_ORIGINAL_WORKSPACE':str(root/'SYNTHETIC-RESEARCH')}), \
                  mock.patch('charades_range_media_clock_pilot.shutil.which',return_value=str(root/'OTHER.exe')):
                 with self.assertRaisesRegex(PilotError,'PRIORITY_CONFLICT'): find_ffprobe()
+
+    def test_closed_017_blocked_before_any_tool_or_asset(self):
+        with mock.patch('charades_range_media_clock_pilot.find_ffprobe') as tool, \
+             mock.patch('charades_range_media_clock_pilot.fixed_preflight') as assets, \
+             mock.patch('charades_range_media_clock_pilot.subprocess.run') as process:
+            with self.assertRaisesRegex(PilotError,'ALREADY_REPORTED'): run_pilot(True,'VLM-BATCH-017')
+        tool.assert_not_called(); assets.assert_not_called(); process.assert_not_called()
+
+    def test_018_exact_contract_and_017_receipt_pins(self):
+        import charades_range_media_clock_pilot as pilot
+        docs=pathlib.Path(__file__).resolve().parent.parent
+        self.assertEqual(pilot.PARENT,'VLM-BATCH-018')
+        contract=(docs/'docs/codex-artifacts/VLM-BATCH-018/README.md').read_text(encoding='utf-8')
+        self.assertEqual(hashlib.sha256(contract.encode()).hexdigest(),pilot.CONTRACT_SHA)
+        import re
+        results=(docs/'docs/codex-results.md').read_text(encoding='utf-8')
+        section=re.search(r'^### VLM-BATCH-017\s.*?(?=^### |\Z)',results,re.M|re.S).group().rstrip()
+        self.assertEqual(hashlib.sha256(section.encode()).hexdigest(),pilot.HISTORY_SHA['VLM-BATCH-017'])
+
+    def test_synthetic_original_context_ancestor_checks_are_mocked(self):
+        from charades_range_media_clock_pilot import find_ffprobe
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder)
+            with mock.patch.dict(os.environ,{'LOCALAPPDATA':str(root),'VLM_ORIGINAL_WORKSPACE':'SYNTHETIC-RESEARCH'}), \
+                 mock.patch('charades_metadata_audit.check_ancestors',side_effect=PilotError('SYNTHETIC_REPARSE')) as ancestors, \
+                 mock.patch.object(pathlib.Path,'open',side_effect=AssertionError('NO_ASSET_READ')) as assets:
+                with self.assertRaisesRegex(PilotError,'SYNTHETIC_REPARSE'): find_ffprobe()
+            assets.assert_not_called()
+            self.assertEqual(len(ancestors.call_args_list),1)
+            self.assertIn(root,ancestors.call_args.args[0].parents)
 
 
 if __name__=='__main__': unittest.main()
