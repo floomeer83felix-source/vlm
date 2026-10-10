@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；BATCH015受限Gyan工具续传SHA/CRC及ffprobe-version验收，BATCH016纯代码媒体禁代理唯一READY，0媒体）  
+> 更新：2026-10-10（北京时间；BATCH016媒体端禁代理代码层验收；BATCH017唯一READY且必须先补记账/执行门，真实两视频V1尚未运行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -100,7 +100,8 @@
 | 发布者SHA固定的独立ffprobe部署 BATCH-014 | **STOPPED_SAFELY / CPU_TOOL_BLOCKED（部分ZIP超时；0部署）** | Codex，ChatGPT审查 |
 | 工具部分包恢复或止损 VLM-CPU-TOOL-GATE-015 | **USER_SELECTED_SAME_OBJECT_RESUME（研究方向已定、非READY）** | 用户、ChatGPT |
 | 同源工具ZIP仅一次断点续传 BATCH-015 | **ACCEPTED（固定发布方整包SHA和CPU ffprobe可用）** | Codex，ChatGPT审查 |
-| 媒体客户端显式禁代理/固定HTTPS BATCH-016 | **READY（纯代码+模拟安全测试，0真媒体HTTP）** | Codex |
+| 媒体客户端显式禁代理/固定HTTPS BATCH-016 | **ACCEPTED_CODE_ONLY（40合成PASS收据，真实媒体0）** | Codex，ChatGPT审查 |
+| 条件式两例Charades媒体时钟试点 BATCH-017 | **READY（先读前持久计费＋父授权，再合成≥52 PASS，才可真实V1）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -496,6 +497,16 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **三层技术结论**：`BATCH015=ACCEPTED`；`CPU_TOOL=AVAILABLE_PUBLISHER_HASH_VERIFIED`限于执行者Windows和同发布方SHA来源；`TOOL_RANGE_SUPPORT=VERIFIED_206`仅适用于Gyan固定工具ZIP**不**能外推至AllenAI视频档；旧[013-FIX媒体客户端](../prototypes/charades_range_media_clock_pilot.py)仍用`urllib.request.build_opener(NoRedirect())`可能默继承系统/环境`ProxyHandler`，故`MEDIA_NETWORK_CLIENT_PROXY=HOLD`，即使工具成功也**不得重跑旧013或自动发起已限额许可的2段视频GET**。Charades官方frame标签A保持旧012限域VERIFIED、B区间质量/C事件真值HOLD，创新retain0、长视频外推FAIL、GPU BLOCKED。
 
 **唯一新READY是无真实媒体的安全代码父任务**：[VLM-BATCH-016 README](./codex-artifacts/VLM-BATCH-016/README.md)：八项任务，精确更改`prototypes/charades_range_media_clock_pilot.py`及其合成test，显式禁代理`ProxyHandler({})`、TLS默认验证、禁止HTTP重定向、固定官网网页与媒体ZIP URL白名单，检查所有真实urllib路径，并用≥30纯合成unittest反例验证不从系统获取代理及200/错误Content-Range防泄漏/预算/老013完成锁继续有效。额外2份脱敏报告和`docs/codex-results.md`尾部1条共5处白名单。**0真实Gyan/Charades GET或HEAD、0实际ffprobe命令、0视频/PTS/模型GPU**；代码门PASS不构成媒体V1真实网络GO。Codex提交后STOP，由ChatGPT复核是否值得启动另一个独立媒体试点父任务。当前不因投入了16轮审计就默认算法创新；学术本体机制retain0。
+
+### 2026-10-10 · BATCH016纯代码安全验收；017以既有两视频授权设唯一条件式V1（最新）
+
+**已独立GitHub代码审查**：[BATCH016提交4c3e8bf](https://github.com/floomeer83felix-source/vlm/commit/4c3e8bf14ad9c62806be85e26e0492cfea5ebf93)精确五处：`docs/codex-artifacts/VLM-BATCH-016/`两份[代理路径与修复](./codex-artifacts/VLM-BATCH-016/media-http-proxy-threat-and-fix.md)、[测试收据/科学门](./codex-artifacts/VLM-BATCH-016/code-only-test-and-science-gate.md)，原`prototypes/charades_range_media_clock_pilot.py`与其test，以及`docs/codex-results.md`尾部一条016回报。ChatGPT用Github审查完整逻辑与新增合成反例方法，**没有访问Windows运行任何命令**。Codex报告原27测试保留新增13，总40纯合成`unittest`最终PASS；首轮308 redirect handling和测试假header问题导致1 FAIL/1 ERROR，修正后没有失败/跳过。新增专用`build_media_opener()`明确`ProxyHandler({})`，TLS默认证书验证/NoRedirect，统一`fixed_request()`精确许可3个官方HTTPS来源（2篇文本+1 S3媒体ZIP）及方法白名单，S3只限HEAD或显式bounded Range/If-Range GET；全部官网/许可/ZIP HEAD/Range共享同一禁代理实例，没有新URL或兜底`urlopen`。从代码静态和执行者合成测验可授予`MEDIA_CLIENT_PROXY_POLICY=CODE_LEVEL_VERIFIED`，**而不是**真实线路/TLS对端或AllenAI的206/视频版时钟可用性已验证。执行者报告本批0 Charades/Gyan GET/HEAD、0媒体/PTS/ffprobe/GPU/模型、0私有研究环境变更，旧预算64MiB媒体网络/128MiB盘/两视频/12 GET冻结不变。
+
+**研究所需最后的网络前安全门**：进一步查看原媒体协调器残余`Ledger`：原`read_response`和`RangeClient.text`均在实际`response.read(n)`**之后**才`ledger.add(n)`，若进程在read成功后、记账前退出可低报预算；原`run_pilot`会在检查父任务READY/历史回报之前先调用`ffprobe -version`，属于权限顺序不够严。BATCH016专注代理没有授权修改这些路径，故这不是016验收失败，但**真实联网必须先补足**。新媒体会使用另一套独立预算，不得挪用BATCH014/015工具原150MiB。媒体官方S3 ZIP约13GB的HEAD/强ETag/206/ZIP64/member可得性至今未证；工具包Gyan的206成功不能充当AllenAI录像对象证据。
+
+**先前用户有明确的V1有限媒体授权**：最多2段官方480p视频、研究GET全部HTTP正文≤64MiB=67,108,864B、本地媒体/临时≤128MiB=134,217,728B、CPU既有ffprobe仅packet PTS和容器元信息，**不授权13GB整包、镜像/系统代理/STA、视频图像/动作人工观看、训练模型/GPU/原科研workspace改动**。BATCH015 ffprobe9.0.2工具现已在独立CPU-Tools隔离目录按供应商固定ZIP SHA与一次version由执行者报告可用，没有消耗媒体预算。因此ChatGPT推出[唯一BATCH017完整十项协议](./codex-artifacts/VLM-BATCH-017/README.md)：**先**修父任务许可在ffprobe/任何副作用前核验、所有官网文本及媒体Range的实际读取前持久保守reserve网络额度、崩溃不退、GET≤12/禁重试；**再**在纯虚构场景使原40项测试保留加≥12项共≥52 PASS；**再**只读核Windows原metadata ZIP/CSV/类表固定SHA和隔离、既有CPU ffprobe工具，以冻结的确定算法选1越界`0≤start<length<end,end-length∈(1,5]`与1严格合法训练视频，先选后核远端。只有所有门PASS，才准一次性有界访问官网文本和官方S3 ZIP的HEAD/206尾部ZIP64目录/指定两成员，预算不够/返回200整档/强ETag缺/ZIP不可安全解析即STOP；成功只做两例MP4容器与video packet PTS/CSV `length`的类别化对照。不允许抄出两视频身份/精确PTS或人工动作边界真值。新父任务完成只交2匿名报告、两项现有媒体代码/tests修改和一条总回报（5处），**不自动启动018**。
+
+**科学状态**：即使017取得真实两个MP4的container、first/last video packet时刻并与`length`对比，最多得到2例时钟与版本线索，`OFFICIAL_FRAME_LABEL=A_VERIFIED_WITHIN_012_SCOPE`维持；`B_TIME_BOUNDARY_QUALITY=HOLD`、`C_P1/P2_EVENT_TRUTH=HOLD`，不能认为原19,625条strict拒绝标注都真实错误/都可修正；独立自然长视频适用性FAIL、原创机制retained0、GPU继续BLOCKED。ChatGPT本轮只发布GitHub协议，不执行媒体HTTP或直接读取用户Windows；**READY不等于两段视频已经下载或可下载**。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
