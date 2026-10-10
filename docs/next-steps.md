@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-10（北京时间；用户明确批准唯一VLM-REAL-PILOT-001：已有合法数据限域只读预检，全部PASS才做最长120分钟GPU、最多48次Qwen前向的长视频配对试验；没有新数据/权重下载或环境变更权限）。本文是执行入口，不代表实验已开始。
+> 更新日期：2026-10-10（北京时间；唯一REAL-PILOT-001一次性前置资格审查安全停止，原MLVU镜像来源记录不足以认证第三方原视频用于本次研究的权利；真实QA0、GPU0，当前0 READY，等待用户补齐许可证据或选择合规替代来源）。不自动续跑/下载。
 
 ## 一、任务看板
 
@@ -44,12 +44,12 @@
 | VLM-RESEARCH-POST018-DIRECTION | P0 | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅非媒体静态审查）** | 用户、ChatGPT | 用户2026-10-10在018最后尝试结束后明确回复“好的”，同意先对真正长视频数据源与原创推理机制公开资料筛选 | ChatGPT已形成[静态证据种子](./long-video-static-screening-seed-2026-10-10.md)与[受限BATCH019任务书](./codex-artifacts/VLM-BATCH-019/README.md)；没有新媒体/annotation包/模型下载或GPU授权，也不重新打开Charades媒体路线 |
 | VLM-BATCH-019 | P1 | **ACCEPTED_STATIC_DELIVERABLES / DATA_AND_NOVELTY_HOLD（已结案非READY）** | Codex，ChatGPT审查 | 六长视频来源许可/时长/时间轴及2026最近先例纯公开静态筛选，八项按报告交付 | [24b771e](https://github.com/floomeer83felix-source/vlm/commit/24b771ef9c83e929579372a982ea17cd6edbbdb8)：严格四Markdown报告+结果尾部23行，共5文件、0代码修改；六候选与六必查+五追加先例已审。Ego4D/HourVideo法律和版本同钟未闭合，LVB Table3六格合计3,761与摘要3,763静态冲突未消，NLQ clip≠小时输入；H1/H3仅待否证问题、H2普通实体记忆NO_GO、NOVELTY=RETAIN0；**不授权下载/标注/GPU** |
 | VLM-BATCH-020 | P1 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / LEGAL_BRIDGE_HOLD（已结案非READY）** | Codex，ChatGPT审查 | [fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)：三份公开Markdown审查报告和结果追加，提交范围符合合同；普通H1组合无新算子，Ego4D↔HourVideo权利及同版时间映射未闭合 | 静态交付结案，不补跑、不自动021。用户已决定终止连续文档微批次，转向[单次实验优先提案](./experiment-first-reset-2026-10-10.md)；没有新的视频、标注、模型或GPU授权，NOVELTY=RETAIN0 |
-| VLM-REAL-PILOT-001 | P0 | **READY（一次性条件式真实长视频配对实验：预检全PASS才允许GPU）** | Codex（用户在原长期聊天主动触发） | 在既有可信数据登记的**合法本机长视频**限域只读核对许可/同版QA/历史账本/排他锁和原模型；只有12个不同≥20min视频各2题、同版合法可评分和GPU串行条件全PASS才冻结24题并运行均匀12帧 vs 已有SigLIP检索12帧（冻结Qwen3-VL-4B-Instruct）。**48次Qwen前向总上限，120分钟GPU累计硬限。** | [唯一完整合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)：公有仓库仅一份脱敏汇总报告+结果文件尾部一条；不得下载媒体/答案/权重、改环境、重跑历史、触碰Charades私有资产、启用云API；任何数据/合法用途/版本/安全/模型失败→0GPU STOP。该任务是基线**诊断**，不是新算法GO。push一次后STOP，绝不自动派第二轮 |
+| VLM-REAL-PILOT-001 | P0 | **CLOSED_SAFE_STOP（PRECHECK_ONLY / NO_ELIGIBLE_DATA_STOP / GPU0，非READY）** | Codex执行，ChatGPT静态验收 | [272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)仅提交[阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)+codex-results尾部父回报；既有可信MLVU子树存在性核过，A3(a)本轮源媒体使用权利UNKNOWN并即STOP | 48次计划Qwen实际0、120分钟计划GPU实际0秒；视频/QA身份、锁和模型均NOT_RUN，不推导非法/无数据或算法负结果。实验父任务已消费、不可直接重跑；[官方MLVU使用条款](https://github.com/JUNJIE99/MLVU)研究非商用/CC-BY-NC-SA但原视频权利保留，[官方HF访问页](https://huggingface.co/datasets/MLVU/MVLU)设访问条件；既有镜像receipt不等于接受官方门、使用权已核。下一步需用户另行明确合法来源/用途证据或选择新合规来源；0 READY，禁自动新下载/GPU |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务是VLM-REAL-PILOT-001（真实长视频，条件式一次运行，仍未启动）。** 用户针对[实验优先重整提案](./experiment-first-reset-2026-10-10.md)明确回复“可以，快开始吧”，同意限定现有合法本地资产的只读数据/来源/QA/账本/锁前置核查，并且仅当所有资格与使用权限均有证据通过时，在原Windows RTX3090上做**最多48次Qwen3-VL-4B QA前向、累计120分钟GPU**的均匀12帧与冻结SigLIP检索12帧配对基线诊断。12个不同≥20min自然长视频×2道已有合法QA（24对），不能重跑既有started或失败样本。详细的[条件式实验合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)要求预检任一不清楚则0GPU、0数据下载而立即STOP并交阻塞收据。授权**不是**对所有旧数据版权的法律认定，也不开放新模型权重、字幕/标注下载、训练、CUDA/Conda/PATH变更、旧Charades路线或人工标签；既有旧锁不删，原科研与账本不覆盖。只在原Codex聊天被用户实际触发后执行一次并交一个脱敏实测/阻塞结果，ChatGPT只能事后审核，不自动启动任务。科学创新仍`RETAIN0`；这次只检验真实QA现象与预算，不复活历史H1/H2/H3。
+**当前0个READY父任务；一次性VLM-REAL-PILOT-001已按安全停止结案。** [提交272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)严格交付一份脱敏前置阻塞收据及结果尾部一条，Codex仅只读核已有MLVU子树/既有来源收据；旧镜像hash/项目级研究使用文本未使**此次第三方原视频用于本地推理/评分的许可**独立闭合，故A3(a)=UNKNOWN，随后12段长域/24已有QA/版本/GPU锁/模型均NOT_RUN。**Qwen 0/48、GPU 0秒/120分钟，未建立任何实验manifest或真实分数**。这是合理安全止损却没有新科学测量；不冒称数据违法或GPU不能用。2026-10-10 ChatGPT独立阅读[MLVU官方GitHub License说明](https://github.com/JUNJIE99/MLVU)及[Hugging Face 官方gated访问条件](https://huggingface.co/datasets/MLVU/MVLU)：作者对基准标注CC-BY-NC-SA/研究非商业提供访问，同时不拥有所有第三方原视频权利。**作者不拥有版权不自动等于每次本地研究必需逐视频书面授权；但镜像来源与适用条款未核不能无条件放行**。下一步只由用户决定是否取得/提供官方访问及当前用途相关权利证明，或换一套版权清晰且QA可合法评分的原生长视频；ChatGPT不再自动开纯静态批次，不重跑本父任务、不自动授权媒体/模型/GPU。`NOVELTY=RETAIN0`，Charades`FINAL_MEDIA_STOP`。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -490,6 +490,12 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 用户在阅读[实验优先重整方案](./experiment-first-reset-2026-10-10.md)及ChatGPT提议的**“单轮私有已有资产预检→全部合格才运行最多48次Qwen、GPU累计最多120分钟→统一回报”**后明确回复“可以，快开始吧”。这构成**限定范围**的本轮预检及条件式GPU授权，不代表真实权限、许可、数据质量、独占锁或环境已经通过，也不代表ChatGPT能够直接启动用户Windows实验。此次不再开另一个纯网页/文档研究批次；任务目标是可验证的实际配对QA和资源数，或者严格0GPU的源资格阻塞，二者都必须诚实报告。
 
 [冻结合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)规定唯一READY/no prior result、仅既有已登记用户合法持有资料限域只读、权益/样本≥12不同原生≥20分钟视频×2已有合法QA/来源版号与评测隔离/历史started账本/Windows OS锁与GPU进程预检；全PASS才可建新的隔离私有run并执行同一Qwen3-VL-4B、同帧上限的均匀12帧和现有SigLIP查询相关12帧对照（总48 Qwen启动尝试、GPU时间累计≤120分钟），冻结失败分母并计额外检索成本。不得假定旧MLVU合法可用或自动扫描全机，不下载受限视频/QA/模型、签协议、重装环境或合并/改旧研究树；未知即`NO_ELIGIBLE_DATA_STOP`，0GPU。不允许依靠BATCH018剩余额度重开Charades；研究现象不等于新算法，`NOVELTY=RETAIN0`。Codex只提交一份脱敏`paired-longvideo-pilot-receipt.md`和`codex-results.md`尾一条，正常push后停止，不自动派续跑。
+
+### 2026-10-10 · REAL-PILOT-001验收：来源使用权门UNKNOWN，0GPU安全停止（最新）
+
+[用户提供的真实交付272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)相对授权基线1886254仅一提交、**精确两处**：新增58行[脱敏阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)及`docs/codex-results.md`末尾10行，无代码/原资产改动。ChatGPT按文档证据接受执行者`NO_ELIGIBLE_DATA_STOP/PREFLIGHT_BLOCKED`的安全止损，不将它记作真实实验完成。Codex回报：只沿旧可信清单限域读取MLVU来源收据、README及必要存在性元信息，未读QA/视频；A3(a)源视频本次用途权利UNKNOWN，因此立即STOP；A3(b-f)、A4锁/模型及A5/B全部NOT_RUN；新run0、Qwen启动0/48、SigLIP0、GPU0秒/7200秒、媒体读取0。未现场独立核Windows或私人许可原件，这些动作和0调用由执行者申报；文档范围GitHub可核。
+
+**法律/实验门需更加准确**：[MLVU官方GitHub](https://github.com/JUNJIE99/MLVU)将数据声明为CC-BY-NC-SA-4.0、研究/非商业用途，并注明原视频版权非项目方所有；[官方HF数据入口](https://huggingface.co/datasets/MLVU/MVLU)要求登录并接受访问条件。不能认为非所有权就当然需要逐个作者书面许可，也不能认为镜像下载/hash或单页README足以证明此次使用符合所有适用条款、例外和获取条件。当前用户镜像收据对应**具体资产/用途/授权链仍UNKNOWN**，禁止ChatGPT自判LICENSE_PASS，按适用法律及现有许可自行合规评估；不代用户登录/签署或补抓视频。最短路径不是再发文献审查任务，而是由用户决定提交/核实合法取得和研究用途的官方访问收据（无需上传数据或私人凭据）或明确换有清楚原媒体使用权+QA标签的来源，才另行审视实验授权。下游12×2长视频资格、源独立性、锁/GPU和模型未测，不能得出当前机器没有实验能力、MLVU非法或策略效果负面。**现为0 READY、0实验GPU额度自动续用；该一次性父任务已结案，不重跑，不自动开启下一任务**。
 
 ## 二十九、当前研究判断（跨批保持）
 
