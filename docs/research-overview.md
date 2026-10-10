@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；用户提交REAL-PILOT-001阻塞收据已验收：MLVU镜像来源用途权利UNKNOWN，真实模型0、GPU0；唯一父任务安全结案，0 READY，等待数据使用权的用户决策）  
+> 更新：2026-10-10（北京时间；Ego4D个人协议按用户签署截图成功、官方授权未批；HourVideo标注尚需本人HF gated同意；已交付离线开发集资格检查工具和说明，0READY/GPU未运行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -593,6 +593,12 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 用户反馈[Codex提交272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)。核GitHub仅新增[REAL-PILOT-001脱敏阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)58行及`codex-results.md`末尾10行，两处严格符合合同，公开资料没有源码、旧研究树、模型/视频变动。执行者核原可信MLVU登记子树和来源mirror/内容hash、README，仅得到已存在若干标注/manifest，不足以认证原权利人第三方视频与本次本地研究评分/推理的许可条件；故`A3(a)=UNKNOWN`严格STOP。未进入A3(b-f)时长12视频/24题/同版真值、A4锁/设备/模型、A5建manifest、B真实对照；Qwen尝试0/48、SigLIP0、GPU累计0秒/7200秒、0实际评分/纠错误伤；上述Windows执行和0调用为Codex申报，ChatGPT未独立访问私有机器。**本次科学结果是没有实测，不是A/B策略负结果、数据不存在或视频违法认定**。
 
 官方[MLVU仓库许可](https://github.com/JUNJIE99/MLVU)把基准标为CC-BY-NC-SA-4.0、研究/非商业用途，但作者明确保留第三方原视频版权，资料可能被删/替；[官方HF仓库](https://huggingface.co/datasets/MLVU/MVLU)设用户须登录并接受的访问条件。学术许可和HF gated条款提示存在研究用途路径，却不直接认证**现存非官方镜像拷贝**与本轮使用的条件链；也不从原作者非版权所有推导任何研究都须逐项取得授权。项目按保守且透明的本次合同保持`LEGAL_PROVENANCE=UNKNOWN/HOLD`。建议的唯一实践瓶颈是用户确认现有数据的来源/官方访问及本地非商用研究适用许可证据（只需合法证明，不上传私有媒体/QA、凭据或签约原文），或选择有清晰视频使用权和评测答案的替代长数据源。用户未另行同意前，不产生新READY、不补抓视频、不再次执行本父任务/GPU；Charades FINAL_MEDIA_STOP、H1/H2/H3普通路线NO_GO、NOVELTY RETAIN0持续。停止安全条件正确，但本项目长期缺真实实测的问题仍待解决。
+
+### 2026-10-10 · HourVideo 等待期已交付可执行离线检查程序（最新）
+
+**最新事实**：用户已展示Ego4D Dropbox Sign签署成功画面；不能从中推断Ego4D批准/数据凭据。用户要求等待期间继续并再次说“重新继续”。ChatGPT核[HourVideo官方GitHub](https://github.com/keshik6/HourVideo)公告2025-03-06提供开发集标注，作者给50段视频1182题/39.3小时；[官方HF卡](https://huggingface.co/datasets/HourVideo/HourVideo/blob/main/README.md)旧格式示例`duration_in_seconds`、`qid`、`mcq_test`、`correct_answer_label`，仍写普通`dev_v1.0.json`无答案；[HF gated入口](https://huggingface.co/datasets/HourVideo/HourVideo/tree/main)需要本人登陆接受条件后才可获实际数据。没有访问其受控内容，带答案文件实际结构、至少12不同视频×2已有有效QA和媒体UID映射**仍未验**。Benchmark数据禁止进入训练corpora，canary不可移除。Ego4D授权与HourVideo gate独立。
+
+**具体交付而非新一轮报告**：ChatGPT直接在main新增[零依赖、离线、无GPU的开发集资格预检器](../tools/hourvideo_dev_preflight.py)（接受用户日后合法本地的显式JSON路径；只输出聚合数及私有ID选择；要求12视频×2个有答案题，至少20min、其中≥4个30min；无数据时可用**完全虚构**`--self-test`）和[用法/权利范围/不能放行真实GPU的界限](./hourvideo-wait-period-lab.md)。该工具已在GitHub内容层核实创建，但**本轮未对真实数据运行，亦未独立执行其自检**，任何字段不匹配必须先核官方原schema/修订，绝不填造答案。公开输出不含题文、答案或UID，私有选集不得入Git。旧REAL-PILOT-001仍安全结案，0 READY，模型和媒体下载0、GPU0、无权限签收替HF/Ego4D条款。下一步由用户自行决定HF协议与数据受限本地读取，之后才谈真实实验。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
