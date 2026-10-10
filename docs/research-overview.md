@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；用户选择公开静态调查真正长视频数据许可/时间坐标及创新先例，BATCH019唯一READY；媒体/模型仍未授权）  
+> 更新：2026-10-10（北京时间；BATCH019四份公开静态报告和一条回报已按范围验收；数据/同钟/真值/原创性均未GO，当前0 READY、等待用户科研方向决策）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -105,7 +105,7 @@
 | Charades最后一次媒体试点方向决策 VLM-RESEARCH-CHOICE-018 | **USER_APPROVED_LAST_V1_TRY（非READY方向决策已结束）** | 用户、ChatGPT |
 | Charades最后一次双环境门限V1试点 BATCH-018 | **ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP（非READY）** | Codex，ChatGPT审查 |
 | BATCH018之后长域科研方向选择 VLM-RESEARCH-POST018-DIRECTION | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅公开网页，无媒体）** | 用户、ChatGPT |
-| 六长视频资源与原创机制公开静态审查 BATCH-019 | **READY（六来源＋2026强先例审计，仅四Markdown报告）** | Codex |
+| 六长视频资源与原创机制公开静态审查 BATCH-019 | **ACCEPTED_STATIC_DELIVERABLES / NO_DATA_OR_NOVELTY_GO（非READY）** | Codex执行、ChatGPT验收 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -546,7 +546,7 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 
 **按用户“最后一次”授权正式止损**：`BATCH018=ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP`，所有原013–018的READY归历史，当前**0 READY**，不启动旧程序重做、不创建自动019/额外Charades媒体GET/其它镜像/V2画面/GPU。MediaPilot两原视频及容器/packet PTS、原私有ledger按协议继续本地隔离保留，既不删除也不发布或搬进旧RTX3090工作区。下一决策`VLM-RESEARCH-POST018-DIRECTION=WAIT_USER_RESEARCH_DIRECTION`仅为科研方向选择；建议先无新增数据下载和模型运行，以官方版权许可/公开同版音视频与annotation时间轴合同/自然长视频分布/学术新颖性和时间ground truth可审计标准，静态对比真正长视频语料及潜在新机制，再由用户另行批准新方向/明确任务。不能将Charades短视频抽样数值或旧候选P1/P2当顶刊论文已经通过证据门。
 
-### 2026-10-10 · 用户同意长视频与原创机制公开静态筛选：BATCH-019唯一READY（最新）
+### 2026-10-10 · 用户同意长视频与原创机制公开静态筛选：BATCH-019当时唯一READY（历史授权）
 
 **为何切换科研重点**：[BATCH018最终两案例报告](./codex-artifacts/VLM-BATCH-018/two-case-pts-and-research-decision.md)执行者报告：最后一次合法Charades媒体GET10、总正文1,979,817B，安全取得2个已冻结官方MP4并CPU采集video packet元数据；但`has_b_frames`触发先验保守规则，两臂均`CLOCK_UNKNOWN`，因此不能认证CSV`length`或动作`end`与媒体时间钟，P1/P2事件语义真值仍HOLD。该来源短视频无法作为真正长视频论文的独立主证据，旧`RETAIN0`未改。此后用户回应“好的”，同意下一步**只对公开网页与论文做静态数据源/机制初筛**，不是批准再取Charades媒体、运行模型或签署新数据许可证。BATCH018的`FINAL_MEDIA_STOP`及两段已获取视频/PTS私有隔离永久保留，不迁移/外传，015独立CPU工具与RTX3090原环境也不使用。
 
@@ -559,6 +559,14 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **强先例导致“经验式故事”无法声称原创**：[VideoTree CVPR2025](https://videotree2024.github.io/)查询自适应粗到细、[ReWind CVPR2025](https://openaccess.thecvf.com/content/CVPR2025/html/Diko_ReWind_Understanding_Long_Videos_with_Instructed_Learnable_Memory_CVPR_2025_paper.html)记忆更新与指导抽帧、[VideoMind ICLR2026](https://videomind.github.io/)planner-grounder-verifier-answerer、[Seeing Is Believing: EV²-Bench / DynamicSelect AAAI2026](https://ojs.aaai.org/index.php/AAAI/article/view/38031)时空证据评估与动态压缩均已有论文。可考虑的`H1`时钟不确定性可控风险/弃答、`H2`重复事件实例身份证据与反事实顺序、`H3`预算约束下的校准证据充分性**都只是可证伪假说**，必须对照最强近邻和独立视觉/时序GT；不能把普通时钟换算、加时间戳、分层记忆或证据输出当科学原创。`NOVELTY=RETAIN0`直到有新实验与先例扣除的证据。
 
 **新增唯一READY父任务**：[VLM-BATCH-019八项纯公开静态审查合同](./codex-artifacts/VLM-BATCH-019/README.md)。Codex须在用户同一个长期聊天内主动触发，安全只更新公有docs Git，核唯一019 READY且无旧019回报；各查六个数据来源的代码vs标注vs原视频版权、输入自然长时分组、canonical video/clip/packet PTS及字幕时间偏移对应关系、真实事件区间GT的存在与否，至少六项论文强先例与两三个可否证机制假说、未来合法媒体/标签与GPU前置门。**绝不下载数据集媒体/标注/字幕/QA/论文PDF文件、运行ffprobe/软件、注册Ego4D、访问旧Windows私有Charades素材或科研环境、安装模型或使用GPU**。仅交`docs/codex-artifacts/VLM-BATCH-019/`四份Markdown报告及`docs/codex-results.md`尾部一条共5文件，0代码文件修改。安全push后STOP，ChatGPT审查后才可能向用户请求一个独立新研究方向/新授权。`SCREEN_PRIORITY`不等于`DOWNLOAD_GO`或`NOVELTY_GO`，缺官方许可/媒体PTS时写UNKNOWN/RESTRICTED，严禁承诺已解决Charades旧边界异常。
+
+### 2026-10-10 · BATCH019静态报告验收，数据及原创性准入仍HOLD（最新）
+
+**文档范围审计**：[24b771e](https://github.com/floomeer83felix-source/vlm/commit/24b771ef9c83e929579372a982ea17cd6edbbdb8)相对3d784c2只新增四份`docs/codex-artifacts/VLM-BATCH-019/` Markdown并在`docs/codex-results.md`末尾新增23行，共5处，无源码、计划/总览或旧报告修改。ChatGPT读完[许可/长域矩阵](./codex-artifacts/VLM-BATCH-019/official-dataset-license-duration-matrix.md)、[时间基/GT合同](./codex-artifacts/VLM-BATCH-019/timebase-provenance-and-groundtruth-contracts.md)、[创新先例/反例](./codex-artifacts/VLM-BATCH-019/prior-art-and-falsifiable-mechanisms.md)、[论文退出门](./codex-artifacts/VLM-BATCH-019/paper-feasibility-and-exit-gates.md)，审查八任务结构、六候选与六必查+五新增先例，抽查Ego4D官方schema/NLQ长度、LVB v1 HTML和2026 COVER/GEB/interval confidence原始摘要。仅接受有界静态交付及当前UNKNOWN/HOLD口径；未复验执行者的Windows、网络日志，也未下载数据、运行模型/GPU。
+
+**证据与风险**：Ego4D`video_start_pts`/timebase及video/clip坐标可作为未来合法版本映射的纸面合同，不构成文件级MEDIA_CLOCK_PASS；NLQ clip平均约10min、最长20min，不能充当小时评测GT。HourVideo500段20–120min来自Ego4D，不是独立来源，且benchmark数据严禁进入训练。LongVideoBench v1 Table3六格数量相加3,761、摘要写3,763，保留源内冲突及当前发布版本UNKNOWN，不把引用frame index自动提升为必要/充分事件GT。Video-MME、MLVU、LVBench媒体版权/剪裁版本/事件实例标签链仍未闭合；Code LICENSE不授权原视频。H1时钟不确定联合风险与H3证据校准仅存待否证研究问题，COVER/Explicit Abstention/Grounding with Confidence/EV²-Bench等近邻强；H2普通物理对象身份记忆与GEB先例直接重合，当前NO_GO_AS_NOVEL_CORE。现有论文还缺**新算子、独立真值、合法源、相同输入和预算的强基线与实际效应**，所以`NOVELTY=RETAIN0`，不承诺期刊可发表性。
+
+**裁决与权限**：`BATCH019=ACCEPTED_STATIC_DELIVERABLES`、`LONG_DURATION=STATIC_EVIDENCE_PARTIAL`、`LEGAL_MEDIA=HOLD`、`TIMEBASE=UNKNOWN`、`EVENT_GROUND_TRUTH=HOLD`、`PRIOR_ART=NOVELTY_RETAIN0`、`DEVICE_COST=UNKNOWN`。`SCREEN_ONLY_PRIO1`优先Ego4D↔HourVideo合法同版桥接和H1强反例，但不等于新执行授权。BATCH018的两病例`CLOCK_UNKNOWN`/Charades`FINAL_MEDIA_STOP`、旧B/C HOLD全部延续。`DOWNLOAD_APPROVED=NO`，0新READY，GPU/训练/ffprobe/模型和新标注、数据合同签署均BLOCKED。下一个科研动作标记`WAIT_USER_POST019_DECISION`（非READY）；用户决定继续仅公开资料定向填缺口或停止当前路线后，ChatGPT才可另行定义独立有界父任务。Codex同一长期聊天不自行启动020或唤醒执行。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
