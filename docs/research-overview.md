@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-09（北京时间；BATCH014因Gyan工具直连ZIP超时安全停机，工具未安装；等待用户续传/暂停决策，无READY）  
+> 更新：2026-10-10（北京时间；用户选定基于旧014部分包与账本的有界强ETag/206续传，BATCH-015唯一READY；尚未执行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -98,7 +98,8 @@
 | BATCH-013-FIX受限协调器/ZIP64补齐 | **ACCEPTED_CODE_ONLY（合成27 PASS报告，0真实媒体）** | Codex，ChatGPT审查 |
 | 独立CPU ffprobe工具门 VLM-CPU-TOOL-GATE-014 | **USER_APPROVED_ISOLATED_FFPROBE_INSTALL（有限授权、尚未执行）** | 用户、ChatGPT |
 | 发布者SHA固定的独立ffprobe部署 BATCH-014 | **STOPPED_SAFELY / CPU_TOOL_BLOCKED（部分ZIP超时；0部署）** | Codex，ChatGPT审查 |
-| 工具部分包恢复或止损 VLM-CPU-TOOL-GATE-015 | **WAIT_USER_CONTINUATION_CHOICE（非READY）** | 用户、ChatGPT |
+| 工具部分包恢复或止损 VLM-CPU-TOOL-GATE-015 | **USER_SELECTED_SAME_OBJECT_RESUME（研究方向已定、非READY）** | 用户、ChatGPT |
+| 同源工具ZIP仅一次断点续传 BATCH-015 | **READY（原150MiB总额度继承；最多2 GET；0媒体）** | Codex |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -470,6 +471,18 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **专门留待未来的新门，不作自动补救**：`VLM-BATCH-014=STOPPED_SAFELY / CPU_TOOL_BLOCKED`，014回报已经存在，不允许Codex重跑原父任务、覆盖part/账本/从零算150MiB。当前唯一`VLM-CPU-TOOL-GATE-015=WAIT_USER_CONTINUATION_CHOICE`（**没有READY**）；如果用户愿意继续，应另行制定单个有界新父任务，优先核实原冻结对象的Content-Length、稳定ETag与206 Range续传可行性，并验证现存私有part长度/最后位置/文件hash与原累计账本**连续记账**；如果不支持可靠续传则STOP、不能换镜像或一次性任意重下工具，未取得新执行权限不能发任何新工具正文GET。不得因历史“允许下载ffprobe”自动反复重试，需用户选择新方向。若暂停则保留现状，不删除用户部分文件。
 
 **学术和网络门仍未改变**：[BATCH013-FIX媒体网络客户端](../prototypes/charades_range_media_clock_pilot.py)还存在`urllib.request.build_opener(NoRedirect())`隐式ProxyHandler风险，014工具安装器禁代理不能替媒体端背书。CPU工具即使未来安装成功，仍需新媒体验证协议及代理防回归；目前视频GET/真实packet-PTS均0，B时间质量与C事件真值继续HOLD，Charades作为自然长视频独立基准FAIL，原始方法创新retain0，模型/GPU不可用。本轮ChatGPT只更新GitHub任务看板/总览，未访问用户Windows/工具部分包或触发后台下载。
+
+### 2026-10-10 · 用户选择同源有界断点续传：015唯一READY，原Windows与206尚未验证（最新）
+
+**授权与真实执行严格区分**：用户明确回复“继续安全断点续传方向。请先核对原部分工具包、同源ETag/Range206、剩余累计预算及安全条件，在GitHub制定新的有限任务；禁止重跑014，不得下载Charades媒体或使用GPU。” ChatGPT核对[BATCH014来源与隔离收据](./codex-artifacts/VLM-BATCH-014/tool-source-integrity-and-isolation.md)、[资源记录](./codex-results.md)、[原工具安装器](../prototypes/isolated_ffprobe_installer.py)后，制定[新BATCH-015唯一父任务](./codex-artifacts/VLM-BATCH-015/README.md)；没有读取用户Windows原part/ledger、没有在用户机器上发出HEAD/Range/GET，也没有调用ffprobe。尝试ChatGPT所在环境对固定Gyan ZIP发**无代理HEAD**时，独立环境DNS无法解析`www.gyan.dev`，**不能据此认定目标服务器停机或有/无206支持**。公开[Gyan构建页](https://www.gyan.dev/ffmpeg/builds/)现仍列9.0.2 release essentials ZIP约109MB，但网页展示的大小不等于当前实际HEAD Content-Length/strong ETag/206事实。此不确定性是新父任务的首要STOP门。
+
+**当前可复核的确定预算（执行者报告，未本机复算）**：014原GET正文累计`13,186,907B`（三网页/发布方checksum与原工具ZIP），其中原ZIP部分`13,107,200B`，原父任务4 GET/3 HEAD，1工具包GET未完成，软件未安装。原工具正文硬限150MiB=`157,286,400B`，剩余严格`144,099,493B`（包括可能的新小量206测试和失败已读响应正文，不能另算150MiB）。原部分文件在`%LOCALAPPDATA%\VLM-Research-Isolated\CPU-Tools\ffprobe\incoming\ffmpeg-9.0.2.zip.part`，原私有`local-audit/tool-ledger.json`；这是上轮报告指出的预期路径与字节数，**未实地证明现存文件未被更改或ledger仍完整**。
+
+**对同源身份的科学和工程证据分级**：014没有保存首次GET对应的稳定ETag/完整包Content-Length，也没有公开部分文件SHA。因此015必须先只读核Windows固定原part(13,107,200B)及014ledger(body 13,186,907B、events/失败状态/4 GET/3 HEAD)，路径/reparse/cloud/原研究区排除及磁盘，然后**先合成≥18单测**覆盖账本继承与预算/断电，再只对同一固定Gyan9.0.2 ZIP发最多2次HEAD与至多2次GET（≤4KiB旧part尾端匹配206探测+**唯一**原offset后缀206 GET），要求strong ETag、精确Content-Range/Length、identity传输、禁代理TLS/禁跳转、If-Range及全局账本跨批连续、任何200整包都不读正文；0自动重试。**新HEAD强ETag只能约束新会话，不能追证014初次13MB所属对象。只有拼合得到完整ZIP的SHA256完全匹配原冻结发布方值`60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba`，才说明原part与新suffix共同组成已知发布包**；不匹配STOP，不删旧part/ledger、不换源或重新下完整包。
+
+**恢复成功上限**：只有经固定SHA核真实ZIP安全目录、CRC、版本/许可证、无重复/危险路径、预算≤512MiB后才可向独立`CPU-Tools/ffprobe/bin/`白名单提取唯一`ffprobe.exe`并运行一次`-version`，无需修改PATH/Conda/CUDA/原研究代码/锁。失败则只交匿名STOP收据。此父任务只许[README中5处白名单](./codex-artifacts/VLM-BATCH-015/README.md)：2脱敏报告、2份全新纯stdlib续传器及虚构HTTP/ZIP测试、`docs/codex-results.md`尾部一次015回报。禁止重跑已回报014、改原014代码/ledger历史/part前缀，媒体相关`GET`完全为0、GPU/真实视频PTS/模型及视觉画面均不授权。
+
+**研究主门不随工具自动提升**：BATCH012官方frame标签A限域VERIFIED；Charades边界B/事件实例C继续HOLD、创新retain0、自然长视频独立支持FAIL。媒体协调器013-FIX还可能默认继承Python环境/系统代理设置，`MEDIA_NETWORK_CLIENT_PROXY=HOLD`，本批不得修改/运行旧媒体脚本。即使工具可用，只有ChatGPT审查后重新安排独立媒体安全修复/新父任务，才可考虑原用户之前有限的最多2视频/64MiB的合法媒体V1试点，绝不自动启动。Codex执行启动仍需用户在**同一原聊天**主动发指令；GitHub READY不是后台执行。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
