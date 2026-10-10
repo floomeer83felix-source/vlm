@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-10（北京时间；BATCH017内置合成门安全阻塞，代码交付验收、真实媒体0，等待用户是否再开新任务决定；0READY）。本文是执行入口，不代表任何新模型实验已运行。
+> 更新日期：2026-10-10（北京时间；用户同意真正长视频与创新机制公开资料静态筛选，BATCH019唯一READY，不授权媒体/GPU；Charades媒体路线仍FINAL_STOP）。本文是执行入口，不代表任何新模型实验已运行.
 
 ## 一、任务看板
 
@@ -41,12 +41,13 @@
 | VLM-BATCH-017 | P1 | **STOPPED_SAFELY / CODE_DELIVERABLES_ACCEPTED（内置合成门失败，0媒体）** | Codex，ChatGPT审查 | 已完成父任务前置授权冻结、所有媒体GET读前fsync保守预扣、强ETag与固定ffprobe路径；真实execute仅1次，内置环境相关mock失败后严格STOP | [1641817](https://github.com/floomeer83felix-source/vlm/commit/1641817a05911d008373963d5cea88a45f1cb8b6)：严格5处；原40+新16=56合成用例普通/合成原工作区环境最终PASS（执行者回报），**但唯一实际execute内置套件`SYNTHETIC_GATE_FAILED`，未重启**；正式SHA/隔离/CPU/媒体HEAD/Range/PTS全部NOT_RUN；历史017禁止重跑 |
 | VLM-RESEARCH-CHOICE-018 | P0 | **USER_APPROVED_LAST_V1_TRY / EXECUTED_AND_CLOSED（非READY）** | 用户、ChatGPT | 用户批准最后一次受限两视频试点，执行者已在2453b88完成真实限额内访问、两例packet元信息采集 | 最后机会已经使用；工程取得2视频但B帧保守守卫令时钟比较UNKNOWN，不得重开018或默认用剩余额度进行更多视频取样 |
 | VLM-BATCH-018 | P1 | **ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP（已结案非READY）** | Codex，ChatGPT审查 | 本次唯一execute完成双环境合成安全门、受限官方ZIP206及两成员CRC/下载、独立CPU ffprobe packet元信息采集；B帧保守条件使两臂同钟判定UNKNOWN | [2453b88](https://github.com/floomeer83felix-source/vlm/commit/2453b88a732504f3ac2abe9bc2934f59291cc022)：恰好5处交付；原56+3=59项双上下文合成PASS；真实媒体GET10/HEAD1，正文实际/保守均1,979,817B，保存2 MP4，CPU版本1+packet2；**CASE_OVERFLOW与CASE_CONTROL都是CLOCK_UNKNOWN**，B/C仍HOLD，不重跑018、不安排019或更多Charades视频获取 |
-| VLM-RESEARCH-POST018-DIRECTION | P0 | **WAIT_USER_RESEARCH_DIRECTION（非READY）** | 用户、ChatGPT | 结束Charades短视频获取试点，转为科学论文机制/真正长视频合法时钟数据的静态评估方向选择 | 仅允许先讨论证据门与候选公开来源/许可证/可验证PTS机制，**无新的Codex READY、无下载许可、无GPU/模型/视觉观察、无真实长视频实验**；用户选择之后须另行明确批准确切任务 |
+| VLM-RESEARCH-POST018-DIRECTION | P0 | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅非媒体静态审查）** | 用户、ChatGPT | 用户2026-10-10在018最后尝试结束后明确回复“好的”，同意先对真正长视频数据源与原创推理机制公开资料筛选 | ChatGPT已形成[静态证据种子](./long-video-static-screening-seed-2026-10-10.md)与[受限BATCH019任务书](./codex-artifacts/VLM-BATCH-019/README.md)；没有新媒体/annotation包/模型下载或GPU授权，也不重新打开Charades媒体路线 |
+| VLM-BATCH-019 | P1 | **READY（仅六候选长视频许可证/时钟合同/2026先例公开网页静态研究）** | Codex | 官方页面/许可/元数据schema/网页可读评测源码/论文公开HTML静态阅读：Ego4D NLQ、HourVideo、LongVideoBench、Video-MME、MLVU、LVBench；严核VideoTree/ReWind/VideoMind/EV²-Bench等现有创新 | [BATCH019八项完整README](./codex-artifacts/VLM-BATCH-019/README.md)：仅四份脱敏Markdown研究报告+docs/codex-results.md尾部一条，**0数据/音视频/标注下载、0GPU/模型/环境、0本地私有资产访问，0真正视频执行许可**。出现版权/timebase/来源不明必须UNKNOWN，最多静态SCREENING_PRIORITY不得宣称GO |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前没有任何READY父任务。** [BATCH018提交2453b88](https://github.com/floomeer83felix-source/vlm/commit/2453b88a732504f3ac2abe9bc2934f59291cc022)已经完成此前同意的**最后一次**Charades双视频V1工程访问。ChatGPT通过GitHub审查了严格5处提交、报告及媒体协调器/测试变更：原56项全部保留新3项共59，执行者报告普通与模拟执行环境、实际execute内置两上下文全PASS；严格017→018任务/合同与017历史SHA绑定、父门先于副作用；原读前fsync保守账本、明确禁代理/TLS/不跳转、官方源、ZIP/CRC/双臂选择和预算不放宽。执行者报告真实`--execute`仅1次、原metadata SHA/Windows隔离/固定9.0.2 CPU ffprobe均PASS，先固定一例越界与一例整行strict合格的train样本，再经官方同源媒体ZIP **HEAD1、GET10** 按需206/强ETag/Range/成员CRC安全取得**2段MP4**；所有研究HTTP GET实际与保守预扣各**1,979,817B**（应用层读入计量，非网卡/TLS字节），远低于64MiB；没有整包/镜像/重试。执行者本机`ffprobe -version`1次、v:0 packet probe两次、0画面像素解码/GPU/模型；MediaPilot私有根6文件，最终逻辑882,420B、最大观测文件名逻辑和1,243,981B、外加1MiB余量≤2,292,557B<128MiB，**不是精确物理磁盘峰值**。**研究结论不能升格**：原`classify_clock`在两臂因stream `has_b_frames`标志触发保守守卫直接`CLOCK_UNKNOWN`，没有判定CSV`length`与媒体时钟MATCH或DIFFERS，也没有对动作`end`做视觉/物理真值认证。官方25点frame标签A沿012限域VERIFIED，B时间质量/C P1P2实例真值仍HOLD；旧19,625 strict超界token是额外规则下不通过而非已证坏标注，Charades自然长时域独立支持FAIL，原创机制RETAIN0。**管理决定：BATCH018=ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN，最后一次机会已用尽；停止Charades媒体获取，不重跑018、不自动安排019，不消费剩余额度下载其他视频。** 保留隔离本地视频/原私有PTS/账本且不公开。下一非READY门`VLM-RESEARCH-POST018-DIRECTION=WAIT_USER_RESEARCH_DIRECTION`：用户若愿意转向真正长视频研究，先进行**无需下载/GPU**的来源许可、版本、时钟与科学创新静态筛选，由ChatGPT另行定义新独立任务和权限；目前没有新模型/视频授权。
+**当前唯一READY父任务为VLM-BATCH-019：用户已经同意从Charades已结案的短视频工程路线转为**真正长视频数据集与原创机制的纯公开资料静态筛选**，尚未由Codex执行。** [BATCH018](./codex-artifacts/VLM-BATCH-018/two-case-pts-and-research-decision.md)最后许可的2段官方MP4安全取得并采集video packet PTS，但两臂因B帧保守守卫均`CLOCK_UNKNOWN`，历史B区间时间质量/C P1P2事件真值继续HOLD，创新RETAIN0，Charades媒体`FINAL_MEDIA_STOP`。ChatGPT于2026-10-10只读公开学术/数据集官方页面完成[静态初筛种子](./long-video-static-screening-seed-2026-10-10.md)：Ego4D NLQ官方schema已有video/clip时间原点、媒体PTS与timebase字段但必须先签数据协议；HourVideo来自Ego4D、约20–120分钟、明禁benchmark进入训练；LongVideoBench最长约1小时、video/subtitle有`starting_timestamp_for_subtitles`偏移，第三方网页媒体权利需要分开核；Video-MME有30–60分钟长split但只是QA评测不等于事件边界真值；MLVU与LVBench原视频版权/版本须核。2025 VideoTree/ReWind、ICLR2026 VideoMind、AAAI2026 EV²-Bench/DynamicSelect已覆盖分层检索、动态记忆、规划定位验证及可核时空证据，自称“证据+记忆”不能自动算新贡献。**019仅让Codex在公有Git docs独立checkout与公开网页静态核六候选/先例、分许可/真实长时域/视频版本与clip时钟/事件真值与原创性可证伪门，四份仅Markdown报告及一个父结果，共5处；严格不下载原视频、标注JSON/ZIP、字幕、PDF文件或模型，不注册/签署Ego4D协议、不访问本地前18批私有资产、不运行ffprobe/GPU/代码，不能新建媒体试点或自动020。** 用户需在原持续Codex聊天主动触发唯一019，任务结束后等待ChatGPT审核。任何数据可合法获取/训练/精确时钟真值、具体长比例，**没有官网直接证据就写UNKNOWN/RESTRICTED而非PASS**。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -456,7 +457,17 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 
 **下一科研方向仅为非执行方向门**：`VLM-RESEARCH-POST018-DIRECTION=WAIT_USER_RESEARCH_DIRECTION`（非READY）。可建议用户选择转向有明确公开许可、同版视频+annotation时间合同、足够自然长视频和可对照文献的候选集合，以及重新确定具可检验反例的机制贡献；这些步骤先以公开文献/README/license/benchmark评测代码**静态评估**，不消耗新网络媒体/模型/GPU权限。不把Charades短视频P1/P2数字作为论文已验真实事件，也不在无独立外部验证下宣称顶刊创新达标。只有用户明确新的科研方向和范围后，ChatGPT才可能另行签发新唯一READY；本轮不安排后续Codex自动执行。
 
-## 二十八、当前研究判断（跨批保持）
+## 二十八、VLM-BATCH-019：真正长视频许可证、时间轴与原创机制的仅公开静态证据审查（唯一READY）
+
+**方向授权边界**：用户在BATCH018最终`V1_CLOCK=UNKNOWN`、最后两段真实视频工程获取已停止之后回答“好的”，仅同意下一步对**公开官网/README/LICENSE/源码网页/论文摘要与公开学术HTML进行静态核查**。不批准任何新的视频、字幕、标注压缩包/QA题项、模型/权重/PDF文件下载、账号注册或数据使用协议签署、Git clone第三方项目/依赖安装、CPU ffprobe/GPU与用户本地Charades/RTX3090实验目录访问。Codex不得用先前64MiB余额继续下载Charades，不能重启原013–018或自动020。
+
+**先验事实与初筛链接**：[公开资料种子](./long-video-static-screening-seed-2026-10-10.md)只依据数据项目官方页面与论文静态文字，列六候选：Ego4D NLQ（官方schema具`video_start_pts`/`video_base_numerator`和video/clip双时间基，但真实数据/annotation需接受独立协议）、HourVideo（500段20–120min、12,976个QA，Ego4D同源，不许benchmark进入训练集）、LongVideoBench（最长1小时，loader的视频采样与字幕`starting_timestamp_for_subtitles`需独立对齐）、Video-MME（30–60min长split但不提供默认物理事件时间边界GT）、MLVU（原视频版权非标注方所有、部分素材替换风险）及LVBench（最长2h、第三方源版权要分开核）。**这些只是网页线索，不构成下载/训练/真实时钟GO；Ego4D GitHub的MIT代码许可不等于原视频许可**。EgoSchema每题3min只可作辅助短域控制，不可当自然长视频证据。
+
+**强先例约束**：VideoTree CVPR2025已经做查询自适应粗到细树检索，ReWind CVPR2025做指令条件可学习记忆，VideoMind ICLR2026是planner-grounder-verifier-answerer，AAAI2026`Seeing Is Believing`/EV²-Bench与DynamicSelect已提出长视频时空证据评估+动态层级压缩；LongVideoBench referred reasoning与EgoSchema temporal certificate sets也已经讨论跨时段证据。**不许仅用“长视频记忆+证据+时间戳+抽帧/弃答”自称可发表新算法**。仅预注册有反例、与强先例显著不同、所需独立媒体同钟/实例GT可获许可的可证伪H1时间基不确定传播/H2跨分钟事件身份与干扰/H3证据预算与校准风险，均维持`NOVELTY=RETAIN0`，后面若无真值/合法数据即NO_GO。
+
+**[019完整八项README](./codex-artifacts/VLM-BATCH-019/README.md)**：①公有Git及唯一READY；②六数据集软件vs原媒体vs标注许可证/版权链；③长时输入分布与真长video/clip区分；④至少Ego4D/HourVideo/LongVideoBench/Video-MME时间原点、PTS/字幕偏移/正确版标注合同及缺口；⑤至少6项强先例最近邻；⑥2–3个可证伪且不得先称原创的科研假说/硬反例；⑦每个候选分别判断合法介质、时间合同、真正长时输入、事件真值/训练污染与硬件可行的静态门，UNKNOWN不得写GO；⑧公共仓库**恰好5处**：`docs/codex-artifacts/VLM-BATCH-019/`四份仅Markdown报告、`docs/codex-results.md`尾部仅一条019父回报。**不要修改任何代码/实验环境/原数据或历史报告**，一般push后STOP，等待ChatGPT科研审查和下一次用户明确决策。
+
+## 二十九、当前研究判断（跨批保持）
 
 - 用户保持高水平论文目标，但不假定一定成功；目前 retain 0。前期100/300题及各种已关闭候选、GAP7、BATCH-003至006**不得重跑**。
 - 新机制创新门 `N`、可证伪性 `T`、非平凡有效性 `U`、合法可用标签/媒体 `D`、预算/PTS/来源 `B`、强baseline公平比较 `F` 当前**无候选PASS**。toy通过不提升这些门。
@@ -464,7 +475,7 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 - PR #1未合并且主要基于旧gold路线；不可直接执行旧manifest或旧GPU预算。新问题可能需要不同证据标签，先做学术可识别性/合法数据核查，再决定是否值得付出真实实验。
 - 如果十项研究全部被直接先例或现实标签门否决，回报**RETAIN 0 / STOP PORTFOLIO**，不继续为凑10项编新算法。
 
-## 二十九、GitHub协作规范（不改变）
+## 三十、GitHub协作规范（不改变）
 
 - ChatGPT维护`docs/next-steps.md`、`docs/research-overview.md`和科学立题文档；Codex仅执行唯一READY父任务并追加`docs/codex-results.md`及README明确的脱敏产物。
 - 原始`docs/research-progress-2026-10-08.md`保持永久快照；历史已验收任务和原Windows RTX3090/conda`pytorch`实验工作区与公开文档checkout严格分开。
