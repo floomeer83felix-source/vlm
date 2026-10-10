@@ -403,3 +403,22 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 先例最近邻已覆盖一般检索分层/指令记忆/定位验证、视觉证据评估、risk–coverage、保形时间区间、同物理实体关联以及候选区间接受预算。H1/H3仅保留待否证问题，不声称创新；H2普通身份记忆当前NO_GO_AS_NOVEL_CORE，联合实例GT未证。优先级只用于未来公开文档审查：Ego4D坐标/HourVideo合法同版桥接，LVB引用证据发布合同，VMME外测及MLVU/LVBench版本版权门；没有任何候选获DOWNLOAD_GO或NOVELTY_GO。
 
 0媒体/帧/字幕/音频/标注实体/模型/论文PDF下载，0私有CSV/视频/PTS/原实验树/前批账本访问，0研究代码/tests/ffprobe/解码/GPU/模型/训练运行，0环境/PATH/锁或源码改动，0注册/签约/取凭据/付费API/云算力/对外联系/PR/后台任务。网络仅公开静态页面及用户授权Git交接；无新代码或资产文件。只使用文献综述技能的证据结构，不运行其脚本/AI制图/PDF流程。Charades018仍ACCEPTED_ENGINEERING/V1_CLOCK_UNKNOWN/FINAL_MEDIA_STOP，A沿012限域、B/C HOLD、自然长域FAIL、创新RETAIN0。正常push后保留当前聊天等待ChatGPT科研验收，不自动下一轮。
+
+### VLM-BATCH-020 2026-10-10 — 八项公开静态审查完成；普通H1 NO_GO，合法同版桥接HOLD，RETAIN0
+
+独立公有docs checkout干净并安全fast-forward至main `7c70287ed0ee372c8fada74a9bdea323ae704698`，确认唯一020 READY、此前无020父回报；重读AGENTS、任务板、总览、结果、020合同及019四报告。仅新[许可与同版桥接](codex-artifacts/VLM-BATCH-020/ego4d-hourvideo-license-and-version-bridge.md)、[H1强基线/不可识别红队](codex-artifacts/VLM-BATCH-020/h1-strong-baselines-and-impossibility-redteam.md)、[联合止损](codex-artifacts/VLM-BATCH-020/h1-legal-novelty-stop-decision.md)及本条，共4处Markdown。验收由ChatGPT进行，本条为执行者回报。
+
+| 八项任务 | 结果及未闭合证据 |
+|---|---|
+| 1 | DONE：安全同步、唯一READY/无重复结果，旧013–019冻结，未访问原研究资产 |
+| 2 | DONE（文本）/UNKNOWN：分别核上游Ego4D协议与下游HourVideo禁训；软件MIT/Apache不替数据权利；完整协议入口403/SOURCE_UNAVAILABLE，衍生时钟/新真值构造与公开权限UNKNOWN |
+| 3 | DONE（纸面）/MAPPING_NOT_PUBLICLY_CERTIFIED：组件/视频/clip/QA命名空间、PTS/timebase/锚点与转换条件分开；HourVideo发布版本/转换/时钟闭环未获公开认证，不进入实体 |
+| 4 | DONE：观察/M/I/输出/联合选择性风险，正确换算、像并集、保守扩张、COVER、常规置信/宽度弃答及VideoMind复查强零假说；边际覆盖不能自动界定接受条件风险 |
+| 5 | DONE：五必查先例逐项原网页证据分级，另加1项2026非单调risk-control原摘要；两个符号双世界反例及一般不可能性草图，无代码/toy/真实GT生成 |
+| 6 | DONE / H1_NOVELTY_NO_GO：普通组合可由强基线模拟，未保留残余创新问题（0项），无PASS；旧2pp/60%示例不具功效依据，NO_GO_FOR_EXPERIMENT |
+| 7 | DONE：LEGAL_PROVENANCE HOLD、SAME_VERSION_TIMEBASE UNKNOWN、INDEPENDENT_GT HOLD、H1_NONTRIVIAL_DELTA NO_GO、COST_AND_BASELINE HOLD/UNKNOWN；同源不可当独立外测、NLQ≤20分钟不支持小时GT；建议结束当前H1组合/配对执行路线 |
+| 8 | DONE：三报告+尾部唯一父回报，检查范围/脱敏/原始URL；正常push后停止，不安排021 |
+
+公开阅读日2026-10-10：Ego4D官方入口/schema/videos/updates/伦理/EM、HourVideo README/LICENSE/辅助源码网页、COVER v1全文HTML、Grounding with Confidence v3全文HTML、Explicit Abstention v2全文HTML、VideoMind项目及EV²-Bench正式AAAI摘要；新增非单调CRC仅原摘要。不把项目/摘要层称全文、投稿AAAI2027称录用、公开schema称真实同钟。COVER已讨论宽度筛选后覆盖失效；两个反例只否定无额外信息的唯一版本/紧定位认证，不否定并集的粗包含或拒答。H1_NOVELTY_NO_GO是普通机制组合否决，不是整个时间研究领域不可能创新。NOVELTY=RETAIN0。
+
+0媒体/帧/音频/字幕/标注/QA实体/模型/论文PDF文件下载，0私有实验树/CSV/视频/PTS/旧ledger访问，0研究脚本/tests/toy/ffprobe/解码/模型/GPU/训练运行，0环境或代码修改、注册/登录/协议签署/凭据申请/对外联系/付费API/云算力/后台任务。网络仅公开静态HTML及授权Git交接，Markdown验证属于提交检查；沿用文献综述技能证据结构，不运行技能脚本/制图/PDF。Charades FINAL_MEDIA_STOP和018 CLOCK_UNKNOWN及历史负结果保持。四处普通push后停止，保留当前聊天等待ChatGPT科研验收。
