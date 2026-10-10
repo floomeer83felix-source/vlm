@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；用户明确批准最后一次018双环境合成门＋最多两官方视频V1试点，BATCH018唯一READY、尚未执行）  
+> 更新：2026-10-10（北京时间；BATCH018工程双视频获取与packet元信息成功，但两例同钟CLOCK_UNKNOWN；最后Charades媒体路线关闭，0READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -103,7 +103,8 @@
 | 媒体客户端显式禁代理/固定HTTPS BATCH-016 | **ACCEPTED_CODE_ONLY（40合成PASS收据，真实媒体0）** | Codex，ChatGPT审查 |
 | 条件式两例Charades媒体时钟试点 BATCH-017 | **STOPPED_SAFELY / CODE_DELIVERABLES_ACCEPTED（内置合成失败，0真实媒体）** | Codex，ChatGPT审查 |
 | Charades最后一次媒体试点方向决策 VLM-RESEARCH-CHOICE-018 | **USER_APPROVED_LAST_V1_TRY（非READY方向决策已结束）** | 用户、ChatGPT |
-| Charades最后一次双环境门限V1试点 BATCH-018 | **READY（同额≤2视频／GET与保守预留≤64MiB／CPU packet-PTS）** | Codex |
+| Charades最后一次双环境门限V1试点 BATCH-018 | **ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP（非READY）** | Codex，ChatGPT审查 |
+| BATCH018之后长域科研方向选择 VLM-RESEARCH-POST018-DIRECTION | **WAIT_USER_RESEARCH_DIRECTION（非READY）** | 用户、ChatGPT |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -531,6 +532,18 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **真实V1试点成败的科学资格**：若全部前置通过，Codex才能在HTTP GET总≤12、所有实际与保守预扣≤64MiB、本地全部私有占用≤128MiB、无重试/无整包/无镜像/禁代理/强ETag/Range206/CRC的前提下取得预选最多2 MP4，并仅用现有CPU ffprobe检查封装duration/start、视频stream timebase/fps和packet PTS/DTS/duration，相比CSV`length`与异常end作**两例**类别化记录。不得公开视频身份/subject/class/精确时长/PTS或视觉人工事件真值。即使2例成功，B原时间边界质量和C P1/P2真实实例仍HOLD，旧19,625 strict不通过≠已核不准，A官方frame标签沿012限域VERIFIED；Charades作为自然长视频独立资源FAIL、原创机制retain0/GPU BLOCKED。
 
 **5处交付和最终止损**：BATCH018严格只交`docs/codex-artifacts/VLM-BATCH-018/`2份脱敏访问及科学报告、`prototypes/charades_range_media_clock_pilot.py`/原synthetic test两项最小变更、`docs/codex-results.md`尾部一条018父结果，正常commit/push后立即停止，由ChatGPT独立核源码/收据并更新看板；用户私有Windows资源不会在公共仓库出现。**018是本条Charades媒体获取路线的最后一次机会：若安全门或服务器/媒体钟仍无法给出可信证据，止损而非默认再开019**。本轮ChatGPT只写GitHub任务/科研管理材料、没有用户Windows访问、没有实际下载任何媒体或工具、没有调用GPU。
+
+### 2026-10-10 · BATCH018双视频实际工程验收，但同钟仍UNKNOWN；关闭Charades媒体获取（最新）
+
+**最终一次真实V1已执行并严格区分“可获取”与“科学同钟”**：[Codex提交2453b88](https://github.com/floomeer83felix-source/vlm/commit/2453b88a732504f3ac2abe9bc2934f59291cc022)恰好五处允许文件——[HTTP/隐私/隔离收据](./codex-artifacts/VLM-BATCH-018/preflight-and-http-resource-receipt.md)、[两例PTS与科学结论](./codex-artifacts/VLM-BATCH-018/two-case-pts-and-research-decision.md)、原媒体协调器及其纯合成unittest、`docs/codex-results.md`尾部一条018父任务。ChatGPT审查GitHub提交差异与函数`classify_clock`、59个test方法，**未在用户Windows独立运行探测，也未打开真实MP4、CSV、私有ledger或精确packet记录**。017历史失败仍保留；018将父任务/合同hash迁至018并追加017历史回报SHA，媒体源及安全/时钟核心逻辑未改，旧13–17父任务不可重跑。
+
+**安全门与访问资格（Codex Windows执行者报告）**：旧56合成方法保留并新增3项，普通`unittest discover`59PASS、普通和合成工作区子进程`loadTestsFromName`各59PASS、唯一真实`--execute`内部双环境各59PASS（均0FAIL/ERROR/SKIP），先于私有资产及网络操作。原metadata ZIP/train/classes固定SHA/Windows物理隔离、独立CPU ffprobe9.0.2的私有执行文件SHA与收据校验PASS。旧原算法先从train CSV私密冻结1条strict越界视频和1条全strict合法匹配对照，再查官方服务器。官网项目页与许可锚固定核过，官方唯一S3 480p ZIP对象HEAD1，强ETag/identity/长度、后续`206 Content-Range`、If-Range、单盘ZIP索引/ZIP64、两个唯一成员local header/CRC及预算核验PASS；总计10个研究GET、**实际HTTP正文1,979,817B、读前fsync保守预留1,979,817B**（应用层响应读取量而非TLS总流量）、总额远低于64MiB，成功在独立MediaPilot保存**2 MP4**，未获取13GB整ZIP、镜像、STA，也没有请求重试。
+
+**工具/私有占用**：`ffprobe -version`一次、两本地MP4的video stream packet探测各一次，共3次独立CPU调用；无像素/音频帧观看/解码、视觉动作重标、模型训练/GPU。独立媒体根仅6个本批私有文件（2 MP4、2 clock元数据报告、私有候选映射、原子ledger），最终逻辑字节和882,420B，最高观测文件名逻辑和1,243,981B；加额外1MiB缓冲保守计算2,292,557B≤128MiB，**精确Windows物理分配峰值未测**。所有GET事件完整、实际/保守计费相同，工具014/015预算/包和历史ledger不改，用户原科研工作区/Conda/CUDA/PATH/原metadata与先前模型均未触碰。真实媒体ID、subject、动作/精确end、容器时长、fps、PTS/DTS、私有视频文件SHA等**只保留本地、未发布GitHub**。
+
+**为何工程成功仍不得宣布时间轴修好**：现有`classify_clock`使用先验保守条件；两个实际视频stream均存在`has_b_frames>0`标志，程序在做同钟比较前就给`CASE_OVERFLOW=CLOCK_UNKNOWN`、`CASE_CONTROL=CLOCK_UNKNOWN`，且未改容差或针对单个B帧重排列作进一步辨识。B帧标志**不等于媒体/CSV一定不同钟、不等于标注错误**；视频packet PTS获取成功也不证明视觉动作起止时刻。既有旧012 `OFFICIAL_FRAME_LABEL=A_VERIFIED_WITHIN_012_SCOPE`仅官方frame评价口径，`B_TIME_RANGE_QUALITY=HOLD`、`C_P1/P2_EVENT_TRUTH=HOLD`，创新`RETAIN0`，Charades缺自然长时域独立外推=FAIL；原19,625条strict`end≤length`不通过不能解释成已核实坏标注，更不能据两病例改动P1/P2原语义真值。`CASE_LIMITED_COMPLETE`仅说明工程流程完成，**`V1_CLOCK=UNKNOWN`是科学结论**。
+
+**按用户“最后一次”授权正式止损**：`BATCH018=ACCEPTED_ENGINEERING / V1_CLOCK_UNKNOWN / FINAL_MEDIA_STOP`，所有原013–018的READY归历史，当前**0 READY**，不启动旧程序重做、不创建自动019/额外Charades媒体GET/其它镜像/V2画面/GPU。MediaPilot两原视频及容器/packet PTS、原私有ledger按协议继续本地隔离保留，既不删除也不发布或搬进旧RTX3090工作区。下一决策`VLM-RESEARCH-POST018-DIRECTION=WAIT_USER_RESEARCH_DIRECTION`仅为科研方向选择；建议先无新增数据下载和模型运行，以官方版权许可/公开同版音视频与annotation时间轴合同/自然长视频分布/学术新颖性和时间ground truth可审计标准，静态对比真正长视频语料及潜在新机制，再由用户另行批准新方向/明确任务。不能将Charades短视频抽样数值或旧候选P1/P2当顶刊论文已经通过证据门。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
