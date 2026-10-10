@@ -380,3 +380,26 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 两个B帧标志触发原classify_clock早期UNKNOWN，不能写同钟MATCH/DIFFERS或异常end已物理确认；保留原始video packet/容器元数据仅于私有clock文件，不输出个体ID/subject/class、精确长度/FPS/PTS/DTS/end、单成员偏移/大小、私有hash/绝对路径/代理值。安全获取成功只证明此次固定来源/两预选成员可取，不是事件真值或长视频研究成功。0观看/像素解码/人工重标注/STA/模型/GPU/训练，0其它工具或数据下载，0外部联系/PR/后台调度。
 
 按用户最后机会合同停止Charades媒体获取，不消费余留额度再开批；Charades仅可作短域工程对照，长视频合法数据和科学重新定位交由ChatGPT评估，当前原创机制仍RETAIN0。只五处普通push后停止，保留原聊天等待验收，不自动019/V2/GPU或新数据路线。
+
+### VLM-BATCH-019 2026-10-10 — 公开静态筛选完成；六候选/六必查先例，NOVELTY RETAIN0，无数据准入GO
+
+独立公有docs checkout安全fast-forward至main `3d784c2`，核唯一019 READY及无回报，重读AGENTS/任务板/结果/总览/019合同与公开种子。仅新[官方许可与时长矩阵](codex-artifacts/VLM-BATCH-019/official-dataset-license-duration-matrix.md)、[时间基/来源/真值合同](codex-artifacts/VLM-BATCH-019/timebase-provenance-and-groundtruth-contracts.md)、[先例与可证伪机制](codex-artifacts/VLM-BATCH-019/prior-art-and-falsifiable-mechanisms.md)、[论文可行性/退出门](codex-artifacts/VLM-BATCH-019/paper-feasibility-and-exit-gates.md)及本条，共5处Markdown；不改计划/总览/历史报告/源码/测试。
+
+| 八项任务 | 静态执行结果及独立门 |
+|---|---|
+| 1 | DONE：独立Git安全同步、唯一READY/无019结果，未访问原科研/私有Charades资产 |
+| 2 | DONE（筛选）/数据许可未GO：六候选分别查软件/论文再用/标注/原媒体/使用与伦理条件；Ego4D MIT≠数据协议，HourVideo代码Apache≠数据并明确禁入训练，四网页源benchmark的原媒体权利链仍UNKNOWN/RESTRICTED |
+| 3 | DONE：自然输入单位与母库分开；Ego4D NLQ平均10/最长20分钟，HourVideo500个20–120分钟但各阈值数量UNKNOWN；LVB最长15–60分钟档966，网页表合计与总数有2差异；VMME30–60档存在、组数未确证；MLVU范围3分钟–2小时已证；LVBench历史v2长域已证、当前实体/最长2小时未确证 |
+| 4 | DONE（静态）/MEDIA_CLOCK UNKNOWN：Ego4D命名空间/PTS/timebase/component/clip、HourVideo平均fps采样与裁剪重编码、LVB减starting_timestamp_for_subtitles及名义帧时、VMME字幕与链接工具代码逐项读；字段存在不认证同钟/事件真值 |
+| 5 | DONE：VideoTree/ReWind/VideoMind/EV²-Bench-DynamicSelect/LVB/EgoSchema六必查先例均给原始来源，正式/预印本状态分开；补Explicit Abstention/COVER/GEB/Grounding with Confidence/hour-scale search五项2026工作；不可得CVF正文不凭标题填机制PASS |
+| 6 | DONE（纸面预注册）：H1坐标不可识别联合风险/H2重复事件实例/H3同预算证据校准，各有GT门、强对照、可测门槛、反例和NO_GO条件；普通H2实体记忆直接撞GEB，H1/H3普通校准也已有先例；没有新算法保留，RETAIN0 |
+| 7 | DONE：LONG_DURATION/LEGAL_MEDIA/TIMEBASE/EVENT_GT/PRIOR_ART/DEVICE_COST六门独立；仅SCREEN_ONLY_PRIO1/2/3，不申请下载/签协议/模型/GPU，当前不具备高水平论文机制承诺 |
+| 8 | DONE：四报告+本条，官方URL就近引用、日期/版本/不可得限定明确；普通push后停止，不自动020或恢复Charades媒体路线 |
+
+本轮是有界scoping screen，非穷尽PRISMA综述；通过官方项目/文档、GitHub README/许可/源码HTML、arXiv摘要/HTML和AAAI页面逐项核。搜索命中PDF/第三方整理仅作导航，不打开PDF文件或据其声称已全文审查；无HF实体/JSON/parquet/tar/QA行、字幕/媒体/模型取用、第三方clone/执行。Ego4D完整协议前端不可得、ReWind及Consistency CVF直接HTML不可得等留SOURCE_UNAVAILABLE；同一研究的原始摘要/官方检索元数据可补支持的有限命题，不代替缺失条款/全文。GitHub第三方main未显示完整commit pin时不虚构版本。
+
+关键纠正：官方Ego4D NLQ clip不是小时评测；MLVU种子中未核的时长范围本轮已由README明确核实；LongVideoBench论文创建阶段有引用frame index，但发布与充分/必要证据/多实例GT仍UNKNOWN；LVB Table3网页六格纸面和值3,761与摘要3,763不一致，不推断具体媒体丢失；LVBench统计明标历史v2而非当前实体。HourVideo/Ego4D/EgoSchema非独立来源不能算三套外测。
+
+先例最近邻已覆盖一般检索分层/指令记忆/定位验证、视觉证据评估、risk–coverage、保形时间区间、同物理实体关联以及候选区间接受预算。H1/H3仅保留待否证问题，不声称创新；H2普通身份记忆当前NO_GO_AS_NOVEL_CORE，联合实例GT未证。优先级只用于未来公开文档审查：Ego4D坐标/HourVideo合法同版桥接，LVB引用证据发布合同，VMME外测及MLVU/LVBench版本版权门；没有任何候选获DOWNLOAD_GO或NOVELTY_GO。
+
+0媒体/帧/字幕/音频/标注实体/模型/论文PDF下载，0私有CSV/视频/PTS/原实验树/前批账本访问，0研究代码/tests/ffprobe/解码/GPU/模型/训练运行，0环境/PATH/锁或源码改动，0注册/签约/取凭据/付费API/云算力/对外联系/PR/后台任务。网络仅公开静态页面及用户授权Git交接；无新代码或资产文件。只使用文献综述技能的证据结构，不运行其脚本/AI制图/PDF流程。Charades018仍ACCEPTED_ENGINEERING/V1_CLOCK_UNKNOWN/FINAL_MEDIA_STOP，A沿012限域、B/C HOLD、自然长域FAIL、创新RETAIN0。正常push后保留当前聊天等待ChatGPT科研验收，不自动下一轮。
