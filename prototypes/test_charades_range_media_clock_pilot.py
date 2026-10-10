@@ -8,20 +8,27 @@ import zlib
 import pathlib
 import hashlib
 import tempfile
+import os
+import ssl
+import ast
+import urllib.request
 from unittest import mock
 from charades_range_media_clock_pilot import (
     PilotError,Ledger,URL,NET_LIMIT,DISK_LIMIT,validate_range,read_response,eocd,
     central_directory,match_two,local_header,expand_member,select_cases,safe_name,
     validate_extra,ffprobe_command,classify_clock,public_receipt,NoRedirect,run_pilot)
 from charades_range_media_clock_pilot import zip64_fields,authorize_parent,official_anchor,transfer_two
+from charades_range_media_clock_pilot import PAGE,LICENSE,RangeClient,build_media_opener,fixed_request
 
 
 class Response:
     def __init__(self,body,status=206,headers=None):
         self.body=io.BytesIO(body); self.status=status; self.calls=0
-        self.headers=headers or {'Content-Range':'bytes 0-3/100','Content-Length':'4','ETag':'toy-etag','Content-Encoding':'identity'}
+        self.headers=headers if headers is not None else {'Content-Range':'bytes 0-3/100','Content-Length':'4','ETag':'toy-etag','Content-Encoding':'identity'}
     def geturl(self): return URL
     def read(self,n): self.calls+=1; return self.body.read(n)
+    def __enter__(self): return self
+    def __exit__(self,*args): pass
 
 
 def toy_zip(method=zipfile.ZIP_STORED):
@@ -38,6 +45,13 @@ def records(data):
 
 
 class PilotTests(unittest.TestCase):
+    def setUp(self):
+        # Any unmocked network or executable use fails, including legacy fixtures.
+        for target in ('urllib.request.OpenerDirector.open','urllib.request.urlopen',
+                       'socket.create_connection','subprocess.run'):
+            patcher=mock.patch(target,side_effect=AssertionError('SYNTHETIC_ONLY_UNMOCKED_IO'))
+            patcher.start(); self.addCleanup(patcher.stop)
+
     def test_good_206_exact_body_count(self):
         ledger=Ledger(); ledger.begin(0,3)
         self.assertEqual(read_response(Response(b'toy!'),0,3,100,'toy-etag',ledger),b'toy!')
@@ -281,6 +295,135 @@ class PilotTests(unittest.TestCase):
             self.assertEqual(out['saved_videos'],2)
             self.assertNotIn('SYNTHETIC-A',json.dumps(out))
             self.assertEqual(out['CASE_CONTROL'],'LENGTH_APPROX_MATCH')
+
+    def test_proxy_pollution_does_not_discover_or_install_proxy(self):
+        with mock.patch.dict(os.environ,{'HTTPS_PROXY':'http://invalid.example:1',
+             'HTTP_PROXY':'http://invalid.example:1','ALL_PROXY':'http://invalid.example:1',
+             'https_proxy':'http://invalid.example:1','http_proxy':'http://invalid.example:1'}), \
+             mock.patch('urllib.request.getproxies',side_effect=AssertionError('PROXY_DISCOVERY')) as discovery:
+            opener=build_media_opener()
+        discovery.assert_not_called()
+        self.assertFalse(any(getattr(h,'proxies',{}) for h in opener.handlers))
+
+    def test_windows_system_proxy_functions_never_queried(self):
+        with mock.patch('urllib.request.getproxies',side_effect=AssertionError('SYSTEM_PROXY')) as combined, \
+             mock.patch('urllib.request.getproxies_registry',create=True,side_effect=AssertionError('REGISTRY_PROXY')) as registry, \
+             mock.patch('urllib.request.getproxies_environment',side_effect=AssertionError('ENV_PROXY')) as environment:
+            RangeClient(Ledger(),100,'toy-etag')
+        combined.assert_not_called(); registry.assert_not_called(); environment.assert_not_called()
+
+    def test_default_tls_verified_and_insecure_context_refused(self):
+        opener=build_media_opener()
+        https=next(h for h in opener.handlers if isinstance(h,urllib.request.HTTPSHandler))
+        self.assertTrue(https._context.check_hostname)
+        self.assertEqual(https._context.verify_mode,ssl.CERT_REQUIRED)
+        unsafe=ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT); unsafe.check_hostname=False; unsafe.verify_mode=ssl.CERT_NONE
+        with mock.patch('charades_range_media_clock_pilot.ssl.create_default_context',return_value=unsafe):
+            with self.assertRaisesRegex(PilotError,'TLS_VERIFICATION_REQUIRED'): build_media_opener()
+
+    def test_redirect_301_302_307_308_never_reads_body(self):
+        request=fixed_request(PAGE,'GET',{'Accept-Encoding':'identity'})
+        handler=NoRedirect()
+        for code in (301,302,307,308):
+            response=Response(b'SYNTHETIC REDIRECT')
+            with self.assertRaisesRegex(PilotError,'REDIRECT_FORBIDDEN'):
+                getattr(handler,'http_error_'+str(code))(request,response,code,'SYNTHETIC',{'location':URL})
+            self.assertEqual(response.calls,0)
+
+    def test_exact_https_url_and_method_allowlist(self):
+        headers={'Accept-Encoding':'identity'}
+        for source in (PAGE,LICENSE): self.assertEqual(fixed_request(source,'GET',headers).full_url,source)
+        self.assertEqual(fixed_request(URL,'HEAD',headers).get_method(),'HEAD')
+        for source,method in ((PAGE.replace('https:','http:'),'GET'),
+              (URL.replace('https:','http:'),'HEAD'),(URL+'?override=1','HEAD'),
+              ('https://invalid.example/media.zip','HEAD'),(PAGE,'HEAD'),(LICENSE,'POST'),(URL,'POST')):
+            with self.assertRaisesRegex(PilotError,'SOURCE_OR_METHOD'): fixed_request(source,method,headers)
+
+    def test_media_get_requires_bounded_range_and_identity(self):
+        good={'Accept-Encoding':'identity','Range':'bytes=0-3','If-Range':'toy-etag'}
+        self.assertEqual(fixed_request(URL,'GET',good).get_header('Range'),'bytes=0-3')
+        for changes in ({'Range':''},{'Range':'bytes=0-'},{'Range':'bytes=3-0'},
+                        {'If-Range':''},{'If-Range':'bad\r\nvalue'},{'Accept-Encoding':'gzip'}):
+            with self.assertRaises(PilotError): fixed_request(URL,'GET',dict(good,**changes))
+
+    def test_shared_opener_for_page_license_head_and_range(self):
+        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); seen=[]
+        def respond(request,**kwargs):
+            seen.append((request.full_url,request.get_method()))
+            if request.get_method()=='HEAD':
+                response=Response(b'',status=200,headers={'Content-Length':'100','Content-Type':'application/zip','ETag':'toy-etag'})
+            elif request.full_url in (PAGE,LICENSE):
+                response=Response(b'toy!',status=200,headers={'Content-Length':'4','Content-Encoding':'identity'})
+                response.geturl=lambda:request.full_url
+            else: response=Response(b'toy!')
+            return response
+        with mock.patch.object(client.opener,'open',side_effect=respond) as shared:
+            self.assertEqual(client.text(PAGE,8),b'toy!')
+            self.assertEqual(client.text(LICENSE,8),b'toy!')
+            with client.opener.open(fixed_request(URL,'HEAD',{'Accept-Encoding':'identity'}),timeout=30) as head:
+                self.assertEqual(head.status,200); self.assertEqual(head.calls,0)
+            self.assertEqual(client.get(0,3),b'toy!')
+            self.assertEqual(shared.call_count,4)
+        self.assertEqual(seen,[(PAGE,'GET'),(LICENSE,'GET'),(URL,'HEAD'),(URL,'GET')])
+        self.assertEqual(ledger.state['body_bytes'],12)
+
+    def test_range_client_error_status_and_source_no_body(self):
+        for status in (200,416,302):
+            ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'SYNTHETIC',status=status)
+            with mock.patch.object(client.opener,'open',return_value=response):
+                with self.assertRaises(PilotError): client.get(0,3)
+            self.assertEqual(response.calls,0); self.assertEqual(ledger.state['body_bytes'],0)
+            self.assertEqual(ledger.state['events'][-1]['status'],'STOPPED')
+        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'toy!')
+        response.geturl=lambda:'https://invalid.example/media.zip'
+        with mock.patch.object(client.opener,'open',return_value=response):
+            with self.assertRaises(PilotError): client.get(0,3)
+        self.assertEqual(response.calls,0)
+
+    def test_text_error_status_encoding_and_size_no_body(self):
+        for status,headers in ((302,{'Content-Length':'4'}),(200,{'Content-Length':'4','Content-Encoding':'gzip'}),
+                              (200,{}),(200,{'Content-Length':'40'})):
+            ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'toy!',status=status,headers=headers)
+            response.geturl=lambda:PAGE
+            with mock.patch.object(client.opener,'open',return_value=response):
+                with self.assertRaises(PilotError): client.text(PAGE,8)
+            self.assertEqual(response.calls,0); self.assertEqual(ledger.state['body_bytes'],0)
+            self.assertEqual(ledger.state['events'][-1]['status'],'STOPPED')
+
+    def test_text_unknown_source_stops_before_open_or_ledger(self):
+        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag')
+        with mock.patch.object(client.opener,'open') as opener:
+            with self.assertRaises(PilotError): client.text('https://invalid.example/license',8)
+        opener.assert_not_called(); self.assertEqual(ledger.state['get_attempts'],0)
+
+    def test_client_partial_failure_budget_not_reset(self):
+        ledger=Ledger(); client=RangeClient(ledger,100,'toy-etag'); response=Response(b'to')
+        with mock.patch.object(client.opener,'open',return_value=response):
+            with self.assertRaisesRegex(PilotError,'TRUNCATED'): client.get(0,3)
+        self.assertEqual(ledger.state['body_bytes'],2); self.assertEqual(ledger.state['get_attempts'],1)
+        good=Response(b'toy!')
+        with mock.patch.object(client.opener,'open',return_value=good): self.assertEqual(client.get(0,3),b'toy!')
+        self.assertEqual(ledger.state['body_bytes'],6); self.assertEqual(ledger.state['get_attempts'],2)
+
+    def test_completed_013_protected_even_when_still_ready(self):
+        with tempfile.TemporaryDirectory() as folder:
+            docs=pathlib.Path(folder); (docs/'docs').mkdir()
+            (docs/'docs/next-steps.md').write_text('| VLM-BATCH-013 | P1 | **READY** | synthetic |')
+            (docs/'docs/codex-results.md').write_text('### VLM-BATCH-013 completed\n')
+            with self.assertRaisesRegex(PilotError,'ALREADY_REPORTED'): authorize_parent('VLM-BATCH-013',docs)
+
+    def test_static_network_entry_inventory_has_no_fallback(self):
+        source=pathlib.Path(__file__).with_name('charades_range_media_clock_pilot.py').read_text(encoding='utf-8')
+        tree=ast.parse(source)
+        attrs=[n.func.attr for n in ast.walk(tree) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute)]
+        self.assertEqual(attrs.count('build_opener'),1)
+        self.assertEqual(attrs.count('Request'),1)
+        self.assertNotIn('urlopen',attrs)
+        nodes={n.name:n for n in tree.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}
+        factory=ast.unparse(nodes['build_media_opener'])
+        self.assertIn('ProxyHandler({})',factory); self.assertIn('create_default_context()',factory)
+        for name in ('RangeClient','run_pilot'):
+            text=ast.unparse(nodes[name]); self.assertIn('fixed_request(',text); self.assertIn('.opener.open(',text)
 
 
 if __name__=='__main__': unittest.main()

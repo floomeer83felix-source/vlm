@@ -313,3 +313,24 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 资源：015新增HEAD2/GET2（探测1B+后缀101,660,876B），014+015总HEAD5/GET6，重试0；继承13,186,907B，新增101,660,877B，总114,847,784B≤157,286,400B，剩余42,438,616B，未新增额度。最终私有6文件逻辑字节220,068,317B，新ledger1,823B/旧ledger574B，无 `.next`残留；完整原part不改名/不删。峰值逻辑和含提取原子发布两个硬链接名的保守重复计数，不能称物理磁盘分配峰值；另1MiB涵盖瞬时账本，不隐瞒计量边界。
 
 强ETag与1字节探测只证明本次对象稳定/边界一致；完整发布方SHA才验证现存旧前缀和新后缀共同组成冻结包。发布方同站SHA不是独立签名或无恶意软件保证，版本检查不是媒体时钟/语义真值。0 Charades请求/媒体Range/视频/STA/标注/特征/模型下载，0 PTS/视觉解码/画面或动作人工核验/GPU/模型/QA/训练，0原科研环境/Python/PyTorch/CUDA/Conda/PATH/旧CSV ZIP/旧账本/旧源码/任务书或总体总结改动，0外部联系/PR/后台调度。私有ETag/部分指纹/exe SHA/本地ledger/工具包/exe不上传；只提交规定5处，正常push后停止，保留原聊天等待ChatGPT审查，不解除旧媒体代理门或自动执行新任务。
+
+### VLM-BATCH-016 2026-10-10 — 媒体客户端禁代理代码修复，40项纯合成PASS；真实媒体NOT_RUN
+
+独立docs checkout安全fast-forward至main `c6a3149`，重读AGENTS/最新任务与结果/016合同/013原合同和媒体源码及测试，核唯一READY=016、无既有结果。仅[HTTP代理威胁与修复](codex-artifacts/VLM-BATCH-016/media-http-proxy-threat-and-fix.md)、[合成收据与科学门](codex-artifacts/VLM-BATCH-016/code-only-test-and-science-gate.md)、[媒体协调器](../prototypes/charades_range_media_clock_pilot.py)、[其合成测试](../prototypes/test_charades_range_media_clock_pilot.py)和本条5处，不重跑013/014/015，不改其历史或工具资产。
+
+| 合同八项 | 状态及证据 |
+|---|---|
+| 1 | DONE：干净独立checkout安全同步、单READY/无重复结果、指定文件已读 |
+| 2 | DONE：项目页/许可GET、固定媒体ZIP HEAD和所有Range共用原默认ProxyHandler风险；静态核工具入口、响应/预算/任务守卫，未读取实际代理配置 |
+| 3 | DONE：新增唯一build_media_opener，ProxyHandler({})/默认验证TLS/NoRedirect；新增fixed_request精确三官方HTTPS URL/方法，禁整包媒体GET/未知源/编码，所有网络路径共享安全实例；显式308拒绝兼容当前Python |
+| 4 | DONE：原27方法AST完全保留、新增13，总40；首轮38 PASS/1 FAIL/1 ERROR/0 SKIP，suite3.605秒；308别名缺失与空headers夹具问题修正，最终40 PASS、0 FAIL/ERROR/SKIP，suite3.724秒 |
+| 5 | DONE：现有Python -B仅运行合成unittest，setUp阻断未mock网络和subprocess；0真实preflight/execute/ffprobe/HTTP/工具或视频读取 |
+| 6 | DONE：AST常量完全一致；既有节点只NoRedirect/RangeClient/run_pilot的网络入口有差异，其余函数/类不变；64MiB/128MiB/12次/两例、源SHA、隔离、ZIP/CRC/时钟和ffprobe参数未变 |
+| 7 | DONE：仅两报告+媒体代码/测试两处修改+本条结果，未上传代理值/映射/真实数据/日志/工具或私人路径 |
+| 8 | DONE：MEDIA_CLIENT_PROXY_POLICY CODE_LEVEL_VERIFIED；REAL_MEDIA_RANGE_206 UNKNOWN，V1_MEDIA_ACCESS NOT_RUN，科学B/C HOLD、GPU BLOCKED，提交后停止 |
+
+新增反例覆盖代理环境污染、Windows combined/env/registry代理发现函数mock异常且不调用、TLS与不安全context、301/302/307/308读前拒绝、精确URL/方法与有界Range/If-Range、四条路径共享opener、200/416/源变化、文本编码/大小/未知源读前停止、失败字节与预算不重置、已完成013即便仍READY也拒绝、无备用Request/urlopen入口。原27项的ZIP64/CRC/路径/两例/账本/时钟与mock协调流程不删改。测试只处理虚构BytesIO/ZIP/MP4/mock ffprobe及合成临时文件，没有读取已部署CPU工具或任何真实视频。
+
+本轮研究HTTP GET/HEAD/Range（Charades页面、许可、媒体及Gyan）全部0，正文0B、真实媒体落盘0、真实ffprobe调用0、PTS/画面解码/人工动作核验/GPU/模型0；GitHub文档Git同步和推送仅属授权交接。0原科研目录/Conda/Python/PyTorch/CUDA/PATH/系统代理/工具隔离包与账本/原CSV ZIP变更，0外部联系/PR/后台调度。CPU工具可用仅沿015已验收报告，本轮未重新验证；A沿012限域，B时间质量/C事件真值HOLD、Charades单独长域FAIL、创新RETAIN0。
+
+边界如实保留：旧默认预检先调用ffprobe版本；执行父任务门是READY/既有结果/README关键字检查，不能解析完整许可语义；媒体ledger仍读取后add，未升级015式读前保守计费。本轮不运行这些真实入口、不扩大代理修复为完整媒体访问GO；后续须独立任务审查执行门、记账与真实服务。正常push后停止，保留原聊天等待ChatGPT验收，不自动创建017或启动媒体。

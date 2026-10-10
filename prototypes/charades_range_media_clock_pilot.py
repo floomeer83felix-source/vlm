@@ -10,6 +10,7 @@ import os
 import pathlib
 import re
 import shutil
+import ssl
 import stat
 import struct
 import subprocess
@@ -110,6 +111,30 @@ def validate_range(status,headers,start,end,total,etag,final_url):
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,*args,**kwargs): raise PilotError('REDIRECT_FORBIDDEN')
+    # Python 3.9 lacks a 308 alias; reject it explicitly under the same policy.
+    http_error_308=urllib.request.HTTPRedirectHandler.http_error_302
+
+
+def build_media_opener():
+    """One policy for page/license, media HEAD and every Range; no proxy discovery."""
+    context=ssl.create_default_context()
+    if not context.check_hostname or context.verify_mode!=ssl.CERT_REQUIRED:
+        raise PilotError('TLS_VERIFICATION_REQUIRED')
+    return urllib.request.build_opener(urllib.request.ProxyHandler({}),
+        urllib.request.HTTPSHandler(context=context),NoRedirect())
+
+
+def fixed_request(url,method,headers):
+    """Exact official endpoints/methods only; never issue a full media ZIP GET."""
+    allowed={PAGE:('GET',),LICENSE:('GET',),URL:('HEAD','GET')}
+    if url not in allowed or method not in allowed[url]: raise PilotError('REQUEST_SOURCE_OR_METHOD_FORBIDDEN')
+    if headers.get('Accept-Encoding')!='identity': raise PilotError('REQUEST_ENCODING_FORBIDDEN')
+    if url==URL and method=='GET':
+        match=re.fullmatch(r'bytes=(\d+)-(\d+)',headers.get('Range',''))
+        etag=headers.get('If-Range','')
+        if not match or int(match[1])>int(match[2]) or not etag or '\r' in etag or '\n' in etag:
+            raise PilotError('MEDIA_GET_REQUIRES_RANGE')
+    return urllib.request.Request(url,method=method,headers=headers)
 
 
 def read_response(response,start,end,total,etag,ledger):
@@ -129,11 +154,11 @@ def read_response(response,start,end,total,etag,ledger):
 class RangeClient:
     def __init__(self,ledger,total,etag):
         self.ledger=ledger; self.total=total; self.etag=etag
-        self.opener=urllib.request.build_opener(NoRedirect())
+        self.opener=build_media_opener()
     def get(self,start,end):
         if not 0<=start<=end<self.total: raise PilotError('RANGE_OBJECT_BOUNDS')
         self.ledger.begin(start,end)
-        request=urllib.request.Request(URL,headers={'Range':'bytes='+str(start)+'-'+str(end),
+        request=fixed_request(URL,'GET',headers={'Range':'bytes='+str(start)+'-'+str(end),
                                       'Accept-Encoding':'identity','If-Range':self.etag})
         try:
             with self.opener.open(request,timeout=30) as r:
@@ -145,7 +170,7 @@ class RangeClient:
         if url not in (PAGE,LICENSE): raise PilotError('TEXT_SOURCE_FORBIDDEN')
         self.ledger.begin(0,limit-1)
         try:
-            with self.opener.open(urllib.request.Request(url,headers={'Accept-Encoding':'identity'}),timeout=30) as r:
+            with self.opener.open(fixed_request(url,'GET',{'Accept-Encoding':'identity'}),timeout=30) as r:
                 if r.status!=200 or r.geturl()!=url or r.headers.get('Content-Encoding','identity').lower()!='identity':
                     raise PilotError('TEXT_RESPONSE_CHANGED')
                 length=r.headers.get('Content-Length')
@@ -538,7 +563,7 @@ def run_pilot(execute=False,parent='VLM-BATCH-013'):
         license_body=client.text(LICENSE,16*1024)
         if hashlib.sha256(license_body).hexdigest()!='a734f9263490d2a0567da2e39f109f3cf535896e4efb91caaefa27644ac628f0':
             raise PilotError('OFFICIAL_LICENSE_CHANGED')
-        with client.opener.open(urllib.request.Request(URL,method='HEAD',headers={'Accept-Encoding':'identity'}),timeout=30) as head:
+        with client.opener.open(fixed_request(URL,'HEAD',{'Accept-Encoding':'identity'}),timeout=30) as head:
             if head.status!=200 or head.geturl()!=URL or 'zip' not in head.headers.get('Content-Type','').lower(): raise PilotError('HEAD_SOURCE_UNVERIFIED')
             total=int(head.headers['Content-Length']); etag=head.headers.get('ETag')
             if total<=0 or not etag: raise PilotError('HEAD_SIZE_ETAG_UNKNOWN')
