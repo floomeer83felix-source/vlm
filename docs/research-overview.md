@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；BATCH020静态结果已结案，用户批准停止连环文档任务并转向有条件真实长视频基线试验；0READY/无新增GPU授权）  
+> 更新：2026-10-10（北京时间；用户批准一次条件式真实长视频配对试验，VLM-REAL-PILOT-001唯一READY；先许可/资产/锁门，全PASS后最多48次Qwen与120分钟GPU，尚未实际执行）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -107,6 +107,7 @@
 | BATCH018之后长域科研方向选择 VLM-RESEARCH-POST018-DIRECTION | **USER_APPROVED_STATIC_LONGVIDEO_SCREEN（仅公开网页，无媒体）** | 用户、ChatGPT |
 | 六长视频资源与原创机制公开静态审查 BATCH-019 | **ACCEPTED_STATIC_DELIVERABLES / NO_DATA_OR_NOVELTY_GO（非READY）** | Codex执行、ChatGPT验收 |
 | H1强先例与Ego4D/HourVideo合法同版桥接 BATCH-020 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / DATA_HOLD（非READY）** | Codex执行、ChatGPT静态验收 |
+| 唯一条件式真实长视频配对基线 VLM-REAL-PILOT-001 | **READY（待Codex实际触发：先限域合法数据与锁预检，全PASS才运行）** | Codex执行、ChatGPT验收 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -580,6 +581,12 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **事实和责任**：20个阶段虽交付了安全与许可审计，但没有真正自然长视频的有界模型配对实测、新颖核心算子或可发表效果；ChatGPT之前过度把风险审查拆成连续文档任务，未及时调整策略。用户指出缺少实质性进展并同意终止旧路径。GitHub上BATCH020已由Codex[提交fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)，不能当作未执行而删除，静态交付按范围结案，不再补做或开021类文献审查。020报告普通H1联合时间风险策略被正确映射+区间并集+COVER+弃答强零假说覆盖，`H1_NOVELTY_NO_GO`；Ego4D/HourVideo协议、同版媒体与长域真值门仍HOLD。没有GPU/模型/媒体实测。
 
 **新唯一工作计划不是READY**：[experiment-first-reset-2026-10-10.md](./experiment-first-reset-2026-10-10.md)。目标是**首次真正长视频固定模型配对基线结果**，只在后续独立许可范围内对用户已合法持有/明确授权的数据做资格预检，通过后才可能按建议的12个不同≥20min视频×2合法QA、Qwen3-VL-4B-Instruct冻结、均匀12帧对照现存SigLIP≤12帧检索进行最多48次前向；全调用/选帧预计算/wallclock/峰值显存计量、纠错/误伤/失败全分母、按视频不确定区间。旧本地MLVU是否存在、可否访问、许可/版本/长时子集**均待证**，不能因论文条款直接调用。若没有合法真实长视频或QA真值则0GPU STOP，不自行另找下载和无限出报告。此轮仅GitHub规划，未进行本地清点、视频解码、模型运行；用户的“好的”**不等于私有资产或GPU使用批准**。不把旧选帧、普通H1/H2/H3当创新；须先发现可重现且强已有baseline不能解释的真实现象，再考虑一个独立新机制和外域核验。Charades FINAL_MEDIA_STOP、B/C HOLD、NOVELTY RETAIN0、GPU BLOCKED持续；当前0 READY，不自动安排下一执行批次。
+
+### 2026-10-10 · 用户放行一次有硬停条件的真实长视频配对实验（最新）
+
+用户在确认前20轮未产生真正长视频科研成果，并收到[实验优先方案](./experiment-first-reset-2026-10-10.md)和明确的**单轮本地已持有资产预检、最多48次Qwen前向、GPU最长120分钟**上限后回复“可以，快开始吧”。ChatGPT据此下达[唯一READY：VLM-REAL-PILOT-001合同](./codex-artifacts/VLM-REAL-PILOT-001/README.md)。这是新一次明确**有条件**的既有合法私有材料限域只读资格核实和全部门通过后的GPU许可，**不是**从GitHub可判断已有合法可用MLVU源、标准答案和3090独占锁；也不意味着已经运行。
+
+预检必须先冻结真实12段≥20min独立自然长视频×2个已有可评分QA（共24题）和权益/媒体版本/QA隔离/没有旧started的证明；优先有可信旧登记的MLVU本地材料，但不许凭研究仓库假设存在/可访问，不广域扫描任何私人根。之后才在原本地冻结Qwen3-VL-4B与已有SigLIP、12帧Qwen输入上限下做均匀vs检索两臂（总≤48次Qwen启动、总GPU时间≤120分钟），记录计费尝试、纠错/误伤/所有失败、群组时长及总时延/峰值显存。缺版权或标签同版、无法安全取得OS排他锁/原模型、任何重要门UNKNOWN即严格STOP且0GPU；报告一个脱敏阻塞收据，不得把数据/模型下载或旧Charades素材当备份方案。Codex只允许公有docs两文件：本父任务汇总报告+旧结果尾部1段，正常push后退出，非自动重复试验。此实验仅寻求真实诊断现象，`NOVELTY=RETAIN0`、H1/H2/H3普通机制NO_GO、Charades`FINAL_MEDIA_STOP`持续有效。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
