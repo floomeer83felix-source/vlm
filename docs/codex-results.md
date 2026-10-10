@@ -422,3 +422,13 @@ Python3.9.21；本轮指定合成suite1次21 PASS、0 FAIL/ERROR/SKIP，0.034秒
 公开阅读日2026-10-10：Ego4D官方入口/schema/videos/updates/伦理/EM、HourVideo README/LICENSE/辅助源码网页、COVER v1全文HTML、Grounding with Confidence v3全文HTML、Explicit Abstention v2全文HTML、VideoMind项目及EV²-Bench正式AAAI摘要；新增非单调CRC仅原摘要。不把项目/摘要层称全文、投稿AAAI2027称录用、公开schema称真实同钟。COVER已讨论宽度筛选后覆盖失效；两个反例只否定无额外信息的唯一版本/紧定位认证，不否定并集的粗包含或拒答。H1_NOVELTY_NO_GO是普通机制组合否决，不是整个时间研究领域不可能创新。NOVELTY=RETAIN0。
 
 0媒体/帧/音频/字幕/标注/QA实体/模型/论文PDF文件下载，0私有实验树/CSV/视频/PTS/旧ledger访问，0研究脚本/tests/toy/ffprobe/解码/模型/GPU/训练运行，0环境或代码修改、注册/登录/协议签署/凭据申请/对外联系/付费API/云算力/后台任务。网络仅公开静态HTML及授权Git交接，Markdown验证属于提交检查；沿用文献综述技能证据结构，不运行技能脚本/制图/PDF。Charades FINAL_MEDIA_STOP和018 CLOCK_UNKNOWN及历史负结果保持。四处普通push后停止，保留当前聊天等待ChatGPT科研验收。
+
+### VLM-REAL-PILOT-001 2026-10-10 — NO_ELIGIBLE_DATA_STOP / PREFLIGHT_BLOCKED；Qwen 0、GPU 0秒
+
+独立公有docs checkout干净并安全fast-forward至main `1886254`，重读AGENTS/任务板/总览/结果/本轮README/实验优先方案及VLM-001既有审计，确认唯一READY父任务及无本ID历史回报。沿已登记原工作区MLVU范围只读核README、来源收据及直接相关目录/文件存在性元信息，没有递归或扩大私人扫描。仅提交[一次性配对实验阻塞收据](codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)及本条，恰好2处；计划/总览/历史报告/源码不改。
+
+A1 PASS；A2可信子树定位PASS（不等于数据合格）；A3(a) UNKNOWN：既有镜像/官方hash/项目研究用途登记不足以认证本轮目标第三方原媒体权利人授权及推理/本地评分用途，标注/manifest存在性也不等于答案、同版媒体和使用权利均已核。按README任一关键门UNKNOWN即STOP，在此停止，不以项目级许可替代源视频权利。A3(b)原生时长、(c)同版QA评分、(d)12不同视频×2题/30分钟分层、(e)历史started隔离、(f)模型就绪及A4现场GPU/OS锁均NOT_RUN/UNKNOWN，不能写PASS或诊断为GPU故障。A5新run/manifest/ledger及B两臂实验未执行。
+
+Qwen启动/前向尝试0/48，SigLIP/候选编码0，本任务GPU运行累计0秒/7200秒，视频探测/像素解码/观看0，数据/标注/权重/工具下载0，私有新实验文件0；未申请GPU锁、删锁、杀进程、修改原ledger/research_state/数据/模型/环境。合同计划24对题但没有实际冻结选集，A/B评分、纠错/误伤、聚类CI、时长分层、token/显存/策略时延均N/A，不伪造24题实测。不读题文/选项/标准答案、旧私人答案日志或Charades资产；不注册/签约/联系/使用云API/后台续作。网络仅授权公有Git交接。
+
+阻塞说明及未测门完整保留于收据；UNKNOWN不是媒体违法判定，也不证明本机没有合格长视频或两策略无差异。未出现真实科研现象，NOVELTY=RETAIN0、Charades FINAL_MEDIA_STOP及历史不可重跑保持。正常push一次后停止，保留本聊天等待ChatGPT验收，不自行开启第二批、扩权或下载。
