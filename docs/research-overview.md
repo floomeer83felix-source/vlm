@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-11（北京时间；HourVideo开发集标注层实测50视频/1182题、50段≥20min与至少2题，41段≥30min，12×2题标注候选达标；VLM-HOURVIDEO-DEV-001交付验收结案，0 READY，等待Ego4D官方媒体批准与同版验证）  
+> 更新：2026-10-11（北京时间；HourVideo开发标注50视频/1182题已结案并满足12×2容量；Ego4D视频访问仍待批准；用户新批准唯一纯CPU/虚构数据Codex工程READY VLM-SYNTH-AB-HARNESS-001，交付可运行A/B/评分/安全恢复测试，不读取真实QA/视频，0模型/GPU）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -109,6 +109,7 @@
 | H1强先例与Ego4D/HourVideo合法同版桥接 BATCH-020 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / DATA_HOLD（非READY）** | Codex执行、ChatGPT静态验收 |
 | 一次性长视频配对基线 VLM-REAL-PILOT-001 | **CLOSED_SAFE_STOP / SOURCE_RIGHTS_UNKNOWN / 0GPU（非READY）** | Codex执行、ChatGPT验收静态交付 |
 | HourVideo真实本地开发集资格VLM-HOURVIDEO-DEV-001 | **ACCEPTED_ANNOTATION_ONLY / MEDIA_AND_VERSION_HOLD（非READY）** | Codex执行，ChatGPT验收GitHub交付 |
+| 虚构12视频×2题A/B配对工程代码VLM-SYNTH-AB-HARNESS-001 | **READY（合成CPU代码与测试；不是真实模型实验）** | Codex实现，ChatGPT验收后裁决 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -610,6 +611,12 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 [本轮原生提交da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e)相对于Codex启动基线80f9c01只新增[匿名实测报告](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)56行及`codex-results.md`追加10行，两处Markdown、无代码/原始标注提交/原科研树变动。ChatGPT接受**按任务权限范围的交付**。Codex真实Windows执行者报告：对用户合法自HF gated仓库获得的`dev_v1.0_annotations.json`精确定位、只读JSON解析一次，完全虚构自检1次PASS且真实分析exit0；50视频记录、1182题字段结构/标签域合规、所有50条标注视频≥20分钟且每条≥2个有答案题、其中41条≥30分钟，满足24题（12视频×2道）及4视频≥30分钟**标注层最低数量**。错误/重复/无效拒绝0，未生成任何私有选择文件、工具无改动。Sha不变/执行次数/0模型GPU为执行者申报，不冒充ChatGPT直接访问Windows原文件。
 
 重要科学边界：工具只核对字段、答案标签范围与标注声明时长，**不核原视频文件或PTS、相同物理来源的重复、真实证据时间、QA答案语义正确性、完整选项解析、正式release digest或数据污染**。不同视频metadata UID并非不同物理原生长视频的独立性证明；`ANNOTATION_CAPACITY=PASS_ON_METADATA`不代表媒体/学术真值或算法创新GO。Ego4D用户已展示个人签署成功，但仍未展示官方AWS访问批准；视频下载与HourVideo QAs同版本映射、文件大小/版权和历史已started隔离未过门。**科研下一步不应重做标注审计**，而应等待Ego4D官方批准后由用户批准范围有限的视频ID映射、最小合法样本下载、隔离的配对基线与单次GPU预算。现0 READY，无法从本次核验中推断模型实验通过或可自动使用原48次许可。其他候选核心算法仍RETAIN0，Charades FINAL_MEDIA_STOP和REAL-PILOT-001安全止损不变。
+
+### 2026-10-11 · Ego4D批准前只开发可测试的配对运行器（最新）
+
+用户确认官方Ego4D视频审批尚未收到，HourVideo官方开发集本地已完成50视频/1182题标注结构数量验收。为避免再次陷于空泛文档，用户批准由**原同一个Codex会话**承担[唯一READY VLM-SYNTH-AB-HARNESS-001](./codex-artifacts/VLM-SYNTH-AB-HARNESS-001/README.md)：交付**新的、实际能运行的纯stdlib Python合成runner/unittest**，证明虚构12长视频×每视频2题、同帧数A均匀采样/B query-aware候选选择、答案不进入选择器、固定24题×2臂、无效计分与视频级汇总、模拟调用成本分列、STARTED/TERMINAL原子账本可恢复及预算/重复/冲突拒绝。原型测试必须实际运行并报告通过/失败，不允许用只有计划文档或手工捏造分数替代。公众Git仅上传纯虚构源码+合成单测+匿名运行收据+一条尾部结果。全程不进入Windows原私有科研工作区，不读受限HourVideo JSON、不下载Ego4D视频、不运行SigLIP/Qwen/GPU、不改变旧ledger/Conda/lock。
+
+合成自检`SYNTHETIC_HARNESS_PASS`可证明工程契约准备程度，**不能判断自然长视频真实性、合法媒体映射、基准正确率或科学新颖性**。Ego4D用户签署成功≠已获官方AWS访问，仍需审批；取得批准后另行收紧媒体使用、UID视频对应、真实Qwen/SigLIP接口/预算及GPU锁，经用户独立同意方能尝试真正实验。当前`NOVELTY=RETAIN0`、旧REAL-PILOT SAFE_STOP与Charades FINAL_MEDIA_STOP均不变。本任务Codex尚未开始，需用户主动触发。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
