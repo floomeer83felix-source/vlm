@@ -432,3 +432,13 @@ A1 PASS；A2可信子树定位PASS（不等于数据合格）；A3(a) UNKNOWN：
 Qwen启动/前向尝试0/48，SigLIP/候选编码0，本任务GPU运行累计0秒/7200秒，视频探测/像素解码/观看0，数据/标注/权重/工具下载0，私有新实验文件0；未申请GPU锁、删锁、杀进程、修改原ledger/research_state/数据/模型/环境。合同计划24对题但没有实际冻结选集，A/B评分、纠错/误伤、聚类CI、时长分层、token/显存/策略时延均N/A，不伪造24题实测。不读题文/选项/标准答案、旧私人答案日志或Charades资产；不注册/签约/联系/使用云API/后台续作。网络仅授权公有Git交接。
 
 阻塞说明及未测门完整保留于收据；UNKNOWN不是媒体违法判定，也不证明本机没有合格长视频或两策略无差异。未出现真实科研现象，NOVELTY=RETAIN0、Charades FINAL_MEDIA_STOP及历史不可重跑保持。正常push一次后停止，保留本聊天等待ChatGPT验收，不自行开启第二批、扩权或下载。
+
+### VLM-HOURVIDEO-DEV-001 2026-10-11 — ANNOTATION_ONLY_CANDIDATE；50视频/1182题，标注层12视频24题条件满足
+
+独立公有docs安全fast-forward至main `80f9c01`，确认唯一READY、无既有父回报，重读AGENTS/任务板/总览/结果/README/等待期说明及现有工具。按用户最新指定的下载位置仅顶层精确模式定位1个既有目标文件，1,854,695字节；未扩展目录扫描。仅提交[本地标注资格匿名收据](codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)及本条，共2处；真实字段兼容，无工具补丁。
+
+六项实测：JSON可解析PASS；识别50个视频记录；≥20分钟且每视频≥2有效有答案QA共50；其中≥30分钟41；工具可形成12个不同标注记录各2题（24题），含至少4段≥30分钟；工具拒绝计数0。1182个问题记录的qid/question/mcq_test/correct_answer_label均为字符串，元数据时长50个float；mcq_test符合原字符串要求，不需修复或推断答案。标签域/非空字段检查、视频内与跨视频qid去重无拒绝，不等于答案语义已复判或五选项文本完整解析。
+
+先跑现有虚构自检1次，SELF_TEST_PASS（2个合成案例），再核真实字段类型并运行真实--annotations 1次，exit0；补充重跑0，总真实分析1/最多2。原JSON SHA前后相同、digest仅内部内存；未改/移/复制JSON或canary、不输出QA/选项/正确标签取值/UID/qid/私人路径或hash。默认无--private-selection，无私有选集文件，仅工具内存候选计数。
+
+状态只为ANNOTATION_ONLY_CANDIDATE：时长是标注声明，媒体存在、同版映射/PTS、物理源独立性、真实答案语义、官方发布digest/版本、Ego4D媒体批准及GPU锁/成本仍未认证。HourVideo访问获准及下载来自用户确认，本轮未独立登录；签署Ego4D协议不等于媒体批准。0GPU/模型/SigLIP/Qwen/训练/媒体解码/ffprobe/研究数据或标注下载，0原实验树/模型/旧账本/锁/状态触碰，0安装/环境修改/账号凭据/API/后台任务。正常push后停止保留聊天等待ChatGPT验收，不自动媒体获取或GPU试验；NOVELTY RETAIN0、旧任务结案和Charades FINAL_MEDIA_STOP保持。
