@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-11（北京时间；VLM-HOURVIDEO-DEV-001真实本机开发标注检查已验收：50视频记录、1182道字段有效有答案题、其中50段标注≥20min且各≥2题、41段≥30min；12×2题标注层达标，任务已结案，当前0 READY；Ego4D媒体访问批准与同版实际视频未获证，0GPU/0模型）。
+> 更新日期：2026-10-11（北京时间；Ego4D官方媒体批准尚待；用户同意等待期仅用虚构数据完成A/B配对运行器、评分与断点恢复，现唯一READY=VLM-SYNTH-AB-HARNESS-001；0真实QA/视频读取下载，0模型/GPU；前次HourVideo开发标注50视频1182题已验收结案）。
 
 ## 一、任务看板
 
@@ -46,11 +46,12 @@
 | VLM-BATCH-020 | P1 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / LEGAL_BRIDGE_HOLD（已结案非READY）** | Codex，ChatGPT审查 | [fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)：三份公开Markdown审查报告和结果追加，提交范围符合合同；普通H1组合无新算子，Ego4D↔HourVideo权利及同版时间映射未闭合 | 静态交付结案，不补跑、不自动021。用户已决定终止连续文档微批次，转向[单次实验优先提案](./experiment-first-reset-2026-10-10.md)；没有新的视频、标注、模型或GPU授权，NOVELTY=RETAIN0 |
 | VLM-REAL-PILOT-001 | P0 | **CLOSED_SAFE_STOP（PRECHECK_ONLY / NO_ELIGIBLE_DATA_STOP / GPU0，非READY）** | Codex执行，ChatGPT静态验收 | [272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)仅提交[阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)+codex-results尾部父回报；既有可信MLVU子树存在性核过，A3(a)本轮源媒体使用权利UNKNOWN并即STOP | 48次计划Qwen实际0、120分钟计划GPU实际0秒；视频/QA身份、锁和模型均NOT_RUN，不推导非法/无数据或算法负结果。实验父任务已消费、不可直接重跑；[官方MLVU使用条款](https://github.com/JUNJIE99/MLVU)研究非商用/CC-BY-NC-SA但原视频权利保留，[官方HF访问页](https://huggingface.co/datasets/MLVU/MVLU)设访问条件；既有镜像receipt不等于接受官方门、使用权已核。下一步需用户另行明确合法来源/用途证据或选择新合规来源；0 READY，禁自动新下载/GPU |
 | VLM-HOURVIDEO-DEV-001 | P0 | **ACCEPTED_ANNOTATION_ONLY / MEDIA_AND_VERSION_HOLD（已结案非READY）** | Codex，ChatGPT验收GitHub交付 | [da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e) 只读核本机已获授权的`dev_v1.0_annotations.json`：50视频元数据记录、1182有答案标签且结构合规题；50段标注≥20min/每段≥2题，其中41段≥30min，满足12视频24题标注层候选。合成自检1 PASS，真实解析1次exit0，无源码补丁；恰好2个Markdown路径变动，非媒体实测/真实GT语义审查 | [匿名实测收据](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)已验收；Ego4D正式视频授权/下载、同版UID→原媒体、源独立性/时钟、历史隔离、GPU锁全部独立HOLD。0GPU/模型/媒体下载，无真实A/B评测；禁止重跑父任务或自动派新下载/GPU |
+| VLM-SYNTH-AB-HARNESS-001 | P0 | **READY（一次性合成数据可执行代码+测试；CPU ONLY）** | Codex（用户在原同一长期会话主动触发） | **新增**`prototypes/hourvideo_synthetic_ab_runner.py`和`prototypes/test_hourvideo_synthetic_ab_runner.py`，12段纯虚构≥20min视频×各2题、A均匀12点/B query-only 合成打分48候选选≤12；24题/48次模拟尝试固定分母，答案与策略隔离，配对正确/错误/失效及视频/时长层统计，独立临时目录中原子尝试账本、started崩溃不重试、配置/预算冲突拒绝，真实模型适配器明确NOT_INTEGRATED | [冻结一次性执行合同](./codex-artifacts/VLM-SYNTH-AB-HARNESS-001/README.md)：纯std-lib unittest与可运行CLI必须实际PASS；只允新增2个Python、1份脱敏实测测试收据、向`docs/codex-results.md`尾部追加一条；**0GPU/模型/视频/原始QA/HF访问/下载/Conda变动**，不读现有HourVideo JSON/原实验账本，main正常push一次即STOP，严禁据toy放行真实评测 |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前0个READY父任务。** [VLM-HOURVIDEO-DEV-001实测提交da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e)已按冻结合同验收并结案：Codex报告在本机对已由用户通过HF gate取得的`dev_v1.0_annotations.json`执行一次CPU只读检查，50条不同JSON视频记录，1182条`qid/question/mcq_test/correct_answer_label`字段满足工具的有效性规则，全部50条标注视频均≥20min且各≥2道有标签题、其中41条标注≥30min；可在**标注层**选择12条记录×2道题，满足原24题设计。GitHub独立确认仅新增匿名报告56行、结果记录追加10行，未改脚本；真实文件解析、自检PASS、SHA不变及零GPU均为执行者报告，ChatGPT未访问本机原JSON或独立复算。此事实解决**开发集有无足量可评分题**的疑问，不证明实际自然视频存在、版本/timebase映射或正确答案语义独立可证。用户签署Ego4D协议后仍需等待官方视频访问批准；HourVideo访问已由用户截图确认，但不能自动许可访问或下载Ego4D媒体。下一关键事项是等待Ego4D批准通知，再以最小获批媒体和明确对应视频版本/下载预算制定单次有界实验；**当前不能自动继续下载、CPU视频解析或GPU**。旧REAL-PILOT-001安全结案、H1/H2/H3没有保留新算法、`NOVELTY=RETAIN0`与Charades`FINAL_MEDIA_STOP`持续。
+**当前唯一READY父任务：VLM-SYNTH-AB-HARNESS-001（用户2026-10-11同意的等待期纯合成 A/B 工程实装）。** 用户尚未收到 Ego4D 官方视频访问批准，因此**绝不运行真实模型或媒体**；HourVideo开发集的50视频/1182道答案标签及12×2题容量已由[上轮实测收据](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)通过，旧`VLM-HOURVIDEO-DEV-001`保持结案，不能重跑。用户现在明确选择在等待期间做**新的、能运行的代码，而非更多合规/论文文档**：按[冻结Codex任务书](./codex-artifacts/VLM-SYNTH-AB-HARNESS-001/README.md)仅在公有文档checkout新增纯标准库合成配对运行器和测试：模拟12个不同虚构长视频×各2道QA，A均匀12帧/B query-only合成候选打分、48次模拟arm尝试上限、评分与无效完整分母、12视频簇汇总、原子账本/崩溃后不免费重试，真实SigLIP/Qwen/VFR/PTS接口显式NOT_INTEGRATED。Codex实际跑两个指定测试命令，交付可运行Python源码、unittest、脱敏测试收据和结果末尾单条；**严禁读取真实HourVideo JSON、用户Downloads或原实验工作区，GPU=0、模型=0、视频/答案下载=0，旧历史任务和锁不碰**。合成性能仅是工程自验、不代表论文结果或真实GPU成本。由用户在**原同一Codex长会话**主动发一句执行命令才会启动，Codex完成正常push后STOP，不自动开始任何实测。Ego4D批准后仍需独立用户审批媒体许可/UID同版/有限下载及GPU预算。Charades `FINAL_MEDIA_STOP`、`NOVELTY=RETAIN0`保持。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -511,6 +512,10 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 Codex已在用户认可的私有下载范围内完成一次真实JSON的CPU只读资格检查，并于[da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e)向main提交[匿名收据](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)和唯一父回报。GitHub diff仅两处Markdown（报告56行/回报追加10行），符合预定权限，未修改检查脚本；工具合成自检PASS、真实`--annotations` exit0、代码改动0、原JSON前后SHA不变和0GPU/0媒体为执行者自述，未直接独立复算本机。**量化结果：50视频metadata记录；50段≥20min且各≥2道工具有效答案题，其中41段≥30min；共1182道`qid/question/mcq_test/correct_answer_label`类型合规题，按要求可组成12视频×2题。拒绝数0。** 不能由不同JSON键证明不同物理源，不可由标注时长推出已获原媒体/文件PTS同版，选择标签有效不等于答案语义准确或事件级GT已知。
 
 科研判定`ANNOTATION_CAPACITY=PASS_ON_METADATA`，但`MEDIA_LEGAL_ACCESS=WAIT_EGO4D_APPROVAL`、`VERSION_BRIDGE=UNKNOWN`、`PHYSICAL_MEDIA=NOT_ACQUIRED`、`GPU=BLOCKED`、`NOVELTY=RETAIN0`。**当前0 READY，禁止因开发标注合格自动跑旧48次计划**。后续只在官方批准、数据/下载范围与GPU新预算另获用户明确许可后安排最小同版取样与基线实验。旧REAL-PILOT-001、Charades安全停止均不可复活。
+
+### 2026-10-11 · 等待Ego4D批准期间改做真实工程代码：唯一READY VLM-SYNTH-AB-HARNESS-001（最新）
+
+用户获悉Ego4D官方审批尚未到达、10月13日提醒已安排，明确同意趁等待期**让原Codex单轮实现纯合成端到端A/B配对、自动评分与安全恢复代码**，而非再反复静态审查。现提供[冻结合同](./codex-artifacts/VLM-SYNTH-AB-HARNESS-001/README.md)，要求**新增两个可运行Python模块**（公共`prototypes/`目录，一份主逻辑一份unittest），虚构12视频×2题、A均匀12帧、B最多48候选按问题选≤12、48次固定尝试预算，答案与selector单向隔离，完整分母与视频/时长分层统计，原子 started/terminal 账本、崩溃不重试、manifest与并发冲突拒绝；必须在标准库CPU上实际执行测试并提供匿名证明。真实SigLIP/Qwen仅留fail-closed接口，**0真实JSON/视频/ffprobe、0模型/GPU、0网络下载和本机实验树触碰**。合成数字不可称科学表现，真实媒体合法性/时基/版本/GPU准入全部HOLD。完工只有源码、测试、收据和一条结果，正常push后停止；暂不批准下一任务。
 
 ## 二十九、当前研究判断（跨批保持）
 
