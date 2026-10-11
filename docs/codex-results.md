@@ -442,3 +442,13 @@ Qwen启动/前向尝试0/48，SigLIP/候选编码0，本任务GPU运行累计0�
 先跑现有虚构自检1次，SELF_TEST_PASS（2个合成案例），再核真实字段类型并运行真实--annotations 1次，exit0；补充重跑0，总真实分析1/最多2。原JSON SHA前后相同、digest仅内部内存；未改/移/复制JSON或canary、不输出QA/选项/正确标签取值/UID/qid/私人路径或hash。默认无--private-selection，无私有选集文件，仅工具内存候选计数。
 
 状态只为ANNOTATION_ONLY_CANDIDATE：时长是标注声明，媒体存在、同版映射/PTS、物理源独立性、真实答案语义、官方发布digest/版本、Ego4D媒体批准及GPU锁/成本仍未认证。HourVideo访问获准及下载来自用户确认，本轮未独立登录；签署Ego4D协议不等于媒体批准。0GPU/模型/SigLIP/Qwen/训练/媒体解码/ffprobe/研究数据或标注下载，0原实验树/模型/旧账本/锁/状态触碰，0安装/环境修改/账号凭据/API/后台任务。正常push后停止保留聊天等待ChatGPT验收，不自动媒体获取或GPU试验；NOVELTY RETAIN0、旧任务结案和Charades FINAL_MEDIA_STOP保持。
+
+### VLM-SYNTH-AB-HARNESS-001 2026-10-11 — SYNTHETIC_HARNESS_PASS；可运行A/B、31项最终测试通过，真实模型/GPU为0
+
+独立公有docs checkout安全fast-forward至main `92f399d`，确认唯一READY/无本ID回报，按README重读AGENTS/任务板/结果/总览/重整与旧REAL-PILOT合同及兼容toy。仅新增[stdlib合成运行器](../prototypes/hourvideo_synthetic_ab_runner.py)、[合成unittest](../prototypes/test_hourvideo_synthetic_ab_runner.py)、[唯一工程收据](codex-artifacts/VLM-SYNTH-AB-HARNESS-001/synthetic-runner-receipt.md)和本条，共4处；旧代码、计划/总览/历史结果不改。
+
+实测命令：`python -B -m unittest prototypes/test_hourvideo_synthetic_ab_runner.py -v`初次30/30 PASS，加入代码版本pin后最终31/31 PASS；`python -B prototypes/hourvideo_synthetic_ab_runner.py --synthetic --self-test`最终31/31 PASS；`python -B prototypes/hourvideo_synthetic_ab_runner.py --synthetic`完整dry-run退出0。3次suite/92次测试方法，均0FAIL/ERROR/SKIP；指定unittest执行2次、CLI self-test1次、完整dry-run1次。框架用时4.348/4.346/3.506秒只为CPU测试wallclock，不是模型时延。默认输出SYNTHETIC_ONLY、24题/48臂固定分母、48 reserved模拟尝试、真实调用0，不发布模拟准确率为研究效果。
+
+代码具虚构12×2且4段≥30min声明、A12唯一界内点/B48 query-only候选选12、答案下游评分、AB/BA冻结顺序；correct/wrong/invalid/failed/unfinished/not_started独立全分母、五格配对矩阵、12视频簇及互斥时长层。临时自有run原子fsync+replace snapshot、OS非阻塞锁、STARTED读前预扣/不退款、不重试已开始臂、不覆盖终态；实际子进程退出与跨进程锁冲突测试通过，正常resume等价；policy/seed/评分键/代码指纹冲突、预算耗尽、损坏snapshot、真实flags/adapter等拒绝。B候选操作和模拟费用分列，不声称同帧数等于等总成本。可选bootstrap未实现，停电耐久性及真实GPU超时接口未认证。
+
+真实GPU秒数0，真实Qwen/InternVL/SigLIP/模型调用0，真实QA/HourVideo原标注/Downloads/视频/媒体头/PTS访问与下载0，0ffprobe/解码/训练/依赖安装/原研究树/旧ledger/锁/状态/Conda修改，0HF/AWS/Ego4D访问/凭据/云API/后台任务。只用新公有代码和自造临时输入，未上传JSON/manifest/响应明细。SYNTHETIC_HARNESS_PASS仅工程验收，真实adapter为NOT_INTEGRATED、Ego4D媒体仍HOLD、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。正常main push一次后停止，保留本聊天等待ChatGPT验收，不自动真实实验或下一任务。
