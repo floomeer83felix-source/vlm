@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-11（北京时间；用户截图已证HourVideo/HourVideo HF gated访问成功、确认已下载dev_v1.0_annotations.json；新VLM-HOURVIDEO-DEV-001唯一READY，只核Windows本地JSON的答案/时长元数据并交匿名汇总；Ego4D正式视频访问仍待批准，无GPU/视频下载授权）。
+> 更新日期：2026-10-11（北京时间；VLM-HOURVIDEO-DEV-001真实本机开发标注检查已验收：50视频记录、1182道字段有效有答案题、其中50段标注≥20min且各≥2题、41段≥30min；12×2题标注层达标，任务已结案，当前0 READY；Ego4D媒体访问批准与同版实际视频未获证，0GPU/0模型）。
 
 ## 一、任务看板
 
@@ -45,12 +45,12 @@
 | VLM-BATCH-019 | P1 | **ACCEPTED_STATIC_DELIVERABLES / DATA_AND_NOVELTY_HOLD（已结案非READY）** | Codex，ChatGPT审查 | 六长视频来源许可/时长/时间轴及2026最近先例纯公开静态筛选，八项按报告交付 | [24b771e](https://github.com/floomeer83felix-source/vlm/commit/24b771ef9c83e929579372a982ea17cd6edbbdb8)：严格四Markdown报告+结果尾部23行，共5文件、0代码修改；六候选与六必查+五追加先例已审。Ego4D/HourVideo法律和版本同钟未闭合，LVB Table3六格合计3,761与摘要3,763静态冲突未消，NLQ clip≠小时输入；H1/H3仅待否证问题、H2普通实体记忆NO_GO、NOVELTY=RETAIN0；**不授权下载/标注/GPU** |
 | VLM-BATCH-020 | P1 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / LEGAL_BRIDGE_HOLD（已结案非READY）** | Codex，ChatGPT审查 | [fdbb6e6](https://github.com/floomeer83felix-source/vlm/commit/fdbb6e66c85c1d4fa03f179b9af86f9f4322a1fe)：三份公开Markdown审查报告和结果追加，提交范围符合合同；普通H1组合无新算子，Ego4D↔HourVideo权利及同版时间映射未闭合 | 静态交付结案，不补跑、不自动021。用户已决定终止连续文档微批次，转向[单次实验优先提案](./experiment-first-reset-2026-10-10.md)；没有新的视频、标注、模型或GPU授权，NOVELTY=RETAIN0 |
 | VLM-REAL-PILOT-001 | P0 | **CLOSED_SAFE_STOP（PRECHECK_ONLY / NO_ELIGIBLE_DATA_STOP / GPU0，非READY）** | Codex执行，ChatGPT静态验收 | [272d7f4](https://github.com/floomeer83felix-source/vlm/commit/272d7f4860e21e681ab38d839e571c0c0b50e572)仅提交[阻塞收据](./codex-artifacts/VLM-REAL-PILOT-001/paired-longvideo-pilot-receipt.md)+codex-results尾部父回报；既有可信MLVU子树存在性核过，A3(a)本轮源媒体使用权利UNKNOWN并即STOP | 48次计划Qwen实际0、120分钟计划GPU实际0秒；视频/QA身份、锁和模型均NOT_RUN，不推导非法/无数据或算法负结果。实验父任务已消费、不可直接重跑；[官方MLVU使用条款](https://github.com/JUNJIE99/MLVU)研究非商用/CC-BY-NC-SA但原视频权利保留，[官方HF访问页](https://huggingface.co/datasets/MLVU/MVLU)设访问条件；既有镜像receipt不等于接受官方门、使用权已核。下一步需用户另行明确合法来源/用途证据或选择新合规来源；0 READY，禁自动新下载/GPU |
-| VLM-HOURVIDEO-DEV-001 | P0 | **READY（一次本机开发集标注层资格实测；CPU ONLY）** | Codex（同一长期对话由用户主动启动） | 用户已获HourVideo官方HF gated访问并在Windows下载`dev_v1.0_annotations.json`；仅在当前登录用户Downloads顶层按目标名定位并只读解析文件，运行仓库现有`tools/hourvideo_dev_preflight.py --self-test`和真实标注`--annotations`，必要时最小适配公开工具代码但不暴露QA/答案/UID；报告是否有12段标注时长≥20min、各至少2个可评分题（至少4段≥30min），不代表媒体真值/版权/同版已过 | [唯一冻结任务书](./codex-artifacts/VLM-HOURVIDEO-DEV-001/README.md)：公有仅脱敏统计收据、结果尾一条及必要时脚本小修；限定已有Downloads文件，无视频/音频/原始QA上传、HF token/下载、GPU/模型/Charades/旧实验工作区；找不到或不兼容则阻塞，不扩扫描。普通push一次后STOP，不自动开始长视频实验 |
+| VLM-HOURVIDEO-DEV-001 | P0 | **ACCEPTED_ANNOTATION_ONLY / MEDIA_AND_VERSION_HOLD（已结案非READY）** | Codex，ChatGPT验收GitHub交付 | [da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e) 只读核本机已获授权的`dev_v1.0_annotations.json`：50视频元数据记录、1182有答案标签且结构合规题；50段标注≥20min/每段≥2题，其中41段≥30min，满足12视频24题标注层候选。合成自检1 PASS，真实解析1次exit0，无源码补丁；恰好2个Markdown路径变动，非媒体实测/真实GT语义审查 | [匿名实测收据](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)已验收；Ego4D正式视频授权/下载、同版UID→原媒体、源独立性/时钟、历史隔离、GPU锁全部独立HOLD。0GPU/模型/媒体下载，无真实A/B评测；禁止重跑父任务或自动派新下载/GPU |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前唯一READY父任务：VLM-HOURVIDEO-DEV-001（真实本机已下载HourVideo JSON、纯CPU一次资格核查）。** 用户在Hugging Face [HourVideo官方仓库](https://huggingface.co/datasets/HourVideo/HourVideo)截图中已获得gated访问，并明确下载了`dev_v1.0_annotations.json`；用户不愿自行运行PowerShell，要求交由**原同一Codex长会话**执行。按[冻结任务合同](./codex-artifacts/VLM-HOURVIDEO-DEV-001/README.md)，仅允许在该Windows账户Downloads顶层找到这一个文件、只读检查开发集答案/时长/去重及12视频×2题条件，先跑虚构自检，必要时适配已经存在的[离线脚本](../tools/hourvideo_dev_preflight.py)。**真实文件和所有QA/答案/UID绝不能上传、打印或在Git中提交**；仅公开匿名数字和检查状态。不得下载Ego4D媒体、HourVideo额外标注、运行GPU/模型、训练/调参，亦不得触碰Charades或旧Windows实验树。签署Ego4D协议≠正式AWS媒体凭据获批；本轮通过也只是`ANNOTATION_ONLY_CANDIDATE`，不能宣称合法同版视频或GPU GO。旧REAL-PILOT-001保持`CLOSED_SAFE_STOP`，创新`RETAIN0`，无真实模型实验授权。Codex只在用户主动于原聊天发送继续时运行一次、push后STOP，ChatGPT验收。
+**当前0个READY父任务。** [VLM-HOURVIDEO-DEV-001实测提交da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e)已按冻结合同验收并结案：Codex报告在本机对已由用户通过HF gate取得的`dev_v1.0_annotations.json`执行一次CPU只读检查，50条不同JSON视频记录，1182条`qid/question/mcq_test/correct_answer_label`字段满足工具的有效性规则，全部50条标注视频均≥20min且各≥2道有标签题、其中41条标注≥30min；可在**标注层**选择12条记录×2道题，满足原24题设计。GitHub独立确认仅新增匿名报告56行、结果记录追加10行，未改脚本；真实文件解析、自检PASS、SHA不变及零GPU均为执行者报告，ChatGPT未访问本机原JSON或独立复算。此事实解决**开发集有无足量可评分题**的疑问，不证明实际自然视频存在、版本/timebase映射或正确答案语义独立可证。用户签署Ego4D协议后仍需等待官方视频访问批准；HourVideo访问已由用户截图确认，但不能自动许可访问或下载Ego4D媒体。下一关键事项是等待Ego4D批准通知，再以最小获批媒体和明确对应视频版本/下载预算制定单次有界实验；**当前不能自动继续下载、CPU视频解析或GPU**。旧REAL-PILOT-001安全结案、H1/H2/H3没有保留新算法、`NOVELTY=RETAIN0`与Charades`FINAL_MEDIA_STOP`持续。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -505,6 +505,12 @@ Codex于2026-10-09提交[7d1daf7](https://github.com/floomeer83felix-source/vlm/
 ### 2026-10-11 · 用户选择Codex代跑下载后标注资格：唯一READY VLM-HOURVIDEO-DEV-001（最新）
 
 用户已向ChatGPT展示HourVideo/HourVideo官方HF页面明确「You have been granted access」，后续截图显示`dev_v1.0_annotations.json`大小约1.85MB并明确回复「已下载」，再说「还是交给codex吧」。因此无需新增版权论文静态批次；直接下达[唯一有限CPU父任务](./codex-artifacts/VLM-HOURVIDEO-DEV-001/README.md)给原同一长期Codex聊天：只定位当前Windows用户Downloads顶层该已下载文件、先对已有离线脚本做完全虚构自检、再只读运行本地真实JSON匿名汇总，必要时最小代码适配。要求报告可解析视频数、≥20min且每段≥2合法答案题视频数、≥30min数、是否可组成12段24题及无效原因；不得打印/上传任何真实受保护QA/正确答案/video UID/qid、canary、用户路径。Codex提交只可`docs/codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md`、结果尾一条和必要时`tools/hourvideo_dev_preflight.py`小补丁，原资产保持不变。**0 GPU/模型/媒体解码与下载**；Ego4D协议虽已签署但批准未证，标注合格不自动放行真实媒体或下一实验；没有多任务连续执行。任务执行需用户在原Codex聊天主动启动。
+
+### 2026-10-11 · HourVideo开发集真实标注充足：50段/1182题，24题资格门通过（最新）
+
+Codex已在用户认可的私有下载范围内完成一次真实JSON的CPU只读资格检查，并于[da6a6fd](https://github.com/floomeer83felix-source/vlm/commit/da6a6fd73195fec63c480187a5872c8179b5cc4e)向main提交[匿名收据](./codex-artifacts/VLM-HOURVIDEO-DEV-001/local-annotation-eligibility.md)和唯一父回报。GitHub diff仅两处Markdown（报告56行/回报追加10行），符合预定权限，未修改检查脚本；工具合成自检PASS、真实`--annotations` exit0、代码改动0、原JSON前后SHA不变和0GPU/0媒体为执行者自述，未直接独立复算本机。**量化结果：50视频metadata记录；50段≥20min且各≥2道工具有效答案题，其中41段≥30min；共1182道`qid/question/mcq_test/correct_answer_label`类型合规题，按要求可组成12视频×2题。拒绝数0。** 不能由不同JSON键证明不同物理源，不可由标注时长推出已获原媒体/文件PTS同版，选择标签有效不等于答案语义准确或事件级GT已知。
+
+科研判定`ANNOTATION_CAPACITY=PASS_ON_METADATA`，但`MEDIA_LEGAL_ACCESS=WAIT_EGO4D_APPROVAL`、`VERSION_BRIDGE=UNKNOWN`、`PHYSICAL_MEDIA=NOT_ACQUIRED`、`GPU=BLOCKED`、`NOVELTY=RETAIN0`。**当前0 READY，禁止因开发标注合格自动跑旧48次计划**。后续只在官方批准、数据/下载范围与GPU新预算另获用户明确许可后安排最小同版取样与基线实验。旧REAL-PILOT-001、Charades安全停止均不可复活。
 
 ## 二十九、当前研究判断（跨批保持）
 
