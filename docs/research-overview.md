@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-10（北京时间；Ego4D个人协议按用户签署截图成功、官方授权未批；HourVideo标注尚需本人HF gated同意；已交付离线开发集资格检查工具和说明，0READY/GPU未运行）  
+> 更新：2026-10-11（北京时间；用户已获HourVideo官方HF仓库访问并下载带答案dev开发集，授权Codex一次纯CPU本机标注资格核实，VLM-HOURVIDEO-DEV-001唯一READY；Ego4D视频正式批准未证，无GPU许可）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -108,6 +108,7 @@
 | 六长视频资源与原创机制公开静态审查 BATCH-019 | **ACCEPTED_STATIC_DELIVERABLES / NO_DATA_OR_NOVELTY_GO（非READY）** | Codex执行、ChatGPT验收 |
 | H1强先例与Ego4D/HourVideo合法同版桥接 BATCH-020 | **CLOSED_STATIC_DELIVERABLES / H1_NOVELTY_NO_GO / DATA_HOLD（非READY）** | Codex执行、ChatGPT静态验收 |
 | 一次性长视频配对基线 VLM-REAL-PILOT-001 | **CLOSED_SAFE_STOP / SOURCE_RIGHTS_UNKNOWN / 0GPU（非READY）** | Codex执行、ChatGPT验收静态交付 |
+| HourVideo真实本地开发集资格VLM-HOURVIDEO-DEV-001 | **READY（CPU本地JSON只读；匿名12×2候选统计）** | Codex执行、ChatGPT验收 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -599,6 +600,10 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 **最新事实**：用户已展示Ego4D Dropbox Sign签署成功画面；不能从中推断Ego4D批准/数据凭据。用户要求等待期间继续并再次说“重新继续”。ChatGPT核[HourVideo官方GitHub](https://github.com/keshik6/HourVideo)公告2025-03-06提供开发集标注，作者给50段视频1182题/39.3小时；[官方HF卡](https://huggingface.co/datasets/HourVideo/HourVideo/blob/main/README.md)旧格式示例`duration_in_seconds`、`qid`、`mcq_test`、`correct_answer_label`，仍写普通`dev_v1.0.json`无答案；[HF gated入口](https://huggingface.co/datasets/HourVideo/HourVideo/tree/main)需要本人登陆接受条件后才可获实际数据。没有访问其受控内容，带答案文件实际结构、至少12不同视频×2已有有效QA和媒体UID映射**仍未验**。Benchmark数据禁止进入训练corpora，canary不可移除。Ego4D授权与HourVideo gate独立。
 
 **具体交付而非新一轮报告**：ChatGPT直接在main新增[零依赖、离线、无GPU的开发集资格预检器](../tools/hourvideo_dev_preflight.py)（接受用户日后合法本地的显式JSON路径；只输出聚合数及私有ID选择；要求12视频×2个有答案题，至少20min、其中≥4个30min；无数据时可用**完全虚构**`--self-test`）和[用法/权利范围/不能放行真实GPU的界限](./hourvideo-wait-period-lab.md)。该工具已在GitHub内容层核实创建，但**本轮未对真实数据运行，亦未独立执行其自检**，任何字段不匹配必须先核官方原schema/修订，绝不填造答案。公开输出不含题文、答案或UID，私有选集不得入Git。旧REAL-PILOT-001仍安全结案，0 READY，模型和媒体下载0、GPU0、无权限签收替HF/Ego4D条款。下一步由用户自行决定HF协议与数据受限本地读取，之后才谈真实实验。
+
+### 2026-10-11 · HourVideo官方访问已开通、用户已下载JSON：授权Codex一次本机标注层核验（最新）
+
+截图证据显示HourVideo/HourVideo的HF gated仓库出现「You have been granted access」，文件目录存在`dev_v1.0_annotations.json`约1.85MB；用户明确「已下载」，不想自行执行PowerShell，要求「还是交给codex吧」。ChatGPT据此只创建[唯一READY VLM-HOURVIDEO-DEV-001](./codex-artifacts/VLM-HOURVIDEO-DEV-001/README.md)，一次性让Codex在当前Windows用户Downloads的该文件只读执行[已提交Python工具](../tools/hourvideo_dev_preflight.py)的完全虚构自检和实际JSON匿名汇总，必要时最小适配解析器并仅按冻结路径提交脱敏结果。样本级题/答案/UID/canary不得输出，不联网拉取标注，不动媒体、GPU、模型/旧run。用户签署Ego4D法律协议不等于已获得临时AWS官方凭据；HourVideo的官方gate和受限本地JSON不代表该来源媒体许可与timebase、video UID映射、锁/GPU环境通过。**标注层PASS仅承认有可能提供12不同视频各2道现成有答案题，绝非GPU试验放行、独立事件GT或创新证据。** 历史SAFE_STOP、NOVELTY RETAIN0和Charades FINAL_MEDIA_STOP均保留。本轮实际Codex尚未启动，需用户在原会话发继续消息。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
