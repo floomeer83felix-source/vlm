@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-12（北京时间；Codex交付4c38e2a Ego4D media preflight安全停止：当前命令/模块无AWS CLI、Ego4D CLI、boto3、ego4d，数据GET/视频/S3 HEAD/GPU均0。现0 READY；Ego4D用户确认访问至10月26日不变，但AWS验证、UID/版本与对象大小仍UNKNOWN，需另行有限工具就绪授权）。  
+> 更新：2026-10-12（北京时间；用户明确同意检查并必要时隔离安装Ego4D官方CLI/AWS boto3来解决SAFE_TOOL_MISSING；唯一READY=VLM-EGO4D-TOOLS-001，目标只为离线工具就绪。原媒体尝试0 GET/0视频/0GPU已结案，本轮不认证AWS、不访问受限数据或运行模型；许可至10月26日有效）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -111,6 +111,7 @@
 | HourVideo真实本地开发集资格VLM-HOURVIDEO-DEV-001 | **ACCEPTED_ANNOTATION_ONLY / MEDIA_AND_VERSION_HOLD（非READY）** | Codex执行，ChatGPT验收GitHub交付 |
 | 虚构12视频×2题A/B配对工程代码VLM-SYNTH-AB-HARNESS-001 | **ACCEPTED_SYNTHETIC_HARNESS / REAL_MEDIA_AND_MODEL_HOLD（非READY）** | Codex交付、ChatGPT静态验收 |
 | Ego4D两段原始长视频受限获取 VLM-EGO4D-MEDIA-001 | **ACCEPTED_SAFE_STOP / SAFE_TOOL_MISSING（已结案，非READY）** | Codex报告、ChatGPT验收GitHub交付；研究数据GET0/GPU0 |
+| Ego4D官方工具SDK/CLI就绪 VLM-EGO4D-TOOLS-001 | **READY（仅独立工具安装/离线验证，0 S3/视频/GPU）** | Codex执行，ChatGPT验收 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -642,6 +643,12 @@ Codex提交[440f562](https://github.com/floomeer83felix-source/vlm/commit/440f56
 实际Codex交付[4c38e2a](https://github.com/floomeer83felix-source/vlm/commit/4c38e2a07959298f08037c6637ff9e9a804637fa)严格只有[匿名媒体失败收据](./codex-artifacts/VLM-EGO4D-MEDIA-001/limited-media-receipt.md)65行、结果尾部唯一追加10行；未访问受限HourVideo原JSON、视频或旧科研资产。Codex报告：当前执行上下文的可执行PATH未见AWS CLI/Ego4D CLI，当前Python import路径找不到boto3和ego4d；因此按预先冻结的缺工具即STOP条款停止而未安装或切环境。**本轮数据manifest GET0、视频GET0、S3 HEAD0、数据正文0B、视频0段、GPU/模型0**；普通Git/官网文字访问不按该数据GET计量。ChatGPT审查提交差异和脱敏内容，但未亲自验证用户机器全局安装状态。
 
 `SAFE_TOOL_MISSING`是现用shell/解释器问题，不是官方Ego4D审批失效或AWS credentials被拒；后者都未尝试。HourVideo UID/具体Ego4D官方canonical`full_scale`对象版本和文件大小、媒体时钟、真实配对评测资格仍UNKNOWN。本轮作为**安全负结果 ACCEPTED**，父任务结案，0 READY；剩余最多2段/8GiB的授权**不被视为可迁移新任务的余额**。Ego4D批准截止2026-10-26，适合及时提出新的有限工具核验（优先检查已有Windows具体`pytorch`环境及普通官方CLI存在性，再单独批准来源校验的隔离安装），随后另行明确媒体字节/工具/网络与GPU预算。未经新批准无真实数据GET、安装、切环境或模型启动；旧Charades`FINAL_MEDIA_STOP`、`NOVELTY=RETAIN0`保留。
+
+### 2026-10-12 · 从SAFE_TOOL_MISSING转为受控、可验收的官方工具安装（最新）
+
+上轮用户获批Ego4D许可后，媒体实际GET在`SAFE_TOOL_MISSING`门停止，下载0段、0B、0GPU，不涉及AWS凭据拒绝或UID不匹配。用户新同意由同一Codex会话按需检查和安装官方工具；新[唯一READY VLM-EGO4D-TOOLS-001](./codex-artifacts/VLM-EGO4D-TOOLS-001/README.md)先只读核当前shell与既知Conda`pytorch`的工具情况，再在**用户私有LocalAppData一个Python≥3.10独立venv**里安装经过PyPI真实性与依赖检查的`boto3`及条件式`ego4d==1.7.3`。PyPI官方Ego4D最新发行提供源码分发（sdist），而非轮包，因此只能经官方已记录SHA256、源安装入口和轻量依赖链安全检查后进行一次受限离线构建；任何不确定可止步于boto3部分就绪，禁止降级到不可信镜像/旧系统安装器/未经许可的Torch大依赖。
+
+本轮网络只允许取合法PyPI包文件，落地发行物≤128MiB、venv/临时文件≤512MiB、CPU前台≤20min；**不认证私有AWS、不发S3 HEAD/LIST/GET、不读HourVideo真实QA/UID、不下载视频，不安装或运行Qwen/SigLIP/GPU，不影响旧Conda与研究ledger**。从Python离线import与安全CLI`--help`获取可复核工具状态，公有报告仅版本/数量/阻塞原因。即使工具全部PASS，Ego4D两段媒体和8GiB旧额度不自动移到新任务：未来下载及模型调用需新授权并先过UID同版/预算硬门。访问截止2026-10-26，真实科学成绩与`NOVELTY=RETAIN0`均不因安装改变；Charades`FINAL_MEDIA_STOP`持续。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
