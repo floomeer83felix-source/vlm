@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-12（北京时间；用户转述Ego4D访问申请已正式批准、访问截止2026-10-26；HourVideo开发集12×2题标注门已满足，合成代码已验收；官方批准≠本机AWS可用/媒体版本桥接/视频下载与GPU预算授权。当前0 READY）  
+> 更新：2026-10-12（北京时间；用户已批准Ego4D新一次限域下载最多2个canonical full_scale原视频、单段≤4 GiB、累计网络GET≤8 GiB、0GPU。唯一条件式READY=VLM-EGO4D-MEDIA-001，AWS可用、UID↔源版本、单对象大小/硬预算必须先证；未知立即停。HourVideo标注50/1182与合成A/B代码已结案）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -110,6 +110,7 @@
 | 一次性长视频配对基线 VLM-REAL-PILOT-001 | **CLOSED_SAFE_STOP / SOURCE_RIGHTS_UNKNOWN / 0GPU（非READY）** | Codex执行、ChatGPT验收静态交付 |
 | HourVideo真实本地开发集资格VLM-HOURVIDEO-DEV-001 | **ACCEPTED_ANNOTATION_ONLY / MEDIA_AND_VERSION_HOLD（非READY）** | Codex执行，ChatGPT验收GitHub交付 |
 | 虚构12视频×2题A/B配对工程代码VLM-SYNTH-AB-HARNESS-001 | **ACCEPTED_SYNTHETIC_HARNESS / REAL_MEDIA_AND_MODEL_HOLD（非READY）** | Codex交付、ChatGPT静态验收 |
+| Ego4D两段原始长视频受限获取 VLM-EGO4D-MEDIA-001 | **READY（用户明示2段/4GiB每段/8GiB全GET/0GPU，资格不满足停）** | Codex执行，ChatGPT验收匿名结果 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -629,6 +630,12 @@ Codex提交[440f562](https://github.com/floomeer83felix-source/vlm/commit/440f56
 用户给出Ego4D官方访问获批邮件的原句，截止`Oct 26, 2026`，因此研究阻塞项目`ACCESS_REQUEST_PENDING`转为`EGO4D_APPROVED_USER_CONFIRMED`。邮件本身**不证明**AWS key是否已通过私有安全方式配置、本机CLI可用、真实canonical full-scale视频有权按目标使用/能正确访问、视频版本与HourVideo v1.0开发集键对应、时钟PTS一致或GPU允许运行。不能分享AWS access key、secret、会话token、审批私人URL或许可证签字文件，也不能提交受限原QA/canary/UID映射到公开GitHub。
 
 [HourVideo官方数据卡](https://huggingface.co/datasets/HourVideo/HourVideo)已提供开发集video UID列表，且[Ego4D官方CLI](https://github.com/facebookresearch/Ego4d/blob/main/ego4d/cli/README.md)支持按`--video_uids`/`--video_uid_file`只获取精确UID；潜在下一受限阶段应以**私有UID join+一个对象的大小/来源/同版限定核验**为先，之后获得用户明示的字节/数量预算才尝试少量原视频。原`VLM-SYNTH-AB-HARNESS-001`合成运行器和HourVideo标注资格均已结案，无需复跑。科研阻塞现为`MEDIA_UID_VERSION_BRIDGE=UNKNOWN`、`PHYSICAL_MEDIA=NOT_VERIFIED`、`GPU_AND_REAL_MODEL=NOT_AUTHORIZED`。离线标注容量PASS不是实际原生长视频QA效果；**当前0 READY**，用户尚未批准具体下载数量/上限。Ego4D访问窗口应优先用于获取小样本并防止过期，禁止全量下载或按旧Charades预算/旧Qwen48次预算自动运行。科学新颖性仍`RETAIN0`，Charades`FINAL_MEDIA_STOP`不变。
+
+### 2026-10-12 · Ego4D第一次真实媒体最多2段、8GiB硬预算授权（最新）
+
+用户收到官方Ego4D获批通知`Great news! Your request for access ... approved`，有效至Oct 26, 2026，随后对明确的「最多2段、累计8GiB、每段4GiB、0GPU」方案回复「好的」。从此访问申请/许可证门为`APPROVAL_USER_CONFIRMED`，下载本身仍为`NOT_YET_RUN`、本地AWS配置与UID→官方canonical版本/大小为`UNKNOWN`。GitHub创建了[唯一READY任务合同](./codex-artifacts/VLM-EGO4D-MEDIA-001/README.md)：同一旧Codex聊天仅在用户主动触发、再核安全工作区与唯一READY后，在私有本机最小范围内只读已有HourVideo开发标注顶层UID/时长，严格证明对应的Ego4D官方`full_scale`对象与来源版本及已知远端Content-Length，确认每个≤4GiB、GET总含附带元数据/失败/重试不超过8GiB、现有工具可硬停止且无密钥披露/环境安装，随后才下载最多两段。仅从已存在合法AWS profile中验证访问；不解析/公开任何受保护QA答案、视频UID、视频链接、全路径、可重识别样本组合。数据仅落私有新隔离目录，公有只交匿名收据与结果末尾唯一记录；预检不满足即`PREFLIGHT_STOP`而非突破预算。视频时长可用已存ffprobe只查容器头，不运行帧/模型/GPU，真实Qwen24题仍待未来独立授权。
+
+2026-10-12前开发集已取得50记录1182字段有效题、12×2题容量合格，合成A/B runner由Codex报告31项测试PASS，但这些不证明原视频已到本机、UID同钟或论文性能。**新阶段以真正小样本合法媒体验证替代继续写空泛文档**，若限制使获取不安全则公开0GET透明阻塞；旧Charades FINAL_MEDIA_STOP、NOVELTY RETAIN0、REAL-PILOT安全停止不重启。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
