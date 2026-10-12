@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-11（北京时间；合成A/B runner与31项标准库unittest已由Codex提交440f562；GitHub静态代码与四项交付范围验收，Codex报告31/31 PASS但ChatGPT未重跑。当前0 READY，Ego4D媒体批准/真实模型/GPU保持HOLD）  
+> 更新：2026-10-12（北京时间；用户转述Ego4D访问申请已正式批准、访问截止2026-10-26；HourVideo开发集12×2题标注门已满足，合成代码已验收；官方批准≠本机AWS可用/媒体版本桥接/视频下载与GPU预算授权。当前0 READY）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -623,6 +623,12 @@ ChatGPT已经创建待用户审阅的[英文最终咨询正文、中文对照和
 Codex提交[440f562](https://github.com/floomeer83felix-source/vlm/commit/440f5625e9c5a5e4c6a088cb0aca178a61a74347)严格四处限定变更：新合成运行器434行、新测试300行、脱敏收据54行、唯一结果末尾追加10行；未改既有其他模型/数据/工具。代码静态审阅支持：24对虚构QA、12合成≥20min视频(4≥30min)、A均匀12帧时间点、B最多48候选按合成question-only评分后选12、选帧与评分键分离、24/48固定分母与失败/invalid/unfinished计数、B纠错/误伤、视频簇/时长层统计、模拟费用单列、持久化STARTED预扣/终态、非阻塞OS锁、签名一致性与中断后不重试及失败关闭。**Codex报告最终31/31 unittest PASS、31/31 CLI self-test PASS、干跑48模拟尝试；ChatGPT未能在独立环境获取源码并复跑**，所以此为**交付与静态设计验收+执行者测试报告**，不是二次复验。
 
 注意实验公平性：当前`Prompt`含arm和seed等合成字段，虽然是虚构stub正常使用，但未来不能把臂标识注入真实Qwen输入，否则相同12帧但不同提示构成混杂；新真实adapter必须把模型可见prompt冻结到完全相同格式，仅差视觉帧、B候选计算另计入成本。真正视频的PTS/版本、源许可、Ego4D审批、受限QA隔离、真实SigLIP/Qwen可用性和GPU锁/预算均尚未过关。这个结果`SYNTHETIC_HARNESS_PASS`是工程准备，不是性能/科学创新。当前唯一READY已结案，0 READY，后续需用户明确单独批准真实媒体和模型接入；不能复活旧REAL-PILOT/Charades，也不改变`NOVELTY=RETAIN0`。
+
+### 2026-10-12 · Ego4D访问已批准至10月26日：实验从等待转向受限视频准备（最新）
+
+用户给出Ego4D官方访问获批邮件的原句，截止`Oct 26, 2026`，因此研究阻塞项目`ACCESS_REQUEST_PENDING`转为`EGO4D_APPROVED_USER_CONFIRMED`。邮件本身**不证明**AWS key是否已通过私有安全方式配置、本机CLI可用、真实canonical full-scale视频有权按目标使用/能正确访问、视频版本与HourVideo v1.0开发集键对应、时钟PTS一致或GPU允许运行。不能分享AWS access key、secret、会话token、审批私人URL或许可证签字文件，也不能提交受限原QA/canary/UID映射到公开GitHub。
+
+[HourVideo官方数据卡](https://huggingface.co/datasets/HourVideo/HourVideo)已提供开发集video UID列表，且[Ego4D官方CLI](https://github.com/facebookresearch/Ego4d/blob/main/ego4d/cli/README.md)支持按`--video_uids`/`--video_uid_file`只获取精确UID；潜在下一受限阶段应以**私有UID join+一个对象的大小/来源/同版限定核验**为先，之后获得用户明示的字节/数量预算才尝试少量原视频。原`VLM-SYNTH-AB-HARNESS-001`合成运行器和HourVideo标注资格均已结案，无需复跑。科研阻塞现为`MEDIA_UID_VERSION_BRIDGE=UNKNOWN`、`PHYSICAL_MEDIA=NOT_VERIFIED`、`GPU_AND_REAL_MODEL=NOT_AUTHORIZED`。离线标注容量PASS不是实际原生长视频QA效果；**当前0 READY**，用户尚未批准具体下载数量/上限。Ego4D访问窗口应优先用于获取小样本并防止过期，禁止全量下载或按旧Charades预算/旧Qwen48次预算自动运行。科学新颖性仍`RETAIN0`，Charades`FINAL_MEDIA_STOP`不变。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
