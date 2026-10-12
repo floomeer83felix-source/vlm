@@ -472,3 +472,13 @@ HourVideo UID/时长读取、候选冻结、canonical full_scale manifest join�
 唯一工具获取流程首个官方PyPI boto3元数据请求TimeoutError，立即停止且不重试/镜像/TLS放宽。未获版本/依赖图/发行物，SDK/CLI安装0、发行归档0个/0字节；新根逻辑大小终止检查11,861,718字节（最后小收据写入略增），保守创建至终止125.377秒，分别低于512MiB和20min。隔离环境自带pip不等于工具已装；未执行离线包安装、boto3 import或ego4d help，Ego4D sdist SHA/setup/依赖安全门NOT_RUN。状态不是TOOLS_READY_OFFLINE/PARTIAL_BOTO3_READY；PYPI_SOURCE_OR_TLS_STOP仅指官方来源请求超时，不冒称证书已失败。归档落地0不等于全部网络GET流量0。
 
 AWS凭据/profile/私人邮件访问0，AWS认证/S3 GET/HEAD/LIST0，数据manifest/视频/标注/权重/真实QA/UID访问下载0，GPU/真实模型/训练/ffprobe0，原研究树/模型/旧锁账本/状态/Conda/CUDA修改0。仅保留本次一个私人venv/安装器/终止收据，不上传包、脚本、完整日志或路径，不创建第二环境或后台任务。官方许可用户确认及旧媒体停止保持，NOVELTY RETAIN0；工具未就绪，旧2视频8GiB额度不自动转移。正常push一次后停止，等待ChatGPT验收及重新决策，不自行恢复安装或下载。
+
+### VLM-EGO4D-TOOLS-001-REPAIR 2026-10-13 — 用户独立修复授权；PARTIAL_BOTO3_READY，CLI依赖源码门HOLD
+
+用户明确授权复用已有venv解决超时与安装问题，例外解除原父任务不重试限制；安全fetch确认main未变、工作树干净。这是独立修复结果，不改任务板、不重写原TOOLS-001失败，也不自动恢复媒体任务。仅在[原工具收据](codex-artifacts/VLM-EGO4D-TOOLS-001/isolated-tool-readiness-receipt.md)尾追加2026-10-13实测及本条，2处。
+
+固定小型官方PyPI boto3 1.40.52元数据请求成功（8,811B/13.997秒），不认定原超时唯一原因。7个SDK wheel官方SHA/大小/身份/CRC/依赖与Python条件核验PASS；锁定boto3/botocore1.40.52、jmespath1.0.1、s3transfer0.14.0、python-dateutil2.9.0.post0、six1.17.0、urllib3 2.5.0，一次离线require-hashes/no-index安装完成。离线网络阻断导入1次PASS，无AWS Session/client创建，SDK就绪。
+
+Ego4D1.7.3官方sdist固定发布SHA匹配PASS，仅tar/setup静态检查，未执行构建；必需iopath0.1.10官方发布wheel数0，不符合其余依赖只用wheel的原合同，故EGO4D_CLI_SOURCE_BUILD_HOLD，未跳过依赖或扩装源码包。CLI help未运行、完整工具READY未达。8个归档14,809,324B、专用根逻辑50,462,720B（小记录略增），记录前台合计约392秒，均在128MiB/512MiB/20分钟界内；一个原venv复用，原失败证据保留。
+
+AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、模型/GPU/训练、旧科研/Conda/pytorch/PATH/AWS配置改动均0。仅官方PyPI工具获取与授权Git交接，未声称归档字节等于全部网络流量。未创建第二环境/后台任务，不上传私人路径、包/安装器/日志/凭据；旧媒体2视频8GiB不转移。正常push一次后停止，保留聊天等待验收；仅SDK部分就绪，无MEDIA_READY或DOWNLOAD_GO。

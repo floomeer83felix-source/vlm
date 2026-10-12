@@ -49,3 +49,21 @@
 0 AWS密钥/Session Token/credentials原文/AWS_PROFILE/私人邮件/签约文件访问，0 AWS/S3/HourVideo/Ego4D数据请求、原JSON/UID/题目/答案/媒体读取，0原研究树/模型/旧ledger/锁/状态修改，0Torch/CUDA/环境升级、账户配置、付费API、后台任务。公共只提交本匿名报告及结果末尾一条，不上传安装器、venv、包文件、原始日志、私人路径或凭据。
 
 此次解决了“已知pytorch是否也缺工具”的限定发现并确认venv隔离可建立，但**未解决实际工具就绪**。许可用户确认至2026-10-26不等于本机权限已验证；MEDIA_READY/DOWNLOAD_GO不成立。NOVELTY=RETAIN0及Charades FINAL_MEDIA_STOP保持。正常main push一次后停止，保留当前聊天等待验收，不转移旧2视频/8GiB授权或启动下一任务。
+
+## 2026-10-13：用户独立修复授权后的实际补充（保留上述原失败）
+
+用户在获知main仍保留已回报的TOOLS-001 READY后，明确授权本轮独立修复、复用已有venv；这是一项直接用户授权的修复例外，不是重跑原一次性批次或修改ChatGPT任务板。本补充保持原2026-10-12超时与0安装记录，不追认为当日成功。
+
+**当前状态：PARTIAL_BOTO3_READY / EGO4D_CLI_SOURCE_BUILD_HOLD。** 在原同一个独立venv中，改用固定版本的小型官方PyPI元数据请求；boto3 1.40.52元数据8,811字节，首次修复请求成功，用时13.997秒。相较首次大版本目录请求，可确认该具体小请求可达；没有做网络因果对照，不认定首次超时唯一原因或永久网络修复。
+
+锁定并核验了7个SDK wheel：boto3 1.40.52、botocore 1.40.52、jmespath 1.0.1、s3transfer 0.14.0、python-dateutil 2.9.0.post0、six 1.17.0、urllib3 2.5.0。逐项核官方PyPI版本/发行文件大小与SHA256、wheel身份/CRC/路径及Requires-Dist；当前Python条件与完整必需依赖集合满足。全部来自HTTPS官方PyPI及发行域，不引入额外ML依赖、VCS、镜像或TLS禁验。版本是本轮固定可核工具版本，不宣称最新版或已作全面漏洞认证。
+
+完成**一次**离线SDK安装：隔离venv明确解释器、pip --isolated、--no-index、已核wheelhouse、--no-deps、--require-hashes、--only-binary、--no-input、--no-cache-dir、禁pip版本检查和自动重试。依赖先完整审查，再离线安装，不让pip联网解析未知包。离线冒烟1次PASS：网络connect调用被禁止，仅导入boto3/botocore、检查client工厂可调用以及DEFAULT_SESSION仍为空；没有建立Session/client或读取AWS认证配置。
+
+Ego4D 1.7.3的官方**sdist**已取得并与原合同固定发布SHA完全匹配，不称wheel。仅内存检查安全tar成员、读取setup文本，未执行setup/build。setup声明boto3/tqdm/regex/dataclasses_json/iopath，其中必需iopath 0.1.10官方发行元数据核到**0个wheel**。不把这一个版本的结论扩大为所有历史版本，但本轮没有已核可信的替代wheel。原合同只允许Ego4D本体源码构建，其余依赖需可信wheel，因此停止CLI安装；不跳过依赖、不另从Git构建iopath、不安装额外sdist。Ego4D --help与真实CLI过滤执行未完成，不能报完整TOOLS_READY_OFFLINE。
+
+修复累计获取归档8个（7个SDK wheel+1个Ego4D sdist），落地合计14,809,324字节，约14.12MiB，低于128MiB；专用根检查50,462,720字节，约48.13MiB，低于512MiB，最后小型记录写入稍增。原125.377秒、修复小请求13.997秒、安装核验251.528秒及依赖检查1.003秒，记录合计约392秒；另有短命检查命令，不包含两轮之间用户等待的日历时间，未达到20分钟前台限额。没有新建第二venv、升级pip或系统工具、改原pytorch/Conda/PATH/AWS配置；原失败receipt保留，修复安装器及证据仅在既有私人根。
+
+SDK安装和离线导入问题已解决，CLI剩余依赖门真实保留HOLD。若未来需要CLI，应由新的明确范围决策处理iopath的官方源码审计/离线构建或另一个已核发行方案，当前不授权、不执行这些扩展。SDK可以供未来受批受控传输代码使用，但本轮不建立下载器或触发旧媒体配额。
+
+本修复AWS凭据/profile/私人邮件访问、认证与S3 GET/HEAD/LIST、真实QA/UID/视频/模型/GPU/训练、原实验资产改动均0；网络仅公有Git与官方PyPI工具取用。归档大小不等于全GET流量统计。只在本报告尾部追加和结果文件追加独立修复记录，正常push后停止，仍不授予MEDIA_READY/DOWNLOAD_GO。
