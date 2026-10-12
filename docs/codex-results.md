@@ -452,3 +452,13 @@ Qwen启动/前向尝试0/48，SigLIP/候选编码0，本任务GPU运行累计0�
 代码具虚构12×2且4段≥30min声明、A12唯一界内点/B48 query-only候选选12、答案下游评分、AB/BA冻结顺序；correct/wrong/invalid/failed/unfinished/not_started独立全分母、五格配对矩阵、12视频簇及互斥时长层。临时自有run原子fsync+replace snapshot、OS非阻塞锁、STARTED读前预扣/不退款、不重试已开始臂、不覆盖终态；实际子进程退出与跨进程锁冲突测试通过，正常resume等价；policy/seed/评分键/代码指纹冲突、预算耗尽、损坏snapshot、真实flags/adapter等拒绝。B候选操作和模拟费用分列，不声称同帧数等于等总成本。可选bootstrap未实现，停电耐久性及真实GPU超时接口未认证。
 
 真实GPU秒数0，真实Qwen/InternVL/SigLIP/模型调用0，真实QA/HourVideo原标注/Downloads/视频/媒体头/PTS访问与下载0，0ffprobe/解码/训练/依赖安装/原研究树/旧ledger/锁/状态/Conda修改，0HF/AWS/Ego4D访问/凭据/云API/后台任务。只用新公有代码和自造临时输入，未上传JSON/manifest/响应明细。SYNTHETIC_HARNESS_PASS仅工程验收，真实adapter为NOT_INTEGRATED、Ego4D媒体仍HOLD、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。正常main push一次后停止，保留本聊天等待ChatGPT验收，不自动真实实验或下一任务。
+
+### VLM-EGO4D-MEDIA-001 2026-10-12 — PREFLIGHT_STOP / SAFE_TOOL_MISSING；0媒体GET、0新视频、0GPU
+
+独立公有docs安全fast-forward至main `fb090d2`，确认唯一READY及无本ID回报，重读AGENTS/任务板/总览/结果/README/HourVideo标注收据/合成runner收据及官方CLI公共说明。仅新增[限定媒体阻塞匿名收据](codex-artifacts/VLM-EGO4D-MEDIA-001/limited-media-receipt.md)和本尾部结果，严格2处；旧任务、计划/总览/源码不改。
+
+APPROVAL_USER_CONFIRMED：用户转述有效至2026-10-26，当前在时间窗口内；本机实际权限UNKNOWN。当前可执行路径没有AWS CLI/Ego4D CLI，当前Python找不到boto3/ego4d模块，故SAFE_TOOL_MISSING，在数据获取前停止。这只说明当前允许执行上下文，未全盘搜索/切换环境；未读取AWS credentials、环境密钥、私人邮箱或打印profile/路径。profile枚举与授权连接未执行，不断言凭据拒绝或官方未批准，不安装或替换工具。
+
+HourVideo UID/时长读取、候选冻结、canonical full_scale manifest join、源发布版本/对象HEAD长度、存储空间及新隔离目录、持久传输预扣机制均NOT_RUN/UNKNOWN；不把未测join填成0匹配。实际官方S3/数据manifest GET0、媒体GET0、S3 HEAD0、数据正文0字节/8,589,934,592字节、非媒体数据metadata0字节/33,554,432字节、数据重试/partial0、新媒体0段/0字节、新私有脚本/映射/ledger0。没有发数据请求，所以这些0可确认；公有Git和官方CLI说明网页的文档渠道流量未计量，不把全部网络流量称0或宣称跨全部渠道预算已认证。
+
+0GPU/Qwen/SigLIP/模型/训练/视频帧/像素解码/ffprobe，0真实QA/HourVideo JSON/旧科研树/Charades/旧账本/锁访问，0环境/Conda/PATH/AWS配置改动、额外数据集/权重下载、账号登录/凭据申请/外部联系/后台任务。收据保留所有未证门及私下配置既有工具/专用profile的交接条件，不索取密钥，不泄露UID/对象/私人路径/hash或受保护内容。没有新媒体或科学效果，NOVELTY RETAIN0、历史不可重跑及Charades FINAL_MEDIA_STOP保持；普通push一次后停止保留聊天，等待ChatGPT验收，不自动新批次或GPU实验。
