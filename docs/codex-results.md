@@ -462,3 +462,13 @@ APPROVAL_USER_CONFIRMED：用户转述有效至2026-10-26，当前在时间窗�
 HourVideo UID/时长读取、候选冻结、canonical full_scale manifest join、源发布版本/对象HEAD长度、存储空间及新隔离目录、持久传输预扣机制均NOT_RUN/UNKNOWN；不把未测join填成0匹配。实际官方S3/数据manifest GET0、媒体GET0、S3 HEAD0、数据正文0字节/8,589,934,592字节、非媒体数据metadata0字节/33,554,432字节、数据重试/partial0、新媒体0段/0字节、新私有脚本/映射/ledger0。没有发数据请求，所以这些0可确认；公有Git和官方CLI说明网页的文档渠道流量未计量，不把全部网络流量称0或宣称跨全部渠道预算已认证。
 
 0GPU/Qwen/SigLIP/模型/训练/视频帧/像素解码/ffprobe，0真实QA/HourVideo JSON/旧科研树/Charades/旧账本/锁访问，0环境/Conda/PATH/AWS配置改动、额外数据集/权重下载、账号登录/凭据申请/外部联系/后台任务。收据保留所有未证门及私下配置既有工具/专用profile的交接条件，不索取密钥，不泄露UID/对象/私人路径/hash或受保护内容。没有新媒体或科学效果，NOVELTY RETAIN0、历史不可重跑及Charades FINAL_MEDIA_STOP保持；普通push一次后停止保留聊天，等待ChatGPT验收，不自动新批次或GPU实验。
+
+### VLM-EGO4D-TOOLS-001 2026-10-12 — SAFE_INSTALLATION_STOP；独立venv已建，官方PyPI元数据超时，SDK/CLI未安装
+
+独立公有docs安全同步main `9170cce`，核唯一READY/无既有父回报，重读任务依据和上轮媒体收据、官方工具说明。仅提交[匿名隔离工具收据](codex-artifacts/VLM-EGO4D-TOOLS-001/isolated-tool-readiness-receipt.md)及本条，共2处；不改计划/总览/旧代码/历史结果。
+
+限定只读发现：当前shell无AWS/Ego4D CLI，Python3.13.2无boto3/ego4d；Conda可调用，唯一已知pytorch Python3.9.21同样无这两个模块。未扫描其它环境/目录、导入torch或构造AWS Session/client，不以此声称全机无工具。现成3.13.2创建1个新私人LocalAppData venv，祖先无reparse、空间检查通过、include-system-site-packages=false；不绑定或修改pytorch/PATH/AWS配置。
+
+唯一工具获取流程首个官方PyPI boto3元数据请求TimeoutError，立即停止且不重试/镜像/TLS放宽。未获版本/依赖图/发行物，SDK/CLI安装0、发行归档0个/0字节；新根逻辑大小终止检查11,861,718字节（最后小收据写入略增），保守创建至终止125.377秒，分别低于512MiB和20min。隔离环境自带pip不等于工具已装；未执行离线包安装、boto3 import或ego4d help，Ego4D sdist SHA/setup/依赖安全门NOT_RUN。状态不是TOOLS_READY_OFFLINE/PARTIAL_BOTO3_READY；PYPI_SOURCE_OR_TLS_STOP仅指官方来源请求超时，不冒称证书已失败。归档落地0不等于全部网络GET流量0。
+
+AWS凭据/profile/私人邮件访问0，AWS认证/S3 GET/HEAD/LIST0，数据manifest/视频/标注/权重/真实QA/UID访问下载0，GPU/真实模型/训练/ffprobe0，原研究树/模型/旧锁账本/状态/Conda/CUDA修改0。仅保留本次一个私人venv/安装器/终止收据，不上传包、脚本、完整日志或路径，不创建第二环境或后台任务。官方许可用户确认及旧媒体停止保持，NOVELTY RETAIN0；工具未就绪，旧2视频8GiB额度不自动转移。正常push一次后停止，等待ChatGPT验收及重新决策，不自行恢复安装或下载。
