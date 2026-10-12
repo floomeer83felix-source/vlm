@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-11（北京时间；VLM-SYNTH-AB-HARNESS-001已按GitHub四处限权代码交付通过静态验收：新纯stdlib合成A/B runner、31项合成单测、报告及一条回报；Codex报告31/31 PASS、24题48次模拟、0真实GPU/模型/视频/QA；ChatGPT未独立重跑。唯一READY已结案，当前0 READY，Ego4D官方媒体批准仍待）。
+> 更新日期：2026-10-12（北京时间；用户转述Ego4D官方邮件明确访问申请Approved，访问有效至2026-10-26。HourVideo开发集标注与纯合成A/B程序均已验收；当前0 READY。审批通过不代表AWS凭据已安全配置、原媒体与HourVideo UID同版或具体视频下载/模型GPU获得新授权）。
 
 ## 一、任务看板
 
@@ -51,7 +51,7 @@
 | VLM-003 | P1 | BLOCKED（旧gold区间诊断的manifest不再是当前路线；无新明确任务授权） | Codex | 原四臂manifest冻结，作为历史未执行工作保留 | 不得依据旧README/PR执行；任何新机制需新许可、来源、PTS、预算与用户授权 |
 | VLM-004 | P2 | BLOCKED（需单独实验放行） | Codex | 小规模配对问答先导与独立复核 | 唯一 GPU 调用账本、完整分母、纠错/误伤、置信区间与成本 |
 
-**当前0个READY父任务；VLM-SYNTH-AB-HARNESS-001已结案（ACCEPTED_SYNTHETIC_HARNESS / REAL_MEDIA_AND_MODEL_HOLD）。** [Codex提交440f562](https://github.com/floomeer83felix-source/vlm/commit/440f5625e9c5a5e4c6a088cb0aca178a61a74347)严格只改两个新Python代码文件、一个匿名报告及结果末尾一条，交付可运行纯stdlib虚构12长视频×2题A/B配对程序、31项合成测试、答案选择器隔离、24题/48次模拟尝试预算、完整分母与错误纠正/误伤统计，以及原子/非阻塞锁STARTED后不可重试的恢复行为。Codex报告最终unittest31/31、自检31/31、完整合成CLI exit0；**ChatGPT独立审了GitHub源代码/差异，但未亲自复跑测试**，因此将运行PASS明确归于Codex报告，不冒充第三方复现。合成结果仅`SYNTHETIC_HARNESS_PASS`，不代表VLM指标、帧定位、总算力公平或GPU验证。特别保留未来真实适配关键修正：`Prompt`目前有`arm`，真实同模型对照须将臂标识从模型可见文本/参数剔除，仅存账本；`SyntheticScorer`和`SyntheticVLM`不是真实SigLIP或Qwen。用户已获得HourVideo标注访问和24题容量，但**Ego4D原媒体官方访问仍未批准**；不得读取受限原JSON、下载媒体或启动GPU。旧REAL-PILOT、Charades`FINAL_MEDIA_STOP`持续，`NOVELTY=RETAIN0`；此阶段等待用户提供官方媒体访问批准消息及后续单独授权，不能自动重复跑码/媒体或开新实验。
+**当前0个READY父任务；Ego4D 官方申请已由用户转述获批、访问至2026-10-26，但尚无新媒体下载/GPU授权。VLM-SYNTH-AB-HARNESS-001已结案（ACCEPTED_SYNTHETIC_HARNESS / REAL_MEDIA_AND_MODEL_HOLD）。** [Codex提交440f562](https://github.com/floomeer83felix-source/vlm/commit/440f5625e9c5a5e4c6a088cb0aca178a61a74347)严格只改两个新Python代码文件、一个匿名报告及结果末尾一条，交付可运行纯stdlib虚构12长视频×2题A/B配对程序、31项合成测试、答案选择器隔离、24题/48次模拟尝试预算、完整分母与错误纠正/误伤统计，以及原子/非阻塞锁STARTED后不可重试的恢复行为。Codex报告最终unittest31/31、自检31/31、完整合成CLI exit0；**ChatGPT独立审了GitHub源代码/差异，但未亲自复跑测试**，因此将运行PASS明确归于Codex报告，不冒充第三方复现。合成结果仅`SYNTHETIC_HARNESS_PASS`，不代表VLM指标、帧定位、总算力公平或GPU验证。特别保留未来真实适配关键修正：`Prompt`目前有`arm`，真实同模型对照须将臂标识从模型可见文本/参数剔除，仅存账本；`SyntheticScorer`和`SyntheticVLM`不是真实SigLIP或Qwen。用户已获得HourVideo标注访问和24题容量，且**Ego4D官方邮件已批准访问，截止2026-10-26**；但尚未确认本机AWS凭据配置、HourVideo开发集UID对应Ego4D媒体是否实际存在/同版本，也未获得具体媒体下载字节预算与GPU/真实模型执行授权。不得读取受限原JSON、下载媒体或启动GPU。旧REAL-PILOT、Charades`FINAL_MEDIA_STOP`持续，`NOVELTY=RETAIN0`；此阶段等待用户提供官方媒体访问批准消息及后续单独授权，不能自动重复跑码/媒体或开新实验。
 
 ## 二、VLM-001：Windows 工作区恢复状态盘点（历史任务，已完成）
 
@@ -522,6 +522,12 @@ Codex已在用户认可的私有下载范围内完成一次真实JSON的CPU只�
 [Codex提交440f562](https://github.com/floomeer83felix-source/vlm/commit/440f5625e9c5a5e4c6a088cb0aca178a61a74347)相对于先前冻结READY基线`92f399d`恰好只改4处：新增`prototypes/hourvideo_synthetic_ab_runner.py`（434行）、`prototypes/test_hourvideo_synthetic_ab_runner.py`（300行）、`docs/codex-artifacts/VLM-SYNTH-AB-HARNESS-001/synthetic-runner-receipt.md`（54行）及`codex-results.md`尾部一次追加（10行）。ChatGPT静态读GitHub代码、两份回报及差异，确认合成12×2题、uniform12 / query-only合成B最多48候选选12、题目答案与selector隔离、24固定分母、五格矩阵/视频簇/时长层、非阻塞OS锁、预扣STARTED、原子文件替换、失败未终态不重试与预算停止均有对应实现与测试。Codex申报最终31项单测和CLI自检均31/31 PASS、CLI完成48次模拟尝试，真实模型/GPU/视频/QA访问均0；**独立容器没能获取GitHub源码复跑，ChatGPT不声称实际重新执行成功**。
 
 科研裁决`ACCEPTED_SYNTHETIC_HARNESS`仅确认工程代码交付和由Codex报告的合成测试，不是`REAL_VLM_EVALUATION_GO`：真实媒体许可/同版映射/PTS、Qwen/SigLIP适配、OS与GPU硬预算仍HOLD；未来真实模型需保证A/B同一问题提示与解码配置，当前`Prompt`内含`arm`字段，必须确保arm仅属评测元数据而非模型可见输入，否则可能制造伪策略差异。文件原子替换不证明整机掉电耐久性；模拟秒数与模型真实成本无关联。**0 READY，禁止旧父任务重跑和自动授权媒体/GPU**；保留HourVideo开发集24题标注层数量PASS、Ego4D官方视频批准等待、`NOVELTY=RETAIN0`及Charades`FINAL_MEDIA_STOP`。
+
+### 2026-10-12 · Ego4D官方访问批准：有期限的媒体准备窗口（最新）
+
+用户直接粘贴官方审批邮件措辞「Great news! Your request for access to the Ego4D dataset has been approved. Your access is valid until: Oct 26, 2026」。据此把`EGO4D_ACCESS_APPROVAL=USER_CONFIRMED`与`ACCESS_DEADLINE=2026-10-26`记为新事实；**不是Codex或ChatGPT已通过AWS验证凭据，也不是模型或下载启动事实**。官方Ego4D CLI帮助支持`--video_uids`/`--video_uid_file`限定对象，HourVideo官方数据卡表明`v1.0_release/video_uids/`有dev列表；优先在本机私有范围核这份UID表与已授权`dev_v1.0_annotations.json`键的严格一致性，再用官方获取方法确认单段Ego4D canonical`full_scale`的实际版本、大小、可用性，而不是尝试全量Ego4D/剪裁NLQ clips。参考[Ego4D官方CLI](https://github.com/facebookresearch/Ego4d/blob/main/ego4d/cli/README.md)和[HourVideo官方数据卡](https://huggingface.co/datasets/HourVideo/HourVideo)。HourVideo dev GT限制训练与修改canary，绝不能上传真实UID↔QA/答案、凭据、私有链接或原视频。
+
+**下一阶段尚待用户明确授权的受限操作**：是否允许在原Windows本地只读验证访问工具/SDK与凭据**是否存在（不得回显任何值）**、私有读取已下载标注键并核对官方dev UID列表、查询官方有限元数据/一个待挑原视频对象大小（如须联网，另设严格请求与字节限额）；随后用户另行指定少量视频下载预算，再独立审GPU与真实模型调用。原媒体下载总量、路径、许可条款及模型运行必须有明确新任务合同/预算，不能因为邮件获批或之前已结束的旧48次提案而擅自执行。**当前0 READY**，不预先唤醒Codex，也不做自动媒体下载/模型实验。10月13日旧“审批是否收到”提醒已因批准事实关闭。
 
 ## 二十九、当前研究判断（跨批保持）
 
