@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-13（北京时间；Codex工具任务先提交5758834因PyPI超时停止，后独立修复提交0758106：官方7个SDK wheel在原单一venv离线安装boto3/botocore1.40.52，离线import自报PASS；Ego4D CLI因iopath0.1.10官方wheel缺失而源码安全门HOLD。GitHub差异验收，ChatGPT未重跑，0 AWS/S3/视频/GPU；当前0 READY）。  
+> 更新：2026-10-13（北京时间；用户同意优先使用已安装boto3。唯一READY VLM-EGO4D-BOTO3-001交付官方full_scale manifest字段/版本核查及纯虚构UID join、4GiB/8GiB GET预扣/崩溃恢复的可执行Python与≥18单测，AWS凭据/S3/真实视频下载/GPU全0。TOOLS-001部分SDK就绪已结案，Ego4D CLI依赖与真实发布映射均HOLD）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -112,6 +112,7 @@
 | 虚构12视频×2题A/B配对工程代码VLM-SYNTH-AB-HARNESS-001 | **ACCEPTED_SYNTHETIC_HARNESS / REAL_MEDIA_AND_MODEL_HOLD（非READY）** | Codex交付、ChatGPT静态验收 |
 | Ego4D两段原始长视频受限获取 VLM-EGO4D-MEDIA-001 | **ACCEPTED_SAFE_STOP / SAFE_TOOL_MISSING（已结案，非READY）** | Codex报告、ChatGPT验收GitHub交付；研究数据GET0/GPU0 |
 | Ego4D官方工具SDK/CLI就绪 VLM-EGO4D-TOOLS-001 | **ACCEPTED_PARTIAL_BOTO3 / CLI_SOURCE_BUILD_HOLD（已结案，非READY）** | Codex两轮提交执行，ChatGPT审查公有证据，未独立重跑 |
+| Ego4D boto3正式对象映射/硬预算离线工程VLM-EGO4D-BOTO3-001 | **READY（纯合成离线代码+测试，0 AWS/媒体/GPU）** | Codex执行；ChatGPT验收GitHub源码和真实自测报告 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -655,6 +656,12 @@ Codex提交[440f562](https://github.com/floomeer83felix-source/vlm/commit/440f56
 GitHub已核对[Codex原提交5758834](https://github.com/floomeer83felix-source/vlm/commit/57588341dbe4a8175a3dac80a873a2928b94da9d)与[独立修复0758106](https://github.com/floomeer83felix-source/vlm/commit/07581063c53679d91d4530c00a491f61e24f9b11)：diff累计严格一份新匿名收据(69行)与`codex-results.md`尾部追加20行，两次各只改两处，旧科研/代码文件均未修改。原任务独立venv创建成功但PyPI目录获取超时，被正确SAFE_INSTALLATION_STOP；按执行者称用户之后在Codex对话明确授权，修复轮复用唯一原venv，固定最小PyPI元数据请求并锁定7个可信wheel，一次离线pip安装boto3+botocore1.40.52及五个必需依赖，网络禁用离线import 1次PASS。修复与原合同第一次“只推一次”不同，故不追认为首次一次交付成功；用户授权修复的细节系Codex报告，ChatGPT未独立核原私聊/二进制。
 
 Ego4D 1.7.3官方sdist SHA自报核对，项目依赖iopath0.1.10仅sdist无同版wheel、额外源码构建不在授权范围，故Ego4D CLI仍`EGO4D_CLI_SOURCE_BUILD_HOLD`。归档14,809,324B与venv约50,462,720B、前台约392s均在原资源上限内（执行业务自报），未提交包或凭据。**SDK_READY_OFFLINE≠EGO4D_CLI_READY，更非MEDIA_READY**；0AWS凭据/认证、0 S3 HEAD/LIST/GET，0视频/受保护QA读取、0 GPU/模型调用/原pytorch环境变更。下一关键能力是安全验证已有SDK对官方发布源的元数据与精确UID能力、持久8GiB流控能否在新授权下构建；如果必须CLI需单独评审iopath可信源码构建。Ego4D官方批准访问至2026-10-26，MEDIA_UID_VERSION_BRIDGE依旧UNKNOWN、NOVELTY RETAIN0和Charades FINAL_MEDIA_STOP保持。本轮0 READY，不自动启动媒体下载、训练或旧父任务。
+
+### 2026-10-13 · 先用已有boto3做可执行的官方映射与下载预算门（最新）
+
+用户同意**优先使用已安装的boto3**，而非继续折腾Ego4D CLI安装，也**尚未批准AWS profile凭据访问、S3 HEAD/GET或任何新真实媒体下载**。ChatGPT核对官方Ego4D CLI固定源码`4bd10ed40b4f8d8ad26344afc2c8526f7d1dedeb`：官方`full_scale`清单路径遵循发布版本，含可选视频`video_uid`、`file_uid`、`canonical_s3_location`/`s3_path`信息，默认发布选择`v2_1`；HourVideo`dev_v1.0`并不能自动证明同版。为了尽快用Ego4D有限有效期得到真实长视频科研输入，本阶段批准[唯一READY VLM-EGO4D-BOTO3-001](./codex-artifacts/VLM-EGO4D-BOTO3-001/README.md)：在公有独立Git checkout实现纯stdlib合成manifest解析/版本与UID严格失败关闭、最多2视频/每段4GiB/GET累计8GiB和32MiB元数据子门的模拟持久预算账本、单对象STARTED预扣及中断/并发/错误响应阻断，至少18项真实unittest、完整CLI离线演练。任务仅提交两份新Python、实际CPU测试匿名报告、结果末尾一条；不改旧pytorch/boto3独立venv、旧运行账本或媒体安全报告，不连接AWS/不取真实QA/UID和视频、不跑GPU。
+
+此结果将区别`SYNTHETIC_MAPPING_AND_BUDGET_READY`（可执行离线测试）与`REAL_UID_VERSION_BRIDGE=UNKNOWN / AWS_ACCESS=NOT_TESTED / TRANSFER_HARD_LIMIT_NOT_PROVEN_IN_LIVE_NETWORK / MEDIA=NOT_ACQUIRED`；真实HEAD和媒体GET要在用户未来新的限域明确授权下且有官方源/凭据隐私前置才能尝试，不把旧MEDIA父任务2段8GiB额度迁移。Ego4D用户确认授权至2026-10-26，未产生长视频算法实测或新颖性证据；`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`持续。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
