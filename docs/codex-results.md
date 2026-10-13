@@ -520,3 +520,11 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 本轮阻塞在精确本地HourVideo入口的文件存在/≤3MiB体量组合门，LOCAL_UID_SOURCE_HOLD；未分别记录两个子项，不断定删除/改名/超体量哪项发生。未解析JSON、扫描Downloads或补试另一名称；需要用户明确JSON当前完整文件路径而非上传原始标注。一次执行约0.164秒，S3 HTTP0/4，manifest HEAD0/GET0、媒体HEAD0、各远端成功/失败0，LIST/STS/媒体GET/Range/隐藏请求0；应用manifest正文0B/8MiB，UID join/候选/真实对象大小/4GiB与8GiB判断均NOT_RUN/UNKNOWN，不报0匹配。RELEASE_AND_CLOCK_BRIDGE_UNKNOWN，线上请求守卫未实证。
 
 只新[匿名本轮收据](codex-artifacts/VLM-EGO4D-AWS-META-003/limited-aws-metadata-receipt.md)及本条，2处；0真实QA/UID/视频/manifest内容读取下载、0工具安装/合成测试/额外调研/原环境/旧锁账本/Charades修改，GPU/模型/解码/ffprobe0，AWS密钥手工访问/输出/profile枚举/登录/刷新/配置修改0。静态凭据仅SDK内部加载，不泄露值或私有路径。正常push一次后停止保留聊天，等待明确路径及新授权，不重跑旧ID、不自动媒体GET/GPU或转移旧2视频8GiB额度；NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
+
+### VLM-EGO4D-AWS-META-004 2026-10-13 — SAFE_METADATA_STOP / HTTP_STATUS_301；输入/profile已过门，首次真实HEAD 1/4后停止
+
+独立公有docs安全同步main `24631f6`，核唯一READY/无旧结果，重读合同与指定依据。仅本轮用户指定目录顶层精确基础文件名定位成功，不枚举编号副本或旧Downloads；无链接/reparse，正规文件1,854,695B且≤16MiB、JSON/schema PASS、顶层视频UID/声明时长50记录，读取前后SHA内存比对一致。整份解析含QA字节但不用于排序/日志/输出，不重跑1182题审计，原文件未改/复制。专用ego4d静态profile可由SDK加载，密钥不手工读取/输出。
+
+一次现场使用原隔离boto3串行client/禁自动重试/代理继承/TLS保持及发送前host/method/bucket/key/阶段额度钩子，全球S3 HTTPS端点/us-east-1签名/path式寻址，仅manifest HEAD实际发送1次。官方响应301，传输包装器在SDK自动区域重定向/补救前关闭并停止；不换区域或补发。S3 HTTP1/4，manifest HEAD1（成功0/非成功301响应1）、manifest GET0、媒体HEAD0、LIST/STS/媒体GET/Range0、隐藏补发0；manifest应用GET正文0B，无成功HEAD长度/身份绑定。远端AUTH NOT_TESTED，301非认证PASS或已证Key无效；服务重定向目标/区域提示未记录，不猜正确区域。
+
+真实v2_1 UID join/无歧义候选/对象长度与≤4GiB数量、合计≤8GiB均NOT_RUN/UNKNOWN，不写0匹配；现场约2.230秒。新[匿名同轮收据](codex-artifacts/VLM-EGO4D-AWS-META-004/limited-aws-metadata-receipt.md)及本条2处，不上传原标注/UID/CSV/对象/ETag/私有路径或代码。0视频正文/GPU/模型/ffprobe/解码/训练/工具安装/合成测试/额外调研/旧研究资产修改，AWS凭据/profile枚举/登录/刷新/配置变更0。输入与profile问题已解决，当前真实阻塞为禁止跟随的301，按合同立即STOP；正常push一次后等待新端点/请求授权，不移用旧媒体预算或自动下载/GPU，RELEASE_AND_CLOCK_BRIDGE_UNKNOWN/NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
