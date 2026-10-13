@@ -494,3 +494,13 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 代码仅SYNTH内存CSV/UID、模拟HEAD长度/ETag/version、整数流块；≤2不同视频、单段4GiB、全GET8GiB及metadata32MiB固定整数门，STARTED全长度持久预扣、不退款、不自动重试，部分读/错误正文/中断/重启/改合同/改run ID/跨进程锁/超限/short read/Range/etag等拒绝，真实flags/live adapter fail closed。GiB测试仅整数，不分配GiB数据；临时账本仅本次tempfile根。模拟拟读块超界拒绝不能冒称已到达线上buffer真实流量受控；恶意快照删除/回滚和机器停电耐久性未认证。
 
 0AWS认证/SDK Session/client/S3 HEAD/GET/LIST，0真实HourVideo原JSON/UID/QA/视频/manifest访问下载，0PyPI/安装/venv与pytorch修改，0GPU/模型/训练/ffprobe/解码/原研究树/旧锁账本触碰；仅公开源码网络与授权Git交接，不用已安装boto3建连接。REAL_TRANSFER_ENFORCEMENT_NOT_VERIFIED、真实同版/权限UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持；不移用旧2段8GiB。正常push一次后停止，保留聊天等待验收，不自动真实媒体任务。
+
+### VLM-EGO4D-AWS-META-001 2026-10-13 — SAFE_METADATA_STOP / AUTH_PROFILE_HOLD；ProfileNotFound，实际S3请求0
+
+独立公有docs安全同步main `2119419`，核唯一READY/无本ID回报，重读合同及指定证据。复用唯一既有私人工具venv做一次真实本机SDK配置前置检查，要求专用ego4d profile、限定静态共享文件提供器、阻断connect且排除环境中其它AWS凭据/覆盖配置；提供器建立即返回ProfileNotFound。AUTH_NOT_CONFIGURED指当前SDK标准配置缺少该profile，不是远端403/过期或官方未批准；用户确认许可至10月26日与本机配置分开，远端AUTH NOT_TESTED。
+
+未创建S3 client、发数据请求或尝试默认/其它账户；manifest HEAD0/GET0、媒体HEAD0、AWS实际HTTP尝试0/4、LIST/STS/隐藏区域请求/重试0，manifest应用正文0B/8MiB，媒体GET/Range/字节0。本地HourVideo UID/时长原JSON未读，UID join/候选/远端大小/4GiB数量/8GiB总量均NOT_RUN/UNKNOWN，不伪报0匹配。线上请求数监控与真实版本桥接未认证，RELEASE_AND_CLOCK_BRIDGE_UNKNOWN。
+
+仅新增[匿名真实预检阻塞收据](codex-artifacts/VLM-EGO4D-AWS-META-001/limited-aws-metadata-receipt.md)及本尾部一次回报，2处。没有合成测试/文献调研/新下载工程；0AWS密钥手工读取/输出/profile枚举/STS/登录/配置改动、0真实QA/UID/媒体/metadata获取、0安装/原研究树/旧锁账本/Charades/环境修改、0GPU/模型/训练/ffprobe。SDK内部标准配置访问不回显秘密，异常仅类型，当前预检不联网。
+
+下一门需用户在Windows私下按官方流程配置专用ego4d profile，不发送任何密钥或凭据文件至聊天/Git。当前立即STOP，不反复尝试、不重开本ID计数、不转移旧2视频8GiB配额；普通push一次后保留聊天等待新授权，NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
