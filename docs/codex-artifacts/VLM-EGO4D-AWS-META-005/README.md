@@ -1,6 +1,6 @@
 # VLM-EGO4D-AWS-META-005｜固定官方对象的AWS区域探测＋真实清单＋2段canonical媒体HEAD
 
-**2026-10-13｜提案冻结，NOT READY / PENDING_EXPLICIT_USER_AUTHORIZATION。** 本README本身**不是AWS请求、文件读取或模型运行授权**。只有用户在ChatGPT明确批准“本新任务最多7次严格限定的真实S3 metadata HTTP attempts、唯一官方manifest GET正文≤8MiB、至多2视频HEAD且0媒体GET/GPU”后，由ChatGPT在`docs/next-steps.md`将本任务设为**唯一READY**，用户再在原同一Codex长期对话发送激活消息方可执行。不得把先前父任务剩余请求/2段8GiB媒体下载预算迁移至本任务。旧`META-001/002/003/004`均已结案，不得重跑。
+**2026-10-13｜用户已在ChatGPT明确回复「同意」：新批准本任务最多7次严格限定的真实S3 metadata HTTP attempts、唯一官方manifest GET应用正文≤8MiB、至多2视频HEAD、0媒体GET/GPU。** 这是本ID独立的新批准而非原任务剩余额度；**只有`docs/next-steps.md`显示本ID恰好唯一READY，且用户再在原同一Codex长期对话主动发送激活消息后方可执行**。本README提交和看板激活本身不表示Codex已开始S3访问。不得把先前父任务剩余请求/2段8GiB媒体下载预算迁移至本任务。旧`META-001/002/003/004`均已结案，不得重跑。
 
 ## 科学与工程依据
 
@@ -13,7 +13,7 @@
 3. 复用已经安装好boto3/botocore的**唯一私人隔离venv**、仅以标准共享配置的命名`ego4d` profile为AWS签名。SDK内部可访问凭据但脚本/终端不得手工读、复制、打印或更改密钥、Token、账户、配置，禁default/其它profile、credentials环境变量、SSO/STS/IMDS/credential_process/刷新链。不得安装工具、修改PATH、Conda`pytorch`/CUDA、原实验树/旧lock/ledger、HourVideo文件、旧Charades；无GPU、Qwen、SigLIP、视频像素或音频解码、ffprobe、训练。**CPU前台≤15分钟；仅2026-10-25北京时间23:59前允许新AWS数据请求**（用户确认Ego4D正式审批至2026-10-26）。
 4. 官方manifest唯一白名单S3对象为`s3://ego4d-consortium-sharing/public/v2_1/full_scale/manifest.csv`；release固定`v2_1`，不因无UID命中改查`v1/v2`、其它manifest/annotations、官方CLI批量下载或第三方桶。精确匹配本地真实顶层`video_uid`而不是`file_uid`，仅接受清单显式无冲突的canonical`full_scale`视频`canonical_s3_location`/`s3_path`，源桶在**官方源码固定贡献者bucket白名单**，key安全且不是剪辑/镜像。查原始时长优先≥20min且至少一个≥30min（有则）；最多2个不同UID与不同媒体对象。UID命中仅说明`UID_PRESENT_IN_V2_1`，`RELEASE_AND_CLOCK_BRIDGE_UNKNOWN`永远保留，不能冒充真实HourVideo问答的同视频时间轴/PTS已证。
 
-## 2. 仅在用户新批准后可执行的7次严格HTTP请求
+## 2. 本轮已获用户批准、但仍需唯一READY及Codex主动启动的7次严格HTTP请求
 
 须在发任何S3请求之前设计**单进程串行、逐HTTP attempt计数且持久记账**的white-list sender，禁HTTP redirect或botocore bucket-region自动重定向/隐式重试；`botocore.config.Config(retries={'mode':'standard','total_max_attempts':1},connect_timeout=5,read_timeout=12,max_pool_connections=1)`，每个实际wire发送前核`HTTPS`主机只在`amazonaws.com`相应商业区regional S3合法域内、请求方法和bucket/key恰好本阶段许可、总尝试仍≤7。若不能审计内部wire attempt或出现代理/TLS问题、未知region字符串/自动补发，就在再次发送前`REQUEST_BOUND_UNENFORCEABLE` STOP。不调用普通aws-cli或官方下载器、无`download_file`/TransferManager、多线程、缓存匿名迁移/恢复自动重试，不关闭TLS证书或接受301 Location未授权源。
 
