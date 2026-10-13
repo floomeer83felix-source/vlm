@@ -528,3 +528,13 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 一次现场使用原隔离boto3串行client/禁自动重试/代理继承/TLS保持及发送前host/method/bucket/key/阶段额度钩子，全球S3 HTTPS端点/us-east-1签名/path式寻址，仅manifest HEAD实际发送1次。官方响应301，传输包装器在SDK自动区域重定向/补救前关闭并停止；不换区域或补发。S3 HTTP1/4，manifest HEAD1（成功0/非成功301响应1）、manifest GET0、媒体HEAD0、LIST/STS/媒体GET/Range0、隐藏补发0；manifest应用GET正文0B，无成功HEAD长度/身份绑定。远端AUTH NOT_TESTED，301非认证PASS或已证Key无效；服务重定向目标/区域提示未记录，不猜正确区域。
 
 真实v2_1 UID join/无歧义候选/对象长度与≤4GiB数量、合计≤8GiB均NOT_RUN/UNKNOWN，不写0匹配；现场约2.230秒。新[匿名同轮收据](codex-artifacts/VLM-EGO4D-AWS-META-004/limited-aws-metadata-receipt.md)及本条2处，不上传原标注/UID/CSV/对象/ETag/私有路径或代码。0视频正文/GPU/模型/ffprobe/解码/训练/工具安装/合成测试/额外调研/旧研究资产修改，AWS凭据/profile枚举/登录/刷新/配置变更0。输入与profile问题已解决，当前真实阻塞为禁止跟随的301，按合同立即STOP；正常push一次后等待新端点/请求授权，不移用旧媒体预算或自动下载/GPU，RELEASE_AND_CLOCK_BRIDGE_UNKNOWN/NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
+
+### VLM-EGO4D-AWS-META-005 2026-10-13 — SAFE_METADATA_STOP / ReadTimeoutError阶段C；区域与官方manifest权限已证，3/7 S3尝试
+
+公有docs安全同步main `137b6b0`，核唯一READY/无本ID旧结果，按合同重读依据；后续LIVE-MEDIA-002/LIVE-AB-001仅QUEUED，未执行。原指定目录精确JSON1,854,695B/≤16MiB、正规无reparse、完整dev schema PASS、顶层UID/声明时长50及前后SHA内存不变；不扫描其它目录、重跑QA或输出题目/答案。复用原隔离boto3/ego4d静态签名，不手工读/打印密钥或改配置。
+
+真实阶段A manifest桶HeadBucket1次返回301，但可信TLS区域头通过AWS商业区检查，区域发现PASS；B该区域manifest HeadObject1次200，长度4,653,141B/≤8MiB、ETag条件锁；C同对象GetObject1次200，长度/ETag/非压缩检查通过，流读2,555,904B后ReadTimeoutError，完整GET失败。AUTH_OK仅指指定官方manifest HEAD/GET响应，不推广媒体桶权限。实际S3尝试3/7（HeadBucket1、HeadObject1、GetObject1），D/E媒体桶/对象HEAD0，LIST/STS/媒体GET/Range/隐藏重试0；约169.696秒。未解析partial CSV，UID join/无歧义候选/视频对象大小与4GiB/8GiB判断NOT_RUN/UNKNOWN，不写0匹配。
+
+发送前host/method/bucket-key/阶段次数钩子+fsync聚合计数、单进程串行、total_max_attempts1、5秒连接/12秒读取/TLS保持/禁代理继承；A只用region提示另建核定regional签名，不跟301 Location，不发送失败补救/Range/额外release。应用字节不等于SDK未返回缓冲/TLS/wire总量；超时按合同立即STOP，不调时限或第二次GET，不以GET200称完整清单成功。
+
+只新[区域感知匿名实测收据](codex-artifacts/VLM-EGO4D-AWS-META-005/region-aware-limited-metadata-receipt.md)及本条2处，私有代码/CSV/UID/原标注/QA/密钥/实际region/对象/私有路径不上传。0视频正文/模型/GPU/ffprobe/解码/训练、0工具安装/合成测试/额外规划/旧科研资产/锁账本/环境/AWS配置修改。RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。正常push一次后停止，等待新授权，不启动预排媒体GET/GPU任务、不移用旧下载额度。
