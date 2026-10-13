@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-13（北京时间；用户明确同意区域感知META-005新限域授权，唯一READY=VLM-EGO4D-AWS-META-005：S3正式HTTP尝试≤7，包括官方manifest桶HeadBucket≤1、区域manifest HEAD1+GET1且CSV应用正文≤8MiB、最多2贡献者媒体桶HeadBucket+2媒体HeadObject。0媒体GET/GPU、0自动重试/区域重定向。真实HourVideo开发JSON50视频及boto3 ego4d静态profile已通过，上一轮HEAD301；UID与大小仍未实证，同版PTS未知，下载另需批准）。  
+> 更新：2026-10-13（北京时间；按用户要求加速一次性排好真实实验3阶段：唯一READY META-005进行7次内真实官方区域+metadata核验，新增QUEUED非READY LIVE-MEDIA-002单段≤3.5GiB、总研究GET≤4GiB，与QUEUED非READY LIVE-AB-001 RTX3090单视频2题4次真实Qwen A/B、GPU≤40min。后两段合同已写好但必须上游成功且用户另行明确批准真实媒体GET和GPU，不得自动启动。上一轮META-004 HEAD301安全停止，当前仍0媒体/0模型结果）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -118,6 +118,8 @@
 | Ego4D文件名修正后的真实metadata小请求VLM-EGO4D-AWS-META-003 | **ACCEPTED_SAFE_METADATA_STOP / LOCAL_UID_SOURCE_HOLD（非READY）** | Codex [39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a4236def69261a0c548408d300273)：boto3静态ego4d profile加载PASS、远端未尝试、本地开发JSON入口文件存在/体量复合门未通过，真实数据0/GPU0 |
 | HourVideo新下载JSON→Ego4D真实canonical元数据预检VLM-EGO4D-AWS-META-004 | **ACCEPTED_SAFE_METADATA_STOP / HTTP_STATUS_301（结案非READY）** | Codex [e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)：本地HourVideo 50视频 JSON/SDK profile PASS、官方manifest HEAD1次返回301、0GET/0媒体/GPU |
 | Ego4D按桶区域重定向问题受控元数据预检VLM-EGO4D-AWS-META-005 | **READY（用户已明确批准≤7次区域感知S3元数据HTTP尝试，0媒体GET/GPU）** | [正式执行合同](./codex-artifacts/VLM-EGO4D-AWS-META-005/README.md)：区域发现→唯一manifest HEAD/GET≤8MiB→最多2真实canonical媒体HEAD；Codex在原长期对话由用户发消息启动，脱敏回报后停止 |
+| Ego4D首次真实canonical原视频限量获取VLM-EGO4D-LIVE-MEDIA-002 | **QUEUED / MEDIA_GET_NOT_AUTHORIZED（非READY）** | [单段≤3.5GiB、1媒体GET和总GET正文≤4GiB冻结合同](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md)，先经META-005真实对象验证、用户独立批准才可激活 |
+| HourVideo首次RTX3090真实Qwen3-VL配对AB试验VLM-HOURVIDEO-LIVE-AB-001 | **QUEUED / GPU_NOT_AUTHORIZED（非READY）** | [1视频×2题×2臂≤4真实模型调用、GPU≤40min合同](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md)，先取得合法视频/桥接及另行用户批准GPU才可激活 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -715,6 +717,10 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 ### 2026-10-13 · 用户同意最多7次有界S3元数据请求：META-005唯一READY（最新）
 
 首次真实AWS元数据META-004报告[HTTP301安全停止e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)，其本机HourVideo重新下载开发JSON 1,854,695B/50段顶层视频和专用boto3 `ego4d`静态共享凭据提供器均PASS；正确区域/远端认证/清单/UID匹配/视频大小均UNKNOWN。用户明确回复「同意」授权新[唯一READY VLM-EGO4D-AWS-META-005](./codex-artifacts/VLM-EGO4D-AWS-META-005/README.md)，最多7次**实际**S3 HTTP attempts（包含4xx/301/失败）：1次合法官方manifest桶HeadBucket取可信`x-amz-bucket-region`，只使用可信区域对唯一`v2_1/full_scale/manifest.csv` HeadObject1、IfMatch/VersionId约束GetObject1（实际应用正文≤8MiB），与本机唯一已准HourVideo视频UID在内存精确join后对≤2官方贡献桶HeadBucket、≤2个canonical视频HeadObject；不隐藏区域重试/跳转/账号profile枚举，禁止媒体GET/Range/视频/帧/字幕数据、S3 LIST/STS、GPU/模型、工具安装、旧实验树访问。只写脱敏汇总收据和Codex结果末尾一条，用户在原同一个Codex长期对话新消息触发后可执行，完成正常push main即STOP。即便全部HEAD成功仍只认证S3来源与声明体量，不证明HourVideo`dev_v1.0`与Ego4D`v2_1`正式发布/裁剪/PTS同钟，真实视频GET和RTX3090实测仍须新批准且不能继承旧2段8GiB额度。科研`NOVELTY=RETAIN0`和Charades`FINAL_MEDIA_STOP`持续。
+
+### 2026-10-13 · 用户要求尽快开跑：首次真实媒体与RTX3090 A/B合同一次性预排（最新）
+
+当前META-005已获用户明确批准且唯一READY，其区域定位+固定官方manifest+最多2视频HEAD用来获得真实UID/对象大小，不包含媒体GET。用户要求「一次性多布置点任务，快点正式开始实验」，因此预先在GitHub草拟而**没有冒充已经获准**的两项下一阶段：[VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md)可在官方canonical UID/长度/region核验后申请1个原始视频≤3.5GiB、GET正文硬≤4GiB、单次无重试安全预算；[VLM-HOURVIDEO-LIVE-AB-001](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md)可在视频实际存在并厘清Ego4D↔HourVideo版本/PTS匹配后单独申请RTX3090 40min内、1视频2开发QA、A uniform12/B query-aware SigLIP 12/48、4次Qwen3-VL-4B真实配对前向。模型权重缺失不安装，所有标准答案不得作为选帧特征，实际研究准确率与仅真实视频Smoke严格区分。两项均QUEUED非READY，**用户并未授权它们的媒体下载或GPU预算**，需要上一阶段真实结果与对应明示批准后各自转换唯一READY；Codex一次只执行一个当前READY、不得预支阶段或将旧媒体8GiB许可迁移。用户关注速度，所以不再增加合成工具前置；按META→一视频→少量GPU试验一条线推进，所有真实媒体/QA/UID/密钥留私人本机且公有只传匿名收据。HourVideo早期标注容量50视频/1182题不变，Ego4D许可至10月26日，`NOVELTY=RETAIN0`和Charades `FINAL_MEDIA_STOP`维持。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
