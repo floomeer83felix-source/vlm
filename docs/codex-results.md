@@ -504,3 +504,11 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 仅新增[匿名真实预检阻塞收据](codex-artifacts/VLM-EGO4D-AWS-META-001/limited-aws-metadata-receipt.md)及本尾部一次回报，2处。没有合成测试/文献调研/新下载工程；0AWS密钥手工读取/输出/profile枚举/STS/登录/配置改动、0真实QA/UID/媒体/metadata获取、0安装/原研究树/旧锁账本/Charades/环境修改、0GPU/模型/训练/ffprobe。SDK内部标准配置访问不回显秘密，异常仅类型，当前预检不联网。
 
 下一门需用户在Windows私下按官方流程配置专用ego4d profile，不发送任何密钥或凭据文件至聊天/Git。当前立即STOP，不反复尝试、不重开本ID计数、不转移旧2视频8GiB配额；普通push一次后保留聊天等待新授权，NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
+
+### VLM-EGO4D-AWS-META-002 2026-10-13 — SAFE_METADATA_STOP / AUTH_PROFILE_HOLD；专用profile仍ProfileNotFound，0/4 S3尝试
+
+独立公有docs安全同步main `b295bfe`，确认唯一READY/无本ID旧结果，重读本合同/原META-001合同及工具收据。用户确认本机已配置记录为USER_CONFIRMED，但一次实际隔离SDK标准配置检查仍ProfileNotFound，AUTH_NOT_CONFIGURED；不能把该本机发现当远端403或Key无效，远端权限NOT_TESTED。SDK仅指定ego4d/静态共享提供器、排除其它环境账户与刷新链，未手工打开/输出/更改credentials/config或枚举profile；没有切default、其它路径、SSO/IMDS/STS或再次尝试。
+
+实际S3 HTTP尝试0/4，manifest HEAD0/GET0、媒体HEAD0（各成功/远端失败均0）、LIST/STS/媒体GET/Range0，manifest应用正文0B/8MiB；profile门先于原JSON读取，真实UID join/候选/对象身份/长度/≤4GiB数/合计≤8GiB均NOT_RUN/UNKNOWN，不伪报0匹配。静态请求守卫准备未运行到网络，不称线上请求限制已实证；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN。现场执行约0.144秒，私有聚合计数0，不重跑META-001。
+
+只新增[本轮匿名元数据阻塞收据](codex-artifacts/VLM-EGO4D-AWS-META-002/limited-aws-metadata-receipt.md)及本条，2处。0工具安装/环境修改/合成测试/额外研究、0真实HourVideo JSON/QA/UID/视频/manifest获取、0GPU/模型/训练/ffprobe/旧科研树/Charades/旧锁账本改动，底层异常仅类别脱敏。请用户私下核对标准共享配置保存位置/扩展名/profile节名（不发送密钥或文件内容），不认定具体哪项错。正常push一次后立即STOP，等待新任务与授权，不用旧2段8GiB权限，NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
