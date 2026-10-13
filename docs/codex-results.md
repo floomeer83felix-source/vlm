@@ -512,3 +512,11 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 实际S3 HTTP尝试0/4，manifest HEAD0/GET0、媒体HEAD0（各成功/远端失败均0）、LIST/STS/媒体GET/Range0，manifest应用正文0B/8MiB；profile门先于原JSON读取，真实UID join/候选/对象身份/长度/≤4GiB数/合计≤8GiB均NOT_RUN/UNKNOWN，不伪报0匹配。静态请求守卫准备未运行到网络，不称线上请求限制已实证；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN。现场执行约0.144秒，私有聚合计数0，不重跑META-001。
 
 只新增[本轮匿名元数据阻塞收据](codex-artifacts/VLM-EGO4D-AWS-META-002/limited-aws-metadata-receipt.md)及本条，2处。0工具安装/环境修改/合成测试/额外研究、0真实HourVideo JSON/QA/UID/视频/manifest获取、0GPU/模型/训练/ffprobe/旧科研树/Charades/旧锁账本改动，底层异常仅类别脱敏。请用户私下核对标准共享配置保存位置/扩展名/profile节名（不发送密钥或文件内容），不认定具体哪项错。正常push一次后立即STOP，等待新任务与授权，不用旧2段8GiB权限，NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
+
+### VLM-EGO4D-AWS-META-003 2026-10-13 — SAFE_METADATA_STOP / LOCAL_UID_SOURCE_HOLD；profile已可加载，S3尝试0/4
+
+公有docs安全同步main `6e20159`，核唯一READY/无旧回报，按合同读取依据，复用原唯一私人SDK venv执行一次现场预检。SDK不再ProfileNotFound：标准凭据文件存在True、SDK凭据文件存在True、SDK路径等于标准路径True、专用ego4d profile识别True/静态提供器加载True、Home与Windows USERPROFILE一致True、工具与Home上下文一致True；未手工读/打印/修改credentials或用旧CRLF正则。远端AUTH仍NOT_TESTED，不能把本机加载记AUTH_OK。
+
+本轮阻塞在精确本地HourVideo入口的文件存在/≤3MiB体量组合门，LOCAL_UID_SOURCE_HOLD；未分别记录两个子项，不断定删除/改名/超体量哪项发生。未解析JSON、扫描Downloads或补试另一名称；需要用户明确JSON当前完整文件路径而非上传原始标注。一次执行约0.164秒，S3 HTTP0/4，manifest HEAD0/GET0、媒体HEAD0、各远端成功/失败0，LIST/STS/媒体GET/Range/隐藏请求0；应用manifest正文0B/8MiB，UID join/候选/真实对象大小/4GiB与8GiB判断均NOT_RUN/UNKNOWN，不报0匹配。RELEASE_AND_CLOCK_BRIDGE_UNKNOWN，线上请求守卫未实证。
+
+只新[匿名本轮收据](codex-artifacts/VLM-EGO4D-AWS-META-003/limited-aws-metadata-receipt.md)及本条，2处；0真实QA/UID/视频/manifest内容读取下载、0工具安装/合成测试/额外调研/原环境/旧锁账本/Charades修改，GPU/模型/解码/ffprobe0，AWS密钥手工访问/输出/profile枚举/登录/刷新/配置修改0。静态凭据仅SDK内部加载，不泄露值或私有路径。正常push一次后停止保留聊天，等待明确路径及新授权，不重跑旧ID、不自动媒体GET/GPU或转移旧2视频8GiB额度；NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。
