@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-13（北京时间；按用户要求加速一次性排好真实实验3阶段：唯一READY META-005进行7次内真实官方区域+metadata核验，新增QUEUED非READY LIVE-MEDIA-002单段≤3.5GiB、总研究GET≤4GiB，与QUEUED非READY LIVE-AB-001 RTX3090单视频2题4次真实Qwen A/B、GPU≤40min。后两段合同已写好但必须上游成功且用户另行明确批准真实媒体GET和GPU，不得自动启动。上一轮META-004 HEAD301安全停止，当前仍0媒体/0模型结果）。  
+> 更新：2026-10-14（北京时间；最新Codex 895f260已核实Ego4D S3真实区域、官方v2_1 full_scale清单HEAD200/长度4,653,141B、条件GET200，但12秒读超时只得2,555,904B未完整；S3 attempts3/7、视频HEAD/GET0、GPU0。META-005安全结案、READY=0。已预排META-006为PENDING新授权，拟唯一提高manifest单GET read_timeout至90秒、S3最多7次、CSV正文≤8MiB，成功后同轮匹配UID和最多2个视频HEAD；LIVE-MEDIA-002与LIVE-AB-001继续QUEUED，真实媒体/GPU仍未批准）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -117,7 +117,8 @@
 | Ego4D配置完成后的新限量AWS元数据实测VLM-EGO4D-AWS-META-002 | **ACCEPTED_SAFE_METADATA_STOP / AUTH_PROFILE_HOLD（非READY）** | Codex [c600d44](https://github.com/floomeer83felix-source/vlm/commit/c600d4456cccefff034aafb8d44c45052cabd110)：实际ProfileNotFound，0/4 S3请求、未读真实UID、视频0/GPU0 |
 | Ego4D文件名修正后的真实metadata小请求VLM-EGO4D-AWS-META-003 | **ACCEPTED_SAFE_METADATA_STOP / LOCAL_UID_SOURCE_HOLD（非READY）** | Codex [39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a4236def69261a0c548408d300273)：boto3静态ego4d profile加载PASS、远端未尝试、本地开发JSON入口文件存在/体量复合门未通过，真实数据0/GPU0 |
 | HourVideo新下载JSON→Ego4D真实canonical元数据预检VLM-EGO4D-AWS-META-004 | **ACCEPTED_SAFE_METADATA_STOP / HTTP_STATUS_301（结案非READY）** | Codex [e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)：本地HourVideo 50视频 JSON/SDK profile PASS、官方manifest HEAD1次返回301、0GET/0媒体/GPU |
-| Ego4D按桶区域重定向问题受控元数据预检VLM-EGO4D-AWS-META-005 | **READY（用户已明确批准≤7次区域感知S3元数据HTTP尝试，0媒体GET/GPU）** | [正式执行合同](./codex-artifacts/VLM-EGO4D-AWS-META-005/README.md)：区域发现→唯一manifest HEAD/GET≤8MiB→最多2真实canonical媒体HEAD；Codex在原长期对话由用户发消息启动，脱敏回报后停止 |
+| Ego4D按桶区域重定向问题受控元数据预检VLM-EGO4D-AWS-META-005 | **ACCEPTED_SAFE_METADATA_STOP / READ_TIMEOUT_STAGE_C（结案、非READY）** | [Codex 895f260](https://github.com/floomeer83felix-source/vlm/commit/895f2602cc4d27d4e5b38a1e3249ae386c1d2120)：HeadBucket区域PASS、manifest HEAD200=4,653,141B、条件GET200却读2,555,904B后12秒ReadTimeout，3/7 S3，媒体0/GPU0，UID/大小UNKNOWN |
+| Ego4D官方manifest延长流读取超时与真实2媒体HEAD VLM-EGO4D-AWS-META-006 | **PENDING_NEW_EXPLICIT_METADATA_AUTHORIZATION（非READY）** | [预排合同](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md)：官方CSV read_timeout12→90秒，最多7次严格来源S3 metadata attempts、唯一GET≤8MiB、最多2视频HEAD，媒体GET/GPU0；需用户新同意后才可激活 |
 | Ego4D首次真实canonical原视频限量获取VLM-EGO4D-LIVE-MEDIA-002 | **QUEUED / MEDIA_GET_NOT_AUTHORIZED（非READY）** | [单段≤3.5GiB、1媒体GET和总GET正文≤4GiB冻结合同](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md)，先经META-005真实对象验证、用户独立批准才可激活 |
 | HourVideo首次RTX3090真实Qwen3-VL配对AB试验VLM-HOURVIDEO-LIVE-AB-001 | **QUEUED / GPU_NOT_AUTHORIZED（非READY）** | [1视频×2题×2臂≤4真实模型调用、GPU≤40min合同](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md)，先取得合法视频/桥接及另行用户批准GPU才可激活 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
@@ -721,6 +722,12 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 ### 2026-10-13 · 用户要求尽快开跑：首次真实媒体与RTX3090 A/B合同一次性预排（最新）
 
 当前META-005已获用户明确批准且唯一READY，其区域定位+固定官方manifest+最多2视频HEAD用来获得真实UID/对象大小，不包含媒体GET。用户要求「一次性多布置点任务，快点正式开始实验」，因此预先在GitHub草拟而**没有冒充已经获准**的两项下一阶段：[VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md)可在官方canonical UID/长度/region核验后申请1个原始视频≤3.5GiB、GET正文硬≤4GiB、单次无重试安全预算；[VLM-HOURVIDEO-LIVE-AB-001](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md)可在视频实际存在并厘清Ego4D↔HourVideo版本/PTS匹配后单独申请RTX3090 40min内、1视频2开发QA、A uniform12/B query-aware SigLIP 12/48、4次Qwen3-VL-4B真实配对前向。模型权重缺失不安装，所有标准答案不得作为选帧特征，实际研究准确率与仅真实视频Smoke严格区分。两项均QUEUED非READY，**用户并未授权它们的媒体下载或GPU预算**，需要上一阶段真实结果与对应明示批准后各自转换唯一READY；Codex一次只执行一个当前READY、不得预支阶段或将旧媒体8GiB许可迁移。用户关注速度，所以不再增加合成工具前置；按META→一视频→少量GPU试验一条线推进，所有真实媒体/QA/UID/密钥留私人本机且公有只传匿名收据。HourVideo早期标注容量50视频/1182题不变，Ego4D许可至10月26日，`NOVELTY=RETAIN0`和Charades `FINAL_MEDIA_STOP`维持。
+
+### 2026-10-14 · 已证真实Ego4D区域/对象权限，唯一障碍是4.65MB清单的12秒read timeout（最新）
+
+[Codex e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)首次全球端点HEAD 301后，[最新Codex 895f260](https://github.com/floomeer83felix-source/vlm/commit/895f2602cc4d27d4e5b38a1e3249ae386c1d2120)完成可信HeadBucket区域发现并在核实区域官方manifest HeadObject 200、ContentLength 4,653,141B、ETag绑定；同对象条件GetObject200且响应未压缩/长度匹配，应用从4.65MB中读2,555,904B后`ReadTimeoutError`（程序read_timeout=12秒）。S3总3次合法请求，没有隐式重试/新区域/媒体HEAD或GET，0视频/GPU。认证仅为固定manifest源可读，尚未取得完整CSV、做真实HourVideo50视频UID join或得到任何官方媒体对象长度；本轮`META-005`接受安全STOP，不复活未消费4次名额。
+
+为了立即取得真实对象证据，提前提交[唯一下一候选META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md)，以新的**待用户明确批准**云请求额度继续同一固定版本/对象：manifest单GET读取超时改90秒，来源/TLS/无重试/总S3 attempts≤7/唯一GET应用正文≤8MiB等仍冻结，完整读到后同轮做真实UID join并最多2 canonical媒体HEAD。**本次只是预排，非READY，当前READY=0**。此前一段媒体单GET≤3.5GiB/研究GET≤4GiB的`LIVE-MEDIA-002`和RTX3090单视频2题4次Qwen A/B≤40min的`LIVE-AB-001`均已排队，但没有媒体GET/GPU授权或实际媒体；用户希望快进真实实验，不再增加合成任务。HourVideo dev_v1.0与官方v2_1视频时间基/版本同一性仍UNKNOWN，`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`继续。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
