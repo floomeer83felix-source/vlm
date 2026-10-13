@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-13（北京时间；用户从官方HourVideo再次下载dev_v1.0_annotations.json，私下确认新的接收目录。唯一READY=VLM-EGO4D-AWS-META-004：由用户在Codex激活消息中给本地目录，单轮定位0<size≤16MiB标注只读顶层UID+时长，并进行官方v2_1/full_scale唯一manifest HEAD1+GET1≤8MiB及最多2 canonical视频HEAD，S3 attempts≤4。boto3 ego4d静态profile上轮PASS；0媒体GET/GPU，真实授权/版本桥接未测）。  
+> 更新：2026-10-13（北京时间；最新Codex e53c275：真实HourVideo开发JSON1,854,695B/50段顶层视频与ego4d静态profile均PASS，首次官方Ego4D manifest HEAD向全球S3 us-east-1端点返回HTTP301并按协议停止，S3 attempts 1、CSV/媒体GET0、媒体HEAD0/GPU0。已结案，当前0 READY；仅冻结META-005区域发现+7次以内真实元数据查询提案，等待用户明确新授权，绝不自动开始）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -116,7 +116,8 @@
 | Ego4D有限真实AWS元数据预检VLM-EGO4D-AWS-META-001 | **ACCEPTED_SAFE_METADATA_STOP / AUTH_PROFILE_HOLD（已结案，非READY）** | [Codex 85cc6f5](https://github.com/floomeer83felix-source/vlm/commit/85cc6f5b5ed23c00124eac81156fdc255e80dc27)：ProfileNotFound，0真实S3请求/媒体/GPU；本机专用ego4d凭据未配置 |
 | Ego4D配置完成后的新限量AWS元数据实测VLM-EGO4D-AWS-META-002 | **ACCEPTED_SAFE_METADATA_STOP / AUTH_PROFILE_HOLD（非READY）** | Codex [c600d44](https://github.com/floomeer83felix-source/vlm/commit/c600d4456cccefff034aafb8d44c45052cabd110)：实际ProfileNotFound，0/4 S3请求、未读真实UID、视频0/GPU0 |
 | Ego4D文件名修正后的真实metadata小请求VLM-EGO4D-AWS-META-003 | **ACCEPTED_SAFE_METADATA_STOP / LOCAL_UID_SOURCE_HOLD（非READY）** | Codex [39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a4236def69261a0c548408d300273)：boto3静态ego4d profile加载PASS、远端未尝试、本地开发JSON入口文件存在/体量复合门未通过，真实数据0/GPU0 |
-| HourVideo新下载JSON→Ego4D真实canonical元数据预检VLM-EGO4D-AWS-META-004 | **READY（同轮核私有JSON并获取单官方manifest+2视频HEAD，媒体GET0/GPU0）** | Codex执行本机真实元数据，ChatGPT验收聚合实测后申请有限媒体授权 |
+| HourVideo新下载JSON→Ego4D真实canonical元数据预检VLM-EGO4D-AWS-META-004 | **ACCEPTED_SAFE_METADATA_STOP / HTTP_STATUS_301（结案非READY）** | Codex [e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)：本地HourVideo 50视频 JSON/SDK profile PASS、官方manifest HEAD1次返回301、0GET/0媒体/GPU |
+| Ego4D按桶区域重定向问题受控元数据预检VLM-EGO4D-AWS-META-005 | **PENDING_EXPLICIT_USER_AUTHORIZATION（非READY）** | [合同](./codex-artifacts/VLM-EGO4D-AWS-META-005/README.md)已冻结，拟最多7次区域核验/清单GET≤8MiB/2媒体HEAD，用户同意后才可启动 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -704,6 +705,12 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 用户此前两轮用旧`Downloads`检查无此JSON，现明确已重新下载开发标注到**另一本机目录**，文件不上传给ChatGPT和GitHub。新[唯一READY VLM-EGO4D-AWS-META-004](./codex-artifacts/VLM-EGO4D-AWS-META-004/README.md)允许用户在私人Codex激活消息提供唯一目录，Codex只在此目录顶层只读核`dev_v1.0_annotations.json`，若浏览器自动给名字加编号也只在同一目录做最多一次前缀匹配且要求唯一，禁止全盘扫描/更改原JSON。旧任意3MiB复合限额已取消，分离文件存在和≤16MiB保守体量条件，再只提顶层UID及声明时长、不用问答与答案选样；旧已验收50视频1182QA只是先前审计数据，不冒称新文件已检。
 
 当前专用AWS`ego4d`静态profile在上一轮本机boto3已真正发现并加载，可继续同轮发有限的实际S3 metadata尝试：唯一官方`v2_1/full_scale/manifest.csv`先HEAD≤1核长度≤8MiB和对象身份锁，再GET≤1应用读取≤8MiB，按真实UID join官方贡献者canonical S3桶白名单后最多2个视频HEAD；全部wire attempts≤4，不请求v1/v2、clip或STS/LIST，不GET任何视频媒体、不跑GPU或模型，禁止打印密钥、真实UID/视频位置/QA。报告只匿名聚合实际文件存在/大小/UID命中及大小符合旧单段4GiB、合计8GiB的判断；匹配到相同UID不等于HourVideo开发问题所用时间轴/剪辑同版验证，不能自动开始媒体下载。Meta/Ego4D批准用户确认至2026-10-26，目标下一轮才经用户新授权下载1-2段官方原视频并用RTX3090短小真实A/B试验。旧META/TOOLS/MEDIA父任务均结案，`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`继续。
+
+### 2026-10-13 · 首次真实S3 HEAD被区域301停止：已有输入和SDK，后续只缺新授权区域发现（最新）
+
+[Codex e53c275](https://github.com/floomeer83felix-source/vlm/commit/e53c27535f190d4b3742a82fae3f1c7cb53c3452)及[匿名实测收据](./codex-artifacts/VLM-EGO4D-AWS-META-004/limited-aws-metadata-receipt.md)：用户新下载HourVideo开发JSON同一目录精确定位PASS，1,854,695字节、合法视频元数据50记录、dev Schema有效、原文件只读未变、UID/时长在私有RAM提取；ego4d命名SDK profile可签名加载。第一次向官方固定`v2_1/full_scale/manifest.csv`的S3全球端点以us-east-1 region签名发HEAD，服务器返回**301**，执行器禁止SDK解析/自动重定向和第二次发送，故真实S3请求1/4、CSV HEAD200=0/GET0、媒体HEAD0/GET0、真实视频0/GPU0。301说明区域端点/路由不适用的可能性高，**尚未读取正确region，不能宣称服务端AUTH_OK、UID匹配或完整安全下载额度通过**。原任务安全结案、**READY=0**。
+
+根据[AWS HeadBucket正式文档](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html)，固定合法S3桶即使HeadBucket 403，在`x-amz-bucket-region`也可提供可验证的真实区域提示；地域发现必须是新的有界云请求，不能从未保存的301目标盲猜或偷偷激活重试。已准备[下一唯一备选META-005合同](./codex-artifacts/VLM-EGO4D-AWS-META-005/README.md)但**状态PENDING_EXPLICIT_USER_AUTHORIZATION，非READY**，只有用户同意本轮新的≤7个白名单S3 metadata attempts（含官方manifest单GET应用正文≤8MiB，至多2媒体HEAD且媒体GET0/GPU0）后才由ChatGPT转READY并由原同一Codex会话执行。旧MEDIA/TOOLS/BOTO3/META所有已结案项目不可重跑，不迁移2媒体8GiB旧下载额度。成功获得官方媒体源身份与大小后优先申请一到两段原视频受控下载与RTX3090短小Qwen A/B验证，仍需媒体时间轴/发布桥接和单独用户许可；HourVideo答案保密及`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`保持。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
