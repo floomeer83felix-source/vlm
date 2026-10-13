@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-13（北京时间；用户亲自确认已私下配置AWS ego4d专用profile，新增唯一READY VLM-EGO4D-AWS-META-002：新父任务仅官方v2_1/full_scale manifest HEAD1+GET1≤8MiB及至多两视频对象HEAD，S3总尝试≤4；验证官方大小/UID存在性，0媒体GET/0GPU。上轮META-001因ProfileNotFound已结案，不重跑；新profile与AWS实际权限未验证）。  
+> 更新：2026-10-13（北京时间；最新Codex c600d44真实AWS任务META-002因标准boto3依然ProfileNotFound而安全结案：AWS请求0、manifest0、媒体0、GPU0，当前0 READY；下一步用户在Windows本机核真实credentials文件而非credentials.txt、[ego4d]节，只回报YES/NO，不能泄露密钥。无需更多合成工程；真实视频仍需确认权限与官方对象）。  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -114,7 +114,7 @@
 | Ego4D官方工具SDK/CLI就绪 VLM-EGO4D-TOOLS-001 | **ACCEPTED_PARTIAL_BOTO3 / CLI_SOURCE_BUILD_HOLD（已结案，非READY）** | Codex两轮提交执行，ChatGPT审查公有证据，未独立重跑 |
 | Ego4D boto3正式对象映射/硬预算离线工程VLM-EGO4D-BOTO3-001 | **ACCEPTED_SYNTHETIC_MAPPING_AND_BUDGET / REAL_S3_AND_RELEASE_BRIDGE_HOLD（结案非READY）** | Codex执行测试报告、ChatGPT静态验收GitHub源码及四路径差异（未独立复跑） |
 | Ego4D有限真实AWS元数据预检VLM-EGO4D-AWS-META-001 | **ACCEPTED_SAFE_METADATA_STOP / AUTH_PROFILE_HOLD（已结案，非READY）** | [Codex 85cc6f5](https://github.com/floomeer83felix-source/vlm/commit/85cc6f5b5ed23c00124eac81156fdc255e80dc27)：ProfileNotFound，0真实S3请求/媒体/GPU；本机专用ego4d凭据未配置 |
-| Ego4D配置完成后的新限量AWS元数据实测VLM-EGO4D-AWS-META-002 | **READY（用户已私下配置，官方单manifest GET≤8MiB + 最多两媒体HEAD；视频GET/GPU0）** | Codex新父任务，ChatGPT核实真实聚合数据后裁决首次小样本下载 |
+| Ego4D配置完成后的新限量AWS元数据实测VLM-EGO4D-AWS-META-002 | **ACCEPTED_SAFE_METADATA_STOP / AUTH_PROFILE_HOLD（非READY）** | Codex [c600d44](https://github.com/floomeer83felix-source/vlm/commit/c600d4456cccefff034aafb8d44c45052cabd110)：实际ProfileNotFound，0/4 S3请求、未读真实UID、视频0/GPU0 |
 | 原时间戳审计 VLM-PTS-001 | INCLUDED IN VLM-BATCH-003；不可单独执行 | Codex |
 | 预注册冻结 VLM-003 | BLOCKED | Codex/ChatGPT |
 | 新模型问答 VLM-004 | BLOCKED | Codex |
@@ -682,6 +682,12 @@ Codex[85cc6f5](https://github.com/floomeer83felix-source/vlm/commit/85cc6f5b5ed2
 ### 2026-10-13 · 凭据已由用户私下配置，立即进行新的真实AWS元数据验证（最新）
 
 用户收到Meta Ego4D访问批准有效至2026-10-26，继此前本机缺专用AWS profile的`ProfileNotFound`失败后，已在本轮明确回复「已配置」。**这仅是用户本机操作确认，不是我们已取得凭据或已核AWS服务权限**。按承诺立即新建[唯一READY VLM-EGO4D-AWS-META-002](./codex-artifacts/VLM-EGO4D-AWS-META-002/README.md)，沿用上一有限合同的官方`v2_1/full_scale`固定S3清单，只允许HEAD最多1、GET最多1且正文应用读取≤8MiB，再最多两次canonical视频对象HEAD，**全部S3 wire尝试≤4，媒体GET/LIST/STS0、GPU/模型0**。受保护HourVideo开发JSON只在本机私有RAM提取顶层视频UID/时长，不读答案作决策或向公有提交原文、密钥、真实UID或对象URL。实际manifest匹配数量/视频大小、发布版本同钟证据若未知需诚实报告，不猜S3 key或补扫v1/v2。账号/来源/request-count任何前置门不通过立即STOP；上一已结案MEDIA、TOOLS、BOTO3和META-001全部不重跑，旧8GiB媒体GET预算不被继承。只需一份匿名结果+codex-results尾一条，结果后优先由ChatGPT获用户新授权限量下载真正视频并做短GPU试验，无更多合成工程。
+
+### 2026-10-13 · 两次真实AWS预检均在本机profile被发现前停止，避免第三次盲跑（最新）
+
+最新[Codex提交c600d44](https://github.com/floomeer83felix-source/vlm/commit/c600d4456cccefff034aafb8d44c45052cabd110)仅上传[脱敏收据](./codex-artifacts/VLM-EGO4D-AWS-META-002/limited-aws-metadata-receipt.md)和结果尾部8行；用户已配置之陈述并没有转化为当前boto3环境能解析的`[ego4d]`命名profile：仍`ProfileNotFound`。AWS真实发起请求0（不是远端403），官方`v2_1/full_scale`清单未读，HourVideo真实UID/时长也未读，canonical S3视频大小/存在性UNKNOWN，GPU/模型均未开始。META-002验收安全负结果、**关闭唯一READY至0**，不使用旧MEDIA下载额度、不重复其它已结案批次。
+
+为尽快到真实视频而非第三次在同一错误上耗时间，首先用户在本机Windows PowerShell进行**只反馈布尔值的私密检查**：标准`%USERPROFILE%\.aws\credentials`文件是否存在、是否误存为`credentials.txt`、是否有精确`[ego4d]`配置节；只将这三个YES/NO提供聊天，凭据原文/账号/Windows路径/截图不得上传。若检查通过而Codex仍找不到profile，进一步需确认Codex是同一Windows登录账户/HOME及AWS配置路径隔离，但仍不能回显私人值。下一步经新有限用户授权再次尝试官方manifest≤8MiB及两个媒体HEAD，成功后直接安排有限视频GET与短RTX3090 Qwen实验，不新建合成工程。官方批准用户确认有效至2026-10-26；`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`持续。
 
 ## 6. 下一次 ChatGPT 审查的检查顺序
 
