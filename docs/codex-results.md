@@ -482,3 +482,15 @@ AWS凭据/profile/私人邮件访问0，AWS认证/S3 GET/HEAD/LIST0，数据mani
 Ego4D1.7.3官方sdist固定发布SHA匹配PASS，仅tar/setup静态检查，未执行构建；必需iopath0.1.10官方发布wheel数0，不符合其余依赖只用wheel的原合同，故EGO4D_CLI_SOURCE_BUILD_HOLD，未跳过依赖或扩装源码包。CLI help未运行、完整工具READY未达。8个归档14,809,324B、专用根逻辑50,462,720B（小记录略增），记录前台合计约392秒，均在128MiB/512MiB/20分钟界内；一个原venv复用，原失败证据保留。
 
 AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、模型/GPU/训练、旧科研/Conda/pytorch/PATH/AWS配置改动均0。仅官方PyPI工具获取与授权Git交接，未声称归档字节等于全部网络流量。未创建第二环境/后台任务，不上传私人路径、包/安装器/日志/凭据；旧媒体2视频8GiB不转移。正常push一次后停止，保留聊天等待验收；仅SDK部分就绪，无MEDIA_READY或DOWNLOAD_GO。
+
+### VLM-EGO4D-BOTO3-001 2026-10-13 — SYNTHETIC_MAPPING_AND_BUDGET_READY；32项最终测试与完整演练通过，真实AWS/媒体/GPU为0
+
+独立公有docs安全同步main `d776403`，核唯一READY/无本ID旧回报，按README重读依据及旧工具/媒体收据。新增[离线门程序](../prototypes/ego4d_boto3_offline_gate.py)、[单元测试](../prototypes/test_ego4d_boto3_offline_gate.py)、[官方源码与预算工程收据](codex-artifacts/VLM-EGO4D-BOTO3-001/offline-source-and-budget-receipt.md)及本条，严格4处；既有代码/环境/计划/总览不改。
+
+核官方4bd10ed固定manifest/config/download公开源码：字段与manifest组织已核，file_uid优先行为不当video_uid；DATASET_PRIMARY常量虽full_scale，实际CLI argparse默认annotations，程序因此要求显式full_scale，不采取不符的默认假设。blob download.py不可得时读同官方固定commit raw源码，未执行官方会创建Session/并发重试的代码。真实release桥接默认阻塞，虚构确认也始终输出REAL_BRIDGE_NOT_VERIFIED。
+
+实际unittest2次：初30/30 PASS（退出0），最终32/32 PASS（退出0）；CLI --synthetic --self-test2次：初30项中29PASS/1ERROR（退出1），修正后32全PASS（退出0）；完整--synthetic演练1次退出0，两虚构对象成功、重启拒重复，预扣/模拟接受量18B，真实请求0。测试文件直接运行1次32PASS/退出0；5次suite共156方法，最终0FAIL/ERROR/SKIP。初版Windows替换既有ledger被拒/残留pending已如实记入收据，修为不覆盖现存文件的连续原子快照+完整checksum/前驱链，新增历史损坏及写入故障不重试测试，不删除pending或掩盖原失败。
+
+代码仅SYNTH内存CSV/UID、模拟HEAD长度/ETag/version、整数流块；≤2不同视频、单段4GiB、全GET8GiB及metadata32MiB固定整数门，STARTED全长度持久预扣、不退款、不自动重试，部分读/错误正文/中断/重启/改合同/改run ID/跨进程锁/超限/short read/Range/etag等拒绝，真实flags/live adapter fail closed。GiB测试仅整数，不分配GiB数据；临时账本仅本次tempfile根。模拟拟读块超界拒绝不能冒称已到达线上buffer真实流量受控；恶意快照删除/回滚和机器停电耐久性未认证。
+
+0AWS认证/SDK Session/client/S3 HEAD/GET/LIST，0真实HourVideo原JSON/UID/QA/视频/manifest访问下载，0PyPI/安装/venv与pytorch修改，0GPU/模型/训练/ffprobe/解码/原研究树/旧锁账本触碰；仅公开源码网络与授权Git交接，不用已安装boto3建连接。REAL_TRANSFER_ENFORCEMENT_NOT_VERIFIED、真实同版/权限UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持；不移用旧2段8GiB。正常push一次后停止，保留聊天等待验收，不自动真实媒体任务。
