@@ -17,7 +17,7 @@ from urllib.request import (build_opener, HTTPSHandler, HTTPRedirectHandler,
                             ProxyHandler, Request)
 
 TITLE = "File:One Week (1920).webm"
-ALLOWED_KEYS = ("360p.vp9.webm", "240p.vp9.webm", "480p.vp9.webm")
+ALLOWED_KEYS = ("360p.vp9.webm", "240p.vp9.webm")
 API_HOST = "commons.wikimedia.org"
 VIDEO_HOST = "upload.wikimedia.org"
 MAX_META = 512 * 1024
@@ -80,7 +80,7 @@ def verified_license(info):
 
 
 def verified_derivative(info):
-    """Prefer 360p, then 240p, then 480p; only exact real API options."""
+    """Prefer 360p, then 240p; only exact real API options."""
     entries = info.get("derivatives")
     require(isinstance(entries, list), "DERIVATIVES_LIST_ABSENT")
     keys_present = tuple(x.get("transcodekey") for x in entries if isinstance(x, dict))
