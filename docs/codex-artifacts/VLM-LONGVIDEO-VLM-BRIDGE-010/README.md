@@ -28,6 +28,6 @@
 
 ### C. 隔离、科学边界和单次匿名交付
 
-- **仅在002模型资产+推理许可+GPU资源及movie合法性真实全PASS时，才运行4次模型调用**。没有真实资产不装包、不下载、不提供假Qwen输出；若不符合走明确HOLD、让用户决定是否单独下载模型。真正Qwen推理完成也只是公开1920电影**无标准答案**的技术A/B，不能报告HourVideo官方题目准确率、Ego4D版本桥接或视觉因果理解已提升；以后要做这些必须另准备属于官方样本的匹配媒体/合法开发题和独立匹配版本证据。
+- **仅在A阶段模型资产+推理许可+GPU资源及movie合法性真实全PASS时，才运行4次模型调用**。没有真实资产不装包、不下载、不提供假Qwen输出；若不符合走明确HOLD、让用户决定是否单独下载模型。真正Qwen推理完成也只是公开1920电影**无标准答案**的技术A/B，不能报告HourVideo官方题目准确率、Ego4D版本桥接或视觉因果理解已提升；以后要做这些必须另准备属于官方样本的匹配媒体/合法开发题和独立匹配版本证据。
 - 不公开原影片、帧/缩略图、时间戳序列、题目之外的任何用户私有问答、生成的完整模型回答、私人模型路径/哈希/权重/日志、GPU进程身份、电影可唯一映射标签；只提交匿名聚合，且不能未经额外同意推送模型完整答复或视频。
 - 最多两处文件：新增`docs/codex-artifacts/VLM-LONGVIDEO-VLM-BRIDGE-010/real-vlm-bridge-receipt.md`，并在`docs/codex-results.md`末尾恰好追加一条`### VLM-LONGVIDEO-VLM-BRIDGE-010`。报告A/B各PASS/HOLD阶段、模型来源/processor布尔、是否真实Qwen4/4调用、SigLIP检索vs uniform帧数与PTS覆盖、GPU秒/峰值VRAM/机器环境匿名类别，以及科学证据等级。一次正常push main后STOP；不修改旧实验看板/许可证、旧part或QA数据，`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`、HourVideo/Ego4D release/PTS bridge UNKNOWN不变。
