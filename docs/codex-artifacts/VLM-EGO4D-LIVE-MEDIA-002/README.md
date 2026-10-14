@@ -1,6 +1,6 @@
 # VLM-EGO4D-LIVE-MEDIA-002｜一段真实Ego4D长视频：身份重建、有限验证与单次受控获取
 
-**2026-10-14｜QUEUED / PENDING_NEW_EXPLICIT_MEDIA_AND_METADATA_AUTHORIZATION（非READY；本合同未许可任何新增AWS请求或媒体下载）。** 用户要求尽快启动真实GPU实验，故将可直接衔接[META-007真实实测](../VLM-EGO4D-AWS-META-007/canonical-source-classification-receipt.md)的单视频获取流程一次写好。META-007已安全结案，未继承其7/7已消耗请求，不复活旧MEDIA-001、META-006/007及原2段8GiB下载权限。**必须用户在ChatGPT另行明确批准本合同新额度（8次S3 metadata+media HTTP attempts、唯一官方manifest GET应用正文≤8MiB、至多2个对象HEAD、至多1个视频GET且单个≤3.5GiB、媒体正文累计≤4GiB），ChatGPT在看板将本ID设唯一READY，然后用户于原同一Codex长期对话新发执行指令，方可运行。** 这项许可不涵盖GPU/模型/训练、其他视频或模型权重下载。
+**2026-10-14｜USER_APPROVED / 唯一READY（仅限本合同的单段有限官方媒体GET与必要metadata重建）。** 用户要求尽快启动真实GPU实验，故将可直接衔接[META-007真实实测](../VLM-EGO4D-AWS-META-007/canonical-source-classification-receipt.md)的单视频获取流程一次写好。META-007已安全结案，未继承其7/7已消耗请求，不复活旧MEDIA-001、META-006/007及原2段8GiB下载权限。**用户已在ChatGPT对这一具体合同明确回复「同意，不要每次问我」，新独立批准总计最多8次S3 metadata+media HTTP attempts、唯一官方manifest GET应用正文≤8MiB、最多2个对象HEAD、最多1个媒体GET且单个≤3.5GiB、媒体正文累计≤4GiB；ChatGPT已将本ID设为唯一READY。必须仍由用户在原同一Codex长期对话新发一次执行指令才能运行；不得解释为无限续传、额外样本、额外AWS请求、GPU或训练的空白授权。** 这项许可不涵盖GPU/模型/训练、其他视频或模型权重下载。
 
 ## 实际已核验的证据与缺失
 
@@ -15,7 +15,7 @@
 3. 完整同一CSV与本地顶层video_uid精确join后，在私有RAM按META-007相同互斥分类/冻结选样规则确定排序：**优先≥30分钟，次用UID SHA256稳定序；固定前两段不同UID和canonical对象**；无45合法候选等一致性证据或排序变动即`REPRODUCIBILITY_HOLD`，不替换候选、扫其它对象或扩大本轮单段预算。按必要元数据桶地区发现和最多2个HeadObject验证它们；只有结果可重现为两个HEAD200，**恰1段0<L≤3,758,096,384B、另1段>4GiB，且2段合计与META-007收据12,897,682,214B一致**（不能仅靠模糊合计代替身份锁），才准将合格段进入GET门。两段真实身份、region、key和ETag均只保存在私人内存，GET与新HEAD当前身份绑定；若对象变化/数值不同即STOP，不按大小有利重选第三段。
 4. 一段合法官方`full_scale`长视频（标注声明≥20min、开发题数≥2；优先≥30min），绝非clips/540ss/Charades/第三方镜像；目标私人目录与独立匿名持久账本均由本父任务唯一拥有，不在公有Git或原私有训练/实验/旧媒体目录内，空闲空间≥对象声明长度+2GiB。缺空间/重解析链接/原文件已存在即STOP，不能覆写或删除既有数据。
 
-## 全新有界AWS请求合同（**未获用户新明确批准前全部0**）
+## 已获用户明确批准的有界AWS请求合同（唯一READY，仅本父任务）
 
 - 严格串行总**≤8次S3 HTTP wire发送尝试（包括失败、301、4xx或超时）**：A固定官方manifest桶HeadBucket≤1；B区域正确的该CSV HeadObject≤1；C同对象身份锁条件GET≤1（应用正文≤8,388,608B/read_timeout=90s，必须读满并等于HEAD长度；未压缩、不Range）；D对两段已冻结安全候选的贡献桶HeadBucket≤2；E对两个不同canonical媒体对象HeadObject各≤1共≤2；F只选上述HEAD合格的一个对象媒体GetObject≤1。最坏A1+B1+C1+D2+E2+F1=**8**。某桶重复则复用可信区域而不额外发送。**其它视频GET/Range/206、恢复GET、下载器多线程、LIST/STS全部0**。本轮所有媒体正文研究GET读取累计硬上限**4,294,967,296B（4GiB）**，单个对象声明≤3.5GiB。
 - 正式HTTP每次发送前必须审查精确bucket/key/HTTPS可信官方AWS商业地区主机、方法、region、阶段及已用次数，并持久`fsync`不可回滚匿名计数；`connect_timeout=5`、`read_timeout=90`、`retries={'mode':'standard','total_max_attempts':1}`、pool1，禁止自动区域跳转、代理和任何隐藏重试。官方manifest/两对象的ETag/VersionId身份绑定要在本轮一致；GET必须在本轮媒体HeadObject200和长度/可用身份锁之后，使用条件标识且绝不发送Range。错误/短读/意外响应立即STOP，本任务不得第二个GET、换视频或新run重置计数。
@@ -25,4 +25,8 @@
 ## 唯一公有交付/停止状态
 
 - 新`docs/codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/one-video-receipt.md`：匿名报告本轮A–F实际发送与成功/失败计数、manifest完整性与50 UID匹配、候选分类一致性、2个媒体HEAD是否重现大小门、GET 0或1、STARTED预扣、应用正文与落盘容量**仅汇总或区间**、存储/容器PTS检查是否通过、资源消耗和停止状态；不公开单段可重识别确切大小/UID/媒体URI、区域/桶/ETag、QA/答案/帧、私人账户、凭据/脚本/路径/账本、视频或模型权重。
-- `docs/codex-results.md`末尾只增**一个**`### VLM-EGO4D-LIVE-MEDIA-002`及报告链接；**不得改**看板、总览、旧结果、任何公共代码、旧科研环境/媒体/锁或实验成果。正常一次push main后STOP。真实结果只能是`ONE_OFFICIAL_MEDIA_ACQUIRED_METADATA_ONLY`或有具体原因的`LIVE_MEDIA_SAFE_STOP/HOLD`。**媒体下载许可绝不自动允许GPU、模型、训练；后续[真实GPU A/B合同](../VLM-HOURVIDEO-LIVE-AB-001/README.md)仍需独立用户批准**。保持`RELEASE_AND_CLOCK_BRIDGE_UNKNOWN`直至独立证据、`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`。
+- `docs/codex-results.md`末尾只增**一个**`### VLM-EGO4D-LIVE-MEDIA-002`及报告链接；**不得改**看板、总览、旧结果、任何公共代码、旧科研环境/媒体/锁或实验成果。正常一次push main后STOP。真实结果只能是`ONE_OFFICIAL_MEDIA_ACQUIRED_METADATA_ONLY`或有具体原因的`LIVE_MEDIA_SAFE_STOP/HOLD`。**本合同的执行权限仅限上文metadata与单视频GET，不包含GPU、模型或训练；后续[真实GPU A/B合同](../VLM-HOURVIDEO-LIVE-AB-001/README.md)有已预排的具体40 GPU分钟/4次前向上限，但须到达媒体真实可用、来源/时间轴与模型门后才能确认独立运行权限，不得由本任务自行越级执行**。保持`RELEASE_AND_CLOCK_BRIDGE_UNKNOWN`直至独立证据、`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`。
+
+## 减少往返的用户偏好（不扩大合同）
+
+用户不希望对同一个已经批准的父任务反复询问。执行器应在本次新用户启动指令之后，**一次连续执行所有已获准的A–F安全子阶段**（在预算及独立前置门均PASS时），不中途让用户逐个批准每次HeadBucket、manifest GET或条件媒体GET。只在触发STOP或完成后提供一次脱敏报告。**不得因此转而使用LIVE-AB-001或TRAIN-GPU-001的GPU预算、获取第二个视频、重试失败GET或自动唤醒下一执行轮**。
