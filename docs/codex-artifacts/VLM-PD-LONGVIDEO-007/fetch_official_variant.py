@@ -186,8 +186,8 @@ def run(root):
             declared = reply.headers.get("Content-Length")
             if declared is not None:
                 require(0 < int(declared) <= MAX_META, "META_DECLARED_LENGTH")
-            raw = reply.read(MAX_META + 1)
-            require(0 < len(raw) <= MAX_META, "META_BODY_LIMIT")
+            raw = reply.read(MAX_META)
+            require(0 < len(raw) < MAX_META, "META_BODY_LIMIT_OR_UNVERIFIED_EOF")
             if declared is not None:
                 require(len(raw) == int(declared), "META_BODY_TRUNCATED")
         journal(jf, stage="META_BODY_COMPLETE", bytes=len(raw))
