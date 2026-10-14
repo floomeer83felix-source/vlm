@@ -548,3 +548,14 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 A桶HEAD1返回301，可信区域头PASS；B regional manifest HEAD1返回200、4,653,141B/ETag；C条件GET1返回200，长度/身份/非压缩一致，完整应用读取4,653,141B成功，真实UID唯一交集50。之后组合canonical来源门触发CANONICAL_SOURCE_HOLD，未记录具体子项，根因UNKNOWN；立即STOP，不放宽规则、重选样本或再请求。D/E媒体桶/对象HEAD0，安全候选数与媒体长度/≤4GiB及合计≤8GiB NOT_RUN/UNKNOWN，不伪写0匹配或已证明可下载视频。manifest AUTH_OK不能外推贡献桶权限；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN持续。
 
 S3实际3/7、manifest完整GET1、隐藏补发/重试/LIST/STS0，现场40.256秒；应用字节不冒充SDK/TLS/wire总量。媒体GET/Range/正文、GPU/模型/ffprobe/解码/训练0；安装/合成/无关研究/旧环境与锁账本修改0。CSV只留执行RAM，私有脚本/计数及真实UID/QA/源对象/区域/凭据/私人路径不上传。正常push一次后停止，等待新诊断合同与审查，不自动MEDIA/AB/训练；MEDIA_GET_NOT_AUTHORIZED、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。
+### VLM-EGO4D-AWS-META-007 2026-10-14 — META_PREFLIGHT_EVIDENCE；45个安全候选、两个HEAD200，一段≤3.5GiB，7/7尝试
+
+公有docs安全同步main `026aa28`，核最新唯一READY/无旧回报，按AGENTS及合同先静态核006私有校验器/合成代码与固定官方四份源码。006没有合成key前缀限制，官方桶表精确一致；保留URI/安全key/字段冲突/真实UID门。新合同固定全UID分类与安全候选稳定hash排序，不重跑006、不移用余额。仅新增[匿名来源分类与媒体HEAD收据](codex-artifacts/VLM-EGO4D-AWS-META-007/canonical-source-classification-receipt.md)及本条2处。
+
+本地精确JSON1,854,695B/50顶层UID、schema/reparse/SHA不变PASS，只取时长及QA数组长度，答案不用于选择。新私人执行器初始SyntaxError在解析阶段终止、0SDK/请求/计数；离线修复2处转义并AST检查后，一次真实AWS流程36.496秒。没有请求重试或预算重置，不隐瞒初始工程失败。复用静态ego4d SDK、环境不改。
+
+A桶HEAD1(301可信区域PASS)、B regional manifest HEAD1(200/4,653,141B)、C条件GET1(200/完整4,653,141B)；真实唯一UID交集50。匿名互斥分类：VALID_CANDIDATE45、BUCKET_NOT_IN_PINNED_OFFICIAL_LIST5，其余6类全0，合计50；旧组合谓词本轮OFFICIAL_BUCKET失败5，当前真实原因已证，006具体失败行/同对象身份仍UNKNOWN。5个不安全来源均无请求，未扩白名单。45个来源合法候选满足≥20分钟及≥2题数组长度；优先≥30分钟再UID稳定SHA排序，取2个不同对象，不依据答案或HEAD大小替换。
+
+D候选贡献桶HEAD2(301/301可信区域PASS)，E媒体对象HEAD2(200/200、长度和身份字段可用)。单段≤3.5GiB数量1、≤4GiB数量1；合计12,897,682,214B、≤8GiB不通过。实际S3总7/7、HeadBucket3/HeadObject3/GetObject1；隐藏补发/重试/Range/LIST/STS0。90秒读取/5秒连接、禁代理/TLS验证、逐发送fsync计数及程序墙钟门保持；应用字节不称wire总量。至少1段满足后续单视频大小门，但无下载授权或PTS/发布桥接证明。
+
+媒体GET/正文、GPU/模型/ffprobe/解码/训练0；安装/原科研/环境/旧账本锁修改0。CSV及映射仅本次RAM，私有代码/UID/QA/桶region/对象/凭据/路径不上传。正常push后停止待ChatGPT验收；MEDIA_GET_NOT_AUTHORIZED、RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0和Charades FINAL_MEDIA_STOP保持，不启动任何排队任务。
