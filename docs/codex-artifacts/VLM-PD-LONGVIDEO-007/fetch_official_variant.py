@@ -166,8 +166,8 @@ def run(root):
     require(selftest(), "OFFLINE_FIXTURE_FAILED")
     root = Path(root)
     require(root.is_dir() and not root.is_symlink(), "PRIVATE_DIR_REQUIRED")
-    video = root / "one-week-360p.webm"
-    part = root / "one-week-360p.webm.part"
+    video = root / "one-week-selected-vp9.webm"
+    part = root / "one-week-selected-vp9.webm.part"
     ledger = root / "commons-v007-ledger.jsonl"
     require(not any(p.exists() or p.is_symlink() for p in [video, part, ledger]),
             "NEW_PARENT_OUTPUT_NOT_EMPTY")
