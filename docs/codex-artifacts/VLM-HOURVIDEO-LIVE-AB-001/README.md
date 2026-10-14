@@ -1,6 +1,6 @@
 # VLM-HOURVIDEO-LIVE-AB-001｜RTX3090首次真实长视频A/B：2道配对QA、4次模型调用（预先排队，非READY）
 
-**2026-10-13｜QUEUED / REAL_MEDIA_AND_GPU_AUTHORIZATION_HOLD。** 用户要求尽快正式开跑，所以把**可直接执行的单视频真实GPU小样本实验**提前设计好；本文件**不是GPU/模型/权重下载许可**，不能因用户表示急切而自启，不能在当前META-005或以后真实视频获取任务仍未结案时并行跑。只有ChatGPT验收上游[一段真实官方视频获取](../VLM-EGO4D-LIVE-MEDIA-002/README.md)，且实际媒体/版本/题目和模型资格通过，用户另行明确同意**4次前向、至多40分钟RTX3090 GPU时间**后才把本父任务设为唯一READY；仍须用户在原同一Codex长期会话发执行消息。
+**2026-10-13｜QUEUED / REAL_MEDIA_AND_GPU_AUTHORIZATION_HOLD。** 用户要求尽快正式开跑，所以把**可直接执行的单视频真实GPU小样本实验**提前设计好；本文件**不是GPU/模型/权重下载许可**，不能因用户表示急切而自启，不能在当前唯一READY的META-006或以后真实视频获取任务仍未结案时并行跑。只有ChatGPT验收上游[一段真实官方视频获取](../VLM-EGO4D-LIVE-MEDIA-002/README.md)，且实际媒体/版本/题目和模型资格通过，用户另行明确同意**4次前向、至多40分钟RTX3090 GPU时间**后才把本父任务设为唯一READY；仍须用户在原同一Codex长期会话发执行消息。
 
 ## 先确认实验可用，而非制造准确率
 
@@ -15,3 +15,7 @@
 允许的结果状态：`SCORED_REAL_AB_PILOT_2Q_1VIDEO`（必须真正同版/PTS已证且答案评分可信）、`UNSCORED_REAL_VIDEO_SMOKE`（运行真实模型但不能验证版本桥接）、或`MEDIA_VERSION/MODEL/GPU_HOLD`。匿名记录固定分母2配对问题，成功/错误/invalid/失败/未开始各类别；2×2配对四格仅限实际可评分时计算。报告真实4次以内模型调用、完整框架成本与候选/选帧耗时、GPU分钟和峰值显存、A/B同权重同prompt判据、timebase与版本边界、失败阶段，不能公开任何问题原文或UID、具体答案、视频、样本索引或模型推理文本。**不从n=2题推断显著性、模型优劣或创新性**；`NOVELTY=RETAIN0`继续。
 
 公有结果最多两处：新增`docs/codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/real-ab-pilot-receipt.md`与`docs/codex-results.md`末尾恰好一条`### VLM-HOURVIDEO-LIVE-AB-001`。如需要新增通用公开、不含受保护代码可在后续获得新增allowlist批准，本轮不擅自改源；避免向公有Git提交可重识别采帧时刻表/私有模型输出。核`git diff --cached --name-only`只这两路径，正常main push一次STOP。该初次真实实验可决定是否值得申请下一步≥12段视频×24道配对QA扩大规模，但**12段的视频下载预算/24题×2模型调用的GPU许可均须新批**。
+
+## GPU训练接力（仅规划、不自动授权）
+
+这轮是真实视频**冻结基线推理**，不是训练。完成后的独立后续链为[额外训练视频DATA](../VLM-EGO4D-LIVE-TRAIN-MEDIA-001/README.md)→[CPU训练准备](../VLM-HOURVIDEO-TRAIN-PREP-001/README.md)→[有限真实RTX3090梯度训练](../VLM-HOURVIDEO-TRAIN-GPU-001/README.md)，以及可选独立授权的[Qwen LoRA](../VLM-HOURVIDEO-TRAIN-LORA-001/README.md)。详细看[端到端训练路线](../../gpu-training-roadmap-2026-10-14.md)。训练样本与本轮冻结评测视频/QA严格隔离，不能为了训练偷用开发集答案；以上均非READY，需分别过门及用户授权。
