@@ -538,3 +538,13 @@ AWS凭据/profile/认证/S3 HEAD/GET/LIST、受保护标注/UID/视频/下载、
 发送前host/method/bucket-key/阶段次数钩子+fsync聚合计数、单进程串行、total_max_attempts1、5秒连接/12秒读取/TLS保持/禁代理继承；A只用region提示另建核定regional签名，不跟301 Location，不发送失败补救/Range/额外release。应用字节不等于SDK未返回缓冲/TLS/wire总量；超时按合同立即STOP，不调时限或第二次GET，不以GET200称完整清单成功。
 
 只新[区域感知匿名实测收据](codex-artifacts/VLM-EGO4D-AWS-META-005/region-aware-limited-metadata-receipt.md)及本条2处，私有代码/CSV/UID/原标注/QA/密钥/实际region/对象/私有路径不上传。0视频正文/模型/GPU/ffprobe/解码/训练、0工具安装/合成测试/额外规划/旧科研资产/锁账本/环境/AWS配置修改。RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP保持。正常push一次后停止，等待新授权，不启动预排媒体GET/GPU任务、不移用旧下载额度。
+
+### VLM-EGO4D-AWS-META-006 2026-10-14 — SAFE_METADATA_STOP / CANONICAL_SOURCE_HOLD；清单完整、UID交集50，3/7请求
+
+独立docs安全同步main `ea84adf`，核最新唯一READY/无旧回报，读取AGENTS/任务板/结果/总览、META-006及005合同/收据、GPU路线。仅新增[完整清单与来源阻塞匿名收据](codex-artifacts/VLM-EGO4D-AWS-META-006/long-timeout-metadata-receipt.md)和本条，共2处；旧结果、任务书、公共代码和原科研资产不改。
+
+同一授权本地精确JSON1,854,695B、正规无reparse、dev schema PASS、50顶层UID/正时长、前后SHA RAM一致；只取顶层元数据及开发题数组长度，不用题目/选项/答案排序或公开。复用既有静态ego4d SDK，不手工读取/泄露凭据或修改环境。新父任务单次执行，90秒读取/5秒连接、禁代理/TLS保留、单次attempt、持久计数及≤20分钟程序监督；不重跑005或继承其余预算。
+
+A桶HEAD1返回301，可信区域头PASS；B regional manifest HEAD1返回200、4,653,141B/ETag；C条件GET1返回200，长度/身份/非压缩一致，完整应用读取4,653,141B成功，真实UID唯一交集50。之后组合canonical来源门触发CANONICAL_SOURCE_HOLD，未记录具体子项，根因UNKNOWN；立即STOP，不放宽规则、重选样本或再请求。D/E媒体桶/对象HEAD0，安全候选数与媒体长度/≤4GiB及合计≤8GiB NOT_RUN/UNKNOWN，不伪写0匹配或已证明可下载视频。manifest AUTH_OK不能外推贡献桶权限；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN持续。
+
+S3实际3/7、manifest完整GET1、隐藏补发/重试/LIST/STS0，现场40.256秒；应用字节不冒充SDK/TLS/wire总量。媒体GET/Range/正文、GPU/模型/ffprobe/解码/训练0；安装/合成/无关研究/旧环境与锁账本修改0。CSV只留执行RAM，私有脚本/计数及真实UID/QA/源对象/区域/凭据/私人路径不上传。正常push一次后停止，等待新诊断合同与审查，不自动MEDIA/AB/训练；MEDIA_GET_NOT_AUTHORIZED、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。
