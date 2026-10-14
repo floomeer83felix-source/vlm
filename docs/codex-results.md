@@ -583,3 +583,15 @@ A/B/C/D/E/F实际尝试均0，总0/8；清单GET0/应用0B、媒体GET0/1/正文
 最后持久应用read计数与部分落盘均在64–128MiB区间；最终RAM计数因终止未正常保存，不冒称文件字节即完整应用/wire总量。完整声明长度已保守预扣且不退款，目标≤3.5GiB/媒体应用预算≤4GiB；没有完成mp4或atomic rename，ffprobe/PTS/解码NOT_RUN。私有目标UID哈希保守排除标记已保存，未称实际训练曝光。SDK/TLS/wire及费用仍不精确认证。
 
 B因A不完整未调用：现有pytorch仅模块入口torch/av/cv2/numpy和既存ffprobe存在性通过；CPU/GPU代码AST准备不等于实际执行。真实帧0、CUDA分配/forward/backward/optimizer updates0、GPU分钟0，参数变化/loss/峰值VRAM/验证分割NOT_RUN；未证明环境不兼容。无确切获准替代真视频，不用part/合成帧/dev答案或旧素材补足，不装依赖、不下载权重、不触碰原研究环境与旧锁账本。只上传匿名两处，正常push后STOP等待审查，未自动下游；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP持续。
+
+### VLM-LOCAL-GPU-REAL-SMOKE-002 2026-10-14 — GPU_INFRA_HOLD / GPU_OCCUPANCY_UNRESOLVED；CUDA更新0，B/C未执行
+
+独立docs安全同步main `7f559ce`，核唯一READY/无旧结果，重读AGENTS/任务板/结果/总览、合同和上一轮匿名收据。仅提交[GPU占用未排除的匿名收据](codex-artifacts/VLM-LOCAL-GPU-REAL-SMOKE-002/local-gpu-smoke-receipt.md)及本条2处；不改旧记录、公共代码或计划。
+
+优先A一次执行：现有pytorch环境不变，先检查已知GPU命名互斥量及进程。自己的互斥对象取得后，驱动计算进程列表非空，执行器在torch/CUDA初始化前返回GPU_OCCUPIED_HOLD_COMPUTE_PROCESS，并释放自己的句柄，不杀/解锁别人的任务。后续仅目标device0只读状态/类型及有限进程名称元数据核查，不再次运行CUDA。
+
+目标为RTX3090，总24,576MiB，空闲22,899MiB、利用率3%快照；30个目标上下文在XML中均C+G。有限名称分类19个常见桌面、11个未分类、常见计算程序模式命中0；不读命令行/数据、不输出PID或原名称。不把30个混合上下文称30个模型训练，也不把低利用率/充裕显存/未命中程序名当作排他空闲。最终占用范围仍未排除，GPU_INFRA_HOLD；不是CUDA不可用、GPU坏了或OOM证据。
+
+CUDA查询/分配、基础设施forward/backward/optimizer更新均0、GPU试跑0秒；loss/参数变化/任务峰值VRAM NOT_RUN。本合同A不安全时父任务STOP，因此旧part/账本/前缀/解码/PTS/真实帧/训练许可核验、C真实视频更新均NOT_RUN，不能声称part不可解或训练通过。未扫描备用素材、未碰QA/答案、未用合成数据制造视频实验。
+
+time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请求0，安装/环境/PATH/CUDA/原研究树/旧part与STARTED账本/他人锁修改0。只保存本轮小型私人聚合诊断，无checkpoint或视频副本；公共不上传身份/路径/hash/原日志/代码。正常push后停止，交ChatGPT审查混合上下文占用合同，不自行结束应用或执行后续任务；NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP/发布PTS桥接UNKNOWN保持。
