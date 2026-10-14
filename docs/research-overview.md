@@ -754,3 +754,7 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 GitHub [cd6eac2](https://github.com/floomeer83felix-source/vlm/commit/cd6eac2a69bed936c6caf143ae997fe81ed6e1b9)只修改META-006匿名收据和结果末尾一条。Codex证据：官方v2_1/full_scale manifest 4,653,141B HEAD200与条件GET200全文读取成功，HourVideo本地50顶层视频UID与真实manifest唯一精确命中50。新技术问题不再是AWS认证/CSV读超时，而是`CANONICAL_SOURCE_HOLD`：真实来源校验复合规则未知子项失败，贡献桶/媒体对象HEAD0、任何真实媒体大小与发布/PTS同钟均UNKNOWN，媒体GET/GPU/训练0。官方固定Ego4D源码允许`canonical_s3_location`/`s3_path`并由`universities.py`指定贡献桶；过严SYNTH路径正则是待核**可能**原因，未经实证不得声称已解决或放宽任意来源白名单。
 
 META-006接受安全停止并正式结案。新增[META-007有界来源诊断合同](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md)，**PENDING用户新明确metadata请求授权，当前0 READY**。范围：先0网络只读核固定源码/私有验证器差异，获得新S3许可后可独立一次≤7个白名单metadata HTTP尝试、唯一≤8MiB/90秒完整CSV GET、私有UID规则类别聚合与≤2个合法canonical媒体HEAD。不得继承META-006剩余4次额度，或执行已排队媒体GET/GPU。依用户确认Ego4D许可至10月26日，合同截止北京时间10月25日23:59；研究NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP不变。
+
+### 2026-10-14 · META-007已由用户同意并转唯一READY（仅限定元数据访问）
+
+用户对上轮META-006 50/50 UID成功但canonical来源组合门HOLD后的独立[META-007诊断与媒体HEAD合同](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md)明确回复「同意」。现唯一READY=META-007；用户新独立许可仅包括最多7个真实S3 metadata HTTP attempts、官方v2_1/full_scale唯一manifest≤1条件GET（应用正文≤8MiB、read_timeout90秒）及最多2个合法canonical媒体HeadObject。优先用0网络静态对照固定官方Ego4D manifest/贡献桶/URI解析源码，随后在有足够安全依据时用真实CSV做匿名互斥失败类别分解；**可能的合成路径过严仅为假设，不能提前宣称根因**。META-006已安全结案不重跑或继承未用4次预算，媒体GET/Range/视频下载、Qwen/SigLIP GPU与任何训练仍未授权、LIVE-MEDIA与GPU训练任务继续QUEUED。需用户在原同一Codex会话主动触发且只上传匿名收据/结果末尾一条。保留RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP。
