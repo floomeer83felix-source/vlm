@@ -24,7 +24,7 @@ class RefuseRedirects(urllib.request.HTTPRedirectHandler):
 def fetch(target, ledger):
     target = target.resolve(strict=False)
     ledger = ledger.resolve(strict=False)
-    if target == ledger or target.suffix.lower() != ".mp4":
+    if target == ledger or target.parent != ledger.parent or target.suffix.lower() != ".mp4":
         raise ValueError("invalid_output")
     if not target.parent.is_dir() or target.exists() or ledger.exists():
         raise FileExistsError("output_or_ledger_exists")
