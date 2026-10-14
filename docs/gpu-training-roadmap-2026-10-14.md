@@ -6,7 +6,8 @@
 
 | 阶段 | 合同 | 当前状态 | 本阶段真实交付/放行条件 | 新独立授权 |
 |---|---|---|---|---|
-| 1 | [VLM-EGO4D-AWS-META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md) | **唯一READY、用户已批准** | 90秒timeout完整拿到**同一份官方v2_1/full_scale manifest**，和私有HourVideo dev顶层UID精确映射，最多2个canonical媒体对象HEAD读真实大小；失败按事实STOP | **已经批准**最多7次 metadata HTTP、1个CSV GET≤8MiB应用正文；0视频GET/GPU |
+| 1 | [VLM-EGO4D-AWS-META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md) | **已结案：完整清单/50 UID PASS，canonical来源HOLD** | 已完成90秒timeout的4,653,141B全文GET且50/50 UID命中；随后canonical来源规则HOLD，媒体HEAD0，未获得视频大小 | 已完成独立许可并安全结案：3/7 S3 attempts；未用4次不继承，0视频GET/GPU |
+| 1b | [VLM-EGO4D-AWS-META-007](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md) | **PENDING新独立metadata授权，非READY** | 先CPU 0网络诊断官方canonical字段/贡献桶与私有安全验证器差异，若获新许可则一次官方≤8MiB manifest GET加最多2媒体HEAD，S3总≤7，查实哪个子条件HOLD | 需用户新明确批准本合同S3额度；当前READY=0，不重跑META-006 |
 | 2 | [VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md) | QUEUED | 1段≥20分钟评测候选，来源/对象长度/合法性/本机落盘/PTS元信息完整；未经版本时基证明只能做smoke，不得评分 | 需另批单段≤3.5GiB、单媒体GET、任务媒体GET研究正文≤4GiB |
 | 3 | [VLM-HOURVIDEO-LIVE-AB-001](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md) | QUEUED | 冻结评测视频和2道dev QA，对照 uniform12 vs query-aware12、最多4次真实Qwen前向，保留配对分母与成本；同版/PTS未知仅UNSCORED | 需另批RTX3090模型推理≤40 GPU分钟 |
 | 4 | [VLM-EGO4D-LIVE-TRAIN-MEDIA-001](./codex-artifacts/VLM-EGO4D-LIVE-TRAIN-MEDIA-001/README.md) | QUEUED | 训练集**不同视频/物理来源**，授权可用于训练；已有合法本地训练视频优先，必要时新获取一段，不能训练/测试数据污染 | 若远程取新训练视频，需另批最多6次官方metadata+媒体HTTP、单媒体GET≤3.5GiB、媒体正文≤4GiB |
@@ -18,7 +19,7 @@
 
 ## 科学口径与停止条件
 
-- 当前已实证的只有META-005官方清单HEAD/GET响应可达、GET曾在读完前12秒超时；真实UID映射、贡献桶视频HEAD、下载、PTS桥接、Qwen模型是否已在本地均未证。阶段1真实失败就不向下游假定成功；当前`NOVELTY=RETAIN0`，Charades `FINAL_MEDIA_STOP`持续。
+- 最新已实证META-006官方完整manifest GET成功且50/50真实HourVideo视频UID等值命中；但canonical来源规则触发HOLD，贡献桶视频HEAD、下载、PTS桥接和Qwen本机模型资格均未证。不能从UID一致推导可获取同钟视频；当前`NOVELTY=RETAIN0`，Charades `FINAL_MEDIA_STOP`持续。
 - 实验链要可证伪：训练前AB作固定不调参基线，独立训练素材不泄漏dev标签；训练loss下降只证明优化正常，不证明问答提升、泛化、创新、统计意义或论文录用。**需要后续新批准的独立held-out评测**才能比较训练收益，不能看训练结果后挑dev问题和旧历史forward。
 - 如无合法额外train QA，优先真实temporal head自监督训练，只能交`REAL_GPU_HEAD_TRAINING_COMPLETED`级别的工程证据；不得叫`REAL_QWEN_LORA_PILOT`。如有训练QA和可行依赖，再走阶段7，仍不承诺3090可容纳。
 - 本轮Ego4D批准窗口按用户提供的有效期至2026-10-26，但前述AWS合同更保守地限制北京时间2026-10-25 23:59后不再发送新的数据请求。超过窗口不得凭旧审批重启AWS。
@@ -26,4 +27,4 @@
 
 ## 启动方式（不是自动连续执行）
 
-当前仅META-006已READY。用户在**原来的Codex长期对话**说“安全同步GitHub main，按唯一READY的META-006合同执行，严格停止/脱敏；完成提交后停止”。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
+当前META-006已结案，**无READY**。下一任务META-007已写合同、但必须先获用户新的明确官方元数据S3请求许可；ChatGPT转为唯一READY后，用户才可在原Codex长期对话发送启动消息。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
