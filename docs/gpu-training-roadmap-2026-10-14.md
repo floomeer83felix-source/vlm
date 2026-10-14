@@ -8,7 +8,7 @@
 |---|---|---|---|---|
 | 1 | [VLM-EGO4D-AWS-META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md) | **已结案：完整清单/50 UID PASS，canonical来源HOLD** | 已完成90秒timeout的4,653,141B全文GET且50/50 UID命中；随后canonical来源规则HOLD，媒体HEAD0，未获得视频大小 | 已完成独立许可并安全结案：3/7 S3 attempts；未用4次不继承，0视频GET/GPU |
 | 1b | [VLM-EGO4D-AWS-META-007](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md) | **已结案：45个安全来源候选、2个媒体HEAD200，1段≤3.5GiB** | a85e66a真实执行：50 UID中45个固定官方来源合规、5个隔离；两个媒体HEAD200，身份可锁，恰1个≤3.5GiB；S3 7/7，无媒体GET | 原metadata许可已执行并结案；不得继承旧7次额度，媒体GET/GPU仍未授权 |
-| 2 | [VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md) | **PENDING新明确媒体GET+元数据重取授权，非READY** | 由于META-007未持久化私有UID/URI映射，重取唯一官方manifest并复现前两对象HEAD，择其中唯一≤3.5GiB视频一次条件GET；成功还须验证PTS/发布桥接，未知则只做UNSCORED smoke | 需另批**≤8次S3总HTTP尝试（含唯一manifest GET≤8MiB及唯一媒体GET）**；单段≤3.5GiB、媒体正文≤4GiB、0 GPU |
+| 2 | [VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md) | **唯一READY，用户已批准单次有限media GET+manifest重取** | 由于META-007未持久化私有UID/URI映射，重取唯一官方manifest并复现前两对象HEAD，择其中唯一≤3.5GiB视频一次条件GET；成功还须验证PTS/发布桥接，未知则只做UNSCORED smoke | 用户已独立批准**≤8次S3总HTTP尝试（含唯一manifest GET≤8MiB及唯一媒体GET）**；单段≤3.5GiB、媒体正文≤4GiB、0 GPU，已批准的A–F阶段无需逐次追问 |
 | 3 | [VLM-HOURVIDEO-LIVE-AB-001](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md) | QUEUED | 冻结评测视频和2道dev QA，对照 uniform12 vs query-aware12、最多4次真实Qwen前向，保留配对分母与成本；同版/PTS未知仅UNSCORED | 需另批RTX3090模型推理≤40 GPU分钟 |
 | 4 | [VLM-EGO4D-LIVE-TRAIN-MEDIA-001](./codex-artifacts/VLM-EGO4D-LIVE-TRAIN-MEDIA-001/README.md) | QUEUED | 训练集**不同视频/物理来源**，授权可用于训练；已有合法本地训练视频优先，必要时新获取一段，不能训练/测试数据污染 | 若远程取新训练视频，需另批最多6次官方metadata+媒体HTTP、单媒体GET≤3.5GiB、媒体正文≤4GiB |
 | 5 | [VLM-HOURVIDEO-TRAIN-PREP-001](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/README.md) | QUEUED | CPU只读冻结数据分割、损失和模型资产资格；评测答案只在最终评分用，train上用自监督时序正负对；不做GPU | 需任务READY，**本阶段不含GPU/下载** |
@@ -27,4 +27,4 @@
 
 ## 启动方式（不是自动连续执行）
 
-当前META-006、META-007均已结案，**READY=0**。下一阶段LIVE-MEDIA-002已具备一段大小合格的真实HEAD证据，但因前次私有对象地址仅存RAM，需用户明确批准新一轮最多8次官方S3 metadata+media HTTP尝试、唯一CSV GET≤8MiB、单视频GET≤3.5GiB（媒体正文累计≤4GiB），然后ChatGPT转唯一READY、原Codex长期对话由用户主动启动；未批准不自动下载/GPU。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
+当前META-006、META-007均已结案，**唯一READY=LIVE-MEDIA-002**：用户已明确批准新一轮最多8次官方S3 metadata+media HTTP尝试、唯一CSV GET≤8MiB、单视频GET≤3.5GiB（媒体正文累计≤4GiB）。用户在原Codex长期对话主动发送一次新指令即可在同一已批准父任务内顺序执行A–F全部合规阶段，遇安全门失败即STOP并一次脱敏报告，不必逐请求重新征求同一许可；**这不是GPU授权**。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
