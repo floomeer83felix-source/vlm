@@ -614,3 +614,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - Resource gate passed two ≥2.1 s-separated snapshots: free 22,907/22,905 MiB, utilization 3%/3%; owned mutexes released. Framework peak allocated/reserved 17.92/22 MiB. Runner GPU stage 1.625 s; total training executor including validation 7.031 s. CPU RAM and physical-device peaks were not independently measured.
 - Provided scripts executed from private AST-checked copies; bounded guard/accounting fixes only in private copies, public code unchanged. No repeat CUDA infrastructure test, synthetic fallback, model/backbone or environment change; historical assets untouched.
 - Only two permitted Markdown paths submitted; normal main push then STOP. Short real-video engineering chain verified; no long-video/Qwen/scientific improvement claim. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
+
+### VLM-PD-LONGVIDEO-005
+
+- 2026-10-14 (Asia/Shanghai); safely synced main `9d3e926`, unique READY/no prior result verified. [Anonymous metadata-stop receipt](./codex-artifacts/VLM-PD-LONGVIDEO-005/public-domain-long-video-ab-receipt.md).
+- **METADATA_VALIDATION_HOLD**: exactly 1/1 official Commons metadata GET returned HTTP 200 and 3,155 complete application bytes; subsequent supplied-script validation raised ValueError before SOURCE_LICENSE_PASS and any media GET.
+- Precise validation branch UNKNOWN: the script emitted exception class without field/message and did not persist the response. Do not infer license denial, missing film/derivative, HTTP rejection or GPU failure. Fixed Public Domain evidence/360p derivative/size gates were not verified.
+- Media GET0, media bytes0, complete video0, partial0; HEAD/Range/retries/mirrors/AWS0. Persistent STARTED/request record retained, no budget reset or extra diagnosis request.
+- Uniform/motion real updates **0/0**; frame selection, PTS/duration, losses, parameter changes, accuracy, GPU memory/time and resource gate NOT_RUN. No short-video replay or synthetic fallback.
+- Provided sources copied privately and AST checked; bounded metadata accounting/diagnostic-stage changes only in private copies, public code unchanged. Private trainer preparation never executed. Original environment, research assets and old ledgers untouched.
+- Only two permitted Markdown files submitted; normal main push then STOP. No long-video A/B scientific result; NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
