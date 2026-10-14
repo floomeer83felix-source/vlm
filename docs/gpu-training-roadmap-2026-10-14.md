@@ -7,7 +7,7 @@
 | 阶段 | 合同 | 当前状态 | 本阶段真实交付/放行条件 | 新独立授权 |
 |---|---|---|---|---|
 | 1 | [VLM-EGO4D-AWS-META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md) | **已结案：完整清单/50 UID PASS，canonical来源HOLD** | 已完成90秒timeout的4,653,141B全文GET且50/50 UID命中；随后canonical来源规则HOLD，媒体HEAD0，未获得视频大小 | 已完成独立许可并安全结案：3/7 S3 attempts；未用4次不继承，0视频GET/GPU |
-| 1b | [VLM-EGO4D-AWS-META-007](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md) | **PENDING新独立metadata授权，非READY** | 先CPU 0网络诊断官方canonical字段/贡献桶与私有安全验证器差异，若获新许可则一次官方≤8MiB manifest GET加最多2媒体HEAD，S3总≤7，查实哪个子条件HOLD | 需用户新明确批准本合同S3额度；当前READY=0，不重跑META-006 |
+| 1b | [VLM-EGO4D-AWS-META-007](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md) | **唯一READY，用户已批准限定metadata访问** | 先CPU 0网络诊断官方canonical字段/贡献桶与私有安全验证器差异，若获新许可则一次官方≤8MiB manifest GET加最多2媒体HEAD，S3总≤7，查实哪个子条件HOLD | 用户已明确批准新≤7次metadata S3尝试；须原Codex会话主动启动；不重跑META-006；媒体GET/GPU未授权 |
 | 2 | [VLM-EGO4D-LIVE-MEDIA-002](./codex-artifacts/VLM-EGO4D-LIVE-MEDIA-002/README.md) | QUEUED | 1段≥20分钟评测候选，来源/对象长度/合法性/本机落盘/PTS元信息完整；未经版本时基证明只能做smoke，不得评分 | 需另批单段≤3.5GiB、单媒体GET、任务媒体GET研究正文≤4GiB |
 | 3 | [VLM-HOURVIDEO-LIVE-AB-001](./codex-artifacts/VLM-HOURVIDEO-LIVE-AB-001/README.md) | QUEUED | 冻结评测视频和2道dev QA，对照 uniform12 vs query-aware12、最多4次真实Qwen前向，保留配对分母与成本；同版/PTS未知仅UNSCORED | 需另批RTX3090模型推理≤40 GPU分钟 |
 | 4 | [VLM-EGO4D-LIVE-TRAIN-MEDIA-001](./codex-artifacts/VLM-EGO4D-LIVE-TRAIN-MEDIA-001/README.md) | QUEUED | 训练集**不同视频/物理来源**，授权可用于训练；已有合法本地训练视频优先，必要时新获取一段，不能训练/测试数据污染 | 若远程取新训练视频，需另批最多6次官方metadata+媒体HTTP、单媒体GET≤3.5GiB、媒体正文≤4GiB |
@@ -27,4 +27,4 @@
 
 ## 启动方式（不是自动连续执行）
 
-当前META-006已结案，**无READY**。下一任务META-007已写合同、但必须先获用户新的明确官方元数据S3请求许可；ChatGPT转为唯一READY后，用户才可在原Codex长期对话发送启动消息。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
+当前META-006已结案，**唯一READY为用户新近批准的META-007**。用户现在可以在原Codex长期对话发送新消息，启动仅此一轮官方来源验证和有界metadata请求，统一脱敏报告后STOP；不能自动执行后续真实视频下载/GPU任务。每阶段真实回报审查并转下一个唯一READY后再由用户在同一聊天说“继续下一轮唯一READY任务”；媒体GET、GPU推理、GPU训练和模型LoRA都必须有对应明确授权后方可切READY。该机制避免反复起草后续合同，但不自动跨越权限或数据正确性门槛。
