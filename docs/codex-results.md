@@ -624,3 +624,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - Uniform/motion real updates **0/0**; frame selection, PTS/duration, losses, parameter changes, accuracy, GPU memory/time and resource gate NOT_RUN. No short-video replay or synthetic fallback.
 - Provided sources copied privately and AST checked; bounded metadata accounting/diagnostic-stage changes only in private copies, public code unchanged. Private trainer preparation never executed. Original environment, research assets and old ledgers untouched.
 - Only two permitted Markdown files submitted; normal main push then STOP. No long-video A/B scientific result; NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
+
+### VLM-PD-LONGVIDEO-006
+
+- 2026-10-14 (Asia/Shanghai); main `fbd3819`, unique READY/no prior result verified. [Reason-coded official source receipt](./codex-artifacts/VLM-PD-LONGVIDEO-006/diagnostic-long-video-ab-receipt.md).
+- **HOLD / reason_code DERIVATIVE_EXACT_KEY_COUNT**. New downloader offline selftest PASS (one positive and four rejection fixtures); internal pre-request selftest also passed.
+- One official metadata GET returned HTTP200, complete body3,155B. META_SCHEMA_PASS and structured LICENSE_PASS (US) were recorded; the exact `360p.vp9.webm` match count was not one. Numeric count was not retained; do not distinguish zero/multiple or infer globally missing transcodes. Terminal reason_code fsynced privately.
+- Canonical derivative URL/video size/complete media unverified; media GET0, media bytes0, HEAD/Range/retry/mirror/AWS0. No request-budget reuse or rerun of005.
+- CPU frames/PTS eligibility and GPU resource gate NOT_RUN; uniform/motion actual backward and optimizer updates **0/0 per arm**. Losses, parameter changes, validation accuracy and GPU memory/time NOT_RUN. No old short-video or synthetic fallback.
+- Only task-private source copies/AST checks and bounded accounting/terminal-diagnostic fixes; public scripts, original environment and historical assets unchanged. Exactly two Markdown paths submitted; ordinary main push then STOP.
+- No long-video A/B scientific result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and HourVideo/Ego4D release/PTS bridge UNKNOWN remain.
