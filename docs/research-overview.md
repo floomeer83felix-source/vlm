@@ -742,3 +742,9 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 ### 2026-10-14 · META-006经用户明确批准：唯一READY，限元数据读取
 
 用户对前次`895f260`验收后提出的META-006方案回复「同意」：本次另授严格最多7次官方S3 metadata wire HTTP尝试，固定`v2_1/full_scale/manifest.csv`、最多1次条件GET应用正文≤8MiB、`read_timeout`从12秒调整为90秒，完整CSV后最多2个canonical媒体对象HEAD。官方manifest区域/HEAD/GET200为先前证据，但上轮CSV仅已读2,555,904/4,653,141B，UID精确映射、视频大小与版本PTS桥接仍UNKNOWN。旧META-005安全结案，不复活/继承未使用配额。ChatGPT已经将[唯一READY META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md)写入看板；用户在原Codex长期对话发新启动指令后，方可按合同执行并脱敏一次回报。单媒体真实GET与RTX3090 Qwen A/B合同依旧QUEUED、没有新许可；0真实视频/GPU，不预判实验结果。NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-14 · 一次性预排至真实RTX3090梯度训练（规划授权，不是跨阶段执行授权）
+
+为响应用户“**一次性布置任务直到gpu训练**”，已在[完整路线](./gpu-training-roadmap-2026-10-14.md)明确同一条证据链：当前唯一READY的META-006完整官方manifest/UID/媒体HEAD，后续LIVE-MEDIA-002保留评测视频，LIVE-AB-001固定Qwen对照基线，新增LIVE-TRAIN-MEDIA-001获取合法独立训练视频、TRAIN-PREP-001 CPU数据隔离/现成环境预检、TRAIN-GPU-001在3090使用真实训练视频做**小型temporal head的backward/optimizer.step≤200步且GPU≤60min**，最后可选TRAIN-LORA-001仅在合法独立train QA、Qwen本机权重及可行LoRA依赖成立且用户另批时尝试4B适配器微调。新四份合同为QUEUED而非READY；现有MEDIA/AB合同仍QUEUED，**当前仅META-006已有可执行的具体metadata HTTP许可**。不因规划任务链而迁移任何媒体GET/GPU额度，亦不允许Codex连续自动跨过这些新许可门。
+
+科研严格隔离：HourVideo dev_v1.0问答/标准答案与冻结评测视频不得变成train labels/teacher信号或选checkpoint依据；训练至少需单独可核许可的训练素材。若仅一段保留视频或没有授权train QA，GPU head训练可真实发生但只说明工程优化（不等于Qwen训练、不推出准确率/泛化/创新），Qwen LoRA应HOLD而非拿dev补足。保持`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`、Ego4D来源/版本PTS合同。真实媒体/模型是否具备均待上游验证，后续阶段一旦阻塞就按真实结果STOP。
