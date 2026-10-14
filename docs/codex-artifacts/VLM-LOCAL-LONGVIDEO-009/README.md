@@ -1,0 +1,16 @@
+# VLM-LOCAL-LONGVIDEO-009｜停止重复远端下载；用现有合法本机完整长视频直接运行真实 GPU A/B
+
+**2026-10-14｜READY / LOCAL_FIRST_USER_TRIGGER（唯一READY；零新媒体网络请求）。** 用户连续希望尽快得到**真实长视频**研究结果。之前已实证 RTX3090 上短视频真实80步优化([8299653](https://github.com/floomeer83felix-source/vlm/commit/82996532ace47e520f97e2ba7b59130525d4246e))，但远端Commons长视频截至[008结果b4896bf](https://github.com/floomeer83felix-source/vlm/commit/b4896bfc218cb17e2af4d65148b4c86d3eb12e14)因强ETag前置门挡住Range（21/21离线协议测试PASS、meta GET1/HEAD1、Range0、GPU0）。**该视频HEAD ETag 不符合原008定义的强ETag；不存在已证实的HTTP206可用性。** 不能复活008额度，也不能凭空声称Wikimedia根本不支持Range或来源不合法。本009**不再联网**，只在现有明确授权的本机视频数据上推进；不会再次迭代同一个CMS/CDN身份/下载协议。用户须在原同一Codex长期聊天新发一条执行消息以授权这次列明的本地只读审查和最多12 GPU分钟/200真实优化步，README/READY本身不是自动运行许可。
+
+## 一轮任务，先实查本地合法素材，再真正运行双臂（条件不过就立即结束）
+
+1. **只读核对既有明确视频入口，不能扫描用户全盘**：从原同一Codex会话先前已明确许可的研究视频路径/父任务私有收据定位最多**3份**具体候选完整视频（`.mp4`/`.webm`/`.mkv`，仅原有合法样本）；**不得自动枚举`D:\download`或用户其它下载、桌面、照片、个人视频、研究答题目录/原保护QA**，除非用户另给该目录的明确许可。不猜测文件名/下载URL/UID/素材的研究训练权；不寻找Charades禁用媒体/未结案的Ego4D .part/Commons .part，不恢复历史预算/锁。仅对候选普通文件且非symlink/reparse，先CPU只读文件尺寸、合法来源和训练研究许可、完整容器属性。没有可证的合法已存在媒体则`LOCAL_LONG_VIDEO_NOT_AVAILABLE_HOLD`，GPU0，不用已有5秒花朵样本充当20分钟长视频。
+2. **长度与采样门**：候选需完整、ffprobe/PyAV实际可读、PTS实测跨度**≥1,200秒**、CPU视频真实RGB样本≥350，并有学术研究及训练用途许可；只有一个满足即可以固定排序取该份，不因潜在同片QA得分选样本。不同来源与模型权重存在情况可只报告匿名布尔。核对独立训练/评测分割：若片子与HourVideo dev/Ego4D测试物理来源重合，则此片只能做不参与任何正式heldout评分的技术训练，所有对应QA永远排除未来正式评测；不得用dev QA问题/答案训练或调整采样策略。未经独立验证的媒体时间轴/版次不能输出HourVideo成绩。
+3. **提前固定GPU配对A/B**：在私有隔离父任务副本中复用已经提交的[long_temporal_ab.py](../VLM-PD-LONGVIDEO-005/long_temporal_ab.py)，AST后离线固定seed/run模式：同视频前70%连续时间窗train、后30%晚段内部验证，训练两臂每组真实128帧 **uniform vs motion-prioritized**，同低维8x8 RGB、相同小型时序head初始化/AdamW/随机种子、每臂最多100个`loss.backward(); optimizer.step()`真实GPU更新；验证70真实帧/160 pair两臂完全一致。**两组合计≤200实际更新、RTX3090 GPU累计≤12分钟，PyTorch峰值新增allocated≤512MiB**，运行单次、不得调整seed/重复挑最优或下载任何权重。只有实际素材可读、许可PASS、当前GPU两次快照均free≥8GiB且util≤30%、互斥不冲突且无已确认其它重训练时才运行。Windows C+G正常图形上下文非空不是直接拒绝理由；不得杀进程、挪锁、改conda/驱动、新装包。CPU抽帧≤10分钟，父任务本地前台总≤30分钟，使用独立单调硬墙钟监督器，若没有安全监督则不启动无界CPU解码。
+4. **优先报告真正有科学意义的结果边界**：如果有独立合法的第二完整长片（第二条明确入口和许可，未用于训练），可**仅只读做独立时钟/来源验证及单次固定模型的额外evaluation**，但本轮冻结的两臂脚本不支持跨影片测试，**不得悄悄改脚本后把同影片晚期验证标成独立影片成绩**；只有本轮已冻结的均匀vs运动的同视频时间块探索可报告`LOCAL_LONG_VIDEO_TEMPORAL_AB_EXPLORATORY`。Qwen3-VL-4B-Instruct、SigLIP若已存在可只读登记本地资产/processor元数据布尔，但**不在本轮运行模型前向、下载权重、做HourVideo QA或LoRA**；未来真实VLM A/B需另冻结实际数据/模型授权。无合法长片或本地已知入口未知，报告清晰一次HOLD，不再自动回到Commons来源或做短视频重复优化。
+
+## 预算与公开交付
+
+- **外部网络请求=0**（AWS/Commons/MDN/视频GET/HEAD/Range/模型权重下载/云GPU API全部0）；公共文档checkout的`git fetch`属于既有代码同步，不是媒体研究请求。GPU只准这次用户在Codex聊天明确授权的本地小头技术A/B，总≤12分钟/≤200优化步。CPU只读最多3个*已获许可、路径明确的*本地真实完整文件，不读取其他私人目录；已有 `.part`、README旧账本、QA/答案均不改动。
+- 只可新增`docs/codex-artifacts/VLM-LOCAL-LONGVIDEO-009/local-long-video-ab-receipt.md`与`docs/codex-results.md`末尾**唯一**`### VLM-LOCAL-LONGVIDEO-009`，报告是否存在合规真实20分钟媒体（匿名，不披露文件名、路径/UID/来源唯一标识）、许可/PTS/时长等级、是否排除开发QA、两臂真实更新/首末loss/参数变化/同视频晚段准确率/时间/显存，以及Qwen/SigLIP资产就绪布尔/阻塞准确阶段。禁止视频、帧、特征、权重、哈希、模型输出、题目/答案、执行日志、私有脚本/路径上传公共Git。
+- 如果数据实际不存在，**立即STOP并明确需要用户提供一份完整合法≥20分钟视频的私有确切入口**，不再以权限不足或长期准备反复生成任务、不自行启动新的网络下载。一次普通main push后STOP，旧008/其它实验记账不动；`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`与HourVideo/Ego4D release/PTS bridge UNKNOWN保持。即使运行成功也是单片时序头探索，非HourVideo VLM问答/跨影片泛化/统计显著和发表结果。
