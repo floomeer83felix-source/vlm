@@ -634,3 +634,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - CPU frames/PTS eligibility and GPU resource gate NOT_RUN; uniform/motion actual backward and optimizer updates **0/0 per arm**. Losses, parameter changes, validation accuracy and GPU memory/time NOT_RUN. No old short-video or synthetic fallback.
 - Only task-private source copies/AST checks and bounded accounting/terminal-diagnostic fixes; public scripts, original environment and historical assets unchanged. Exactly two Markdown paths submitted; ordinary main push then STOP.
 - No long-video A/B scientific result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and HourVideo/Ego4D release/PTS bridge UNKNOWN remain.
+
+### VLM-PD-LONGVIDEO-007
+
+- 2026-10-14 (Asia/Shanghai); main `1f81d2f`, unique READY/no prior result verified. [Official variant and timeout receipt](./codex-artifacts/VLM-PD-LONGVIDEO-007/available-variant-long-ab-receipt.md).
+- **MEDIA_READ_HOLD / exact reason_code timeout**. Explicit and internal offline selftests PASS (3 positive/6 rejection fixtures). API HTTP200/body3,155B; identity/schema/US-PD PASS; exact whitelist counts 360p=0, 240p=1; official API-derived **240p.vp9.webm** selected and HTTPS source verified.
+- Metadata GET1 + media GET1, total2/2 attempts. Media HTTP200, declared/full reserved37,316,857B below96MiB; persisted successful application reads458,752B, private part458,752B, complete video0. Additional buffered bytes on timed-out read UNKNOWN; do not equate part size with entire received/wire traffic. Full reservation retained without refund.
+- Terminal timeout was during media body reading, not a source/key/license rejection or GPU failure. No HEAD/Range/retry/mirror/alternative film/old-parent replay. Monotonic per-read acquisition guard exists but is not an independently enforced exact hard deadline; the receipt discloses that limit rather than asserting hard-supervision PASS.
+- No complete-video/CPU frame-PTS eligibility or GPU resource gate; uniform/motion actual backward and optimizer updates **0/0 per arm**. All training/validation/loss/parameter/memory/time metrics NOT_RUN; no short-video or synthetic fallback.
+- Private copies only received conservative duplicate-whitelist protection, count/body reservation and durable terminal diagnostics; public code, environment and old assets/ledgers unchanged. Only two Markdown paths submitted, normal main push then STOP.
+- No scientific long-video A/B result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
