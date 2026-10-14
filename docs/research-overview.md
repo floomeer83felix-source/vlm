@@ -758,3 +758,9 @@ META-006接受安全停止并正式结案。新增[META-007有界来源诊断合
 ### 2026-10-14 · META-007已由用户同意并转唯一READY（仅限定元数据访问）
 
 用户对上轮META-006 50/50 UID成功但canonical来源组合门HOLD后的独立[META-007诊断与媒体HEAD合同](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md)明确回复「同意」。现唯一READY=META-007；用户新独立许可仅包括最多7个真实S3 metadata HTTP attempts、官方v2_1/full_scale唯一manifest≤1条件GET（应用正文≤8MiB、read_timeout90秒）及最多2个合法canonical媒体HeadObject。优先用0网络静态对照固定官方Ego4D manifest/贡献桶/URI解析源码，随后在有足够安全依据时用真实CSV做匿名互斥失败类别分解；**可能的合成路径过严仅为假设，不能提前宣称根因**。META-006已安全结案不重跑或继承未用4次预算，媒体GET/Range/视频下载、Qwen/SigLIP GPU与任何训练仍未授权、LIVE-MEDIA与GPU训练任务继续QUEUED。需用户在原同一Codex会话主动触发且只上传匿名收据/结果末尾一条。保留RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP。
+
+### 2026-10-14 · META-007首次两个真实canonical媒体HEAD200：单视频有界GET候选达成
+
+[Codex a85e66a](https://github.com/floomeer83felix-source/vlm/commit/a85e66a4e6910afac5c570937246986f25ff60a5)交付范围仅META-007真实脱敏收据+codex-results尾一条。按执行者现场报告：固定官方v2_1/full_scale manifest完整4,653,141B，私有HourVideo开发50视频UID全命中；锁定官方贡献桶表内`VALID_CANDIDATE=45`，另5个来源不在固定表隔离，不能推断远端真实数据非法。006未用合成路径正则，其组合来源门在本轮分类里`OFFICIAL_BUCKET`失败5，但无法回证旧006具体首错行。前2个固定排序、不同canonical对象的真实官方区域桶HeadBucket2+媒体HeadObject2全部按报告成功：两个HEAD200、正长度及身份绑定字段，**其中1段≤3.5GiB，1段>4GiB，合计12,897,682,214B>8GiB**。真实S3元数据请求7/7、CSV GetObject应用4,653,141B、媒体正文GET0、Qwen/SigLIP/GPU/训练0；现有证据足以申请一段限量真实视频而不足以宣称正式发布PTS匹配。
+
+META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-002合同升级为自行重新完整读取同一固定manifest并复现前两个真实对象身份及大小的单一用户待批准下载合同：新S3 HTTP总≤8（官方manifest HeadBucket1/HeadObject1/GET1+两个贡献桶HeadBucket2+两个视频HeadObject2+唯一媒体GetObject1），manifest应用正文≤8MiB，媒体单体≤3.5GiB/正文总≤4GiB，仅1个媒体GET且无重试/Range/自动恢复；wire强制预算或身份不可证则0 GET安全STOP。此前007匿名报告未持久保留原S3 URI/UID/metadata，不能猜key直接GET。**用户未批准这次新媒体请求，故尚不得执行或使用3090；** 一旦未来用户同意，只将LIVE-MEDIA-002设唯一READY，Codex原长期对话新消息启动。即便真视频取得，HourVideo dev/v2_1发布与时钟桥接仍须验证，不能拿保留dev答案训练或宣称有效问答准确率；`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`持续。
