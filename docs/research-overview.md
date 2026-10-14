@@ -738,3 +738,7 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 5. 仅由 ChatGPT 更新任务书与本总览，不删除之前负结果或重写原始快照。
 
 **提醒：** 此仓库中的总结不是原始实验数据仓库；报告中所有新准确率和创新结论必须有可审计的新来源及运行账本支撑。
+
+### 2026-10-14 · META-006经用户明确批准：唯一READY，限元数据读取
+
+用户对前次`895f260`验收后提出的META-006方案回复「同意」：本次另授严格最多7次官方S3 metadata wire HTTP尝试，固定`v2_1/full_scale/manifest.csv`、最多1次条件GET应用正文≤8MiB、`read_timeout`从12秒调整为90秒，完整CSV后最多2个canonical媒体对象HEAD。官方manifest区域/HEAD/GET200为先前证据，但上轮CSV仅已读2,555,904/4,653,141B，UID精确映射、视频大小与版本PTS桥接仍UNKNOWN。旧META-005安全结案，不复活/继承未使用配额。ChatGPT已经将[唯一READY META-006](./codex-artifacts/VLM-EGO4D-AWS-META-006/README.md)写入看板；用户在原Codex长期对话发新启动指令后，方可按合同执行并脱敏一次回报。单媒体真实GET与RTX3090 Qwen A/B合同依旧QUEUED、没有新许可；0真实视频/GPU，不预判实验结果。NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。
