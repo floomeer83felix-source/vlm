@@ -1,6 +1,6 @@
 # VLM-HOURVIDEO-MATCHED-QA-012｜从已跑通Qwen+SigLIP进入真实HourVideo标注匹配与条件评分A/B
 
-**2026-10-14｜唯一READY / AWAIT_USER_OFFICIAL_HOURVIDEO_MATCHED_MEDIA（受限：数据尚未就绪，用户未提供匹配媒体前不得执行本父任务）**。本父任务是为用户尽快做**有标准答案、可核分母的真实长视频VLM对照**而准备的下一阶段，**不是**已自动批准的数据下载或GPU前向。用户只能在原同一Codex长期聊天中**明确提供已经合法本机持有的对应完整Ego4D视频精确入口以及准许核对的本机HourVideo dev标注精确入口/既有私有映射入口**，再在同一消息里授权最多4次本地Qwen推理/合计GPU≤40分钟，才可执行。缺少媒体/合法用途或时间轴证据，STOP而不能把One Week电影或未完整Ego4D.part冒充HourVideo原片。
+**2026-10-14｜唯一READY / AWAIT_USER_OFFICIAL_HOURVIDEO_MATCHED_MEDIA（受限：数据尚未就绪，用户未提供匹配媒体前不得执行本父任务）**。本父任务是为用户尽快做**有标准答案、可核分母的真实长视频VLM对照**而准备的下一阶段，**不是**已自动批准的数据下载或GPU前向。用户只能在原同一Codex长期聊天中**明确提供已经合法本机持有的官方HourVideo演示视频或匹配Ego4D完整媒体精确入口，以及准许核对的本机带答案标注（dev_v1.0_annotations.json或官方samples_v1.0.json）与私有匹配证据入口**，再在同一消息里授权最多4次本地Qwen推理/合计GPU≤40分钟，才可执行。缺少媒体/合法用途或时间轴证据，STOP而不能把One Week电影或未完整Ego4D.part冒充HourVideo原片。
 
 ## 2026-10-14 新发现：官方HourVideo自带演示视频，优先于Ego4D大型S3下载
 
@@ -17,8 +17,8 @@
 
 ## 进入真实可评分A/B前的绝对条件
 
-1. **输入与权限**：用户手动取得一段完整、合法研究评测可用、时长实测≥1200秒的官方HourVideo打包demo视频或官方Ego4D匹配真实源视频，提供其**一个明确本地绝对文件入口**；同时在原Codex聊天指出此前已许可的私有`HourVideo dev_v1.0_annotations.json`及与这段源文件对应的**精确已知**私有映射证据入口（不公开UID/桶/key/S3 URL），或只授权读取原已有任务单一明确入口；禁止扫描整个D盘、Downloads、模型缓存、科研树或重新下载。若用户没有上述完整匹配视频，则保留`AWAIT_USER_OFFICIAL_HOURVIDEO_MATCHED_MEDIA`、**不应为同一个空媒体门发起新的父任务执行**。模型两目录按011用户确切授权根只读复核必要项，不因已跑成功就假定所有HourVideo问题兼容。
-2. **先CPU核配对真实性**：视频容器完整、抽帧PTS有限有序/≥20min，并通过独立证据确认标注视频的video_uid、发布版本/镜头剪裁、零点与原始PTS的可逆映射。只有UID与v2_1清单交集、没有可复核的时钟桥接时，必须`RELEASE_PTS_BRIDGE_HOLD`，**不得做可评分比较**。不以用户手工公有电影、非标注Ego4D同名素材或不完整part替代。前台CPU只读限≤10min/文件路径严格白名单；不将标注文本/答案/UID/局部帧提交公仓。
+1. **输入与权限**：用户手动取得一段完整、合法研究评测可用、时长实测≥1200秒的官方HourVideo打包demo视频或官方Ego4D匹配真实源视频，提供其**一个明确本地绝对文件入口**；同时在原Codex聊天指出此前已许可的私有`dev_v1.0_annotations.json`或`samples_v1.0.json`确切入口（须存在此视频UID与实际gold字段）、以及与这段视频对应的**精确已知**私有版本/时间轴映射证据入口（不得上传真实UID、桶/key/S3 URL），或只授权只读既有任务已明确的原文件入口；禁止扫描整个D盘、Downloads、模型缓存、科研树或重新下载。若用户没有上述完整匹配视频，则保留`AWAIT_USER_OFFICIAL_HOURVIDEO_MATCHED_MEDIA`、**不应为同一个空媒体门发起新的父任务执行**。模型两目录按011用户确切授权根只读复核必要项，不因已跑成功就假定所有HourVideo问题兼容。
+2. **先CPU核配对真实性**：视频容器完整、抽帧PTS有限有序/≥20min，并通过独立证据确认标注视频的video_uid、发布版本/镜头剪裁、零点与原始PTS的可逆映射。对于跨Ego4D v2_1版本、只有UID与v2_1清单交集而没有可复核时钟桥接时，必须`RELEASE_PTS_BRIDGE_HOLD`，**不得做可评分比较**。不以用户手工公有电影、非标注Ego4D同名素材或不完整part替代。前台CPU只读限≤10min/文件路径严格白名单；不将标注文本/答案/UID/局部帧提交公仓。
 3. **预先冻结样本**：只有对齐证据PASS才从指定视频对应的HourVideo dev问题中按固定非答案规则选**前2个有参考答案**的问题；先持久私有冻结问题映射、评测答案隔离、数据哈希/版本/PTS审计和2×2比较配置，不能看模型输出后换题或筛掉错题。参考答案永不进入prompt或SigLIP排序，只在全部运行结束后由隔离评分阶段使用；失败/invalid都计入固定分母2。
 4. **本机真实配对模型**：同一PTS时轴48候选真实帧、每题uniform12 vs query-aware SigLIP top12、两臂使用Qwen3-VL-4B-Instruct同一safetensors/processor/像素预算/decoding参数（不看答案）、固定AB/BA交错顺序；Qwen genuine generate**≤4次**、no warmup、无训练/LoRA、不加载远程模型。为解决011全部截在192token的问题，在本新父任务**预先固定五选项MCQ的`max_new_tokens=64`**、真实EOS与是否截断明确分类，不因为输出内容改预算。每个尝试前fsync；错误不重试，未完成仍保留固定分母。RTX3090 GPU合计≤40min，新增torch allocator peak≤20GiB，父进程wall≤55min，两次free≥8GiB/util≤30%快照与自有互斥/他人已知作业保护；仅time.monotonic独立监护、不能杀别人进程/清他人缓存。
 5. **评分前提独立**：只有官方标注和物理视频版次/PTS实际对齐证据已核时，才对实际最多2题×2臂评分，保留正确/错误/invalid/失败的固定分母及配对四格；否则**停止于CPU/HOLD、不允许将“只完成模型生成”记录为正式问答准确率**。这仍是**n=2/单视频极小pilot**，不能声称统计显著、正式整套HourVideo榜单、模型优势、新颖性/发表结果。原No-QA电影011数据不能与此评测混分母。
