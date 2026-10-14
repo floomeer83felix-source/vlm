@@ -664,3 +664,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - GPU gate passed snapshots free22,500/22,501 MiB, utilization12%/12%,≥2.1 s apart and owned mutexes. Combined GPU stage1.938 s, allocator peak18.025 MiB/reserved22 MiB; uniform/motion timed subsections0.422/0.250 s. Worker24.203 s, independent monotonic CPU600/GPU720/parent1800 guards verified via disposable owned-child test.
 - Private-only exact-input adaptation replaced old network96MiB guard for this explicitly authorized local480p file; frozen experimental selection/model/seeds/budgets unchanged. No repeated decode/old experiment, extra data/model network, installs, original workspace or historical ledger changes. Qwen/SigLIP ASSET_ENTRY_UNKNOWN, not scanned/called.
 - Only two authorized Markdown paths submitted; ordinary main push then STOP. Single-film temporal-head exploration, not Qwen/HourVideo QA or independent heldout result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
+
+### VLM-LONGVIDEO-VLM-BRIDGE-010
+
+- 2026-10-14 (Asia/Shanghai); main `2092fd3`, unique READY/no prior result verified. [CPU asset gate receipt](./codex-artifacts/VLM-LONGVIDEO-VLM-BRIDGE-010/real-vlm-bridge-receipt.md).
+- **MODEL_ASSET_ENTRY_HOLD** despite conditional user inference authorization. First exact video entry exists/no-reparse/same size/EBML;009 complete-decode and1465.464 s PTS evidence reused, no full re-decode or old training replay.
+- One exact canonical cache entry per model checked without directory enumeration: Qwen3-VL-4B-Instruct and google/siglip-base-patch16-224 roots both absent (**ASSET_MISSING_AT_CHECKED_ENTRY**). Config/complete weights/tokenizer/paired processor NOT_VERIFIED. This does not prove global absence; other locations or SigLIP variants remain ASSET_ENTRY_UNKNOWN.
+- CPU module presence confirmed: torch2.5.1, transformers4.57.6, PyAV15.1.0, OpenCV4.11.0.86, NumPy1.26.4. Actual architecture/processor loading compatibility untested. Audit0.094 s, socket/DNS denied, no model construction.
+- Qwen generate attempts/successes **0/0**, SigLIP forwards0, GPU0 s; resource/load/48-candidate selection/12-frame overlap/tokens/timings/allocator peak NOT_RUN. No synthetic or motion substitute, download/install/scan/unpaired Qwen arm.
+- Next input needed: exact existing Qwen3-VL-4B-Instruct root and intended paired SigLIP model/processor root; not an automatic download authorization. Only two Markdown paths submitted; normal main push then STOP.
+- No VLM scientific comparison/accuracy claim. Environment/historical assets/QA untouched; NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
