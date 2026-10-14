@@ -37,6 +37,6 @@
 
 ## 启动方式（不是自动连续执行）
 
-截至2026-10-14，[b11cb4e](https://github.com/floomeer83felix-source/vlm/commit/b11cb4e9fe49cf57536afc7c8665ce7780d6a05b)已经完成第一次真≥20分钟视频的RTX3090均匀/运动选帧双臂各100个梯度更新，电影46? NO：**片长实测1465.597秒**、43,924帧、489采样，后段同片160对验证都是45.00%（差0百分点），没有观察到motion优势、没有证明loss收敛。不能继续把这类8×8 RGB小头代理分类重复实验称为VLM研究突破。
+截至2026-10-14，[b11cb4e](https://github.com/floomeer83felix-source/vlm/commit/b11cb4e9fe49cf57536afc7c8665ce7780d6a05b)已经完成第一次真≥20分钟视频的RTX3090均匀/运动选帧双臂各100个梯度更新，**片长实测1465.597秒**、43,924帧、489采样，后段同片160对验证都是45.00%（差0百分点），没有观察到motion优势、没有证明loss收敛。不能继续把这类8×8 RGB小头代理分类重复实验称为VLM研究突破。
 
 **唯一READY=VLM-LONGVIDEO-VLM-BRIDGE-010**；请用户在原同一Codex长期聊天新发一次清楚限定的模型推理授权：只在明确已知的现成本机`Qwen3-VL-4B-Instruct`和`SigLIP`完整processor/权重/依赖真实PASS时，使用本地同一合法电影、两个预冻结通用prompt、同48候选/同12帧配额，执行至多4次真实Qwen生成＋SigLIP查询选帧、GPU累计≤40min、不额外联网。任一资产未知/缺失就0GPU报出MODEL_ASSET_ENTRY_HOLD并说明需要用户指定本机模型所在路径，不自动拉权重。这部公有领域电影没有问答标准答案，输出只是VLM推理链与选择成本的技术证据，不能产生正式HourVideo/同版PTS/QA得分、训练成果或方法优势。后续要有真正长视频VLM官方指标，仍必须另外准备合法完整Ego4D视频+与HourVideo标注同版/同步映射、保密QA、独立训练/heldout和模型资产，获得具体GPU许可。单次匿名push STOP；`NOVELTY=RETAIN0`、Charades `FINAL_MEDIA_STOP`保留。
