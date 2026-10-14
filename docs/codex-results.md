@@ -571,3 +571,15 @@ A/B/C/D/E/F实际尝试均0，总0/8；清单GET0/应用0B、媒体GET0/1/正文
 同轮CPU只读资产清点实际约0.294秒：Windows非计算系统枚举RTX3090可见True，Qwen与SigLIP均ASSET_ENTRY_UNKNOWN，独立合法训练素材TRAIN_SPLIT_UNKNOWN；无确切获准入口则不搜盘/下载目录/旧研究树，不断言模型不存在，不把评测dev素材或答案用于训练。GPU/模型/训练/ffprobe/解码/安装/环境与AWS配置/旧锁账本修改0，真实QA/凭据读取0。
 
 正常push后停止等待ChatGPT审查独立接收层实现或新的精确合同，不自行重开预算/下载/GPU/下一任务。未获得真实媒体，RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP保持。
+
+### VLM-LIVE-VIDEO-GPU-START-001 2026-10-14 — A未完整 / EXECUTOR_TIMEZONE_GUARD_ERROR；真实GET1、8/8请求，B更新0
+
+独立docs安全同步main `1bfc8df`，核唯一READY父任务包/无旧回报，读取AGENTS/任务板/结果/总览、合同与007实测。按新应用正文预算执行，不沿用旧wire硬门、不重复逐请求确认、不重跑旧父任务。仅新增[真实获取及执行器错误匿名收据](codex-artifacts/VLM-LIVE-VIDEO-GPU-START-001/real-video-gpu-start-receipt.md)及本条2处。
+
+本地精确JSON1,854,695B/50顶层UID、正规无reparse、dev结构/SHA前后RAM不变PASS，QA只取数组长度。现成静态ego4d SDK签名、新私人目录/空闲≥对象长度+2GiB、全长度STARTED预扣/fsync、逐attempt计数及单次条件GET；不改环境或凭据。A manifest桶HEAD1(301可信区域)、B manifest HEAD1(200)、C唯一条件GET1(200/完整4,653,141B)。UID交集50、来源合规45/固定表隔离5、其余6类0；原≥30分钟优先/UID稳定哈希前2排序及≥20分钟/≥2题数门复现。D候选桶HEAD2(301/301可信区域)、E对象HEAD2(200/200)且恰1段≤3.5GiB、另1段>4GiB、固定聚合一致。F唯一合格对象条件GET1返回200，长度/ETag及版本/编码检查通过后真实部分正文落盘，完整成功0。总8/8、无重试/Range/LIST/STS/隐藏补发或换第三视频。
+
+实际停止根因是执行器错误：外层UTC锚点经PowerShell JSON自动DateTime解析后，被Parse隐式转字符串并按本地时区重解释，多算约480分钟，在实际53.975分钟提前终止自己的唯一下载进程。不是75分钟真的到期、AWS拒绝或自然读超时；慢速不能替代根因。两项解释器进程按精确入口/父子链/创建时间核实仅停止本任务工作进程，不杀其它任务。原错误事件/STARTED账本保留，追加更正及终止记录；已静态修正类型转换，但无新真实请求验证、不第二次GET或续传。最终下载进程均退出。
+
+最后持久应用read计数与部分落盘均在64–128MiB区间；最终RAM计数因终止未正常保存，不冒称文件字节即完整应用/wire总量。完整声明长度已保守预扣且不退款，目标≤3.5GiB/媒体应用预算≤4GiB；没有完成mp4或atomic rename，ffprobe/PTS/解码NOT_RUN。私有目标UID哈希保守排除标记已保存，未称实际训练曝光。SDK/TLS/wire及费用仍不精确认证。
+
+B因A不完整未调用：现有pytorch仅模块入口torch/av/cv2/numpy和既存ffprobe存在性通过；CPU/GPU代码AST准备不等于实际执行。真实帧0、CUDA分配/forward/backward/optimizer updates0、GPU分钟0，参数变化/loss/峰值VRAM/验证分割NOT_RUN；未证明环境不兼容。无确切获准替代真视频，不用part/合成帧/dev答案或旧素材补足，不装依赖、不下载权重、不触碰原研究环境与旧锁账本。只上传匿名两处，正常push后STOP等待审查，未自动下游；RELEASE_AND_CLOCK_BRIDGE_UNKNOWN、NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP持续。
