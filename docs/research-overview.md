@@ -786,3 +786,11 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 ### 2026-10-14 · 8d724a7仅被Windows混合上下文数量挡住，独立实测3090 CUDA与partial探测
 
 [8d724a7](https://github.com/floomeer83felix-source/vlm/commit/8d724a7d2d55a05ae178b6640be4bc384107bc51)真实结果：Win RTX3090 24,576MiB，空闲22,899MiB/3%利用率；nvidia-smi XML中30个C+G混合Windows桌面/计算上下文，19常见桌面、11未分类、0个明确训练进程类别命中；原002以“任何计算进程非空即阻塞”过严规则在torch进口前结束，实际CUDA分配/梯度更新0，partial探测/真实帧训练未执行。混合C+G条目非空不能单独证明CUDA冲突，也不保证排他空闲。为真正验证而不破坏其它工作，关闭002，激活[唯一READY=VLM-WIN-CUDA-REAL-FRAME-003](./codex-artifacts/VLM-WIN-CUDA-REAL-FRAME-003/README.md)。独立两条安全子线：CPU只读原已知part≤6min、探测真帧/PTS能否用；小GPU在明确命名锁不冲突、两次free≥8GiB和util≤30%、无已知活跃冲突训练作业条件下真正进行torch CUDA小张量最多2次backward+optimizer.step，单测试≤2 GPU分钟/≤512MiB，不再把C+G非空作为单独STOP；如真实可解帧≥32、PTS及研究训练许可证实，可继续≤100次真帧时序自监督head更新/整轮≤20GPU分钟。A/B互不牵连，避免GPU前检阻塞只读媒体检查。0 AWS/0新媒体或权重，不移动旧partial/旧账本，不用开发QA答案当训练标签。即使GPU小诊断PASS，也只能证本机CUDA正常，并不能代表Qwen真实训练、正式QA准确率或者创新，继续NOVELTY RETAIN0和Charades FINAL_MEDIA_STOP。
+
+### 2026-10-14 · RTX3090 CUDA正式证实、Ego4D part缺moov：首个公开视频真帧GPU训练runner
+
+[5ed644e](https://github.com/floomeer83felix-source/vlm/commit/5ed644e51702253539254890e1b62fd4c3a76e8a)已取得真正的RTX3090 CUDA 2步梯度证据：torch2.5.1/CUDA12.4、两次loss.backward与SGD optimizer.step、有限loss1.06695→0.67108，非零参数变化，训练阶段8.094秒、框架显存allocated峰值17.254MiB。这只证明GPU基础设施可用，**不是基于真实视频的科研训练**。上一未完成Ego4D部分MP4经ffprobe明确`MISSING_MOOV`，帧0且PTS未知，保守STARTED/原8/8预算不退款、不恢复或重下；来源的真实帧不再重复尝试。
+
+为在不等待另一个≥GiB合法长视频的前提下证明实际训练工程链，已直接提交两个**可执行且不依赖未知Qwen/SigLIP权重**的公开任务脚本：[单次≤8MiB的MDN CC0公开短片受控HTTPS取得](./codex-artifacts/VLM-CC0-REAL-GPU-004/fetch_mdn_cc0.py)与[PyAV解码/实际帧PTS/torch CUDA真实时序分类head训练](./codex-artifacts/VLM-CC0-REAL-GPU-004/temporal_train.py)，固定[合同VLM-CC0-REAL-GPU-004](./codex-artifacts/VLM-CC0-REAL-GPU-004/README.md)并设**唯一READY**。MDN 官方[shared-assets](https://github.com/mdn/shared-assets)共享真实开花延时短片`https://mdn.github.io/shared-assets/videos/flower.mp4`（在MDN官方许可上下文），HTTPS来源唯一、1次GET、应用body≤8MiB、完全私有目录、无重试或镜像，许可如无法核实时停止。可解码≥32真帧/时间戳≥1s、训练及后时间块拆分PASS后，固定随机种子将实际RGB帧特征输入3090小型时序先后head，最多80次优化、≤10GPU分钟/≤512MiB框架显存。所有日志仅匿名指标提交，无原视频/隐私路径/QA/答案/模型权重。
+
+本阶段**是一段约5秒公开实拍素材的完整工程技术烟测，不是HourVideo长时推理、Ego4D第一视角评测、Qwen3-VL微调或跨视频泛化**。后续真正科学实验仍须独立合法完整长视频、v1/v2发布/PTS桥接以及现有模型/标注隔离条件通过，科研`NOVELTY=RETAIN0`和Charades`FINAL_MEDIA_STOP`均不变。用户原同一Codex长期对话需收到新的一条启动消息；GitHub文件更新本身无法启动用户Windows GPU。
