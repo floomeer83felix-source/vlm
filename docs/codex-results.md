@@ -644,3 +644,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - No complete-video/CPU frame-PTS eligibility or GPU resource gate; uniform/motion actual backward and optimizer updates **0/0 per arm**. All training/validation/loss/parameter/memory/time metrics NOT_RUN; no short-video or synthetic fallback.
 - Private copies only received conservative duplicate-whitelist protection, count/body reservation and durable terminal diagnostics; public code, environment and old assets/ledgers unchanged. Only two Markdown paths submitted, normal main push then STOP.
 - No scientific long-video A/B result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
+
+### VLM-COMMONS-RANGE-008
+
+- 2026-10-14 (Asia/Shanghai); main `10e0de4`, unique READY/no prior result verified; explicit new user budget authorized. [Range protocol and ETag hold receipt](./codex-artifacts/VLM-COMMONS-RANGE-008/chunked-long-video-ab-receipt.md).
+- **SOURCE_NOT_RANGE_SAFE_HOLD_ETAG**. New private stdlib executor AST/isolation PASS; offline protocol tests21/21 PASS, no failures/errors. Real no-network owned-child supervision test passed; monotonic hard4500 s outer guard in place before actual worker.
+- Official metadata GET1/1 returned200/body3,155B; schema/file/US-PD and sole240p VP9 canonical source PASS. HEAD1/1 returned200, exact length37,316,857B passed, but strict strong ETag gate failed. Raw value/subclassification not retained; do not infer absent versus weak versus malformed. Accept-Ranges downstream check NOT_RUN.
+- Range GET0/24, interval reservation0/48MiB, returned media body0, committed0, new part/complete video0. No200 whole-fileGET, retry, fallbackHEAD, Range probe, mirror or old-part use. Exact reason fsynced; no raw source/ETag or private code uploaded.
+- Network worker monotonic9.594 s; normal completion within independent75min guard. No real worker kill. No frame/PTS/ffprobe/CPU supervision/GPU resource gate entered; uniform/motion actual backward and optimizer updates **0/0 per arm**, all training metrics NOT_RUN.
+- No original-environment/old-ledger change, AWS/protected media/model call, short-video replay or synthetic fallback. Only two allowed Markdown files submitted; ordinary main push then STOP.
+- No long-video A/B performance/novelty result. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
