@@ -595,3 +595,12 @@ B因A不完整未调用：现有pytorch仅模块入口torch/av/cv2/numpy和既�
 CUDA查询/分配、基础设施forward/backward/optimizer更新均0、GPU试跑0秒；loss/参数变化/任务峰值VRAM NOT_RUN。本合同A不安全时父任务STOP，因此旧part/账本/前缀/解码/PTS/真实帧/训练许可核验、C真实视频更新均NOT_RUN，不能声称part不可解或训练通过。未扫描备用素材、未碰QA/答案、未用合成数据制造视频实验。
 
 time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请求0，安装/环境/PATH/CUDA/原研究树/旧part与STARTED账本/他人锁修改0。只保存本轮小型私人聚合诊断，无checkpoint或视频副本；公共不上传身份/路径/hash/原日志/代码。正常push后停止，交ChatGPT审查混合上下文占用合同，不自行结束应用或执行后续任务；NOVELTY RETAIN0/Charades FINAL_MEDIA_STOP/发布PTS桥接UNKNOWN保持。
+### VLM-WIN-CUDA-REAL-FRAME-003
+
+- Date: 2026-10-14 (Asia/Shanghai); contract main `fb49adb`; one foreground execution.
+- Result: **GPU_INFRA_PASS / PART_NOT_DECODEABLE / REAL_FRAME_TRAINING_HOLD**. [Anonymous receipt](./codex-artifacts/VLM-WIN-CUDA-REAL-FRAME-003/windows-cuda-real-frame-receipt.md).
+- A: one CPU ffprobe call, missing moov, 0 verified decoded frames, PTS UNVERIFIED; old part and consulted ledgers unchanged by before/after SHA comparison.
+- B: RTX3090, two ≥2 s-separated observations both free 22,906 MiB and utilization 6%/3%; cooperative/task mutexes passed. Thirty C+G contexts did not independently block execution. Actual CUDA allocation, two backward/SGD updates, finite losses 1.0669527054→0.6710797548 and nonzero parameter change; torch peak allocated 17.254 MiB, reserved 22 MiB; monotonic GPU-stage 8.094 s.
+- C: 0 real-frame training updates; real-frame/PTS gate failed and signed training-use permission not independently proven. No scientific improvement or complete-media claim.
+- Executor monotonic elapsed 11.360 s; no AWS/downloads/installations/process killing/old-task replay. Initial source-encoding AST precheck issue corrected before the sole execution. RAM and physical device-memory peaks were not independently instrumented.
+- Only two permitted Markdown files submitted. NOVELTY=RETAIN0, Charades FINAL_MEDIA_STOP and release-PTS bridge UNKNOWN remain. Stop after ordinary main push; no queued task execution.
