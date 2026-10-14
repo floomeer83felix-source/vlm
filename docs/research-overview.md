@@ -748,3 +748,9 @@ Codex[39ef5c7](https://github.com/floomeer83felix-source/vlm/commit/39ef5c76a12a
 为响应用户“**一次性布置任务直到gpu训练**”，已在[完整路线](./gpu-training-roadmap-2026-10-14.md)明确同一条证据链：当前唯一READY的META-006完整官方manifest/UID/媒体HEAD，后续LIVE-MEDIA-002保留评测视频，LIVE-AB-001固定Qwen对照基线，新增LIVE-TRAIN-MEDIA-001获取合法独立训练视频、TRAIN-PREP-001 CPU数据隔离/现成环境预检、TRAIN-GPU-001在3090使用真实训练视频做**小型temporal head的backward/optimizer.step≤200步且GPU≤60min**，最后可选TRAIN-LORA-001仅在合法独立train QA、Qwen本机权重及可行LoRA依赖成立且用户另批时尝试4B适配器微调。新四份合同为QUEUED而非READY；现有MEDIA/AB合同仍QUEUED，**当前仅META-006已有可执行的具体metadata HTTP许可**。不因规划任务链而迁移任何媒体GET/GPU额度，亦不允许Codex连续自动跨过这些新许可门。
 
 科研严格隔离：HourVideo dev_v1.0问答/标准答案与冻结评测视频不得变成train labels/teacher信号或选checkpoint依据；训练至少需单独可核许可的训练素材。若仅一段保留视频或没有授权train QA，GPU head训练可真实发生但只说明工程优化（不等于Qwen训练、不推出准确率/泛化/创新），Qwen LoRA应HOLD而非拿dev补足。保持`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`、Ego4D来源/版本PTS合同。真实媒体/模型是否具备均待上游验证，后续阶段一旦阻塞就按真实结果STOP。
+
+### 2026-10-14 · META-006 完整官方CSV与50/50 UID命中；canonical来源门阻塞，预排META-007
+
+GitHub [cd6eac2](https://github.com/floomeer83felix-source/vlm/commit/cd6eac2a69bed936c6caf143ae997fe81ed6e1b9)只修改META-006匿名收据和结果末尾一条。Codex证据：官方v2_1/full_scale manifest 4,653,141B HEAD200与条件GET200全文读取成功，HourVideo本地50顶层视频UID与真实manifest唯一精确命中50。新技术问题不再是AWS认证/CSV读超时，而是`CANONICAL_SOURCE_HOLD`：真实来源校验复合规则未知子项失败，贡献桶/媒体对象HEAD0、任何真实媒体大小与发布/PTS同钟均UNKNOWN，媒体GET/GPU/训练0。官方固定Ego4D源码允许`canonical_s3_location`/`s3_path`并由`universities.py`指定贡献桶；过严SYNTH路径正则是待核**可能**原因，未经实证不得声称已解决或放宽任意来源白名单。
+
+META-006接受安全停止并正式结案。新增[META-007有界来源诊断合同](./codex-artifacts/VLM-EGO4D-AWS-META-007/README.md)，**PENDING用户新明确metadata请求授权，当前0 READY**。范围：先0网络只读核固定源码/私有验证器差异，获得新S3许可后可独立一次≤7个白名单metadata HTTP尝试、唯一≤8MiB/90秒完整CSV GET、私有UID规则类别聚合与≤2个合法canonical媒体HEAD。不得继承META-006剩余4次额度，或执行已排队媒体GET/GPU。依用户确认Ego4D许可至10月26日，合同截止北京时间10月25日23:59；研究NOVELTY RETAIN0、Charades FINAL_MEDIA_STOP不变。
