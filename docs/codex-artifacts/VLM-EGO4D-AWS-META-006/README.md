@@ -1,6 +1,6 @@
 # VLM-EGO4D-AWS-META-006｜已认证官方清单的单次慢速读取与最多两段视频HEAD
 
-**2026-10-14｜QUEUED / PENDING_NEW_EXPLICIT_METADATA_AUTHORIZATION（非READY，严禁擅自执行）**。本合同为减少下一轮往返而提前冻结：当用户在ChatGPT**另行明确批准**“最多7次固定官方S3 HTTP元数据尝试、同一官方manifest最多1次GET应用正文≤8MiB、适度延长读取超时、最多2个canonical视频HEAD，媒体GET/GPU均为0”后，ChatGPT才能在看板把本ID设成**唯一READY**；随后须用户在**原同一Codex长期会话新发任务消息**才可执行。旧`VLM-EGO4D-AWS-META-005`已完成安全阻塞并结案，**不重跑005、不继承其余4个S3尝试或先前媒体2段8GiB限额**。本文件/排队不授权云请求、媒体或GPU。
+**2026-10-14｜USER_APPROVED / 唯一READY（仅限本合同的有界metadata访问）**。用户在ChatGPT收到META-006的明确方案后回复「同意」，批准**新独立一轮**最多7次固定官方S3 HTTP元数据尝试、同一官方manifest最多1次条件GET且应用正文≤8MiB、read_timeout=90秒、最多2个canonical视频HEAD；媒体GET/GPU均为0。ChatGPT已据此将本ID设为**唯一READY**；须用户在**原同一Codex长期会话新发启动消息**才可执行。旧`VLM-EGO4D-AWS-META-005`已完成安全阻塞并结案，**不重跑005、不继承其余4个S3尝试或先前媒体2段8GiB限额**。本文件/排队不授权云请求、媒体或GPU。
 
 ## 本次只修复真正的阻塞
 
