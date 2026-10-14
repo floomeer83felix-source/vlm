@@ -604,3 +604,13 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - C: 0 real-frame training updates; real-frame/PTS gate failed and signed training-use permission not independently proven. No scientific improvement or complete-media claim.
 - Executor monotonic elapsed 11.360 s; no AWS/downloads/installations/process killing/old-task replay. Initial source-encoding AST precheck issue corrected before the sole execution. RAM and physical device-memory peaks were not independently instrumented.
 - Only two permitted Markdown files submitted. NOVELTY=RETAIN0, Charades FINAL_MEDIA_STOP and release-PTS bridge UNKNOWN remain. Stop after ordinary main push; no queued task execution.
+
+### VLM-CC0-REAL-GPU-004
+
+- 2026-10-14 (Asia/Shanghai); main contract `77b206c`; unique READY/no prior result verified. [Real CC0 video GPU receipt](./codex-artifacts/VLM-CC0-REAL-GPU-004/real-cc0-gpu-receipt.md).
+- **REAL_CC0_VIDEO_GPU_TECH_SMOKE**: official MDN source/CC0 asset context checked; one fixed HTTPS GET completed with 1,128,375 application bytes, private size/SHA verified. No HEAD/Range/retry/AWS or alternate video.
+- Real CPU frame features: 75 retained samples, finite nonnegative strictly increasing PTS, 4.938 s span; contiguous 56-frame training / 19-frame later validation blocks.
+- RTX3090 actual backward/AdamW updates **80/80**, 24,705 parameters; first/last sampled-batch BCE 0.697165/0.661437, parameter L1 change 147.391893. Same-clip validation pair accuracy 0.5417, engineering-only, not independent-video evidence.
+- Resource gate passed two ≥2.1 s-separated snapshots: free 22,907/22,905 MiB, utilization 3%/3%; owned mutexes released. Framework peak allocated/reserved 17.92/22 MiB. Runner GPU stage 1.625 s; total training executor including validation 7.031 s. CPU RAM and physical-device peaks were not independently measured.
+- Provided scripts executed from private AST-checked copies; bounded guard/accounting fixes only in private copies, public code unchanged. No repeat CUDA infrastructure test, synthetic fallback, model/backbone or environment change; historical assets untouched.
+- Only two permitted Markdown paths submitted; normal main push then STOP. Short real-video engineering chain verified; no long-video/Qwen/scientific improvement claim. NOVELTY RETAIN0, Charades FINAL_MEDIA_STOP and release/PTS bridge UNKNOWN remain.
