@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-16（北京时间；018已结案：三来源三臂315/315，宏B−A+3.78pp、C−B−3.62pp；仍`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`。用户同意下一步转向可证伪真实训练；新增唯一READY=[VLM-TRAIN-HEAD-HARNESS-019](./codex-artifacts/VLM-TRAIN-HEAD-HARNESS-019/README.md)仅公共训练头源码与合成CPU测试，不触及真实数据/GPU/下载；后续TRAIN-PREP和TRAIN-GPU仍HOLD。`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`。）  
+> 更新：2026-10-16（北京时间；审查[019最新提交90330e0](https://github.com/floomeer83felix-source/vlm/commit/90330e00e8c11c52ef12e1f8c24de6ad2ca525e1)：训练头代码已交付，14个stdlib PASS、5个Torch SKIP，真实optimizer 0。256MiB private-commit内Torch import报WinError1455；代码部分验收但动态未证。READY=0，仅预置需要新批准2GiB CPU额度的020，GPU与train素材仍HOLD；NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -910,3 +910,11 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 用户同意将推进重点从重复选帧比较转向真正训练和可证伪机制。为避免立即占用新的私有素材或GPU预算，**唯一READY=[VLM-TRAIN-HEAD-HARNESS-019](./codex-artifacts/VLM-TRAIN-HEAD-HARNESS-019/README.md)**：Codex下一轮只在公开代码checkout实现带隔离/预算安全门的temporal-pair head、合成CPU反例与真实optimizer更新技术证明。
 - 它**不是**HourVideo训练、不是训练素材许可、不是GPU许可；训练数据必须独立于013–018旧dev/eval来源，实际物理源隔离、权利与PTS bridge仍需独立证明。合成损失改善不代表时序事件理解、长视频问答准确率、泛化或核心算法创新。TRAIN-PREP-001及TRAIN-GPU-001继续QUEUED/HOLD，GPU0、媒体GET0、历史前向0。
 - 下一次获得真实训练素材且权限、隔离、CPU资格合格后，再提交带具体≤200 optimizer steps、≤60GPU分钟和资源门的独立训练授权；正式外部held-out QA评估还需冻结不同来源并单独授权。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`不变。
+
+
+### 2026-10-16 · 019合成时序头代码验收 / Torch CPU运行阻塞
+
+- [提交90330e0](https://github.com/floomeer83felix-source/vlm/commit/90330e00e8c11c52ef12e1f8c24de6ad2ca525e1)依019冻结合同新增训练head和Windows监督脚本、匿名回执、results唯一追加；未改原历史实验和计划文档。纯stdlib安全门14 PASS；Torch动态5项明确SKIP；实际optimizer更新0/12、梯度/参数变化/可复验性UNKNOWN，不能称合成训练通过、TRAIN_CPU_PREFLIGHT_PASS或真实GPU训练。
+- 原256MiB私有内存限额下Windows加载Torch DLL报WinError1455，安全停止而无自动提升限额、安装或retry。单看公开收据不能确定是否全部由内存封顶造成，也不能据此认为Torch在实际训练环境不可用。批准019的代码/报告符合约定，但状态正式为ACCEPTED_CODE_ONLY / SYNTHETIC_CPU_HARNESS_PARTIAL/HOLD，旧019结案非READY。
+- 预置[VLM-TRAIN-CPU-RUNTIME-020](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)为**PENDING新CPU授权/NOT_READY**；拟仅一次2GiB Job private commit硬封顶、120秒父任务、12合成CPU优化更新，证明运行和随机/打乱标签对照。当前READY=0，只有用户新明确批准相应内存与CPU预算后方能启动020；如失败不自动调系统pagefile或重试。TRAIN-PREP与TRAIN-GPU、任何真实视频与GPU推理/训练继续HOLD。
+- 这只是自监督技术代理头骨架，不能说明时序事件理解、HourVideo QA改善、跨源泛化或原创性。旧013–018 dev gold永不进入训练/选checkpoint；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、NOVELTY=RETAIN0、Charades FINAL_MEDIA_STOP持续。
