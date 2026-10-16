@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-14（北京时间；最新Codex 895f260已核实Ego4D S3真实区域、官方v2_1 full_scale清单HEAD200/长度4,653,141B、条件GET200，但12秒读超时只得2,555,904B未完整；S3 attempts3/7、视频HEAD/GET0、GPU0。META-005安全结案、READY=0。已预排META-006为PENDING新授权，拟唯一提高manifest单GET read_timeout至90秒、S3最多7次、CSV正文≤8MiB，成功后同轮匹配UID和最多2个视频HEAD；LIVE-MEDIA-002与LIVE-AB-001继续QUEUED，真实媒体/GPU仍未批准）。  
+> 更新：2026-10-16（北京时间；最新审核[018正式交付0084d0b](https://github.com/floomeer83felix-source/vlm/commit/0084d0bbc1e76ce39c6ef1339ed5cb64eabb1434) 的公开回执与结果：R4–R6三臂315/315完成、宏B−A+3.78pp、C−B−3.62pp，均仅`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`探索性结果。018结案，`READY=0`；独立train来源/时钟认证及新GPU未经授权，`NOVELTY=RETAIN0`、Charades `FINAL_MEDIA_STOP`。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -894,3 +894,12 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 [017正式实验匿名收据cedb055](https://github.com/floomeer83felix-source/vlm/commit/cedb0559ea62998a1c1cb28866ab4c054273682d)证明项目已经在**用户手工合法取得的三个新Ego4D v1/full_scale长视频源**完成预注册冻结原对照的真实Qwen3-VL4B/SigLIP运行，不是下载/技术可行性阶段。R1/2/3来源及packet EOF/有界像素帧解码/PTS序列与合法HourVideo dev金标结构检查通过；真正独立同一发布剪辑/annotation零点映射、严格物理采集独立性尚不获第三方认证。39/39/41原QA按原非gold资格排0/0/4（R3图片3+外部资产1），固定分母39/39/37。原48真实媒体PTS候选、Uniform12与SigLIP question-only cosine top12，**每题两种策略真实12帧、同Qwen processor/grid[6,12,18]/324video tokens、同提示与确定性64token输出**，生成前输出计数与匿名源固定，金标只在全部模型退出后进入隔离评分，未拿gold调输入或重试。所有**230/230 Qwen生成自然EOS、INVALID保留分母、无NOT_RUN/训练**，本轮GPU合计99.984秒、torch分配峰9134.436MiB（约8.92GiB），墙钟验证约965.68秒内，零研究媒体/权重下载与旧任务重跑。真实运行结果按独立**记录source组**R1 Uniform10/39(25.64%)、SigLIP14/39(35.90%)→+10.26pp，R2 5/39(12.82%)、8/39(20.51%)→+7.69pp，R3 14/37(37.84%)、12/37(32.43%)→**−5.41pp**；paired both/Aonly/Bonly/neither分别(9,1,5,24)/(5,0,3,31)/(9,5,3,20)。新三源**等来源权重**描述性macro Uniform25.43% vs SigLIP29.61%、B−A+4.18pp（exact181/4329），2正1负。过往013/014旧官方sample为+16.22pp、−6.90pp，现共5个已见Gold记录来源中3正2负，跨来源异质性继续存在；原n题内p不等于n视频层证据，这些不支持稳定正向、总体因果机制、显著性、独立population泛化或算法发明。统一标明`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`，绝不包装为官方HourVideo DEV leaderboard或blind独立test结果。新版探测成本、视觉token等照各源真实报告，剩余两次Qwen额度不继承；**017结案**。
 
 有意义的研究决定是引入已有但此前未作为实验臂的**确定性时间覆盖强基线C**，明确质询原B全局最大相关性top12在长视频中是否因时序集中造成部分视频误差，**该因果解释目前未证**。在已经测试的旧五段上开发第三臂会导致后见偏差，因此[新唯一READY 018预注册合同](./codex-artifacts/VLM-UNSEEN-SOURCE-STRATIFIED-018/README.md)只将C用于[016原封锁冻](./codex-artifacts/VLM-NEW-SOURCE-ROSTER-016/source-roster-anonymous.md)尚未模型评分R4(62.01min/36结构非图像题)、R5(59.76min/35)、R6(58.46min/34)，只有用户合法自行下载完整新媒体及明示本018新≤315 generate/GPU≤40min权限后执行。三臂固定A原uniform12、B原SigLIP question-only top12、C同48候选按PTS划12个相邻4帧bin、每bin用与B**相同**question-only SigLIP余弦取得最高1帧，三臂12帧、同Qwen/token/processor/提示、禁外部时间戳/gold泄漏，最终隔离QA评分；同时真实统计覆盖/冗余、source-level paired准确率、检索时间和显存成本。C是时间分层检索**既有基线的预注册公平对照，不是新贡献或新的学习算法**；何时选择C是看过原五片后的实验设计，不冒称先前未看数据的发明。未经更多独立来源与文献closest-method对照，无scientific novelty、`NOVELTY=RETAIN0`。R4–R6 UID只在旧Codex私有016结果/已授权确切本机小元数据中读取或按同排序重建，不泄公开仓；下载自动化为0，未取得新来源时018不运行或提交空HOLD，旧已看结果永久只做开发参照。Charades`FINAL_MEDIA_STOP`和gold不训练持续。
+
+
+### 2026-10-16 · 018 三臂新来源结案（公开交付证据级别）
+
+- [提交0084d0b](https://github.com/floomeer83felix-source/vlm/commit/0084d0bbc1e76ce39c6ef1339ed5cb64eabb1434)仅新增[匿名018收据](./codex-artifacts/VLM-UNSEEN-SOURCE-STRATIFIED-018/three-arm-new-source-receipt.md)与[Codex results](./codex-results.md)的单次018追加，没有篡改旧结果；审核时该提交为main HEAD。
+- 018按预注册冻结R4/R5/R6合格N36/35/34（105题）：A原Uniform12、B原SigLIP question-only global top12、C同48帧候选按12个连续4候选bin各选相似度最高帧；三臂同Qwen3-VL、12真实源帧/324视觉token，ABC/BCA/CAB依序轮换，金标最后由独立CPU scorer打开。执行者报告真实315/315 attempts/returns均自然EOS、不重试、不训练；GPU阶段167.344秒、allocated峰8968.505MiB（8.758GiB）、父任务856.77秒，均低于018独立授权阈值。
+- R4/R5/R6正确数：A分别13/36、11/35、8/34；B15/36、12/35、9/34；C10/36、11/35、11/34。等记录来源宏A30.36%、B34.14%、C30.52%，B−A+3.78pp，C−B−3.62pp，C−A+0.16pp。B在3/3新记录来源高于A，C对B则2负1正；是有限记录来源的描述，不得把旧题合并成独立总体或声称统计显著/稳定优势。C覆盖率由策略规定，不能仅凭分数推断错误因果或算法新颖性。
+- `CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`：UID/release1/canonical元数据、一致性hash、packet EOF和有界pixel decode是本地执行者报告，不等于独立远端完整字节证书、同版裁剪源、annotation t0至媒体PTS映射、严格物理来源独立或gold语义认证。此次GitHub审核只覆盖公开提交与统计口径，没有独立重跑私有媒体、gold或逐题生成账本。`NOVELTY=RETAIN0`，Charades `FINAL_MEDIA_STOP`。
+- **验收018约定交付并结案，READY=0，旧预算不继承。** 优先处理独立合法训练来源、train/eval隔离及科学机制设计；train-media、train-prep、train-GPU保持QUEUED/HOLD。无用户新明确授权不自动下载、GPU训练/推理或以已观察dev gold补训练。
