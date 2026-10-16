@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-16（北京时间；最新审核[018正式交付0084d0b](https://github.com/floomeer83felix-source/vlm/commit/0084d0bbc1e76ce39c6ef1339ed5cb64eabb1434) 的公开回执与结果：R4–R6三臂315/315完成、宏B−A+3.78pp、C−B−3.62pp，均仅`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`探索性结果。018结案，`READY=0`；独立train来源/时钟认证及新GPU未经授权，`NOVELTY=RETAIN0`、Charades `FINAL_MEDIA_STOP`。）  
+> 更新：2026-10-16（北京时间；018已结案：三来源三臂315/315，宏B−A+3.78pp、C−B−3.62pp；仍`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`。用户同意下一步转向可证伪真实训练；新增唯一READY=[VLM-TRAIN-HEAD-HARNESS-019](./codex-artifacts/VLM-TRAIN-HEAD-HARNESS-019/README.md)仅公共训练头源码与合成CPU测试，不触及真实数据/GPU/下载；后续TRAIN-PREP和TRAIN-GPU仍HOLD。`NOVELTY=RETAIN0`、Charades`FINAL_MEDIA_STOP`。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -903,3 +903,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - R4/R5/R6正确数：A分别13/36、11/35、8/34；B15/36、12/35、9/34；C10/36、11/35、11/34。等记录来源宏A30.36%、B34.14%、C30.52%，B−A+3.78pp，C−B−3.62pp，C−A+0.16pp。B在3/3新记录来源高于A，C对B则2负1正；是有限记录来源的描述，不得把旧题合并成独立总体或声称统计显著/稳定优势。C覆盖率由策略规定，不能仅凭分数推断错误因果或算法新颖性。
 - `CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`：UID/release1/canonical元数据、一致性hash、packet EOF和有界pixel decode是本地执行者报告，不等于独立远端完整字节证书、同版裁剪源、annotation t0至媒体PTS映射、严格物理来源独立或gold语义认证。此次GitHub审核只覆盖公开提交与统计口径，没有独立重跑私有媒体、gold或逐题生成账本。`NOVELTY=RETAIN0`，Charades `FINAL_MEDIA_STOP`。
 - **验收018约定交付并结案，READY=0，旧预算不继承。** 优先处理独立合法训练来源、train/eval隔离及科学机制设计；train-media、train-prep、train-GPU保持QUEUED/HOLD。无用户新明确授权不自动下载、GPU训练/推理或以已观察dev gold补训练。
+
+
+### 2026-10-16 · 从018探索转向真实训练的工程起点（尚未运行）
+
+- 用户同意将推进重点从重复选帧比较转向真正训练和可证伪机制。为避免立即占用新的私有素材或GPU预算，**唯一READY=[VLM-TRAIN-HEAD-HARNESS-019](./codex-artifacts/VLM-TRAIN-HEAD-HARNESS-019/README.md)**：Codex下一轮只在公开代码checkout实现带隔离/预算安全门的temporal-pair head、合成CPU反例与真实optimizer更新技术证明。
+- 它**不是**HourVideo训练、不是训练素材许可、不是GPU许可；训练数据必须独立于013–018旧dev/eval来源，实际物理源隔离、权利与PTS bridge仍需独立证明。合成损失改善不代表时序事件理解、长视频问答准确率、泛化或核心算法创新。TRAIN-PREP-001及TRAIN-GPU-001继续QUEUED/HOLD，GPU0、媒体GET0、历史前向0。
+- 下一次获得真实训练素材且权限、隔离、CPU资格合格后，再提交带具体≤200 optimizer steps、≤60GPU分钟和资源门的独立训练授权；正式外部held-out QA评估还需冻结不同来源并单独授权。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`不变。
