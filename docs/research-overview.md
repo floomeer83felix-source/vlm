@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-17（北京时间；020 [438f9f8](https://github.com/floomeer83felix-source/vlm/commit/438f9f8d01378fdbed392c2d1355dafe47f31d57)唯一2GiB CPU动态运行安全HOLD：OSError/WinError87，真实optimizer更新0/12，5项动态NOT_RUN；无权限重试、提高内存或动GPU。020已结案，READY=0。009曾用一部用户授权公有领域电影在RTX3090真实完成100+100个更新，建议优先在新明确许可下复核009本地独立训练来源并转TRAIN-PREP；不继承旧媒体访问与GPU授权。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-17（北京时间；用户新同意只读核验009**原来明确指定并实际用过的单个本地电影**，只覆盖存在、训练权利、完整性与现有HourVideo/Ego4D评测物理来源隔离。唯一READY=[VLM-TRAIN-SOURCE-ELIGIBILITY-021](./codex-artifacts/VLM-TRAIN-SOURCE-ELIGIBILITY-021/README.md)，由用户在活跃Codex聊天单次触发；失去原精确私人路径或证据不全须HOLD，不能扫描其他目录、触及QA/gold/评测视频、执行Torch/GPU/下载/实际训练。019/020保持已结案HOLD，TRAIN-PREP/GPU仍QUEUED/HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -934,3 +934,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - [009历史本地长片训练回执](./codex-artifacts/VLM-LOCAL-LONGVIDEO-009/local-long-video-ab-receipt.md)曾证明一部旧用户明示许可研究训练的公有领域WebM（1465.597s、43924真解码帧）在本机RTX3090两个小头各真实运行100个optimizer updates，且与HourVideo protected QA未混用。009权利证据含用户当时声明与美国PD来源，不是全球许可证或远端immutable byte认证；如今该原文件是否还存在、是否适用本次训练用途、具体物理源严格隔离和当前训练环境健康度仍须**新授权后有限CPU只读复核**。过往技术成功不能冒称020当前环境通过。
 - **阶段选择**：不另立021盲目的PyTorch重试。当前READY=0；既有VLM-HOURVIDEO-TRAIN-PREP-001仍QUEUED/HOLD，待用户重新明示许可只读访问009**既有明确单一路径/视频**及必要最小来源/许可元数据，禁止枚举全盘、访问旧R1–R6视频/标注与dev gold。应先实际确认train/eval电影与Ego4D的严格隔离及训练权利，必要时采用自监督head proxy，随后才另行批准真正TRAIN-GPU；GPU训练、下载/Qwen微调均非本轮授权。
 - 科学层级维持NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。旧019/020 CPU-only失败绝不统计为模型机制、泛化或QA证据。
+
+
+### 2026-10-17 · 批准009原单视频只读训练资格复核；021唯一READY（未执行）
+
+- 新许可严格限于009先前私人Codex记录中**当年实际使用的一个确切电影文件**：CPU-only/stat、训练研究用途授权与官方美国PD证明等级、有限ffprobe和必要的bounded demux/可信原SHA比对、train-vs-Ego4D/HourVideo物理来源证据核验；只能使用已有许可精确记录与公开匿名历史，不能为核独立而越权读任何dev QA、gold、评测视频、或私有UID对应关系。无原精确入口直接HOLD，绝不能按文件名/体量猜、扫描目录或找替代来源。
+- **唯一READY=[VLM-TRAIN-SOURCE-ELIGIBILITY-021](./codex-artifacts/VLM-TRAIN-SOURCE-ELIGIBILITY-021/README.md)**，当前尚未由Codex执行。资格级别是单电影存在/完整性/权利/物理源分隔的四门审查；009原100+100 GPU updates以及同片内部validation不提供021当前文件存在/原物理源独立/远端版本认证保证。若有任何UNKNOWN，记录PARTIAL_HOLD，而非以电影类型或不同UID臆造PASS。TRAIN-PREP-001和TRAIN-GPU-001保留非READY，用户本轮没有授权模型/Torch/GPU/下载、私有训练结果写入或021之后的自动行动。
+- 旧019/020安全运行失败结论不变：019 WinError1455、020 WinError87与源代码审计钩子干扰只是尚未定位的线索；不重跑。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP继续。
