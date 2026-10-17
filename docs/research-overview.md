@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-17（北京时间；019公开代码交付部分通过但Torch动态未证，WinError1455发生在原256MiB上限下。用户新明确批准一次独立020受控PyTorch CPU合成验证：Windows Job private-commit≤2GiB、父单调墙钟≤120秒、真实CPU optimizer更新总≤12、一次Torch CPU DLL导入。现唯一READY=[VLM-TRAIN-CPU-RUNTIME-020](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)，仅待用户在Codex活跃聊天触发；无真实train素材、GPU、下载或环境修复权限，TRAIN-PREP/GPU仍HOLD。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-17（北京时间；020 [438f9f8](https://github.com/floomeer83felix-source/vlm/commit/438f9f8d01378fdbed392c2d1355dafe47f31d57)唯一2GiB CPU动态运行安全HOLD：OSError/WinError87，真实optimizer更新0/12，5项动态NOT_RUN；无权限重试、提高内存或动GPU。020已结案，READY=0。009曾用一部用户授权公有领域电影在RTX3090真实完成100+100个更新，建议优先在新明确许可下复核009本地独立训练来源并转TRAIN-PREP；不继承旧媒体访问与GPU授权。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -925,3 +925,12 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 用户在本轮明确同意[020 CPU运行合同](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)的**一次受控PyTorch CPU导入与动态合成测试**；独立Windows Job子进程private-commit硬上限**2GiB = 2,147,483,648B**，父单调计时**≤120秒**，全部合成控制组真实optimizer updates合计**≤12**。与原019的256MiB尝试不同，是一次单独的新资源授权；不得将旧019历史状态追认为通过，也不可继承旧研究GPU预算。
 - **唯一READY=020，未开始、无交付；**先确保系统commit余量、安全监督与隔离CPU条件，全部通过后才能由用户在活跃Codex聊天触发一次执行。资源HOLD、Torch加载失败或动态安全门失败即STOP，不提高上限、不重试、不修改pagefile/Torch/CUDA/环境、不访问真实视频/标签或模型、不研究下载或调用GPU。
 - 本次即使12次合成梯度更新都通过，仍只是合成CPU运行证明，真实train/eval物理来源隔离、训练用途权利与HourVideo时间零点认证UNKNOWN；TRAIN-PREP及TRAIN-GPU继续QUEUED/HOLD。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades `FINAL_MEDIA_STOP`。
+
+
+### 2026-10-17 · 020单次动态CPU验证安全HOLD；终止无证据扩大限额，转向独立训练候选
+
+- [提交438f9f8](https://github.com/floomeer83felix-source/vlm/commit/438f9f8d01378fdbed392c2d1355dafe47f31d57)相对于已授权任务起始HEAD仅增加020专用脚本、匿名收据并在codex-results末尾追加一条，没有修改019源码、历史统计或ChatGPT-owned文件；正式接受021前**020已结案、READY=0**。020 Windows Job process/job memory≤2GiB、系统可用commit52356739072B、物理50333675520B均过门，一次Torch CPU导入/设置阶段报OSError/WinError87，post-import setup PASS前中止。子进程private-commit峰736264192B，父限时1.062s（界120s），没有GPU/研究下载/受限媒体/环境安装或更改，实际optimizer attempts/updates=0/0，五项动态检查NOT_RUN。
+- 原019 256MiB导入报WinError1455，本次020 2GiB报WinError87，根因不能由匿名聚合收据唯一识别，也不能归因确定是pagefile、PyTorch缺失或2GiB不足。对[020公开源码](../prototypes/test_vlm_train_cpu_runtime_020.py)静态核对发现PyTorch import前注册的sys.addaudithook(open)，其中对任意打开的文件先Path.resolve，可能与一些Windows特殊路径/DLL加载发生冲突；这是**待验证假设，不是已知故障定位**。不允许因此复跑020、申请内存无限提升或修改系统/依赖。
+- [009历史本地长片训练回执](./codex-artifacts/VLM-LOCAL-LONGVIDEO-009/local-long-video-ab-receipt.md)曾证明一部旧用户明示许可研究训练的公有领域WebM（1465.597s、43924真解码帧）在本机RTX3090两个小头各真实运行100个optimizer updates，且与HourVideo protected QA未混用。009权利证据含用户当时声明与美国PD来源，不是全球许可证或远端immutable byte认证；如今该原文件是否还存在、是否适用本次训练用途、具体物理源严格隔离和当前训练环境健康度仍须**新授权后有限CPU只读复核**。过往技术成功不能冒称020当前环境通过。
+- **阶段选择**：不另立021盲目的PyTorch重试。当前READY=0；既有VLM-HOURVIDEO-TRAIN-PREP-001仍QUEUED/HOLD，待用户重新明示许可只读访问009**既有明确单一路径/视频**及必要最小来源/许可元数据，禁止枚举全盘、访问旧R1–R6视频/标注与dev gold。应先实际确认train/eval电影与Ego4D的严格隔离及训练权利，必要时采用自监督head proxy，随后才另行批准真正TRAIN-GPU；GPU训练、下载/Qwen微调均非本轮授权。
+- 科学层级维持NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。旧019/020 CPU-only失败绝不统计为模型机制、泛化或QA证据。
