@@ -1,11 +1,11 @@
 # VLM-TRAIN-CPU-RUNTIME-020｜CPU PyTorch 导入与合成动态验证
 
-**PENDING_FRESH_CPU_MEMORY_AND_TEST_AUTHORIZATION / NOT_READY（2026-10-16）**。
-本任务为新父任务预案，不许可立即执行。前任019在[90330e0](https://github.com/floomeer83felix-source/vlm/commit/90330e00e8c11c52ef12e1f8c24de6ad2ca525e1)安全停止：256MiB私有进程内存封顶下PyTorch导入报WinError1455；14个stdlib PASS、5个Torch SKIP、0 optimizer updates。失败分配大小、系统pagefile作用未知，不可推断为Torch不存在或内存上限是唯一原因。
+**READY / USER_AUTHORIZED_BOUNDED_CPU_ONLY（2026-10-17）**。
+本任务已由用户在2026-10-17当前对话明确批准以下**唯一020独立CPU限额**，ChatGPT已将其设为唯一READY。仍须用户在活跃Codex聊天发送新执行消息；GitHub计划更新不会自动启动本机。前任019在[90330e0](https://github.com/floomeer83felix-source/vlm/commit/90330e00e8c11c52ef12e1f8c24de6ad2ca525e1)安全停止：256MiB私有进程内存封顶下PyTorch导入报WinError1455；14个stdlib PASS、5个Torch SKIP、0 optimizer updates。失败分配大小、系统pagefile作用未知，不可推断为Torch不存在或内存上限是唯一原因。
 
-## 必须另行授权
+## 已获本轮用户明确授权的唯一上限
 
-只有用户明确同意**一个全新的独立CPU验证**，硬封顶单子进程private-commit **2GiB = 2147483648 bytes**、父任务单调墙钟 **120秒**、真实CPU optimizer更新总 **12步**，且同意一次本地Torch DLL加载，ChatGPT才能把020改成唯一READY；用户再在当前Codex对话触发。仅上传019结果不代表授权。不得继承019或者旧训练/GPU/媒体预算。
+**用户于2026-10-17明确批准独立020 CPU测试**：一次新的受控本地PyTorch DLL导入，专用Windows Job Object子进程**private-commit硬上限2GiB = 2,147,483,648 bytes**，父任务单调墙钟**≤120秒**，所有合成CPU训练真实optimizer updates合计**≤12**。必须先通过系统提交余量、Windows监督、安全隔离等执行前门；任一前置UNKNOWN即STOP。此为限额，不是保证机器可运行或许可修复pagefile。不得继承019或任何旧GPU/媒体授权；不得拆分任务反复导入或重试。**唯一READY意味着符合条件时可由用户在当前Codex聊天新触发一次任务，不是自动执行授权。**
 
 ## 020条件成立后的单轮顺序
 

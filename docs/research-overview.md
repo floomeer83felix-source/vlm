@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-16（北京时间；审查[019最新提交90330e0](https://github.com/floomeer83felix-source/vlm/commit/90330e00e8c11c52ef12e1f8c24de6ad2ca525e1)：训练头代码已交付，14个stdlib PASS、5个Torch SKIP，真实optimizer 0。256MiB private-commit内Torch import报WinError1455；代码部分验收但动态未证。READY=0，仅预置需要新批准2GiB CPU额度的020，GPU与train素材仍HOLD；NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-17（北京时间；019公开代码交付部分通过但Torch动态未证，WinError1455发生在原256MiB上限下。用户新明确批准一次独立020受控PyTorch CPU合成验证：Windows Job private-commit≤2GiB、父单调墙钟≤120秒、真实CPU optimizer更新总≤12、一次Torch CPU DLL导入。现唯一READY=[VLM-TRAIN-CPU-RUNTIME-020](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)，仅待用户在Codex活跃聊天触发；无真实train素材、GPU、下载或环境修复权限，TRAIN-PREP/GPU仍HOLD。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -918,3 +918,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 原256MiB私有内存限额下Windows加载Torch DLL报WinError1455，安全停止而无自动提升限额、安装或retry。单看公开收据不能确定是否全部由内存封顶造成，也不能据此认为Torch在实际训练环境不可用。批准019的代码/报告符合约定，但状态正式为ACCEPTED_CODE_ONLY / SYNTHETIC_CPU_HARNESS_PARTIAL/HOLD，旧019结案非READY。
 - 预置[VLM-TRAIN-CPU-RUNTIME-020](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)为**PENDING新CPU授权/NOT_READY**；拟仅一次2GiB Job private commit硬封顶、120秒父任务、12合成CPU优化更新，证明运行和随机/打乱标签对照。当前READY=0，只有用户新明确批准相应内存与CPU预算后方能启动020；如失败不自动调系统pagefile或重试。TRAIN-PREP与TRAIN-GPU、任何真实视频与GPU推理/训练继续HOLD。
 - 这只是自监督技术代理头骨架，不能说明时序事件理解、HourVideo QA改善、跨源泛化或原创性。旧013–018 dev gold永不进入训练/选checkpoint；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、NOVELTY=RETAIN0、Charades FINAL_MEDIA_STOP持续。
+
+
+### 2026-10-17 · 用户新授权020独立CPU动态验证（尚未执行）
+
+- 用户在本轮明确同意[020 CPU运行合同](./codex-artifacts/VLM-TRAIN-CPU-RUNTIME-020/README.md)的**一次受控PyTorch CPU导入与动态合成测试**；独立Windows Job子进程private-commit硬上限**2GiB = 2,147,483,648B**，父单调计时**≤120秒**，全部合成控制组真实optimizer updates合计**≤12**。与原019的256MiB尝试不同，是一次单独的新资源授权；不得将旧019历史状态追认为通过，也不可继承旧研究GPU预算。
+- **唯一READY=020，未开始、无交付；**先确保系统commit余量、安全监督与隔离CPU条件，全部通过后才能由用户在活跃Codex聊天触发一次执行。资源HOLD、Torch加载失败或动态安全门失败即STOP，不提高上限、不重试、不修改pagefile/Torch/CUDA/环境、不访问真实视频/标签或模型、不研究下载或调用GPU。
+- 本次即使12次合成梯度更新都通过，仍只是合成CPU运行证明，真实train/eval物理来源隔离、训练用途权利与HourVideo时间零点认证UNKNOWN；TRAIN-PREP及TRAIN-GPU继续QUEUED/HOLD。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades `FINAL_MEDIA_STOP`。
