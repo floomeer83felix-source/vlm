@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-18（北京时间；021 [f3d86ec](https://github.com/floomeer83felix-source/vlm/commit/f3d86ec445e498dc824fce40ffe72be842952fd5)按预设单009文件精确入口门安全HOLD，当前Codex聊天缺原009唯一私有路径，故四项资格仍UNKNOWN、私人读取/GPU/模型/解码0；非文件已丢失、权利失效结论。正式021验收结案、READY=0。下一步需用户先私人补原文件精确路径与许可来源入口再新开任务，避免重复空审核；TRAIN-PREP/GPU继续HOLD。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`。）  
+> 更新：2026-10-18（北京时间；用户ChatGPT私聊提供009电影一个完整本地路径，但并未验证该文件就是旧009所用影片，路径不在公开GitHub。021已HOLD结案；唯一READY=[VLM-TRAIN-SOURCE-VERIFY-022](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/README.md)，须用户将该路径在活跃Codex私聊再次提供并发新单次022执行消息。只允许原先批准的单文件CPU只读资格检查；禁止扫描、读取评测QA/gold/媒体、GPU/Torch/下载/训练。TRAIN-PREP/GPU仍HOLD；NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -949,3 +949,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 四项现时资格 `FILE_EXISTS/INTEGRITY_EVIDENCE/TRAINING_RIGHTS_EVIDENCE/TRAIN_EVAL_PHYSICAL_SOURCE_INDEPENDENCE`全部UNKNOWN。009旧运行99.096MiB/1465.597秒、完整帧解码及100+100真optimizer只是历史执行者报告，不是当前文件消失或未许可的证据，也不补齐新的物理独立性证明。
 - 021状态 **ACCEPTED_SAFE_HOLD / EXACT_009_ENTRY_UNKNOWN_HOLD**，READY=0。停止重复申请同旧父任务或创建在入口缺失时不可执行的空检查。请用户先在私人Codex聊天提供原009准确路径和原已知合法来源/许可凭据入口；在新ChatGPT审查与授权前，Codex仅记住路径，不打开/遍历任何额外私有文件。若不可恢复，可由用户另明确授权一个独立合法训练素材，但不得自动搜寻/下载。TRAIN-PREP与TRAIN-GPU仍QUEUED/HOLD，原013–018 dev gold不用于训练/调参。
 - 科研结论不变：`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`，Charades `FINAL_MEDIA_STOP`。
+
+
+### 2026-10-18 · 用户补私人原电影入口；022一次限界只读资格审核待执行
+
+- 在ChatGPT私人聊天收到用户提供的单个009原训练电影路径声明，尚未在本地核验。公共GitHub绝不保存路径、文件名、电影名或来源身份；当前Codex仍需用户在其活跃私人聊天中给出完整路径和一次新任务指令。原021结案且不重跑。
+- 新唯一READY=[VLM-TRAIN-SOURCE-VERIFY-022](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/README.md)，严格沿用用户明确批准的单电影CPU只读核验范围。当前存在性、完整性、是否旧009原对象、训练权利及相对于评测视频的物理独立性需分别验证。不能靠文件名/大小/影片类型推断全部PASS，不访问保护QA、私有评测视频或额外目录；信息不足就HOLD。
+- 此操作不修复019/020受限Torch导入问题，也不授权GPU或正式训练。TRAIN-PREP/GPU仍非READY；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
