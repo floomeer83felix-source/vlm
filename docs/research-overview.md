@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-17（北京时间；用户新同意只读核验009**原来明确指定并实际用过的单个本地电影**，只覆盖存在、训练权利、完整性与现有HourVideo/Ego4D评测物理来源隔离。唯一READY=[VLM-TRAIN-SOURCE-ELIGIBILITY-021](./codex-artifacts/VLM-TRAIN-SOURCE-ELIGIBILITY-021/README.md)，由用户在活跃Codex聊天单次触发；失去原精确私人路径或证据不全须HOLD，不能扫描其他目录、触及QA/gold/评测视频、执行Torch/GPU/下载/实际训练。019/020保持已结案HOLD，TRAIN-PREP/GPU仍QUEUED/HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-18（北京时间；021 [f3d86ec](https://github.com/floomeer83felix-source/vlm/commit/f3d86ec445e498dc824fce40ffe72be842952fd5)按预设单009文件精确入口门安全HOLD，当前Codex聊天缺原009唯一私有路径，故四项资格仍UNKNOWN、私人读取/GPU/模型/解码0；非文件已丢失、权利失效结论。正式021验收结案、READY=0。下一步需用户先私人补原文件精确路径与许可来源入口再新开任务，避免重复空审核；TRAIN-PREP/GPU继续HOLD。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -941,3 +941,11 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 新许可严格限于009先前私人Codex记录中**当年实际使用的一个确切电影文件**：CPU-only/stat、训练研究用途授权与官方美国PD证明等级、有限ffprobe和必要的bounded demux/可信原SHA比对、train-vs-Ego4D/HourVideo物理来源证据核验；只能使用已有许可精确记录与公开匿名历史，不能为核独立而越权读任何dev QA、gold、评测视频、或私有UID对应关系。无原精确入口直接HOLD，绝不能按文件名/体量猜、扫描目录或找替代来源。
 - **唯一READY=[VLM-TRAIN-SOURCE-ELIGIBILITY-021](./codex-artifacts/VLM-TRAIN-SOURCE-ELIGIBILITY-021/README.md)**，当前尚未由Codex执行。资格级别是单电影存在/完整性/权利/物理源分隔的四门审查；009原100+100 GPU updates以及同片内部validation不提供021当前文件存在/原物理源独立/远端版本认证保证。若有任何UNKNOWN，记录PARTIAL_HOLD，而非以电影类型或不同UID臆造PASS。TRAIN-PREP-001和TRAIN-GPU-001保留非READY，用户本轮没有授权模型/Torch/GPU/下载、私有训练结果写入或021之后的自动行动。
 - 旧019/020安全运行失败结论不变：019 WinError1455、020 WinError87与源代码审计钩子干扰只是尚未定位的线索；不重跑。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP继续。
+
+
+### 2026-10-18 · 021真实结果：原009唯一精确入口不可恢复，安全HOLD结案
+
+- 公开[提交f3d86ec](https://github.com/floomeer83felix-source/vlm/commit/f3d86ec445e498dc824fce40ffe72be842952fd5)仅增[021匿名入口门回执](./codex-artifacts/VLM-TRAIN-SOURCE-ELIGIBILITY-021/read-only-source-eligibility-receipt.md)及codex-results恰一项，其他规划、009/019/020档案和原电影未修改。Codex在现有活跃私人聊天中**找不到009原来实际训练使用的唯一确切本地文件路径**，旧009公开匿名账本刻意不含身份路径。按合同未猜测、无枚举、无私有文件stat、ffprobe/demux/SHA、无模型/GPU/网络/训练与任何受保护QA访问。
+- 四项现时资格 `FILE_EXISTS/INTEGRITY_EVIDENCE/TRAINING_RIGHTS_EVIDENCE/TRAIN_EVAL_PHYSICAL_SOURCE_INDEPENDENCE`全部UNKNOWN。009旧运行99.096MiB/1465.597秒、完整帧解码及100+100真optimizer只是历史执行者报告，不是当前文件消失或未许可的证据，也不补齐新的物理独立性证明。
+- 021状态 **ACCEPTED_SAFE_HOLD / EXACT_009_ENTRY_UNKNOWN_HOLD**，READY=0。停止重复申请同旧父任务或创建在入口缺失时不可执行的空检查。请用户先在私人Codex聊天提供原009准确路径和原已知合法来源/许可凭据入口；在新ChatGPT审查与授权前，Codex仅记住路径，不打开/遍历任何额外私有文件。若不可恢复，可由用户另明确授权一个独立合法训练素材，但不得自动搜寻/下载。TRAIN-PREP与TRAIN-GPU仍QUEUED/HOLD，原013–018 dev gold不用于训练/调参。
+- 科研结论不变：`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`，Charades `FINAL_MEDIA_STOP`。
