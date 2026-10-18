@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-18（北京时间；审[022提交9c028b5](https://github.com/floomeer83felix-source/vlm/commit/9c028b52ddadf605c50746a86c6c18cc33bcc0f5)：022依合同安全部分验收结案，当前READY=0。指定单片存在、当前WebM/VP9 480p容器/43924 packets EOF、PTS/DTS/flags无异常，当前长度103909467B及视频1465.597s吻合009历史，但不认证原SHA同一或全球授权。009原对象身份、训练许可与评测物理隔离仍UNKNOWN；无Torch、GPU、模型/训练/下载/评测QA访问。下一步须新的限定CPU权限审查许可及非保护source-group provenance，并尽可能并入TRAIN-PREP免再空跑，GPU/HOURVIDEO QA训练仍未批准。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-18（北京时间；用户新批准既有TRAIN-PREP-001的**合并CPU只读静态预检**：009公开许可证据与仅限已许可非保护来源记录、已知本地Qwen/SigLIP及processor静态配置和Python分发包版本、主机CPU资源、有限自监督训练方案预注册。A/B/C/D均须逐项报告，即便原009身份/权利/严格物理隔离UNKNOWN也继续其余授权步骤。**唯一READY=[VLM-HOURVIDEO-TRAIN-PREP-001](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/README.md)**，022已HOLD结案；未授权Torch/模型导入、GPU API、媒体再检查、dev QA/gold、安装/下载或真实训练。TRAIN-GPU仍QUEUED/HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -963,3 +963,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - GitHub [提交9c028b5](https://github.com/floomeer83felix-source/vlm/commit/9c028b52ddadf605c50746a86c6c18cc33bcc0f5)仅新增022匿名[资格回执](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/read-only-source-verification-receipt.md)及单条results append，交付合规、无显式私有路径/影片名/hash、无旧文件变更。022限定单用户给定文件的stat、非reparse父链与ffprobe、packet demux：存在PASS，bounded容器和视频packet EOF PASS（43924包；PTSs/DTSs缺失/非单调/腐坏flag0），文件大小103909467B、容器1465.597s、WebM/VP9、480p和009的匿名历史输入吻合。父媒体检查1.828s/180s，probe0.422s，demux1.406s，pixel/frame decode0，原trusted SHA记录不存在故未进行SHA遍历。各项是本机限定证据，非全像素decode、远端immutable byte证书或旧009原字节同一性的证明。
 - 严格五门结论 `FILE_EXISTS PASS`、`CURRENT_INTEGRITY_EVIDENCE PASS (bounded-only)`、`ORIGINAL_009_IDENTITY UNKNOWN`、`TRAINING_RIGHTS_EVIDENCE UNKNOWN`、`TRAIN_EVAL_PHYSICAL_SOURCE_INDEPENDENCE UNKNOWN`。原009历史曾CPU全帧解码和GPU 100+100个optimizer，但旧私有SHA/确切许可出处未知、保留评测源物理独立未获正面授权核实。不能从电影类型、首尾时长、不同文件名或禁止读取dev QA直接推论所有源严格互斥。旧009同电影内部验证不构成新heldout；009原训练许可仅历史执行者报告。
 - 022 `ACCEPTED_SAFE_PARTIAL_HOLD`，**READY=0**。下一轮不再耗费GPU/研究网络/媒体重复探测，也不因020 Windows Torch导入WinError87直接宣称RTX3090训练不可用。优先以明确授权**非保护**素材许可证、原先可信身份记录和评测source-group证据完成无泄漏CPU预检；如果不能得到证据需保留UNKNOWN并可能使用具有明示独立来源的新训练片，不能解锁TRAIN-GPU或拿013–018 dev QA/gold拟合模型。用户未授权任何新的GPU或材料读取。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`与Charades`FINAL_MEDIA_STOP`持续。
+
+
+### 2026-10-18 · 合并TRAIN-PREP CPU只读预算与安全审查获批准，尚未运行
+
+- 用户本轮明确批准[TRAIN-PREP-001 CPU静态合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/README.md)为唯一READY：A 009单训练电影公开许可证据与已获授权的非保护原出处证据，B 仅非保护来源分组的eval物理隔离/泄漏审查，C 仅已知精确合法入口的Qwen/SigLIP与processor小型配置/静态依赖版本/主机空余概况，D conditional TRAIN_HEAD_SELF_SUPERVISED种子、时间窗、≤2层/≤1M参数、≤200 updates、≤60 GPU分钟提议预算的纸面冻结。A/B证据不足标UNKNOWN且继续C/D，不做循环空任务。未经授权无条件禁止读取dev QA/gold/评测视频/旧UID关联、重读022训练电影、import Torch/调用GPU、研究下载或环境修复。
+- 静态软件包可检查分发元数据，不应把009历史100+100 GPU updates或019/020有约束Windows CPU import failures混为当前runtime健康度结论。TRAIN_CPU_PREFLIGHT_PASS与后续GPU模型训练必须在合法许可/源隔离/环境实际运行资源门及**新的用户明确授权**满足后才能给出，不能凭CPU静态报告自动放行。
+- 当前只有TRAIN-PREP-001一项READY；它尚未由Codex执行，也不能通过公开GitHub更新唤醒Codex。批准范围内的报告完成后一次push并STOP。TRAIN-GPU持续非READY，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
