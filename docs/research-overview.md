@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-18（北京时间；用户ChatGPT私聊提供009电影一个完整本地路径，但并未验证该文件就是旧009所用影片，路径不在公开GitHub。021已HOLD结案；唯一READY=[VLM-TRAIN-SOURCE-VERIFY-022](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/README.md)，须用户将该路径在活跃Codex私聊再次提供并发新单次022执行消息。只允许原先批准的单文件CPU只读资格检查；禁止扫描、读取评测QA/gold/媒体、GPU/Torch/下载/训练。TRAIN-PREP/GPU仍HOLD；NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-18（北京时间；审[022提交9c028b5](https://github.com/floomeer83felix-source/vlm/commit/9c028b52ddadf605c50746a86c6c18cc33bcc0f5)：022依合同安全部分验收结案，当前READY=0。指定单片存在、当前WebM/VP9 480p容器/43924 packets EOF、PTS/DTS/flags无异常，当前长度103909467B及视频1465.597s吻合009历史，但不认证原SHA同一或全球授权。009原对象身份、训练许可与评测物理隔离仍UNKNOWN；无Torch、GPU、模型/训练/下载/评测QA访问。下一步须新的限定CPU权限审查许可及非保护source-group provenance，并尽可能并入TRAIN-PREP免再空跑，GPU/HOURVIDEO QA训练仍未批准。NOVELTY=RETAIN0，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED，Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -956,3 +956,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 在ChatGPT私人聊天收到用户提供的单个009原训练电影路径声明，尚未在本地核验。公共GitHub绝不保存路径、文件名、电影名或来源身份；当前Codex仍需用户在其活跃私人聊天中给出完整路径和一次新任务指令。原021结案且不重跑。
 - 新唯一READY=[VLM-TRAIN-SOURCE-VERIFY-022](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/README.md)，严格沿用用户明确批准的单电影CPU只读核验范围。当前存在性、完整性、是否旧009原对象、训练权利及相对于评测视频的物理独立性需分别验证。不能靠文件名/大小/影片类型推断全部PASS，不访问保护QA、私有评测视频或额外目录；信息不足就HOLD。
 - 此操作不修复019/020受限Torch导入问题，也不授权GPU或正式训练。TRAIN-PREP/GPU仍非READY；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
+
+
+### 2026-10-18 · 022成功确定本地电影存在与bounded packet完整性；三项资格仍阻塞训练
+
+- GitHub [提交9c028b5](https://github.com/floomeer83felix-source/vlm/commit/9c028b52ddadf605c50746a86c6c18cc33bcc0f5)仅新增022匿名[资格回执](./codex-artifacts/VLM-TRAIN-SOURCE-VERIFY-022/read-only-source-verification-receipt.md)及单条results append，交付合规、无显式私有路径/影片名/hash、无旧文件变更。022限定单用户给定文件的stat、非reparse父链与ffprobe、packet demux：存在PASS，bounded容器和视频packet EOF PASS（43924包；PTSs/DTSs缺失/非单调/腐坏flag0），文件大小103909467B、容器1465.597s、WebM/VP9、480p和009的匿名历史输入吻合。父媒体检查1.828s/180s，probe0.422s，demux1.406s，pixel/frame decode0，原trusted SHA记录不存在故未进行SHA遍历。各项是本机限定证据，非全像素decode、远端immutable byte证书或旧009原字节同一性的证明。
+- 严格五门结论 `FILE_EXISTS PASS`、`CURRENT_INTEGRITY_EVIDENCE PASS (bounded-only)`、`ORIGINAL_009_IDENTITY UNKNOWN`、`TRAINING_RIGHTS_EVIDENCE UNKNOWN`、`TRAIN_EVAL_PHYSICAL_SOURCE_INDEPENDENCE UNKNOWN`。原009历史曾CPU全帧解码和GPU 100+100个optimizer，但旧私有SHA/确切许可出处未知、保留评测源物理独立未获正面授权核实。不能从电影类型、首尾时长、不同文件名或禁止读取dev QA直接推论所有源严格互斥。旧009同电影内部验证不构成新heldout；009原训练许可仅历史执行者报告。
+- 022 `ACCEPTED_SAFE_PARTIAL_HOLD`，**READY=0**。下一轮不再耗费GPU/研究网络/媒体重复探测，也不因020 Windows Torch导入WinError87直接宣称RTX3090训练不可用。优先以明确授权**非保护**素材许可证、原先可信身份记录和评测source-group证据完成无泄漏CPU预检；如果不能得到证据需保留UNKNOWN并可能使用具有明示独立来源的新训练片，不能解锁TRAIN-GPU或拿013–018 dev QA/gold拟合模型。用户未授权任何新的GPU或材料读取。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`与Charades`FINAL_MEDIA_STOP`持续。
