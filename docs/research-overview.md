@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-18（北京时间；用户新批准既有TRAIN-PREP-001的**合并CPU只读静态预检**：009公开许可证据与仅限已许可非保护来源记录、已知本地Qwen/SigLIP及processor静态配置和Python分发包版本、主机CPU资源、有限自监督训练方案预注册。A/B/C/D均须逐项报告，即便原009身份/权利/严格物理隔离UNKNOWN也继续其余授权步骤。**唯一READY=[VLM-HOURVIDEO-TRAIN-PREP-001](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/README.md)**，022已HOLD结案；未授权Torch/模型导入、GPU API、媒体再检查、dev QA/gold、安装/下载或真实训练。TRAIN-GPU仍QUEUED/HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-18（北京时间；审查[8aba2e3](https://github.com/floomeer83felix-source/vlm/commit/8aba2e37cd97b9e36881b595eec9250d3f0d42cb)合并TRAIN-PREP：A原009训练源身份与许可绑定HOLD，B评测真实录制来源隔离HOLD，C模型/processor、Python分发元数据及CPU资源静态PASS，D自监督head方案仅纸面PASS。合同执行无媒体重读/模型导入/GPU/训练，任务验收结案且READY=0。注意D的绝对帧差和帧乘积构成交换不变输入，无法学习事件先后，仅为近远时间proxy；科研创新仍NOVELTY=RETAIN0。TRAIN-GPU非READY，新的合法训练来源、真实runtime和GPU预算必须另外核验授权；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -970,3 +970,9 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 用户本轮明确批准[TRAIN-PREP-001 CPU静态合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/README.md)为唯一READY：A 009单训练电影公开许可证据与已获授权的非保护原出处证据，B 仅非保护来源分组的eval物理隔离/泄漏审查，C 仅已知精确合法入口的Qwen/SigLIP与processor小型配置/静态依赖版本/主机空余概况，D conditional TRAIN_HEAD_SELF_SUPERVISED种子、时间窗、≤2层/≤1M参数、≤200 updates、≤60 GPU分钟提议预算的纸面冻结。A/B证据不足标UNKNOWN且继续C/D，不做循环空任务。未经授权无条件禁止读取dev QA/gold/评测视频/旧UID关联、重读022训练电影、import Torch/调用GPU、研究下载或环境修复。
 - 静态软件包可检查分发元数据，不应把009历史100+100 GPU updates或019/020有约束Windows CPU import failures混为当前runtime健康度结论。TRAIN_CPU_PREFLIGHT_PASS与后续GPU模型训练必须在合法许可/源隔离/环境实际运行资源门及**新的用户明确授权**满足后才能给出，不能凭CPU静态报告自动放行。
 - 当前只有TRAIN-PREP-001一项READY；它尚未由Codex执行，也不能通过公开GitHub更新唤醒Codex。批准范围内的报告完成后一次push并STOP。TRAIN-GPU持续非READY，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
+
+### 2026-10-18 · TRAIN-PREP A/B/C/D完结：静态基础可复用，不把proxy当作时序推理
+
+- [验收提交8aba2e3](https://github.com/floomeer83felix-source/vlm/commit/8aba2e37cd97b9e36881b595eec9250d3f0d42cb)仅新增[CPU匿名合并收据](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/cpu-training-readiness-receipt.md)和codex-results单条结果。A HOLD：旧009原字节身份、当地许可到当前电影文件的权益绑定无新非保护记录；B HOLD：缺少严格独立于HourVideo/Ego4D的正面录制/镜头/剪辑源分组证据；C PASS仅限静态：既有Qwen/SigLIP预期权重、processor描述、distribution metadata及RAM/disk存在，未证明模型能导入或实际CUDA可运行，SigLIP输出图像特征宽度未实测；D PASS仅纸面：128/64帧、近≤12s/远≥120s、随机0更新/真标签100/打乱标签100，98,433 trainable params，最多200更新/60拟定GPU分钟，尚无任何真实执行或训练许可。GPU与Torch/DLL imports0，媒体重读0，旧019/020环境问题未被消除。
+- **可证明的表达能力限制**：现有D head输入由绝对特征差和两帧逐元素积组成，交换帧的先后并不改变表示。因此不管训练多少次更新，也不可能区分A先B后和B先A的方向；设计只针对无方向近远时间距离，属于proxy技术指标，不构成事件次序、因果或多事件长视频问答算法的证据。后续真正顺序推理目标必须另外提出有方向感的表征与冻结科学协议，不能静默改写已结案D合同。
+- **正式状态**：TRAIN_PREP_CPU_STATIC_COMPLETE_WITH_HOLDS验收，READY=0；TRAIN_GPU仍QUEUED/HOLD，无本轮新素材访问或GPU许可。重点从预检转向017/018真实Qwen3-VL/SigLIP帧检索在有限来源的描述性改善与分层反例，需一个真正可证伪的时序证据机制、独立来源和最强邻近法基线。维持NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
