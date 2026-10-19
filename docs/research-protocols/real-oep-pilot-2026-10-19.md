@@ -26,6 +26,8 @@ F. 不超过2源/48题只是非常有限的探索性pilot，不做统计显著�
 
 科学标志继续 NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
 
-## 新授权缺失：024不可自动READY
+## 一次性实验授权（2026-10-19）与尚须现场通过的闸门
 
-用户说继续，只表明继续科学规划，不是对两条新HourVideo媒体/受限nongold/gold/下载/RTX3090算力的新授权。此协议仅由ChatGPT公开撰写；024仍 QUEUED / REQUIRES_EXPLICIT_MEDIA_QA_GPU_PERMISSION / 非READY、目前READY=0。获用户对上述范围、数据、下载和GPU额度的明确单次批准后，ChatGPT需重新核main、核实只有一个READY，再更改任务状态并在私人Codex聊天由用户启动。不继承009/017/018旧预算。
+用户已看到此前明确说明的024上限并在本轮回复“批准”；**这只授权本任务一次真实未见来源的零训练研究试点**：2条新HourVideo/Ego4D录制来源组、每组≤24新非金标题/总≤48道及GPU生成后独立CPU scorer的本轮gold一次性评分，精确既有授权非保护source-group/版本元数据和合法固定两视频入口，官方必要HTTP传输总≤28GiB/每源≤14GiB、私有新增≤32GiB，RTX3090 GPU总≤25min/生成≤240/allocated峰≤18GiB、CPU媒体≤900s/父≤3600s。旧009/017/018及TRAIN-GPU-001额度和资产授权不继承；不训练、不装包/修CUDA、不下载模型或访问新无关媒体。
+
+**唯一READY=VLM-HOURVIDEO-OEP-REAL-024，但GitHub变化并不会启动Codex。** Codex在收到用户活跃私人会话的新执行指令后首先必须查权利/凭据是否当下有效、精确source-group独立证据及≥12道确定性双事件问题；任何门不通过/UNKNOWN，必须在媒体下载和GPU之前保守停止并回报，不能因READY称资格已过，更不能从不同UID臆造物理独立或读旧答案。通过才一次完成真实五臂公平零训练推理，独立最后评分；任何变更预算、研究数据或正式训练都需新的用户明确授权。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`。

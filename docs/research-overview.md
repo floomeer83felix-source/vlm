@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-19（北京时间；023合成31 PASS后，ChatGPT通过官方公开数据资料独立完成[真实OEP验证研究协议](./research-protocols/real-oep-pilot-2026-10-19.md)：下一阶段以两条未见物理独立HourVideo录制长片上真实Qwen/SigLIP五臂公平推理和最多48新QA判别科学机制，不继续另做toy/CPU反复预检。已查公开2026 Video-MME-Logical Mini375/CC BY4.0的短合成逻辑诊断价值及不适用自然双事件长片主评价的局限；HourVideo基准严格不可训练且Ego4D源受许可。024[任务书](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)为待授权QUEUED，用户尚未同意新媒体/QA/gold/下载/GPU具体额度，**READY=0**。未来真实试点拟≤25GPU分钟/≤240 QA生成/≤28GiB官方视频传输且需单独明示许可，TRAIN-GPU仍HOLD。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-19（北京时间；用户对下一轮真实OEP研究试点在完整资源及数据范围说明后答复“批准”。[024执行合同](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)已升级为**唯一READY、未执行**：至多2个未见物理源独立HourVideo/Ego4D视频、总≤48新nongold QA和末期独立gold评分、必要时官方媒体≤28GiB、新私有新增≤32GiB、GPU累计≤25min、QA generate≤240、峰allocated≤18GiB、CPU媒体≤900s、父≤3600s。先验证有效访问许可、source-group真实拍摄来源独立与≥12个双事件可拆分题，不合格GPU/下载0立即HOLD。仅零训练5臂Qwen/SigLIP推理，数据不得进入训练，旧R1–R6 gold不得作调参；023 synthetic与此真实效果严格分层。TRAIN-GPU-001仍HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -996,3 +996,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 现有017/018有限真实Qwen3-VL探索提示问题相关帧检索可能优于Uniform12，023合成OEP-12仅证明数值输入下的规则而不能说明真实语义和QA。ChatGPT公开核对HourVideo（https://github.com/keshik6/HourVideo）和Ego4D许可证（https://ego4d-data.org/docs/start-here/），主研究拟选择未在R1–R6中出现的≤2个物理录制独立源组，新≤48 nongold QA、先冻结至少12道双事件可拆分题的门，后才对五臂同48→12真实帧的Qwen/SigLIP推理、额外编码成本/正确率进行paired真实比较。相似度只作冻结rank proxy、gold由最后CPU评分单独开；以此避免合成tau伪校准及借开发答案优化。
 - 另审新[Video-MME-Logical官方数据集](https://huggingface.co/datasets/marcuskwan/video-mme-logical)：2026 Mini375、约352MB、数据集页面CC BY4.0，生成式状态/计数/时序逻辑含真实媒体但并非长视频自然双事件，不能替代HourVideo，后续可单独考虑诊断，不纳入024主实验。Video-MME-v2视频权利更严格，不自动获取。
 - 已写明[024完整有界研究协议](./research-protocols/real-oep-pilot-2026-10-19.md)与[024非READY执行合同](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)，不要求Codex重复玩具测试或预检。用户本轮尚未明确批准新的Ego4D媒体访问、≤28GiB下载/≤32GiB私有空间、受限nongold与最终gold评分以及RTX3090≤25min/≤240 QA生成，故024保持**QUEUED非READY**、当前READY=0。需用户另一次具体授权，ChatGPT复核安全门后才能切READY。失败、独立性UNKNOWN、可用双事件不足即不跑GPU；2源仅探索，不能用于显著性或论文原创性。TRAIN-GPU-001依旧HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
+
+
+### 2026-10-19 · 024获用户一次正式受限素材及RTX3090推理授权，科学条件仍需执行时证明
+
+- 用户在明确了解本轮规模和资源后批准[024真实OEP试点](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)；对应[冻结科学协议](./research-protocols/real-oep-pilot-2026-10-19.md)只准最多2个未在R1–R6见过且真实采集/剪辑来源独立的HourVideo/Ego4D source groups、各≤24 nongold MCQ/总≤48、gold仅在生成账本封闭后由独立CPU scorer对本轮读取1次。允许必要官方固定来源媒体总HTTP≤28GiB各≤14GiB，私有新增≤32GiB；零训练Qwen3-VL/SigLIP五臂总generate≤240、RTX3090 GPU≤25min、allocated峰≤18GiB、CPU媒体≤900s、父≤3600s，无新模型/包/环境改变。预算不可继承旧任务。
+- **资格门不是授权自动PASS**：必须在新下载/使用GPU之前从仅限已知并授权的非金标私有元数据中取得当下官方数据访问/许可有效、两条源录制和shot/edit真正独立于旧R1–R6且相互独立的正面证据、至少12道按冻结文本规则可拆分的题；任何UNKNOWN/HOLD立即停并记录，**不得以UID/年代/题材不同补证据**，不得试探性读保护gold或新数据。成功才连续执行固定48候选→12帧的Uniform/B/C/unordered/OEP_RANK_REAL_024，生成时无gold，评分最后进行；rank并不等于真实事件置信度。只2个来源的小样本不能证明显著性、新benchmark榜分/新颖性，继续NOVELTY RETAIN0与CLOCK_ZERO_ASSUMED_NOT_CERTIFIED。
+- **协作门**：ChatGPT已写入GitHub唯一READY=024，需用户在活跃Codex私聊显式启动。只准024可选2个新公共python、匿名收据、codex-results一条，新来源路径/题/选项/答案/准确来源UID/媒体hash、权重和原始日志不得上GitHub；完成或阻塞后1次安全push STOP。TRAIN-GPU-001属于独立训练且未获本批准。
