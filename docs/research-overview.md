@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-18（北京时间；审查[8aba2e3](https://github.com/floomeer83felix-source/vlm/commit/8aba2e37cd97b9e36881b595eec9250d3f0d42cb)合并TRAIN-PREP：A原009训练源身份与许可绑定HOLD，B评测真实录制来源隔离HOLD，C模型/processor、Python分发元数据及CPU资源静态PASS，D自监督head方案仅纸面PASS。合同执行无媒体重读/模型导入/GPU/训练，任务验收结案且READY=0。注意D的绝对帧差和帧乘积构成交换不变输入，无法学习事件先后，仅为近远时间proxy；科研创新仍NOVELTY=RETAIN0。TRAIN-GPU非READY，新的合法训练来源、真实runtime和GPU预算必须另外核验授权；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-19（北京时间；用户同意从反复GPU/媒体资格准备转向严谨科研机制。ChatGPT新建[双事件有序证据OEP-12研究协议](./research-protocols/ordered-evidence-2026-10-19.md)，用017/018现有有限探索结果提出可证伪H1，不从题目预设真实事件顺序；邻近2025–2026 AKS/GenS/ReQuest/NeuS-QA/VECTOR/TimeLogic已触及相关/覆盖/事件逻辑，创新NOVELTY仍RETAIN0。唯一READY=[VLM-ORDERED-EVIDENCE-023](./codex-artifacts/VLM-ORDERED-EVIDENCE-023/README.md)仅公开Python stdlib纯合成选择器及反例测试，0原媒体/QA/gold/私有特征/模型/Torch/GPU/训练/研究下载。未来真实盲测及授权待独立来源与强基线；TRAIN-GPU仍HOLD，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -976,3 +976,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - [验收提交8aba2e3](https://github.com/floomeer83felix-source/vlm/commit/8aba2e37cd97b9e36881b595eec9250d3f0d42cb)仅新增[CPU匿名合并收据](./codex-artifacts/VLM-HOURVIDEO-TRAIN-PREP-001/cpu-training-readiness-receipt.md)和codex-results单条结果。A HOLD：旧009原字节身份、当地许可到当前电影文件的权益绑定无新非保护记录；B HOLD：缺少严格独立于HourVideo/Ego4D的正面录制/镜头/剪辑源分组证据；C PASS仅限静态：既有Qwen/SigLIP预期权重、processor描述、distribution metadata及RAM/disk存在，未证明模型能导入或实际CUDA可运行，SigLIP输出图像特征宽度未实测；D PASS仅纸面：128/64帧、近≤12s/远≥120s、随机0更新/真标签100/打乱标签100，98,433 trainable params，最多200更新/60拟定GPU分钟，尚无任何真实执行或训练许可。GPU与Torch/DLL imports0，媒体重读0，旧019/020环境问题未被消除。
 - **可证明的表达能力限制**：现有D head输入由绝对特征差和两帧逐元素积组成，交换帧的先后并不改变表示。因此不管训练多少次更新，也不可能区分A先B后和B先A的方向；设计只针对无方向近远时间距离，属于proxy技术指标，不构成事件次序、因果或多事件长视频问答算法的证据。后续真正顺序推理目标必须另外提出有方向感的表征与冻结科学协议，不能静默改写已结案D合同。
 - **正式状态**：TRAIN_PREP_CPU_STATIC_COMPLETE_WITH_HOLDS验收，READY=0；TRAIN_GPU仍QUEUED/HOLD，无本轮新素材访问或GPU许可。重点从预检转向017/018真实Qwen3-VL/SigLIP帧检索在有限来源的描述性改善与分层反例，需一个真正可证伪的时序证据机制、独立来源和最强邻近法基线。维持NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
+
+
+### 2026-10-19 · 提出可证伪OEP-12假说，先做真实可失败的纯合成算法，而非机械预检
+
+- [ChatGPT科研协议](./research-protocols/ordered-evidence-2026-10-19.md)以017/018已观察真实Qwen问答A/B为探索依据：问题相关性检索较Uniform12有部分增益、强制时间覆盖C不稳定，但已有研究覆盖相关+覆盖及事件先后/时序逻辑。双事件AB/BA选帧是待证伪技术方案，**不能视作已证明新颖性**；023实现不能从问句、目标答案或伪标签预设关系真值。
+- [唯一READY 023](./codex-artifacts/VLM-ORDERED-EVIDENCE-023/README.md)：48合成候选的双事件分数+真实合成PTS、12帧、两方向可信证据anchor、无证据退化B、unordered消融，至少12个包含反例的stdlib unittest，评估算法保证/漏洞；不运行Torch/GPU/模型/真实QA，不看任何受限媒体、gold或旧私有来源，0训练与研究下载。合成PASS不能推论事件推理/因果能力。
+- 正式未来真实检验必须使用从未在013–018观察过的合法且物理source-group独立的样本，固定视觉预算、强近邻AKS/GenS等、公平时延成本和预注册失败门；时钟标注零点和许可缺口不因本技术方法自动解决。TRAIN-GPU保持HOLD、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
