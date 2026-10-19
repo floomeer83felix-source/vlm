@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-19（北京时间；用户同意从反复GPU/媒体资格准备转向严谨科研机制。ChatGPT新建[双事件有序证据OEP-12研究协议](./research-protocols/ordered-evidence-2026-10-19.md)，用017/018现有有限探索结果提出可证伪H1，不从题目预设真实事件顺序；邻近2025–2026 AKS/GenS/ReQuest/NeuS-QA/VECTOR/TimeLogic已触及相关/覆盖/事件逻辑，创新NOVELTY仍RETAIN0。唯一READY=[VLM-ORDERED-EVIDENCE-023](./codex-artifacts/VLM-ORDERED-EVIDENCE-023/README.md)仅公开Python stdlib纯合成选择器及反例测试，0原媒体/QA/gold/私有特征/模型/Torch/GPU/训练/研究下载。未来真实盲测及授权待独立来源与强基线；TRAIN-GPU仍HOLD，CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-19（北京时间；023[023提交798da78](https://github.com/floomeer83felix-source/vlm/commit/798da78ace41dc1015c60dc9683eafecfd9df18e)公开提交审查确认4个允许文件、31个有实质断言合成unittest全部通过，纯stdlib AB/BA有序pair/12帧锚点/回退、反例及失败闭合均完成；模型/视频/QA/gold/GPU/训练0。023 ACCEPTED_SYNTHETIC_IMPLEMENTATION_PASS，**当前READY=0**。科研局限：仅合成分数门控，不作真实E_A/E_B自动拆解或cosine校准，重复相似事件无法证明真实事件实例/因果顺序，锚点可以牺牲原Top12更相关帧；真实QA增益、强基线优越性、创新仍UNKNOWN。下一阶段停止重复toy检查，优先新合法且独立的未见多事件来源及公平强基线设计，必须新授权后才可真实GPU/模型实验。TRAIN-GPU仍非READY；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -983,3 +983,9 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - [ChatGPT科研协议](./research-protocols/ordered-evidence-2026-10-19.md)以017/018已观察真实Qwen问答A/B为探索依据：问题相关性检索较Uniform12有部分增益、强制时间覆盖C不稳定，但已有研究覆盖相关+覆盖及事件先后/时序逻辑。双事件AB/BA选帧是待证伪技术方案，**不能视作已证明新颖性**；023实现不能从问句、目标答案或伪标签预设关系真值。
 - [唯一READY 023](./codex-artifacts/VLM-ORDERED-EVIDENCE-023/README.md)：48合成候选的双事件分数+真实合成PTS、12帧、两方向可信证据anchor、无证据退化B、unordered消融，至少12个包含反例的stdlib unittest，评估算法保证/漏洞；不运行Torch/GPU/模型/真实QA，不看任何受限媒体、gold或旧私有来源，0训练与研究下载。合成PASS不能推论事件推理/因果能力。
 - 正式未来真实检验必须使用从未在013–018观察过的合法且物理source-group独立的样本，固定视觉预算、强近邻AKS/GenS等、公平时延成本和预注册失败门；时钟标注零点和许可缺口不因本技术方法自动解决。TRAIN-GPU保持HOLD、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
+
+### 2026-10-19 · OEP-12 023审查：找到逻辑保证与显式负例，但未验证科学主张
+
+- [023提交798da78](https://github.com/floomeer83felix-source/vlm/commit/798da78ace41dc1015c60dc9683eafecfd9df18e)严格只新增2份stdlib Python源码、[023匿名回执](./codex-artifacts/VLM-ORDERED-EVIDENCE-023/synthetic-order-falsification-receipt.md)和codex-results一条，未修改旧任务/冻结科学协议。31个合成unit tests全部PASS（0 FAIL/ERROR/HOLD/SKIP），包括AB/BA独立合法pair、穷举最优pair oracle、精确Top12 fallback、输入fail-closed、时间戳平移和顺序反转、重复相似动作无法辨实例、单个双事件高分帧不足成pair及锚点替换高sQ候选等。两轮受监督测试累计0.280s，0模型推理/媒体/QA/gold/GPU/训练/外部研究网络；审查基于代码和执行者回执，非独立实际科研数据运行。
+- 科学上OEP-12的唯一数学性质是：在已给出可信、归一化的sA/sB/sQ条件下，尝试选出各一个AB与BA不同帧pair，并保持12帧预算和稳定Top12回退。**该条件不是现实事件提取的验证**。合成tau0.70对真实SigLIP cosine的适配UNKNOWN；事件分解器、模型视觉token一致性、真实QA正确率、事件证据实例/方向标签、跨录制组泛化与强邻近方法对照全部NOT_TESTED。强制pair锚点可能挤掉有用题目证据，且AB/BA候选并不代表实际真顺序。
+- **方法决策**：023结案，READY=0；不复做toy优化、不复查模型和素材存在性。若要产生可投稿的科学结果，需先建立独立于旧013–018开发观测的合法新多事件素材与source-group证明，确认能得到无泄漏事件/时序评价信号，再新授权一次真正相同48候选/12帧/324视觉token的公平模型推理，对照B、Uniform、C、unordered及AKS/GenS/时序证据强邻近实现，并计量事件拆解和编码额外成本。若来源/许可/标签门无法满足则科学状态为HOLD，不能拿023 toy成绩冒充结果。TRAIN-GPU仍QUEUED/HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。
