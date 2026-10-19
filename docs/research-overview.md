@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-19（北京时间；用户对下一轮真实OEP研究试点在完整资源及数据范围说明后答复“批准”。[024执行合同](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)已升级为**唯一READY、未执行**：至多2个未见物理源独立HourVideo/Ego4D视频、总≤48新nongold QA和末期独立gold评分、必要时官方媒体≤28GiB、新私有新增≤32GiB、GPU累计≤25min、QA generate≤240、峰allocated≤18GiB、CPU媒体≤900s、父≤3600s。先验证有效访问许可、source-group真实拍摄来源独立与≥12个双事件可拆分题，不合格GPU/下载0立即HOLD。仅零训练5臂Qwen/SigLIP推理，数据不得进入训练，旧R1–R6 gold不得作调参；023 synthetic与此真实效果严格分层。TRAIN-GPU-001仍HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）  
+> 更新：2026-10-20（北京时间；用户已委托Codex审查并规划。024在[6bee319](https://github.com/floomeer83felix-source/vlm/commit/6bee319d9b96e5b496fee922af48710f34fdbb56)按资格HOLD关闭，生成/媒体下载/GPU/gold读取均0，**当前READY=0**。新[公开数学及协议诊断](./research-reviews/oep-diagnosis-2026-10-20.md)确认普通逐名次rank阈值无法充当无事件证据门，且OEP/无序锚点数不同构成对照混杂；未查明真实视频上的主导失败层。下一步先落实精确输入与可执行的来源证据标准、冻结匹配控制，再在新明确许可下进行一次真实机制诊断，不原样重跑024或直接训练。旧预算不续用，TRAIN-GPU-001仍HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
