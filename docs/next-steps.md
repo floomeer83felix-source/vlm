@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-20（北京时间；用户明确委托Codex审查进展、规划下一步并“弄清楚”。[024已提交资格HOLD](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/real-oep-pilot-receipt.md)，旧父任务关闭，不重跑；**当前READY=0**。本轮[公开代码/数学诊断](./research-reviews/oep-diagnosis-2026-10-20.md)查明：普通逐名次rank百分位会强制产生事件支持候选、旧有序/无序对照锚点配额不匹配；真实错误究竟来自候选漏采、选择遗漏还是Qwen顺序利用仍UNKNOWN。下一次真实诊断须先有确切获授权入口、可核验的来源标准、匹配对照和独立新运行授权；不再凭缺失入口建立READY或重复HOLD预检。旧GPU/下载/gold权限不自动续用，TRAIN-GPU-001仍HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
+> 更新日期：2026-10-20（北京时间；用户已提供017/018两个精确私有运行目录，明确范围为源码与结构元数据。[结构审查](./research-reviews/private-runner-structure-audit-2026-10-20.md)恢复了标注/官方manifest入口字符串但未打开目标；六源真实候选间隔约59–94秒、输入函数AST一致且记录均12帧/324视觉token，018保存分数可重现数值选帧。旧资格脚本会预先校验gold编码、评分器整文件加载标注，不能直接复用到024更严格的末期批次gold合同。实际事件是否漏采及Qwen是否利用顺序仍UNKNOWN；nongold题文审查已提出独立≤120秒CPU只读范围，未经明确批准不读。此前[数学诊断](./research-reviews/oep-diagnosis-2026-10-20.md)的rank与锚点配额问题仍需修正。024已HOLD关闭，**当前READY=0**，不继承GPU/下载/gold预算；TRAIN-GPU-001仍HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
 
 ## 一、任务看板
 

@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；用户已委托Codex审查并规划。024在[6bee319](https://github.com/floomeer83felix-source/vlm/commit/6bee319d9b96e5b496fee922af48710f34fdbb56)按资格HOLD关闭，生成/媒体下载/GPU/gold读取均0，**当前READY=0**。新[公开数学及协议诊断](./research-reviews/oep-diagnosis-2026-10-20.md)确认普通逐名次rank阈值无法充当无事件证据门，且OEP/无序锚点数不同构成对照混杂；未查明真实视频上的主导失败层。下一步先落实精确输入与可执行的来源证据标准、冻结匹配控制，再在新明确许可下进行一次真实机制诊断，不原样重跑024或直接训练。旧预算不续用，TRAIN-GPU-001仍HOLD；NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
+> 更新：2026-10-20（北京时间；用户补017/018精确私有目录后完成限定的[源码/结构审查](./research-reviews/private-runner-structure-audit-2026-10-20.md)：恢复输入入口字符串、核实候选间隔约59–94秒和六源统一12帧/324视觉token，018数值选帧与保存分数一致；未读题目/gold/预测正文/视频或运行模型。旧gold资格/整文件评分组件与024末期批次限制不直接兼容，nongold题文及必要来源字段尚待新明确CPU范围批准。真实主导失败层仍UNKNOWN，rank支持门与锚点对照混杂仍未解决。024在[6bee319](https://github.com/floomeer83felix-source/vlm/commit/6bee319d9b96e5b496fee922af48710f34fdbb56)已HOLD结案，**当前READY=0**；不重跑、不续旧预算、不直接训练。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
