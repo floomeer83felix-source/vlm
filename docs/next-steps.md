@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-20（北京时间；[027交付42776af](https://github.com/floomeer83felix-source/vlm/commit/42776af041a708d6ffd7e15a8ad011b79557f3fb)经ChatGPT静态审查按 **ACCEPTED_PARTIAL_ENGINEERING / REAL_PILOT_HOLD** 结案：当前ctime_ns跨API差异已由执行者观察，独立绑定评分等14项新fixture测试报告通过；真实标注索引在212992 raw bytes后INVALID_JSON，成因未知，screen/cohort/选项仍未完成。官方manifest9645行/header已读，但old UID错误依赖annotation universe导致空请求，不认证join失败。现按既定交接流程下达[028安全容器诊断/真实筛选/独立旧源join整包](./codex-artifacts/VLM-ANNOTATION-COHORT-028/README.md)：**唯一READY父任务=VLM-ANNOTATION-COHORT-028 / PUBLIC_PARSER_CPU_ONLY，尚未执行**。私人数据及SKIP_NONFINITE_028窄profile须用户新消息明确接受；默认STRICT_025保留，兼容只在原本跳过值上词法识别/丢弃NaN、Infinity、-Infinity，不解码保护值、不改原文件，其他非法语法一律拒绝，不先验归因NaN。既定题型/四臂/锚点/分母不改。新范围输入≤48MiB、标注各角色≤1共≤3open、≤4题各5选项、新integration_028≤128文件/32MiB、CPU≤600s/新suite≤2，真实runner读0；GPU/模型/真实gold/媒体正文/下载0。028是当前输入最后一次有限容器门，仍不兼容/无候选则明示NO_GO并停该路线，不自动029。027已关闭，不用其余额或重跑；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧状态仅为历史，以本段/当前看板及用户实际新范围为准。）
+> 更新日期：2026-10-20（北京时间；028交付[157ffd8](https://github.com/floomeer83felix-source/vlm/commit/157ffd8a26b0e632e57cb52b4215c8b99de8678d)经ChatGPT静态审查，按 **ACCEPTED_CPU_COHORT_HANDOFF_PARTIAL / REAL_PILOT_HOLD** 结案。当前兼容profile完成50来源/1182题，原语法支持28题，冻结4题/20选项/16文字槽位；17新测试通过为执行者报告，未独立复跑。旧8份白名单投影未获UID，不代表底层无身份；013/014/R1–R6排除与P3 participant等仍UNKNOWN。现下达[029来源追溯/候选资格/有限媒体HEAD A–H整包](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/README.md)：**唯一READY父任务=VLM-SOURCE-PROVENANCE-META-029 / PUBLIC_PROVENANCE_CPU_ONLY，尚未执行**。新私人CPU与最多5次官方S3 HEAD须用户实际发送合同末尾明确指令；原标注/QA/gold/预测/媒体正文/GET/模型/GPU均0。研究输入≤48MiB，新integration_029≤128文件/32MiB，CPU≤600s/coordinator≤1200s、新suite≤2。固定四候选不换；通过实际schema/producer绑定追溯旧UID或origin组、多canonical保守join，若仍缺确切登记证据则停止这条来源路线，不自动再排同类门。028成功容器门已关闭，不再解析修补或消耗旧余额；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。历史段落/旧READY只作记录，以本段、当前看板及用户实际新范围为准。）
 
 ## 一、任务看板
 
@@ -88,7 +88,8 @@
 | VLM-TEMPORAL-EVIDENCE-ADAPTER-025 | P0 | **ACCEPTED_PUBLIC_ADAPTER_CONTRACT_PASS（已验收结案；非READY，不重跑）** | Codex交付，ChatGPT静态审查（未复跑） | [8342d4e](https://github.com/floomeer83felix-source/vlm/commit/8342d4e7a35e786106247895aeda2898ecf0a2cb)及[匿名接口回执](./codex-artifacts/VLM-TEMPORAL-EVIDENCE-ADAPTER-025/cpu-adapter-contract-receipt.md)：仅五处允许交付；streaming双视图、窄语法、同48→12且C/D同两个锚点、不可变四臂计划、独立逻辑门控末期评分及虚构端到端反例 | 执行者报告两次启动：首次导入守卫拒绝/0断言，次轮30 PASS，child累计0.461781s；源码/测试静态相符，不作独立动态认证。坏gold保留N并令准确率/配对UNKNOWN，INVALID/FAILED/NOT_RUN计入分母。仅公共接口PASS，真实隔离监督/跨进程guard/输入快照绑定/runner集成及QA获益未证；当前READY=0，不续025测试、023/024或旧GPU额度，不另立toy父任务 |
 | VLM-REAL-PILOT-INTEGRATION-026 | P0 | **ACCEPTED_PARTIAL_DELIVERY / REAL_PILOT_HOLD（已审结案；非READY，不重跑）** | Codex交付，ChatGPT静态审查（未独立复跑） | [a17d7b5](https://github.com/floomeer83felix-source/vlm/commit/a17d7b5f48844360fd6aaf064dd502164954068c)、[A–H回执](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/real-pilot-integration-receipt.md)及[真实执行提案HOLD](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/pilot-execution-proposal.md)：三份新Python、两份报告、results末尾一条，共六路径；F/G最终10测试PASS仅fixture范围，A–E PARTIAL/HOLD，H真实就绪HOLD | 标注/一runner打开时stat/fstat五字段比较拒绝，具体差异字段UNKNOWN；manifest延续launcher失败且计数未可靠恢复，20MiB/10秒是执行者给出的保守包络而非精确实测。两次测试、14个worker预留/7个实际虚构PID；51文件/24429B。0真实冻结键/选项不代表无合格题，N/来源完整排除/媒体/成本/runner与OS隔离均未闭合。已报私聊明确CPU批准优先于旧PENDING，但未将其冒充READY检查通过；当前READY=0，禁止余量续跑或自动GPU |
 | VLM-PILOT-PIPELINE-REPAIR-027 | P0 | **ACCEPTED_PARTIAL_ENGINEERING / REAL_PILOT_HOLD（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [42776af](https://github.com/floomeer83felix-source/vlm/commit/42776af041a708d6ffd7e15a8ad011b79557f3fb)及[工程回执](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/engineering-repair-receipt.md)/[实际交接HOLD](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/real-cohort-handoff.md)：七处允许交付；当前ctime_ns差异、持久预算、两runner静态factory与独立绑定评分链有进展，首轮14新测试PASS（执行者报告） | 真实index在212992 raw bytes后INVALID_JSON，scalar保留0，错误类别/完整snapshot未知；screen/inference0，不推断0合格。manifest9645行/header有效，旧UID join因universe依赖未评估。research11预留/10完整/1不完整，保守预扣6201578B/实际4559875B；9虚构PID，runtime预留495s/受控包络<90s、52文件187935B。N/来源完整排除/媒体成本/实际后端仍HOLD，原027输入与测试关闭；下一027修复成果不冒称真实QAPASS |
-| VLM-ANNOTATION-COHORT-028 | P0 | **READY / PUBLIC_PARSER_CPU_ONLY（唯一；未执行；私人阶段须明确接受028范围和窄profile）** | Codex待用户发送合同末尾的一条指令 | [A–F合同及指令](./codex-artifacts/VLM-ANNOTATION-COHORT-028/README.md)：严格默认＋显式skip-only非有限数profile、安全词法诊断、真实索引/screen/固定≤4题选项、独立旧源join与持久最小投影；不重写监督器或重复旧suite | 新范围只由用户明确消息激活；输入≤48MiB、标注≤3open、manifest≤1、旧源≤8/027 nongold≤6份、新integration_028≤128文件/32MiB，CPU≤600s、新suite≤2次；真实runner读/模型/GPU/真实gold/媒体正文/下载0。三种裸token只允许在本来不保留的值中跳过，其他非法语法STOP；不兼容/原语法无候选则NO_GO当前路线，不自动029。八处执行allowlist，一份父结果/一次push STOP |
+| VLM-ANNOTATION-COHORT-028 | P0 | **ACCEPTED_CPU_COHORT_HANDOFF_PARTIAL / REAL_PILOT_HOLD（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [157ffd8](https://github.com/floomeer83felix-source/vlm/commit/157ffd8a26b0e632e57cb52b4215c8b99de8678d)、[容器/CPU回执](./codex-artifacts/VLM-ANNOTATION-COHORT-028/annotation-profile-receipt.md)与[真实cohort交接](./codex-artifacts/VLM-ANNOTATION-COHORT-028/cohort-and-source-handoff.md)：当前profile三遍完整，50源/1182题、支持28题、冻结4题/20选项/16文字槽位；17新测试PASS仅fixture自报 | 8旧白名单投影未获UID，非无身份/排除PASS；官方9645行仅50标注UID全部唯一join。P3 participant缺失；旧013/014/R1–R6映射、权利/媒体/版本/成本HOLD。13 open全完整、9,887,423B，21私有文件/78,853B，受控包络<40s；真实gold/模型/GPU/媒体stat/网络0。不再重跑原028或放宽解析 |
+| VLM-SOURCE-PROVENANCE-META-029 | P0 | **READY / PUBLIC_PROVENANCE_CPU_ONLY（唯一；未执行；私人/HEAD须用户明确新范围）** | Codex待用户发送合同末尾一条指令 | [A–H合同](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/README.md)：schema＋实际writer绑定、旧UID/组台账、独立多对多join、固定P1–P4资格、精确本机stat/条件官方HEAD、新suite与实际资源提案；不再解析/模型盘点 | 新范围输入≤48MiB，原标注/QA/gold/预测/媒体正文0，新integration_029≤128文件/32MiB，CPU≤600s/coordinator≤1200s、新suite≤2；明确接受时HeadBucket≤1＋HeadObject≤4、实际HTTPS总≤5，失败不重试，GET/LIST/STS0。七处allowlist、两报告/一个父append/一次push STOP；不换候选、不自动030/同类空资格门或GPU |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -883,3 +884,66 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 ### 2026-10-19 · 用户明确批准024一次真实HourVideo多臂GPU零训练推理（唯一READY）
 
 用户在本轮ChatGPT对具体024新媒体/QA/gold、网络及GPU额度答复“批准”；授权已经体现在[024更新合同](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)和[真实实验协议](./research-protocols/real-oep-pilot-2026-10-19.md)。**唯一READY 024**（尚待用户在现行私有Codex聊天新发执行指令），不是现在已有执行成绩。允许至多2个以确切获授权私有非金标元数据指向的全新、真实物理拍摄/剪辑独立的HourVideo/Ego4D来源组，总≤48道nongold题，严格gold待GPU关闭后独立CPU scorer只读一次；必要官方HTTP媒体≤28GiB（各≤14GiB）及新增私有内容≤32GiB，Qwen QA生成≤240，RTX3090 GPU累计≤25min、PyTorch peak allocated≤18GiB，CPU媒体≤900s，父总≤3600s。授权不自动等于许可/凭据/source版本与独立证书通过；前置安全CPU门先核许可有效和来源正面独立、双事件可确定分解≥12题，缺任一项则在媒体下载/GPU前STOP并记录HOLD，不以不同UID/主题代替来源证明。五臂同48候选/12实际帧/324视觉token，真实分数rank代理不假装合成tau为已校准概率，旧R1–R6 gold永不能训练/选阈值。允许的集成公共代码只新024两个Python，公开仅匿名收据+results一个append，正常push后停止，不触发原TRAIN-GPU。`NOVELTY=RETAIN0`、`CLOCK_ZERO_ASSUMED_NOT_CERTIFIED`、Charades`FINAL_MEDIA_STOP`。
+
+
+### 2026-10-20 · 028真实文本cohort验收；下达029来源追溯与有限媒体metadata整包
+
+- main交付[157ffd8](https://github.com/floomeer83felix-source/vlm/commit/157ffd8a26b0e632e57cb52b4215c8b99de8678d)
+  直接父为028规划302a5bb，八处允许路径：adapter/scorer/prepare/coordinator定点改动、
+  新028测试、两份匿名报告及results唯一父记录；未改旧报告、研究协议、supervisor或规划文件。
+  ChatGPT静态审查差异、公开实现/17项新测试与两回执，未独立运行测试或访问私人数据。
+  **ACCEPTED_CPU_COHORT_HANDOFF_PARTIAL / REAL_PILOT_HOLD**；028已关闭，不重跑或迁移余额。
+- 容器门已产出真实数据：执行者报告index/screen/inference均完整稳定，
+  **50来源/1182题，原025语法支持28题；1151 task-not-admitted＋3非time-gap形式**。
+  两项已知within-cohort participant重合被排除，26来源通过现有screen，
+  先冻结4个源/原题索引，再保留20个选项，形成16文字调用槽位；不是模型执行或合格新源N。
+  可认证执行N当前0表示资格HOLD，不能写成0合格、0/N准确率或效应估计。
+- 当前兼容profile明确为SKIP_NONFINITE_028 / PROJECTOR_028_V1。
+  三个完整遍历各观察到同一流中的1个未保留NAN类别值、无±Infinity/parse error；
+  admitted字段拒绝、strict默认保留，保护值未进入scalar decoder有新fixture仪器化见证。
+  **不是严格JSON通过或027历史失败字节的因果证明**。三遍完整raw receipt/profile绑定
+  一致由执行者报告，私人摘要未访问。原题型、四臂/48→12/同锚点/完整分母不改。
+- 旧源工作应按实际证据收窄：8份旧记录全部完成白名单投影，但恢复UID=0，
+  所以旧请求是NOT_JOINABLE_NO_UID，不是旧源join PASS或底层没有身份。
+  官方manifest一遍9645行，50个标注UID全部唯一匹配，只证明这50个声明的join。
+  013/014和R1–R6完整记录组/participant/已知派生排除仍UNKNOWN。
+  不把source_group数组位置、任意字符串、文件名、摘要或相近时长当UID/身份。
+- P1–P4分别声明约60.0/52.9/67.4/73.3分钟，来源origin存在；
+  **P3 participant缺失**，其余有声明；release1/canonical与时长声明一致。
+  当前权利、精确对象/版本、本机媒体stat和获取字节均未确定；028媒体stat/网络均0。
+  四个固定候选不能因后续不合格而替换；如未来提议资格子集，须在模型输出前
+  另冻结新合同N/轮转/完整分母，并明示原text N4及各排除，028原plan保持不变。
+- 执行者报告首轮且仅一轮新suite **17 PASS/0 FAIL/ERROR/SKIP**；
+  后加continuation有实际获准metadata执行，末尾guard改动仅静态检查，不能说全部模式动态已测。
+  13次研究open全完整，预扣/实际9,887,423B；runtime预留330s、
+  outer窗口合计4.031s/保守全自有PID包络<40s，21私有文件/78,853B。
+  这些为执行者测量/包络，非ChatGPT本机复现；真实gold/模型/Torch/GPU/媒体正文/
+  网络下载/安装/环境/ACL改变均报告0。公开差异未见受限身份/题/选项/答案/私有路径。
+- 按用户既定“先写工作任务到仓库，再给Codex执行指令”和一次多任务要求，
+  新下达[029 A–H合同](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/README.md)，
+  **唯一READY=VLM-SOURCE-PROVENANCE-META-029 / PUBLIC_PROVENANCE_CPU_ONLY**，尚未执行。
+  028最后容器门已经成功，不再修解析；029具体解决白名单schema/实际写入语义、
+  旧来源台账、独立多对多组join、固定四候选资格及实际媒体成本。
+- 029允许从实际producer证据解释group tuple/map-key，须先证明artifact写入绑定；
+  不把“UID不可得”错误升级成“已证origin组也不可用于排除”。已证组匹配可保守排除
+  全部canonical别名，UID/组/participant/派生分开裁决；最高仍仅
+  RECORDED_GROUP_SEPARATION_ONLY / PHYSICAL_RECORDING_INDEPENDENCE_UNKNOWN。
+  若确切登记/版本证据仍缺，写明缺失引用、停止当前来源路线并交回决策，
+  不自动再排一个同类schema/空资格父任务。
+- 新私人范围由同一条用户启动消息明确激活：输入≤48MiB（最坏角色和46MiB），
+  028/027 nongold交接≤16份各一次，旧记录/直接引用registry合计≤8份各schema＋投影各一次，
+  实际producer源码≤6份AST各一次、缓存官方manifest一次≤8MiB；
+  **原混合标注/旧QA/gold/逐题预测/媒体正文0**。新integration_029≤128文件/32MiB，
+  CPU/受控进程累计≤600s、coordinator≤1200s、新suite≤2，不沿用旧预算。
+- 同一启动消息另明确接受新增**官方S3 HEAD metadata**：现有隔离SDK/静态ego4d profile，
+  仅精确官方canonical对象，HeadBucket≤1＋HeadObject≤4、实际HTTPS发送总≤5，
+  before-send持久门控重发/region redirect，失败不重试；媒体GET/LIST/STS/正文0。
+  无准确URI/可信region/profile/发送门则F独立HOLD，不猜key或修环境。
+  HEAD ContentLength只支持成本，ETag不冒充hash/权利或版本认证；公开仅匿名状态/取整MiB上界。
+  该新网络许可必须由用户实际发送明确指令，公共READY/旧凭据不提供许可。
+- 公共执行最多七处：两个新provenance模块、新suite，必要时仅Journal固定029白名单扩展，
+  两份匿名报告和results一个append。一轮完成A–H后一次安全push并STOP；
+  不创建空执行结果，不自动030/模型/GPU/gold/媒体下载。未来实际运行仍待资格、
+  资源、模型/OS隔离和独立评分的具体新合同。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
