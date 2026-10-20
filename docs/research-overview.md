@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；028交付[157ffd8](https://github.com/floomeer83felix-source/vlm/commit/157ffd8a26b0e632e57cb52b4215c8b99de8678d)按 **ACCEPTED_CPU_COHORT_HANDOFF_PARTIAL / REAL_PILOT_HOLD** 审结：兼容profile下50源/1182题完整、原语法28题、固定4题/20选项/16文字槽位；17新测试PASS为执行者报告，ChatGPT未复跑。八旧投影未获UID不代表无身份，旧013/014/R1–R6排除/P3 participant和实际媒体成本未闭合。按既定交接下达[029 A–H来源/候选/有限HEAD整包](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/README.md)，**唯一READY=029公共CPU来源工程，尚未执行**；私人范围与新增最多5次官方S3 HEAD由一条明确用户消息激活，原标注/QA/gold/模型/GPU/媒体正文/GET0。固定候选不替换，schema必须由实际writer与artifact绑定证明；缺登记证据停止当前来源路线，不自动再排空资格任务。028容器门成功后关闭，旧预算不迁移。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP；历史状态以当前看板/新用户范围为准。）
+> 更新：2026-10-20（北京时间；029交付[4b619da](https://github.com/floomeer83felix-source/vlm/commit/4b619da6878b2a20172e816a17f4bafc725a4457)按 **ACCEPTED_PARTIAL_ENGINEERING_METADATA / SOURCE_ROUTE_STOP_MISSING_PROVENANCE** 审结。八份旧schema是汇总/demux，未恢复013/014/R1–R6非金标来源登记，四候选排除未知；仅P1对象HEAD200、大小上界890MiB，P2–P4未发对象HEAD。新suite16/17 PASS为执行者报告、未复跑。没有新真实QA或训练；原text N4/20选项/16计划槽位保留。**当前READY=0，来源路线按029原合同停止，不自动再排同类资格任务**。已写[下一步具体选择](./research-reviews/post029-source-route-decision-2026-10-20.md)，须有准确登记新输入，或用户明确接受不同科学口径/改数据路线后再下实际整包；不静默放宽旧源排除，不继承网络/GPU余额。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1296,5 +1296,67 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   两份匿名报告和results一个append。一轮完成A–H后一次安全push并STOP；
   不创建空执行结果，不自动030/模型/GPU/gold/媒体下载。未来实际运行仍待资格、
   资源、模型/OS隔离和独立评分的具体新合同。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 029部分工程/元数据验收；缺来源登记，按合同停止当前来源路线
+
+- 审查main交付[4b619da](https://github.com/floomeer83felix-source/vlm/commit/4b619da6878b2a20172e816a17f4bafc725a4457)，
+  直接父为029规划5d76d52。七处允许路径：两个新provenance模块、一份新测试、
+  Journal固定029白名单一行扩展、两份匿名报告及results末尾唯一029父记录。
+  ChatGPT逐段静态审查源码/17项见证与两回执；未独立运行测试、访问私人输入或调用AWS。
+  **ACCEPTED_PARTIAL_ENGINEERING_METADATA / SOURCE_ROUTE_STOP_MISSING_PROVENANCE**。
+  029已关闭；原profile、selector、supervisor、旧报告/旧结果未改，不重跑或迁移剩余额度。
+- A确认028四键/cohort/16调用引用与轮转/profile版本绑定一致，原N4/20选项/16文字槽位不变；
+  029未保留question/options/event scalar。这个引用核验不是模型输入/媒体或来源资格通过。
+- B/C的真实发现比028更具体：八份旧文件完成scalar-free schema观察，六份是
+  count/parameter/fingerprint汇总、两份demux汇总，**未观察到source_group字段**。
+  两份已知private reader AST不提供原qualifier/registry的实际写入绑定；
+  39个输出调用观察不是39个已证writer，六个确切JSON引用为模型配置，不是来源登记。
+  没有打开这些配置或猜测其他registry。013/014准确登记/运行引用仍缺，
+  R1–R6虽有汇总artifact，但alias→UID/origin/participant/known-derivative和写入关系未恢复。
+  不能把八次完整schema读误写成八份来源登记已供给，也不能由无字段推断其他位置无身份。
+- 公开writer证明只支持特定直接group构造＋特定self-source摘要写法，是窄实现，
+  不是所有合法来源登记的穷尽分析器；其他可信运行登记、直接UID映射或写入证据并未被证明不存在。
+  identity第二遍实际0次；未执行分支不认证真实身份恢复、任意writer或全面溯源能力。
+  后续若用户实际提供确切可信登记，可以另行审查其直接证据，不要求旧文件凭空出现
+  029 fixture专用的producer_sha256格式，不把单一代码写法当作科学资格的唯一形式。
+- D官方缓存manifest一次完整9645行，固定4 UID均唯一匹配，0缺失/重复；
+  真正old UID/group请求仍0，所以旧源排除NOT_ESTABLISHED。P1–P4来源资格全部UNKNOWN，
+  P3另缺participant；无精确本机媒体引用，stat0不表示文件不存在。
+  空资格认证不是0合格题或0/N准确率，也不是新方法的负实验结果。
+- F有实际成本证据：执行者报告**2次HTTPS发送=HeadBucket1＋HeadObject1**，
+  仅P1对象HTTP200，大小向上取整上界**890MiB**。P2–P4未发送，
+  因缺可信bucket-region且唯一discovery槽位已用；不是403/404/文件缺失/权限过期。
+  bucket响应状态/异常未持久保存，仍UNKNOWN，不能补写认证成功。
+  官方精确canonical URI为opaque key；初始错误.mp4后缀要求造成4项网络前HOLD，
+  后用已保留官方投影纠正、加入无后缀fixture，无原输入重开/拼接suffix/猜UID key。
+- SDK实际发送前持久预扣、精确HEAD URL/槽位、SDK及底层retry/preload检查、原始response
+  不read/drain即关闭和64KiB保留headers门有对应代码/虚构见证；限于本次安装/具体分支，
+  不扩大为任意SDK/传输层的普遍认证。ETag不等于hash，HEAD200不代表研究使用权、
+  immutable版本、时钟桥或来源独立。GET/LIST/STS/媒体正文均报告0。
+- G两次本轮新suite分别16 PASS、17 PASS，均0FAIL/ERROR/SKIP；第二次验证opaque-key修正，
+  非隐藏首轮失败；两次额度已用，不再补测。晚增SDK/确认/最终分支有静态及获准metadata执行，
+  最后duplicate-UID guard仅静态检查，不冒称每个模式动态覆盖。
+  新fixture主要证明通用结构/发送门，不证明真实旧源排除、OS gold隔离或QA效应。
+- 执行者报告18研究open全部完整、预扣/实际**4,382,708B**：
+  028交接4、旧schema8、private reader AST2、官方SDK-source AST3、manifest1。
+  SDK3加private2合计5份source输入，未超6份；正常SDK/profile加载属于明确SDK分支，
+  不将其冒称所有依赖文件读取都纳入研究正文计数。runtime预留570s、outer合计12.235s，
+  保守全受控PID窗口<60s；17私有文件/110402B，仅integration_029。
+  真实模型/Torch/GPU/gold/媒体正文/hash/probe/decode/download/安装/环境/ACL改变均报告0；
+  公开差异未见真实身份、题文、答案、私有路径、URI或凭据。
+- **按029原合同触发SOURCE_ROUTE_STOP_MISSING_PROVENANCE，当前READY=0。**
+  原合同明确“若追溯后仍缺确切登记表/写入绑定……停止这条来源路线”，
+  “不自动再排一个同类schema/资格/盘点父任务”。因此本次不创建030、
+  不把余下3个HEAD额度滚动给新父任务，不自动放宽来源排除或把P1媒体成本当执行放行。
+- 已形成[下一步具体路线选择](./research-reviews/post029-source-route-decision-2026-10-20.md)：
+  A用户提供准确非金标来源登记/运行绑定引用后再作有输入的审查；
+  B用户明确接受允许旧源可能重合的开发集机制诊断，另写完整新合同，
+  明示不构成独立来源/held-out验证，可能旧题再答须单独明确授权；
+  C停止本来源方案，另选有可追溯来源的新数据路线。
+  本次只写可审查决策材料，不创建虚假READY/空执行回执或默认改变研究口径。
+- 当前没有新增真实QA、训练、事件证据实例/召回、源级泛化或创新性结果。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
