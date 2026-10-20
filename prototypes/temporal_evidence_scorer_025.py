@@ -13,6 +13,7 @@ from temporal_evidence_adapter_025 import (
     ARMS, Call, ContractError, FrozenPlan, PlanQuestion, QuestionKey,
     ProjectionError, SourceRecord, decompose,
     _Projector, _calls, _check_batch, _question_path,
+    STRICT_025, container_binding,
 )
 
 
@@ -183,11 +184,16 @@ class OneShotScorer:
     def __init__(self):
         self._consumed = False
 
-    def score(self, opener, plan, ledger, receipt):
+    def score(self, opener, plan, ledger, receipt, *, profile=STRICT_025,
+              expected_binding=None, diagnostic=None):
         if self._consumed:
             raise ContractError("SCORER_ALREADY_CONSUMED")
         _gate(plan, ledger, receipt)
         self._consumed = True
+        binding = container_binding(profile)
+        if (expected_binding is not None and tuple(expected_binding) != binding
+                or profile != STRICT_025 and expected_binding is None):
+            raise ContractError("SCORING_CONTAINER_BINDING_HOLD")
         batch = set(q.key for q in plan.questions)
 
         def allow(path):
@@ -197,7 +203,7 @@ class OneShotScorer:
         stream, data, failure = None, {}, ""
         try:
             stream = opener()
-            data = _Projector(stream, allow).read()
+            data = _Projector(stream, allow, profile=profile, diagnostic=diagnostic).read()
         except ProjectionError:
             # No partial gold is scored after a parser failure. All N are then
             # unusable/unverified, not claimed to have individually bad labels.

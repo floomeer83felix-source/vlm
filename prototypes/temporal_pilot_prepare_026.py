@@ -19,6 +19,7 @@ import stat
 from temporal_evidence_adapter_025 import (
     ContractError, QuestionKey, TASK, _Projector, build_plan, decompose,
     project_nongold,
+    STRICT_025,
 )
 
 
@@ -28,7 +29,7 @@ GROUP_FIELDS = (
     "release_1", "canonical_is_validated", "canonical_mp4_duration_sec",
     "duration_in_seconds", "canonical_version", "canonical_mp4_version", "version",
     "canonical_mp4_size_bytes", "canonical_video_size_bytes", "canonical_size_bytes",
-    "file_size_bytes", "parent_video_uid", "source_video_uid", "parent_uid",
+    "file_size_bytes", "parent_video_uid", "source_video_uid", "parent_uid", "source_uid",
 )
 _UID_LISTS = frozenset(("excluded_video_uids", "used_video_uids", "previous_video_uids",
                         "excluded_uids", "old_video_uids", "historical_uids"))
@@ -179,7 +180,7 @@ class AnnotationIndex:
     metadata_field_names: tuple
 
 
-def index_annotation(stream):
+def index_annotation(stream, *, profile=STRICT_025, diagnostic=None):
     sources, rows, question_fields, metadata_fields = [], {}, set(), set()
 
     def keys(path, key):
@@ -192,14 +193,14 @@ def index_annotation(stream):
         if len(path) == 2 and path[1] == "video_metadata":
             metadata_fields.add(key)
 
-    _Projector(stream, lambda path: False, keys).read()
+    _Projector(stream, lambda path: False, keys, profile=profile, diagnostic=diagnostic).read()
     batch = tuple(QuestionKey(source, index) for source in sources
                   for index in sorted(rows[source]))
     return AnnotationIndex(tuple(sources), batch, tuple(sorted(question_fields)),
                            tuple(sorted(metadata_fields)))
 
 
-def historical_projection(stream):
+def historical_projection(stream, *, profile=STRICT_025, diagnostic=None):
     """Approved identity/group fields only, never old questions or outputs."""
     def allow(path):
         names = tuple(p.lower() for p in path if type(p) is str)
@@ -209,7 +210,42 @@ def historical_projection(stream):
                                or any(name in _UID_LISTS for name in names)
                                or ("source_group" in names and type(path[-1]) is int))
 
-    return _Projector(stream, allow).read()
+    return _Projector(stream, allow, profile=profile, diagnostic=diagnostic).read()
+
+
+def old_uid_fields(projected):
+    """Field-aware identity extraction; never flatten strings or intersect dev.
+
+    Source-group array slots are kept as group evidence, not guessed UID slots.
+    This deliberately returns UNKNOWN for identities absent from known fields.
+    """
+    uids = set()
+    singular = frozenset(("video_uid", "uid", "source_uid", "parent_video_uid",
+                          "source_video_uid", "parent_uid"))
+    def walk(value, uid_list=False):
+        if type(value) is dict:
+            for key, child in value.items():
+                if key in singular and type(child) is str and child.strip():
+                    uids.add(child)
+                elif type(key) is str and key.lower() in _UID_LISTS:
+                    walk(child, True)
+                elif type(child) in (dict, list, tuple):
+                    walk(child, uid_list)
+                elif uid_list and type(child) is str and child.strip():
+                    uids.add(child)
+        elif type(value) in (tuple, list):
+            for child in value:
+                if uid_list and type(child) is str and child.strip():
+                    uids.add(child)
+                elif type(child) in (dict, tuple, list):
+                    walk(child, uid_list)
+    walk(projected)
+    return frozenset(uids)
+
+
+def independent_join_requests(index, old_projections):
+    old = frozenset(uid for record in old_projections for uid in old_uid_fields(record))
+    return old, old | (frozenset(index.sources) if index is not None else frozenset())
 
 
 def read_manifest(stream, wanted_uids):

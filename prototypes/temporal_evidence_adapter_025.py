@@ -23,6 +23,17 @@ META_FIELDS = (
     "canonical_is_validated", "duration_in_seconds",
 )
 _SKIP = object()
+STRICT_025 = "STRICT_025"
+SKIP_NONFINITE_028 = "SKIP_NONFINITE_028"
+PROJECTOR_VERSION = "PROJECTOR_028_V1"
+
+
+def container_binding(profile=STRICT_025):
+    if profile not in (STRICT_025, SKIP_NONFINITE_028):
+        raise ProjectionError("UNKNOWN_CONTAINER_PROFILE")
+    return (profile, PROJECTOR_VERSION)
+
+
 _AUX = re.compile(r"\b(?:did|does|do|was|were|is|are)\b", re.I)
 _MARKER = re.compile(r"\b(?:before|after|then|earlier|later)\b", re.I)
 
@@ -45,7 +56,17 @@ class _Projector:
     """
 
     def __init__(self, stream, allow, key_guard=None, *, max_bytes=MAX_BYTES,
-                 max_depth=MAX_DEPTH, max_string_bytes=MAX_STRING_BYTES):
+                 max_depth=MAX_DEPTH, max_string_bytes=MAX_STRING_BYTES,
+                 profile=STRICT_025, diagnostic=None, value_observer=None):
+        self.binding = container_binding(profile)
+        self.profile = profile
+        self.value_observer = value_observer
+        self.diagnostic = diagnostic if diagnostic is not None else {}
+        if type(self.diagnostic) is not dict:
+            raise ProjectionError("DIAGNOSTIC_MAPPING_REQUIRED")
+        self.diagnostic.update(binding=self.binding, complete=False, skipped_nonfinite={},
+                               decoded_values=0)
+        self.characters, self.state, self.depth = 0, "INITIAL", 0
         for value, ceiling in ((max_bytes, MAX_BYTES), (max_depth, MAX_DEPTH),
                                (max_string_bytes, MAX_STRING_BYTES)):
             if type(value) is not int or not 1 <= value <= ceiling:
@@ -76,6 +97,7 @@ class _Projector:
         if not char:
             raise ProjectionError("TRUNCATED_JSON")
         self.position += 1
+        self.characters += 1
         return char
 
     def _space(self):
@@ -90,6 +112,9 @@ class _Projector:
     def _decode_value(self, token, path):
         # Separate from key decoding so tests can instrument the value boundary.
         try:
+            if self.value_observer is not None:
+                self.value_observer(path)
+            self.diagnostic["decoded_values"] += 1
             return json.loads(token)
         except Exception:
             raise ProjectionError("INVALID_SCALAR") from None
@@ -146,6 +171,8 @@ class _Projector:
 
         if self._peek() == "-":
             take()
+            if self._peek() == "I":
+                return self._nonfinite(keep, negative=True)
         if self._peek() == "0":
             take()
         elif self._peek() and self._peek() in "123456789":
@@ -171,7 +198,30 @@ class _Projector:
             raise ProjectionError("INVALID_NUMBER")
         return self._decode_value("".join(pieces), path) if keep else _SKIP
 
+    def _nonfinite(self, keep, negative=False):
+        # Constant spellings are matched without accumulating input or producing
+        # floats. No protected scalar is passed to any value decoder.
+        self.state = "NONFINITE_LEXEME"
+        if negative:
+            expected, category = "Infinity", "NEGATIVE_INFINITY"
+        elif self._peek() == "N":
+            expected, category = "NaN", "NAN"
+        else:
+            expected, category = "Infinity", "POSITIVE_INFINITY"
+        self._expect(expected)
+        char = self._peek()
+        if char and char not in " \t\r\n,]}":
+            raise ProjectionError("INVALID_NONFINITE_BOUNDARY")
+        if self.profile == STRICT_025:
+            raise ProjectionError("STRICT_NONFINITE_HOLD")
+        if keep:
+            raise ProjectionError("ADMITTED_NONFINITE_HOLD")
+        counts = self.diagnostic["skipped_nonfinite"]
+        counts[category] = counts.get(category, 0) + 1
+        return _SKIP
+
     def _value(self, path, depth):
+        self.state, self.depth = "VALUE", depth
         self._space()
         char = self._peek()
         keep = self.allow(path)
@@ -181,6 +231,8 @@ class _Projector:
             return self._container(path, depth + 1, char == "{")
         if char == '"':
             return self._string(keep, path)
+        if char in ("N", "I"):
+            return self._nonfinite(keep)
         if char and char in "-0123456789":
             return self._number(keep, path)
         for literal in ("true", "false", "null"):
@@ -190,6 +242,7 @@ class _Projector:
         raise ProjectionError("INVALID_JSON")
 
     def _container(self, path, depth, object_kind):
+        self.state, self.depth = "CONTAINER", depth
         self._take()
         end = "}" if object_kind else "]"
         seen, result, index = set(), {}, 0
@@ -224,14 +277,26 @@ class _Projector:
             index += 1
 
     def read(self):
-        self._space()
-        if self._peek() != "{":
-            raise ProjectionError("ROOT_OBJECT_REQUIRED")
-        value = self._value((), 0)
-        self._space()
-        if self._peek():
-            raise ProjectionError("TRAILING_JSON")
-        return {} if value is _SKIP else value
+        try:
+            self._space()
+            if self._peek() != "{":
+                raise ProjectionError("ROOT_OBJECT_REQUIRED")
+            value = self._value((), 0)
+            self.state = "ROOT_EOF"
+            self._space()
+            if self._peek():
+                raise ProjectionError("TRAILING_JSON")
+            self.diagnostic.update(complete=True, character_position=self.characters)
+            return {} if value is _SKIP else value
+        except ProjectionError as error:
+            char = self.buffer[self.position:self.position + 1]
+            category = ("EOF" if not char else "WHITESPACE" if char in " \t\r\n"
+                        else "CONTROL" if ord(char) < 32 else "DIGIT" if char.isdigit()
+                        else "LETTER" if char.isalpha() else "PUNCTUATION")
+            self.diagnostic.update(reason=str(error), parser_state=self.state,
+                                   character_category=category, nesting=self.depth,
+                                   character_position=self.characters)
+            raise
 
 
 @dataclass(frozen=True)

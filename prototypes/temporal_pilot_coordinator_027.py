@@ -25,10 +25,14 @@ import unittest
 # -I -S -B: only this explicit public directory is added, never site-packages.
 PUBLIC = Path(__file__).absolute().parent
 sys.path.insert(0, str(PUBLIC))
-from temporal_evidence_adapter_025 import ContractError, Projection, build_plan, project_nongold
+from temporal_evidence_adapter_025 import (
+    ContractError, Projection, build_plan, project_nongold, _Projector,
+    STRICT_025, SKIP_NONFINITE_028, container_binding,
+)
 from temporal_pilot_prepare_026 import (
     InputBudget, MIB, canonical_digest, checked_path, choose_cohort,
     flatten_strings, historical_projection, index_annotation, read_manifest,
+    independent_join_requests, old_uid_fields,
 )
 
 
@@ -39,10 +43,13 @@ class Journal:
     no replacement, refund, renamed aliases or reset on restart is permitted.
     Reads of this self-owned ledger are not research-input reopens.
     """
-    def __init__(self, root):
+    def __init__(self, root, contract_id="027"):
         self.root, _ = checked_path(root, directory=True)
-        self.path = self.root / "027-ledger.jsonl"
-        self.lock = self.root / "027-ledger.lock"
+        if contract_id not in ("027", "028") or self.root.name != "integration_" + contract_id:
+            raise ContractError("FIXED_CONTRACT_ROOT_REQUIRED")
+        self.contract_id = contract_id
+        self.path = self.root / (contract_id + "-ledger.jsonl")
+        self.lock = self.root / (contract_id + "-ledger.lock")
         try:
             with open(self.lock, "xb") as target:
                 target.write(b"0")
@@ -416,6 +423,174 @@ def audit_scope(root, entries):
     sys.addaudithook(audit)
 
 
+def prepare_028(config, root, journal):
+    """Frozen028 phases: explicit compatibility profile, independent old join.
+
+    No runner reads/execution, gold projection, media body or network operation.
+    Failed phases retire their input. Raw partial diagnostics stay private.
+    """
+    profile = SKIP_NONFINITE_028
+    binding = container_binding(profile)
+    budget = InputBudget(durable=journal)
+    errors, diagnostics, summary = [], {}, {}
+    if len(config.get("old", [])) > 8 or len(config.get("handoff", [])) > 6:
+        raise ContractError("ENTRY_CATEGORY_LIMIT")
+    if any(k not in ("annotation", "manifest", "old", "handoff") for k in config):
+        raise ContractError("028_CONFIG_FIELD_NOT_ALLOWED")
+    def phase(name, alias, fn):
+        journal.event("PHASE_STARTED", phase=name, alias=alias, binding=binding)
+        try:
+            value = fn()
+            journal.event("PHASE_FINISHED", phase=name, status="PASS", binding=binding)
+            return value
+        except Exception as error:
+            safe = safe_error(name, alias, error)
+            errors.append(safe)
+            journal.event("PHASE_ERROR", **safe)
+            return None
+    def consume(alias, role, fn):
+        with budget.text(alias, role) as stream:
+            return fn(stream)
+    def diag(name):
+        diagnostics[name] = {}
+        return diagnostics[name]
+
+    # Source evidence is persisted before any dependency on the dev universe.
+    old_projections, old_status = [], []
+    for index, path in enumerate(config.get("old", [])):
+        alias = "old_%d" % index
+        budget.register(alias, path, MIB)
+        projected = phase(alias, alias, lambda a=alias: consume(
+            a, "content", lambda s: historical_projection(s, diagnostic=diag(a))))
+        if projected is not None:
+            old_projections.append(projected)
+            output(root, alias + "-minimal.json", dict(projection=projected,
+                   uid_count=len(old_uid_fields(projected)), schema="KNOWN_UID_FIELDS_028"))
+        old_status.append(dict(alias=alias, complete=projected is not None,
+                               uid_count=len(old_uid_fields(projected)) if projected is not None else None))
+    for index, path in enumerate(config.get("handoff", [])):
+        alias = "handoff_%d" % index
+        budget.register(alias, path, MIB)
+        # Exact027 nongold receipt fields only. Never open its backend sources.
+        def receipt_projection(stream):
+            def allow(p):
+                return (len(p) == 3 and p[0] == "receipts" and type(p[1]) is int
+                        and p[2] in ("alias", "byte_count", "complete", "digest")
+                        or len(p) == 4 and p[0] == "receipts" and type(p[1]) is int
+                        and p[2] in ("before", "after") and type(p[3]) is int)
+            return _Projector(stream, allow, diagnostic=diag(alias)).read()
+        projected = phase(alias, alias, lambda a=alias: consume(a, "content", receipt_projection))
+        if projected is not None:
+            output(root, alias + "-receipt.json", projected)
+
+    budget.register("annotation", config["annotation"], 4 * MIB, 3)
+    index = phase("index", "annotation", lambda: consume("annotation", "index",
+                  lambda s: index_annotation(s, profile=profile, diagnostic=diag("index"))))
+    annotation_receipts = [r for r in budget.receipts if r.alias == "annotation"]
+    projection = None
+    if index is not None:
+        summary["schema"] = dict(sources=len(index.sources), questions=len(index.batch),
+                                 question_fields=index.question_field_names,
+                                 metadata_fields=index.metadata_field_names)
+        projection = phase("screen", "annotation", lambda: consume("annotation", "screen",
+            lambda s: project_nongold(s, index.batch, profile=profile, diagnostic=diag("screen"))))
+        if projection is not None:
+            current = budget.receipts[-1]
+            if current.digest != annotation_receipts[0].digest or current.before != annotation_receipts[0].before:
+                errors.append(dict(phase="screen_binding", alias="annotation",
+                                   reason="CROSS_PHASE_SNAPSHOT_HOLD", exception_kind="ContractError", errno=None))
+                projection = None
+        # No subsequent annotation role if the snapshot changed between phases.
+    old_uids, wanted = independent_join_requests(index, old_projections)
+    output(root, "old-source-minimal.json", dict(binding=binding, old_uids=sorted(old_uids),
+           records=old_status, missing_categories=["013_EXACT_ROSTER_UNKNOWN", "014_EXACT_ROSTER_UNKNOWN"]))
+    budget.register("manifest", config["manifest"], 8 * MIB)
+    joined = phase("manifest", "manifest", lambda: consume("manifest", "content",
+                    lambda s: read_manifest(s, wanted)))
+    rows = {}
+    if joined is not None:
+        rows, info, duplicate = joined
+        summary["manifest"] = info
+        summary["old_join"] = dict(requested=len(old_uids), matched=len(old_uids & rows.keys()),
+                                   missing=len(old_uids - rows.keys()),
+                                   duplicate=len(old_uids & duplicate),
+                                   all_requested=len(wanted), all_missing=len(wanted - rows.keys()))
+        output(root, "manifest-minimal.json", dict(binding=binding, rows=rows, info=info))
+        if duplicate:
+            rows = {}
+    summary["old_records"] = old_status
+    summary["source_exclusion_complete"] = False
+    summary["missing_source_categories"] = ["013_EXACT_ROSTER_UNKNOWN", "014_EXACT_ROSTER_UNKNOWN"]
+    summary["candidate_n"] = None
+    summary["frozen_keys"] = 0
+    summary["option_questions"] = 0
+    summary["options_retained"] = 0
+    if projection is not None:
+        source_rows = {s.source: dict(s.metadata) for s in projection.sources}
+        conflicts = {}
+        for uid, row in rows.items():
+            metadata = source_rows.setdefault(uid, {})
+            different = [k for k in ("video_source", "origin_video_id", "fb_participant_id")
+                         if k in metadata and row.get(k) and metadata[k] != row[k]]
+            if different:
+                conflicts[uid] = different
+            metadata.update({k: v for k, v in row.items() if v != ""})
+        selected, counters, exclusions = choose_cohort(projection, source_rows, old_uids)
+        for row in selected:
+            if row["key"].source in conflicts:
+                row["limits"] += ("SOURCE_METADATA_MISMATCH",)
+            if row["key"].source not in rows:
+                row["limits"] += ("OFFICIAL_JOIN_UNKNOWN",)
+        summary["screen_counts"] = counters
+        summary["source_metadata_conflicts"] = len(conflicts)
+        summary["candidate_n"] = len(selected)
+        summary["frozen_keys"] = len(selected)
+        keys = tuple(row["key"] for row in selected)
+        output(root, "frozen-keys.json", dict(binding=binding, keys=[asdict(k) for k in keys]))
+        output(root, "cohort-private.json", dict(binding=binding,
+               cohort=[dict(row, key=asdict(row["key"])) for row in selected],
+               exclusions=[dict(key=asdict(key), reason=reason) for key, reason in exclusions],
+               source_conflicts=conflicts))
+        if keys:
+            inference = phase("inference", "annotation", lambda: consume("annotation", "inference",
+                lambda s: project_nongold(s, keys, "inference", profile=profile, diagnostic=diag("inference"))))
+            if inference is not None:
+                receipt = budget.receipts[-1]
+                if receipt.digest != annotation_receipts[0].digest or receipt.before != annotation_receipts[0].before:
+                    errors.append(dict(phase="inference_binding", alias="annotation",
+                                       reason="CROSS_PHASE_SNAPSHOT_HOLD", exception_kind="ContractError", errno=None))
+                else:
+                    output(root, "nongold-input.json", dict(binding=binding, projection=asdict(inference)))
+                    output(root, "plan-private.json", dict(binding=binding, plan=asdict(build_plan(inference))))
+                    summary["option_questions"] = len(inference.questions)
+                    summary["options_retained"] = sum(len(q.options) for q in inference.questions)
+        summary["candidate_evidence"] = [dict(alias="P%d" % (i + 1),
+            declared_size_fields=sorted(k for k in row["metadata"] if "size" in k),
+            release1=str(row["metadata"].get("release_1", "UNKNOWN")),
+            version="UNKNOWN", current_rights="UNKNOWN", exact_media_reference="UNKNOWN",
+            limits=row["limits"]) for i, row in enumerate(selected)]
+    annotation_failed = projection is None or any(
+        error["alias"] == "annotation" for error in errors)
+    summary["decision"] = ("INPUT_CONTRACT_NO_GO_CURRENT_FILE" if annotation_failed
+                           else "COHORT_RULE_NO_GO" if not summary["candidate_n"] else "CPU_COHORT_HANDOFF_ONLY")
+    summary.update(binding=binding, errors=errors, input_opens=budget.opens,
+                   reserved_bytes=budget.reserved, actual_bytes=budget.actual,
+                   executable_n=0, media_stats=0, real_gold_values=0,
+                   real_pilot_readiness="HOLD")
+    output(root, "input-receipts-private.json", dict(binding=binding,
+           receipts=[asdict(r) for r in budget.receipts], diagnostics=diagnostics))
+    # Character positions remain private; raw prefetch bytes are separately
+    # recorded in input receipts. Safe aggregate classes only enter the summary.
+    summary["parser_diagnostics"] = {name: {k: value for k, value in record.items()
+        if k not in ("character_position",)} for name, record in diagnostics.items()}
+    summary["identity_differences"] = budget.diagnostics
+    ledger_rows = journal.snapshot()
+    summary["runtime_reserved_seconds"] = sum(r["seconds"] for r in ledger_rows
+                                               if r["event"] == "RUNTIME_RESERVED")
+    output(root, "cohort-summary.json", summary)
+    return summary
+
+
 def review_handoff(root, journal):
     """Read only027's own exact outputs, never retired original inputs."""
     journal.reserve_runtime("handoff_review", 120, 120, 1)
@@ -464,6 +639,81 @@ def review_handoff(root, journal):
     result["output_inventory_before_final_summary"] = dict(
         files=len(inventory), bytes=sum(p.stat().st_size for p in inventory))
     output(root, "final-review-summary.json", result)
+    return result
+
+
+def complete_old_sources_028(config, root, journal):
+    """Remaining exact old source metadata manifests, no original reopen.
+
+    Uses only the same-pass official rows already retained by028. It cannot
+    declare an unretained row absent from the official manifest. Frozen text
+    keys are never replaced if subsequent source evidence blocks them.
+    """
+    journal.reserve_runtime("old_source_completion", 60, 60, 1)
+    if set(config) != {"old"} or len(config["old"]) > 2:
+        raise ContractError("028_REMAINING_OLD_SCOPE_LIMIT")
+    prior_rows = journal.snapshot()
+    prior_old = [r for r in prior_rows if r["event"] == "INPUT_RESERVED"
+                 and r["alias"].startswith("old_")]
+    if len(prior_old) + len(config["old"]) > 8:
+        raise ContractError("028_OLD_SOURCE_COUNT_LIMIT")
+    with open(Path(root) / "old-source-minimal.json", encoding="utf-8") as source:
+        prior = json.load(source)
+    retained, frozen = {}, []
+    if (Path(root) / "manifest-minimal.json").exists():
+        with open(Path(root) / "manifest-minimal.json", encoding="utf-8") as source:
+            retained = json.load(source)["rows"]
+    if (Path(root) / "frozen-keys.json").exists():
+        with open(Path(root) / "frozen-keys.json", encoding="utf-8") as source:
+            frozen = json.load(source)["keys"]
+    budget, additional, errors, diagnostic = InputBudget(durable=journal), [], [], {}
+    uids = set(prior["old_uids"])
+    for offset, path in enumerate(config["old"]):
+        alias = "old_%d" % (len(prior_old) + offset)
+        budget.register(alias, path, MIB)
+        diagnostic[alias] = {}
+        journal.event("PHASE_STARTED", phase="old_source_completion", alias=alias)
+        try:
+            with budget.text(alias) as stream:
+                projected = historical_projection(stream, diagnostic=diagnostic[alias])
+            recovered = old_uid_fields(projected)
+            uids.update(recovered)
+            output(root, alias + "-minimal.json", dict(projection=projected, uid_count=len(recovered)))
+            additional.append(dict(alias=alias, complete=True, uid_count=len(recovered)))
+            journal.event("PHASE_FINISHED", phase=alias, status="PASS")
+        except Exception as error:
+            record = safe_error("old_source_completion", alias, error)
+            errors.append(record)
+            journal.event("PHASE_ERROR", **record)
+            additional.append(dict(alias=alias, complete=False, uid_count=None))
+    # Pure UID/group join on retained rows; no second official content open.
+    matched = uids & retained.keys()
+    groups = {(retained[u].get("video_source"), retained[u].get("origin_video_id"))
+              for u in matched if retained[u].get("origin_video_id")}
+    people = {retained[u].get("fb_participant_id") for u in matched
+              if retained[u].get("fb_participant_id")}
+    blocked = []
+    for number, key in enumerate(frozen):
+        uid = key["source"]
+        row = retained.get(uid, {})
+        reason = ("KNOWN_OLD_UID" if uid in uids else "KNOWN_OLD_ORIGIN"
+                  if (row.get("video_source"), row.get("origin_video_id")) in groups
+                  else "KNOWN_OLD_PARTICIPANT" if row.get("fb_participant_id") in people else None)
+        if reason:
+            blocked.append(dict(alias="P%d" % (number + 1), reason=reason))
+    rows = journal.snapshot()
+    result = dict(additional_records=additional, recovered_old_uids=len(uids),
+                  matched_retained_official_rows=len(matched),
+                  unretained_official_uid_status="UNKNOWN_NOT_A_MISSING_ROW_FINDING",
+                  unretained_uid_count=len(uids - retained.keys()),
+                  original_official_content_opens=1, frozen_key_count=len(frozen),
+                  frozen_keys_replaced=0, late_source_blocks=blocked,
+                  source_exclusion_complete=False, errors=errors,
+                  reserved_bytes=sum(r["reserved"] for r in rows if r["event"] == "INPUT_RESERVED"),
+                  actual_bytes=sum(r["actual"] for r in rows if r["event"] == "INPUT_FINISHED"),
+                  runtime_reserved_seconds=sum(r["seconds"] for r in rows if r["event"] == "RUNTIME_RESERVED"))
+    output(root, "old-source-completion-private.json", dict(summary=result, old_uids=sorted(uids),
+           receipts=[asdict(r) for r in budget.receipts], diagnostics=diagnostic))
     return result
 
 
@@ -531,9 +781,12 @@ def main():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", required=True)
+    parser.add_argument("--contract", choices=("027", "028"), default="027")
+    parser.add_argument("--accept-profile", choices=(SKIP_NONFINITE_028,))
     parser.add_argument("--create", action="store_true")
     parser.add_argument("--verify", action="store_true")
     parser.add_argument("--private", action="store_true")
+    parser.add_argument("--complete-old-028", action="store_true")
     parser.add_argument("--review", action="store_true")
     parser.add_argument("--static-bridge", action="store_true")
     parser.add_argument("--worker", choices=("ok", "sleep", "flood", "fail", "lock"))
@@ -542,18 +795,27 @@ def main():
     args = parser.parse_args()
     root = Path(args.root).absolute()
     if args.create:
-        if root.name != "integration_027":
+        if root.name != "integration_" + args.contract:
             raise ContractError("FIXED_NEW_DIRECTORY_REQUIRED")
         checked_path(root.parent, directory=True)
         os.mkdir(root)
     checked_path(root, directory=True)
-    config = json.load(sys.stdin) if args.private else {}
+    config = json.load(sys.stdin) if args.private or args.complete_old_028 else {}
     entries = [config[k] for k in ("annotation", "manifest") if k in config]
     for key in ("old", "handoff", "runners"):
         entries.extend(config.get(key, []))
     audit_scope(root, entries)
-    journal = Journal(root)
+    if args.contract == "028" and (args.worker or args.fixture_score or args.review or args.static_bridge):
+        raise ContractError("028_OLD_MODE_FORBIDDEN")
+    if args.contract == "028" and args.private and args.accept_profile != SKIP_NONFINITE_028:
+        raise ContractError("028_EXPLICIT_PROFILE_REQUIRED")
+    journal = Journal(root, args.contract)
     enforce_output_limits(root, journal)
+    if args.complete_old_028:
+        if args.contract != "028" or args.accept_profile != SKIP_NONFINITE_028:
+            raise ContractError("028_EXPLICIT_PROFILE_REQUIRED")
+        print(json.dumps(complete_old_sources_028(config, root, journal)))
+        return 0
     if args.static_bridge:
         print(json.dumps(static_backend_bridge(root, journal)))
         return 0
@@ -578,7 +840,10 @@ def main():
         return 0
     if args.verify:
         launch = journal.reserve_runtime("suite", 120, 240, 2)
-        import test_temporal_pilot_repair_027 as tests
+        if args.contract == "028":
+            import test_temporal_annotation_profile_028 as tests
+        else:
+            import test_temporal_pilot_repair_027 as tests
         tests.configure(root, launch, journal)
         before = time.monotonic()
         suite = unittest.defaultTestLoader.loadTestsFromModule(tests)
@@ -594,7 +859,13 @@ def main():
         # No automatic retry: failed or pending input reservations retire paths.
         journal.reserve_runtime("preparation", 120, 120, 1)
         try:
-            summary = prepare(config, root, journal)
+            if args.contract == "028":
+                # Includes earlier/final static parse, sanitized self-output and
+                # Git-publication inspections; separate from source byte quota.
+                journal.reserve_runtime("auxiliary_windows", 30, 30, 1)
+                summary = prepare_028(config, root, journal)
+            else:
+                summary = prepare(config, root, journal)
             print(json.dumps(summary, ensure_ascii=True))
             return 0
         except Exception as error:
