@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import threading
 import time
 
 from temporal_evidence_adapter_025 import ContractError
@@ -42,11 +43,16 @@ class FixtureWorkerBudget:
     Exact known slot names only, no directory inventory. Used slots never
     refund, even if spawning fails. Not an authorization for real workers.
     """
-    def __init__(self, root):
+    def __init__(self, root, limit=16, runtime=None):
         self.root, _ = checked_path(root, directory=True)
+        if limit not in (16, 24):
+            raise ContractError("FIXTURE_SLOT_LIMIT")
+        self.limit, self.runtime = limit, runtime
 
     def reserve(self):
-        for number in range(16):
+        if self.runtime is not None:
+            self.runtime.reserve_runtime("fixture", 5, 120, 24)
+        for number in range(self.limit):
             path = self.root / ("fixture_worker_slot_%02d.used" % number)
             try:
                 _write_exclusive(path, "RESERVED_NO_REFUND\n")
@@ -57,7 +63,7 @@ class FixtureWorkerBudget:
 
     def used(self):
         return sum((self.root / ("fixture_worker_slot_%02d.used" % n)).exists()
-                   for n in range(16))
+                   for n in range(self.limit))
 
 
 @dataclass(frozen=True)
@@ -101,15 +107,23 @@ class Supervisor:
     Acquiring an existing lock always fails. No restart recovery or retry is
     inferred from an incomplete journal, terminal error or empty output file.
     """
-    def __init__(self, root, run_id, planned_keys, budget, *, spawn=subprocess.Popen):
+    def __init__(self, root, run_id, planned_keys, budget, *, spawn=subprocess.Popen,
+                 cohort_digest=None):
         self.root, _ = checked_path(root, directory=True)
         self.run_id = _name(run_id)
+        if cohort_digest is not None:
+            if not re.fullmatch(r"[0-9a-f]{64}", cohort_digest):
+                raise ContractError("FIXED_COHORT_CONFIG_DIGEST_REQUIRED")
+            # Same cohort/config cannot acquire another identity under a new name.
+            _write_exclusive(self.root / ("cohort_" + cohort_digest + ".lock"),
+                             "COHORT_CONFIG_CONSUMED_NO_RETRY\n")
         if (type(planned_keys) is not tuple or not planned_keys
                 or any(type(key) is not str or not key for key in planned_keys)
                 or len(set(planned_keys)) != len(planned_keys)):
             raise ContractError("UNIQUE_PLANNED_KEYS_REQUIRED")
         self.keys, self.budget, self.spawn = planned_keys, budget, spawn
         self.children, self.started, self.terminal = {}, set(), {}
+        self.captures = {}
         self.queue_closed, self.scoring_consumed = False, False
         self.lock = self.root / (self.run_id + ".lock")
         self.journal = self.root / (self.run_id + ".journal.jsonl")
@@ -144,6 +158,8 @@ class Supervisor:
                          elapsed=row.elapsed, timed_out=False)
             raise ContractError("SPAWN_FAILED_NO_RETRY") from None
         self.children[key] = (child, before, timeout)
+        self.captures[key] = _Capture(child)
+        self.captures[key].watch(child, before + timeout)
         self._record("PID", key=key, pid=child.pid)
         return child.pid
 
@@ -152,18 +168,16 @@ class Supervisor:
             raise ContractError("OWN_LIVE_CALL_REQUIRED")
         child, before, timeout = self.children[key]
         timed_out = False
-        try:
-            child.communicate(timeout=max(0.001, timeout - (time.monotonic() - before)))
-        except subprocess.TimeoutExpired:
-            # Only this stored child handle; no PID-name search or group kill.
-            child.kill()
-            child.communicate()
-            timed_out = True
-        row = Terminal(key, "RETURNED" if child.returncode == 0 and not timed_out else "FAILED",
+        capture = self.captures[key]
+        capture.monitor.join(timeout=max(0.001, before + timeout + 0.95 - time.monotonic()))
+        if capture.monitor.is_alive() or capture.error:
+            raise ContractError("OWN_MONITOR_CLEANUP_HOLD")
+        timed_out, overflow = capture.result
+        row = Terminal(key, "RETURNED" if child.returncode == 0 and not timed_out and not overflow else "FAILED",
                        child.returncode, time.monotonic() - before, timed_out)
         self.terminal[key] = row
         self._record("TERMINAL", key=key, state=row.state, exit_code=row.exit_code,
-                     elapsed=row.elapsed, timed_out=timed_out)
+                     elapsed=row.elapsed, timed_out=timed_out, output_overflow=overflow)
         return row
 
     def close_queue(self):
@@ -242,15 +256,124 @@ class Supervisor:
         try:
             child = self.spawn(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             self._record("SCORING_CPU_PID", pid=child.pid, slot=slot)
-            stdout, _ = child.communicate(timeout=timeout)
-            if child.returncode != 0:
+            capture = _Capture(child)
+            timed_out, overflow = _finish_owned(child, capture, before + timeout)
+            stdout = bytes(capture.data[0])
+            if child.returncode != 0 or timed_out or overflow:
                 raise ContractError("CPU_SCORER_FAILED")
         except Exception:
             if child is not None and child.poll() is None:
                 child.kill()
-                child.communicate()
+                child.wait(timeout=0.5)
             self._record("SCORING_FAILED_NO_RETRY", elapsed=time.monotonic() - before)
             raise ContractError("CPU_SCORER_FAILED_NO_RETRY") from None
         self._record("SCORING_CPU_EXIT", exit_code=child.returncode,
                      elapsed=time.monotonic() - before)
         return stdout
+
+    def bound_fixture_score(self, command_factory, binding, *, mode="full"):
+        """One independent CPU child does BOTH stream binding and batch scoring.
+
+        Only invented inputs are supported. Binding is not a real gold grant.
+        Parent publishes only after successful child exit and matching receipt.
+        """
+        payload = dict(binding, mode=mode)
+        raw = self.score_child_once(command_factory(payload), timeout=4)
+        try:
+            result = json.loads(raw)
+            if (result.get("digest") != binding["digest"] or result.get("size") != binding["size"]
+                    or result.get("status") != "PASS" or result.get("scorer_pid") == os.getpid()):
+                raise ValueError()
+        except Exception:
+            self._record("SCORING_BINDING_HOLD")
+            raise ContractError("SCORING_CHILD_BINDING_HOLD_NO_RETRY") from None
+        self._record("SCORING_PUBLISHED")
+        return result
+
+
+class _Capture:
+    """Drain concurrently, retaining at most64KiB on each pipe."""
+    def __init__(self, child):
+        self.data, self.overflow, self.threads = [bytearray(), bytearray()], threading.Event(), []
+        self.result, self.error = None, False
+        def drain(pipe, index):
+            try:
+                while True:
+                    chunk = pipe.read(4096)
+                    if not chunk:
+                        break
+                    remaining = 65536 - len(self.data[index])
+                    self.data[index].extend(chunk[:remaining])
+                    if len(chunk) > remaining:
+                        self.overflow.set()
+            finally:
+                pipe.close()
+        for index, pipe in enumerate((child.stdout, child.stderr)):
+            thread = threading.Thread(target=drain, args=(pipe, index), daemon=True)
+            thread.start()
+            self.threads.append(thread)
+
+    def watch(self, child, deadline):
+        def monitor():
+            try:
+                self.result = _finish_owned(child, self, deadline)
+            except Exception:
+                self.error = True
+        self.monitor = threading.Thread(target=monitor, daemon=True)
+        self.monitor.start()
+
+
+def _finish_owned(child, capture, deadline):
+    timed_out = False
+    while child.poll() is None:
+        if capture.overflow.is_set() or time.monotonic() >= deadline:
+            timed_out = time.monotonic() >= deadline
+            child.kill()  # Stored handle only; never job/process-name lookup.
+            break
+        time.sleep(min(0.01, max(0.001, deadline - time.monotonic())))
+    child.wait(timeout=0.5)
+    for thread in capture.threads:
+        thread.join(timeout=0.2)
+    if any(thread.is_alive() for thread in capture.threads):
+        raise ContractError("OWN_PIPE_CLEANUP_HOLD")
+    return timed_out, capture.overflow.is_set()
+
+
+def fixture_score_child(payload):
+    """Invented fixture only. One open, no score output until full raw binding."""
+    from dataclasses import asdict
+    from temporal_pilot_prepare_026 import InputBudget
+    from temporal_evidence_adapter_025 import (
+        QuestionKey, QuestionRecord, Projection, SourceRecord, TASK, build_plan,
+    )
+    from temporal_evidence_scorer_025 import (
+        OneShotScorer, TerminalAttempt, FrozenLedger, ChildExitReceipt,
+    )
+    budget = InputBudget()
+    budget.register("invented_scoring", payload["path"], 1024 * 1024)
+    key = QuestionKey("fictional", 0)
+    plan = build_plan(Projection("screen", (SourceRecord("fictional", ()),),
+                                (QuestionRecord(key, TASK,
+                                 "How long after folding paper did a robot open a box?"),)))
+    ledger = FrozenLedger(tuple(TerminalAttempt(c, "RETURNED", "A") for c in plan.calls), True)
+    class NonClosing:
+        def __init__(self, stream):
+            self.stream = stream
+        def read(self, *args):
+            return self.stream.read(*args)
+        def close(self):
+            pass
+    with budget.text("invented_scoring") as stream:
+        if payload["mode"] == "fail":
+            raise ContractError("INVENTED_SCORER_FAILURE")
+        if payload["mode"] == "half":
+            stream.read(1)
+            raise ContractError("INVENTED_HALF_READ_HOLD")
+        report = OneShotScorer().score(lambda: NonClosing(stream), plan, ledger,
+                                     ChildExitReceipt(("observed-exited",), ("observed-exited",), True))
+    receipt = budget.receipts[-1]
+    if (not receipt.complete or receipt.digest != payload["digest"]
+            or receipt.byte_count != payload["size"] or report.status != "PASS"):
+        raise ContractError("SCORING_SNAPSHOT_HOLD")
+    print(json.dumps(dict(status="PASS", digest=receipt.digest, size=receipt.byte_count,
+                          scorer_pid=os.getpid(), report=asdict(report))))

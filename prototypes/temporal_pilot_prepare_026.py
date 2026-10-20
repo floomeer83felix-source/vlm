@@ -40,6 +40,17 @@ def identity(info):
     return (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
 
 
+def same_file(left, right):
+    """Positive physical identity, not equal sizes or zero/default identities."""
+    return left.st_ino > 0 and right.st_ino > 0 and os.path.samestat(left, right)
+
+
+def difference_mask(left, right):
+    return tuple(name for name, a, b in zip(
+        ("dev", "ino", "size", "mtime_ns", "ctime_ns"), identity(left), identity(right))
+                 if a != b)
+
+
 def checked_path(path, directory=False):
     """Metadata only, exact ancestor chain; no listing or candidate search."""
     path = Path(path).absolute()
@@ -92,11 +103,12 @@ class InputBudget:
     No implicit entry discovery, recursion, retry or scope enlargement occurs.
     """
 
-    def __init__(self, total_limit=48 * MIB):
+    def __init__(self, total_limit=48 * MIB, *, durable=None):
         if type(total_limit) is not int or not 0 < total_limit <= 48 * MIB:
             raise ContractError("INVALID_INPUT_LIMIT")
         self.limit, self.reserved, self.actual = total_limit, 0, 0
         self.entries, self.opens, self.receipts = {}, {}, []
+        self.durable, self.diagnostics = durable, []
 
     def register(self, alias, path, cap, max_opens=1):
         if alias in self.entries or type(cap) is not int or not 0 < cap <= 8 * MIB:
@@ -110,7 +122,7 @@ class InputBudget:
         self.opens[alias] = 0
 
     @contextmanager
-    def text(self, alias):
+    def text(self, alias, role="content"):
         if alias not in self.entries:
             raise ContractError("UNREGISTERED_INPUT")
         path, cap, maximum = self.entries[alias]
@@ -120,25 +132,43 @@ class InputBudget:
         path, before = checked_path(path)
         if before.st_size > cap or self.reserved + before.st_size > self.limit:
             raise ContractError("INPUT_BYTE_LIMIT")
+        if self.durable is not None:
+            self.durable.reserve_input(alias, path, role, before, cap, maximum)
         self.reserved += before.st_size
-        raw_file = open(path, "rb", buffering=0)
-        raw = _BudgetRaw(raw_file, before.st_size, self)
-        stream = io.TextIOWrapper(io.BufferedReader(raw), encoding="utf-8-sig", newline="")
+        raw_file = raw = stream = None
+        complete, reason = False, "INPUT_OPEN_OR_PROJECTION_FAILED"
         try:
-            if identity(os.fstat(raw_file.fileno())) != identity(before):
+            raw_file = open(path, "rb", buffering=0)
+            opened = os.fstat(raw_file.fileno())
+            self.diagnostics.append({"alias": alias, "role": role,
+                                     "cross_api_difference": difference_mask(before, opened),
+                                     "same_file": same_file(before, opened)})
+            if not same_file(before, opened) or before.st_size != opened.st_size:
                 raise ContractError("INPUT_IDENTITY_CHANGED_AT_OPEN")
+            raw = _BudgetRaw(raw_file, before.st_size, self)
+            stream = io.TextIOWrapper(io.BufferedReader(raw), encoding="utf-8-sig", newline="")
             yield stream
+            _, after_path = checked_path(path)
+            after_fd = os.fstat(raw_file.fileno())
+            complete = (same_file(after_path, after_fd)
+                        and identity(before) == identity(after_path)
+                        and identity(opened) == identity(after_fd)
+                        and raw.count == before.st_size)
+            reason = "COMPLETE" if complete else "INPUT_CHANGED_OR_INCOMPLETE"
+            if not complete:
+                raise ContractError(reason)
         finally:
             try:
-                after_fd = os.fstat(raw_file.fileno())
-                after_path = path.stat()
-                stable = (identity(before) == identity(after_fd) == identity(after_path))
-                self.receipts.append(ReadReceipt(alias, raw.count, raw.sha.hexdigest(),
-                                                 identity(before), identity(after_path),
-                                                 stable and raw.count == before.st_size))
+                count = raw.count if raw is not None else 0
+                self.receipts.append(ReadReceipt(alias, count, raw.sha.hexdigest() if raw else "",
+                                                 identity(before), (), complete))
+                if self.durable is not None:
+                    self.durable.finish_input(alias, path, role, count, complete, reason)
             finally:
-                stream.close()
-                raw_file.close()
+                if stream is not None:
+                    stream.close()
+                if raw_file is not None:
+                    raw_file.close()
 
 
 @dataclass(frozen=True)
@@ -190,18 +220,23 @@ def read_manifest(stream, wanted_uids):
     """
     rows = csv.DictReader(stream)
     headers = tuple(rows.fieldnames or ())
-    if "video_uid" not in headers or len(set(headers)) != len(headers):
+    candidates = tuple(name for name in ("video_uid", "uid") if name in headers)
+    if len(candidates) != 1 or len(set(headers)) != len(headers):
         raise ContractError("MANIFEST_UID_SCHEMA_HOLD")
+    uid_column = candidates[0]
     retained, duplicates, count = {}, set(), 0
     columns = tuple(name for name in headers if name in GROUP_FIELDS)
     for row in rows:
         count += 1
-        uid = row.get("video_uid")
+        if None in row or any(value is None for value in row.values()):
+            raise ContractError("MANIFEST_ROW_SCHEMA_HOLD")
+        uid = row.get(uid_column)
         if uid in wanted_uids:
             if uid in retained:
                 duplicates.add(uid)
             retained[uid] = {name: row.get(name, "") for name in columns}
     return retained, {"rows": count, "matched": len(retained),
+                      "uid_column": uid_column,
                       "duplicate_needed_uids": len(duplicates),
                       "retained_columns": columns, "headers": headers}, duplicates
 
