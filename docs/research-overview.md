@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；用户补017/018精确私有目录后完成限定的[源码/结构审查](./research-reviews/private-runner-structure-audit-2026-10-20.md)：恢复输入入口字符串、核实候选间隔约59–94秒和六源统一12帧/324视觉token，018数值选帧与保存分数一致；未读题目/gold/预测正文/视频或运行模型。旧gold资格/整文件评分组件与024末期批次限制不直接兼容，nongold题文及必要来源字段尚待新明确CPU范围批准。真实主导失败层仍UNKNOWN，rank支持门与锚点对照混杂仍未解决。024在[6bee319](https://github.com/floomeer83felix-source/vlm/commit/6bee319d9b96e5b496fee922af48710f34fdbb56)已HOLD结案，**当前READY=0**；不重跑、不续旧预算、不直接训练。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。）
+> 更新：2026-10-20（北京时间；继[源码/结构审查](./research-reviews/private-runner-structure-audit-2026-10-20.md)后，用户明确批准的一次CPU nongold检查已完成，现授权写入下一任务。[可行性审查](./research-reviews/nongold-feasibility-audit-2026-10-20.md)确认50/50来源与声明时长元数据匹配、28道明确双事件时间间隔题各在不同视频；024原白名单+marker口径两视频最多8道，不能达到12。时间顺序是题目给定的检索约束，不能伪装成待预测的AB/BA标签。**唯一READY=VLM-TEMPORAL-EVIDENCE-ADAPTER-025，仅公共代码+虚构CPU接口验证，尚未执行**；[新协议](./research-protocols/temporal-distance-diagnostic-2026-10-20.md)冻结同两锚点C/D对照、无rank存在性门及末期gold接口。真实阶段非READY、实际事件缺失/顺序利用仍UNKNOWN。024关闭、原记录不改、旧预算不续用；私人一次性审查已结束。TRAIN-GPU仍HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。以下旧日期状态仅为历史。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1003,3 +1003,33 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 用户在明确了解本轮规模和资源后批准[024真实OEP试点](./codex-artifacts/VLM-HOURVIDEO-OEP-REAL-024/README.md)；对应[冻结科学协议](./research-protocols/real-oep-pilot-2026-10-19.md)只准最多2个未在R1–R6见过且真实采集/剪辑来源独立的HourVideo/Ego4D source groups、各≤24 nongold MCQ/总≤48、gold仅在生成账本封闭后由独立CPU scorer对本轮读取1次。允许必要官方固定来源媒体总HTTP≤28GiB各≤14GiB，私有新增≤32GiB；零训练Qwen3-VL/SigLIP五臂总generate≤240、RTX3090 GPU≤25min、allocated峰≤18GiB、CPU媒体≤900s、父≤3600s，无新模型/包/环境改变。预算不可继承旧任务。
 - **资格门不是授权自动PASS**：必须在新下载/使用GPU之前从仅限已知并授权的非金标私有元数据中取得当下官方数据访问/许可有效、两条源录制和shot/edit真正独立于旧R1–R6且相互独立的正面证据、至少12道按冻结文本规则可拆分的题；任何UNKNOWN/HOLD立即停并记录，**不得以UID/年代/题材不同补证据**，不得试探性读保护gold或新数据。成功才连续执行固定48候选→12帧的Uniform/B/C/unordered/OEP_RANK_REAL_024，生成时无gold，评分最后进行；rank并不等于真实事件置信度。只2个来源的小样本不能证明显著性、新benchmark榜分/新颖性，继续NOVELTY RETAIN0与CLOCK_ZERO_ASSUMED_NOT_CERTIFIED。
 - **协作门**：ChatGPT已写入GitHub唯一READY=024，需用户在活跃Codex私聊显式启动。只准024可选2个新公共python、匿名收据、codex-results一条，新来源路径/题/选项/答案/准确来源UID/媒体hash、权重和原始日志不得上GitHub；完成或阻塞后1次安全push STOP。TRAIN-GPU-001属于独立训练且未获本批准。
+
+
+### 2026-10-20 · 用户委托重新规划：纠正题型与样本门，唯一下一任务025为公共接口实现
+
+- 用户先委托当前Codex审查进展、定位失败，再明确批准一次≤120秒CPU nongold审查，
+  最后要求“进行下一步，并将工作任务写入github仓库”。据此本次可更新规划文件，
+  不改AGENTS或历史执行结果，也不把规划指令解释为新的私人数据/GPU许可。
+- [可行性证据](./research-reviews/nongold-feasibility-audit-2026-10-20.md)纠正了两个判断：
+  精确元数据入口已恢复且50/50来源、声明时长相容，024当轮的路径HOLD不是文件丢失；
+  原白名单+五词marker口径每源最多4题，两源最多8题，不能满足原≥12题要求。
+  31个temporal_distance标签中28个是真正双事件时间间隔形式，各在不同视频；另3个
+  非时间间隔，不能只靠任务标签纳入。28道形式计数不是最终可评分题数。物理独立、现时
+  访问权及精确PTS桥接仍UNKNOWN；原024结案和原合同保持不变。
+- 科学问题改为**利用题目已给的事件顺序约束来检索证据**，不把已知顺序当待预测答案。
+  [新协议](./research-protocols/temporal-distance-diagnostic-2026-10-20.md)冻结四臂：Uniform12、
+  GlobalTop12、两个独立事件锚点、两个受已给顺序约束的锚点；后两者同2锚点/同分数/
+  同Top12补齐，消除旧4对2锚点混杂。无rank阈值存在性认证，不声称解决重复事件身份。
+- [唯一READY=VLM-TEMPORAL-EVIDENCE-ADAPTER-025](./codex-artifacts/VLM-TEMPORAL-EVIDENCE-ADAPTER-025/README.md)，
+  **尚未执行**：一次交付nongold streaming双视图、窄语法、冻结四臂队列、等配额selector、
+  隔离末期评分接口和虚构端到端断言。它针对新识别的真实集成缺口，不重跑023合成
+  算法或024空资格门；一次接口交付后不继续堆叠toy任务。真实wrapper/OS隔离尚未验证。
+- 后续真实研究拟最多4个合格新源、每源1题/四臂，最多16次QA仅为设计上限，**不是授权**。
+  提议改为记录来源组/已知参与者隔离的描述性诊断，物理拍摄/剪辑独立仍UNKNOWN；
+  必须先由用户另行明确接受这一新研究口径，再有合法来源/排除旧素材、成本和分母
+  证据后下新合同与资源许可，不静默放宽旧024门、不再要求清单中不存在的证书而开
+  必然HOLD的父任务。开发题文已被审查，研究是exploratory，不能宣称
+  完全未见题文预注册；未来源级泛化仍需更大独立样本及真正事件实例证据。
+- 本次规划只提交匿名审查、新协议、新任务README及当前board/overview；不追加实验
+  codex-results，不启动025或任何真实推理。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
+  Charades FINAL_MEDIA_STOP与TRAIN-GPU HOLD持续。
