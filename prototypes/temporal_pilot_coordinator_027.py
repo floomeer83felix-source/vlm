@@ -45,7 +45,7 @@ class Journal:
     """
     def __init__(self, root, contract_id="027"):
         self.root, _ = checked_path(root, directory=True)
-        if contract_id not in ("027", "028") or self.root.name != "integration_" + contract_id:
+        if contract_id not in ("027", "028", "029") or self.root.name != "integration_" + contract_id:
             raise ContractError("FIXED_CONTRACT_ROOT_REQUIRED")
         self.contract_id = contract_id
         self.path = self.root / (contract_id + "-ledger.jsonl")
