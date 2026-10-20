@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；029交付[4b619da](https://github.com/floomeer83felix-source/vlm/commit/4b619da6878b2a20172e816a17f4bafc725a4457)按 **ACCEPTED_PARTIAL_ENGINEERING_METADATA / SOURCE_ROUTE_STOP_MISSING_PROVENANCE** 审结。八份旧schema是汇总/demux，未恢复013/014/R1–R6非金标来源登记，四候选排除未知；仅P1对象HEAD200、大小上界890MiB，P2–P4未发对象HEAD。新suite16/17 PASS为执行者报告、未复跑。没有新真实QA或训练；原text N4/20选项/16计划槽位保留。**当前READY=0，来源路线按029原合同停止，不自动再排同类资格任务**。已写[下一步具体选择](./research-reviews/post029-source-route-decision-2026-10-20.md)，须有准确登记新输入，或用户明确接受不同科学口径/改数据路线后再下实际整包；不静默放宽旧源排除，不继承网络/GPU余额。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。）
+> 更新：2026-10-20（北京时间；用户已同意029后的选项B：允许来源可能重合的开发集机制诊断。新[030 A–H真实整包](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/README.md)与[新协议](./research-protocols/development-temporal-diagnostic-2026-10-20.md)已写入，**唯一READY=030公共实现，尚未执行**；本轮私人/下载/GPU/gold由同一条用户明确启动消息激活，短答“好的”不冒充无限资源许可。保留原四题/16槽，旧源分离不再是本诊断入门条件，不换题、不读旧结果调参、旧父任务不重跑。新拟定上限16 generate/900s GPU/18GiB allocated，精确官方对象各≤4GiB/总正文≤16GiB，实际S3发送≤12；新root≤24GiB，实际OS原annotation share拒绝、模型PID退出后独立一次score≤4MiB。当前无新实验结果或资源实测，029停止结论不变。DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1358,5 +1358,62 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   C停止本来源方案，另选有可追溯来源的新数据路线。
   本次只写可审查决策材料，不创建虚假READY/空执行回执或默认改变研究口径。
 - 当前没有新增真实QA、训练、事件证据实例/召回、源级泛化或创新性结果。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 用户接受开发集机制诊断；030真实整包已下达，资源由单条新消息激活
+
+- 用户在029结案、明确提出“允许来源可能重合的开发集机制诊断、不能作为独立验证”
+  后回复“好的”，本次据此接受post029选项B。不是把旧源排除已证PASS，
+  也不把此短答扩张为未列明的GPU/下载/gold额度。
+- 新增[开发诊断科学协议](./research-protocols/development-temporal-diagnostic-2026-10-20.md)
+  和[VLM-DEV-TEMPORAL-PILOT-030 A–H合同](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/README.md)。
+  **唯一READY父任务030 / PUBLIC_IMPLEMENTATION_ONLY，尚未执行。**
+  用户实际发送合同末尾一条完整消息后，同时激活精确私人输入、新目录、CPU/媒体/SDK/GPU/
+  固定四题gold的一次有界范围，不需再回ChatGPT等另一轮“激活”。
+- 科学口径明记DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE。
+  不再要求排除013/014/R1–R6才能诊断，不追索八个旧文件或再排登记/schema门；
+  P3 participant未知也披露但不作为本轮入门否决。没有换候选或声称新源/held-out。
+  原029来源路线仍STOP，原025第7节的分离条件仅被新030研究口径明确替换；
+  旧025/024协议、旧原始记录和父任务均不改、不重开。
+- 原028四题/原索引、20选项和16个原轮转槽位不变；025原窄语法、48→12、
+  C/D同两个锚点、共享a/b/q分数/目标/tie/补齐，仅i≠j与i<j不同。
+  原N4/16槽完整冻结；媒体/许可/解码失败不替换，相应四槽NOT_RUN。
+  至少1源可用且所有真实隔离/资源门通过才启动模型；
+  至少实际调用过一次Qwen.generate才允许gold读取，不因纯准备失败查看答案。
+- 固定四题即使曾被旧研究答过，030的新回答每臂最多一次，必须在用户启动消息
+  明确授予该有限新范围；不把新口径含混当作AGENTS的历史前向禁令自动失效。
+  不重放原013–029，不读旧逐题预测/历史gold产物来调参或填结果，不迁移旧budget。
+- 资源上限是本次拟定cap而非本cohort实测：新Qwen generate≤16、单GPU worker≤1、
+  GPU阶段≤900s（含load/编码/生成）、torch peak allocated≤18GiB/Job RAM≤24GiB。
+  metadata/验证/评分CPU≤600s、媒体CPU≤1200s、获取窗口≤3600s、父≤7200s；
+  新suite≤2次、虚构worker≤12各≤5s串行，预算共享不因public/private多跑。
+- 新官方获取只针对029保存的四个精确canonical对象，不猜UID key或.mp4后缀。
+  HeadBucket≤4（不同bucket各一次）、HeadObject≤4、GetObject≤4，总实际HTTPS≤12；
+  低层retry/redirect同slot拒绝、失败不退款不重试，无LIST/STS/模型或manifest GET。
+  fresh HEAD冻结长度/ETag/VersionId再条件GET，P1维持同对象/≤890MiB且与029绑定一致；
+  各对象≤4GiB/正文累计≤16GiB。新integration_030≤384文件/24GiB，
+  media≤16GiB/frame cache≤4GiB/其余≤32MiB，读取型scope沿用已知确切引用，不扫描。
+  P2–P4大小仍未知，只在新HEAD确认落在上限内才GET，并未假称四对象合计已有实测。
+- 沿用用户既有Ego4D/HourVideo批准依据，启动消息确认现有研究许可仍有效。
+  不以HEAD200代替权利，不再要求凭空的新来源独立证书。
+  新固定输入与原028完整raw快照/profile绑定；原混合annotation准备正文0，
+  最后独立CPU scorer最多1open/4MiB，只解码四题gold；坏gold/绑定不符仍full-N UNKNOWN。
+- 实际OS边界采用Windows原文件非继承exclusive share handle（正文0B），
+  model PID期间持有，最多2个零正文拒绝探针；不改ACL，不宣称全机未知gold副本不可达。
+  全模型Job/PID实际退出、队列关闭/fsync、账本绑定后，才释放锁并启动独立CPU scorer。
+  新fixture先验证真实canary共享拒绝/Job/绑定/GET预算，不能用callback/boolean冒充OS退出。
+- 本轮复查真实worker公开静态审计确认原grid[6,12,18]/12帧/324 visual tokens；
+  新processor须逐调用实测匹配，不从旧报告填数。时间戳token可变，另报实际总长度，
+  SigLIP q/a/b未截断长度/实际截断与分阶段成本不再遗漏。
+  用新030模块连接现存原helper和权重，旧runner仅AST取必要helper，不执行其顶层或gold资格函数。
+- 公共执行allowlist七处：三个新生产030模块、新连接suite、实际运行/科研结果两报告、
+  results一个父append；不改旧adapter/scorer/supervisor/历史测试或规划。
+  一次整包连续做媒体→真实四臂→独立评分→分析后安全push STOP，不自动031/扩样/训练。
+  当前仅下达合同，未在ChatGPT侧读取私人输入、访问AWS、运行模型/测试或制造执行回执。
+- 最多4个依赖未知/可能已暴露开发题，正负结果均不能证明稳定效应、独立泛化或算法创新。
+  C=D全同则NO_REALIZED_SELECTION_CHANGE，不改规则寻找正例；
+  同帧同prompt/tensor但答不同要报告实现/可复现性问题，不解释成顺序约束获益。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**

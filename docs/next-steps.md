@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-20（北京时间；029交付[4b619da](https://github.com/floomeer83felix-source/vlm/commit/4b619da6878b2a20172e816a17f4bafc725a4457)已静态审查，按 **ACCEPTED_PARTIAL_ENGINEERING_METADATA / SOURCE_ROUTE_STOP_MISSING_PROVENANCE** 结案，**当前READY=0**。八份旧输入为汇总/demux记录，无source_group，013/014与R1–R6来源登记/运行绑定仍缺；固定4候选旧源排除全部UNKNOWN。官方manifest9645行、4候选唯一匹配；实际HEAD仅HeadBucket1＋P1 HeadObject1，P1对象200/上界890MiB，P2–P4可信region未知未发请求，bucket响应状态未持久保存仍UNKNOWN。两次新suite16/17 PASS为执行者报告，ChatGPT未复跑；18研究open全完整、4,382,708B。原N4/20选项/16文字槽位不变，无真实QA/gold/模型/GPU/媒体正文或下载。依029合同缺登记则停止当前来源路线，不自动030或再排同类schema/资格父任务、不用余下HEAD额度。已形成[具体下一步选择](./research-reviews/post029-source-route-decision-2026-10-20.md)：补准确非金标登记引用，或明确改变为允许来源可能重合的开发诊断，或停止并改数据路线；用户尚未选择，新科学口径和任何新执行许可未激活。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。历史READY只作记录，以本段/当前看板为准。）
+> 更新日期：2026-10-20（北京时间；用户在029结案后对“允许来源可能重合的开发集机制诊断”答复“好的”，现明确采用DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE，不冒称旧源排除通过。已下达[030真实开发诊断A–H整包](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/README.md)及[新科学协议](./research-protocols/development-temporal-diagnostic-2026-10-20.md)：**唯一READY父任务=VLM-DEV-TEMPORAL-PILOT-030 / PUBLIC_IMPLEMENTATION_ONLY，尚未执行**；真实数据/媒体/SDK/GPU/gold由用户实际发送合同末尾一条完整指令激活。原四题/20选项/16槽不换，媒体失败四槽NOT_RUN留N4；四臂同48→12、C/D同2锚点只变pair次序。新上限generate≤16/GPU≤900s/peak allocated≤18GiB/worker RAM≤24GiB；CPU接入验证评分≤600s、媒体≤1200s、获取≤3600s、父≤7200s；官方S3 HEAD bucket≤4/object≤4/GET≤4/实际发送总≤12，单片≤4GiB/正文总≤16GiB、P1≤890MiB，新integration_030≤384文件/24GiB。原annotation准备正文0，非继承独占handle/拒绝探针正文0，模型PID退出后一次独立CPU score≤4MiB、profile/完整快照绑定。当前仅规划，未运行/下载/读gold；029仍STOP，不补来源登记、不继承旧余额、不重跑旧父任务。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧状态仅历史，以当前看板和明确用户启动范围为准。）
 
 ## 一、任务看板
 
@@ -90,6 +90,7 @@
 | VLM-PILOT-PIPELINE-REPAIR-027 | P0 | **ACCEPTED_PARTIAL_ENGINEERING / REAL_PILOT_HOLD（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [42776af](https://github.com/floomeer83felix-source/vlm/commit/42776af041a708d6ffd7e15a8ad011b79557f3fb)及[工程回执](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/engineering-repair-receipt.md)/[实际交接HOLD](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/real-cohort-handoff.md)：七处允许交付；当前ctime_ns差异、持久预算、两runner静态factory与独立绑定评分链有进展，首轮14新测试PASS（执行者报告） | 真实index在212992 raw bytes后INVALID_JSON，scalar保留0，错误类别/完整snapshot未知；screen/inference0，不推断0合格。manifest9645行/header有效，旧UID join因universe依赖未评估。research11预留/10完整/1不完整，保守预扣6201578B/实际4559875B；9虚构PID，runtime预留495s/受控包络<90s、52文件187935B。N/来源完整排除/媒体成本/实际后端仍HOLD，原027输入与测试关闭；下一027修复成果不冒称真实QAPASS |
 | VLM-ANNOTATION-COHORT-028 | P0 | **ACCEPTED_CPU_COHORT_HANDOFF_PARTIAL / REAL_PILOT_HOLD（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [157ffd8](https://github.com/floomeer83felix-source/vlm/commit/157ffd8a26b0e632e57cb52b4215c8b99de8678d)、[容器/CPU回执](./codex-artifacts/VLM-ANNOTATION-COHORT-028/annotation-profile-receipt.md)与[真实cohort交接](./codex-artifacts/VLM-ANNOTATION-COHORT-028/cohort-and-source-handoff.md)：当前profile三遍完整，50源/1182题、支持28题、冻结4题/20选项/16文字槽位；17新测试PASS仅fixture自报 | 8旧白名单投影未获UID，非无身份/排除PASS；官方9645行仅50标注UID全部唯一join。P3 participant缺失；旧013/014/R1–R6映射、权利/媒体/版本/成本HOLD。13 open全完整、9,887,423B，21私有文件/78,853B，受控包络<40s；真实gold/模型/GPU/媒体stat/网络0。不再重跑原028或放宽解析 |
 | VLM-SOURCE-PROVENANCE-META-029 | P0 | **ACCEPTED_PARTIAL_ENGINEERING_METADATA / SOURCE_ROUTE_STOP_MISSING_PROVENANCE（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [4b619da](https://github.com/floomeer83felix-source/vlm/commit/4b619da6878b2a20172e816a17f4bafc725a4457)、[A–H回执](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/source-and-media-metadata-receipt.md)/[路线停止提案](./codex-artifacts/VLM-SOURCE-PROVENANCE-META-029/real-execution-proposal.md)：八旧文件无source_group、两已知reader未恢复登记写入关系；四候选唯一official join但旧排除全UNKNOWN | 实际HTTPS2次=HeadBucket1＋P1 HeadObject1，P1对象200/上界890MiB；P2–P4 region未知未发，bucket状态未保存。新suite16/17 PASS自报，18 open/4,382,708B，17私有文件/110402B；无真实QA/模型/GPU/gold/媒体正文/下载。原N4/20选项/16计划槽位保留；按合同停止来源路线，当前READY=0，不自动030或同类空资格任务，下一步见路线选择材料 |
+| VLM-DEV-TEMPORAL-PILOT-030 | P0 | **READY / PUBLIC_IMPLEMENTATION_ONLY（唯一；未执行；真实范围须发送明确启动消息）** | Codex待用户发送合同末尾一条完整指令 | [A–H真实整包](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/README.md)/[新科学协议](./research-protocols/development-temporal-diagnostic-2026-10-20.md)：已接受允许旧源重合的开发口径；固定4题/20选项/16槽，媒体获取/CPU候选→真实四臂→实际OS/PID隔离→一次最终评分→科研分析，不再追旧登记 | 明确消息后≤16 generate/900s GPU/18GiB allocated/24GiB worker RAM；CPU600s＋媒体1200s，获取3600s/父7200s；官方HeadBucket≤4/HeadObject≤4/GET≤4、实际总≤12、单片4GiB/正文16GiB（P1≤890MiB），新384文件/24GiB；原annotation准备0B、最后一次gold≤4MiB，失败NOT_RUN留完整N4，新suite≤2；七处allowlist，一次push STOP，不自动031/训练或独立泛化结论 |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -1007,5 +1008,62 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   C停止本来源方案，另选有可追溯来源的新数据路线。
   本次只写可审查决策材料，不创建虚假READY/空执行回执或默认改变研究口径。
 - 当前没有新增真实QA、训练、事件证据实例/召回、源级泛化或创新性结果。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 用户接受开发集机制诊断；030真实整包已下达，资源由单条新消息激活
+
+- 用户在029结案、明确提出“允许来源可能重合的开发集机制诊断、不能作为独立验证”
+  后回复“好的”，本次据此接受post029选项B。不是把旧源排除已证PASS，
+  也不把此短答扩张为未列明的GPU/下载/gold额度。
+- 新增[开发诊断科学协议](./research-protocols/development-temporal-diagnostic-2026-10-20.md)
+  和[VLM-DEV-TEMPORAL-PILOT-030 A–H合同](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/README.md)。
+  **唯一READY父任务030 / PUBLIC_IMPLEMENTATION_ONLY，尚未执行。**
+  用户实际发送合同末尾一条完整消息后，同时激活精确私人输入、新目录、CPU/媒体/SDK/GPU/
+  固定四题gold的一次有界范围，不需再回ChatGPT等另一轮“激活”。
+- 科学口径明记DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE。
+  不再要求排除013/014/R1–R6才能诊断，不追索八个旧文件或再排登记/schema门；
+  P3 participant未知也披露但不作为本轮入门否决。没有换候选或声称新源/held-out。
+  原029来源路线仍STOP，原025第7节的分离条件仅被新030研究口径明确替换；
+  旧025/024协议、旧原始记录和父任务均不改、不重开。
+- 原028四题/原索引、20选项和16个原轮转槽位不变；025原窄语法、48→12、
+  C/D同两个锚点、共享a/b/q分数/目标/tie/补齐，仅i≠j与i<j不同。
+  原N4/16槽完整冻结；媒体/许可/解码失败不替换，相应四槽NOT_RUN。
+  至少1源可用且所有真实隔离/资源门通过才启动模型；
+  至少实际调用过一次Qwen.generate才允许gold读取，不因纯准备失败查看答案。
+- 固定四题即使曾被旧研究答过，030的新回答每臂最多一次，必须在用户启动消息
+  明确授予该有限新范围；不把新口径含混当作AGENTS的历史前向禁令自动失效。
+  不重放原013–029，不读旧逐题预测/历史gold产物来调参或填结果，不迁移旧budget。
+- 资源上限是本次拟定cap而非本cohort实测：新Qwen generate≤16、单GPU worker≤1、
+  GPU阶段≤900s（含load/编码/生成）、torch peak allocated≤18GiB/Job RAM≤24GiB。
+  metadata/验证/评分CPU≤600s、媒体CPU≤1200s、获取窗口≤3600s、父≤7200s；
+  新suite≤2次、虚构worker≤12各≤5s串行，预算共享不因public/private多跑。
+- 新官方获取只针对029保存的四个精确canonical对象，不猜UID key或.mp4后缀。
+  HeadBucket≤4（不同bucket各一次）、HeadObject≤4、GetObject≤4，总实际HTTPS≤12；
+  低层retry/redirect同slot拒绝、失败不退款不重试，无LIST/STS/模型或manifest GET。
+  fresh HEAD冻结长度/ETag/VersionId再条件GET，P1维持同对象/≤890MiB且与029绑定一致；
+  各对象≤4GiB/正文累计≤16GiB。新integration_030≤384文件/24GiB，
+  media≤16GiB/frame cache≤4GiB/其余≤32MiB，读取型scope沿用已知确切引用，不扫描。
+  P2–P4大小仍未知，只在新HEAD确认落在上限内才GET，并未假称四对象合计已有实测。
+- 沿用用户既有Ego4D/HourVideo批准依据，启动消息确认现有研究许可仍有效。
+  不以HEAD200代替权利，不再要求凭空的新来源独立证书。
+  新固定输入与原028完整raw快照/profile绑定；原混合annotation准备正文0，
+  最后独立CPU scorer最多1open/4MiB，只解码四题gold；坏gold/绑定不符仍full-N UNKNOWN。
+- 实际OS边界采用Windows原文件非继承exclusive share handle（正文0B），
+  model PID期间持有，最多2个零正文拒绝探针；不改ACL，不宣称全机未知gold副本不可达。
+  全模型Job/PID实际退出、队列关闭/fsync、账本绑定后，才释放锁并启动独立CPU scorer。
+  新fixture先验证真实canary共享拒绝/Job/绑定/GET预算，不能用callback/boolean冒充OS退出。
+- 本轮复查真实worker公开静态审计确认原grid[6,12,18]/12帧/324 visual tokens；
+  新processor须逐调用实测匹配，不从旧报告填数。时间戳token可变，另报实际总长度，
+  SigLIP q/a/b未截断长度/实际截断与分阶段成本不再遗漏。
+  用新030模块连接现存原helper和权重，旧runner仅AST取必要helper，不执行其顶层或gold资格函数。
+- 公共执行allowlist七处：三个新生产030模块、新连接suite、实际运行/科研结果两报告、
+  results一个父append；不改旧adapter/scorer/supervisor/历史测试或规划。
+  一次整包连续做媒体→真实四臂→独立评分→分析后安全push STOP，不自动031/扩样/训练。
+  当前仅下达合同，未在ChatGPT侧读取私人输入、访问AWS、运行模型/测试或制造执行回执。
+- 最多4个依赖未知/可能已暴露开发题，正负结果均不能证明稳定效应、独立泛化或算法创新。
+  C=D全同则NO_REALIZED_SELECTION_CHANGE，不改规则寻找正例；
+  同帧同prompt/tensor但答不同要报告实现/可复现性问题，不解释成顺序约束获益。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
