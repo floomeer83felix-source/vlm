@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；[025提交8342d4e](https://github.com/floomeer83felix-source/vlm/commit/8342d4e7a35e786106247895aeda2898ecf0a2cb)已按 **ACCEPTED_PUBLIC_ADAPTER_CONTRACT_PASS** 验收结案，**当前READY=0**。ChatGPT静态审查三份公共Python、测试与回执，未独立运行；执行者报告最终30 PASS/两次启动累计child0.461781秒。新接口实现答案跳过、同两锚点C/D、冻结四臂轮转和一次末期批次评分；逻辑receipt/实例guard不认证真实OS退出、持久防重试或准备/评分输入同一快照。真实runner/GPU阶段仍非READY，不复跑025或增设合成/空资格父任务。后续最多4源各1题/四臂仅是待具体授权的记录组隔离探索设计，物理独立与真实QA效应UNKNOWN。024关闭、旧预算不继承；TRAIN-GPU HOLD、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。以下旧日期状态仅为历史。）
+> 更新：2026-10-20（北京时间；用户要求一次安排更多任务，已制定[026真实试点接入A–H整包](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/README.md)，合并真实数据交接/候选冻结、runner静态接入、输入绑定及实际进程监督等八项工作。**026待一次明确CPU数据范围批准，当前READY=0**；本次规划未重读私人nongold/选项/源映射，未写私人目录或运行测试。批准后可连续完成独立子项、统一回执，不再按微步骤分父任务。拟范围≤48MiB输入、≤4题各5选项、单一新私有目录≤32MiB、受控child累计≤600s，GPU/模型/真实gold/媒体正文/研究下载0。025已验收结案，不复跑；未来真实QA仍需实际候选、分组/权利/媒体/隔离与具体资源证据及新许可，不继承旧额度。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1066,3 +1066,30 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 科研结论维持：本轮修复公共接口缺口，未新增真实QA证据，未认证事件召回、Qwen顺序使用、
   物理录制独立或新算法。**REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；
   CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 用户要求一次多项任务：026 A–H整包已规划，待一次CPU数据范围批准
+
+- [任务合同](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/README.md)已将下一轮固定为一个八项父任务：
+  A精确交接/真实schema，B实际nongold筛选和013/014/R1–R6/已知派生来源排除，
+  C最多4源各1题的固定候选/5选项及确切媒体stat/成本，
+  D准备/末期评分的可信输入绑定，E真实runner的私人静态接入副本，
+  F持久账本/跨进程guard/实际child退出监督，G限额进程故障验证，
+  H一份完整回执与真实执行提案。子项不是分别READY的任务；不会逐项另开审批或父任务。
+- 当前指令授权安排任务，没有新增私人数据读取/选项/私有写入或GPU许可。
+  025协议要求新数据范围；因此026是PROPOSED_BUNDLE / PENDING_SINGLE_CPU_DATA_SCOPE_APPROVAL，
+  **当前READY=0**，不创建空回执或实验结果。用户一次明确批准合同CPU范围后再更新看板触发。
+  私人精确入口沿用已有Codex会话已确认的引用，不请求重复上传、不扫描或推测文件。
+- 新申请输入包括旧两份精确入口的限额nongold投影、必要旧源分组字段、
+  最终≤4题各5选项、≤6份已知真实源码的AST检查；累计研究输入≤48MiB。
+  仅可在已知018根的integration_026新目录写≤32MiB私人投影/计划/接入副本与自有账本，
+  原实验资产/旧锁/旧记录不改；受控child每个≤120s/累计≤600s，coordinator≤1200s，
+  测试启动≤2、虚构worker累计≤16次各≤5s。GPU/模型/真gold值/媒体正文/研究下载均0。
+- A–D不满足时如实标HOLD但继续不依赖它的E/F/G/H；缺真实入口时不能声称实际接入完成。
+  G检验新监督/持久化与绑定故障，不复跑025 selector或任何历史测试/QA，不把fixture通过
+  当真实QA效果，也不把Python代码守卫冒充OS权限隔离。拟真实诊断仍保留记录组分离和
+  物理独立UNKNOWN的区别；具体新研究口径和GPU/下载/gold范围须在H实际证据上另行接受。
+- 公共执行交付限定三份026 stdlib Python、一份A–H匿名回执、一份实际证据支持的未来
+  执行提案、results末尾一条父记录；私人题/选项/身份/摘要不入Git。
+  计划本身只新增026合同并更新当前board/overview，不修改025、协议、AGENTS或历史结果。
+  026获批后一个执行轮统一安全push并STOP，不自动027或GPU，不续旧预算。
