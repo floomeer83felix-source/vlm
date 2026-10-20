@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；用户要求一次安排更多任务，已制定[026真实试点接入A–H整包](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/README.md)，合并真实数据交接/候选冻结、runner静态接入、输入绑定及实际进程监督等八项工作。**026待一次明确CPU数据范围批准，当前READY=0**；本次规划未重读私人nongold/选项/源映射，未写私人目录或运行测试。批准后可连续完成独立子项、统一回执，不再按微步骤分父任务。拟范围≤48MiB输入、≤4题各5选项、单一新私有目录≤32MiB、受控child累计≤600s，GPU/模型/真实gold/媒体正文/研究下载0。025已验收结案，不复跑；未来真实QA仍需实际候选、分组/权利/媒体/隔离与具体资源证据及新许可，不继承旧额度。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
+> 更新：2026-10-20（北京时间；[026交付a17d7b5](https://github.com/floomeer83felix-source/vlm/commit/a17d7b5f48844360fd6aaf064dd502164954068c)已按 **ACCEPTED_PARTIAL_DELIVERY / REAL_PILOT_HOLD** 审查结案，**当前READY=0**。F/G的进程退出、持久锁/失败防重试等最终10项虚构集成测试由执行者报告通过，ChatGPT只静态审查、未复跑。A–E真实链路未完成：标注/一runner在stat/fstat身份检查处停止，manifest延续协调器另有导入及可观测性错误；这些不是数据不合格或算法失败证据。真实筛选、选项、N/完整来源排除、媒体成本和backend接入未冻结，不能宣称整包PASS。仓库PENDING激活滞后与执行者所报私聊明确CPU批准分别记录；026现已交付，不可因旧标签或剩余额度重跑。下一工程修复应合并处理实际身份差异、协调器/持久计数、manifest schema与后端交接，不再重复资产盘点；本轮无新任务或私人数据/GPU许可。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1093,3 +1093,56 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   执行提案、results末尾一条父记录；私人题/选项/身份/摘要不入Git。
   计划本身只新增026合同并更新当前board/overview，不修改025、协议、AGENTS或历史结果。
   026获批后一个执行轮统一安全push并STOP，不自动027或GPU，不续旧预算。
+
+
+### 2026-10-20 · 026按部分交付结案：进程fixture通过，真实数据/后端链路未通
+
+- 审查main交付：[a17d7b5](https://github.com/floomeer83felix-source/vlm/commit/a17d7b5f48844360fd6aaf064dd502164954068c)，直接父为026规划fed8ceb。
+  共六处允许变更：三份新Python、[A–H回执](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/real-pilot-integration-receipt.md)、
+  [执行提案](./codex-artifacts/VLM-REAL-PILOT-INTEGRATION-026/pilot-execution-proposal.md)与results末尾唯一026父记录。
+  无旧文件删除或历史结果改写。本轮ChatGPT逐段静态读三份源码/10项测试与报告，不再运行026/
+  025或历史测试，不接触私人研究输入、媒体、模型、真实gold或GPU；仅更新当前board/本日志。
+- **ACCEPTED_PARTIAL_DELIVERY / REAL_PILOT_HOLD**，不是REAL_INTEGRATION_PASS。
+  执行者回执称用户在私聊已明确批准完整026 CPU范围；仓库仍PENDING/READY0是激活滞后，
+  不能写成执行前曾验证唯一READY通过。更新为已交付结案后，旧PENDING不再是待执行许可，
+  也不为补测、原输入重开或所谓剩余额度提供依据；不要求用户对已发生授权重复确认。
+- **A–D数据交接不足。** 执行者报告标注和一份runner在打开时stat/fstat tuple比较处
+  拒绝，正文未读；六份历史分组投影及一份runner AST读完成。公开prepare代码的identity
+  确实比较dev/ino/size/mtime_ns/ctime_ns五字段，但公开证据没有具体不相等字段，不能独立
+  认证成因或宣称原文件已损坏/消失。空流摘要、不完整receipt不是标注快照。
+  [Python3.9官方文档](https://docs.python.org/3.9/library/os.html#os.stat_result)说明时间字段
+  含义和精度受平台/文件系统影响；这仅提示先做字段级诊断，不证明该次差异来自ctime或允许
+  删除保护条件。后续修复须保留可证明的文件绑定与变更拒绝，不用粗化时间/忽略字段强行PASS。
+- **独立的协调器/可观测性缺陷。** 回执将manifest延续失败定位到未导入asdict，并说明
+  stderr只留行数、未有可用延续产物或可靠恢复计数；该私人launcher未提交，ChatGPT不能
+  独立复核其错误行或完整执行序列。保守消费可能的manifest读取是正确记账方向，但20MiB
+  输入包络、10秒受控PID/window包络均为执行者报告的上界，不是精确可重建实际测量。
+  不能给continuation/join PASS，更不能把这些错误归为真实manifest冲突。
+- **B/C/E仍HOLD或PARTIAL。** 无真实schema/index、screen、候选题键或选项冻结；
+  0冻结键/0保留选项是执行次数，不等于0合格题。013/014精确映射缺失，完整origin/
+  participant/已知派生排除、当前权利、实际媒体路径/stat/声明成本与N均UNKNOWN。
+  公共read_manifest要求video_uid列，真实header相容性本轮未证；不可凭字段假设给真实join。
+  私有bridge/inputs(i,ids)的AST/compile记录不代表closure、processor/backend接通；
+  025/026公共接口导入正常也不等于实际frame/token/prompt/decoder等价。
+- **F/G仅在fixture范围接受。** 公开Supervisor实际持有Popen/wait/kill自己的child，
+  在队列闭合/子进程退出后才允许评分；原子锁和fsync日志留STARTED/TERMINAL/
+  SCORING_CONSUMED，FAILED/NOT_RUN保留。10个新测试有对应的真实虚构子进程、健康peer
+  不误杀、跨进程锁拒绝、提前零opener、绑定不符及失败后不重开断言。
+  最终10 PASS/0 FAIL/ERROR/SKIP为执行者报告；首轮5 PASS/5 launcher guard ERROR，
+  两次启动均消费，14/16持久预留、7个实际虚构PID（含独立评分child），无第三次复跑。
+- **生产边界仍未证。** score_once是同进程callback的绑定核对，score_child_once是
+  独立child启动；二者目前未构成一个已证的真实批次绑定评分流程。Supervisor的5秒/16槽
+  是fixture限制，不是Qwen预算。run_id尚未绑定实际cohort，原始输入计数不具备已证的
+  失败后可靠恢复；OS gold拒绝、真正模型资源约束和输出解析也未接通。不能以两个单独
+  fixture路径通过来认证跨进程真实gold隔离、可重启生产runner或真实QA效果。
+- 回执报告私人新目录51文件/24429B、真实gold值0、真实选项0、媒体正文/probe/decode0、
+  Torch/模型/GPU/generate/train0、研究下载与环境/ACL修改0。公开差异未见真实身份、题文、
+  选项、答案、私人路径或摘要。私人计数/平台日志未独立访问，不扩大为完整外部安全认证。
+- **当前READY=0；026关闭，不自动027、不重开026输入或测试。** 下一工作重点已有具体
+  工程证据，应在一个明确的新范围中合并修复身份字段诊断/稳定绑定、协调器导入与安全错误码、
+  原子持久输入计数、真实manifest header/旧源引用和backend映射，再取得实际候选N与成本；
+  不拆成重复环境盘点或另一组selector toy测试，不在数据未通时追加GPU额度。
+  此处只记录整改方向，不下达新父任务、不授权额外私人读取或OS/环境改变。
+- 科研结论不变：无新增真实QA对照、事件召回/实例/时间桥认证、来源级泛化或算法创新证据。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
