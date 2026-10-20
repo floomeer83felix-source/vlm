@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；[026交付a17d7b5](https://github.com/floomeer83felix-source/vlm/commit/a17d7b5f48844360fd6aaf064dd502164954068c)已按 **ACCEPTED_PARTIAL_DELIVERY / REAL_PILOT_HOLD** 审查结案，**当前READY=0**。F/G的进程退出、持久锁/失败防重试等最终10项虚构集成测试由执行者报告通过，ChatGPT只静态审查、未复跑。A–E真实链路未完成：标注/一runner在stat/fstat身份检查处停止，manifest延续协调器另有导入及可观测性错误；这些不是数据不合格或算法失败证据。真实筛选、选项、N/完整来源排除、媒体成本和backend接入未冻结，不能宣称整包PASS。仓库PENDING激活滞后与执行者所报私聊明确CPU批准分别记录；026现已交付，不可因旧标签或剩余额度重跑。下一工程修复应合并处理实际身份差异、协调器/持久计数、manifest schema与后端交接，不再重复资产盘点；本轮无新任务或私人数据/GPU许可。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
+> 更新：2026-10-20（北京时间；用户明确要求先下达工作任务再给Codex执行口令，现已下达[027工程修复/真实交接A–H整包](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/README.md)。**唯一READY=027公共CPU修复，尚未执行；私人数据阶段仅在用户发送明确027范围指令后激活。** 合同末尾给出一条同时触发与声明范围的口令，避免026式“用户已批准但看板仍PENDING”的激活滞后。公共修复不因缺数据授权而空跑整包；已明确新范围时，合并实际身份诊断/稳定绑定、持久预算/协调器、manifest与旧源排除、候选/选项和backend静态交接、独立CPU评分绑定验证后统一提交。027可定点修两个026工程模块，原026报告保留且旧suite不复跑。GPU/模型/真gold值/媒体正文/研究下载0，真实pilot仍非READY，不续旧预算。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1144,5 +1144,40 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   不拆成重复环境盘点或另一组selector toy测试，不在数据未通时追加GPU额度。
   此处只记录整改方向，不下达新父任务、不授权额外私人读取或OS/环境改变。
 - 科研结论不变：无新增真实QA对照、事件召回/实例/时间桥认证、来源级泛化或算法创新证据。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 按用户要求先下达027任务，再提供一条Codex执行指令
+
+- 用户明确纠正交接流程：先把工作任务写入仓库，再给当前Codex会话的执行指令。
+  据此本次完成[027 A–H合同](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/README.md)与看板，而非只写026验收或抽象整改方向。
+  这是新用户要求下的任务安排，不是026结束后自动续跑；当前未执行027、未读取私人资料。
+- **唯一READY父任务027 / PUBLIC_REPAIR_CPU_ONLY**：公共模块定点修复、公开相位协调器、
+  新修复见证可直接领取。私人nongold/选项/已有交接读取和新私有目录写入仍须新范围；
+  同一条由用户发送的Codex消息可明确授权并触发，不再要求用户先批准、等待仓库激活、
+  再另发一条启动消息。普通“继续”没有该新数据范围，只执行公共部分并如实记录未准许项。
+- A–H覆盖：同步/可审查协调器；身份与稳定性分离并保留字段差异诊断；原子持久预算/
+  失败错误码与恢复；实际manifest UID schema和013/014/R1–R6/已知派生映射；
+  原025规则的真实筛选与最多4源各1题冻结、≤20选项及确切媒体stat/成本；
+  私人worker AST/closure/backend映射；固定cohort identity、bounded child输出与deadline、
+  一次流绑定核验进入独立CPU scorer的虚构整链验证；一份父回执及真实交接报告。
+- 027明确允许定点修改temporal_pilot_prepare_026.py及temporal_pilot_supervisor_026.py，
+  避免每轮新建同功能selector。026原报告/原测试不改也不复跑，历史证据保留a17d7b5版本；
+  025语法、四臂/48→12/C/D锚点/分母规则不变。samestat等标准库文件身份能力与时间
+  字段稳定性需分开验证，未取得真实差异字段前不先验归因ctime，不以删守卫强行PASS。
+- 用户新027范围（若明确发出）限累计研究输入≤48MiB、原精确入口/有限旧源及026已知
+  nongold交接、最多4题各5选项；额外诊断句柄只对上次失败的两个确切入口各≤1、正文0
+  且预扣/记账。只写已知018根下新integration_027，所有027新增≤128文件/32MiB；
+  CPU每child≤120s/累计≤600s，协调器窗口≤1200s，新suite≤2次、虚构worker≤24次各≤5s。
+  public-only fixture不进入实验根；无范围时私人open/write0；不沿用026余量或重复失败源。
+- 执行allowlist七处：定点修改两个026工程模块，新增027 coordinator/test，一份工程回执、
+  一份真实cohort交接报告，results末尾一条。协调器/错误与预算必须作为可审查交付，
+  不再用不提交的临时launcher掩盖失败，也不能把callback绑定与单独child启动分别通过
+  冒称独立真实评分链已接通。独立子项可继续，未完成真实数据/后端者不能给整包实证PASS。
+- 本规划仅新增027合同、更新board/overview；不创建空执行结果，不开放真实gold/媒体正文、
+  GPU/模型/训练/研究下载/安装或ACL改变。最终用户粘贴指令会明确列出CPU数据范围；
+  合同与该用户消息一起构成执行上限，后来文件变动不能自行扩大原授权。
+  一轮交付后STOP，不自动028，不把公共修复READY解释成真实pilot READY。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
