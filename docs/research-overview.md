@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；继[源码/结构审查](./research-reviews/private-runner-structure-audit-2026-10-20.md)后，用户明确批准的一次CPU nongold检查已完成，现授权写入下一任务。[可行性审查](./research-reviews/nongold-feasibility-audit-2026-10-20.md)确认50/50来源与声明时长元数据匹配、28道明确双事件时间间隔题各在不同视频；024原白名单+marker口径两视频最多8道，不能达到12。时间顺序是题目给定的检索约束，不能伪装成待预测的AB/BA标签。**唯一READY=VLM-TEMPORAL-EVIDENCE-ADAPTER-025，仅公共代码+虚构CPU接口验证，尚未执行**；[新协议](./research-protocols/temporal-distance-diagnostic-2026-10-20.md)冻结同两锚点C/D对照、无rank存在性门及末期gold接口。真实阶段非READY、实际事件缺失/顺序利用仍UNKNOWN。024关闭、原记录不改、旧预算不续用；私人一次性审查已结束。TRAIN-GPU仍HOLD，NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。以下旧日期状态仅为历史。）
+> 更新：2026-10-20（北京时间；[025提交8342d4e](https://github.com/floomeer83felix-source/vlm/commit/8342d4e7a35e786106247895aeda2898ecf0a2cb)已按 **ACCEPTED_PUBLIC_ADAPTER_CONTRACT_PASS** 验收结案，**当前READY=0**。ChatGPT静态审查三份公共Python、测试与回执，未独立运行；执行者报告最终30 PASS/两次启动累计child0.461781秒。新接口实现答案跳过、同两锚点C/D、冻结四臂轮转和一次末期批次评分；逻辑receipt/实例guard不认证真实OS退出、持久防重试或准备/评分输入同一快照。真实runner/GPU阶段仍非READY，不复跑025或增设合成/空资格父任务。后续最多4源各1题/四臂仅是待具体授权的记录组隔离探索设计，物理独立与真实QA效应UNKNOWN。024关闭、旧预算不继承；TRAIN-GPU HOLD、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP。以下旧日期状态仅为历史。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1033,3 +1033,36 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 本次规划只提交匿名审查、新协议、新任务README及当前board/overview；不追加实验
   codex-results，不启动025或任何真实推理。NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
   Charades FINAL_MEDIA_STOP与TRAIN-GPU HOLD持续。
+
+
+### 2026-10-20 · 025公共接口验收结案：当前READY=0
+
+- 审查基准：[8342d4e](https://github.com/floomeer83felix-source/vlm/commit/8342d4e7a35e786106247895aeda2898ecf0a2cb)，父提交为025规划dee3031；核实时main指向该交付。
+  差异恰好是三份新Python、[匿名回执](./codex-artifacts/VLM-TEMPORAL-EVIDENCE-ADAPTER-025/cpu-adapter-contract-receipt.md)和codex-results末尾一条父记录，
+  未修改规划、旧结果、025合同/协议或AGENTS。ChatGPT本轮只静态阅读，不重新运行025/历史测试，
+  不访问任何私人研究输入、模型、媒体、gold或GPU。本次只更新当前看板及本日志。
+- **ACCEPTED_PUBLIC_ADAPTER_CONTRACT_PASS**：数据投影按精确batch与嵌套字段白名单保留值，
+  未准许值逐字符跳过；重复键检测需解码对象键。测试对value decoder作仪器化，并覆盖保护值
+  扰动不改变投影/分解/计划/选帧、选项只进inference视图，以及转义、畸形JSON和输入上限。
+  这支持本轮接口边界，不是对真实文件/28道题语法覆盖率或访问许可的验证。
+- C/D同48候选、12帧、两个不同事件锚点；目标函数、词向量输入、tie与sQ填充相同，
+  配对域分别i≠j与i<j。反向最优、已正向最优、相同/负分和交换事件向量有能失败的断言；
+  无rank存在性认证。四臂冻结轮转且不因选帧相同而省略尝试，不证明事件实例或实际token相等。
+- 末期评分先核逻辑plan/terminal ledger/closed queue与匹配退出registry，再消耗实例guard并
+  调用一次opener；失败也不可在同实例重开。源码只投影本batch gold；严格预测解析、
+  INVALID/FAILED/NOT_RUN、坏gold保持计划N与UNKNOWN准确率/配对、六张配对表均有对应断言。
+  真实子进程退出与gold拒绝须由新可信supervisor执行，不能把测试receipt或新scorer对象当认证。
+- 动态结果是执行者报告而非ChatGPT独立实测：两次允许启动均已消费，首轮在import读取守卫
+  exit1且0测试断言；只静态修订launcher的精确源码加载方式，第二轮exit0、30 PASS/0 FAIL/
+  0 ERROR/0 SKIP，生产代码未在两轮间变更。受控child墙钟0.119151+0.342630=0.461781秒，
+  coordinator累计0.461883秒，均低于合同上限；无第三次运行或超时kill。不能以30项数量
+  代替真实OS隔离、跨进程持久账本、准备/评分输入快照绑定或Windows模型集成实证。
+- **025已关闭，当前READY=0。** 不再派合成补测或无具体输入的资格父任务。后续仅考虑
+  已冻结的记录组隔离探索诊断（最多4合格源各1题、四臂最多16次QA）；用户仍须明确接受
+  新研究口径及残余依赖风险，并对具体数据/选项/gold、CPU/GPU/下载成本与执行范围给新授权。
+  准备前需使用已恢复的精确入口和旧源排除证据，不扫描/重读私人文件来补本轮报告。
+  实际cohort、权利、已知参与者/来源排除、真实监督/快照接入及资源证据未闭合，故不把真实
+  阶段列READY、不继承旧预算，也不把协议上限写成实际可用样本数。
+- 科研结论维持：本轮修复公共接口缺口，未新增真实QA证据，未认证事件召回、Qwen顺序使用、
+  物理录制独立或新算法。**REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；
+  CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
