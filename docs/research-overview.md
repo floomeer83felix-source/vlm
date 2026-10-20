@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-20（北京时间；用户明确要求先下达工作任务再给Codex执行口令，现已下达[027工程修复/真实交接A–H整包](./codex-artifacts/VLM-PILOT-PIPELINE-REPAIR-027/README.md)。**唯一READY=027公共CPU修复，尚未执行；私人数据阶段仅在用户发送明确027范围指令后激活。** 合同末尾给出一条同时触发与声明范围的口令，避免026式“用户已批准但看板仍PENDING”的激活滞后。公共修复不因缺数据授权而空跑整包；已明确新范围时，合并实际身份诊断/稳定绑定、持久预算/协调器、manifest与旧源排除、候选/选项和backend静态交接、独立CPU评分绑定验证后统一提交。027可定点修两个026工程模块，原026报告保留且旧suite不复跑。GPU/模型/真gold值/媒体正文/研究下载0，真实pilot仍非READY，不续旧预算。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧日期状态仅为历史。）
+> 更新：2026-10-20（北京时间；[027交付42776af](https://github.com/floomeer83felix-source/vlm/commit/42776af041a708d6ffd7e15a8ad011b79557f3fb)已按 **ACCEPTED_PARTIAL_ENGINEERING / REAL_PILOT_HOLD** 审结，当前ctime兼容性/持久预算/静态closure与独立fixture评分有进展，14项新测试由执行者报告通过、ChatGPT未复跑。真实index在212992 raw bytes后INVALID_JSON，类别未知，未完成cohort或真实QA；manifest已读但旧源join被失败index错误依赖。已下达[028容器诊断/真实筛选/独立join整包](./codex-artifacts/VLM-ANNOTATION-COHORT-028/README.md)，**唯一READY=028公共CPU解析修复；私人阶段及skip-only NaN/±Infinity profile须用户新消息明确接受**。默认严格、原始标注和025问答设计不变；兼容profile是明示的新容器口径，不将其倒写成旧严格JSON门通过。输入仍不兼容或原窄语法无候选则停止当前路线，不再自动029/空资格父任务。真实GPU/媒体下载/gold仍非READY，旧余额不迁移；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1181,3 +1181,57 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   一轮交付后STOP，不自动028，不把公共修复READY解释成真实pilot READY。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-20 · 027部分工程验收；下达最后一次有限028容器/真实筛选门并提供执行口令
+
+- 审查main[42776af](https://github.com/floomeer83felix-source/vlm/commit/42776af041a708d6ffd7e15a8ad011b79557f3fb)（父b6d0f7d）：七处027允许路径，
+  两个旧公共工程模块定点修改、新coordinator/test、两份回执、results末尾唯一027父记录。
+  本轮逐段静态审查源码/新14项测试和公开证据，不独立运行测试，不访问私人资料或模型。
+  027按ACCEPTED_PARTIAL_ENGINEERING / REAL_PILOT_HOLD结案，不复跑原027。
+- A–C工程有实质进展：same-file identity与path/handle各自前后稳定性/完整流摘要分离，
+  当前标注/先前失败runner/manifest仅ctime_ns跨API差异由执行者观察；两runner和manifest
+  完成稳定读。027数据不是026历史失败的完整重建。持久input ledger采用OS锁、序号/hash链、
+  open前预扣、失败/pending不退款。公开源码与报告相符，不扩大成任意崩溃点安全认证。
+- D/E真实数据仍未通：index-only在raw读取212992B后INVALID_JSON，零scalar被请求；
+  原因/字符位置/完整结构UNKNOWN，无screen/inference、无真实候选N或选项、媒体stat0。
+  可能的文件/严格解析兼容原因未区分，不能宣布含NaN或标注损坏。全部annotation后续角色
+  未重开，partial digest不是完整snapshot。历史28/1182不能填成本轮结果。
+- 官方manifest一次完成9645行，唯一video_uid和source/origin/participant/release/canonical
+  duration等schema已观察；file-size/显式canonical-version列不存在，不能凭空填字节成本。
+  但coordinator把flatten后的旧值与失败index的空universe相交，再请求空manifest集合；
+  零请求/匹配是依赖产物，不是失败join或没有旧源。六旧投影及一个026 nongold交接未各自
+  保存以供独立完成排除，013/014缺项继续UNKNOWN；028必须去掉这一依赖并持久化最小旧投影。
+- F静态factory保留两个真实inputs(i,ids)的原helper body，questions只由nongold选项
+  投影构造，依赖显式注入且AST/compile；通用callback草稿已被执行者明确退役。
+  不认证真实processor/model调用、帧/token一致、OS gold拒绝或QA正确率。
+- G的独立fixture child已在同一条路径做一次流绑定＋虚构batch评分，parent待退出/
+  receipt匹配后发布；摘要错、半读、failure不发布且guard消费。spawn起算deadline、bounded
+  pipes、固定cohort改名拒绝等有断言。14 PASS/1 suite、9预留/9虚构PID为执行者报告，
+  后增review/static-factory modes只有静态检查，不能说全部模式动态已测。
+  report的research11预留/10完整/1不完整、6201578B预扣/4559875B实际、runtime预留495s/
+  实际控制包络<90s和52文件187935B均保留证据等级，不冒称ChatGPT本机重现。
+- 按用户“审查后先写下一任务，再给Codex指令”的既定要求，下达
+  [VLM-ANNOTATION-COHORT-028](./codex-artifacts/VLM-ANNOTATION-COHORT-028/README.md)，唯一READY公共解析修复，
+  真实数据阶段须新用户消息明确CPU范围和窄容器profile。Python官方
+  [JSON兼容说明](https://docs.python.org/3.9/library/json.html#infinite-and-nan-number-values)
+  支持预先区分严格JSON与标准库NaN/Infinity/-Infinity扩展；**不支持把它们当本例真因**。
+  新profile只在原本不保留的值上词法识别三种完整裸token并丢弃，绝不解码/保留保护值；
+  admitted字段仍HOLD，其他非法语法/重复键/非法转义等拒绝，默认STRICT_025不变。
+- 028把这一变化明记为CONTAINER_PROFILE_CHANGED，不改原025严格协议或原实验记录，
+  不改题型语法、原来源/题序、四臂/48→12/C/D同锚点/分母。未来scorer的profile必须匹配，
+  坏gold仍full-N HOLD；本轮只用虚构gold验证接口。新profile先由虚构反例和decode仪器化
+  验证，再在获新许可的精确容器上index→screen→冻结≤4题选项；不改文件、不替值、
+  不全文JSON decoder、不先验用邻域/raw token诊断保护字段。
+- 028同时字段感知恢复old UID（不与annotation universe相交、不把任意字符串当UID），
+  一遍manifest join独立处理已知old UID与成功index UID并集；index失败仍完成独立旧join。
+  source/participant/派生缺项照实写，不给完整排除PASS，不重复读取runner或重写监督器。
+  028新范围输入≤48MiB、各annotation角色≤1共3open、manifest1、旧源8/027 nongold6份、
+  新integration_028≤128文件/32MiB、CPU累计≤600s、新suite≤2，真实runner读/模型/GPU/
+  真实gold/媒体正文/网络下载0。八处公开allowlist，一条父结果/一次安全push后STOP。
+- **这是当前输入路线最后一次有限容器门。** 若仍不属已冻结profile，明确
+  INPUT_CONTRACT_NO_GO_CURRENT_FILE；原题型无候选则COHORT_RULE_NO_GO，停止此路线，
+  不是自动029/扩大token或语法/再次空资格。其他独立已获准工作仍交付；新研究来源/版本/
+  口径须用户决策。候选成功也不自动授权GPU，下一资源/媒体/权利方案必须基于实际N。
+  REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。
