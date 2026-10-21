@@ -1,4 +1,4 @@
-"""030 nongold four-arm worker with fixed032 binding; no defaults/heavy imports."""
+"""030 nongold four-arm worker with fixed033 binding; no defaults/heavy imports."""
 import argparse
 from dataclasses import asdict
 import gc
@@ -9,7 +9,7 @@ from pathlib import Path
 import sys
 import time
 
-from development_pilot_030 import Journal, require, require_ready, load, packed, digest, GIB
+from development_pilot_030 import Journal, require, require_ready, load, packed, digest, GIB, validate_queue_033, validate_start_033, resource_receipt_033
 from temporal_evidence_adapter_025 import select_four
 
 
@@ -59,10 +59,13 @@ def worker(root):
         config = load(root, 'worker-input.json'); queue = load(root, 'queue.json')
         frozen=journal.events('FROZEN');launches=journal.events('MODEL_LAUNCH')
         require(digest(config) == queue['worker_hash'] and len(queue['slots']) == 16
-                and queue['contract_id']=='032' and queue['run_id']==journal.rows[0]['run_id']
+                and queue['contract_id']=='033' and queue['run_id']==journal.rows[0]['run_id']
                 and len(frozen)==len(launches)==1 and frozen[0]['worker_hash']==queue['worker_hash']
                 and frozen[0]['plan_hash']==queue['plan_hash'] and launches[0]['queue_hash']==digest(queue)
                 and queue['slots']==config['slots'], 'WORKER_FREEZE_BINDING')
+        validate_queue_033(queue,config)
+        resource=resource_receipt_033(journal.rows,root)
+        require(launches[0].get('resource_hash')==resource['hash'],'033_WORKER_RESOURCE_BINDING')
         install_policy(root, config['models'])
         import numpy as np
         import torch
@@ -70,7 +73,11 @@ def worker(root):
         from transformers.video_utils import VideoMetadata
         torch.set_num_threads(2)
         require(torch.cuda.is_available(), 'CUDA_UNAVAILABLE')
-        total = torch.cuda.get_device_properties(0).total_memory
+        properties=torch.cuda.get_device_properties(0)
+        require('3090' in properties.name,'033_WORKER_DEVICE')
+        free,total=torch.cuda.mem_get_info(0)
+        journal.add('WORKER_FREE_RECHECK',device=0,free_bytes=free,total_bytes=total,resource_hash=resource['hash'])
+        require(free>=20*GIB,'033_WORKER_FREE_MEMORY')
         require(total >= 20 * GIB, 'DEVICE_MEMORY')
         torch.cuda.set_per_process_memory_fraction(18 * GIB / total, 0)
         torch.cuda.reset_peak_memory_stats(0)
@@ -155,7 +162,7 @@ def worker(root):
             bindings[(alias, arm)] = input_hash
             values = {k: (v.to('cuda:0', dtype=torch.bfloat16) if v.is_floating_point() else v.to('cuda:0')) for k, v in values.items()}
             prep_seconds = time.monotonic()-t; guard()
-            require(len(journal.events('STARTED')) < 16, 'GENERATE_CAP')
+            validate_start_033(journal.rows,queue,config,dict(key=str(number),alias=alias,arm=arm))
             journal.once('STARTED', str(number), alias=alias, arm=arm, input_hash=input_hash, input_tokens=token_count,
                          grid=[6,12,18], visual_tokens=324, processor_seconds=prep_seconds)
             # This line is the actual new call, never reused or retried.
