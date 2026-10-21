@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-21（北京时间；032交付[2636333](https://github.com/floomeer83felix-source/vlm/commit/2636333f08b694c84c516a30c2c0ef828729ae40)按 **ACCEPTED_TRANSPORT_AND_P2_CANDIDATES / GPU_RESOURCE_HOLD / REAL_QA_NOT_RUN** 静态审结。新suite6/6 PASS，四GET200/响应pin通过，P2完整媒体＋48候选，另外三源超时partial；free22,813MiB过门，但37条C+G触发旧分类谓词，真实model/generate/GPU/gold0，全16槽NOT_RUN。现下达[033零下载缓存四臂整包](./codex-artifacts/VLM-DEV-CACHED-GPU-PILOT-033/README.md)，**唯一READY=033 / PUBLIC_CACHED_GPU_INTEGRATION_ONLY，尚未执行**。用户一条明确启动消息激活新私人/GPU/gold scope及共享资源政策；不重跑032或搬余额。只用P2原48帧，原N4/20选项/16槽保留、其余12槽NOT_RUN，网络/下载/MP4正文/解码0；新text≤40MiB＋frames≤256MiB，新128文件/512MiB、CPU600s/父2400s、GPU900s/18GiB allocated/24GiB Job RAM/仅4generate。两短窗同GPU/free≥20GiB/util≤20%门与worker加载前一次free复核，不以C+G数量单独否决或宣称全机空闲；原annotation准备0B/当前2probes/真实Job退出后独立score≤1open/4MiB。DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE不变；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以本看板为准。）
+> 更新日期：2026-10-21（北京时间；033交付[91157ef](https://github.com/floomeer83felix-source/vlm/commit/91157ef4838f11f45153a4b017dc4c0b34e5e2a4)按 **ACCEPTED_CACHE_HANDOFF_AND_OFFLINE_FIX / RESOURCE_WINDOW_HOLD / REAL_QA_NOT_RUN** 静态审结。P2完整帧copy/48 RGB通过、两suite各6/6 PASS；真实minor=N/A触发初始parser失败，修后仅offline见证。两样本free22,915/22,919MiB、util16%/22%，第二值另超033原20%阈值；model/generate/GPU/gold0，全16槽NOT_RUN。已下达[034显存有界共享真实四臂](./codex-artifacts/VLM-DEV-SHARED-GPU-REAL-034/README.md)，**唯一READY=034 / PUBLIC_SHARED_GPU_INTEGRATION_ONLY，尚未执行**；用户一条启动消息明确接受新共享条件并激活新scope。利用率仅记录、不再以≤20%否决；一次当前query核正确设备/free≥20GiB，worker权重前再核free，18GiB allocated/24GiB Job RAM/900s保留。仅P2四槽≤4generate，原N4/20选项/16槽及其余12 NOT_RUN保持；网络/下载/MP4正文/解码0。只读033缓存，新text40MiB＋frame256MiB，新128文件/512MiB、CPU600s/父2400s；原annotation准备0B/当前2probes/真实Job退出后score≤1open/4MiB。DEV_DIAGNOSTIC / SOURCE_OVERLAP_ALLOWED / PRIOR_EXPOSURE_POSSIBLE不变；REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以本看板为准。）
 
 ## 一、任务看板
 
@@ -93,7 +93,8 @@
 | VLM-DEV-TEMPORAL-PILOT-030 | P0 | **ACCEPTED_SAFE_STOP_AND_PARTIAL_IMPLEMENTATION / REAL_QA_NOT_RUN（已审结案；非READY，不重跑）** | Codex交付；ChatGPT静态审查，未独立复跑 | [101b001](https://github.com/floomeer83felix-source/vlm/commit/101b00111fcf30a45309a5dda5eddd173a012005)、[实际回执](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/real-run-receipt.md)/[科学NOT_RUN](./codex-artifacts/VLM-DEV-TEMPORAL-PILOT-030/scientific-results.md)：首0tests/exit5、末18项16PASS/2FAIL；canary Python winerror缺失、健康peer立即Job active1；无第三suite | 真实HTTP/媒体/模型/GPU/gold0，原annotation实际锁/probe0；cached4键/20选项/16槽及028receipt/两factory AST一致。12open/55,649B，CPU预留420s/outer suites1.718s，24私有文件/78,272B；全16NOT_RUN，正确率/配对/C=D UNKNOWN。旧030关闭，不用余量；晚改guard仅静态检查，未认证生产runner就绪 |
 | VLM-DEV-PILOT-RECOVERY-031 | P0 | **ACCEPTED_RECOVERY_WITNESSES_AND_HEAD_METADATA / MEDIA_ACQUISITION_HOLD（已结案，非READY）** | Codex交付、ChatGPT静态验收 | [b8fa8b3](https://github.com/floomeer83felix-source/vlm/commit/b8fa8b368d2ae96e253db140768417b79effe6a8)：七处allowlist，新suite7/7 PASS，真实native32/Python拒绝与Job/独立fixture score通过；四HEAD200、四显式版本GET失败/body0 | 实际HTTPS11；旧GET status/code UNKNOWN，晚增诊断仅静态；decode/model/generate/GPU/gold0，全N4/16槽NOT_RUN、准确率UNKNOWN；不重跑031或使用第二suite/旧额度 |
 | VLM-DEV-CURRENT-OBJECT-PILOT-032 | P0 | **ACCEPTED_TRANSPORT_AND_P2_CANDIDATES / GPU_RESOURCE_HOLD（已结案，非READY）** | Codex交付、ChatGPT静态验收 | [2636333](https://github.com/floomeer83felix-source/vlm/commit/2636333f08b694c84c516a30c2c0ef828729ae40)：新suite6/6 PASS，4 GET200/响应pin过门；P2完整/48候选，P1/P3/P4超时partial；真实annotation零正文拒绝通过 | free22,813MiB合格、37条C+G触发旧分类门；model/generate/GPU/gold0，全N4/16槽NOT_RUN/准确率UNKNOWN；不重跑旧032或沿用第二suite/GPU余额 |
-| VLM-DEV-CACHED-GPU-PILOT-033 | P0 | **READY / PUBLIC_CACHED_GPU_INTEGRATION_ONLY（唯一；未执行；用户单条消息激活新scope及共享资源政策）** | Codex待用户发送合同第7节指令 | [A–H合同](./codex-artifacts/VLM-DEV-CACHED-GPU-PILOT-033/README.md)：032只读archive/P2帧完整copy核验、两短窗GPU资源门、新suite通过后同轮P2真实四臂→一次独立score→科研分析；网络/媒体下载/MP4正文/解码0 | 原N4/16槽，仅P2四槽≤4generate/单worker，GPU900s/18GiB allocated/24GiB Job RAM，CPU600s/父2400s；text≤40MiB＋frame≤1open/256MiB、新128文件/512MiB，原annotation准备0B/当前2probes/Job退出后score1open≤4MiB；六处allowlist、一次push STOP、不自动034 |
+| VLM-DEV-CACHED-GPU-PILOT-033 | P0 | **ACCEPTED_CACHE_HANDOFF_AND_OFFLINE_FIX / RESOURCE_WINDOW_HOLD（已结案，非READY）** | Codex交付、ChatGPT静态验收 | [91157ef](https://github.com/floomeer83felix-source/vlm/commit/91157ef4838f11f45153a4b017dc4c0b34e5e2a4)：帧223,948,928B/48 RGB完整copy验证；两新suite各6/6 PASS；实际minor=N/A parser失败，定点修后仅offline验证 | 原两util16%/22%另超旧20%门，不补签准入；model/generate/GPU/gold0，N4/16槽NOT_RUN/准确率UNKNOWN。不重开033/旧query或迁移额度 |
+| VLM-DEV-SHARED-GPU-REAL-034 | P0 | **READY / PUBLIC_SHARED_GPU_INTEGRATION_ONLY（唯一；未执行；用户单条明确消息接受新共享条件并激活scope）** | Codex待用户发送合同第7节指令 | [A–H合同](./codex-artifacts/VLM-DEV-SHARED-GPU-REAL-034/README.md)：033只读archive/直接SHA帧交接；一次当前设备/free门，util只记录；新suite通过后同轮P2四臂→独立score→科研报告，网络/下载/MP4正文/解码0 | 原N4/16槽、仅P2四次generate/单worker、GPU900s/18GiB allocated/24GiB Job RAM；CPU600s/父2400s，新text40MiB＋frame1open/256MiB、新128文件/512MiB；原annotation准备0B/2实际probes/Job退出后score1open≤4MiB；六处allowlist、一次push STOP、不自动035 |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -1275,5 +1276,79 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   media模块及旧报告/tests/科学协议不改。允许共享的运行条件不改变原像素/模型/提示/
   selector/seed/greedy。最高EXPLORATORY_DEV_CASE，一次push STOP、不自动034/更多下载/生成。
   当前只完成公开审查与新规划，没有在ChatGPT侧执行私有GPU实验或制造空回执。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-21 · 033缓存交接与离线兼容修复验收；034显存有界共享真实四臂
+
+- 审查main交付[91157ef](https://github.com/floomeer83felix-source/vlm/commit/91157ef4838f11f45153a4b017dc4c0b34e5e2a4)，
+  直接父为033规划99ea1e5，恰好六处allowlist：pilot/worker定点改动、新033 suite、
+  两匿名报告和results末尾一个033父记录。media模块、旧tests/报告、规划/科学协议和旧results未改。
+  ChatGPT静态核对公开源码/差异、新六项见证与两报告，未独立运行测试、读私人缓存或访问GPU。
+  **ACCEPTED_CACHE_HANDOFF_AND_OFFLINE_FIX / RESOURCE_WINDOW_HOLD / REAL_QA_NOT_RUN**。
+  033已关闭，两suite用完，不重开原run、query、锁或时钟，不迁移余额。
+- 033执行者报告20确切text handoff＋4 source直接交接，032 closed partial-media archive通过，
+  eight cache/four source字节匹配032 INPUT_COMPLETE size/SHA及OUTPUT大小。
+  原plan/worker/完整16槽/only-P2 availability、028完整快照/profile绑定一致；
+  prepare生成的科学worker配置与冻结032逐字段完全相等，2 helper AST/2 config通过。
+- 真实P2帧输入 **1open/223,948,928B**，copy/fsync与path/fd前后stat稳定，
+  新完整file SHA及48 retained RGB摘要/uint8/C-order/shape/有限递增时间全部验证；
+  outer0.968s、Job0。这个完整NPY摘要现已是033实际证据，不能倒签成032历史摘要。
+  没有网络/下载、MP4/partial正文、demux/decode或新像素。当前原annotation
+  父非继承exclusive handle＋2 probe通过：native32/Python PermissionError/errno13/winerror缺失，
+  共4 open尝试正文0，清理后释放，无ACL修改。
+- 新suite首轮 **6/6 PASS、0FAIL/ERROR/SKIP**，internal0.109s/outer0.468s，随即进入真实阶段。
+  真实Windows XML的minor_number=N/A触发初始parser硬等0，actual033_DEVICE_IDENTITY、
+  resource child exit1/Job0；该失败发生在util阈值检查之前。
+  后续将固定query index＋稳定UUID/bus作为身份依据、minor作为metadata，
+  用剩余第二suite验证N/A接受/错query index拒绝：**6/6 PASS、0FAIL/ERROR/SKIP**，
+  internal0.063s/outer0.438s。无第三suite、旧tests或修后真实重query；
+  最终修后的实际准入分支仍未动态走通，不能说RESOURCE_PASS。
+- 一共且只有2次nvidia-smi，受控child1.750s、query起点间隔1.282s，
+  同一RTX3090/UUID/bus/WDDM、29 C+G上下文。free **22,915/22,919MiB**均过门，
+  util **16%/22%**，第二观测另超过原明确20%阈值。
+  因而修minor parser也不能让那份旧观测满足033政策；
+  **独立数值不合格不是原child实际抛出的异常**，两种事实均保留，不重写历史。
+  C+G没有在033作否决，也不认定29个模型或全部纯图形，未查peer/kill/等空闲/重采样。
+- RESOURCE_ADMITTED/model/generate/GPU/worker free复核/scorer/gold/train均0，
+  peak allocated/reserved NOT_MEASURED。原N4/16槽全NOT_RUN，12 unavailable＋4 P2未启动；
+  correct_known/accuracy/六配对UNKNOWN，不能报0/4、真实共同错误或方法负效应。
+  C=D/selector/anchors/覆盖/检索/tokens/EOS/成本未测，P2条件个案未执行。
+- 033资源为执行者报告：27/27完整输入 **224,599,574B**，其中26 text **650,646B**
+  （20handoff/4source/2config/0gold）＋1 frame223,948,928B；
+  CPU预留375s/监督窗口5.014s，不当逐PID CPU计量，media/acquisition/GPU预留0。
+  两suite全部消费、fictional child0，所有实际阶段Job0/无kill/overflow；
+  48文件/10目录/224,196,468B、父166.092s，无reparse/安装/环境/profile/凭据/权限修改。
+- 已下达[VLM-DEV-SHARED-GPU-REAL-034 A–H合同](./codex-artifacts/VLM-DEV-SHARED-GPU-REAL-034/README.md)，
+  **唯一READY=034 / PUBLIC_SHARED_GPU_INTEGRATION_ONLY，尚未执行**。
+  按用户既定要求先写任务入仓库，再给一条可直接发给当前Codex的完整启动消息；
+  单条消息共同激活新缓存/GPU/gold范围和明确改变的资源政策，不另设审批/激活循环。
+- 034政策MEMORY_BOUNDED_SHARED_GPU_034明确接受有其他上下文及较高短时GPU负载，
+  **利用率仅记录，不再以≤20%作为否决条件**，不要求空闲/全局独占。
+  这改变的是运行资源条件，不是算法/数据/问题或结果判据，且没有任何真实QA输出用于选择该政策。
+  [NVIDIA官方Utilization说明](https://docs.nvidia.com/deploy/nvidia-smi/index.html)
+  仅支持短窗kernel执行时间比例，不能归因peer/证明显存容量或持续可用性；
+  20%原为操作阈值，不是厂商安全上限，不把033倒写PASS。
+- 新034最多1个≤10s只读nvidia-smi query，必须当前device0/3090/UUID/bus与保留033身份一致、
+  free≥20GiB；WDDM minor仅metadata，util合法值如实记录/缺失或异常UNKNOWN，
+  无第二query/等低负载/后台监控/kill peer。新RESOURCE_ADMITTED只证明设备/free＋接受共享政策，
+  不能签空闲/独占证书。唯一worker权重前另一次mem_get_info核free≥20GiB，
+  原18GiB allocator/peak allocated、24GiB Job RAM、完整GPU900s、OOM不重启保留。
+  fraction只约束PyTorch caching allocator，不冒称全设备/所有CUDA分配硬隔离。
+- 034只读033完整closed archive与直接缓存，不回扫032；旧2query/exit1/0准入/0model历史保留。
+  帧copy匹配033 INPUT_COMPLETE与FRAME_CACHE_VERIFIED的准确size/完整SHA，再核48 RGB/NPY；
+  不再要求凭空重建旧数据。新text≤40MiB（22handoff含ledger≤2MiB、4source/4config＋gold），
+  frame≤1open/256MiB，新integration_034≤128文件/512MiB、CPU600s/父2400s。
+  网络/下载/MP4和partial正文/新解码0，原N4/20选项/16槽及轮转保持，仅P2四槽≤4generate。
+- 本轮只测资源/033 handoff/034绑定的少量新fixture，≤2×60s首PASS即当前probes/query→
+  真实SigLIP/四臂Qwen→模型Job/PID实测退出→一次独立CPU score→科研报告；
+  不重复033六项/031 OS演示或再排纯资格父任务。原annotation准备0B，
+  最后仅实际Qwen RETURNED/INVALID＋队列/完整快照绑定后≤1open/4MiB四题gold，
+  无返回gold0、坏gold/半读不重开。全N4未执行者保留且不解释为已观测答错，
+  P2只条件个案、C=D仅实际selector后判断，不从任一单例主张泛化/创新。
+- 执行allowlist六处：pilot/worker、新034 tests、两报告、results单条；
+  不改033历史/科学协议/模型/提示/selector/processor或调科学阈值。一次push STOP、不自动035。
+  当前仅公开审查/新合同，没有ChatGPT侧真实GPU/QA执行或空回执。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
