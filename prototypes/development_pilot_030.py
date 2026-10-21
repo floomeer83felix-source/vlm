@@ -1,4 +1,4 @@
-"""030 production helpers with fixed031 recovery; original030 runs stay closed.
+"""030 production helpers routed to fixed032; original030/031 runs stay closed.
 
 Windows sharing/Job gates are OS gates, not a hostile-code sandbox. Every child
 waits for a parent handshake before dependency imports or research work.
@@ -42,19 +42,19 @@ class Journal:
     """OS-locked, append/fsync hash chain; a consumed attempt never refunds."""
     def __init__(self, root, create=False, fixture=False):
         self.root = Path(root)
-        require(self.root.name == 'integration_031', 'FIXED_031_ROOT_REQUIRED')
+        require(self.root.name == 'integration_032', 'FIXED_032_ROOT_REQUIRED')
         if create:
             checked_path(self.root.parent, directory=True)
             self.root.mkdir()  # Existing root is terminal, never resume/relabel.
         checked_path(self.root, directory=True)
-        self.lock = open(self.root / '031.lock', 'a+b')
+        self.lock = open(self.root / '032.lock', 'a+b')
         import msvcrt
         self.lock.seek(0)
         if self.lock.read(1) == b'':
             self.lock.write(b'0'); self.lock.flush(); os.fsync(self.lock.fileno())
         self.lock.seek(0)
         msvcrt.locking(self.lock.fileno(), msvcrt.LK_NBLCK, 1)
-        self.path = self.root / '031-ledger.jsonl'
+        self.path = self.root / '032-ledger.jsonl'
         self.rows = []
         self.byte_length = 0
         if self.path.exists():
@@ -69,10 +69,10 @@ class Journal:
                 self.rows.append(dict(row, hash=sig))
         if create:
             if fixture:
-                require(self.root.parent.name.startswith('witness-') and self.root.parent.parent.name=='integration_031','FIXTURE_ANCESTRY')
-            self.add('RUN', contract_id='031', root_name='integration_031', purpose='FICTIONAL_031_WITNESS' if fixture else 'REAL_031',
+                require(self.root.parent.name.startswith('witness-') and self.root.parent.parent.name=='integration_032','FIXTURE_ANCESTRY')
+            self.add('RUN', contract_id='032', root_name='integration_032', purpose='FICTIONAL_032_WITNESS' if fixture else 'REAL_032',
                      run_id=uuid.uuid4().hex, epoch=time.time(), parent_cap=7200)
-        require(self.rows and self.rows[0]['event'] == 'RUN' and self.rows[0].get('contract_id') == '031'
+        require(self.rows and self.rows[0]['event'] == 'RUN' and self.rows[0].get('contract_id') == '032'
                 and self.rows[0].get('root_name') == self.root.name, 'RUN_REQUIRED')
         self.check_time()
 
@@ -109,11 +109,11 @@ class Journal:
         self.once('WINDOW', key, stage=stage, seconds=seconds)
 
     def reserve_output(self, name, size, category='metadata', files=1):
-        require(Path(name).name == name and name not in ('031.lock', '031-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
+        require(Path(name).name == name and name not in ('032.lock', '032-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
         used = self.events('OUTPUT')
-        limits = dict(metadata=32 * MIB - 9 * MIB, media=16 * GIB, frames=4 * GIB)
+        limits = dict(metadata=32 * MIB - 9 * MIB, media=6 * GIB, frames=4 * GIB)
         require(category in limits and type(files) is int and 1<=files<=32 and sum(r.get('files',1) for r in used) + files + 2 <= 384 and
-                sum(r['size'] for r in used) + size + 9 * MIB <= 24 * GIB and
+                sum(r['size'] for r in used) + size + 9 * MIB <= 12 * GIB and
                 sum(r['size'] for r in used if r['category'] == category) + size <= limits[category], 'OUTPUT_CAP')
         require(not (self.root / name).exists(), 'OUTPUT_EXISTS')
         self.once('OUTPUT', name, size=size, category=category, files=files)
@@ -126,7 +126,7 @@ class Journal:
 
     def input(self, alias, path, category='handoff'):
         path, before = checked_path(path)
-        caps = dict(handoff=12, source=7, config=4, gold=1)
+        caps = dict(handoff=17, source=7, config=4, gold=1)
         cap = 4 * MIB if category == 'gold' else MIB
         used = self.events('INPUT')
         require(category in caps and sum(r['category'] == category for r in used) < caps[category]
@@ -168,6 +168,103 @@ def archive_rows(raw):
             and not any(r['event'] in ('HTTPS','STARTED','MODEL_LAUNCH','SCORE_CONSUMED')
                         or r['event']=='INPUT' and r.get('category')=='gold' for r in rows),'ARCHIVE_REAL_ACTION_OR_QUEUE')
     return rows
+
+
+def archive_031_rows(raw):
+    """031 is a closed metadata/network archive, NOT a zero-action030 run."""
+    require(0<len(raw)<=MIB and raw.endswith(b'\n'),'ARCHIVE_031_INCOMPLETE')
+    rows=[]
+    for line in raw.splitlines():
+        row=json.loads(line);signature=row.pop('hash')
+        require(row['seq']==len(rows) and row['prev']==(rows[-1]['hash'] if rows else '0'*64)
+                and digest(row)==signature,'ARCHIVE_031_CHAIN')
+        rows.append(dict(row,hash=signature))
+    require(rows and rows[0].get('contract_id')=='031' and rows[0].get('root_name')=='integration_031'
+            and rows[0].get('purpose')=='REAL_031' and rows[-1]['event']=='RUN_STOPPED','ARCHIVE_031_IDENTITY_OR_OPEN')
+    terminals=[r for r in rows if r['event']=='TERMINAL'];suite=[r for r in rows if r['event']=='SUITE_RESULT']
+    require(len(terminals)==16 and {r['key'] for r in terminals}=={str(i) for i in range(16)}
+            and all(r['state']=='NOT_RUN' for r in terminals),'ARCHIVE_031_TERMINALS')
+    require(len(suite)==1 and suite[0]['passed'] is True and suite[0]['tests']==7
+            and suite[0].get('contract_id')=='031' and suite[0].get('run_id')==rows[0]['run_id']
+            and suite[0].get('failures')==suite[0].get('errors')==suite[0].get('skips')==0,'ARCHIVE_031_SUITE')
+    require(not any(r['event'] in ('BODY_DEBIT','MEDIA_COMPLETE','STARTED','MODEL_LAUNCH','SCORE_CONSUMED')
+                        or r['event']=='INPUT' and r.get('category')=='gold' for r in rows),'ARCHIVE_031_HAS_MEDIA_MODEL_OR_GOLD')
+    http=[r for r in rows if r['event']=='HTTPS'];sent=[r for r in rows if r['event']=='TRANSPORT_SEND']
+    require(len(http)==len(sent)==11 and len({r['key'] for r in http})==11
+            and sorted((r['key'],r['method'],r['url']) for r in http)==sorted((r['slot'],r['method'],r['url']) for r in sent)
+            and [sum(r['api']==api for r in http) for api in ('HeadBucket','HeadObject','GetObject')]==[3,4,4],'ARCHIVE_031_NETWORK')
+    heads=[r for r in rows if r['event']=='OBJECT_HEAD_TERMINAL']
+    require(len(heads)==4 and {r['alias'] for r in heads}=={'P1','P2','P3','P4'}
+            and all(r['observed_status']==200 for r in heads),'ARCHIVE_031_HEAD_TERMINALS')
+    return rows
+
+
+def validate_031_metadata(rows, payload):
+    from urllib.parse import urlsplit,parse_qsl,quote
+    from source_provenance_029 import canonical_object
+    completed={r['alias']:r for r in rows if r['event']=='INPUT_COMPLETE'}
+    outputs={r['key']:r for r in rows if r['event']=='OUTPUT'}
+    for name in ('keys','cohort','nongold','plan','receipts','targets','heads029','official'):
+        raw=payload[name][0];expected=completed['cache_'+name]
+        require(len(raw)==expected['size']==outputs[name+'.json']['size'] and hashlib.sha256(raw).hexdigest()==expected['sha256'],
+                'ARCHIVE_031_CACHE_BYTES_'+name.upper())
+    for name in ('annotation-reference','execution-config','runtime','metadata-summary'):
+        require(len(payload[name][0])==outputs[name+'.json']['size'],'ARCHIVE_031_RETAINED_OUTPUT_SIZE')
+    targets=payload['targets'][1]['targets'];summary=payload['metadata-summary'][1]['results']
+    require(len(targets)==len(summary)==4 and [t['alias'] for t in targets]==['P1','P2','P3','P4'],'ARCHIVE_031_FOUR')
+    heads=[]
+    for target,record in zip(targets,summary):
+        alias=target['alias'];raw,head=payload[alias+'-head']
+        require(head==record and len(raw)==outputs[alias+'-head.json']['size'] and head['alias']==alias
+                and head['status']==200 and head['eligible'] is True and type(head['ContentLength']) is int
+                and 0<head['ContentLength']<=4*GIB and type(head.get('VersionId')) is str and bool(head['VersionId'])
+                and type(head.get('ETag')) is str and head['ETag'].startswith('"') and head['ETag'].endswith('"')
+                and not head['ETag'].startswith('W/') and type(head.get('region')) is str,'ARCHIVE_031_HEAD_PIN')
+        require(canonical_object(target['uri'])==(target['bucket'],target['key']) and outputs[alias+'.partial']['size']==head['ContentLength'],
+                'ARCHIVE_031_MEDIA_RESERVATION')
+        attempts=[r for r in rows if r['event']=='TRANSPORT_SEND' and r['slot']=='GetObject:'+alias]
+        require(len(attempts)==1,'ARCHIVE_031_UNIQUE_GET')
+        request=attempts[0];url=urlsplit(request['url'])
+        require(request['method']=='GET' and url.scheme=='https' and url.netloc=='s3.'+head['region']+'.amazonaws.com'
+                and url.path=='/'+target['bucket']+'/'+quote(target['key'],safe='/~')
+                and parse_qsl(url.query)==[('versionId',head['VersionId'])] and not url.fragment,'ARCHIVE_031_WIRE_VERSION_BINDING')
+        heads.append(head)
+    require(sum(h['ContentLength'] for h in heads)==6002290187,'ARCHIVE_031_EXACT_LENGTH_TOTAL')
+    old=next(h for h in payload['heads029'][1]['results'] if h['alias']=='P1')
+    require(heads[0]['ContentLength']<=890*MIB and all(heads[0][k]==old.get(k) for k in ('ContentLength','ETag','VersionId')),'ARCHIVE_031_P1_029_BINDING')
+    return heads
+
+
+def transfer_cache_032(root, old_root):
+    journal=Journal(root,create=True)
+    try:
+        journal.reserve_time('cpu',45,'cache-initialize')
+        old=Path(old_root);require(old.name=='integration_031','EXACT_031_ARCHIVE_ROOT')
+        rows=archive_031_rows(journal.input('archive_031',old/'031-ledger.jsonl'))
+        names=['keys','cohort','nongold','plan','receipts','targets','heads029','official',
+               'annotation-reference','execution-config','runtime','P1-head','P2-head','P3-head','P4-head','metadata-summary']
+        payload={}
+        for name in names:
+            raw=journal.input('cache_'+name,old/(name+'.json'));payload[name]=(raw,json.loads(raw))
+        validate_031_metadata(rows,payload)
+        for name in names:
+            if name not in ('runtime','execution-config'):
+                journal.write(name+'.json',payload[name][1])
+        completed={r['alias']:r for r in rows if r['event']=='INPUT_COMPLETE'}
+        outputs={r['key']:r for r in rows if r['event']=='OUTPUT'}
+        for alias in ('factory_0','factory_1','runner_0','runner_1'):
+            raw=journal.input('cache_'+alias,old/(alias+'.py'),'source');expected=completed['cache_'+alias]
+            require(len(raw)==expected['size']==outputs[alias+'.py']['size'] and hashlib.sha256(raw).hexdigest()==expected['sha256'],'ARCHIVE_031_SOURCE_BYTES')
+            journal.reserve_output(alias+'.py',len(raw))
+            with open(journal.root/(alias+'.py'),'xb') as target:target.write(raw);target.flush();os.fsync(target.fileno())
+        execution=dict(payload['execution-config'][1],runtime=payload['runtime'][1])
+        journal.write('execution-config.json',execution)
+        journal.write('runtime-handoff.json',payload['runtime'][1])
+        journal.write('032-handoff-private.json',dict(archive_hash=rows[-1]['hash'],archive_run_id=rows[0]['run_id'],
+            source='READONLY_031_ARCHIVE',metadata_binding='RETAINED_RECEIPT_AND_WIRE_VERSION_NOT_HISTORICAL_HEAD_SHA',
+            exact_media_total=6002290187,objects=4,profile='CURRENT_IFMATCH_PINNED_RESPONSE_032'))
+        journal.add('CACHE_BOUND',inputs=21,archive_hash=rows[-1]['hash'],retained_heads=4,new_heads=0)
+    finally:journal.close()
 
 
 def recover_pretty_input(alias, data, context):
@@ -230,6 +327,7 @@ def recover_pretty_input(alias, data, context):
 
 def transfer_cache_031(root, old_root, sdk_python, conda_entry=None, runtime=None):
     """Fresh031 budget, exact read-only030 cache with byte-level provenance."""
+    raise ContractError('OLD_031_TRANSFER_CLOSED')
     journal=Journal(root,create=True)
     try:
         journal.reserve_time('cpu',45,'cache-initialize')
@@ -620,11 +718,11 @@ def phase(root, name, stage, seconds, command, environment=None):
         if name.startswith('suite-'):
             receipt=load(root,name+'-result.json') if (Path(root)/(name+'-result.json')).exists() else {}
             marks=receipt.get('os_marks',{})
-            passed=(result['exit_code']==0 and not result['overflow'] and receipt.get('contract_id')=='031'
+            passed=(result['exit_code']==0 and not result['overflow'] and receipt.get('contract_id')=='032'
                     and receipt.get('run_id')==journal.rows[0]['run_id'] and receipt.get('expected')==receipt.get('tests',0)>0
                     and receipt.get('failures')==receipt.get('errors')==receipt.get('skips')==0
-                    and all(marks.get(k) is True for k in ('win32_sharing','release_open','healthy_job_empty','descendant_empty','independent_score')))
-            journal.add('SUITE_RESULT', name=name, contract_id='031',run_id=journal.rows[0]['run_id'],passed=passed,
+                    and all(marks.get(k) is True for k in ('current_request','response_pin','error_no_body','archive_031','bindings_032')))
+            journal.add('SUITE_RESULT', name=name, contract_id='032',run_id=journal.rows[0]['run_id'],passed=passed,
                         tests=receipt.get('tests',0),failures=receipt.get('failures'),errors=receipt.get('errors'),skips=receipt.get('skips'),os_marks=marks)
     finally:
         journal.close()
@@ -633,15 +731,15 @@ def phase(root, name, stage, seconds, command, environment=None):
 
 def require_ready(journal):
     results = journal.events('SUITE_RESULT')
-    require(journal.rows[0].get('purpose')=='REAL_031' and not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
-            and results[-1].get('contract_id')=='031' and results[-1].get('run_id')==journal.rows[0]['run_id']
+    require(journal.rows[0].get('purpose')=='REAL_032' and not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
+            and results[-1].get('contract_id')=='032' and results[-1].get('run_id')==journal.rows[0]['run_id']
             and 0 < results[-1]['tests'] and len(results) <= 2, 'NEW_SUITE_NOT_PASSED')
 
 
 def make_queue(root, journal, available):
     config=load(root,'worker-input.json'); plan=restored_plan(root)
     require(len(config['slots'])==16 and len(plan.calls)==16,'FULL_QUEUE_REQUIRED')
-    queue=dict(contract_id='031',run_id=journal.rows[0]['run_id'],plan_hash=digest(asdict(plan)),
+    queue=dict(contract_id='032',run_id=journal.rows[0]['run_id'],plan_hash=digest(asdict(plan)),
                worker_hash=digest(config),slots=config['slots'],available=available)
     journal.write('queue.json',queue)
     return queue
@@ -668,9 +766,9 @@ def score_allowed(rows, root):
             and any(r['event'] == 'TERMINAL' and r['state'] in ('RETURNED', 'INVALID') for r in rows), 'GOLD_GATE_CLOSED')
     queue=load(root,'queue.json');config=load(root,'worker-input.json');plan=restored_plan(root)
     run=rows[0];launches=[r for r in rows if r['event']=='MODEL_LAUNCH'];frozen=[r for r in rows if r['event']=='FROZEN']
-    require(run.get('contract_id')=='031' and len(launches)==len(frozen)==1,'SCORE_RUN_BINDING')
+    require(run.get('contract_id')=='032' and len(launches)==len(frozen)==1,'SCORE_RUN_BINDING')
     launch=launches[0];close=closes[0];exit_row=exits[0]
-    require(queue['contract_id']=='031' and queue['run_id']==run['run_id']==close['run_id']==exit_row['run_id']==launch['run_id']
+    require(queue['contract_id']=='032' and queue['run_id']==run['run_id']==close['run_id']==exit_row['run_id']==launch['run_id']
             and frozen[0]['plan_hash']==queue['plan_hash']==close['plan_hash']==digest(asdict(plan))
             and frozen[0]['worker_hash']==queue['worker_hash']==close['worker_hash']==digest(config)
             and digest(queue)==launch['queue_hash']==exit_row['queue_hash']==close['queue_hash']
@@ -714,7 +812,7 @@ def score(root):
         score_allowed(journal.rows,root)
         snapshot = load(root, 'expected-snapshot.json'); reference = load(root, 'annotation-reference.json')
         plan = restored_plan(root); terminal = {int(r['key']): r for r in journal.events('TERMINAL')}
-        if journal.rows[0].get('purpose')=='FICTIONAL_031_WITNESS':
+        if journal.rows[0].get('purpose')=='FICTIONAL_032_WITNESS':
             require(Path(reference['path']).parent==Path(root) and all(q.key.source.startswith('fixture_') for q in plan.questions), 'FICTIONAL_SCORE_SCOPE')
         ledger = FrozenLedger(tuple(TerminalAttempt(call, terminal[n]['state'], terminal[n].get('prediction')) for n, call in enumerate(plan.calls)), True)
         exit_row = journal.events('MODEL_EXIT')[0]
@@ -774,8 +872,7 @@ def execute(root):
             probe_result = phase(root, 'refusal-%d' % n, 'cpu', 5,
                                  python_command(own_python,'development_pilot_030','probe',reference['path']))
             require(probe_result['exit_code'] == 0 and json.loads(probe_result['stdout'])['denied'] is True, 'ORIGINAL_REFUSAL_PROBE')
-        metadata_result = phase(root,'metadata','cpu',60,
-                                python_command(sdk_python,'development_media_030','metadata',str(root),site=sdk_site))
+        # 032 reuses frozen031 HEAD/region receipts; no new metadata request.
         # Per-source operations are independent; never substitute an object.
         for alias in ('P1','P2','P3','P4'):
             if (Path(root)/(alias+'-head.json')).exists() and load(root,alias+'-head.json').get('eligible'):
@@ -914,10 +1011,10 @@ def finish_stopped(root):
         journal.close()
 
 
-def finalize_031(root, reason=None):
+def finalize_032(root, reason=None):
     journal=Journal(root)
     try:
-        journal.reserve_time('cpu',30,'finalize-031')
+        journal.reserve_time('cpu',30,'finalize-032')
         config=load(root,'worker-input.json') if (Path(root)/'worker-input.json').exists() else None
         slots=config['slots'] if config else [dict(slot=n,alias='P%d' % (n//4+1),arm='ABCD'[(n%4+n//4)%4]) for n in range(16)]
         ended={r['key'] for r in journal.events('TERMINAL')};started={r['key'] for r in journal.events('STARTED')}
@@ -930,7 +1027,7 @@ def finalize_031(root, reason=None):
             journal.add('NO_MODEL_QUEUE_CLOSED',slots=16,gold_allowed=False)
         windows=journal.events('WINDOW');inputs=journal.events('INPUT');complete=journal.events('INPUT_COMPLETE')
         transport=journal.events('TRANSPORT_SEND');results=journal.events('SUITE_RESULT')
-        summary=dict(contract_id='031',run_id=journal.rows[0]['run_id'],reason=reason,n=4,slots=16,
+        summary=dict(contract_id='032',run_id=journal.rows[0]['run_id'],reason=reason,n=4,slots=16,
             suites=[{k:r.get(k) for k in ('name','tests','passed','failures','errors','skips','os_marks')} for r in results],
             cache_bound=bool(journal.events('CACHE_BOUND')),cache_holds=[r.get('aliases') for r in journal.events('CACHE_HOLD')],
             input_opens=len(inputs),complete_inputs=len(complete),reserved_input_bytes=sum(r['size'] for r in inputs),
@@ -947,8 +1044,8 @@ def finalize_031(root, reason=None):
             parent_seconds=time.time()-journal.rows[0]['epoch'])
         if (Path(root)/'worker-result.json').exists():
             summary['worker']=load(root,'worker-result.json')
-        journal.write('031-final-summary-private.json',summary)
-        journal.once('RUN_STOPPED','031',reason=reason or 'ROUND_DELIVERED_NO_CONTINUATION')
+        journal.write('032-final-summary-private.json',summary)
+        journal.once('RUN_STOPPED','032',reason=reason or 'ROUND_DELIVERED_NO_CONTINUATION')
         print(json.dumps({k:v for k,v in summary.items() if k not in ('run_id','worker','terminal')}))
     finally:journal.close()
 
@@ -956,7 +1053,7 @@ def finalize_031(root, reason=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped','finalize-031'])
+    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped','finalize-032'])
     parser.add_argument('root')
     args = parser.parse_args()
     if args.mode == 'probe':
@@ -972,8 +1069,8 @@ def main():
         score(args.root)
     elif args.mode == 'finalize-stopped':
         finish_stopped(args.root)
-    elif args.mode == 'finalize-031':
-        finalize_031(args.root)
+    elif args.mode == 'finalize-032':
+        finalize_032(args.root)
 
 
 if __name__ == '__main__':

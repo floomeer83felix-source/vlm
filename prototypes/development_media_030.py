@@ -1,4 +1,4 @@
-"""030 exact-object/PTS helpers with fixed031 gates; no private defaults."""
+"""030 media helpers: fixed032 current GET, frozen response pin; no defaults."""
 import argparse
 import ast
 import hashlib
@@ -17,20 +17,21 @@ from source_provenance_029 import canonical_object, dotted
 
 
 class SendGate:
-    def __init__(self, journal, slot, method, url, version=None):
-        self.journal, self.slot, self.method, self.url, self.version = journal, slot, method, url, version
+    def __init__(self, journal, slot, method, url, wire_version=None):
+        require(wire_version is None,'032_WIRE_VERSION_FORBIDDEN')
+        self.journal, self.slot, self.method, self.url = journal, slot, method, url
 
     def reserve(self, method, url):
         base = urlsplit(self.url); actual = urlsplit(url)
-        expected_query = [('versionId', self.version)] if self.version else []
-        require(method == self.method and actual.scheme == 'https' and not actual.fragment
+        require(method == self.method == 'GET' and actual.scheme == 'https' and not actual.fragment
                 and (actual.netloc, actual.path) == (base.netloc, base.path)
-                and parse_qsl(actual.query, keep_blank_values=True) == expected_query, 'EXACT_SEND_REQUIRED')
+                and actual.query == '', 'EXACT_CURRENT_SEND_REQUIRED')
         rows = self.journal.events('HTTPS')
         api = self.slot.split(':')[0]
-        require(api in ('HeadBucket', 'HeadObject', 'GetObject') and len(rows) < 12
-                and sum(r['api'] == api for r in rows) < 4, 'HTTPS_CAP')
-        require(not any(r['method']==method and r['url']==url for r in rows),'OBJECT_ALREADY_ATTEMPTED_ACROSS_ALIAS')
+        require(api=='GetObject' and self.slot in ('GetObject:P1','GetObject:P2','GetObject:P3','GetObject:P4')
+                and len(rows)<4,'032_FOUR_GETS_ONLY')
+        require(not any(r['method']==method and (urlsplit(r['url']).netloc,urlsplit(r['url']).path)==(actual.netloc,actual.path)
+                        for r in rows),'OBJECT_ALREADY_ATTEMPTED_ACROSS_ALIAS')
         self.journal.once('HTTPS', self.slot, api=api, method=method, url=url)
 
 
@@ -55,6 +56,22 @@ def match_headers(headers, expected):
     require(lowered.get('x-amz-version-id') == expected.get('VersionId'), 'GET_VERSION_BINDING')
 
 
+def current_get_kwargs(target, expected):
+    """Single fixed032 profile; expected response version is never discarded."""
+    require(type(expected.get('VersionId')) is str and bool(expected['VersionId'])
+            and type(expected.get('ETag')) is str and bool(expected['ETag']),'032_RESPONSE_PIN_REQUIRED')
+    return dict(Bucket=target['bucket'],Key=target['key'],IfMatch=expected['ETag'])
+
+
+def network_failure(error, context):
+    response=getattr(error,'response',{})
+    status=context.get('status',response.get('ResponseMetadata',{}).get('HTTPStatusCode'))
+    code=response.get('Error',{}).get('Code')
+    if not isinstance(code,str) or not 0<len(code)<=64 or not all(c.isascii() and (c.isalnum() or c in '._-') for c in code):code=None
+    return dict(reason=str(error) if isinstance(error,ValueError) and str(error).isupper() else type(error).__name__,
+                exception_kind=type(error).__name__[:64],observed_status=status,service_code=code)
+
+
 class EmptyBody:
     def stream(self, *args, **kwargs):
         return iter(())
@@ -69,12 +86,13 @@ def install_transport(client, gate, context, source, expected=None):
     pending = []
     def before(request, **kwargs):
         method = request.method.decode() if isinstance(request.method, bytes) else request.method
+        require(expected is not None and bool(expected.get('VersionId')),'032_EXPECTED_RESPONSE_VERSION_REQUIRED')
+        headers={(k.decode('ascii') if isinstance(k,bytes) else k).lower():v for k,v in request.headers.items()}
+        require(not any(k in headers for k in ('range','x-amz-copy-source-range')),'032_RANGE_FORBIDDEN')
+        value = headers.get('if-match')
+        if isinstance(value, bytes):value = value.decode('ascii')
+        require(value == expected['ETag'], 'GET_IF_MATCH_REQUIRED')
         gate.reserve(method, request.url)
-        if expected is not None:
-            value = request.headers.get('If-Match')
-            if isinstance(value, bytes):
-                value = value.decode()
-            require(value == expected['ETag'], 'GET_IF_MATCH_REQUIRED')
         pending.append((method, request.url))
     client.meta.events.register_first('before-send.s3', before, unique_id='030-exact-send')
     original = client._endpoint.http_session.send
@@ -83,11 +101,12 @@ def install_transport(client, gate, context, source, expected=None):
         require(pending and pending.pop(0) == (method, request.url), 'TRANSPORT_WITHOUT_GATE')
         gate.journal.add('TRANSPORT_SEND',slot=gate.slot,method=method,url=request.url)
         response = original(request)
-        context.update(status=response.status_code, region=response.headers.get('x-amz-bucket-region'))
+        context['status']=response.status_code
         raw = response.raw
         try:
+            require(type(response.status_code) is int,'HTTP_STATUS_NOT_INTEGER')
             gate.journal.add('TRANSPORT_RESPONSE',slot=gate.slot,status=response.status_code,
-                             observed_region=context.get('region'))
+                             profile='CURRENT_IFMATCH_PINNED_RESPONSE_032')
             require(sum(len(str(k).encode()) + len(str(v).encode()) for k, v in response.headers.items()) <= 65536, 'HEADER_RETENTION')
             if method == 'HEAD':
                 require(getattr(raw, 'length_remaining', None) == 0 and not getattr(raw, 'chunked', False), 'HEAD_BODY_HOLD')
@@ -132,10 +151,11 @@ def sdk(journal, save_sources=False):
 
 
 def client_for(session, journal, source, region, slot, bucket, key=None, expected=None):
+    require(slot in ('GetObject:P1','GetObject:P2','GetObject:P3','GetObject:P4')
+            and key is not None and expected is not None and expected.get('VersionId'),'032_CURRENT_GET_CLIENT_ONLY')
     from botocore.config import Config
     from botocore.httpsession import URLLib3Session
-    discovery = slot.startswith('HeadBucket:')
-    endpoint = 'https://s3.amazonaws.com' if discovery else 'https://s3.' + region + '.amazonaws.com'
+    endpoint = 'https://s3.' + region + '.amazonaws.com'
     client = session.create_client('s3', region_name=region, endpoint_url=endpoint,
         config=Config(signature_version='s3v4', connect_timeout=10, read_timeout=90 if expected else 10,
                       retries={'total_max_attempts': 1, 'mode': 'standard'}, proxies={}, max_pool_connections=1,
@@ -143,12 +163,13 @@ def client_for(session, journal, source, region, slot, bucket, key=None, expecte
     require(type(client._endpoint.http_session) is URLLib3Session, 'SDK_TRANSPORT_TYPE')
     url = endpoint + '/' + bucket + ('/' + quote(key, safe='/~') if key is not None else '')
     context = {}
-    gate = SendGate(journal, slot, 'GET' if expected else 'HEAD', url, expected.get('VersionId') if expected else None)
+    gate = SendGate(journal, slot, 'GET', url)
     install_transport(client, gate, context, source, expected)
     return client, context
 
 
 def metadata(root):
+    require(False,'032_NEW_HEAD_METADATA_FORBIDDEN')
     journal = Journal(root)
     try:
         require_ready(journal)
@@ -208,7 +229,7 @@ def transfer(body, target, expected, journal, alias):
     while received < size:
         amount = min(MIB, size - received)
         debits = journal.events('BODY_DEBIT')
-        require(sum(r['amount'] for r in debits) + amount <= 16 * GIB and
+        require(sum(r['amount'] for r in debits) + amount <= 6 * GIB and
                 sum(r['amount'] for r in debits if r['alias'] == alias) + amount <= size, 'BODY_BYTE_CAP')
         journal.add('BODY_DEBIT', alias=alias, amount=amount)
         chunk = body.read(amount)
@@ -227,7 +248,7 @@ def get_object(root, alias):
         journal.once('PHASE', 'get-' + alias)
         target = next(t for t in load(root, 'targets.json')['targets'] if t['alias'] == alias)
         expected = load(root, alias + '-head.json'); require(expected.get('eligible') is True, 'HEAD_NOT_ELIGIBLE')
-        session, buckets, regions, source = sdk(journal)
+        session, buckets, regions, source = sdk(journal,save_sources=not (Path(root)/'sdk_transport.py').exists())
         require(target['bucket'] in buckets and expected['region'] in regions, 'OFFICIAL_ENDPOINT')
         size = expected['ContentLength']
         require(shutil.disk_usage(root).free >= size + 2 * GIB, 'DISK_HEADROOM')
@@ -238,9 +259,7 @@ def get_object(root, alias):
         journal.add('RENAME_PLANNED', old=partial, new=final)
         client, context = client_for(session, journal, source, expected['region'], 'GetObject:' + alias,
                                      target['bucket'], target['key'], expected)
-        kwargs = dict(Bucket=target['bucket'], Key=target['key'], IfMatch=expected['ETag'])
-        if expected.get('VersionId'):
-            kwargs['VersionId'] = expected['VersionId']
+        kwargs = current_get_kwargs(target,expected)
         result = client.get_object(**kwargs); body = result['Body']
         match_headers(result['ResponseMetadata']['HTTPHeaders'], expected)
         with open(Path(root) / partial, 'xb') as destination:
@@ -255,12 +274,7 @@ def get_object(root, alias):
     except Exception as error:
         # Diagnostics only: never read an error body, retry, or print SDK error
         # messages/headers. Earlier031 attempts predate this added persistence.
-        response=getattr(error,'response',{})
-        status=context.get('status',response.get('ResponseMetadata',{}).get('HTTPStatusCode'))
-        code=response.get('Error',{}).get('Code')
-        if not isinstance(code,str) or len(code)>64 or not all(c.isalnum() or c in '._-' for c in code):code=None
-        journal.write(alias + '-acquisition-failure.json', dict(reason=str(error) if isinstance(error, ValueError) and str(error).isupper() else type(error).__name__,
-                                                              observed_status=status,service_code=code))
+        journal.write(alias + '-acquisition-failure.json', network_failure(error,context))
     finally:
         if body is not None:
             body.close()
