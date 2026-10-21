@@ -1,4 +1,4 @@
-"""030 nongold-only real four-arm worker. No model/data defaults or heavy imports."""
+"""030 nongold four-arm worker with fixed031 binding; no defaults/heavy imports."""
 import argparse
 from dataclasses import asdict
 import gc
@@ -57,7 +57,12 @@ def worker(root):
         require_ready(journal)
         journal.once('WORKER_ENTERED', 'gpu')
         config = load(root, 'worker-input.json'); queue = load(root, 'queue.json')
-        require(digest(config) == queue['worker_hash'] and len(queue['slots']) == 16, 'WORKER_FREEZE_BINDING')
+        frozen=journal.events('FROZEN');launches=journal.events('MODEL_LAUNCH')
+        require(digest(config) == queue['worker_hash'] and len(queue['slots']) == 16
+                and queue['contract_id']=='031' and queue['run_id']==journal.rows[0]['run_id']
+                and len(frozen)==len(launches)==1 and frozen[0]['worker_hash']==queue['worker_hash']
+                and frozen[0]['plan_hash']==queue['plan_hash'] and launches[0]['queue_hash']==digest(queue)
+                and queue['slots']==config['slots'], 'WORKER_FREEZE_BINDING')
         install_policy(root, config['models'])
         import numpy as np
         import torch

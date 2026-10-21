@@ -1,4 +1,4 @@
-"""030 exact-object transport and lossless true-PTS candidates; no defaults."""
+"""030 exact-object/PTS helpers with fixed031 gates; no private defaults."""
 import argparse
 import ast
 import hashlib
@@ -30,6 +30,7 @@ class SendGate:
         api = self.slot.split(':')[0]
         require(api in ('HeadBucket', 'HeadObject', 'GetObject') and len(rows) < 12
                 and sum(r['api'] == api for r in rows) < 4, 'HTTPS_CAP')
+        require(not any(r['method']==method and r['url']==url for r in rows),'OBJECT_ALREADY_ATTEMPTED_ACROSS_ALIAS')
         self.journal.once('HTTPS', self.slot, api=api, method=method, url=url)
 
 
@@ -80,10 +81,13 @@ def install_transport(client, gate, context, source, expected=None):
     def send(request):
         method = request.method.decode() if isinstance(request.method, bytes) else request.method
         require(pending and pending.pop(0) == (method, request.url), 'TRANSPORT_WITHOUT_GATE')
+        gate.journal.add('TRANSPORT_SEND',slot=gate.slot,method=method,url=request.url)
         response = original(request)
         context.update(status=response.status_code, region=response.headers.get('x-amz-bucket-region'))
         raw = response.raw
         try:
+            gate.journal.add('TRANSPORT_RESPONSE',slot=gate.slot,status=response.status_code,
+                             observed_region=context.get('region'))
             require(sum(len(str(k).encode()) + len(str(v).encode()) for k, v in response.headers.items()) <= 65536, 'HEADER_RETENTION')
             if method == 'HEAD':
                 require(getattr(raw, 'length_remaining', None) == 0 and not getattr(raw, 'chunked', False), 'HEAD_BODY_HOLD')
@@ -217,7 +221,7 @@ def transfer(body, target, expected, journal, alias):
 
 
 def get_object(root, alias):
-    journal = Journal(root); body = client = None
+    journal = Journal(root); body = client = None; context = {}
     try:
         require_ready(journal)
         journal.once('PHASE', 'get-' + alias)
@@ -226,7 +230,7 @@ def get_object(root, alias):
         session, buckets, regions, source = sdk(journal)
         require(target['bucket'] in buckets and expected['region'] in regions, 'OFFICIAL_ENDPOINT')
         size = expected['ContentLength']
-        require(shutil.disk_usage(root).free >= size + GIB + 2 * GIB, 'DISK_HEADROOM')
+        require(shutil.disk_usage(root).free >= size + 2 * GIB, 'DISK_HEADROOM')
         partial = alias + '.partial'; final = alias + '.mp4'
         journal.reserve_output(partial, size, 'media')
         # Same-directory rename, one storage reservation, explicit final identity.
@@ -249,7 +253,14 @@ def get_object(root, alias):
                       sha256=sha, size=stat.st_size, mtime_ns=stat.st_mtime_ns, received=received))
         journal.add('MEDIA_COMPLETE', alias=alias, size=received)
     except Exception as error:
-        journal.write(alias + '-acquisition-failure.json', dict(reason=str(error) if isinstance(error, ValueError) and str(error).isupper() else type(error).__name__))
+        # Diagnostics only: never read an error body, retry, or print SDK error
+        # messages/headers. Earlier031 attempts predate this added persistence.
+        response=getattr(error,'response',{})
+        status=context.get('status',response.get('ResponseMetadata',{}).get('HTTPStatusCode'))
+        code=response.get('Error',{}).get('Code')
+        if not isinstance(code,str) or len(code)>64 or not all(c.isalnum() or c in '._-' for c in code):code=None
+        journal.write(alias + '-acquisition-failure.json', dict(reason=str(error) if isinstance(error, ValueError) and str(error).isupper() else type(error).__name__,
+                                                              observed_status=status,service_code=code))
     finally:
         if body is not None:
             body.close()
@@ -282,7 +293,7 @@ def candidates(root, alias):
             require(fps and math.isfinite(fps) and fps > 0, 'FPS_REQUIRED_FOR_FROZEN_HELPER')
             shape = (stream.height, stream.width, 3)
             frame_bytes = 48 * math.prod(shape)
-            require(frame_bytes + 4096 <= GIB and shutil.disk_usage(root).free >= frame_bytes + 4096 + 2 * GIB, 'FRAME_HEADROOM')
+            require(shutil.disk_usage(root).free >= frame_bytes + 4096 + 2 * GIB, 'FRAME_HEADROOM')
             for packet in container.demux(stream):
                 require(time.monotonic() - start < 295, 'MEDIA_DEADLINE')
                 if not packet.size:

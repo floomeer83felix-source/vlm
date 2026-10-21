@@ -1,4 +1,4 @@
-"""030 fixed development pilot. No default private paths or import-time work.
+"""030 production helpers with fixed031 recovery; original030 runs stay closed.
 
 Windows sharing/Job gates are OS gates, not a hostile-code sandbox. Every child
 waits for a parent handshake before dependency imports or research work.
@@ -40,21 +40,21 @@ def digest(value):
 
 class Journal:
     """OS-locked, append/fsync hash chain; a consumed attempt never refunds."""
-    def __init__(self, root, create=False):
+    def __init__(self, root, create=False, fixture=False):
         self.root = Path(root)
+        require(self.root.name == 'integration_031', 'FIXED_031_ROOT_REQUIRED')
         if create:
-            require(self.root.name == 'integration_030', 'ROOT_NAME')
             checked_path(self.root.parent, directory=True)
             self.root.mkdir()  # Existing root is terminal, never resume/relabel.
         checked_path(self.root, directory=True)
-        self.lock = open(self.root / '030.lock', 'a+b')
+        self.lock = open(self.root / '031.lock', 'a+b')
         import msvcrt
         self.lock.seek(0)
         if self.lock.read(1) == b'':
             self.lock.write(b'0'); self.lock.flush(); os.fsync(self.lock.fileno())
         self.lock.seek(0)
         msvcrt.locking(self.lock.fileno(), msvcrt.LK_NBLCK, 1)
-        self.path = self.root / '030-ledger.jsonl'
+        self.path = self.root / '031-ledger.jsonl'
         self.rows = []
         self.byte_length = 0
         if self.path.exists():
@@ -68,8 +68,12 @@ class Journal:
                         and sig == digest(row), 'LEDGER_CHAIN')
                 self.rows.append(dict(row, hash=sig))
         if create:
-            self.add('RUN', run_id=uuid.uuid4().hex, epoch=time.time(), parent_cap=7200)
-        require(self.rows and self.rows[0]['event'] == 'RUN', 'RUN_REQUIRED')
+            if fixture:
+                require(self.root.parent.name.startswith('witness-') and self.root.parent.parent.name=='integration_031','FIXTURE_ANCESTRY')
+            self.add('RUN', contract_id='031', root_name='integration_031', purpose='FICTIONAL_031_WITNESS' if fixture else 'REAL_031',
+                     run_id=uuid.uuid4().hex, epoch=time.time(), parent_cap=7200)
+        require(self.rows and self.rows[0]['event'] == 'RUN' and self.rows[0].get('contract_id') == '031'
+                and self.rows[0].get('root_name') == self.root.name, 'RUN_REQUIRED')
         self.check_time()
 
     def close(self):
@@ -104,15 +108,15 @@ class Journal:
                 sum(r['seconds'] for r in self.events('WINDOW') if r['stage'] == stage) + seconds <= caps[stage], 'STAGE_TIME')
         self.once('WINDOW', key, stage=stage, seconds=seconds)
 
-    def reserve_output(self, name, size, category='metadata'):
-        require(Path(name).name == name and name not in ('030.lock', '030-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
+    def reserve_output(self, name, size, category='metadata', files=1):
+        require(Path(name).name == name and name not in ('031.lock', '031-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
         used = self.events('OUTPUT')
         limits = dict(metadata=32 * MIB - 9 * MIB, media=16 * GIB, frames=4 * GIB)
-        require(category in limits and len(used) + 3 <= 384 and
+        require(category in limits and type(files) is int and 1<=files<=32 and sum(r.get('files',1) for r in used) + files + 2 <= 384 and
                 sum(r['size'] for r in used) + size + 9 * MIB <= 24 * GIB and
                 sum(r['size'] for r in used if r['category'] == category) + size <= limits[category], 'OUTPUT_CAP')
         require(not (self.root / name).exists(), 'OUTPUT_EXISTS')
-        self.once('OUTPUT', name, size=size, category=category)
+        self.once('OUTPUT', name, size=size, category=category, files=files)
 
     def write(self, name, value):
         raw = packed(value)
@@ -148,21 +152,183 @@ def load(root, name):
     return json.loads((Path(root) / name).read_bytes())
 
 
+def archive_rows(raw):
+    """Read-only historical validation. No old Journal, lock, epoch check or writes."""
+    require(0 < len(raw) <= MIB and raw.endswith(b'\n'), 'ARCHIVE_INCOMPLETE')
+    rows=[]
+    for line in raw.splitlines():
+        row=json.loads(line); signature=row.pop('hash')
+        require(row['seq']==len(rows) and row['prev']==(rows[-1]['hash'] if rows else '0'*64)
+                and digest(row)==signature,'ARCHIVE_CHAIN')
+        rows.append(dict(row,hash=signature))
+    require(rows and rows[0]['event']=='RUN' and any(r['event']=='RUN_STOPPED' for r in rows),'ARCHIVE_NOT_STOPPED')
+    terminal=[r for r in rows if r['event']=='TERMINAL']
+    require(len(terminal)==16 and {r['key'] for r in terminal}=={str(n) for n in range(16)}
+            and all(r['state']=='NOT_RUN' for r in terminal)
+            and not any(r['event'] in ('HTTPS','STARTED','MODEL_LAUNCH','SCORE_CONSUMED')
+                        or r['event']=='INPUT' and r.get('category')=='gold' for r in rows),'ARCHIVE_REAL_ACTION_OR_QUEUE')
+    return rows
+
+
+def recover_pretty_input(alias, data, context):
+    """Reverse only the published028/029 pretty-JSON writer ordering.
+
+    030 reserialized JSON into sorted compact form. Acceptance still requires
+    EXACT original INPUT_COMPLETE SHA256 and size, then the known030 transform
+    must reproduce every cache byte. Canonical equivalence alone never passes.
+    No original source is reopened; no semantic field/array order is changed.
+    """
+    import itertools
+    headers=context.get('official',{}).get('joined',{}).get('summary',{}).get('headers',[])
+    roots=dict(keys=['binding','keys'],cohort=['binding','cohort','exclusions','source_conflicts'],
+               nongold=['binding','projection'],plan=['binding','plan'],receipts=['binding','receipts','diagnostics'],
+               targets=['targets','evidence','errors'],heads029=['results'],official=['binding','joined','qualification'])
+    diagnostic_order=['old_%d' % i for i in range(6)]+['handoff_0','index','screen','inference']
+    metadata_order={s['source']:[pair[0] for pair in s['metadata']] for s in context.get('nongold',{}).get('projection',{}).get('sources',[])}
+    def reorder(value,path=()):
+        if isinstance(value,list):return [reorder(v,path+(i,)) for i,v in enumerate(value)]
+        if not isinstance(value,dict):return value
+        order=[]
+        keys=set(value)
+        if not path:order=roots.get(alias,[])
+        elif path==('diagnostics',):order=diagnostic_order
+        elif 'byte_count' in keys and 'digest' in keys:order=['alias','byte_count','digest','before','after','complete']
+        elif 'skipped_nonfinite' in keys:order=['binding','complete','skipped_nonfinite','decoded_values','character_position']
+        elif keys=={'source','index'}:order=['source','index']
+        elif keys=={'key','arm'}:order=['key','arm']
+        elif 'decomposition' in keys:order=['key','task','question','decomposition']
+        elif 'event_a' in keys and 'key' in keys:order=['key','task','question','event_a','event_b','metadata','limits']
+        elif 'event_a' in keys:order=['status','reason','event_a','event_b']
+        elif 'options' in keys:order=['key','task','question','options']
+        elif keys=={'source','metadata'}:order=['source','metadata']
+        elif 'calls' in keys:order=['sources','questions','exclusions','calls']
+        elif 'view' in keys:order=['view','sources','questions']
+        elif keys=={'key','reason'}:order=['key','reason']
+        elif path==('joined',):order=['rows','group_matches','summary','duplicates']
+        elif path==('joined','summary'):order=['row_count','headers','requested_uids','matched_uids','missing_uids','duplicate_uids','requested_groups','matched_groups']
+        elif len(path)==3 and path[:2]==('joined','rows'):order=headers
+        elif len(path)==3 and path[0]=='cohort' and path[-1]=='metadata':
+            uid=data['cohort'][path[1]]['key']['source'];order=metadata_order.get(uid,[])+[h for h in headers if h not in metadata_order.get(uid,[])]
+        elif 'current_rights' in keys and 'source_status' in keys:order=['alias','source_status','reasons','current_rights','physical_independence']
+        elif path and path[0]=='targets':order=['alias','uri','bucket','key']
+        elif path and path[0]=='results':order=['alias','status','ContentLength','ETag','VersionId','LastModified','region','reason','exception_kind']
+        ordered=list(dict.fromkeys([k for k in order if k in value]+list(value)))
+        return {k:reorder(value[k],path+(k,)) for k in ordered}
+    ordered=reorder(data)
+    variants=[ordered]
+    if alias=='official':
+        # Manifest row order was preserved by the original writer, but sorted by
+        # 030's transform. Four fixed rows permit a bounded24 serialization proof.
+        rows=ordered['joined']['rows']
+        require(len(rows)==4,'ARCHIVE_OFFICIAL_FOUR')
+        variants=[]
+        for order in itertools.permutations(rows):
+            variant=dict(ordered);variant['joined']=dict(ordered['joined'],rows={k:rows[k] for k in order});variants.append(variant)
+    for value in variants:
+        yield json.dumps(value,ensure_ascii=True,indent=2,allow_nan=False).encode()
+
+
+def transfer_cache_031(root, old_root, sdk_python, conda_entry=None, runtime=None):
+    """Fresh031 budget, exact read-only030 cache with byte-level provenance."""
+    journal=Journal(root,create=True)
+    try:
+        journal.reserve_time('cpu',45,'cache-initialize')
+        old=Path(old_root);require(old.name=='integration_030','EXACT_ARCHIVE_ROOT')
+        rows=archive_rows(journal.input('archive_030',old/'030-ledger.jsonl'))
+        completed={r['alias']:r for r in rows if r['event']=='INPUT_COMPLETE'}
+        outputs={r['key']:r for r in rows if r['event']=='OUTPUT'}
+        names=['keys','cohort','nongold','plan','receipts','targets','heads029','official']
+        payload={};raws={};checks=[]
+        for alias in names:
+            raw=journal.input('cache_'+alias,old/(alias+'.json'));raws[alias]=raw;payload[alias]=json.loads(raw)
+        for alias in names:
+            raw=raws[alias];expected=completed[alias]
+            require(alias+'.json' in outputs and len(raw)==outputs[alias+'.json']['size'],'CACHE_OUTPUT_SIZE')
+            exact=hashlib.sha256(raw).hexdigest()==expected['sha256'] and len(raw)==expected['size']
+            restored=None
+            if not exact:
+                require(packed(payload[alias])==raw,'CACHE_NOT_PUBLISHED_CANONICAL_FORM')
+                for candidate in recover_pretty_input(alias,payload[alias],payload):
+                    if len(candidate)==expected['size'] and hashlib.sha256(candidate).hexdigest()==expected['sha256']:
+                        restored=candidate;break
+            checks.append(dict(alias=alias,bound=exact or restored is not None,
+                               mode='EXACT_CACHE_BYTES' if exact else 'EXACT_ORIGINAL_BYTES_RECOVERED' if restored is not None else 'UNBOUND_CANONICAL_REWRITE'))
+            if exact or restored is not None:
+                journal.write(alias+'.json',payload[alias])
+        for alias in ('factory_0','factory_1','runner_0','runner_1'):
+            raw=journal.input('cache_'+alias,old/(alias+'.py'),'source');expected=completed[alias]
+            good=len(raw)==expected['size'] and hashlib.sha256(raw).hexdigest()==expected['sha256']
+            checks.append(dict(alias=alias,bound=good,mode='EXACT_CACHE_BYTES' if good else 'SOURCE_HASH_HOLD'))
+            if good:
+                journal.reserve_output(alias+'.py',len(raw))
+                with open(journal.root/(alias+'.py'),'xb') as target:
+                    target.write(raw);target.flush();os.fsync(target.fileno())
+        reference=json.loads(journal.input('cache_annotation_reference',old/'annotation-reference.json'))
+        # This file was created inside030; bind its identity to three exact028
+        # full receipts, rather than pretending it was an original INPUT_COMPLETE.
+        receipts=[r for r in payload['receipts']['receipts'] if r['alias']=='annotation']
+        require(len(receipts)==3 and all(r['complete'] for r in receipts)
+                and len({(r['byte_count'],r['digest'],tuple(r['before'])) for r in receipts})==1
+                and reference['identity']==receipts[0]['before'][:2] and reference['size']==receipts[0]['byte_count']
+                and reference['mtime_ns']==receipts[0]['before'][3],'CACHE_ANNOTATION_REFERENCE')
+        journal.write('annotation-reference.json',reference)
+        journal.write('cache-verification-private.json',dict(checks=checks,archive_stopped=True,old_actions_zero=True,old_run_id=rows[0]['run_id']))
+        journal.write('execution-config.json',dict(sdk_python=str(sdk_python),conda_entry=str(conda_entry) if conda_entry else None,runtime=runtime))
+        if all(r['bound'] for r in checks):
+            journal.add('CACHE_BOUND',inputs=12,archive_hash=rows[-1]['hash'])
+        else:
+            journal.add('CACHE_HOLD',reason='ORIGINAL_INPUT_DIGEST_NOT_RECOVERED',aliases=[r['alias'] for r in checks if not r['bound']])
+    finally:
+        journal.close()
+
+
+def win32_file_api():
+    require(os.name == 'nt', 'WINDOWS_REQUIRED')
+    api = ctypes.WinDLL('kernel32', use_last_error=True)
+    api.CreateFileW.argtypes = [W.LPCWSTR, W.DWORD, W.DWORD, W.LPVOID, W.DWORD, W.DWORD, W.HANDLE]
+    api.CreateFileW.restype = W.HANDLE
+    api.CloseHandle.argtypes = [W.HANDLE]; api.CloseHandle.restype = W.BOOL
+    api.GetHandleInformation.argtypes = [W.HANDLE, ctypes.POINTER(W.DWORD)]
+    api.GetHandleInformation.restype = W.BOOL
+    return api
+
+
 class ExclusiveRead:
     def __init__(self, path):
-        require(os.name == 'nt', 'WINDOWS_REQUIRED')
-        self.api = ctypes.WinDLL('kernel32', use_last_error=True)
-        self.api.CreateFileW.argtypes = [W.LPCWSTR, W.DWORD, W.DWORD, W.LPVOID, W.DWORD, W.DWORD, W.HANDLE]
-        self.api.CreateFileW.restype = W.HANDLE
-        self.api.CloseHandle.argtypes = [W.HANDLE]
-        self.handle = self.api.CreateFileW(str(path), 0x80000000, 0, None, 3, 0x80, None)
-        require(self.handle != ctypes.c_void_p(-1).value, 'EXCLUSIVE_HANDLE_FAILED')
-        flags = W.DWORD()
-        require(self.api.GetHandleInformation(W.HANDLE(self.handle), ctypes.byref(flags)) and not flags.value & 1, 'HANDLE_INHERITANCE')
+        self.api = win32_file_api(); self.handle = None
+        handle = self.api.CreateFileW(str(path), 0x80000000, 0, None, 3, 0x80, None)
+        error = ctypes.get_last_error()  # Immediate raw Win32 observation.
+        require(handle != ctypes.c_void_p(-1).value, 'EXCLUSIVE_HANDLE_FAILED_%d' % error)
+        self.handle = handle
+        try:
+            flags = W.DWORD()
+            require(self.api.GetHandleInformation(W.HANDLE(handle), ctypes.byref(flags)) and not flags.value & 1, 'HANDLE_INHERITANCE')
+        except BaseException:
+            self.close(); raise
 
     def close(self):
         if self.handle:
             self.api.CloseHandle(self.handle); self.handle = None
+
+
+def zero_body_observation(path):
+    """Same production and witness probe: one native + one Python open, no read."""
+    api = win32_file_api()
+    ctypes.set_last_error(0)
+    handle = api.CreateFileW(str(path), 0x80000000, 7, None, 3, 0x80, None)
+    error = ctypes.get_last_error()
+    opened = handle != ctypes.c_void_p(-1).value
+    if opened:
+        api.CloseHandle(handle)
+    native = dict(opened=opened, winerror=None if opened else error, body_bytes=0)
+    try:
+        source = open(path, 'rb'); source.close()
+        python = dict(opened=True, exception_kind=None, errno=None, winerror=None, body_bytes=0)
+    except OSError as failure:
+        python = dict(opened=False, exception_kind=type(failure).__name__, errno=failure.errno,
+                      winerror=getattr(failure, 'winerror', None), body_bytes=0)
+    return dict(native=native, python=python,
+                denied=not opened and error == 32 and python['opened'] is False)
 
 
 class _Basic(ctypes.Structure):
@@ -210,6 +376,17 @@ class Job:
         require(self.api.QueryInformationJobObject(self.handle, 1, ctypes.byref(record), ctypes.sizeof(record), None), 'JOB_ACCOUNTING')
         return record.active
 
+    def wait_empty(self, deadline):
+        """Only an actual observed zero certifies exit; never kills a healthy peer."""
+        while True:
+            active = self.active()
+            if active == 0:
+                return True
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                return False
+            time.sleep(min(.01, remaining))
+
     def peak(self):
         record = _Extended()
         require(self.api.QueryInformationJobObject(self.handle, 9, ctypes.byref(record), ctypes.sizeof(record), None), 'JOB_PEAK')
@@ -223,7 +400,7 @@ class Job:
             self.api.CloseHandle(self.handle); self.handle = None
 
 
-def run_child(command, seconds, *, job_memory=24 * GIB, payload='', environment=None):
+def run_child(command, seconds, *, job_memory=24 * GIB, payload='', environment=None, work_seconds=None):
     """Child MUST read one stdin line before work. Job assignment precedes it."""
     job = Job(job_memory)
     child = None
@@ -231,6 +408,10 @@ def run_child(command, seconds, *, job_memory=24 * GIB, payload='', environment=
     overflow = threading.Event()
     threads = []
     start = time.monotonic()
+    deadline = start + seconds
+    cleanup = min(5., seconds * .45)
+    work_deadline = min(start + work_seconds, deadline-cleanup) if work_seconds is not None else deadline-cleanup
+    killed = False
     try:
         child = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                  env=environment, creationflags=0x08000000, close_fds=True)
@@ -248,26 +429,33 @@ def run_child(command, seconds, *, job_memory=24 * GIB, payload='', environment=
             thread.start(); threads.append(thread)
         child.stdin.write((payload + '\n').encode()); child.stdin.flush(); child.stdin.close()
         while child.poll() is None:
-            if time.monotonic() - start >= seconds or overflow.is_set():
-                job.kill(); break
-            time.sleep(.02)
-        child.wait(timeout=3)
+            if time.monotonic() >= work_deadline or overflow.is_set():
+                job.kill(); killed = True; break
+            time.sleep(min(.02, max(0, work_deadline-time.monotonic())))
+        child.wait(timeout=max(.001, deadline-time.monotonic()))
         # Includes descendants. Never search for or kill a peer process.
-        if job.active():
-            job.kill()
-        deadline = time.monotonic() + 3
-        while job.active() and time.monotonic() < deadline:
-            time.sleep(.01)
-        require(job.active() == 0, 'JOB_STILL_ACTIVE')
+        # First allow natural accounting drain; if a descendant remains, only
+        # our Job is terminated and its zero must still be observed in-window.
+        natural_deadline = min(deadline-.2, time.monotonic()+min(.4, cleanup/3))
+        empty = job.wait_empty(natural_deadline)
+        if not empty:
+            job.kill(); killed = True
+            empty = job.wait_empty(deadline-.1)
+        require(empty, 'JOB_STILL_ACTIVE')
         for thread in threads:
-            thread.join(1)
+            thread.join(max(0,deadline-time.monotonic()))
         require(not any(t.is_alive() for t in threads), 'PIPE_NOT_CLOSED')
+        require(time.monotonic() <= deadline, 'FULL_CHILD_WINDOW_EXCEEDED')
         return dict(pid=child.pid, exit_code=child.returncode, job_active=0, peak_commit=job.peak(),
-                    seconds=time.monotonic() - start, overflow=overflow.is_set(),
+                    seconds=time.monotonic() - start, overflow=overflow.is_set(), killed=killed,
                     stdout=bytes(buffers[0]).decode(errors='replace'), stderr=bytes(buffers[1]).decode(errors='replace'))
     finally:
         if child is not None and child.poll() is None:
-            job.kill(); child.kill(); child.wait(timeout=3)
+            job.kill(); child.kill()
+            try:
+                child.wait(timeout=max(.001, deadline-time.monotonic()))
+            except subprocess.TimeoutExpired:
+                pass  # No exit receipt; the retained Job is killed on close.
         if child is not None:
             for stream in (child.stdin, child.stdout, child.stderr):
                 if stream is not None and not stream.closed:
@@ -285,6 +473,8 @@ def python_command(interpreter, module, *arguments, site=None):
 
 
 def initialize(root, entries, annotation):
+    raise ContractError('LEGACY_INITIALIZE_CLOSED_USE_031_ARCHIVE_TRANSFER')
+    # Historical implementation retained for code provenance, never executed.
     journal = Journal(root, create=True)
     try:
         journal.reserve_time('cpu', 120, 'initialize')
@@ -308,12 +498,7 @@ def initialize(root, entries, annotation):
 def probe(path):
     # This process never calls read(), even on an unexpected successful open.
     sys.stdin.readline()
-    try:
-        source = open(path, 'rb'); source.close()
-    except OSError as error:
-        print(json.dumps(dict(denied=getattr(error, 'winerror', None) == 32, winerror=getattr(error, 'winerror', None), body=0)))
-        return
-    print(json.dumps(dict(denied=False, body=0)))
+    print(json.dumps(zero_body_observation(path)))
 
 
 def restored_plan(root):
@@ -330,6 +515,7 @@ def prepare(root):
     journal = Journal(root)
     try:
         require_ready(journal)
+        require(journal.events('CACHE_BOUND'),'CACHE_BINDING_REQUIRED')
         journal.once('PHASE', 'prepare')
         binding = ['SKIP_NONFINITE_028', 'PROJECTOR_028_V1']
         for name in ('keys', 'cohort', 'nongold', 'plan', 'receipts', 'official'):
@@ -400,15 +586,20 @@ def prepare(root):
                       models=model_roots[0], qwen_config=configs[0], seed=19, max_new_tokens=64, factory='factory_1.py'))
         journal.add('FROZEN', n=4, options=20, slots=16, plan_hash=digest(asdict(plan)), worker_hash=digest(load(root, 'worker-input.json')))
         # Resolve the explicitly existing named conda runtime, no inventory/import.
-        conda = Path(sys.executable).parent / 'Scripts' / 'conda.exe'
-        require(conda.is_file(), 'EXISTING_CONDA_ENTRY_UNKNOWN')
-        code = 'import sys,os,json;sys.stdin.readline();print(json.dumps(dict(python=sys.executable,path=os.environ.get("PATH",""))))'
-        result = run_child([str(conda), 'run', '--no-capture-output', '-n', 'pytorch', 'python', '-I', '-S', '-B', '-c', code], 30)
-        require(result['exit_code'] == 0 and not result['overflow'], 'EXISTING_RUNTIME_RESOLUTION')
-        runtime = json.loads(result['stdout'].strip())
+        execution=load(root,'execution-config.json')
+        runtime=execution.get('runtime')
+        resolution_pid=None
+        if runtime is None:
+            conda=Path(execution['conda_entry'])
+            checked_path(conda)
+            journal.reserve_time('cpu',20,'runtime-resolution')
+            code = 'import sys,os,json;sys.stdin.readline();print(json.dumps(dict(python=sys.executable,path=os.environ.get("PATH",""))))'
+            result = run_child([str(conda), 'run', '--no-capture-output', '-n', 'pytorch', 'python', '-I', '-S', '-B', '-c', code],20)
+            require(result['exit_code'] == 0 and not result['overflow'], 'EXISTING_RUNTIME_RESOLUTION')
+            runtime = json.loads(result['stdout'].strip());resolution_pid=result['pid']
         runtime['site'] = str(Path(runtime['python']).parent / 'Lib' / 'site-packages')
         journal.write('runtime.json', runtime)
-        journal.add('PREPARED', helper_ast_matches=2, original_annotation_body=0, resolution_pid=result['pid'])
+        journal.add('PREPARED', helper_ast_matches=2, original_annotation_body=0, resolution_pid=resolution_pid)
     finally:
         journal.close()
 
@@ -417,7 +608,7 @@ def phase(root, name, stage, seconds, command, environment=None):
     journal = Journal(root)
     try:
         if name.startswith('suite-'):
-            require(name in ('suite-1', 'suite-2') and not journal.events('RUN_STOPPED'), 'SUITE_CAP_OR_STOP')
+            require(name in ('suite-1', 'suite-2') and seconds<=60 and not journal.events('RUN_STOPPED'), 'SUITE_CAP_OR_STOP')
         journal.reserve_time(stage, seconds, name)
     finally:
         journal.close()
@@ -427,10 +618,14 @@ def phase(root, name, stage, seconds, command, environment=None):
         journal.write(name + '-exit-private.json', result)
         journal.add('PHASE_EXIT', name=name, pid=result['pid'], code=result['exit_code'], job_active=result['job_active'], seconds=result['seconds'])
         if name.startswith('suite-'):
-            import re
-            match = re.search(r'Ran ([1-9][0-9]*) tests? in ', result['stderr'])
-            passed = result['exit_code'] == 0 and not result['overflow'] and bool(match) and result['stderr'].strip().endswith('OK')
-            journal.add('SUITE_RESULT', name=name, passed=passed, tests=int(match.group(1)) if match else 0)
+            receipt=load(root,name+'-result.json') if (Path(root)/(name+'-result.json')).exists() else {}
+            marks=receipt.get('os_marks',{})
+            passed=(result['exit_code']==0 and not result['overflow'] and receipt.get('contract_id')=='031'
+                    and receipt.get('run_id')==journal.rows[0]['run_id'] and receipt.get('expected')==receipt.get('tests',0)>0
+                    and receipt.get('failures')==receipt.get('errors')==receipt.get('skips')==0
+                    and all(marks.get(k) is True for k in ('win32_sharing','release_open','healthy_job_empty','descendant_empty','independent_score')))
+            journal.add('SUITE_RESULT', name=name, contract_id='031',run_id=journal.rows[0]['run_id'],passed=passed,
+                        tests=receipt.get('tests',0),failures=receipt.get('failures'),errors=receipt.get('errors'),skips=receipt.get('skips'),os_marks=marks)
     finally:
         journal.close()
     return result
@@ -438,17 +633,59 @@ def phase(root, name, stage, seconds, command, environment=None):
 
 def require_ready(journal):
     results = journal.events('SUITE_RESULT')
-    require(not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
+    require(journal.rows[0].get('purpose')=='REAL_031' and not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
+            and results[-1].get('contract_id')=='031' and results[-1].get('run_id')==journal.rows[0]['run_id']
             and 0 < results[-1]['tests'] and len(results) <= 2, 'NEW_SUITE_NOT_PASSED')
 
 
-def score_allowed(rows):
+def make_queue(root, journal, available):
+    config=load(root,'worker-input.json'); plan=restored_plan(root)
+    require(len(config['slots'])==16 and len(plan.calls)==16,'FULL_QUEUE_REQUIRED')
+    queue=dict(contract_id='031',run_id=journal.rows[0]['run_id'],plan_hash=digest(asdict(plan)),
+               worker_hash=digest(config),slots=config['slots'],available=available)
+    journal.write('queue.json',queue)
+    return queue
+
+
+def close_model_queue(root, journal, child_exit):
+    require(child_exit['job_active']==0 and type(child_exit['pid']) is int and child_exit['pid']>0,'REAL_JOB_EXIT_REQUIRED')
+    launches=journal.events('MODEL_LAUNCH');require(len(launches)==1,'UNIQUE_MODEL_LAUNCH')
+    launch=launches[0];queue=load(root,'queue.json')
+    journal.add('MODEL_EXIT',pid=child_exit['pid'],job_active=child_exit['job_active'],code=child_exit['exit_code'],
+                run_id=journal.rows[0]['run_id'],launch_hash=launch['hash'],queue_hash=digest(queue),
+                exit_binding=digest(child_exit),seconds=child_exit['seconds'])
+    journal.add('QUEUE_CLOSED',pid=child_exit['pid'],run_id=journal.rows[0]['run_id'],
+                model_exit_hash=journal.events('MODEL_EXIT')[0]['hash'],terminal_hash=digest(journal.events('TERMINAL')),
+                queue_hash=digest(queue),plan_hash=queue['plan_hash'],worker_hash=queue['worker_hash'])
+
+
+def score_allowed(rows, root):
     closes = [r for r in rows if r['event'] == 'QUEUE_CLOSED']
     exits = [r for r in rows if r['event'] == 'MODEL_EXIT']
     require(len(closes) == len(exits) == 1 and exits[0]['job_active'] == 0
             and exits[0]['pid'] == closes[0]['pid'] and closes[0]['model_exit_hash'] == exits[0]['hash']
             and len([r for r in rows if r['event'] == 'TERMINAL']) == 16
             and any(r['event'] == 'TERMINAL' and r['state'] in ('RETURNED', 'INVALID') for r in rows), 'GOLD_GATE_CLOSED')
+    queue=load(root,'queue.json');config=load(root,'worker-input.json');plan=restored_plan(root)
+    run=rows[0];launches=[r for r in rows if r['event']=='MODEL_LAUNCH'];frozen=[r for r in rows if r['event']=='FROZEN']
+    require(run.get('contract_id')=='031' and len(launches)==len(frozen)==1,'SCORE_RUN_BINDING')
+    launch=launches[0];close=closes[0];exit_row=exits[0]
+    require(queue['contract_id']=='031' and queue['run_id']==run['run_id']==close['run_id']==exit_row['run_id']==launch['run_id']
+            and frozen[0]['plan_hash']==queue['plan_hash']==close['plan_hash']==digest(asdict(plan))
+            and frozen[0]['worker_hash']==queue['worker_hash']==close['worker_hash']==digest(config)
+            and digest(queue)==launch['queue_hash']==exit_row['queue_hash']==close['queue_hash']
+            and exit_row['launch_hash']==launch['hash'],'SCORE_HASH_BINDING')
+    slots=config['slots'];terminal=[r for r in rows if r['event']=='TERMINAL']
+    require(queue['slots']==slots and len(slots)==16 and {r['slot'] for r in slots}==set(range(16))
+            and len({r['key'] for r in terminal})==16 and {r['key'] for r in terminal}=={str(n) for n in range(16)}
+            and close['terminal_hash']==digest(terminal),'SCORE_QUEUE_TERMINAL_BINDING')
+    started={r['key'] for r in rows if r['event']=='STARTED'}
+    mapping={str(s['slot']):s for s in slots}
+    for item in terminal:
+        expected=mapping[item['key']]
+        require(item['alias']==expected['alias'] and item['arm']==expected['arm']
+                and item['state'] in ('RETURNED','INVALID','FAILED','NOT_RUN')
+                and (item['state'] not in ('RETURNED','INVALID') or item['key'] in started),'SCORE_SLOT_BINDING')
 
 
 class SnapshotRaw(io.RawIOBase):
@@ -473,10 +710,12 @@ def score(root):
     from temporal_evidence_scorer_025 import OneShotScorer, FrozenLedger, TerminalAttempt, ChildExitReceipt
     journal = Journal(root)
     try:
-        score_allowed(journal.rows)
         journal.once('SCORE_CONSUMED', 'original')
+        score_allowed(journal.rows,root)
         snapshot = load(root, 'expected-snapshot.json'); reference = load(root, 'annotation-reference.json')
         plan = restored_plan(root); terminal = {int(r['key']): r for r in journal.events('TERMINAL')}
+        if journal.rows[0].get('purpose')=='FICTIONAL_031_WITNESS':
+            require(Path(reference['path']).parent==Path(root) and all(q.key.source.startswith('fixture_') for q in plan.questions), 'FICTIONAL_SCORE_SCOPE')
         ledger = FrozenLedger(tuple(TerminalAttempt(call, terminal[n]['state'], terminal[n].get('prediction')) for n, call in enumerate(plan.calls)), True)
         exit_row = journal.events('MODEL_EXIT')[0]
         receipt = ChildExitReceipt((str(exit_row['pid']),), (str(exit_row['pid']),), True)
@@ -507,7 +746,8 @@ def score(root):
         for index, source in enumerate(safe['by_source']):
             source['source'] = 'P%d' % (index+1)
         journal.write('score-anonymous.json', safe)
-        journal.add('SCORED', status=report.status, n=4, raw_bytes=raw.count, decoded_labels=4)
+        journal.add('SCORED', status=report.status, n=4, raw_bytes=raw.count, decoded_labels=4,
+                    run_id=journal.rows[0]['run_id'],queue_hash=digest(load(root,'queue.json')),raw_binding=True)
     except Exception as error:
         journal.write('score-hold.json', dict(status='UNKNOWN', reason=str(error) if isinstance(error,ContractError) else type(error).__name__))
     finally:
@@ -548,7 +788,7 @@ def execute(root):
         config = load(root,'worker-input.json')
         available = {a: (Path(root)/(a+'-candidates.json')).exists() for a in ('P1','P2','P3','P4')}
         journal = Journal(root)
-        journal.write('queue.json',dict(slots=config['slots'],available=available,worker_hash=digest(config),run_id=journal.rows[0]['run_id']))
+        queue=make_queue(root,journal,available)
         for item in config['slots']:
             if not available[item['alias']]:
                 journal.once('TERMINAL',str(item['slot']),alias=item['alias'],arm=item['arm'],state='NOT_RUN',reason='MEDIA_NOT_QUALIFIED')
@@ -567,7 +807,7 @@ def execute(root):
         environment = {k:v for k,v in os.environ.items() if not k.upper().startswith(('AWS_','AZURE_','GOOGLE_','HF_TOKEN'))}
         environment.update(PATH=runtime['path'],HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_TELEMETRY='1',
                            TEMP=str(root),TMP=str(root),TOKENIZERS_PARALLELISM='false',PYTHONDONTWRITEBYTECODE='1')
-        journal=Journal(root);journal.once('MODEL_LAUNCH','gpu',queue_hash=digest(load(root,'queue.json')));journal.close()
+        journal=Journal(root);journal.once('MODEL_LAUNCH','gpu',run_id=journal.rows[0]['run_id'],queue_hash=digest(load(root,'queue.json')));journal.close()
         model_exit = phase(root,'gpu-worker','gpu',900,
                            python_command(runtime['python'],'development_worker_030',str(root),site=runtime['site']),environment)
     except Exception as error:
@@ -583,8 +823,7 @@ def execute(root):
             if key not in ended:
                 journal.once('TERMINAL',key,alias=item['alias'],arm=item['arm'],state='FAILED' if key in started else 'NOT_RUN',reason='WORKER_STOPPED')
         if model_exit:
-            journal.add('MODEL_EXIT',pid=model_exit['pid'],job_active=model_exit['job_active'],code=model_exit['exit_code'])
-            journal.add('QUEUE_CLOSED',pid=model_exit['pid'],model_exit_hash=journal.events('MODEL_EXIT')[0]['hash'],terminal_hash=digest(journal.events('TERMINAL')))
+            close_model_queue(root,journal,model_exit)
         else:
             journal.add('NO_MODEL_QUEUE_CLOSED',slots=16)
         can_score=bool(model_exit and any(r['state'] in ('RETURNED','INVALID') for r in journal.events('TERMINAL')))
@@ -592,10 +831,17 @@ def execute(root):
         if handle is not None:
             handle.close()
         if can_score:
-            phase(root,'score','cpu',120,python_command(own_python,'development_pilot_030','score',str(root)))
+            scored=phase(root,'score','cpu',60,python_command(own_python,'development_pilot_030','score',str(root)))
+            journal=Journal(root)
+            try:
+                rows=journal.events('SCORED')
+                okay=scored['exit_code']==0 and len(rows)==1 and rows[0]['status']=='PASS' and rows[0].get('raw_binding') is True
+                journal.add('SCORE_PUBLICATION',status='BOUND_SCORE_AVAILABLE' if okay else 'UNKNOWN_NO_BOUND_SCORE')
+            finally:journal.close()
 
 
 def finish_stopped(root):
+    raise ContractError('OLD_030_FINALIZER_CLOSED')
     """Close this failed030 without original input, credentials, media or model IO."""
     import ast
     journal = Journal(root)
@@ -668,10 +914,49 @@ def finish_stopped(root):
         journal.close()
 
 
+def finalize_031(root, reason=None):
+    journal=Journal(root)
+    try:
+        journal.reserve_time('cpu',30,'finalize-031')
+        config=load(root,'worker-input.json') if (Path(root)/'worker-input.json').exists() else None
+        slots=config['slots'] if config else [dict(slot=n,alias='P%d' % (n//4+1),arm='ABCD'[(n%4+n//4)%4]) for n in range(16)]
+        ended={r['key'] for r in journal.events('TERMINAL')};started={r['key'] for r in journal.events('STARTED')}
+        for slot in slots:
+            key=str(slot['slot'])
+            if key not in ended:
+                journal.once('TERMINAL',key,alias=slot['alias'],arm=slot['arm'],state='FAILED' if key in started else 'NOT_RUN',
+                             reason=reason or 'NOT_STARTED_OR_WORKER_STOPPED')
+        if not journal.events('QUEUE_CLOSED') and not journal.events('NO_MODEL_QUEUE_CLOSED'):
+            journal.add('NO_MODEL_QUEUE_CLOSED',slots=16,gold_allowed=False)
+        windows=journal.events('WINDOW');inputs=journal.events('INPUT');complete=journal.events('INPUT_COMPLETE')
+        transport=journal.events('TRANSPORT_SEND');results=journal.events('SUITE_RESULT')
+        summary=dict(contract_id='031',run_id=journal.rows[0]['run_id'],reason=reason,n=4,slots=16,
+            suites=[{k:r.get(k) for k in ('name','tests','passed','failures','errors','skips','os_marks')} for r in results],
+            cache_bound=bool(journal.events('CACHE_BOUND')),cache_holds=[r.get('aliases') for r in journal.events('CACHE_HOLD')],
+            input_opens=len(inputs),complete_inputs=len(complete),reserved_input_bytes=sum(r['size'] for r in inputs),
+            actual_input_bytes=sum(r['size'] for r in complete),
+            input_categories={k:sum(r['category']==k for r in inputs) for k in ('handoff','source','config','gold')},
+            reserved_windows={s:sum(r['seconds'] for r in windows if r['stage']==s) for s in ('cpu','media','acquisition','gpu')},
+            observed_windows=sum(r['seconds'] for r in journal.events('PHASE_EXIT')),
+            actual_https_attempts=len(transport),http_reserved=len(journal.events('HTTPS')),
+            api_attempts={api:sum(r['slot'].startswith(api+':') for r in transport) for api in ('HeadBucket','HeadObject','GetObject')},
+            body_debited=sum(r['amount'] for r in journal.events('BODY_DEBIT')),model_launches=len(journal.events('MODEL_LAUNCH')),
+            generate_attempts=len(journal.events('STARTED')),terminal=[{k:r.get(k) for k in ('key','alias','arm','state','reason')} for r in journal.events('TERMINAL')],
+            fixture_pid_reservations=len(journal.events('FIXTURE_PID')),gold_opens=sum(r['category']=='gold' for r in inputs),
+            scored=[{k:r.get(k) for k in ('status','n','raw_bytes','raw_binding')} for r in journal.events('SCORED')],
+            parent_seconds=time.time()-journal.rows[0]['epoch'])
+        if (Path(root)/'worker-result.json').exists():
+            summary['worker']=load(root,'worker-result.json')
+        journal.write('031-final-summary-private.json',summary)
+        journal.once('RUN_STOPPED','031',reason=reason or 'ROUND_DELIVERED_NO_CONTINUATION')
+        print(json.dumps({k:v for k,v in summary.items() if k not in ('run_id','worker','terminal')}))
+    finally:journal.close()
+
+
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped'])
+    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped','finalize-031'])
     parser.add_argument('root')
     args = parser.parse_args()
     if args.mode == 'probe':
@@ -687,6 +972,8 @@ def main():
         score(args.root)
     elif args.mode == 'finalize-stopped':
         finish_stopped(args.root)
+    elif args.mode == 'finalize-031':
+        finalize_031(args.root)
 
 
 if __name__ == '__main__':
