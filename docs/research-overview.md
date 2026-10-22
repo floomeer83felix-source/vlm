@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-21（北京时间；034交付[d9143ed](https://github.com/floomeer83felix-source/vlm/commit/d9143edb9bb4d77c6b99e635c1a06443e94f850c)按 **ACCEPTED_CACHE_AND_SHARED_RESOURCE / WORKER_SETUP_HOLD / REAL_QA_NOT_RUN** 结案。真实共享准入已通过、worker已launch，SETUP PermissionError尚无操作/stack细节，根因UNKNOWN；指定GPU阶段2.203s已计费，但成功CUDA/allocator未证实，STARTED/QA/gold0，全16槽NOT_RUN。唯一READY为[035同轮启动定位/修复/真实四臂](./codex-artifacts/VLM-DEV-STARTUP-RECOVERY-035/README.md)，尚未执行；单条用户消息激活新范围。实际CPU bootstrap≤2×60s；最多2串行GPU worker共用900s绝对包络，只有全run零STARTED且首Job退出才可一次技术恢复，任何QA已开始则不重启。原N4/20选项/16槽、only-P2≤4generate/18GiB allocated/24GiB Job RAM不变；CPU900s/父3000s、网络/下载/新解码0、最后score1open≤4MiB并核全部model退出。当前仍无真实QA效应/创新证据。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。）
+> 更新：2026-10-22（北京时间；035交付[2615512](https://github.com/floomeer83felix-source/vlm/commit/2615512fce25b4c87be6d610f4a14408505e76f2)按 **ACCEPTED_CLOSED_HANDOFF_AND_FRAME_COPY / CURRENT_ANNOTATION_REFERENCE_HOLD / REAL_STARTUP_NOT_RUN** 静态审结。新suite5/5 PASS及P2 frame copy通过；prepare旧annotation路径FileNotFoundError/报告WinError2，实际原handle/probes、bootstrap/imports、query/GPU/QA/gold均0，全16 NOT_RUN，034 PermissionError根因仍UNKNOWN。现[036有界原引用恢复＋独立合成启动＋条件真实四臂](./codex-artifacts/VLM-DEV-REFERENCE-AND-STARTUP-036/README.md)为**唯一READY / PUBLIC_REFERENCE_AND_STARTUP_ONLY，尚未执行**。单条用户启动消息明确激活新scope：≤32精确path/≤2非递归目录各64entry、唯一候选可信CPU1open/4MiB纯字节SHA重绑当前原对象；全合成CPU startup≤3×60s可独立完成，但真实GPU须reference/原锁/当前code-policy测试全部过门。GPU最多2串行worker共用900s绝对包络、仅零STARTED技术恢复，generate总4/18GiB allocated/24GiB RAM；CPU900s/父3000s、新text48MiB＋frame256MiB、新128文件/512MiB、新suite≤3×60s。原N4/20选项/16槽及科学输入保持，网络/下载/新解码0。仍缺路径则完成合成分支后请求用户本地完整路径，不再扩大搜索；一次push STOP。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1781,3 +1781,83 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   一次push STOP，不自动036/扩样/科学调参/训练。当前仅公开审查与新合同，无ChatGPT侧真实实验/空回执。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 035缺标注引用HOLD验收；036有界恢复引用与独立合成启动
+
+- 审查main交付[2615512](https://github.com/floomeer83felix-source/vlm/commit/2615512fce25b4c87be6d610f4a14408505e76f2)，
+  直接父为035规划8d46b56，恰好六处allowlist：pilot/worker、新035 tests、
+  [启动收据](./codex-artifacts/VLM-DEV-STARTUP-RECOVERY-035/startup-recovery-and-real-run-receipt.md)、
+  [科研报告](./codex-artifacts/VLM-DEV-STARTUP-RECOVERY-035/scientific-results.md)及results末尾一个035父结果。
+  未改AGENTS、科学协议、ChatGPT规划、旧tests/报告或results前缀。
+  ChatGPT仅静态审查差异、源码、新见证及报告；未独立运行Windows测试/读私人原文件/运行GPU。
+  按 **ACCEPTED_CLOSED_HANDOFF_AND_FRAME_COPY / CURRENT_ANNOTATION_REFERENCE_HOLD /
+  REAL_STARTUP_NOT_RUN** 结案，不恢复035 run/锁/时钟或剩余次数。
+- 执行者报告25确切034 handoff＋4 source cache只读一次，直接字节匹配既有输入/OUTPUT、
+  冻结科学计划与旧snapshot；新035只读archive接受034唯一失败worker和真实Job0，
+  保留其SETUP PermissionError/全16 NOT_RUN历史，不误套旧“model必须0”规则。
+  首且仅一次新suite **5/5 PASS、0FAIL/ERROR/SKIP**，internal0.032s/outer0.453s。
+  它含合成退出fixture及静态AST断言，不是本机真实imports/CPU processor/恢复握手执行证明；
+  虚构PID0，无旧tests或第二/第三suite。
+- 新prepare实际在原annotation的checked_path/lstat报 **FileNotFoundError / 报告WinError2**，
+  outer0.219s/exit1/Job0。具体路径/stack仅私人留存；
+  这是精确路径失败，不足以判定已删/已移动/ACL/全机不存在。
+  没有替代路径搜索、原标注body或原handle/probes，也没有实际model config读取。
+  **035没有新worker-input.json/runtime.json/queue.json/expected-snapshot.json。**
+- 独立frame分支仍完成1外部open/**223,948,928B**：
+  copy/fsync/path+fd稳定/完整SHA匹配034链，48 RGB、uint8/C-order/NPY/times验证通过；
+  outer1.156s/exit0/Job0。没有MP4/partial正文、新解码、网络或下载。
+  036应只读035实际frame副本，不能跟其历史frame-source-reference重开034。
+- CPU bootstrap/ML imports/processors、当前query、GPU envelope/admission/worker、CUDA/generate、
+  gold guard/评分/训练实际均0。全16槽由NO_MODEL_QUEUE_CLOSED按固定映射封闭为NOT_RUN，
+  不伪造MODEL_EXIT。**034原PermissionError仍UNKNOWN，035未复现或定位它。**
+  correct_known/正确率/六配对UNKNOWN，selector/C=D/双锚点/coverage/retrieval/tokens/EOS未测；
+  不将NOT_RUN记成已观测答错或把synthetic PASS当科学机制成绩。
+- 执行者资源报告：30/30完整输入 **224,128,509B**＝29 text **179,581B**
+  （25handoff149,860＋4source29,721；config/diag/gold0）＋1frame223,948,928B。
+  CPU预扣285s，初始化/新suite/prepare/copy实际监督wall共**2.828s**，
+  不等于逐PID CPU计量；GPU/media/acquisition0。
+  私人34文件/2目录/**224,055,993B**、父114.337s；无reparse、kill或overflow，所有实际Job0。
+- 对035未运行恢复代码的静态发现：
+  SUITE_RESULT未记测试时code hash、REPAIR_ACCEPTED未要求PASS在当前repair request之后；
+  GPU repair后父policy变量也未更新，下一worker可能沿用旧policy。
+  **这是未运行分支的代码缺口，不是035已发生违规，也不是034故障成因。**
+  036须把request seq、实际suite receipt/测试code-policy-config hash和accepted下一policy版本绑定，
+  用本轮新fixture验证旧PASS/重放/旧policy不放行。
+- 下达[036 A–H完整合同](./codex-artifacts/VLM-DEV-REFERENCE-AND-STARTUP-036/README.md)，
+  **唯一READY=VLM-DEV-REFERENCE-AND-STARTUP-036 / PUBLIC_REFERENCE_AND_STARTUP_ONLY，尚未执行**。
+  同一父任务独立推进：有界核对旧annotation引用与全合成CPU startup，
+  不再因真实原路径缺失而让纯合成imports全部0；但合成PASS绝不签真实原文件锁或放行GPU。
+  用户发送合同第8节完整消息才激活新私人范围，不自动唤醒本地Codex。
+- 036仅精确path metadata≤32；旧parent及直接parent至多2个普通目录、
+  各一次非递归≤64 entry，只同basename候选可stat且计32上限；
+  或核对本地当前会话用户明确给的一个新原标注完整路径。
+  禁全盘/递归/第三目录，截断/多义不选一个冒充唯一。
+  **明确新增**可信stdlib CPU≤20s、唯一候选≤1 rb open/4MiB的纯字节SHA例外：
+  不decode/JSON parse/gold提取/body日志/给ML，先消费预算，半读/失败不重开或换候选。
+  仅与原028三完整receipt及frozen snapshot准确size/SHA全同，才建立036当前path/FileID绑定；
+  允许同字节文件复制/移动后新FileID，原receipt/科学输入保持原值。
+  这不是从035准备body0许可推导的新授权；需用户完整启动消息明确给出。
+- 独立合成startup≤3×60s：虚构问题/事件/选项、零像素48帧/合成times，
+  自有canary OS锁与同一生产audit/policy，实际imports/CPU processors/helper/grid；
+  原annotation/model权重/CUDA/encoder/generate0。
+  诊断限cache运行时路由、实际指向的至多4确切支持文件和有源码依据的局部API兼容；
+  不改ACL/安装/永久环境/模型科学参数。真实依赖兼容须实际bootstrap，不以AST断言代替。
+  缺标注时仍完成该独立分支，之后只请求用户在本地给当前完整路径，
+  不自动再发同类路径搜索、不索取原JSON或下载替代。
+- 只有真实reference绑定、实际父exclusive handle＋2正文0 probe和当前code/policy合成PASS齐全，
+  才准一次当前query/free≥20GiB共享政策及P2原四槽。
+  最多2串行worker共用一个900s绝对包络/18GiB allocated/24GiB Job RAM；
+  第二个仅首全部模型Job/PID0、全run STARTED=0及新测试/必要合成复验完成，
+  OOM/timeout不重启，任何QA开始后不重答，generate总≤4，util只记录。
+  全部attempt launch/exit/队列/current binding核齐、所有模型退出，才一次独立CPU gold≤1open/4MiB；
+  无真实Qwen返回则gold0。可信SHA和最终gold是分离的两个正文open上限，模型始终0B。
+- 036新输入text≤48MiB，20确切035 handoff（不要求不存在的prepare输出）、
+  8 source/4 config、integrity与最后gold各4MiB，角色上限41MiB；frame≤1open/256MiB。
+  新integration_036≤128文件/512MiB，CPU≤900s/父≤3000s、新suite≤3×60s；
+  新假PID≤4×3s可为0，全部计账。六处allowlist：pilot/worker、
+  新036 suite、两匿名报告、results一个父追加；统一一次安全push STOP，不自动037。
+  原N4/20选项/16槽、only-P2 BCDA、48→12、C/D定义、科学模型/提示/seed/greedy均不改。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
