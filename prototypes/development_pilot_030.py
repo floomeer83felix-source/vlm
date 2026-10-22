@@ -1,4 +1,4 @@
-"""030 production helpers routed to fixed035; old runs stay closed.
+"""030 production helpers routed to fixed036; old runs stay closed.
 
 Windows sharing/Job gates are OS gates, not a hostile-code sandbox. Every child
 waits for a parent handshake before dependency imports or research work.
@@ -42,19 +42,19 @@ class Journal:
     """OS-locked, append/fsync hash chain; a consumed attempt never refunds."""
     def __init__(self, root, create=False, fixture=False):
         self.root = Path(root)
-        require(self.root.name == 'integration_035', 'FIXED_035_ROOT_REQUIRED')
+        require(self.root.name == 'integration_036', 'FIXED_036_ROOT_REQUIRED')
         if create:
             checked_path(self.root.parent, directory=True)
             self.root.mkdir()  # Existing root is terminal, never resume/relabel.
         checked_path(self.root, directory=True)
-        self.lock = open(self.root / '035.lock', 'a+b')
+        self.lock = open(self.root / '036.lock', 'a+b')
         import msvcrt
         self.lock.seek(0)
         if self.lock.read(1) == b'':
             self.lock.write(b'0'); self.lock.flush(); os.fsync(self.lock.fileno())
         self.lock.seek(0)
         msvcrt.locking(self.lock.fileno(), msvcrt.LK_NBLCK, 1)
-        self.path = self.root / '035-ledger.jsonl'
+        self.path = self.root / '036-ledger.jsonl'
         self.rows = []
         self.byte_length = 0
         if self.path.exists():
@@ -69,10 +69,10 @@ class Journal:
                 self.rows.append(dict(row, hash=sig))
         if create:
             if fixture:
-                require(self.root.parent.name.startswith('witness-') and self.root.parent.parent.name=='integration_035','FIXTURE_ANCESTRY')
-            self.add('RUN', contract_id='035', root_name='integration_035', purpose='FICTIONAL_035_WITNESS' if fixture else 'REAL_035',
+                require(self.root.parent.name.startswith('witness-') and self.root.parent.parent.name=='integration_036','FIXTURE_ANCESTRY')
+            self.add('RUN', contract_id='036', root_name='integration_036', purpose='FICTIONAL_036_WITNESS' if fixture else 'REAL_036',
                      run_id=uuid.uuid4().hex, epoch=time.time(), parent_cap=3000)
-        require(self.rows and self.rows[0]['event'] == 'RUN' and self.rows[0].get('contract_id') == '035'
+        require(self.rows and self.rows[0]['event'] == 'RUN' and self.rows[0].get('contract_id') == '036'
                 and self.rows[0].get('root_name') == self.root.name, 'RUN_REQUIRED')
         self.check_time()
 
@@ -85,17 +85,18 @@ class Journal:
 
     def add(self, event, **fields):
         self.check_time()
-        require(event not in ('HTTPS','TRANSPORT_SEND','BODY_DEBIT','MEDIA_COMPLETE'), '035_NETWORK_MEDIA_FORBIDDEN')
+        require(event not in ('HTTPS','TRANSPORT_SEND','BODY_DEBIT','MEDIA_COMPLETE'), '036_NETWORK_MEDIA_FORBIDDEN')
         if event=='GPU_QUERY':
-            require(fields.get('key')=='0' and not self.events('GPU_QUERY'),'035_ONE_QUERY_ONLY')
+            require(fields.get('key')=='0' and not self.events('GPU_QUERY'),'036_ONE_QUERY_ONLY')
         if event=='STARTED':
-            validate_start_035(self.rows,load(self.root,'queue.json'),load(self.root,'worker-input.json'),fields)
-            resource_receipt_035(self.rows,self.root)
-            validate_attempt_035(self.rows,self.root,fields.get('attempt'))
+            validate_start_036(self.rows,load(self.root,'queue.json'),load(self.root,'worker-input.json'),fields)
+            resource_receipt_036(self.rows,self.root)
+            validate_attempt_036(self.rows,self.root,fields.get('attempt'))
         if event=='MODEL_LAUNCH':
-            receipt=resource_receipt_035(self.rows,self.root)
-            require(fields.get('resource_hash')==receipt['hash'],'035_LAUNCH_RESOURCE_BINDING')
-            validate_launch_035(self.rows,self.root,fields)
+            receipt=resource_receipt_036(self.rows,self.root)
+            require(fields.get('resource_hash')==receipt['hash'],'036_LAUNCH_RESOURCE_BINDING')
+            validate_launch_036(self.rows,self.root,fields)
+            require_synthetic_036(self.root,self.rows,fields.get('policy'))
         row = dict(seq=len(self.rows), prev=self.rows[-1]['hash'] if self.rows else '0' * 64,
                    event=event, **fields)
         row['hash'] = digest(row)
@@ -120,7 +121,7 @@ class Journal:
         self.once('WINDOW', key, stage=stage, seconds=seconds)
 
     def reserve_output(self, name, size, category='metadata', files=1):
-        require(Path(name).name == name and name not in ('035.lock', '035-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
+        require(Path(name).name == name and name not in ('036.lock', '036-ledger.jsonl') and size >= 0, 'OUTPUT_NAME')
         used = self.events('OUTPUT')
         limits = dict(metadata=32 * MIB - 9 * MIB, frames=256 * MIB)
         require(category in limits and type(files) is int and 1<=files<=32 and sum(r.get('files',1) for r in used) + files + 2 <= 128 and
@@ -137,8 +138,8 @@ class Journal:
 
     def input(self, alias, path, category='handoff'):
         path, before = checked_path(path)
-        caps = dict(handoff=25, source=8, config=4, gold=1)
-        cap = 4*MIB if category=='gold' else 2*MIB if alias=='archive_034' else MIB
+        caps = dict(handoff=20, source=8, config=4, integrity=1, gold=1)
+        cap = 4*MIB if category in ('gold','integrity') else 2*MIB if alias=='archive_035' else MIB
         used = self.events('INPUT')
         require(category in caps and sum(r['category'] == category for r in used) < caps[category]
                 and 0 < before.st_size <= cap and
@@ -279,38 +280,38 @@ def transfer_cache_032(root, old_root):
     finally:journal.close()
 
 
-AVAILABLE_035 = dict(P1=False,P2=True,P3=False,P4=False)
-RESOURCE_PROFILE_035 = 'MEMORY_BOUNDED_SHARED_GPU_035'
+AVAILABLE_036 = dict(P1=False,P2=True,P3=False,P4=False)
+RESOURCE_PROFILE_036 = 'MEMORY_BOUNDED_SHARED_GPU_036'
 
 
-def validate_queue_035(queue, config):
+def validate_queue_036(queue, config):
     slots=[dict(slot=n,alias='P%d' % (n//4+1),arm='ABCD'[(n%4+n//4)%4]) for n in range(16)]
-    require(queue.get('available')==AVAILABLE_035 and queue.get('slots')==config.get('slots')==slots,
-            '035_FIXED_FULL_QUEUE')
+    require(queue.get('available')==AVAILABLE_036 and queue.get('slots')==config.get('slots')==slots,
+            '036_FIXED_FULL_QUEUE')
 
 
-def validate_start_035(rows, queue, config, item):
-    validate_queue_035(queue,config)
+def validate_start_036(rows, queue, config, item):
+    validate_queue_036(queue,config)
     started=[r for r in rows if r.get('event')=='STARTED']
     expected=[s for s in queue['slots'] if s['alias']=='P2']
     require(len(started)<4 and str(item.get('key'))==str(expected[len(started)]['slot'])
             and item.get('alias')=='P2' and item.get('arm')==expected[len(started)]['arm']
-            and not any(r['key']==str(item.get('key')) for r in started),'035_ONLY_P2_FOUR_STARTS')
+            and not any(r['key']==str(item.get('key')) for r in started),'036_ONLY_P2_FOUR_STARTS')
 
 
-def parse_resource_sample_035(raw, expected, query_device=0):
+def parse_resource_sample_036(raw, expected, query_device=0):
     import math,re
     import xml.etree.ElementTree as ET
-    require(type(query_device) is int and query_device==0,'035_QUERY_DEVICE_REQUIRED')
-    require(type(raw) is str and len(raw.encode())<=65536,'035_XML_BOUND')
-    tree=ET.fromstring(raw);gpus=tree.findall('gpu');require(len(gpus)==1,'035_ONE_DEVICE')
+    require(type(query_device) is int and query_device==0,'036_QUERY_DEVICE_REQUIRED')
+    require(type(raw) is str and len(raw.encode())<=65536,'036_XML_BOUND')
+    tree=ET.fromstring(raw);gpus=tree.findall('gpu');require(len(gpus)==1,'036_ONE_DEVICE')
     gpu=gpus[0];uid=gpu.findtext('uuid');bus=gpu.get('id')
     require('3090' in gpu.findtext('product_name','') and bool(uid) and bool(bus)
-            and expected.get('query_device')==0 and uid==expected.get('uuid') and bus==expected.get('bus'),'035_DEVICE_IDENTITY')
+            and expected.get('query_device')==0 and uid==expected.get('uuid') and bus==expected.get('bus'),'036_DEVICE_IDENTITY')
     free_text=gpu.findtext('fb_memory_usage/free','')
     match=re.fullmatch(r'([0-9]+(?:\.[0-9]+)?) MiB',free_text)
-    require(match is not None,'035_FREE_UNITS');free=float(match[1])
-    require(math.isfinite(free) and free>=20*1024,'035_FREE_THRESHOLD')
+    require(match is not None,'036_FREE_UNITS');free=float(match[1])
+    require(math.isfinite(free) and free>=20*1024,'036_FREE_THRESHOLD')
     util=None;match=re.fullmatch(r'([0-9]+(?:\.[0-9]+)?) %',gpu.findtext('utilization/gpu_util',''))
     if match:
         value=float(match[1])
@@ -321,30 +322,30 @@ def parse_resource_sample_035(raw, expected, query_device=0):
                 process_types={t:types.count(t) for t in sorted(set(types))})
 
 
-def resource_receipt_035(rows, root):
+def resource_receipt_036(rows, root):
     found=[r for r in rows if r.get('event')=='RESOURCE_ADMITTED']
-    require(len(found)==1,'035_RESOURCE_RECEIPT_REQUIRED')
+    require(len(found)==1,'036_RESOURCE_RECEIPT_REQUIRED')
     require(len([r for r in rows if r.get('event')=='GPU_QUERY' and r.get('key')=='0'])==1
-            and len([r for r in rows if r.get('event')=='GPU_QUERY'])==1,'035_QUERY_RECEIPT_REQUIRED')
+            and len([r for r in rows if r.get('event')=='GPU_QUERY'])==1,'036_QUERY_RECEIPT_REQUIRED')
     receipt=found[0];queue=load(root,'queue.json');config=load(root,'worker-input.json')
-    validate_queue_035(queue,config)
-    require(rows[0].get('contract_id')=='035' and queue.get('contract_id')=='035'
+    validate_queue_036(queue,config)
+    require(rows[0].get('contract_id')=='036' and queue.get('contract_id')=='036'
             and receipt.get('run_id')==queue.get('run_id')==rows[0].get('run_id')
-            and receipt.get('profile')==RESOURCE_PROFILE_035 and receipt.get('queue_hash')==digest(queue),
-            '035_RESOURCE_BINDING')
+            and receipt.get('profile')==RESOURCE_PROFILE_036 and receipt.get('queue_hash')==digest(queue),
+            '036_RESOURCE_BINDING')
     observations=load(root,'gpu-samples-private.json')
-    require(len(observations['xml'])==len(observations['starts'])==1,'035_ONE_CURRENT_SAMPLE')
-    sample=parse_resource_sample_035(observations['xml'][0],load(root,'device-identity-reference.json'),observations.get('query_device'))
+    require(len(observations['xml'])==len(observations['starts'])==1,'036_ONE_CURRENT_SAMPLE')
+    sample=parse_resource_sample_036(observations['xml'][0],load(root,'device-identity-reference.json'),observations.get('query_device'))
     require(receipt.get('sample_hash')==digest(sample) and receipt.get('device_uuid')==sample['uuid'],
-            '035_RESOURCE_SAMPLES_BINDING')
+            '036_RESOURCE_SAMPLES_BINDING')
     return receipt
 
 
-def query_resource_035(root):
+def query_resource_036(root):
     """One bounded child, one current observation, utilization is descriptive only."""
     journal=Journal(root)
     try:
-        require_ready(journal);queue=load(root,'queue.json');validate_queue_035(queue,load(root,'worker-input.json'))
+        require_ready(journal);queue=load(root,'queue.json');validate_queue_036(queue,load(root,'worker-input.json'))
         xmls=[];starts=[]
         for number in range(1):
             journal.once('GPU_QUERY',str(number))
@@ -366,18 +367,19 @@ def query_resource_035(root):
                 if child.poll() is None:child.kill();child.wait(timeout=1)
                 for thread in threads:thread.join(1)
                 child.stdout.close();child.stderr.close()
-            require(child.returncode==0 and not overflow.is_set() and not any(t.is_alive() for t in threads),'035_QUERY_CAPTURE')
+            require(child.returncode==0 and not overflow.is_set() and not any(t.is_alive() for t in threads),'036_QUERY_CAPTURE')
             xmls.append(bytes(buffers[0]).decode('utf-8',errors='strict'))
         journal.write('gpu-samples-private.json',dict(xml=xmls,starts=starts,query_device=0))
-        sample=parse_resource_sample_035(xmls[0],load(root,'device-identity-reference.json'))
-        journal.once('RESOURCE_ADMITTED','gpu',run_id=journal.rows[0]['run_id'],profile=RESOURCE_PROFILE_035,
+        sample=parse_resource_sample_036(xmls[0],load(root,'device-identity-reference.json'))
+        journal.once('RESOURCE_ADMITTED','gpu',run_id=journal.rows[0]['run_id'],profile=RESOURCE_PROFILE_036,
                      queue_hash=digest(queue),sample_hash=digest(sample),device_uuid=sample['uuid'])
     finally:journal.close()
 
 
 
-validate_queue_034 = validate_queue_035
-validate_queue_033 = validate_queue_035  # Same frozen slot/availability rule for old cache validation.
+validate_queue_035 = validate_queue_036
+validate_queue_034 = validate_queue_036
+validate_queue_033 = validate_queue_036  # Same frozen slot/availability rule for old cache validation.
 
 def archive_032_rows(raw):
     """Closed partial-media032 archive; never instantiate its Journal."""
@@ -509,35 +511,35 @@ def verify_npy_033(path, candidate):
     return list(shape)
 
 
-def copy_frames_035(root):
+def copy_frames_036(root):
     import shutil
     journal=Journal(root)
     try:
         require_ready(journal);journal.once('PHASE','copy-frames')
         reference=load(root,'frame-source-reference-private.json');path,before=checked_path(reference['path'])
-        require(path.name=='P2-frames.npy' and path.parent.name=='integration_034' and 0<before.st_size<=256*MIB
-                and before.st_size==reference['size'],'035_FRAME_SIZE')
-        require(shutil.disk_usage(root).free>=before.st_size+2*GIB,'035_FRAME_DISK')
-        require(not any(r.get('category')=='frame-cache' for r in journal.events('INPUT')),'035_FRAME_ALREADY_OPENED')
+        require(path.name=='P2-frames.npy' and path.parent.name=='integration_035' and 0<before.st_size<=256*MIB
+                and before.st_size==reference['size'],'036_FRAME_SIZE')
+        require(shutil.disk_usage(root).free>=before.st_size+2*GIB,'036_FRAME_DISK')
+        require(not any(r.get('category')=='frame-cache' for r in journal.events('INPUT')),'036_FRAME_ALREADY_OPENED')
         journal.once('INPUT','frame-cache',path=str(path),identity=[before.st_dev,before.st_ino],size=before.st_size,category='frame-cache')
         journal.reserve_output('P2-frames.npy',before.st_size,'frames');sha=hashlib.sha256();count=0
         with open(path,'rb') as source,open(Path(root)/'P2-frames.npy','xb') as target:
-            opened=os.fstat(source.fileno());require(os.path.samestat(before,opened),'035_FRAME_IDENTITY')
+            opened=os.fstat(source.fileno());require(os.path.samestat(before,opened),'036_FRAME_IDENTITY')
             while count<before.st_size:
-                raw=source.read(min(MIB,before.st_size-count));require(bool(raw),'035_FRAME_PARTIAL')
+                raw=source.read(min(MIB,before.st_size-count));require(bool(raw),'036_FRAME_PARTIAL')
                 target.write(raw);sha.update(raw);count+=len(raw)
-            require(not source.read(1),'035_FRAME_OVERSIZE');after_fd=os.fstat(source.fileno());target.flush();os.fsync(target.fileno())
+            require(not source.read(1),'036_FRAME_OVERSIZE');after_fd=os.fstat(source.fileno());target.flush();os.fsync(target.fileno())
         stable=lambda a,b:(a.st_dev,a.st_ino,a.st_size,a.st_mtime_ns,a.st_ctime_ns)==(b.st_dev,b.st_ino,b.st_size,b.st_mtime_ns,b.st_ctime_ns)
-        require(stable(before,path.stat()) and stable(opened,after_fd) and count==before.st_size,'035_FRAME_CHANGED')
-        require(sha.hexdigest()==reference['sha256'],'035_HISTORICAL_FRAME_SHA')
+        require(stable(before,path.stat()) and stable(opened,after_fd) and count==before.st_size,'036_FRAME_CHANGED')
+        require(sha.hexdigest()==reference['sha256'],'036_HISTORICAL_FRAME_SHA')
         journal.add('INPUT_COMPLETE',alias='frame-cache',size=count,sha256=sha.hexdigest())
         destination=Path(root)/'P2-frames.npy';shape=verify_npy_033(destination,load(root,'P2-candidates.json'))
         copied=hashlib.sha256()
         with open(destination,'rb') as source:
             for raw in iter(lambda:source.read(MIB),b''):copied.update(raw)
-        require(copied.hexdigest()==sha.hexdigest(),'035_FRAME_COPY_HASH')
+        require(copied.hexdigest()==sha.hexdigest(),'036_FRAME_COPY_HASH')
         journal.add('FRAME_CACHE_VERIFIED',size=count,shape=shape,sha256=sha.hexdigest(),rgb_hashes=48,
-                    evidence='DIRECT_034_FILE_SHA_AND_RGB_HASHES')
+                    evidence='DIRECT_035_FILE_SHA_AND_RGB_HASHES')
     finally:journal.close()
 
 
@@ -703,6 +705,7 @@ def validate_cache_034(rows,payload):
 
 
 def transfer_cache_035(root,old_root):
+    raise ContractError('OLD_035_TRANSFER_CLOSED')
     journal=Journal(root,create=True)
     try:
         journal.reserve_time('cpu',45,'cache-initialize');old=Path(old_root)
@@ -734,9 +737,9 @@ def transfer_cache_035(root,old_root):
     finally:journal.close()
 
 
-def code_version_035():
+def code_version_036():
     return digest({n:hashlib.sha256((Path(__file__).parent/n).read_bytes()).hexdigest()
-                   for n in ('development_pilot_030.py','development_worker_030.py')})
+                   for n in ('development_pilot_030.py','development_worker_030.py','test_development_reference_startup_036.py')})
 
 
 def archive_034_rows(raw):
@@ -768,81 +771,87 @@ def archive_034_rows(raw):
     return rows
 
 
-def validate_attempt_035(rows,root,attempt):
+def validate_attempt_036(rows,root,attempt):
     launches=[r for r in rows if r['event']=='MODEL_LAUNCH']
-    require(attempt in (1,2) and launches and launches[-1]['attempt']==attempt,'035_ACTIVE_ATTEMPT')
-    require(not any(r['event']=='MODEL_EXIT' and r['attempt']==attempt for r in rows),'035_ATTEMPT_ALREADY_EXITED')
-    require(launches[-1]['code_hash']==code_version_035(),'035_ACTIVE_CODE_CHANGED')
+    require(attempt in (1,2) and launches and launches[-1]['attempt']==attempt,'036_ACTIVE_ATTEMPT')
+    require(not any(r['event']=='MODEL_EXIT' and r['attempt']==attempt for r in rows),'036_ATTEMPT_ALREADY_EXITED')
+    require(launches[-1]['code_hash']==code_version_036(),'036_ACTIVE_CODE_CHANGED')
 
 
-def validate_launch_035(rows,root,fields):
+def validate_launch_036(rows,root,fields):
     launches=[r for r in rows if r['event']=='MODEL_LAUNCH'];attempt=fields.get('attempt')
-    require(attempt==len(launches)+1 and attempt in (1,2),'035_TWO_LAUNCHES_ONLY')
-    require(fields.get('code_hash')==code_version_035(),'035_LAUNCH_CODE')
-    envelopes=[r for r in rows if r['event']=='GPU_ENVELOPE'];require(len(envelopes)==1 and time.time()<envelopes[0]['deadline']-5,'035_GPU_DEADLINE')
-    require(not any(r['event']=='QUEUE_CLOSED' for r in rows),'035_QUEUE_ALREADY_CLOSED')
+    require(attempt==len(launches)+1 and attempt in (1,2),'036_TWO_LAUNCHES_ONLY')
+    require(fields.get('code_hash')==code_version_036(),'036_LAUNCH_CODE')
+    envelopes=[r for r in rows if r['event']=='GPU_ENVELOPE'];require(len(envelopes)==1 and time.time()<envelopes[0]['deadline']-5,'036_GPU_DEADLINE')
+    require(not any(r['event']=='QUEUE_CLOSED' for r in rows),'036_QUEUE_ALREADY_CLOSED')
     if attempt==2:
-        require(not any(r['event']=='STARTED' or r['event']=='TERMINAL' and r.get('alias')=='P2' for r in rows),'035_NO_QA_RESTART')
-        exits=[r for r in rows if r['event']=='MODEL_EXIT'];require(len(exits)==1 and exits[0]['job_active']==0,'035_FIRST_EXIT_REQUIRED')
+        require(not any(r['event']=='STARTED' or r['event']=='TERMINAL' and r.get('alias')=='P2' for r in rows),'036_NO_QA_RESTART')
+        exits=[r for r in rows if r['event']=='MODEL_EXIT'];require(len(exits)==1 and exits[0]['job_active']==0,'036_FIRST_EXIT_REQUIRED')
         actual=load(root,'gpu-worker-1-exit-private.json')
-        require(exits[0]['exit_binding']==digest(actual) and exits[0]['launch_hash']==launches[0]['hash'],'035_FIRST_EXIT_BINDING')
+        require(exits[0]['exit_binding']==digest(actual) and exits[0]['launch_hash']==launches[0]['hash'],'036_FIRST_EXIT_BINDING')
         recovery=[r for r in rows if r['event']=='REPAIR_ACCEPTED' and r['key']=='GPU-1']
-        require(len(recovery)==1 and recovery[0]['code_hash']==code_version_035(),'035_RECOVERY_TEST_REQUIRED')
+        require(len(recovery)==1 and recovery[0]['code_hash']==code_version_036(),'036_RECOVERY_TEST_REQUIRED')
 
 
-def record_model_exit_035(root,journal,attempt,actual):
+def record_model_exit_036(root,journal,attempt,actual):
     launches=[r for r in journal.events('MODEL_LAUNCH') if r['attempt']==attempt]
-    require(len(launches)==1 and actual['job_active']==0 and type(actual['pid']) is int and actual['pid']>0,'035_REAL_EXIT')
+    require(len(launches)==1 and actual['job_active']==0 and type(actual['pid']) is int and actual['pid']>0,'036_REAL_EXIT')
     launch=launches[0];journal.once('MODEL_EXIT',str(attempt),attempt=attempt,pid=actual['pid'],job_active=0,code=actual['exit_code'],
                   run_id=journal.rows[0]['run_id'],launch_hash=launch['hash'],queue_hash=digest(load(root,'queue.json')),
                   exit_binding=digest(actual),seconds=actual['seconds'])
 
 
-def all_exits_035(rows,root):
+def all_exits_036(rows,root):
     launches=[r for r in rows if r['event']=='MODEL_LAUNCH'];exits=[r for r in rows if r['event']=='MODEL_EXIT']
-    require(1<=len(launches)<=2 and len(exits)==len(launches),'035_ALL_MODEL_EXITS_REQUIRED')
-    queue=load(root,'queue.json');resource=resource_receipt_035(rows,root)
-    require([r['attempt'] for r in launches]==list(range(1,len(launches)+1)) and len({r['pid'] for r in exits})==len(exits),'035_ATTEMPT_PID_UNIQUE')
+    require(1<=len(launches)<=2 and len(exits)==len(launches),'036_ALL_MODEL_EXITS_REQUIRED')
+    queue=load(root,'queue.json');resource=resource_receipt_036(rows,root)
+    require([r['attempt'] for r in launches]==list(range(1,len(launches)+1)) and len({r['pid'] for r in exits})==len(exits),'036_ATTEMPT_PID_UNIQUE')
     for launch in launches:
-        matches=[r for r in exits if r['attempt']==launch['attempt']];require(len(matches)==1,'035_EXACT_EXIT')
+        matches=[r for r in exits if r['attempt']==launch['attempt']];require(len(matches)==1,'036_EXACT_EXIT')
         exited=matches[0];actual=load(root,'gpu-worker-%d-exit-private.json'%launch['attempt'])
         require(exited['job_active']==actual['job_active']==0 and exited['pid']==actual['pid'] and exited['code']==actual['exit_code']
                 and exited['exit_binding']==digest(actual) and exited['launch_hash']==launch['hash']
                 and exited['run_id']==launch['run_id']==queue['run_id']==rows[0]['run_id']
                 and exited['queue_hash']==launch['queue_hash']==digest(queue)
-                and launch['resource_hash']==resource['hash'],'035_ALL_EXIT_BINDING')
+                and launch['resource_hash']==resource['hash'],'036_ALL_EXIT_BINDING')
+        require(any(r['event']=='SUITE_RESULT' and r.get('passed') is True and r['seq']<launch['seq']
+                    and r.get('code_hash')==launch['code_hash'] and r.get('policy_id')==launch['policy']
+                    and r.get('policy_hash')==launch['policy_hash'] for r in rows),'036_LAUNCH_TESTED_POLICY')
     return launches,exits
 
 
 def close_model_queue(root,journal,child_exit=None):
-    launches,exits=all_exits_035(journal.rows,root);queue=load(root,'queue.json')
+    launches,exits=all_exits_036(journal.rows,root);queue=load(root,'queue.json')
     journal.once('QUEUE_CLOSED','full',run_id=journal.rows[0]['run_id'],launch_set=digest(launches),exit_set=digest(exits),
-                 terminal_hash=digest(journal.events('TERMINAL')),queue_hash=digest(queue),plan_hash=queue['plan_hash'],worker_hash=queue['worker_hash'])
+                 terminal_hash=digest(journal.events('TERMINAL')),queue_hash=digest(queue),plan_hash=queue['plan_hash'],worker_hash=queue['worker_hash'],
+                 current_reference_hash=digest(load(root,'current-annotation-reference.json')))
 
 
 def score_allowed(rows,root):
     closes=[r for r in rows if r['event']=='QUEUE_CLOSED'];terminal=[r for r in rows if r['event']=='TERMINAL']
     require(len(closes)==1 and len(terminal)==16 and any(r['state'] in ('RETURNED','INVALID') for r in terminal),'GOLD_GATE_CLOSED')
-    launches,exits=all_exits_035(rows,root);queue=load(root,'queue.json');config=load(root,'worker-input.json');plan=restored_plan(root)
-    validate_queue_035(queue,config);frozen=[r for r in rows if r['event']=='FROZEN'];close=closes[0]
-    require(rows[0]['contract_id']=='035' and queue['contract_id']=='035' and len(frozen)==1
+    launches,exits=all_exits_036(rows,root);queue=load(root,'queue.json');config=load(root,'worker-input.json');plan=restored_plan(root)
+    reference=current_reference_036(root,rows)
+    require(closes[0].get('current_reference_hash')==digest(reference),'036_SCORE_CURRENT_BINDING')
+    validate_queue_036(queue,config);frozen=[r for r in rows if r['event']=='FROZEN'];close=closes[0]
+    require(rows[0]['contract_id']=='036' and queue['contract_id']=='036' and len(frozen)==1
             and close['run_id']==queue['run_id']==rows[0]['run_id'] and close['launch_set']==digest(launches) and close['exit_set']==digest(exits)
             and close['terminal_hash']==digest(terminal) and close['queue_hash']==digest(queue)
             and close['plan_hash']==queue['plan_hash']==frozen[0]['plan_hash']==digest(asdict(plan))
-            and close['worker_hash']==queue['worker_hash']==frozen[0]['worker_hash']==digest(config),'035_SCORE_BINDING')
-    require(len({r['key'] for r in terminal})==16 and {r['key'] for r in terminal}=={str(n) for n in range(16)},'035_SCORE_SLOTS')
+            and close['worker_hash']==queue['worker_hash']==frozen[0]['worker_hash']==digest(config),'036_SCORE_BINDING')
+    require(len({r['key'] for r in terminal})==16 and {r['key'] for r in terminal}=={str(n) for n in range(16)},'036_SCORE_SLOTS')
     started=[r for r in rows if r['event']=='STARTED'];mapping={str(s['slot']):s for s in queue['slots']}
     for n,item in enumerate(started):
-        validate_start_035(started[:n],queue,config,item)
-        require(item.get('attempt') in {l['attempt'] for l in launches},'035_START_ATTEMPT')
+        validate_start_036(started[:n],queue,config,item)
+        require(item.get('attempt') in {l['attempt'] for l in launches},'036_START_ATTEMPT')
     for item in terminal:
         expected=mapping[item['key']]
         require(item['alias']==expected['alias'] and item['arm']==expected['arm']
                 and item['state'] in ('RETURNED','INVALID','FAILED','NOT_RUN')
-                and (item['state'] not in ('RETURNED','INVALID') or item['key'] in {r['key'] for r in started}),'035_TERMINAL_BINDING')
+                and (item['state'] not in ('RETURNED','INVALID') or item['key'] in {r['key'] for r in started}),'036_TERMINAL_BINDING')
 
 
-def child_environment_035(root,runtime):
+def child_environment_036(root,runtime):
     # Process-local variables confirmed by the contract's HF/Torch documentation.
     cache=Path(root)/'child-cache'
     if not cache.exists():
@@ -856,83 +865,289 @@ def child_environment_035(root,runtime):
     return env
 
 
-def wait_repair_035(root,key,diagnostic):
-    journal=Journal(root)
+
+def archive_035_rows(raw):
+    require(0<len(raw)<=2*MIB and raw.endswith(b'\n'),'ARCHIVE_035_INCOMPLETE')
+    rows=[]
+    for line in raw.splitlines():
+        row=json.loads(line);signature=row.pop('hash')
+        require(row['seq']==len(rows) and row['prev']==(rows[-1]['hash'] if rows else '0'*64)
+                and digest(row)==signature,'ARCHIVE_035_CHAIN');rows.append(dict(row,hash=signature))
+    events=lambda name:[r for r in rows if r['event']==name]
+    require(rows[0].get('contract_id')=='035' and rows[0].get('root_name')=='integration_035'
+            and rows[0].get('purpose')=='REAL_035' and rows[-1]['event']=='RUN_STOPPED','ARCHIVE_035_IDENTITY_STOP')
+    forbidden=('BOOTSTRAP','GPU_QUERY','GPU_ENVELOPE','RESOURCE_ADMITTED','MODEL_LAUNCH','STARTED','SCORE_CONSUMED','HTTPS','TRANSPORT_SEND','BODY_DEBIT','MEDIA_COMPLETE')
+    require(not any(r['event'] in forbidden or r['event']=='INPUT' and r.get('category') in ('gold','integrity') for r in rows),'ARCHIVE_035_REAL_ACTION')
+    suite=events('SUITE_RESULT');terminal=events('TERMINAL')
+    require(len(suite)==1 and suite[0].get('passed') is True and suite[0].get('contract_id')=='035'
+            and suite[0]['run_id']==rows[0]['run_id'] and suite[0]['expected']==suite[0]['loaded']==suite[0]['tests']==5
+            and suite[0]['failures']==suite[0]['errors']==suite[0]['skips']==0,'ARCHIVE_035_SUITE')
+    require(len(terminal)==16 and {r['key'] for r in terminal}=={str(n) for n in range(16)} and all(r['state']=='NOT_RUN' for r in terminal)
+            and len(events('NO_MODEL_QUEUE_CLOSED'))==1,'ARCHIVE_035_TERMINALS')
+    frame=events('FRAME_CACHE_VERIFIED');done=[r for r in events('INPUT_COMPLETE') if r['alias']=='frame-cache'];out=[r for r in events('OUTPUT') if r['key']=='P2-frames.npy']
+    require(len(frame)==len(done)==len(out)==1 and frame[0]['size']==done[0]['size']==out[0]['size']
+            and frame[0]['sha256']==done[0]['sha256'] and frame[0]['rgb_hashes']==48,'ARCHIVE_035_FRAME')
+    exits={r['name']:r for r in events('PHASE_EXIT')}
+    require(exits['prepare']['code']==1 and exits['copy-frames']['code']==0 and all(r['job_active']==0 for r in exits.values()),'ARCHIVE_035_EXITS')
+    return rows
+
+
+def transfer_cache_036(root,old_root):
+    j=Journal(root,create=True)
     try:
-        require_ready(journal);require(not journal.events('STARTED'),'035_NO_QA_REPAIR')
-        request=dict(key=key,diagnostic=diagnostic,worker_hash=digest(load(root,'worker-input.json')),code_hash=code_version_035())
-        journal.write('repair-request-'+key+'.json',request)
-        deadline=min(time.time()+600,journal.rows[0]['epoch']+2850)
-        if journal.events('GPU_ENVELOPE'):deadline=min(deadline,journal.events('GPU_ENVELOPE')[0]['deadline']-15)
-    finally:journal.close()
-    ready=Path(root)/('repair-ready-'+key+'.json')
-    while not ready.exists() and time.time()<deadline:time.sleep(.2)
-    require(ready.exists(),'035_REPAIR_HANDSHAKE_TIMEOUT')
-    response=load(root,ready.name);journal=Journal(root)
+        j.reserve_time('cpu',45,'cache-initialize');old=Path(old_root);require(old.name=='integration_035','036_EXACT_035_ARCHIVE')
+        rows=archive_035_rows(j.input('archive_035',old/'035-ledger.jsonl'))
+        names=['keys','cohort','nongold','plan','receipts','targets','heads029','official','annotation-reference','execution-config',
+               'device-identity-reference','P2-head','P2-media-binding','P2-candidates','frozen-worker-032','frozen-snapshot-032',
+               '035-final-summary-private','prepare-exit-private','startup-policy-1']
+        payload={}
+        for name in names:
+            raw=j.input('cache_'+name,old/(name+'.json'));payload[name]=(raw,json.loads(raw))
+        complete={r['alias']:r for r in rows if r['event']=='INPUT_COMPLETE'};output={r['key']:r for r in rows if r['event']=='OUTPUT'}
+        for name,(raw,value) in payload.items():
+            require(len(raw)==output[name+'.json']['size'],'036_RETAINED_OUTPUT')
+            if 'cache_'+name in complete:
+                prior=complete['cache_'+name]
+                require(len(raw)==prior['size'] and hashlib.sha256(raw).hexdigest()==prior['sha256'],'036_DIRECT_CACHE_BYTES')
+        require('FileNotFoundError' in payload['prepare-exit-private'][1]['stderr'] and payload['prepare-exit-private'][1]['job_active']==0
+                and payload['prepare-exit-private'][1]['exit_code']==1,'036_OLD_PREPARE_FAILURE')
+        snapshot=payload['frozen-snapshot-032'][1];reference=payload['annotation-reference'][1]
+        receipt=[r for r in payload['receipts'][1]['receipts'] if r['alias']=='annotation']
+        require(len(receipt)==3 and snapshot['binding']==['SKIP_NONFINITE_028','PROJECTOR_028_V1']
+                and all(r['complete'] and r['digest']==snapshot['sha256'] and r['byte_count']==snapshot['size']==reference['size']
+                        and r['before'][:2]==reference['identity'] and r['before'][3]==reference['mtime_ns'] for r in receipt),'036_HISTORICAL_RAW_BINDING')
+        worker=payload['frozen-worker-032'][1];plan=payload['plan'][1]['plan']
+        require(len(plan['questions'])==4 and len(plan['calls'])==16,'036_FROZEN_N4')
+        validate_queue_036(dict(slots=worker['slots'],available=AVAILABLE_036),worker)
+        for name in names:
+            if name not in ('035-final-summary-private','prepare-exit-private','execution-config'):
+                j.write(name+'.json',payload[name][1])
+        j.write('historical-prepare-exit-private.json',payload['prepare-exit-private'][1])
+        j.write('execution-config.json',payload['execution-config'][1])
+        for name in ('factory_0','factory_1','runner_0','runner_1'):
+            raw=j.input('cache_'+name,old/(name+'.py'),'source');prior=complete['cache_'+name]
+            require(len(raw)==prior['size']==output[name+'.py']['size'] and hashlib.sha256(raw).hexdigest()==prior['sha256'],'036_SOURCE_BYTES')
+            j.reserve_output(name+'.py',len(raw))
+            with open(Path(root)/(name+'.py'),'xb') as file:file.write(raw);file.flush();os.fsync(file.fileno())
+        frame=complete['frame-cache'];j.write('frame-source-reference-private.json',dict(path=str(old/'P2-frames.npy'),size=frame['size'],sha256=frame['sha256']))
+        j.add('CACHE_BOUND',inputs=24,archive_hash=rows[-1]['hash'],science_hash=digest(worker))
+    finally:j.close()
+
+
+class ReferenceMetadata036:
+    def __init__(self,journal):self.j=journal;self.cached={};self.truncated=False
+    def stat(self,path):
+        key=str(path).casefold()
+        if key in self.cached:return self.cached[key]
+        require(len(self.j.events('REFERENCE_STAT'))<32,'036_REFERENCE_STAT_CAP')
+        self.j.add('REFERENCE_STAT',path=str(path))
+        try:info=Path(path).lstat()
+        except OSError as error:
+            self.j.add('REFERENCE_STAT_FAILURE',path=str(path),kind=type(error).__name__,errno=error.errno,winerror=getattr(error,'winerror',None));info=None
+        self.cached[key]=info;return info
+    def safe_chain(self,path):
+        import stat
+        path=Path(path)
+        for ancestor in reversed((path,)+tuple(path.parents)):
+            info=self.stat(ancestor)
+            if info is None:return None
+            require(not getattr(info,'st_file_attributes',0)&0x400,'036_REFERENCE_REPARSE')
+            if ancestor!=path:require(stat.S_ISDIR(info.st_mode),'036_REFERENCE_PARENT')
+        return info
+    def directory(self,path,basename,size):
+        import stat
+        path=Path(path)
+        if path==Path(path.anchor) or str(path).casefold()==str(Path.home()).casefold():return []
+        info=self.safe_chain(path)
+        if info is None or not stat.S_ISDIR(info.st_mode):return []
+        require(len(self.j.events('REFERENCE_DIRECTORY'))<2,'036_REFERENCE_DIRECTORY_CAP')
+        self.j.add('REFERENCE_DIRECTORY',path=str(path));found=[];count=0;complete=False
+        with os.scandir(path) as entries:
+            for n in range(64):
+                try:entry=next(entries)
+                except StopIteration:complete=True;break
+                count+=1
+                if entry.name.casefold()!=basename.casefold():continue
+                current=self.safe_chain(Path(entry.path))
+                if current and stat.S_ISREG(current.st_mode) and current.st_size==size:found.append((str(entry.path),current))
+        self.truncated|=not complete;self.j.add('REFERENCE_DIRECTORY_RESULT',count=count,complete=complete)
+        return found
+
+
+def unique_reference_036(candidates,truncated=False):
+    require(not truncated,'036_REFERENCE_TRUNCATED')
+    require(all(v.st_ino>0 for path,v in candidates),'036_REFERENCE_FILEID_REQUIRED')
+    unique={tuple([v.st_dev,v.st_ino]):(path,v) for path,v in candidates}
+    require(len(unique)==1,'036_REFERENCE_MISSING_OR_AMBIGUOUS')
+    return next(iter(unique.values()))
+
+
+def reference_metadata_036(root):
+    import stat
+    j=Journal(root)
     try:
-        require_ready(journal)
-        require(response.get('action')=='CONTINUE' and response.get('request_hash')==digest(request)
-                and response.get('code_hash')==code_version_035() and response.get('worker_hash')==request['worker_hash'],'035_REPAIR_HANDSHAKE_BINDING')
-        journal.once('REPAIR_ACCEPTED',key,code_hash=code_version_035(),request_hash=digest(request))
-    finally:journal.close()
+        require_ready(j);j.once('PHASE','reference-meta');probe=ReferenceMetadata036(j)
+        old=load(root,'annotation-reference.json');path=Path(old['path']);info=probe.safe_chain(path)
+        if info is not None and stat.S_ISREG(info.st_mode) and info.st_size==old['size']:
+            selected=(str(path),info)
+        else:
+            found=[]
+            for folder in (path.parent,path.parent.parent):found.extend(probe.directory(folder,path.name,old['size']))
+            selected=unique_reference_036(found,probe.truncated)
+        path,info=selected;j.write('reference-candidate-private.json',dict(path=path,size=info.st_size,identity=[info.st_dev,info.st_ino],mtime_ns=info.st_mtime_ns))
+        j.add('REFERENCE_CANDIDATE',unique=True)
+    except Exception as error:j.write('reference-hold.json',dict(reason=str(error) if isinstance(error,ContractError) else type(error).__name__))
+    finally:j.close()
+
+
+def reference_hash_036(root):
+    """Trusted stdlib raw bytes only; no decoding/projector/gold or copy."""
+    j=Journal(root)
+    try:
+        require_ready(j);j.once('ANNOTATION_HASH_CONSUMED','one')
+        candidate=load(root,'reference-candidate-private.json');snapshot=load(root,'frozen-snapshot-032.json')
+        require(candidate['size']==snapshot['size']<=4*MIB,'036_INTEGRITY_SIZE')
+        raw=j.input('annotation-integrity',candidate['path'],'integrity')
+        actual=hashlib.sha256(raw).hexdigest();count=len(raw);del raw
+        require(count==snapshot['size'] and actual==snapshot['sha256'],'036_INTEGRITY_MISMATCH')
+        path,info=checked_path(candidate['path'])
+        require([info.st_dev,info.st_ino]==candidate['identity'] and info.st_mtime_ns==candidate['mtime_ns'],'036_INTEGRITY_CURRENT_CHANGED')
+        current=dict(path=str(path),identity=[info.st_dev,info.st_ino],size=info.st_size,mtime_ns=info.st_mtime_ns,
+                     raw_sha256=actual,binding=snapshot['binding'])
+        j.write('current-annotation-reference.json',current)
+        j.once('ANNOTATION_REFERENCE_BOUND','current',current_hash=digest(current),raw_sha256=actual,bytes=count,old_snapshot_hash=digest(snapshot))
+    except Exception as error:j.write('reference-hash-hold.json',dict(reason=str(error) if isinstance(error,ContractError) else type(error).__name__))
+    finally:j.close()
+
+
+def current_reference_036(root,rows):
+    bound=[r for r in rows if r['event']=='ANNOTATION_REFERENCE_BOUND'];require(len(bound)==1,'036_REAL_REFERENCE_NOT_BOUND')
+    reference=load(root,'current-annotation-reference.json');snapshot=load(root,'frozen-snapshot-032.json');_,info=checked_path(reference['path'])
+    require(bound[0]['current_hash']==digest(reference) and reference['raw_sha256']==bound[0]['raw_sha256']==snapshot['sha256']
+            and reference['binding']==snapshot['binding'] and [info.st_dev,info.st_ino]==reference['identity']
+            and info.st_size==reference['size']==snapshot['size'] and info.st_mtime_ns==reference['mtime_ns'],'036_CURRENT_REFERENCE_CHANGED')
+    return reference
+
+
+def policy_version_036(root):
+    ids=[n for n in (1,2,3) if (Path(root)/('startup-policy-%d.json'%n)).exists()]
+    require(ids and ids==list(range(1,max(ids)+1)),'036_POLICY_SEQUENCE')
+    return max(ids)
+
+
+def tested_binding_036(root):
+    policy=policy_version_036(root)
+    return dict(code_hash=code_version_036(),policy_id=policy,policy_hash=digest(load(root,'startup-policy-%d.json'%policy)),
+                science_hash=digest(load(root,'frozen-worker-032.json')))
+
+
+def accept_repair_036(rows,request,response,binding):
+    require(not any(r.get('event')=='REPAIR_ACCEPTED' and r.get('request_hash')==request['request_hash'] for r in rows),'036_REPAIR_REPLAY')
+    suites=[r for r in rows if r['event']=='SUITE_RESULT' and r['seq']>request['seq'] and r.get('passed') is True]
+    require(suites,'036_NEW_POST_REQUEST_PASS_REQUIRED');suite=suites[-1]
+    require(response.get('action')=='CONTINUE' and response.get('request_hash')==request['request_hash']
+            and response.get('suite_hash')==suite['hash'] and response.get('suite_seq')==suite['seq']
+            and all(suite.get(k)==response.get(k)==binding[k] for k in binding),'036_REPAIR_TEST_CODE_POLICY_BINDING')
+    return response['policy_id']
+
+
+def wait_repair_036(root,key,diagnostic):
+    j=Journal(root)
+    try:
+        require_ready(j);require(not j.events('STARTED'),'036_NO_QA_REPAIR')
+        request=dict(key=key,diagnostic=diagnostic,**tested_binding_036(root))
+        j.write('repair-request-'+key+'.json',request)
+        j.once('REPAIR_REQUEST',key,request_hash=digest(request),**tested_binding_036(root));record=j.rows[-1]
+        deadline=min(time.time()+600,j.rows[0]['epoch']+2850)
+        if j.events('GPU_ENVELOPE'):deadline=min(deadline,j.events('GPU_ENVELOPE')[0]['deadline']-15)
+    finally:j.close()
+    path=Path(root)/('repair-ready-'+key+'.json')
+    while not path.exists() and time.time()<deadline:time.sleep(.2)
+    require(path.exists(),'036_REPAIR_TIMEOUT');response=load(root,path.name);j=Journal(root)
+    try:
+        require_ready(j);policy=accept_repair_036(j.rows,record,response,tested_binding_036(root))
+        require(not any(r.get('request_hash')==record['request_hash'] for r in j.events('REPAIR_ACCEPTED')),'036_REPAIR_REPLAY')
+        j.once('REPAIR_ACCEPTED',key,request_hash=record['request_hash'],suite_hash=response['suite_hash'],**tested_binding_036(root))
+        return policy
+    finally:j.close()
+
+
+def require_synthetic_036(root,rows,policy):
+    passes=[r for r in rows if r['event']=='SYNTHETIC_PASS'];require(passes,'036_CURRENT_SYNTHETIC_PASS_REQUIRED')
+    latest=passes[-1];binding=tested_binding_036(root)
+    require(policy==binding['policy_id'] and all(latest.get(k)==binding[k] for k in binding),'036_SYNTHETIC_CODE_POLICY_CHANGED')
+    actual=load(root,'synthetic-%d-exit-private.json'%latest['attempt']);result=load(root,'bootstrap-%d-result.json'%latest['attempt'])
+    require(actual['job_active']==0 and actual['exit_code']==0 and latest['exit_hash']==digest(actual)
+            and result['role']=='SYNTHETIC_STARTUP_ONLY' and result['status']=='PASS' and result['stage']=='CPU_COMPLETE'
+            and result['cuda_initialized'] is False and result['visual_tokens']==324,'036_SYNTHETIC_ACTUAL_BINDING')
+
+
+def run_synthetic_036(root,runtime,env,policy):
+    j=Journal(root);attempt=len(j.events('BOOTSTRAP'))+1
+    require(attempt<=3,'036_THREE_BOOTSTRAPS_ONLY')
+    j.once('BOOTSTRAP',str(attempt),attempt=attempt,role='SYNTHETIC_STARTUP_ONLY',**tested_binding_036(root));j.close()
+    canary=ExclusiveRead(Path(root)/'synthetic-canary.bin')
+    try:actual=phase(root,'synthetic-%d'%attempt,'cpu',60,python_command(runtime['python'],'development_worker_030',str(root),'bootstrap',str(attempt),str(policy),site=runtime['site']),env)
+    finally:canary.close()
+    result=load(root,'bootstrap-%d-result.json'%attempt) if (Path(root)/('bootstrap-%d-result.json'%attempt)).exists() else {}
+    if actual['exit_code']==0 and actual['job_active']==0 and result.get('status')=='PASS':
+        binding=tested_binding_036(root)
+        require(result.get('code_hash')==binding['code_hash'] and result.get('policy_hash')==binding['policy_hash']
+                and result.get('role')=='SYNTHETIC_STARTUP_ONLY' and result.get('config_hash')==digest(load(root,'synthetic-startup-config.json')),'036_SYNTHETIC_RESULT_BINDING')
+        j=Journal(root);j.add('SYNTHETIC_PASS',attempt=attempt,exit_hash=digest(actual),**binding);j.close()
+        return True,result
+    return False,result
 
 
 def execute(root):
-    gate=Journal(root)
+    j=Journal(root)
     try:
-        require_ready(gate);require(gate.events('PREPARED') and gate.events('FRAME_CACHE_VERIFIED'),'035_PREPARED_REQUIRED')
-        gate.once('EXECUTE','parent')
-    finally:gate.close()
-    runtime=load(root,'runtime.json');reference=load(root,'annotation-reference.json');handle=None
-    env=child_environment_035(root,runtime);policy=1
+        require_ready(j);require(j.events('PREPARED') and j.events('FRAME_CACHE_VERIFIED'),'036_PREPARED_REQUIRED');j.once('EXECUTE','parent')
+        j.reserve_output('synthetic-canary.bin',8)
+        with open(Path(root)/'synthetic-canary.bin','xb') as file:file.write(b'canary00')
+    finally:j.close()
+    runtime=load(root,'runtime.json');env=child_environment_036(root,runtime);policy=policy_version_036(root);handle=None
     try:
-        handle=ExclusiveRead(reference['path']);j=Journal(root);j.once('ORIGINAL_LOCK','annotation',body=0);j.close()
+        for n in (1,2,3):
+            passed,result=run_synthetic_036(root,runtime,env,policy)
+            if passed:break
+            require(n<3 and result.get('diagnostic'),'036_SYNTHETIC_STARTUP_HOLD')
+            policy=wait_repair_036(root,'SYNTHETIC-%d'%n,result['diagnostic'])
+        j=Journal(root)
+        try:require_synthetic_036(root,j.rows,policy);reference=current_reference_036(root,j.rows)
+        finally:j.close()
+        handle=ExclusiveRead(reference['path']);j=Journal(root);j.once('ORIGINAL_LOCK','annotation',body=0,current_hash=digest(reference));j.close()
         for n in range(2):
             v=phase(root,'refusal-%d'%n,'cpu',5,python_command(sys.executable,'development_pilot_030','probe',reference['path']))
-            require(v['exit_code']==0 and json.loads(v['stdout'])['denied'] is True,'035_ORIGINAL_PROBE')
-        for attempt in (1,2):
-            j=Journal(root);j.once('BOOTSTRAP',str(attempt),attempt=attempt,policy=policy,code_hash=code_version_035(),worker_hash=digest(load(root,'worker-input.json')));j.close()
-            v=phase(root,'bootstrap-%d'%attempt,'cpu',60,python_command(runtime['python'],'development_worker_030',str(root),'bootstrap',str(attempt),str(policy),site=runtime['site']),env)
-            result=load(root,'bootstrap-%d-result.json'%attempt) if (Path(root)/('bootstrap-%d-result.json'%attempt)).exists() else {}
-            if v['exit_code']==0 and v['job_active']==0 and result.get('status')=='PASS':
-                require(result.get('code_hash')==code_version_035() and result.get('worker_hash')==digest(load(root,'worker-input.json'))
-                        and result.get('policy_hash')==digest(load(root,'startup-policy-%d.json'%policy))
-                        and result.get('stage')=='CPU_COMPLETE' and result.get('grid')==[6,12,18] and result.get('visual_tokens')==324
-                        and result.get('cuda_initialized') is False,'035_ACTUAL_BOOTSTRAP_BINDING')
-                break
-            require(attempt==1 and bool(result.get('diagnostic')),'035_BOOTSTRAP_NOT_RECOVERABLE')
-            wait_repair_035(root,'BOOTSTRAP-1',result['diagnostic']);policy=2
-        else:raise ContractError('035_BOOTSTRAP_HOLD')
-        require(result.get('status')=='PASS','035_BOOTSTRAP_HOLD')
-        j=Journal(root);queue=make_queue(root,j,AVAILABLE_035)
+            require(v['exit_code']==0 and json.loads(v['stdout'])['denied'] is True,'036_REAL_REFUSAL')
+        j=Journal(root);queue=make_queue(root,j,AVAILABLE_036)
         for item in queue['slots']:
             if item['alias']!='P2':j.once('TERMINAL',str(item['slot']),alias=item['alias'],arm=item['arm'],state='NOT_RUN',reason='NOT_AVAILABLE_FROM_CLOSED_CACHE')
         j.close()
-        v=phase(root,'gpu-resource','cpu',10,python_command(sys.executable,'development_pilot_030','resource-035',str(root)))
-        require(v['exit_code']==0 and v['job_active']==0 and not v['overflow'],'035_RESOURCE_HOLD')
+        v=phase(root,'gpu-resource','cpu',10,python_command(sys.executable,'development_pilot_030','resource-036',str(root)))
+        require(v['exit_code']==0 and v['job_active']==0 and not v['overflow'],'036_RESOURCE_HOLD')
         j=Journal(root);j.reserve_time('gpu',900,'GPU_ENVELOPE');j.once('GPU_ENVELOPE','whole',start=time.time(),deadline=time.time()+900);j.close()
         for attempt in (1,2):
             j=Journal(root)
             try:
-                require_ready(j);resource=resource_receipt_035(j.rows,root)
+                require_ready(j);require_synthetic_036(root,j.rows,policy);resource=resource_receipt_036(j.rows,root)
                 j.once('MODEL_LAUNCH',str(attempt),attempt=attempt,run_id=j.rows[0]['run_id'],queue_hash=digest(load(root,'queue.json')),
-                       resource_hash=resource['hash'],code_hash=code_version_035(),policy=policy)
+                       resource_hash=resource['hash'],code_hash=code_version_036(),policy=policy,policy_hash=tested_binding_036(root)['policy_hash'])
                 remaining=j.events('GPU_ENVELOPE')[0]['deadline']-time.time()
             finally:j.close()
             v=run_child(python_command(runtime['python'],'development_worker_030',str(root),'gpu',str(attempt),str(policy),site=runtime['site']),remaining,environment=env)
             j=Journal(root)
             try:
-                j.write('gpu-worker-%d-exit-private.json'%attempt,v);record_model_exit_035(root,j,attempt,v)
-                j.add('PHASE_EXIT',name='gpu-worker-%d'%attempt,pid=v['pid'],code=v['exit_code'],job_active=v['job_active'],seconds=v['seconds'])
-                started=bool(j.events('STARTED'))
+                j.write('gpu-worker-%d-exit-private.json'%attempt,v);record_model_exit_036(root,j,attempt,v)
+                j.add('PHASE_EXIT',name='gpu-worker-%d'%attempt,pid=v['pid'],code=v['exit_code'],job_active=v['job_active'],seconds=v['seconds']);started=bool(j.events('STARTED'))
             finally:j.close()
             result=load(root,'worker-%d-result.json'%attempt) if (Path(root)/('worker-%d-result.json'%attempt)).exists() else {}
             if result.get('status')=='COMPLETE' or started:break
-            message=str(result.get('diagnostic',{}).get('message','')).lower();kind=result.get('diagnostic',{}).get('exception_class','')
-            require(attempt==1 and v['job_active']==0 and not v['killed'] and not v['overflow'] and result.get('diagnostic')
-                    and kind not in ('OutOfMemoryError','TimeoutError') and 'out of memory' not in message
-                    and result.get('stage') not in ('CUDA_FREE','ALLOCATOR'),'035_GPU_NOT_RECOVERABLE')
-            wait_repair_035(root,'GPU-1',result['diagnostic'])
+            diagnostic=result.get('diagnostic',{});message=str(diagnostic.get('message','')).lower()
+            require(attempt==1 and not v['killed'] and not v['overflow'] and diagnostic and diagnostic.get('exception_class') not in ('OutOfMemoryError','TimeoutError')
+                    and 'out of memory' not in message and result.get('stage') not in ('CUDA_FREE','ALLOCATOR'),'036_GPU_NOT_RECOVERABLE')
+            policy=wait_repair_036(root,'GPU-1',diagnostic)
+            passed,result=run_synthetic_036(root,runtime,env,policy);require(passed,'036_REPAIRED_SYNTHETIC_HOLD')
     except Exception as error:
         j=Journal(root);j.write('execution-hold.json',dict(reason=str(error) if isinstance(error,ContractError) else type(error).__name__));j.close()
     finally:
@@ -1312,11 +1527,9 @@ def prepare(root):
         receipts = [r for r in load(root, 'receipts.json')['receipts'] if r['alias'] == 'annotation']
         require(len(receipts) == 3 and all(r['complete'] for r in receipts)
                 and len({(r['byte_count'], r['digest'], tuple(r['before'])) for r in receipts}) == 1, '028_FULL_SNAPSHOT')
-        reference = load(root, 'annotation-reference.json'); _, stat = checked_path(reference['path'])
-        old = receipts[0]
-        require([stat.st_dev, stat.st_ino] == old['before'][:2] == reference['identity']
-                and stat.st_size == old['byte_count'] == reference['size']
-                and stat.st_mtime_ns == old['before'][3] == reference['mtime_ns'], 'ANNOTATION_SNAPSHOT_STAT')
+        reference=load(root,'annotation-reference.json');old=receipts[0]
+        require(reference['identity']==old['before'][:2] and reference['size']==old['byte_count']
+                and reference['mtime_ns']==old['before'][3],'036_HISTORICAL_REFERENCE_ONLY')
         journal.write('expected-snapshot.json', dict(binding=binding, size=old['byte_count'], sha256=old['digest']))
         targets = load(root, 'targets.json')['targets']; official = load(root, 'official.json')['joined']['rows']
         require([x['alias'] for x in targets] == ['P1', 'P2', 'P3', 'P4'], 'TARGET_ALIASES')
@@ -1364,8 +1577,15 @@ def prepare(root):
         slots = [dict(slot=n, alias='P%d' % (n // 4 + 1), arm=call.arm) for n, call in enumerate(plan.calls)]
         journal.write('worker-input.json', dict(binding=binding, sources=sources, slots=slots, system=systems[0],
                       models=model_roots[0], qwen_config=configs[0], seed=19, max_new_tokens=64, factory='factory_1.py'))
-        require(load(root,'worker-input.json')==load(root,'frozen-worker-032.json'),'033_SCIENTIFIC_CONFIG_CHANGED')
-        require(load(root,'expected-snapshot.json')==load(root,'frozen-snapshot-032.json'),'033_SNAPSHOT_CHANGED')
+        require(load(root,'worker-input.json')==load(root,'frozen-worker-032.json'),'036_SCIENTIFIC_CONFIG_CHANGED')
+        require(load(root,'expected-snapshot.json')==load(root,'frozen-snapshot-032.json'),'036_SNAPSHOT_CHANGED')
+        require(journal.events('FRAME_CACHE_VERIFIED'),'036_COPY_BEFORE_PREPARE')
+        real=load(root,'worker-input.json')
+        synthetic={k:real[k] for k in ('models','system','qwen_config','seed','max_new_tokens','factory')}
+        synthetic.update(role='SYNTHETIC_STARTUP_ONLY',shape=journal.events('FRAME_CACHE_VERIFIED')[0]['shape'],
+            sources=[dict(alias='P2',question='How long after opening did closing?',event_a='opening',event_b='closing',
+                          options=['one fictional unit','two fictional units','three fictional units','four fictional units','five fictional units'])])
+        journal.write('synthetic-startup-config.json',synthetic)
         journal.add('FROZEN', n=4, options=20, slots=16, plan_hash=digest(asdict(plan)), worker_hash=digest(load(root, 'worker-input.json')))
         # Resolve the explicitly existing named conda runtime, no inventory/import.
         execution=load(root,'execution-config.json')
@@ -1388,6 +1608,7 @@ def prepare(root):
 
 def phase(root, name, stage, seconds, command, environment=None):
     journal = Journal(root)
+    before_binding=tested_binding_036(root) if name.startswith('suite-') else None
     try:
         if name.startswith('suite-'):
             require(name in ('suite-1', 'suite-2','suite-3') and seconds<=60 and not journal.events('RUN_STOPPED'), 'SUITE_CAP_OR_STOP')
@@ -1402,12 +1623,13 @@ def phase(root, name, stage, seconds, command, environment=None):
         if name.startswith('suite-'):
             receipt=load(root,name+'-result.json') if (Path(root)/(name+'-result.json')).exists() else {}
             marks=receipt.get('os_marks',{})
-            passed=(result['exit_code']==0 and not result['overflow'] and receipt.get('contract_id')=='035'
+            passed=(result['exit_code']==0 and not result['overflow'] and receipt.get('contract_id')=='036'
                     and receipt.get('run_id')==journal.rows[0]['run_id'] and receipt.get('expected')==receipt.get('loaded')==receipt.get('tests')==5
+                    and before_binding==tested_binding_036(root) and all(receipt.get(k)==v for k,v in before_binding.items())
                     and receipt.get('failures')==receipt.get('errors')==receipt.get('skips')==0
-                    and all(marks.get(k) is True for k in ('startup_policy','recovery','archive_034','bindings_035','no_network')))
-            journal.add('SUITE_RESULT', name=name, contract_id='035',run_id=journal.rows[0]['run_id'],passed=passed,
-                        expected=receipt.get('expected'),loaded=receipt.get('loaded'),tests=receipt.get('tests',0),failures=receipt.get('failures'),errors=receipt.get('errors'),skips=receipt.get('skips'),os_marks=marks,code_hash=code_version_035())
+                    and all(marks.get(k) is True for k in ('reference_bytes','synthetic_role','archive_035','repair_binding','all_exit')))
+            journal.add('SUITE_RESULT', name=name, contract_id='036',run_id=journal.rows[0]['run_id'],passed=passed,
+                        expected=receipt.get('expected'),loaded=receipt.get('loaded'),tests=receipt.get('tests',0),failures=receipt.get('failures'),errors=receipt.get('errors'),skips=receipt.get('skips'),os_marks=marks,receipt_hash=digest(receipt),**{k:receipt.get(k) for k in ('code_hash','policy_id','policy_hash','science_hash')})
     finally:
         journal.close()
     return result
@@ -1415,16 +1637,16 @@ def phase(root, name, stage, seconds, command, environment=None):
 
 def require_ready(journal):
     results = journal.events('SUITE_RESULT')
-    require(journal.rows[0].get('purpose')=='REAL_035' and not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
-            and results[-1].get('contract_id')=='035' and results[-1].get('run_id')==journal.rows[0]['run_id']
-            and 0 < results[-1]['tests'] and len(results) <= 3 and results[-1].get('code_hash')==code_version_035(), 'NEW_SUITE_NOT_PASSED')
+    require(journal.rows[0].get('purpose')=='REAL_036' and not journal.events('RUN_STOPPED') and results and results[-1]['passed'] is True
+            and results[-1].get('contract_id')=='036' and results[-1].get('run_id')==journal.rows[0]['run_id']
+            and 0 < results[-1]['tests'] and len(results) <= 3 and all(results[-1].get(k)==v for k,v in tested_binding_036(journal.root).items()), 'NEW_SUITE_NOT_PASSED')
 
 
 def make_queue(root, journal, available):
     config=load(root,'worker-input.json'); plan=restored_plan(root)
-    validate_queue_035(dict(slots=config['slots'],available=available),config)
+    validate_queue_036(dict(slots=config['slots'],available=available),config)
     require(len(config['slots'])==16 and len(plan.calls)==16,'FULL_QUEUE_REQUIRED')
-    queue=dict(contract_id='035',run_id=journal.rows[0]['run_id'],plan_hash=digest(asdict(plan)),
+    queue=dict(contract_id='036',run_id=journal.rows[0]['run_id'],plan_hash=digest(asdict(plan)),
                worker_hash=digest(config),slots=config['slots'],available=available)
     journal.write('queue.json',queue)
     return queue
@@ -1455,9 +1677,9 @@ def score(root):
     try:
         journal.once('SCORE_CONSUMED', 'original')
         score_allowed(journal.rows,root)
-        snapshot = load(root, 'expected-snapshot.json'); reference = load(root, 'annotation-reference.json')
+        snapshot = load(root, 'expected-snapshot.json'); reference = load(root, 'current-annotation-reference.json')
         plan = restored_plan(root); terminal = {int(r['key']): r for r in journal.events('TERMINAL')}
-        if journal.rows[0].get('purpose')=='FICTIONAL_035_WITNESS':
+        if journal.rows[0].get('purpose')=='FICTIONAL_036_WITNESS':
             require(Path(reference['path']).parent==Path(root) and all(q.key.source.startswith('fixture_') for q in plan.questions), 'FICTIONAL_SCORE_SCOPE')
         ledger = FrozenLedger(tuple(TerminalAttempt(call, terminal[n]['state'], terminal[n].get('prediction')) for n, call in enumerate(plan.calls)), True)
         launches=journal.events('MODEL_LAUNCH');exits=journal.events('MODEL_EXIT')
@@ -1571,10 +1793,10 @@ def finish_stopped(root):
         journal.close()
 
 
-def finalize_035(root, reason=None):
+def finalize_036(root, reason=None):
     journal=Journal(root)
     try:
-        journal.reserve_time('cpu',30,'finalize-035')
+        journal.reserve_time('cpu',30,'finalize-036')
         config=load(root,'worker-input.json') if (Path(root)/'worker-input.json').exists() else None
         slots=config['slots'] if config else [dict(slot=n,alias='P%d' % (n//4+1),arm='ABCD'[(n%4+n//4)%4]) for n in range(16)]
         ended={r['key'] for r in journal.events('TERMINAL')};started={r['key'] for r in journal.events('STARTED')}
@@ -1587,7 +1809,7 @@ def finalize_035(root, reason=None):
             journal.add('NO_MODEL_QUEUE_CLOSED',slots=16,gold_allowed=False)
         windows=journal.events('WINDOW');inputs=journal.events('INPUT');complete=journal.events('INPUT_COMPLETE')
         transport=journal.events('TRANSPORT_SEND');results=journal.events('SUITE_RESULT')
-        summary=dict(contract_id='035',run_id=journal.rows[0]['run_id'],reason=reason,n=4,slots=16,
+        summary=dict(contract_id='036',run_id=journal.rows[0]['run_id'],reason=reason,n=4,slots=16,
             suites=[{k:r.get(k) for k in ('name','tests','passed','failures','errors','skips','os_marks')} for r in results],
             cache_bound=bool(journal.events('CACHE_BOUND')),cache_holds=[r.get('aliases') for r in journal.events('CACHE_HOLD')],
             input_opens=len(inputs),complete_inputs=len(complete),reserved_input_bytes=sum(r['size'] for r in inputs),
@@ -1603,8 +1825,8 @@ def finalize_035(root, reason=None):
             scored=[{k:r.get(k) for k in ('status','n','raw_bytes','raw_binding')} for r in journal.events('SCORED')],
             parent_seconds=time.time()-journal.rows[0]['epoch'])
         summary['workers']=[load(root,'worker-%d-result.json'%n) for n in (1,2) if (Path(root)/('worker-%d-result.json'%n)).exists()]
-        journal.write('035-final-summary-private.json',summary)
-        journal.once('RUN_STOPPED','035',reason=reason or 'ROUND_DELIVERED_NO_CONTINUATION')
+        journal.write('036-final-summary-private.json',summary)
+        journal.once('RUN_STOPPED','036',reason=reason or 'ROUND_DELIVERED_NO_CONTINUATION')
         print(json.dumps({k:v for k,v in summary.items() if k not in ('run_id','worker','terminal')}))
     finally:journal.close()
 
@@ -1612,7 +1834,7 @@ def finalize_035(root, reason=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped','finalize-035', 'copy-035', 'resource-035'])
+    parser.add_argument('mode', choices=['initialize', 'probe', 'prepare', 'execute', 'score', 'finalize-stopped','finalize-036', 'copy-036', 'resource-036','reference-meta','reference-hash'])
     parser.add_argument('root')
     args = parser.parse_args()
     if args.mode == 'probe':
@@ -1620,10 +1842,14 @@ def main():
     payload = sys.stdin.readline()
     if args.mode == 'initialize':
         config = json.loads(payload); initialize(args.root, config['entries'], config['annotation']); return
-    if args.mode == 'copy-035':
-        copy_frames_035(args.root)
-    elif args.mode == 'resource-035':
-        query_resource_035(args.root)
+    if args.mode=='reference-meta':
+        reference_metadata_036(args.root)
+    elif args.mode=='reference-hash':
+        reference_hash_036(args.root)
+    elif args.mode == 'copy-036':
+        copy_frames_036(args.root)
+    elif args.mode == 'resource-036':
+        query_resource_036(args.root)
     elif args.mode == 'prepare':
         prepare(args.root)
     elif args.mode == 'execute':
@@ -1632,8 +1858,8 @@ def main():
         score(args.root)
     elif args.mode == 'finalize-stopped':
         finish_stopped(args.root)
-    elif args.mode == 'finalize-035':
-        finalize_035(args.root)
+    elif args.mode == 'finalize-036':
+        finalize_036(args.root)
 
 
 if __name__ == '__main__':

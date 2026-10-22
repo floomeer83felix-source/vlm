@@ -1,4 +1,4 @@
-"""030 nongold four-arm worker with fixed035 binding; no defaults/heavy imports."""
+"""030 nongold four-arm worker with fixed036 binding; no defaults/heavy imports."""
 import argparse
 from dataclasses import asdict
 import gc
@@ -9,7 +9,7 @@ from pathlib import Path
 import sys
 import time
 
-from development_pilot_030 import Journal, require, require_ready, load, packed, digest, GIB, validate_queue_035, validate_start_035, resource_receipt_035
+from development_pilot_030 import Journal, require, require_ready, load, packed, digest, GIB, validate_queue_036, validate_start_036, resource_receipt_036
 from temporal_evidence_adapter_025 import select_four
 
 
@@ -31,27 +31,30 @@ class StartupDiagnostic:
                     winerror=getattr(error,'winerror',None),message=str(error)[:512],frames=frames,denials=self.denials)
 
 
-def install_policy(root,model_roots,diagnostic,exact_reads=(),install=True):
-    norm=lambda p:os.path.normcase(os.path.abspath(os.fspath(p)))
-    own=norm(root)
+def install_policy(root,model_roots,diagnostic,exact_reads=(),install=True,allow_null_device=False):
+    norm=lambda p:os.path.normcase(os.path.abspath(os.fsdecode(os.fspath(p))))
+    own=norm(root);null_device=norm(os.devnull)
     allowed=[own,norm(Path(__file__).parent),norm(sys.prefix),norm(sys.base_prefix),norm(Path(os.__file__).parent)]+[norm(p) for p in model_roots]
-    require(len(exact_reads)<=4,'035_EXACT_READ_LIMIT');exact={norm(p) for p in exact_reads}
+    require(len(exact_reads)<=4,'036_EXACT_READ_LIMIT');exact={norm(p) for p in exact_reads}
     def audit(event,args):
         if event in ('socket.connect','socket.connect_ex','socket.getaddrinfo','subprocess.Popen','os.system'):
-            diagnostic.deny(event,'035_NETWORK_OR_CHILD_DENIED')
+            diagnostic.deny(event,'036_NETWORK_OR_CHILD_DENIED')
         if event=='open' and not isinstance(args[0],int):
             name=norm(args[0]);flags=args[2] if len(args)>2 and type(args[2]) is int else 0
+            # Installed dill probes standard stream types with os.devnull.
+            # Only this exact sink/source is exempt, never a device namespace.
+            if allow_null_device is True and name==null_device:return
             if not any(name==p or name.startswith(p+os.sep) for p in allowed) and name not in exact:
-                diagnostic.deny(event,'035_READ_ALLOWLIST',name,flags)
+                diagnostic.deny(event,'036_READ_ALLOWLIST',name,flags)
             if flags & (os.O_WRONLY|os.O_RDWR|os.O_CREAT|os.O_TRUNC|os.O_APPEND) and not name.startswith(own+os.sep):
-                diagnostic.deny(event,'035_WRITE_ALLOWLIST',name,flags)
+                diagnostic.deny(event,'036_WRITE_ALLOWLIST',name,flags)
     if install:sys.addaudithook(audit)
     return audit
 
 
 def startup(root,config,journal,diag,policy):
     diag.set('POLICY_INSTALL');rules=load(root,'startup-policy-%d.json'%policy)
-    install_policy(root,config['models'],diag,rules['exact_reads'])
+    install_policy(root,config['models'],diag,rules['exact_reads'],allow_null_device=rules.get('allow_null_device',False))
     diag.set('NUMPY_IMPORT');import numpy as np
     diag.set('TORCH_IMPORT');import torch
     diag.set('TRANSFORMERS_IMPORT');from transformers import AutoProcessor,SiglipModel,Qwen3VLForConditionalGeneration
@@ -61,25 +64,31 @@ def startup(root,config,journal,diag,policy):
     diag.set('SIGLIP_CPU_PROCESSOR');sp=AutoProcessor.from_pretrained(config['models'][1],local_files_only=True,trust_remote_code=False)
     diag.set('CPU_FACTORY');namespace={}
     source=(Path(root)/config['factory']).read_text(encoding='utf-8')
-    exec(compile(source,'<035-private-original-factory>','exec'),namespace)
+    exec(compile(source,'<036-private-original-factory>','exec'),namespace)
     return np,torch,AutoProcessor,SiglipModel,Qwen3VLForConditionalGeneration,VideoMetadata,qp,sp,namespace
 
 
 def bootstrap(root,attempt,policy):
-    from development_pilot_030 import code_version_035
-    j=Journal(root);diag=StartupDiagnostic();result=dict(status='HOLD',attempt=attempt,policy=policy,code_hash=code_version_035())
+    from development_pilot_030 import code_version_036
+    j=Journal(root);diag=StartupDiagnostic();result=dict(status='HOLD',attempt=attempt,policy=policy,code_hash=code_version_036())
     try:
-        require_ready(j);calls=j.events('BOOTSTRAP');require(len(calls)==attempt and attempt in (1,2),'035_BOOTSTRAP_CAP')
-        config=load(root,'worker-input.json');result['worker_hash']=digest(config)
+        require_ready(j);calls=j.events('BOOTSTRAP');require(len(calls)==attempt and attempt in (1,2,3),'036_BOOTSTRAP_CAP')
+        config=load(root,'synthetic-startup-config.json');result['config_hash']=digest(config);result['role']=config['role']
+        require(config['role']=='SYNTHETIC_STARTUP_ONLY','036_SYNTHETIC_ROLE')
+        from development_pilot_030 import zero_body_observation
+        observation=zero_body_observation(Path(root)/'synthetic-canary.bin')
+        require(observation['denied'] is True,'036_CANARY_REFUSAL')
+        result['canary']=observation
         np,torch,_,_,_,VideoMetadata,qp,sp,namespace=startup(root,config,j,diag,policy)
-        require(not torch.cuda.is_initialized(),'035_BOOTSTRAP_CUDA_INITIALIZED')
-        diag.set('CPU_HELPER_INPUT');candidate=load(root,'P2-candidates.json');frames=np.load(Path(root)/candidate['frames'],mmap_mode='r',allow_pickle=False)
+        require(not torch.cuda.is_initialized(),'036_BOOTSTRAP_CUDA_INITIALIZED')
+        diag.set('CPU_HELPER_INPUT');frames=np.zeros(tuple(config['shape']),dtype=np.uint8)
+        candidate=dict(duration=48.0,fps=30.0,times=[float(n) for n in range(48)],prior=dict(video_packets=1440))
         source=next(v for v in config['sources'] if v['alias']=='P2');r={'grid':[6,12,18],'visual_tokens_per_call':324}
         helper=namespace['make_inputs']({'questions':[source]},VideoMetadata=VideoMetadata,duration=candidate['duration'],fps=candidate['fps'],
               frames=frames,need=require,np=np,prior=candidate['prior'],qc=config['qwen_config'],qp=qp,r=r,system=config['system'],times=candidate['times'])
         values=helper(0,tuple(round(47*k/11) for k in range(12)))
-        require(values['video_grid_thw'][0].tolist()==[6,12,18] and int((values['input_ids']==config['qwen_config']['video_token_id']).sum())==324,'035_BOOTSTRAP_VISUAL_BUDGET')
-        require(all(v.device.type=='cpu' for v in values.values()) and not torch.cuda.is_initialized(),'035_BOOTSTRAP_CPU_ONLY')
+        require(values['video_grid_thw'][0].tolist()==[6,12,18] and int((values['input_ids']==config['qwen_config']['video_token_id']).sum())==324,'036_BOOTSTRAP_VISUAL_BUDGET')
+        require(all(v.device.type=='cpu' for v in values.values()) and not torch.cuda.is_initialized(),'036_BOOTSTRAP_CPU_ONLY')
         diag.set('CPU_COMPLETE');result.update(status='PASS',stages=diag.stages,grid=[6,12,18],visual_tokens=324,input_tokens=int(values['input_ids'].shape[1]),cuda_initialized=False,
                     policy_hash=digest(load(root,'startup-policy-%d.json'%policy)))
     except Exception as error:result['diagnostic']=diag.error(error)
@@ -110,24 +119,26 @@ def worker(root,attempt,policy):
         config = load(root, 'worker-input.json'); queue = load(root, 'queue.json')
         frozen=journal.events('FROZEN');launches=journal.events('MODEL_LAUNCH')
         require(digest(config) == queue['worker_hash'] and len(queue['slots']) == 16
-                and queue['contract_id']=='035' and queue['run_id']==journal.rows[0]['run_id']
+                and queue['contract_id']=='036' and queue['run_id']==journal.rows[0]['run_id']
                 and len(frozen)==1 and 1<=len(launches)<=2 and frozen[0]['worker_hash']==queue['worker_hash']
                 and frozen[0]['plan_hash']==queue['plan_hash'] and launches[-1]['queue_hash']==digest(queue)
                 and queue['slots']==config['slots'], 'WORKER_FREEZE_BINDING')
-        validate_queue_035(queue,config)
-        resource=resource_receipt_035(journal.rows,root)
-        require(launches[-1].get('resource_hash')==resource['hash'],'035_WORKER_RESOURCE_BINDING')
-        from development_pilot_030 import validate_attempt_035
-        validate_attempt_035(journal.rows,root,attempt)
-        require(launches[-1]['policy']==policy,'035_WORKER_POLICY')
+        validate_queue_036(queue,config)
+        resource=resource_receipt_036(journal.rows,root)
+        require(launches[-1].get('resource_hash')==resource['hash'],'036_WORKER_RESOURCE_BINDING')
+        from development_pilot_030 import validate_attempt_036
+        validate_attempt_036(journal.rows,root,attempt)
+        require(launches[-1]['policy']==policy and launches[-1].get('policy_hash')==digest(load(root,'startup-policy-%d.json'%policy)),'036_WORKER_POLICY')
+        from development_pilot_030 import require_synthetic_036
+        require_synthetic_036(root,journal.rows,policy)
         np,torch,_,SiglipModel,Qwen3VLForConditionalGeneration,VideoMetadata,qp,sp,namespace=startup(root,config,journal,diag,policy)
         diag.set('CUDA_AVAILABILITY')
         require(torch.cuda.is_available(), 'CUDA_UNAVAILABLE')
         diag.set('CUDA_DEVICE');properties=torch.cuda.get_device_properties(0)
-        require('3090' in properties.name,'035_WORKER_DEVICE')
+        require('3090' in properties.name,'036_WORKER_DEVICE')
         diag.set('CUDA_FREE');free,total=torch.cuda.mem_get_info(0)
         journal.add('WORKER_FREE_RECHECK',attempt=attempt,device=0,free_bytes=free,total_bytes=total,resource_hash=resource['hash'])
-        require(free>=20*GIB,'035_WORKER_FREE_MEMORY')
+        require(free>=20*GIB,'036_WORKER_FREE_MEMORY')
         require(23 * GIB <= total <= 25 * GIB, 'DEVICE_MEMORY')
         diag.set('ALLOCATOR');torch.cuda.set_per_process_memory_fraction(18 * GIB / total, 0)
         torch.cuda.reset_peak_memory_stats(0)
@@ -207,7 +218,7 @@ def worker(root,attempt,policy):
             bindings[(alias, arm)] = input_hash
             values = {k: (v.to('cuda:0', dtype=torch.bfloat16) if v.is_floating_point() else v.to('cuda:0')) for k, v in values.items()}
             prep_seconds = time.monotonic()-t; guard()
-            validate_start_035(journal.rows,queue,config,dict(key=str(number),alias=alias,arm=arm,attempt=attempt))
+            validate_start_036(journal.rows,queue,config,dict(key=str(number),alias=alias,arm=arm,attempt=attempt))
             journal.once('STARTED', str(number),attempt=attempt, alias=alias, arm=arm, input_hash=input_hash, input_tokens=token_count,
                          grid=[6,12,18], visual_tokens=324, processor_seconds=prep_seconds)
             # This line is the actual new call, never reused or retried.
