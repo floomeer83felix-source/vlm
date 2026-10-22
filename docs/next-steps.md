@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-22（北京时间；036交付[d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)按 **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING / REAL_QA_NOT_RUN** 静态审结。三个实际合成CPU子进程经null-device与bytes路径两处修复后第三次PASS；真实reference仍无候选，query/GPU/QA/gold0，全16 NOT_RUN。用户要求科研价值优先：当前C/D尚非论文核心贡献，先独立复核实际输入干预与可证伪性。唯一READY为[037公共科学反证审查](./codex-artifacts/VLM-SCIENTIFIC-FALSIFICATION-037/README.md)，**PUBLIC_SCIENTIFIC_REVIEW_ONLY，尚未执行**；核Top10必含/最多2帧替换、pair到tensor干预、间隔题变换语义、4固定近邻及最小待审批实验。只读公开资料，私人路径/标注/frames/模型/GPU/训练0；两科学报告＋results一次追加，安全push后STOP。真实分支需用户在本地Codex给当前原标注完整路径，不索取JSON内容、不继续自动搜索，不恢复036。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
+> 更新日期：2026-10-22（北京时间；037交付[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)按 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 审结。研究负责人决定停止当前C/D作为论文核心继续投入；Top10锁定/最多2帧替换和补齐抵消已核，实际QA/机制效应仍未测。**当前0 READY**，不下达038重复工程/路径搜索/启动或同内容综述。后续由ChatGPT重新形成可失败问题、近邻实质差异、可取得证据和最小实验设计，DESIGN_PENDING，非Codex执行任务。原P2仅保留PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径、必要观测理由与后续新合同；不因单例D赢或输认定普适有效/无效，不按有利开发结果选源扩样。037最小实验是未执行提案，036/037均不可重跑。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
 
 ## 一、任务看板
 
@@ -97,7 +97,8 @@
 | VLM-DEV-SHARED-GPU-REAL-034 | P0 | **ACCEPTED_CACHE_AND_SHARED_RESOURCE / WORKER_SETUP_HOLD（已结案，非READY）** | Codex交付、ChatGPT静态验收 | [d9143ed](https://github.com/floomeer83felix-source/vlm/commit/d9143edb9bb4d77c6b99e635c1a06443e94f850c)：新suite4/4 PASS，缓存/真实共享准入通过；唯一worker已launch，SETUP PermissionError/exit0/Job0，指定GPU窗口2.203s | 具体失败operation/trace未保留、根因UNKNOWN；无preload free/allocator成功receipt，STARTED/QA/gold0，全N4/16 NOT_RUN/准确率UNKNOWN；旧GPU900预约关闭，不恢复run/额度 |
 | VLM-DEV-STARTUP-RECOVERY-035 | P0 | **ACCEPTED_CLOSED_HANDOFF_AND_FRAME_COPY / CURRENT_ANNOTATION_REFERENCE_HOLD / REAL_STARTUP_NOT_RUN（2026-10-22）** | Codex交付、ChatGPT静态审结 | [2615512](https://github.com/floomeer83felix-source/vlm/commit/2615512fce25b4c87be6d610f4a14408505e76f2)：新suite5/5、只读034 handoff与P2完整frame copy通过；prepare旧原标注路径FileNotFound/报告WinError2，原handle/probes及真实startup未运行 | 全16 NOT_RUN，query/GPU/QA/gold0；034 PermissionError仍UNKNOWN。035已关闭，不重跑或继承余额，下一任务036分开恢复当前reference与全合成startup |
 | VLM-DEV-REFERENCE-AND-STARTUP-036 | P0 | **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING / REAL_QA_NOT_RUN（2026-10-22）** | Codex交付、ChatGPT静态审结 | [d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)：三个实际合成CPU启动，null-device/bytes路径修复后第三次PASS；3版suite各5/5，policy连续绑定通过；限定metadata0候选 | 真实reference/原锁/query/GPU/QA/gold0，全16 NOT_RUN；036已关闭。原标注需用户在私人本地Codex给完整路径，不自动再搜索；当前仍无真实机制/创新结果 |
-| VLM-SCIENTIFIC-FALSIFICATION-037 | P0 | **READY / PUBLIC_SCIENTIFIC_REVIEW_ONLY（唯一；尚未执行）** | Codex待用户一次启动 | [A–H合同](./codex-artifacts/VLM-SCIENTIFIC-FALSIFICATION-037/README.md)：独立反证实际025的Top10必含/最多2替换/补齐抵消；核模型输入干预、间隔与先后语义、4原始近邻、最小待审批实验与继续/降级/STOP条件 | 科研价值优先；不重建运行框架/重跑旧合成表。私人路径/QA/gold/frames/模型/GPU/训练0；必要新反例至多1×60s stdlib/CPU120s，仅两科学报告＋results父追加，一次push STOP/不自动038 |
+| VLM-SCIENTIFIC-FALSIFICATION-037 | P0 | **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY（2026-10-22）** | Codex交付、ChatGPT审结 | [d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)：P1–P3及边界反例、实际干预链、间隔/先后语义、4近邻差异和最小未执行计划已审 | 当前C/D停止论文核心投入；真实QA仍0/效应UNKNOWN，未执行不当科学阴性。037已关闭，当前0 READY，不领取其待审批P2计划 |
+| VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_PENDING / NON_EXECUTABLE（非READY；当前0 READY）** | ChatGPT研究负责人 | [正式研究处置](./research-decisions/post-037-scientific-disposition-2026-10-22.md)：重新形成可失败问题、最近原始工作差异、可取得证据和最小有效实验；不再连续派同类工程/综述 | 形成可审新设计前不下达038执行。P2仅PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径/必要观测/新合同，不恢复036/037，不自动GPU/扩样/训练 |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -1596,4 +1597,47 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   接受工程恢复不升级论文主张，P2即使未来跑通也只是已暴露可能的开发个案。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 037科学反证验收；当前C/D停止作为论文核心，0 READY
+
+- 审查main[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)，
+  直接父为037规划1d14488，恰为两份科学报告和results末尾一个037父追加，生产/旧协议/历史结果未改。
+  ChatGPT复核公开差异、025 select_four/worker相关调用链、数学证明/新手工构造及关键论文原始证据；
+  未访问私人helper/输入或独立执行模型/测试。
+  接受为 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY**，
+  037已关闭，不再可领取。
+- 本轮执行者数值进程/CPU实验/旧测试/额外作者源码0；
+  私人path stat/搜索/metadata/body、标注/QA/gold/frames/模型/特征/GPU/训练/安装/环境修改0。
+  没有新的原标注完整路径输入。036合成CPU恢复事实保持，真实16槽仍NOT_RUN，
+  REAL_QA_EFFECT_UNKNOWN，不能将未执行解释成机制效果为0。
+- 独立复核支持P1–P3，并补充两项科学边界：
+  C/D/B均必含q-Top10，12帧最多替换2帧且上界可达；
+  单H的F(H)=Top12 iff H⊆Top12；仅外部锚点相同不必同集合，
+  截止边界内部锚点仍会保护元素。角色/pair/锚点/目标值差异不充分保证模型输入差异。
+  这是当前实现性质，不是SigLIP真实发生率、token扰动界或通用算法新颖性。
+- 当前给定A先B的间隔题不能直接检验未知先后理解；反转可能保持绝对间隔，
+  或破坏after前提，不能无条件翻转gold或将同答案视为时间推理失败。
+  私人helper和实际输入未核，实际C/D输入相等/不等仍UNKNOWN。
+  缺绑定比较的静态提示不当作已发生误报，也不强制安排新工程修复轮次。
+- 037已区分AKS相关性/覆盖、GenS生成式检索及训练、GCR文本事件锚点/覆盖/修复、
+  Before It Fades表征干预，列出方法与成本差异，未复现或宣称完全等价。
+  当前没有足以排除这些解释的非平凡贡献，故**停止当前C/D论文核心投入**，
+  保留开发诊断与长期长视频研究目标。选择器上界本身也不构成已通过创新审查的新定理贡献。
+- 新增[研究负责人正式处置与验收限定](./research-decisions/post-037-scientific-disposition-2026-10-22.md)：
+  037的P2单例输赢门只可作为资源止损建议，不能当普适机制真假判据；
+  D单例改善不自动构成独立验证资格，不按有利开发结果挑新题扩样。
+  任何未来独立研究应事前冻结来源、样本、主要对比和完整失败/停止解释，
+  不将方向选择开发题重用为独立确认。
+- **当前0 READY。** 不下达038重复工程、路径搜索、启动演示或同内容综述，
+  不为编号连续性再造任务。原P2最多一次四臂的设想保持
+  **PARKED_OPTIONAL_DEV_DIAGNOSTIC / NOT_READY**；
+  需当前精确私人路径、必要观测理由与后续新合同才再判断，不能领取037未执行计划或恢复036。
+  补齐路径本身不解决实例证据、独立性或创新。
+- 后续进入ChatGPT负责的**新科学问题与可审设计阶段，DESIGN_PENDING / 非Codex执行任务**：
+  先明确可失败命题、最接近原始工作的实质差异、可取得且足以检验的证据和最小投入；
+  不先许诺新算法/训练/期刊结果，不把换名或普通组合认作核心创新。
+  在可审设计形成前不自动启动新任务/后台工作、GPU/扩样/训练/下载。
+  **NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；
+  TRAIN-GPU HOLD。**
 

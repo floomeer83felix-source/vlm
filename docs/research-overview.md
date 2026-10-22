@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-22（北京时间；036交付[d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)按 **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING / REAL_QA_NOT_RUN** 静态审结。三个实际合成CPU子进程经null-device与bytes路径两处修复后第三次PASS；真实reference仍无候选，query/GPU/QA/gold0，全16 NOT_RUN。用户要求科研价值优先：当前C/D尚非论文核心贡献，先独立复核实际输入干预与可证伪性。唯一READY为[037公共科学反证审查](./codex-artifacts/VLM-SCIENTIFIC-FALSIFICATION-037/README.md)，**PUBLIC_SCIENTIFIC_REVIEW_ONLY，尚未执行**；核Top10必含/最多2帧替换、pair到tensor干预、间隔题变换语义、4固定近邻及最小待审批实验。只读公开资料，私人路径/标注/frames/模型/GPU/训练0；两科学报告＋results一次追加，安全push后STOP。真实分支需用户在本地Codex给当前原标注完整路径，不索取JSON内容、不继续自动搜索，不恢复036。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
+> 更新：2026-10-22（北京时间；037交付[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)按 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 审结。研究负责人决定停止当前C/D作为论文核心继续投入；Top10锁定/最多2帧替换和补齐抵消已核，实际QA/机制效应仍未测。**当前0 READY**，不下达038重复工程/路径搜索/启动或同内容综述。后续由ChatGPT重新形成可失败问题、近邻实质差异、可取得证据和最小实验设计，DESIGN_PENDING，非Codex执行任务。原P2仅保留PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径、必要观测理由与后续新合同；不因单例D赢或输认定普适有效/无效，不按有利开发结果选源扩样。037最小实验是未执行提案，036/037均不可重跑。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1939,4 +1939,47 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   接受工程恢复不升级论文主张，P2即使未来跑通也只是已暴露可能的开发个案。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 037科学反证验收；当前C/D停止作为论文核心，0 READY
+
+- 审查main[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)，
+  直接父为037规划1d14488，恰为两份科学报告和results末尾一个037父追加，生产/旧协议/历史结果未改。
+  ChatGPT复核公开差异、025 select_four/worker相关调用链、数学证明/新手工构造及关键论文原始证据；
+  未访问私人helper/输入或独立执行模型/测试。
+  接受为 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY**，
+  037已关闭，不再可领取。
+- 本轮执行者数值进程/CPU实验/旧测试/额外作者源码0；
+  私人path stat/搜索/metadata/body、标注/QA/gold/frames/模型/特征/GPU/训练/安装/环境修改0。
+  没有新的原标注完整路径输入。036合成CPU恢复事实保持，真实16槽仍NOT_RUN，
+  REAL_QA_EFFECT_UNKNOWN，不能将未执行解释成机制效果为0。
+- 独立复核支持P1–P3，并补充两项科学边界：
+  C/D/B均必含q-Top10，12帧最多替换2帧且上界可达；
+  单H的F(H)=Top12 iff H⊆Top12；仅外部锚点相同不必同集合，
+  截止边界内部锚点仍会保护元素。角色/pair/锚点/目标值差异不充分保证模型输入差异。
+  这是当前实现性质，不是SigLIP真实发生率、token扰动界或通用算法新颖性。
+- 当前给定A先B的间隔题不能直接检验未知先后理解；反转可能保持绝对间隔，
+  或破坏after前提，不能无条件翻转gold或将同答案视为时间推理失败。
+  私人helper和实际输入未核，实际C/D输入相等/不等仍UNKNOWN。
+  缺绑定比较的静态提示不当作已发生误报，也不强制安排新工程修复轮次。
+- 037已区分AKS相关性/覆盖、GenS生成式检索及训练、GCR文本事件锚点/覆盖/修复、
+  Before It Fades表征干预，列出方法与成本差异，未复现或宣称完全等价。
+  当前没有足以排除这些解释的非平凡贡献，故**停止当前C/D论文核心投入**，
+  保留开发诊断与长期长视频研究目标。选择器上界本身也不构成已通过创新审查的新定理贡献。
+- 新增[研究负责人正式处置与验收限定](./research-decisions/post-037-scientific-disposition-2026-10-22.md)：
+  037的P2单例输赢门只可作为资源止损建议，不能当普适机制真假判据；
+  D单例改善不自动构成独立验证资格，不按有利开发结果挑新题扩样。
+  任何未来独立研究应事前冻结来源、样本、主要对比和完整失败/停止解释，
+  不将方向选择开发题重用为独立确认。
+- **当前0 READY。** 不下达038重复工程、路径搜索、启动演示或同内容综述，
+  不为编号连续性再造任务。原P2最多一次四臂的设想保持
+  **PARKED_OPTIONAL_DEV_DIAGNOSTIC / NOT_READY**；
+  需当前精确私人路径、必要观测理由与后续新合同才再判断，不能领取037未执行计划或恢复036。
+  补齐路径本身不解决实例证据、独立性或创新。
+- 后续进入ChatGPT负责的**新科学问题与可审设计阶段，DESIGN_PENDING / 非Codex执行任务**：
+  先明确可失败命题、最接近原始工作的实质差异、可取得且足以检验的证据和最小投入；
+  不先许诺新算法/训练/期刊结果，不把换名或普通组合认作核心创新。
+  在可审设计形成前不自动启动新任务/后台工作、GPU/扩样/训练/下载。
+  **NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；
+  TRAIN-GPU HOLD。**
 
