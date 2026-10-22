@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-22（北京时间；035交付[2615512](https://github.com/floomeer83felix-source/vlm/commit/2615512fce25b4c87be6d610f4a14408505e76f2)按 **ACCEPTED_CLOSED_HANDOFF_AND_FRAME_COPY / CURRENT_ANNOTATION_REFERENCE_HOLD / REAL_STARTUP_NOT_RUN** 静态审结。新suite5/5 PASS及P2 frame copy通过；prepare旧annotation路径FileNotFoundError/报告WinError2，实际原handle/probes、bootstrap/imports、query/GPU/QA/gold均0，全16 NOT_RUN，034 PermissionError根因仍UNKNOWN。现[036有界原引用恢复＋独立合成启动＋条件真实四臂](./codex-artifacts/VLM-DEV-REFERENCE-AND-STARTUP-036/README.md)为**唯一READY / PUBLIC_REFERENCE_AND_STARTUP_ONLY，尚未执行**。单条用户启动消息明确激活新scope：≤32精确path/≤2非递归目录各64entry、唯一候选可信CPU1open/4MiB纯字节SHA重绑当前原对象；全合成CPU startup≤3×60s可独立完成，但真实GPU须reference/原锁/当前code-policy测试全部过门。GPU最多2串行worker共用900s绝对包络、仅零STARTED技术恢复，generate总4/18GiB allocated/24GiB RAM；CPU900s/父3000s、新text48MiB＋frame256MiB、新128文件/512MiB、新suite≤3×60s。原N4/20选项/16槽及科学输入保持，网络/下载/新解码0。仍缺路径则完成合成分支后请求用户本地完整路径，不再扩大搜索；一次push STOP。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
+> 更新：2026-10-22（北京时间；036交付[d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)按 **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING / REAL_QA_NOT_RUN** 静态审结。三个实际合成CPU子进程经null-device与bytes路径两处修复后第三次PASS；真实reference仍无候选，query/GPU/QA/gold0，全16 NOT_RUN。用户要求科研价值优先：当前C/D尚非论文核心贡献，先独立复核实际输入干预与可证伪性。唯一READY为[037公共科学反证审查](./codex-artifacts/VLM-SCIENTIFIC-FALSIFICATION-037/README.md)，**PUBLIC_SCIENTIFIC_REVIEW_ONLY，尚未执行**；核Top10必含/最多2帧替换、pair到tensor干预、间隔题变换语义、4固定近邻及最小待审批实验。只读公开资料，私人路径/标注/frames/模型/GPU/训练0；两科学报告＋results一次追加，安全push后STOP。真实分支需用户在本地Codex给当前原标注完整路径，不索取JSON内容、不继续自动搜索，不恢复036。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1858,6 +1858,85 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   新假PID≤4×3s可为0，全部计账。六处allowlist：pilot/worker、
   新036 suite、两匿名报告、results一个父追加；统一一次安全push STOP，不自动037。
   原N4/20选项/16槽、only-P2 BCDA、48→12、C/D定义、科学模型/提示/seed/greedy均不改。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
+  Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 036实际合成启动恢复验收；按用户要求优先科研价值与反证
+
+- 用户明确要求：**后续更关注科研价值**。研究负责人将优先级落到可证伪命题、
+  实际模型输入干预、真实回答/有效评分与近邻增量；不以任务数/测试数代表科研进度。
+  工程工作只有直接解决必要科学观测时才继续优先，不再自动安排同类路径搜索/运行治理任务。
+- 核对main[d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)，
+  直接父为036规划24d2a39，六处allowlist符合：pilot/worker、新036 suite、
+  [启动与引用报告](./codex-artifacts/VLM-DEV-REFERENCE-AND-STARTUP-036/reference-startup-and-real-run-receipt.md)、
+  [科学结案](./codex-artifacts/VLM-DEV-REFERENCE-AND-STARTUP-036/scientific-results.md)和results唯一036父追加。
+  ChatGPT静态审查公开差异、关键实际代码路径、5项新组合fixture及两报告；
+  未独立运行Windows测试/私人原输入/真实CPU子进程或GPU。
+  按 **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING /
+  REAL_QA_NOT_RUN** 关闭036，旧run/时钟/三suite与三bootstrap次数不再可用。
+- 20确切035 handoff＋4 source缓存只读完成，缺prepare输出的035 archive规则、
+  冻结full-N4/20选项/16槽、worker/snapshot绑定保持；未回扫034/033/旧预测/gold/manifest。
+  P2 frame外部1open/**223,948,928B**、完整copy/fsync/稳定path+fd/SHA/48RGB/uint8/NPY/times通过，
+  outer1.031s/exit0/Job0，没有新解码/MP4/partial正文或新真实像素。
+- 原引用恢复实际只预扣3个确切path lstat，一处FileNotFoundError/errno2/winerror2；
+  一次允许parent非递归枚举38 entries、完整未截断，直接parent为drive root而排除。
+  当前会话没有用户给出的新原标注完整path，允许范围内**0候选**。
+  integrity guard/open/body0、ANNOTATION_REFERENCE_BOUND0，不猜文件/换后缀或声称全机无文件。
+  **真实分支需用户在私人本地Codex提供当前原标注完整路径，不需要JSON内容；
+  不再自动继续搜索、下载替代或恢复036。**
+- 三个实际合成CPU child在自有canary锁和生产startup/policy下：
+  1/policy1 **2.063s HOLD/TORCH_IMPORT**，audit记录匹配标准null device拒绝；
+  2/policy2 **35.703s HOLD/TRANSFORMERS_IMPORT**，bytes/str路径比较TypeError；
+  3/policy3 **9.125s PASS/CPU_COMPLETE**。
+  三次均exit0/Job0，无kill/overflow；前两exit0只是catch并写失败，不是启动成功。
+  两份诊断指向的已安装dill/tempfile源码按确切source allowance读取，未增加任意read例外。
+- 精确修复是标准os.devnull单一词法路径许可及os.fsdecode路径归一；
+  owned bytes temp可用、outside bytes仍拒绝，网络/任意子进程与其他文件拒绝保留。
+  必要cache/temp仅路由本child新root，无ACL/永久环境/安装改动。
+  第三个实际NumPy/Torch/Transformers/VideoMetadata、两CPU processors/helper成功，
+  **12帧/grid[6,12,18]/324 visual/447 synthetic total tokens**，CUDA初始化前后False。
+  输入题/事件/选项全虚构、48帧为内存零像素，仅复用shape；无权重/encoder/generate。
+  此处不是原annotation锁/probe认证，也不能倒填034缺失trace的历史根因。
+- 三个新suite各**5/5 PASS、0FAIL/ERROR/SKIP**，同5项组合见证按三个代码版本执行，
+  不是15个独立新科学测试；outer0.406/0.406/0.422s，内部各0.031s。
+  同一live parent的request→suite→accept实际seq为124→135→137、144→155→157；
+  accepted policy1→2→3确实传给下一child，后request真实PASS/code/policy/science绑定有运行记录。
+  无第四suite/bootstrap、旧tests或虚构PID。
+- 合成成功后真实门在036_REAL_REFERENCE_NOT_BOUND停止；原exclusive handle/probes、
+  currentquery/GPUenvelope/resource/model/generate/train、integrity/goldguard/open/body/scorer均0。
+  全16 NOT_RUN/NO_MODEL_QUEUE_CLOSED，无假MODEL_EXIT；
+  correct_known/正确率/六配对UNKNOWN，不填0/4。
+  真q/a/b、C=D、实例/锚点/coverage/retrieval/Qwen成本和token/EOS全部未测。
+  真实重绑定/原锁、GPU/all-exit/score分支仍没有本轮实机认证。
+- 执行者资源报告：29/29外部输入**224,173,007B**＝28 text **224,079B**
+  （20handoff74,855＋6source147,287＋2config1,937）＋1frame223,948,928。
+  CPU预扣645s、实际监督阶段50.546s含synthetic46.891s，父411.341s含cleanup/waits；
+  不是逐PID CPU/kernel计量。GPU/media/acquisition0；
+  私人64文件/12目录/**224,226,312B**、无reparse/kill/overflow，所有actual Job0。
+- 新增[科研价值与实际干预备忘录](./research-reviews/scientific-value-and-intervention-2026-10-22.md)。
+  从实际025函数推导：C/D均必含q-Top10，12帧最多替换2帧；
+  两组锚点都在Top12时最终集合相同；C最优pair已向前则D完全相同。
+  不同pair/目标值/锚点不能直接证明Qwen收到不同输入。
+  ChatGPT用公开原函数一轮stdlib计算核三个API合法构造及100固定种子合成向量，
+  没有旧tests/私人输入/模型；一般性质依据给出的证明，合成频率不推成现实发生率。
+- 当前题本身给出A先B后，C/D检验的是已知关系约束的检索干预，
+  不是直接检验未知先后关系发现。“相隔多久”题的反转标签可能保持或前提失效，
+  不能照搬先后题的“回答不翻转即失败”。这些都是待独立复核的科学界限，
+  不是改冻结协议或新增真实问答/人工gold许可。
+- 近邻定向核查已覆盖AKS、GenS、2026预印本GCR及Before It Fades；
+  相关性/覆盖、生成式检索、事件锚点/补齐、模型内部时间表征干预各已有相关工作。
+  这不是穷尽新颖性检索，不宣布本方法与近邻完全等价；
+  当前仍无已证实的非平凡增量，不把“加入i<j”独立认作核心创新。
+- 唯一READY转为[VLM-SCIENTIFIC-FALSIFICATION-037](./codex-artifacts/VLM-SCIENTIFIC-FALSIFICATION-037/README.md)，
+  **PUBLIC_SCIENTIFIC_REVIEW_ONLY，尚未执行**：A–H一次公共反证审查，
+  独立核推导/干预链/标签变换语义、4固定原论文及最小可区分实验，
+  给继续/降级/STOP条件。只准两科学报告＋results一个父追加；
+  不增加软件框架/旧测试/私人路径搜索，不修改生产代码、原协议/历史结论。
+  具体新未解命题至多1个≤60s stdlib计算/CPU总120s，不能照跑旧合成表当成果。
+  私人metadata/body/frames/QA/gold/model/GPU/训练0，一次安全push STOP，不自动038。
+  当前C/D **NO_GO_AS_ESTABLISHED_PAPER_CORE / DEV_DIAGNOSTIC_ONLY**；
+  接受工程恢复不升级论文主张，P2即使未来跑通也只是已暴露可能的开发个案。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；
   Charades FINAL_MEDIA_STOP；TRAIN-GPU HOLD。**
 
