@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-22（北京时间；037交付[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)按 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 审结。研究负责人决定停止当前C/D作为论文核心继续投入；Top10锁定/最多2帧替换和补齐抵消已核，实际QA/机制效应仍未测。**当前0 READY**，不下达038重复工程/路径搜索/启动或同内容综述。后续由ChatGPT重新形成可失败问题、近邻实质差异、可取得证据和最小实验设计，DESIGN_PENDING，非Codex执行任务。原P2仅保留PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径、必要观测理由与后续新合同；不因单例D赢或输认定普适有效/无效，不按有利开发结果选源扩样。037最小实验是未执行提案，036/037均不可重跑。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
+> 更新：2026-10-22（北京时间；037已关闭，原C/D保持NO_GO_AS_CORE。用户同意由ChatGPT重新设计，现已冻结[自有合成时间码—视觉绑定协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)。唯一READY为[038输入识别与条件模型探针](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)，**PUBLIC_PROBE_IMPLEMENTATION_ONLY，尚未执行**。8依赖world×3合法clock×2匹配通道=48全新槽（24视频/24文字），真值程序定义、原标注/frames/QA/gold0open。先实际CPU核原生timecodes/同像素/visual tensor/grid324，未过则权重/GPU0；用户完整单条本地消息激活后，单Qwen3-VL-4B worker/一次加载/GPU600s/48generate/greedy16tokens，CPU480s/父1800s，无重启重答/下载解码训练或环境修改。范围是CONDITIONAL_MEASUREMENT_PILOT_ONLY，不是新机制通过或自然长视频证据；NOVELTY=RETAIN0。所有模型退出后一次程序truth评分，五处allowlist/一次push STOP/不自动039。真实原C/D/P2仍PARKED，不恢复036/037；TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED保持。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -1982,4 +1982,59 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   在可审设计形成前不自动启动新任务/后台工作、GPU/扩样/训练/下载。
   **NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；
   TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 科学负责人完成新问题设计：自有合成时钟绑定探针038
+
+- 用户对037结案及“先由ChatGPT重新形成科学问题、差异和最小实验设计”答复“好的”。
+  本轮由研究负责人实际完成定向原始文献/方法与官方processor源码核查，
+  没有把广综述/多候选toy再派给Codex，没有私人数据/本机模型/GPU执行。
+  原C/D **NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 保持，036/037不重跑。
+- 筛去把“小时级检索优于直接模型”当新方向：ExtremeWhenBench已直接分解search/localize；
+  条件多事件/重复定位也已有Conditional Multi-Event Grounding近邻。
+  一般视频shift/rephrase一致性、可控合成视频及动态时间模式分别有Jung等/SVLTA/VCBench/
+  SpookyBench先例，不能把这些概念作为首次贡献。
+  比较为定向方法审查，不是穷尽新颖性或近邻全部变体的排除证明。
+- 冻结[时间码—视觉身份绑定研究协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：
+  同像素/同所见索引位置，三个合法虚拟clock（均匀、同总长非均匀、整体平移），
+  每world/clock都配文字操作数算术control。
+  两帧原生temporal块/6组时间码，4组标记位置×颜色互换=8依赖world；
+  8×3×2=48个全新槽，24视频/24文字，未读取真实题/标注/gold或旧frames。
+  真值由程序indices/fps及双帧均值定义，不需新人工标签或恢复旧标注。
+- G0/G1同端点/总长22s、同12 RGB、仅内部时刻改变，四组间隔分别
+  [8,12,4,8]→[12,16,8,12]；G2整体＋60s仍[8,12,4,8]。
+  这些是协议推导/设计核算，不是模型输出。
+  问题只问红/蓝标记组显示时间码的绝对差，不把它称真实复杂事件或未知先后推理。
+  O文字control逐clock匹配操作数，是component control，非同信息成本的强竞争算法。
+- 已核Hugging Face官方transformers commit
+  360d22e2d1183af882ad437bfc74ce3337065f5d中的Qwen3 processor相关方法：
+  frames_indices/fps生成组时间码、temporal块首尾均值并插入视频文本。
+  不假定本机版本同一；**必须先实际CPU验证干预进入模型**：
+  六timecodes符合、同world三clock的RGB/视觉tensor相同、原生grid[6,12,18]/324 tokens，
+  不重采样、不缺fps fallback、不手改token绕过。
+  本机接口不能暴露该干预就HOLD_INPUT/GPU0，不记模型时间能力失败。
+- 这个选择是**CONDITIONAL_MEASUREMENT_PILOT_ONLY**，不是保留新算法/论文核心。
+  窄的因子交叉在已读段落中尚未确认相同设计，不等于未被前人做过；
+  直接同设计证据出现就标DIRECT_DUPLICATE。全部模型都正确时停止该缺陷前提，
+  O也失败时算术/指令归因UNKNOWN；O正确V错最多行为候选，不推断具体神经原因。
+  4基础组/8依赖world不作独立自然来源/统计显著性/长视频泛化。
+  后续确认必须另冻设计，不能以开发有利结果挑源扩样。
+- 下达[VLM-CLOCK-BINDING-PROBE-038 A–H完整合同](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)，
+  **唯一READY / PUBLIC_PROBE_IMPLEMENTATION_ONLY，尚未执行**；
+  用户本地发送完整启动消息才激活新受限配置/自有合成/条件GPU范围，GitHub编辑不唤醒Codex。
+  一包完成小实现、新suite≤2×60s、实际输入预检≤2×90s（仅一次证据驱动API兼容修复），
+  CPU≤480s/父≤1800s，输入门过后单Qwen worker/一次加载、GPU总≤600s、
+  48generate/各槽1/greedy16tokens/seed19/BF16/SDPA，max输入2048tokens、每槽新上下文。
+  一次query/free≥20GiB、18GiB allocated/24GiB Job RAM，util仅记录；
+  不重query/模型重启/重答/kill peer，所有model实际退出后一次CPU程序truth计分。
+- 只读036确切5配置/关闭账本、2 Qwen configs/至多3确切runtime modules，
+  research文本≤12MiB；新integration_038≤96文件/64MiB。
+  正常既有runtime/CPU processor及条件Qwen资产local-only按角色记录，不复制/下载权重。
+  原真实QA/gold/frames/private helper/manifest/source map/旧预测/更早root0open，
+  不签原标注锁通过；MP4/解码/新数据下载、训练/安装/永久环境/ACL/profile/凭据修改0。
+  公开五处allowlist：两新小模块、两报告、results唯一038父追加；旧源码/协议不改。
+  一次安全push STOP，不自动039或升级训练/扩样。
+- 当前尚无038执行事实/模型成绩，本协议也不替旧真实媒体认证时钟。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；TRAIN-GPU HOLD；
+  CLOCK_ZERO_ASSUMED_NOT_CERTIFIED（历史真实媒体）；Charades FINAL_MEDIA_STOP。**
 

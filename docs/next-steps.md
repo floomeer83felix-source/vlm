@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-22（北京时间；037交付[d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)按 **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 审结。研究负责人决定停止当前C/D作为论文核心继续投入；Top10锁定/最多2帧替换和补齐抵消已核，实际QA/机制效应仍未测。**当前0 READY**，不下达038重复工程/路径搜索/启动或同内容综述。后续由ChatGPT重新形成可失败问题、近邻实质差异、可取得证据和最小实验设计，DESIGN_PENDING，非Codex执行任务。原P2仅保留PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径、必要观测理由与后续新合同；不因单例D赢或输认定普适有效/无效，不按有利开发结果选源扩样。037最小实验是未执行提案，036/037均不可重跑。REAL_QA_EFFECT_UNKNOWN、NOVELTY=RETAIN0、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP。旧READY仅历史，以当前看板为准。）
+> 更新日期：2026-10-22（北京时间；037已关闭，原C/D保持NO_GO_AS_CORE。用户同意由ChatGPT重新设计，现已冻结[自有合成时间码—视觉绑定协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)。唯一READY为[038输入识别与条件模型探针](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)，**PUBLIC_PROBE_IMPLEMENTATION_ONLY，尚未执行**。8依赖world×3合法clock×2匹配通道=48全新槽（24视频/24文字），真值程序定义、原标注/frames/QA/gold0open。先实际CPU核原生timecodes/同像素/visual tensor/grid324，未过则权重/GPU0；用户完整单条本地消息激活后，单Qwen3-VL-4B worker/一次加载/GPU600s/48generate/greedy16tokens，CPU480s/父1800s，无重启重答/下载解码训练或环境修改。范围是CONDITIONAL_MEASUREMENT_PILOT_ONLY，不是新机制通过或自然长视频证据；NOVELTY=RETAIN0。所有模型退出后一次程序truth评分，五处allowlist/一次push STOP/不自动039。真实原C/D/P2仍PARKED，不恢复036/037；TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED保持。）
 
 ## 一、任务看板
 
@@ -98,7 +98,8 @@
 | VLM-DEV-STARTUP-RECOVERY-035 | P0 | **ACCEPTED_CLOSED_HANDOFF_AND_FRAME_COPY / CURRENT_ANNOTATION_REFERENCE_HOLD / REAL_STARTUP_NOT_RUN（2026-10-22）** | Codex交付、ChatGPT静态审结 | [2615512](https://github.com/floomeer83felix-source/vlm/commit/2615512fce25b4c87be6d610f4a14408505e76f2)：新suite5/5、只读034 handoff与P2完整frame copy通过；prepare旧原标注路径FileNotFound/报告WinError2，原handle/probes及真实startup未运行 | 全16 NOT_RUN，query/GPU/QA/gold0；034 PermissionError仍UNKNOWN。035已关闭，不重跑或继承余额，下一任务036分开恢复当前reference与全合成startup |
 | VLM-DEV-REFERENCE-AND-STARTUP-036 | P0 | **ACCEPTED_SYNTHETIC_STARTUP_RECOVERY / CURRENT_REFERENCE_MISSING / REAL_QA_NOT_RUN（2026-10-22）** | Codex交付、ChatGPT静态审结 | [d8302de](https://github.com/floomeer83felix-source/vlm/commit/d8302deeba7ade61c32c6189ce912c32d90506a0)：三个实际合成CPU启动，null-device/bytes路径修复后第三次PASS；3版suite各5/5，policy连续绑定通过；限定metadata0候选 | 真实reference/原锁/query/GPU/QA/gold0，全16 NOT_RUN；036已关闭。原标注需用户在私人本地Codex给完整路径，不自动再搜索；当前仍无真实机制/创新结果 |
 | VLM-SCIENTIFIC-FALSIFICATION-037 | P0 | **ACCEPTED_PUBLIC_SCIENTIFIC_REVIEW / NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY（2026-10-22）** | Codex交付、ChatGPT审结 | [d8195c5](https://github.com/floomeer83felix-source/vlm/commit/d8195c52b84c7f3b502fbb886ea2dc33bc55c8bf)：P1–P3及边界反例、实际干预链、间隔/先后语义、4近邻差异和最小未执行计划已审 | 当前C/D停止论文核心投入；真实QA仍0/效应UNKNOWN，未执行不当科学阴性。037已关闭，当前0 READY，不领取其待审批P2计划 |
-| VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_PENDING / NON_EXECUTABLE（非READY；当前0 READY）** | ChatGPT研究负责人 | [正式研究处置](./research-decisions/post-037-scientific-disposition-2026-10-22.md)：重新形成可失败问题、最近原始工作差异、可取得证据和最小有效实验；不再连续派同类工程/综述 | 形成可审新设计前不下达038执行。P2仅PARKED_OPTIONAL_DEV_DIAGNOSTIC，需精确私人路径/必要观测/新合同，不恢复036/037，不自动GPU/扩样/训练 |
+| VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
+| VLM-CLOCK-BINDING-PROBE-038 | P0 | **READY / PUBLIC_PROBE_IMPLEMENTATION_ONLY（唯一；尚未执行；完整用户消息激活新范围）** | Codex待用户一次启动 | [A–H合同](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)：自有12帧/8依赖world×3clocks×2通道=48槽；实际CPU输入识别后条件Qwen生成→全退出→程序truth计分 | 新suite≤2×60s、CPU预检≤2×90s、CPU480s/父1800s；单worker/GPU600s/48generate/greedy16，无重启重答；真标注/frames/QA/gold0，五处allowlist/一次push STOP/不自动039，NOVELTY=RETAIN0 |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -1640,4 +1641,59 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   在可审设计形成前不自动启动新任务/后台工作、GPU/扩样/训练/下载。
   **NOVELTY=RETAIN0；CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP；
   TRAIN-GPU HOLD。**
+
+
+### 2026-10-22 · 科学负责人完成新问题设计：自有合成时钟绑定探针038
+
+- 用户对037结案及“先由ChatGPT重新形成科学问题、差异和最小实验设计”答复“好的”。
+  本轮由研究负责人实际完成定向原始文献/方法与官方processor源码核查，
+  没有把广综述/多候选toy再派给Codex，没有私人数据/本机模型/GPU执行。
+  原C/D **NO_GO_AS_CORE / DEV_DIAGNOSTIC_ONLY** 保持，036/037不重跑。
+- 筛去把“小时级检索优于直接模型”当新方向：ExtremeWhenBench已直接分解search/localize；
+  条件多事件/重复定位也已有Conditional Multi-Event Grounding近邻。
+  一般视频shift/rephrase一致性、可控合成视频及动态时间模式分别有Jung等/SVLTA/VCBench/
+  SpookyBench先例，不能把这些概念作为首次贡献。
+  比较为定向方法审查，不是穷尽新颖性或近邻全部变体的排除证明。
+- 冻结[时间码—视觉身份绑定研究协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：
+  同像素/同所见索引位置，三个合法虚拟clock（均匀、同总长非均匀、整体平移），
+  每world/clock都配文字操作数算术control。
+  两帧原生temporal块/6组时间码，4组标记位置×颜色互换=8依赖world；
+  8×3×2=48个全新槽，24视频/24文字，未读取真实题/标注/gold或旧frames。
+  真值由程序indices/fps及双帧均值定义，不需新人工标签或恢复旧标注。
+- G0/G1同端点/总长22s、同12 RGB、仅内部时刻改变，四组间隔分别
+  [8,12,4,8]→[12,16,8,12]；G2整体＋60s仍[8,12,4,8]。
+  这些是协议推导/设计核算，不是模型输出。
+  问题只问红/蓝标记组显示时间码的绝对差，不把它称真实复杂事件或未知先后推理。
+  O文字control逐clock匹配操作数，是component control，非同信息成本的强竞争算法。
+- 已核Hugging Face官方transformers commit
+  360d22e2d1183af882ad437bfc74ce3337065f5d中的Qwen3 processor相关方法：
+  frames_indices/fps生成组时间码、temporal块首尾均值并插入视频文本。
+  不假定本机版本同一；**必须先实际CPU验证干预进入模型**：
+  六timecodes符合、同world三clock的RGB/视觉tensor相同、原生grid[6,12,18]/324 tokens，
+  不重采样、不缺fps fallback、不手改token绕过。
+  本机接口不能暴露该干预就HOLD_INPUT/GPU0，不记模型时间能力失败。
+- 这个选择是**CONDITIONAL_MEASUREMENT_PILOT_ONLY**，不是保留新算法/论文核心。
+  窄的因子交叉在已读段落中尚未确认相同设计，不等于未被前人做过；
+  直接同设计证据出现就标DIRECT_DUPLICATE。全部模型都正确时停止该缺陷前提，
+  O也失败时算术/指令归因UNKNOWN；O正确V错最多行为候选，不推断具体神经原因。
+  4基础组/8依赖world不作独立自然来源/统计显著性/长视频泛化。
+  后续确认必须另冻设计，不能以开发有利结果挑源扩样。
+- 下达[VLM-CLOCK-BINDING-PROBE-038 A–H完整合同](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)，
+  **唯一READY / PUBLIC_PROBE_IMPLEMENTATION_ONLY，尚未执行**；
+  用户本地发送完整启动消息才激活新受限配置/自有合成/条件GPU范围，GitHub编辑不唤醒Codex。
+  一包完成小实现、新suite≤2×60s、实际输入预检≤2×90s（仅一次证据驱动API兼容修复），
+  CPU≤480s/父≤1800s，输入门过后单Qwen worker/一次加载、GPU总≤600s、
+  48generate/各槽1/greedy16tokens/seed19/BF16/SDPA，max输入2048tokens、每槽新上下文。
+  一次query/free≥20GiB、18GiB allocated/24GiB Job RAM，util仅记录；
+  不重query/模型重启/重答/kill peer，所有model实际退出后一次CPU程序truth计分。
+- 只读036确切5配置/关闭账本、2 Qwen configs/至多3确切runtime modules，
+  research文本≤12MiB；新integration_038≤96文件/64MiB。
+  正常既有runtime/CPU processor及条件Qwen资产local-only按角色记录，不复制/下载权重。
+  原真实QA/gold/frames/private helper/manifest/source map/旧预测/更早root0open，
+  不签原标注锁通过；MP4/解码/新数据下载、训练/安装/永久环境/ACL/profile/凭据修改0。
+  公开五处allowlist：两新小模块、两报告、results唯一038父追加；旧源码/协议不改。
+  一次安全push STOP，不自动039或升级训练/扩样。
+- 当前尚无038执行事实/模型成绩，本协议也不替旧真实媒体认证时钟。
+  **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；TRAIN-GPU HOLD；
+  CLOCK_ZERO_ASSUMED_NOT_CERTIFIED（历史真实媒体）；Charades FINAL_MEDIA_STOP。**
 
