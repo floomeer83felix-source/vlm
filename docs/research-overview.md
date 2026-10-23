@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-22（北京时间；037已关闭，原C/D保持NO_GO_AS_CORE。用户同意由ChatGPT重新设计，现已冻结[自有合成时间码—视觉绑定协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)。唯一READY为[038输入识别与条件模型探针](./codex-artifacts/VLM-CLOCK-BINDING-PROBE-038/README.md)，**PUBLIC_PROBE_IMPLEMENTATION_ONLY，尚未执行**。8依赖world×3合法clock×2匹配通道=48全新槽（24视频/24文字），真值程序定义、原标注/frames/QA/gold0open。先实际CPU核原生timecodes/同像素/visual tensor/grid324，未过则权重/GPU0；用户完整单条本地消息激活后，单Qwen3-VL-4B worker/一次加载/GPU600s/48generate/greedy16tokens，CPU480s/父1800s，无重启重答/下载解码训练或环境修改。范围是CONDITIONAL_MEASUREMENT_PILOT_ONLY，不是新机制通过或自然长视频证据；NOVELTY=RETAIN0。所有模型退出后一次程序truth评分，五处allowlist/一次push STOP/不自动039。真实原C/D/P2仍PARKED，不恢复036/037；TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED保持。）
+> 更新：2026-10-23（北京时间；038已交付并静态审结：48实际generate，视频间隔3/24、匹配文字算术22/24；输入识别通过，但漏了运行前磁盘余量检查，按RESOURCE_RECEIPT_EXCEPTION保留，非全部合同PASS。首次有可解释的自有合成行为差距，尚不能定位读出/角色绑定/组合或神经机制。唯一READY转为[039分量判别](./codex-artifacts/VLM-CLOCK-COMPONENTS-039/README.md)，**PUBLIC_COMPONENT_PROBE_IMPLEMENTATION_ONLY，尚未执行**。已冻结[科学协议](./research-protocols/clock-binding-component-contrast-2026-10-23.md)：4种未跑位置组合×2颜色×3clock×5独立任务=120全新槽，视频读出/间隔、带时间码拼图读出/间隔、文字算术；原生video/image各324视觉tokens必须实测门过。完整用户本地消息才激活新integration_039/条件GPU：CPU480s/父1800s、单Qwen worker/一次load/GPU600s/120generate/greedy16，禁止重启重答/扩样训练。只做一轮探索性分量判别，非独立确认/新算法；NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN。原C/D NO_GO_AS_CORE、真实P2 PARKED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP、历史真实媒体CLOCK_ZERO_ASSUMED_NOT_CERTIFIED保持；本页首/看板及末尾最新审结取代下文历史时点的READY/0 READY表述。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -2037,4 +2037,77 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 当前尚无038执行事实/模型成绩，本协议也不替旧真实媒体认证时钟。
   **REAL_QA_EFFECT_UNKNOWN；NOVELTY=RETAIN0；TRAIN-GPU HOLD；
   CLOCK_ZERO_ASSUMED_NOT_CERTIFIED（历史真实媒体）；Charades FINAL_MEDIA_STOP。**
+
+
+### 2026-10-23 · 038实际合成行为验收；下达唯一039分量判别
+
+- 审查main交付[c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)，
+  直接父为038规划aa51e93。五处allowlist准确：两新模块、两报告、results唯一父追加；
+  旧源码/协议/规划/历史未改。ChatGPT读取公开完整源码/新tests/两报告与差异，
+  以公开48个小型合成整数独立复算聚合/配对/关系计数；
+  没有访问私人根/账本/设备或独立运行CPU processor、模型和私有scorer。
+- 038关闭为 **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION /
+  NO_CORE_INNOVATION**，不可重跑。实际输入报告支持timecodes进入输入：
+  24 V同world跨clock原RGB与最终BF16视觉tensor一致，
+  原生grid[6,12,18]/324 tokens，六时码逐项匹配；
+  GPU重建及最终dtype绑定后才STARTED。24 O无视觉且操作数逐clock匹配。
+  这使“输入根本没有变”不再是本次行为差距的恰当解释，但不是内部机制定位。
+- **48 STARTED/48 generate/48 RETURNED，INVALID/FAILED/NOT_RUN均0，48 EOS/0截断。**
+  V按G0/G1/G2为2/8、0/8、1/8，总**3/24**；
+  O为7/8、7/8、8/8，总**22/24**。
+  配对both/Vonly/Oonly/neither=2/1/20/1，unknown0。
+  V的G0→G1正4秒响应和G0→G2间隔不变均joint correct0/8、仅关系满足也0/8；
+  O相应6/8、7/8。文字两处错误仍保留，不能将全部V错误唯一归因于视觉绑定。
+- 4基础位置组/8颜色交换依赖world是开发性合成家族，
+  不构成8独立自然来源，不报显著性/自然长视频泛化/通用Qwen时间能力结论。
+  当前可说“匹配文字大多正确、本次原生视频间隔链仅答对3/24的已观察个案”，
+  不能说“已发现新的神经失败机制”或已有期刊核心创新。
+  原C/D核心停止裁决并未被这些不同科学问题的结果逆转。
+- 执行者报新suite16/16、实际CPU exposure1次/8.813s Job、CUDA未初始化；
+  单Qwen3-VL-4B BF16/SDPA、一次load/seed19/greedy16，无warmup/额外forward/重启/重答。
+  模型Job **36.703s**（generate调用合计8.673s，不能替代全GPU包络），
+  peak allocated9,140,584,960B、Job peak committed17,851,752,448B。
+  模型实测exit0/active0后一次独立程序truth评分0.156s。
+  CPU预约250s、非模型Job wall9.828s（非逐PID CPU时间），父725.944s；
+  新私人25文件/159,595B，均为报告事实而非ChatGPT重测。
+- **明确资源缺口**：038未做合同规定的运行前2GiB磁盘余量检查。
+  事后free433,993,371,648B和实际小输出不能补证前置条件；
+  不签“完整合同全部PASS”，不重跑补证或新增纯资源修复轮。
+  其余本轮原真实标注/QA/gold/frames/private helper、下载/解码/训练/安装均0，
+  不能据此替旧原标注隔离或真实媒体时钟认证。
+- 研究负责人已冻结[039科学协议](./research-protocols/clock-binding-component-contrast-2026-10-23.md)，
+  目标只拆分读出、直接间隔及呈现差异：4未测试位置组合
+  (0,2)/(0,4)/(1,5)/(3,5)，各颜色互换、3clock，
+  NG/NR原生video间隔/有序读出、SG/SR带时间码image拼图间隔/读出、OG文字算术。
+  **8×3×5=120槽（48 video/48 image/24 text）**，
+  新G1−G0差为[-2,+2,+2,-2]而非沿用全+4。
+  这是038后选择的探索性判别集，复用同模型/图形/clock，不冒充独立holdout。
+- 冻结逐字prompt、固定5×7字体/384×864拼图、严格整数/有序一位小数解析、
+  轮转队列和全15格分母。CPU必须实际验证video[6,12,18]与image[1,24,54]
+  均324视觉tokens、所有120输入及video/image正确视觉分区/最终BF16绑定；
+  预期值不是观察事实，未过则权重/GPU0。
+  token数相同不代表同信息通道/总token/位置编码或FLOPs；
+  SG胜出最多呈现敏感行为，NR对而NG错最多跨任务组合差异，
+  不能证明NG隐含读对或定位神经模块。
+- 定向原始先例已核：Jung等2024时序grounding/verification一致性、
+  CVPR2025 Number it/NumPro画面数值提示，以及2026-05-21
+  MLLMs Know When Before Speaking的attention/prefill—generation差异与再推理。
+  这些普通概念均非这里首次提出；039只是已知控制思路用于本轮歧义，
+  没有复现上述方法、排除所有变体或完成新颖性审查。
+- 唯一READY为[VLM-CLOCK-COMPONENTS-039 A–H](./codex-artifacts/VLM-CLOCK-COMPONENTS-039/README.md)，
+  **PUBLIC_COMPONENT_PROBE_IMPLEMENTATION_ONLY，尚未执行**；
+  用户在当前本地Codex发送合同完整一条新消息才激活新范围。
+  一包新实现/新tests≤2×60s/真实CPU input gate≤2×90s（最多一次源码依据API兼容修复）/
+  单Qwen worker一次load/GPU600s/最多120次生成/独立CPU一次评分与五处交付。
+  CPU480s/父1800s，free≥20GiB/allocated18GiB/Job24GiB；
+  query一次、无重启重答/额外forward，所有model实际退出后才评分。
+- 只读038四确切配置/关闭收据、2 Qwen configs、至多4确切installed sources，
+  research文本≤12MiB；正常local-only runtime/processor/条件权重按角色记录。
+  新integration_039≤96文件/64MiB，**首私人输出前实测配额外≥2GiB磁盘余量**；
+  不读更早roots/原真实QA/gold/frames/manifest/source map/私有helper，不继承旧run。
+  039交付即STOP，无按有利输出自动040/改font或prompt/扩样/训练。
+  如仍不能排除普通读数/指令/呈现解释，停止合成变体投入，另由研究负责人判断是否另立问题。
+- **SYNTHETIC_BEHAVIOR_OBSERVED / NATURAL_VIDEO_EFFECT_UNKNOWN；
+  NOVELTY=RETAIN0；TRAIN-GPU HOLD；原C/D NO_GO_AS_CORE；
+  历史真实媒体CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
 
