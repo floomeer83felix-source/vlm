@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-23（北京时间；038已交付并静态审结：48实际generate，视频间隔3/24、匹配文字算术22/24；输入识别通过，但漏了运行前磁盘余量检查，按RESOURCE_RECEIPT_EXCEPTION保留，非全部合同PASS。首次有可解释的自有合成行为差距，尚不能定位读出/角色绑定/组合或神经机制。唯一READY转为[039分量判别](./codex-artifacts/VLM-CLOCK-COMPONENTS-039/README.md)，**PUBLIC_COMPONENT_PROBE_IMPLEMENTATION_ONLY，尚未执行**。已冻结[科学协议](./research-protocols/clock-binding-component-contrast-2026-10-23.md)：4种未跑位置组合×2颜色×3clock×5独立任务=120全新槽，视频读出/间隔、带时间码拼图读出/间隔、文字算术；原生video/image各324视觉tokens必须实测门过。完整用户本地消息才激活新integration_039/条件GPU：CPU480s/父1800s、单Qwen worker/一次load/GPU600s/120generate/greedy16，禁止重启重答/扩样训练。只做一轮探索性分量判别，非独立确认/新算法；NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN。原C/D NO_GO_AS_CORE、真实P2 PARKED、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP、历史真实媒体CLOCK_ZERO_ASSUMED_NOT_CERTIFIED保持；本页首/看板及末尾最新审结取代下文历史时点的READY/0 READY表述。）
+> 更新：2026-10-23（北京时间；[039交付995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)已审结：120实际生成/113合法返回/7格式无效，NG原生间隔0/24、NR原生角色读出1/24、SG拼图间隔3/24、SR拼图读出15/24、OG文字算术24/24。ChatGPT已独立复算公开120行、truth/队列/配对/关系，未独立访问私人账本或重跑模型。[正式处置](./research-decisions/post-039-scientific-disposition-2026-10-23.md)：ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION。普通读数、指令与呈现解释仍未排除，触发事前停止条件；结束当前图形时钟变体投入，**当前0 READY，未下达040**。后续由ChatGPT先形成自然长视频可失败问题/近邻实质差异/可用证据与强基线的新设计，不派占位工程或重复综述。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN；原C/D NO_GO_AS_CORE、真实P2 PARKED、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/当前看板/末尾最新审结取代历史时点的READY表述。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -2110,4 +2110,63 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - **SYNTHETIC_BEHAVIOR_OBSERVED / NATURAL_VIDEO_EFFECT_UNKNOWN；
   NOVELTY=RETAIN0；TRAIN-GPU HOLD；原C/D NO_GO_AS_CORE；
   历史真实媒体CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
+
+
+### 2026-10-23 · 039分量判别审结，停止当前合成变体；0 READY
+
+- 审查[995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)，
+  直接父e560e71，恰五处allowlist：两新模块、两报告、results唯一039父追加；
+  旧代码/tests/科学协议/规划/历史未改。
+  ChatGPT读完整公开实现/tests/报告，并在内存中独立从固定position/clock重建truth与队列，
+  复算全部120行正确标记/15主格/角色/C/P/clock关系，均一致；
+  不访问私人根/账本/设备/原标注，不独立运行processor/模型/suite/私人scorer。
+- 接受为 **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS /
+  NO_CORE_INNOVATION**，039已关闭、不可重跑。
+  主结果依次NG0/24、NR1/24、SG3/24、SR15/24、OG24/24；
+  120 generate、113 RETURNED/7 INVALID（均NR）、FAILED/NOT_RUN0，120 EOS/0截断。
+  每任务每clock planned8完整保留，不按OG正确或容易位置筛主表。
+- 实际输入收据支持48原生video/48image各324视觉tokens，24文字无视觉；
+  六native timecodes和最终BF16/worker输入绑定通过。
+  但NR角色读出仅1/24，17合法中16个off-grid，还有7格式失败；
+  不能把NG全部错误定位为纯计算或某个神经模块。
+  SR与SG跨prompt行为差异不能证明SG隐藏态已读对；token数相同也不控制全部呈现/计算差异。
+- C=1/24（w3/G0），P=3/24（w5/G1、w5/G2、w7/G2），unknown0。
+  NR读出对导出gap3/24不等于角色绑定正确3/24；SR导出15/24。
+  NG局部clock响应/平移关系与joint均0/8；
+  SG关系满足2/8和3/8但joint均0/8，不能把错误一致称能力通过；
+  OG两种joint/关系均8/8。SR整体平移两角色两端joint与两字段+60均4/8，
+  NR有4配对数值关系因INVALID未知。
+- 研究负责人补充事后描述：现有SR回复由CPU求差15/24，对SG直接间隔3/24，
+  配对both/仅SR导出/仅SG/neither=3/12/0/9、unknown0，无新模型调用。
+  这是普通“读数＋程序运算”必须考虑的诊断参照，不是事前部署/独立确认新算法，
+  没有匹配分阶段成本，也不认定另一prompt内部曾读对。
+  SR全部9错误集中在含temporal块0的两几何组（SR3/12，对其余组12/12）；
+  是事后错误分布，不能因而删难例/换font或有利扩样，主结果仍15/24。
+- 执行者报告新suite19/19、实际CPU input gate一次32.609s Job、
+  无兼容修复/二次suite/预检；一个Qwen4B worker/load/greedy16/seed19，
+  全model Job56.000s、generate调用38.145s、peak allocated9,148,711,424B、
+  Job peak committed17,852,948,480B；model实际exit0/active0后一次CPU score0.171s。
+  CPU预约280s、非模型Job wall33.514s（非逐PID kernel CPU），父534.425s；
+  新25文件/325,788B、全部五children exit0/Job0，无kill/overflow/timeout。
+- 039**首私人输出前**磁盘free436,548,853,760B，
+  required2,214,592,512B=64MiB+2GiB；不撤销038前检缺失的历史资源例外。
+  错误reflog起点在私人输出/交接读取前拒绝，随后用本轮checkout创建前30s保守起点，
+  收据报告仅一个初始化run/coordinator，未恢复旧run或消费后重置。
+  10 research opens/117,093B，正常runtime/processor/条件权重按角色加载；
+  原真实annotation/QA/gold/旧frames/manifest/预测/source map/private helper/
+  更早roots、实验网络/下载/解码/训练/安装/永久系统修改均0。
+  本次静态验收不把这些报数冒充ChatGPT本机重测或恶意代码隔离证明。
+- 已写[039正式科研处置](./research-decisions/post-039-scientific-disposition-2026-10-23.md)：
+  普通读数/指令/空间呈现与跨任务解释仍在，按039事前停止条件，
+  **结束当前038–039合成图形时钟变体投入**。
+  不继续换font/prompt/clock/布局、同分布补样/第二模型/训练去包装论文核心，
+  不新派Codex整理已有表、重复综述、补旧收据或搜私人路径的占位包。
+  这不是判定所有时间绑定研究无价值；保留开发诊断和完整负结果。
+- **当前0 READY，040未立项。** 下一工作归ChatGPT科学负责人，
+  先形成自然长视频中可失败的命题、最强近邻的实质差异、足以识别的现有证据、
+  必要强基线和停止条件；当前还没有满足这些要求的新实验合同。
+  本审查沿用039冻结先例边界，没有新增穷尽新颖性检索；
+  不把普通组合/控制或成功运行视为核心创新。
+  **NOVELTY=RETAIN0；NATURAL_VIDEO_EFFECT_UNKNOWN；原C/D NO_GO_AS_CORE；
+  TRAIN-GPU HOLD；历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
 
