@@ -1,6 +1,8 @@
 # VLM-CACHE-INPUT-QUALIFICATION-041 — 真实缓存组件与Qwen CPU输入资格测试
 
-2026-10-24（北京时间）。**READY / CPU_PROCESSOR_COMPONENT_BUNDLE / NOT_EXECUTED**。
+2026-10-24（北京时间）。**ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY；已关闭，不重跑。**
+
+[负责人验收](../../research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：6bcee08已交付且独立复算一致。当前0 READY，042未立项。下文A–H与启动消息仅为已消费的历史合同，不构成再次执行授权。
 权威：[冻结协议](../../research-protocols/cache-input-qualification-2026-10-24.md)；
 [负责人已做组件复现与先例筛查](../../research-proposals/cache-input-contract-qualification-2026-10-24.md)。
 
@@ -74,9 +76,9 @@ CSV单独交付并在报告链接；新源码提供导出与重算命令，不�
 
 不改README/冻结协议/负责人提案/固定第三方夹具、040或更早代码、AGENTS/next-steps/overview、旧结果。只stage这六处；脱敏、普通安全push main后STOP，不自动042/发布Issue或PR/联络作者/投稿。push冲突按AGENTS停止，不force/reset/rebase。
 
-## 6. 用户完整启动消息
+## 6. 历史启动消息（已消费，不可执行）
 
-以下整段作为一条新消息发送当前本地Codex；上下文已满可GitHub-first交接，不继承旧任务余额。
+以下仅保留原始交接文本。041已经交付并关闭，不能复制它重跑；聊天切换或压缩不恢复权限与余额。
 
 ~~~text
 继续041：安全同步独立GitHub文档仓库main，重读AGENTS.md、docs/next-steps.md、docs/codex-results.md、docs/research-overview.md，及VLM-CACHE-INPUT-QUALIFICATION-041 README、cache-input-qualification-2026-10-24冻结协议和cache-input-contract-qualification-2026-10-24立项依据。确认041是唯一尚未交付的READY父任务，连续完成A–H。

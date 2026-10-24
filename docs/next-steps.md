@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；040已关闭且NO_DISTINCT_MECHANISM_EVIDENCE保持。负责人已核固定lmms-eval源码/已知metadata与版本缓存问题，并完成条件性视觉内容变化后的响应缓存组件复现，见[041立项依据](./research-proposals/cache-input-contract-qualification-2026-10-24.md)。下达唯一[VLM-CACHE-INPUT-QUALIFICATION-041 A–H](./codex-artifacts/VLM-CACHE-INPUT-QUALIFICATION-041/README.md)：真实上游缓存组件＋既有Qwen processor纯CPU边界输入，9家族×4刺激=36对/72状态，AB/BA×四配置=288序列/576查询，强namespace/有效输入hash/关闭缓存控制与同机复现。**READY / CPU_PROCESSOR_COMPONENT_BUNDLE / NOT_EXECUTED；NOVELTY_UNVERIFIED**。完整本地Codex新消息才激活，不是GPU/权重/问答或完整CLI授权；现有方案足以解决也如实结案，不包装新hash机制。144格候选及路径交接继续PARKED；算法RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D与038–039停止、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP不变。页首/041当前合同优先于历史状态。）
+> 更新日期：2026-10-24（北京时间；041已审结为 **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY**，见[负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。公开288序列/576查询独立复算一致：固定身份40次不兼容复用，完整源命名空间/有效输入身份/关闭缓存均0；已有源命名空间足以处理本轮案例，未形成新机制或真实工作流污染证据。**当前0 READY，042未立项；041关闭不可重跑**。资源快照与阶段计量限制保留，不写全合同独立认证。040结论、144格候选及路径交接PARKED、算法RETAIN0和既有科学/媒体/训练停止条件不变；页首及最新验收优先于历史任务状态。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **READY / CPU_PROCESSOR_COMPONENT_BUNDLE / NOT_EXECUTED** | 当前本地Codex；完整新消息激活 | [A–H合同](./codex-artifacts/VLM-CACHE-INPUT-QUALIFICATION-041/README.md)与[冻结协议](./research-protocols/cache-input-qualification-2026-10-24.md)：真实缓存组件、Qwen CPU边界72状态、288序列/576查询、四强对照 | 六处完整交付、输入/缓存身份与真实成本、先例/不可变数据假设裁决；GPU/权重/QA0，不预设创新；一次push STOP |
+| VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；当前0 READY，不自动042/GPU/Issue/投稿 |
 | VLM-ENGINEERING-EVIDENCE-040 | P0 | **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)：540格公开CPU比较；F与B1各0违规/0重复、正常30/30及可完成故障30/30 | [负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)：独立复算一致，B1匹敌F且无稳定成本收益；停止框架创新包装；后续041仅具体缓存输入资格，不恢复040 |
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
@@ -2023,3 +2023,30 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   若仅人为违背不可变数据约定或简单现有namespace已足够，明确LOCAL_COMPONENT_REGRESSION_ONLY；
   不自动GPU/扩样/上游Issue/论文投稿。一次六处allowlist安全push后STOP。
   144格候选/元数据交接继续PARKED；旧科学/训练/媒体停止结论不变。
+
+### 2026-10-24 · 041条件性输入合同复现验收；源命名空间足够，关闭不扩展
+
+- 审查6bcee08，直接父6298e2d，恰六处allowlist与codex-results一个父追加；原执行记录不改。
+  [负责人验收与工程论文处置](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。
+- 用独立stdlib程序复核288序列/576查询、队列轮转、72状态全部完整/分区摘要、
+  token/attention/grid原始字节摘要及逐查询语义与成本；与报告一致。
+  边界摘要12对EQUAL/24对DIFFERENT；实际processor/tensor执行与OS退出按执行者报告，
+  不冒充负责人本机重跑、独立原始视觉字节或跨机复现。
+- UPSTREAM正确新算/正确复用/不兼容=80/24/40；SOURCE_NAMESPACE136/8/0，
+  有16次同边界保守miss；EFFECTIVE_INPUT120/24/0，实付144次processor；
+  NO_CACHE144次新算/BYPASS。各配置144查询，FAILED/UNSTABLE/RELATION_MISMATCH/NOT_RUN0。
+  五个视觉/时间变化家族各8次不兼容；已有TEXT_CONTROL隔离有效。
+- 独立计数正式查询processor504，加oracle72为576；suite4/clean13/全轮593由执行者报告。
+  SOURCE/EFFECTIVE查询wall9.387379/9.376988s不能推断GPU或实际产品优势；
+  完整源namespace已经解决观察到的案例，不预设新hash机制。
+- clean为同机8序列/16查询，不是独立机器或独立oracle。报告全部Job active0、GPU/权重0；
+  输出规模仅驻留快照、Job计量仅分阶段；这些缺口保留，不称全部资源合同独立PASS。
+  协议收据SHA差异已核为LF/CRLF转换，科学正文未变。
+- **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY。**
+  尚无遵守现有身份合同的真实工作流污染证据，不能由故意保持旧身份的合成probe
+  外推完整CLI缺陷、Qwen答案错误率或核心期刊新贡献。040结论不变。
+- **041关闭不可重跑，当前0 READY，042未立项。** README启动消息归档不可执行；
+  不自动GPU、合成变体、上游Issue/PR或投稿。后续先有真实合法工作流缺口与可测收益再立项，
+  不派占位包；144格候选/路径交接继续PARKED。
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D及038–039停止、TRAIN-GPU HOLD、
+  历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
