@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；用户对[042完整范围](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)的明确批准提问回复“好的”，已登记授权。**唯一READY：VLM-NATURAL-CLOCK-ADMISSION-042 / USER_APPROVED_BOUNDED_MEDIA_CPU / 尚未执行**。限[固定16项](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)原视频累计≤32GiB、单项≤4GiB、既有CPU工具核时钟≤2小时；工具/监督前置须在媒体HTTP之前通过，统一脱敏交付后停止。动作CSV/标签、processor/模型、GPU、环境安装均0。EPIC题目实例语义与标注时钟桥接仍HOLD，不据此启动64格实验；040/041及既有停止结论不变。）
+> 更新日期：2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **READY / USER_APPROVED_BOUNDED_MEDIA_CPU（唯一，尚未执行）** | 本地Codex执行；ChatGPT验收 | [已授权整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及16项manifest，媒体累计≤32GiB/单项≤4GiB、既有CPU核验≤2小时；动作CSV/模型/GPU0 | 用户2026-10-24对具体范围回复“好的”；前置工具/监督失败则媒体HTTP0，否则按固定清单连续完成独立步骤，统一回报后STOP。SOURCE_CLOCK通过不等于标签/题目/processor准入 |
+| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；0 READY，不续传或自动新下载/GPU |
 | VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；当前0 READY，不自动042/GPU/Issue/投稿 |
 | VLM-ENGINEERING-EVIDENCE-040 | P0 | **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)：540格公开CPU比较；F与B1各0违规/0重复、正常30/30及可完成故障30/30 | [负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)：独立复算一致，B1匹敌F且无稳定成本收益；停止框架创新包装；后续041仅具体缓存输入资格，不恢复040 |
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
@@ -2147,3 +2147,10 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 - 负责人本轮仅登记授权和交接，未访问用户Windows机器、发送媒体HTTP、解码或生成执行结果；docs/codex-results.md保持不动。
   READY不是时钟通过或数据已取得；EPIC题目实例语义、标签时钟桥接及实际processor输入仍HOLD。
   标签/模型/GPU均0，040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。
+
+
+### 2026-10-24 · 042负责人验收
+
+2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
+
+核3630e87回执及代码：HEAD1/GET1均200；超时后自有Job active0，其余15项NOT_RUN。13项测试为执行者报告，未独立复跑Windows。deadline只在阻塞read之间检查，收取状态未及时持久化，故ACCEPTED_BOUNDED_FAILURE_REPORT / RESOURCE_CONTRACT_NOT_FULLY_MET。0/16未测不是VFR不存在或模型阴性。后续先设计无网络截止/持久记账修复，不创建占位READY、不迁移下载余量。NOVELTY=RETAIN0及既有停止结论保持。

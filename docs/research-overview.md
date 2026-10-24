@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；用户对[042完整范围](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)的明确批准提问回复“好的”，已登记授权。**唯一READY：VLM-NATURAL-CLOCK-ADMISSION-042 / USER_APPROVED_BOUNDED_MEDIA_CPU / 尚未执行**。限[固定16项](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)原视频累计≤32GiB、单项≤4GiB、既有CPU工具核时钟≤2小时；工具/监督前置须在媒体HTTP之前通过，统一脱敏交付后停止。动作CSV/标签、processor/模型、GPU、环境安装均0。EPIC题目实例语义与标注时钟桥接仍HOLD，不据此启动64格实验；040/041及既有停止结论不变。）
+> 更新：2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前状态：042已获明确范围许可并设为唯一READY，尚未执行；真实任务效应UNKNOWN，NOVELTY=RETAIN0。** 用户“好的”回应的是固定16视频、下载累计≤32GiB和CPU核验≤2小时的批准提问。仅本包新源媒体/CPU放行，标签/processor/模型/GPU与旧任务均未放行；统一交付一次后停止，不自动进入64格模型实验。
+**2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。**
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2485,3 +2485,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 负责人本轮仅登记授权和交接，未访问用户Windows机器、发送媒体HTTP、解码或生成执行结果；docs/codex-results.md保持不动。
   READY不是时钟通过或数据已取得；EPIC题目实例语义、标签时钟桥接及实际processor输入仍HOLD。
   标签/模型/GPU均0，040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。
+
+
+### 2026-10-24 · 042负责人验收
+
+2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
+
+核3630e87回执及代码：HEAD1/GET1均200；超时后自有Job active0，其余15项NOT_RUN。13项测试为执行者报告，未独立复跑Windows。deadline只在阻塞read之间检查，收取状态未及时持久化，故ACCEPTED_BOUNDED_FAILURE_REPORT / RESOURCE_CONTRACT_NOT_FULLY_MET。0/16未测不是VFR不存在或模型阴性。后续先设计无网络截止/持久记账修复，不创建占位READY、不迁移下载余量。NOVELTY=RETAIN0及既有停止结论保持。
