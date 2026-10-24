@@ -1,0 +1,29 @@
+{
+  "schema": "vlm-single-source-admission-v1",
+  "task_id": "VLM-EPIC-SINGLE-SOURCE-ADMISSION-044",
+  "original_candidate_count": 16,
+  "original_candidate_status": {
+    "C01": "FAILED_CLOSED_042",
+    "C03_C16": "NOT_IN_THIS_EXECUTION"
+  },
+  "candidates": [
+    {
+      "candidate_rank": 2,
+      "video_id": "P31_10",
+      "participant_id": "P31",
+      "duration_seconds_publisher": "540.08955",
+      "fps_publisher": "59.9400599400599",
+      "resolution_publisher": "1920x1080",
+      "ar_split": "validation",
+      "media_release": "55",
+      "media_url": "https://data.bris.ac.uk/datasets/3h91syskeag572hl6tvuovwv4d/videos/test/P31/P31_10.MP4",
+      "publisher_md5": "d400c28d06a4c4302312549a34008309",
+      "selection_sha256": "04c5bbce413fd9696774449a5ef218be60cb433ecb8a7b9dcf41618d1792c5d6",
+      "actual_bytes": null,
+      "actual_sha256": null,
+      "pts_status": "NOT_READ",
+      "annotation_clock_bridge": "UNKNOWN",
+      "admission_status": "REGISTERED_UNTESTED"
+    }
+  ]
+}

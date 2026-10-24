@@ -1,6 +1,11 @@
+# 043已归档：执行轮已消费，不得重跑
+
+2026-10-24：[负责人验收](../../research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)接受限定离线修复；真实获取未测试。
+当前无READY；044仅为待新范围许可的方案。以下合同保留历史，旧唯一READY与启动语句均已失效。
+
 # 043：下载截止与持久记账修复（无网络CPU整包）
 
-2026-10-24（北京时间）。**READY / CPU_OFFLINE_REPAIR_ONLY / NOT_RUN。**
+2026-10-24（北京时间）。**CLOSED / ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / NOT_RERUNNABLE。**
 父任务：VLM-FETCH-DEADLINE-ACCOUNTING-043；本包为唯一READY，042已消费，不重跑、不续传。
 用户本轮原话为“一直继续下去，直到给出新的codex任务指令”；负责人据既有协作范围制定本次公开代码修复/本地CPU验证包。
 无需再次确认本包内独立安全步骤；本许可不包括数据下载、真实媒体/标签、模型、GPU或后台续任务。

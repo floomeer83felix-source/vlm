@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；已制定[043下载截止与持久记账修复整包](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)。**唯一READY：VLM-FETCH-DEADLINE-ACCOUNTING-043 / CPU_OFFLINE_REPAIR_ONLY / 尚未执行**。只修公开代码，以12个固定本地故障case验证独立截止、退出后元数据/字节责任回放，统一给出下一获取交接；应用网络/媒体/标签/模型/GPU均0，不重跑042、不续传、不迁移旧额度。042已关闭且资源合同未全部满足；真实时钟/任务效果UNKNOWN，NOVELTY=RETAIN0。）
+> 更新：2026-10-24（北京时间；已完成[043负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)：限定离线修复通过、真实获取未测试，043关闭。独立复算实际12/12故障PASS，初轮12 NOT_RUN保留；当前0 READY。已准备[044单个C02真实获取与CPU验钟整包](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)，**BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY**：新媒体≤4GiB、获取≤900秒、CPU准备/验钟≤1200秒，尚未许可/执行。042不重跑不续传，标签/模型/GPU0，NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前状态：唯一READY为043无网络CPU修复，尚未执行。** 042首次获取超时且元数据持久化不足，完整媒体/时钟均0/16；043只处理这些执行缺口，不宣称科研进展或恢复042。新媒体获取仍需单独具体范围；标签/模型/GPU继续HOLD，NOVELTY=RETAIN0。
+**2026-10-24当前状态：043限定离线修复通过并关闭；当前0 READY，044已冻结待新范围许可。** 独立复算实际12/12故障、字节责任与时限记录一致，未重跑Windows。新核心仍只允许FakeTransport；044合并真实传输适配与单个原C02获取/验钟，避免再拆纯假传输微包。尚无新媒体或模型结果，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2506,3 +2506,18 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   PASS最多支持OFFLINE_DEADLINE_ACCOUNTING_REPAIR_PASS / REAL_FETCH_UNTESTED，不能证明慢网下载、自然时钟或VLM收益。
   042已消费，旧11MiB及不完整GET≤4GiB责任保留，不自动续传/新HEAD/GET/扩大下载或044。
   040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、标签/模型/GPU及其余旧停止结论保持。
+
+### 2026-10-24 · 验收043，冻结044单对象实际获取方案待授权
+
+- 已核[e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)五处允许diff、核心/验证器与公开回执，形成[负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)。
+  标准库CSV/Decimal独立复算24行：初轮12 NOT_RUN、实际修复轮12 PASS；不一致0。未重跑Windows/旧tests或读取私有日志。
+- 五次kill最大7.906秒，全部active0最大7.906秒、finish最大8.000秒，8/12/15门内。
+  fake HEAD/GET/read=11/8/33，read返回79872B、持久下界71680B、独立fixture责任294912B；不冒充实际网络计量。
+- **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / REAL_FETCH_UNTESTED；043关闭，当前0 READY。**
+  核心只接FakeTransport、64KiB级测试cap，未实现真实TLS或多对象全局配额；不能只取消guard/改常量就当生产资格通过。
+- [044完整合同](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)及单对象清单已冻结：原C02/P31_10，真实适配/一次必要预检、≤1 HEAD/≤1 GET及成功后一次CPU验钟合在同包。
+  拟新媒体≤4GiB，获取总包络≤900秒（840工作/870退出/900收尾），CPU准备/验钟≤1200秒；尚未许可、未执行。
+  若再超时/记账失败暂停该直接获取入口，不自动延时、换候选续试或恢复042。
+- 042的11MiB与不完整GET≤4GiB历史责任原样保留，C01关闭、C03–C16不发、第17源不加。
+  单个源即使验钟成功也不代表6+2/64格或标注/模型输入准入；标签/模型/GPU0，NOVELTY=RETAIN0及旧停止结论不变。
+  本轮仅负责人文档与待授权清单，codex-results、043代码/回执/CSV及042历史证据未改。
