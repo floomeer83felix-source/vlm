@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；已审查040交付[bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)，读取全部实现/报告/540行数据，独立重建队列及输入/收据/汇总。**ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE；040关闭，当前0 READY，041未立项**。F与强SQLite B1各90格0违规、正常30/30及可完成故障30/30；F未显示稳定成本优势，遵守事前条件停止堆框架包装创新。详见[负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)。本轮是受控CPU工作负载/同机新目录复现，不是新VLM成绩、生产可靠性证明或核心期刊资格通过；研究负责人下一步先形成有真实VLM收益的新问题，暂不派占位包。144格候选及元数据交接继续PARKED；算法NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D及038–039停止、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；本页当前结论优先于历史READY/启动文本。）
+> 更新：2026-10-24（北京时间；040已关闭且NO_DISTINCT_MECHANISM_EVIDENCE保持。负责人已核固定lmms-eval源码/已知metadata与版本缓存问题，并完成条件性视觉内容变化后的响应缓存组件复现，见[041立项依据](./research-proposals/cache-input-contract-qualification-2026-10-24.md)。下达唯一[VLM-CACHE-INPUT-QUALIFICATION-041 A–H](./codex-artifacts/VLM-CACHE-INPUT-QUALIFICATION-041/README.md)：真实上游缓存组件＋既有Qwen processor纯CPU边界输入，9家族×4刺激=36对/72状态，AB/BA×四配置=288序列/576查询，强namespace/有效输入hash/关闭缓存控制与同机复现。**READY / CPU_PROCESSOR_COMPONENT_BUNDLE / NOT_EXECUTED；NOVELTY_UNVERIFIED**。完整本地Codex新消息才激活，不是GPU/权重/问答或完整CLI授权；现有方案足以解决也如实结案，不包装新hash机制。144格候选及路径交接继续PARKED；算法RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D与038–039停止、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP不变。页首/041当前合同优先于历史状态。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前处置：040已验收关闭；NO_DISTINCT_MECHANISM_EVIDENCE，当前0 READY、041未立项。** 新增540格工程比较与同机复现证据，但强SQLite B1匹敌F且无稳定成本优势，不把普通机制组合包装成核心贡献。下一步由研究负责人先明确真实VLM流程中未被强现有配置解决的问题及实际收益；不派占位执行包。选帧通道候选及路径交接仍PARKED。下文早期状态和看板为历史记录，当前范围以页首及040验收为准。
+**2026-10-24当前任务：唯一READY为041 CPU缓存输入资格包，尚未执行；NOVELTY_UNVERIFIED。** 040已关闭且无独立新机制的结论不变。负责人已完成视觉callback内容变化而静态缓存身份不变的有限真实组件复现；041接实际Qwen CPU边界与强对照，仍不宣称模型/完整CLI故障或创新成立。选帧通道候选及路径交接PARKED。下文早期状态和看板为历史记录，当前范围以页首/041合同为准。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2329,3 +2329,36 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   144格选帧候选/路径交接继续PARKED；算法NOVELTY=RETAIN0，
   NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D/038–039停止、TRAIN-GPU HOLD、
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+
+### 2026-10-24 · 由真实缓存组件条件复现进入唯一041 CPU资格包
+
+- 040结论不变，不继续claim/事务框架扩展。负责人亲读固定lmms-eval
+  8f400975（2026-10-22）的缓存/Instance/evaluator/simple与chat Qwen路径及现有测试。
+  发现当前代码已覆盖前置生成文本与Git eval版本，先排除旧文档导致的误报。
+  已知issue1244 metadata漏传、1255版本指纹，以及OmniCompass严格身份/vLLM媒体hash
+  都是必须承认的先例，不把普通补hash或漏metadata立为新核心。
+- 在本机临时目录用未经修改的上游缓存/Instance/SQLite完成有限组件探针：
+  固定问题/ID/静态指纹，真实视觉callback的数据表图像红→蓝后cache hit、backend新增调用0，
+  返回仍为旧图像标记；冷缓存、变任务命名空间、变前置文本均正确重新计算。
+  使用自有PIL像素SHA backend和仅日志适配，不是模型/完整CLI或已证真实基准成绩污染。
+  数据不可变假设和简单namespace已能解决探针，原创性/合法使用意义仍须核。
+- [立项依据](./research-proposals/cache-input-contract-qualification-2026-10-24.md)及
+  [冻结协议](./research-protocols/cache-input-qualification-2026-10-24.md)给出区别：
+  下一次只实际接既有Qwen CPU processor，验证同RGB不同合法时间metadata的输入差异、
+  不同metadata表示但同输入的关系，以及缓存层是否复用到不同边界输入。
+  整轮无模型load/forward/generate、无GPU/真实QA，marker不是Qwen答案。
+- 唯一 **READY / NOT_EXECUTED** 为
+  [VLM-CACHE-INPUT-QUALIFICATION-041 A–H](./codex-artifacts/VLM-CACHE-INPUT-QUALIFICATION-041/README.md)：
+  9家族×4刺激=36对72状态，AB/BA×四配置=288序列576查询；
+  UPSTREAM、完整SOURCE_NAMESPACE、付真实预处理成本的EFFECTIVE_INPUT、NO_CACHE。
+  固定上游原文件/许可证封装在third_party，无新下载/安装；不改其代码。
+- 一个包完成两新模块、关键验证、oracle/正式比较/成本/8序列clean及价值裁决。
+  父5400s/受监督wall1000s/processor≤720，正式CPUworker600s，
+  线程≤4/Job RAM4GiB，新根≤2048文件/32MiB，前置配额外2GiB余量。
+  只用已知processor目录，必要时仅一个已知039 runtime/config.json恢复model/runtime；
+  不扫盘/读旧账本或QA，不重新寻找原标注，未知部分NOT_RUN而非伪造输入。
+- 研究终点最多CPU_BOUNDARY_CONTRACT_REPRODUCED，不预设新算法、实际推理提速或核心期刊价值。
+  若仅人为违背不可变数据约定或简单现有namespace已足够，明确LOCAL_COMPONENT_REGRESSION_ONLY；
+  不自动GPU/扩样/上游Issue/论文投稿。一次六处allowlist安全push后STOP。
+  144格候选/元数据交接继续PARKED；旧科学/训练/媒体停止结论不变。
