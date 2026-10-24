@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；041已关闭为ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY，见[验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。本轮完成[真实输入链路公开筛查](./research-proposals/post-041-real-input-source-screen-2026-10-24.md)：Meta-Video已覆盖广义评测配方/后端差异；Qwen的索引与平均fps重建时间码限制有源码依据，但VeOmni已明确记录VFR/PTS边界，尚无本项目真实任务影响或独立技术增量。**当前0 READY，042未立项，041不可重跑；NOVELTY=RETAIN0**。040结论、144格候选及路径交接PARKED、既有科学/媒体/训练停止条件保持；页首和最新日志优先于历史任务状态。）
+> 更新日期：2026-10-24（北京时间；负责人已完成[一页贡献定义](./research-proposals/natural-video-clock-contribution-brief-2026-10-24.md)与[最小真实对照设计](./research-protocols/natural-video-clock-feasibility-design-2026-10-24.md)：拟8独立原录制×2既有问题×B0/P/N/T=64逻辑格，分别比较同画面PTS诊断与现有均匀时间重采样，并保留文字/时长对照。**DESIGN_COMPLETE / DATA_AND_API_ENTRY_UNRESOLVED / NOT_READY；当前0 READY，042未立项**。素材/现有标注时钟桥接、可用解码与PTS适配尚未核齐，不授权媒体/模型/GPU或旧run恢复。040/041裁决、算法NOVELTY=RETAIN0、144格候选/路径交接PARKED及既有科学/媒体/训练停止条件保持；页首和最新设计优先于历史任务状态。）
 
 ## 一、任务看板
 
@@ -2069,3 +2069,25 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   不下达重复合成或路径占位包；Frames Don’t Add Up全文未得的限制仍保留。
   040/041裁决、144格候选/路径交接PARKED、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、
   原C/D及038–039停止、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 完成一页贡献定义与最小真实对照设计；输入与API入口未齐
+
+- 用户要求继续后，由研究负责人完成[一页贡献定义](./research-proposals/natural-video-clock-contribution-brief-2026-10-24.md)和[最小真实对照设计](./research-protocols/natural-video-clock-feasibility-design-2026-10-24.md)。
+  交付为研究设计，未创建042父任务/README，未运行新实验或读取私人素材。
+- 候选问题是自然录像的时间信息损失是否影响已有事件区间定位，以及修复的效果/成本取舍。
+  已有Meta-Video/VeOmni/TorchCodec覆盖保留；不主张新时间编码、解码器或首次发现VFR限制。
+- 拟8个独立原录制×2既有题×四配置=64逻辑格，6高偏移源/2认证CFR参照。
+  B0默认索引/fps；P同画面精确PTS诊断适配；N已有均匀时间重采样；T同问题/时长纯文字。
+  透明声明P需要独立接口适配，不是现成开箱强产品；N允许画面变化，其收益不归因为纯时码。
+- 预设原媒体/标注时钟桥接、无gold选样、完整实际输入绑定、等价类去重、独立末尾评分，
+  全失败/无效/NOT_RUN分母、按录制汇总IoU及真实成本。不能用同token数替代同画面控制。
+  16题只作可行性触发，未设计为核心期刊确认性证据；阈值不等于显著性或投稿保证。
+- 真实录像、nongold问题、受控评分入口、解码与PTS适配尚未核齐。
+  AgentNet公开工具会录视频，但所核数据卡/文档未提供本设计所需的确切原视频/PTS/区间桥接，
+  故未选为实验源；未下载数据、读取轨迹标签或媒体，未由许可文字推断资产已取得。
+- **DESIGN_COMPLETE / DATA_AND_API_ENTRY_UNRESOLVED / NOT_READY；当前0 READY，042未立项。**
+  拟预算不是授权，需确切入口与新的完整合同才可执行。未改codex-results、旧代码/协议/收据，
+  不创建测试/实验根、不做GPU/安装/媒体或标注读取，不自动扩大候选或续任务。
+  040/041、原C/D与038–039停止、144格候选/路径交接PARKED、NOVELTY=RETAIN0、
+  NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
+  Charades FINAL_MEDIA_STOP保持。
