@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；已完成[素材与接口入口筛查](./research-proposals/natural-clock-source-entry-screen-2026-10-24.md)，EPIC官方自然VFR说明、单视频获取路径与区间schema已定位，列为优先入口候选；700行nongold元数据中333行仅符合时长条件，未认证PTS、独立性或时钟桥接。HoloAssist/TimeLens2有真实资产入口，但本轮未取得可用小样本。**PUBLIC_ENTRY_SCREEN_COMPLETE / EXACT_ASSET_REQUIRED / NOT_READY；当前0 READY，042未立项**。64格设计的180–900秒范围不改；需明确现有素材引用或新的有界获取范围后才写一次CPU资格合同，不继续下发同类综述/搜路径微包。媒体/解码/模型/GPU均未放行；040/041和既有科学/媒体/训练停止结论保持。）
+> 更新：2026-10-24（北京时间；负责人已冻结[042素材获取与CPU时钟资格合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及[16项逐文件清单](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)：从66条符合条件的55代validation元数据按seed19与参与者去重选出，URL/出版者MD5已匹配。**ACQUISITION_SCOPE_COMPLETE / BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / 当前0 READY**。拟媒体累计≤32GiB/单项≤4GiB、仅既有CPU工具；未下载/解码/读动作CSV，模型/GPU0。EPIC重复动作实例的题目语义与标注时钟桥接仍HOLD；不据此启动64格实验。040/041及既有科学/媒体/训练停止结论保持。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前状态：素材/API入口筛查已完成，EPIC为优先来源候选；尚无合格8源实物，0 READY，042未立项；NOVELTY=RETAIN0。** 下一步需明确资产引用或新的有界获取范围，不重复下发同类入口微包。64格设计条件保持，040/041已关闭；既有科学、媒体及训练限制不变。
+**2026-10-24当前状态：042逐文件获取/CPU时钟资格合同已冻结待明确许可，当前0 READY；真实任务效应UNKNOWN，NOVELTY=RETAIN0。** 固定16候选来自公开nongold元数据；拟媒体≤32GiB、既有CPU核验，未执行。EPIC重复动作实例的提问语义与标注时钟桥接仍需解决，不能据此启动64格模型实验；040/041关闭及旧限制保持。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2453,3 +2453,21 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   该停止是输入条件未满足，不是实验阴性；不创Codex父结果、代码/tests、实验根、GPU或安装任务。
   040/041、原C/D及038–039停止、144格选帧候选/路径交接PARKED、NOVELTY=RETAIN0、
   NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 042逐文件获取与CPU时钟资格合同已冻结；等明确媒体许可
+
+- 用户要求“一直继续”，负责人完成可审查的[042整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)和[16项manifest](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)，不再要求用户先搜索本地旧盘，也不重复派入口综述微包。
+- 从固定官方video_info/split/MD5元数据选取：700行中333条时长合格，189条为55代；其中validation为66条/25参与者。
+  按SHA256(“19\\n”+video_id+“\\n”)排序、每参与者最多1条取前16。16项均唯一媒体校验记录，URL使用发布路径，不误拼validation目录。
+  仅公开nongold入围，未读取实际媒体、动作行或模型结果；16个不同参与者不等于独立性已认证。
+- 拟授权媒体总≤32GiB、单项≤4GiB、各≤1 HEAD/1 GET、无重试/跳转；既有CPU工具与监督能力须在媒体HTTP之前核齐。
+  新根、逐帧显示时钟、PTS有理数/48点舍入、全名单失败分母与停止条件、统一交付已写明。
+  这些是待批准上限，不是已用额度或当前文件体积；未向名单MP4发HEAD/GET，未解码、安装、读动作CSV或运行模型。
+- 核到[EPIC100原论文](https://link.springer.com/article/10.1007/s11263-021-01531-2)明确同一动作可反复发生，标注者由粗时刻区分实例。
+  因而只给动作文本不能自动指定一个隐藏实例；64格设计若落到EPIC，须先解决有效答案集合/问题可识别性，不能给模型泄漏粗时刻或事后挑gold。
+  单位、video_id与MD5也不代替标注播放器到原MP4的时钟桥接。
+- **ACQUISITION_SCOPE_COMPLETE / BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION；当前0 READY。**
+  042作为待批准合同登记，未产生执行父结果；只在明确媒体/CPU范围获批后才转唯一READY，不把笼统继续视为受控操作许可。
+  时钟6+2通过最多支持SOURCE_CLOCK_FEASIBLE，标签/题目/实际输入门仍HOLD；不自动GPU、P适配或扩样。
+  修正当前PARKED行遗留“唯一READY为041”的过时措辞；历史执行日志保留。040/041关闭、NOVELTY=RETAIN0、
+  NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP及既有停止结论不变。

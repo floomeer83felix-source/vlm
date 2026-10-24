@@ -103,3 +103,14 @@ N是完整计费的已有方法参照。若发现可直接实现同一用途的�
 - [AgentNet数据卡](https://huggingface.co/datasets/xlangai/AgentNet/blob/main/README.md)描述的是截图轨迹及工具能力；[OpenCUA README](https://github.com/xlang-ai/OpenCUA/blob/main/README.md)包含许可与录像工具说明。所核公开入口没有提供本候选所需的确切原视频/逐帧PTS/事件区间时钟桥接，故AgentNet未准入，未读数据行、轨迹标签或媒体。不能从工具会录视频推断视频资产已取得；也不能由未找到入口断言整个项目不存在视频。
 
 本轮交付仅此设计及一页贡献定义，并更新负责人看板/总览；不改codex-results、不创建代码、tests、实验根或042任务。040/041与原科学/媒体/训练停止结论保持，NOVELTY=RETAIN0。
+
+## 10. 2026-10-24：EPIC候选落地的额外未决门
+
+负责人已冻结[042原片/CPU时钟资格提案](../codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及16项公开nongold清单，尚未授权执行。
+该包只拟核原片时钟；即使6高偏移+2CFR成立，也不是本64格实验READY。
+[EPIC100原论文](https://link.springer.com/article/10.1007/s11263-021-01531-2)的Temporal Annotator节说明，同一动作可能连续反复发生，原标注者得到粗时刻来指定实例。
+因此本设计不能直接把每个narration_id当作仅凭动作文本即可唯一定位的问题，再以一个隐藏实例的区间判对错。
+在读取模型输出之前，必须固定能从问题确定的有效答案集合及其评分政策，或取得本来已明确实例的既有问题；
+不能把narration_timestamp/答案附近crop加进模型提示，也不允许根据预测临时选gold或借此改变既定分母。
+原媒体与标注播放器的原点/编辑/帧映射亦仍UNKNOWN；单位同为秒、同ID或文件MD5本身不构成桥接。
+本轮未读动作CSV/端点，不据此宣称EPIC已有合格16题，也不修改上述科学阈值、64逻辑格或启动模型。

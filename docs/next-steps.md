@@ -4,12 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；已完成[素材与接口入口筛查](./research-proposals/natural-clock-source-entry-screen-2026-10-24.md)，EPIC官方自然VFR说明、单视频获取路径与区间schema已定位，列为优先入口候选；700行nongold元数据中333行仅符合时长条件，未认证PTS、独立性或时钟桥接。HoloAssist/TimeLens2有真实资产入口，但本轮未取得可用小样本。**PUBLIC_ENTRY_SCREEN_COMPLETE / EXACT_ASSET_REQUIRED / NOT_READY；当前0 READY，042未立项**。64格设计的180–900秒范围不改；需明确现有素材引用或新的有界获取范围后才写一次CPU资格合同，不继续下发同类综述/搜路径微包。媒体/解码/模型/GPU均未放行；040/041和既有科学/媒体/训练停止结论保持。）
+> 更新日期：2026-10-24（北京时间；负责人已冻结[042素材获取与CPU时钟资格合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及[16项逐文件清单](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)：从66条符合条件的55代validation元数据按seed19与参与者去重选出，URL/出版者MD5已匹配。**ACQUISITION_SCOPE_COMPLETE / BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / 当前0 READY**。拟媒体累计≤32GiB/单项≤4GiB、仅既有CPU工具；未下载/解码/读动作CSV，模型/GPU0。EPIC重复动作实例的题目语义与标注时钟桥接仍HOLD；不据此启动64格实验。040/041及既有科学/媒体/训练停止结论保持。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
+| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY（拟定，不领取）** | ChatGPT冻结范围；本地Codex待许可 | [一次整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)与16项manifest，最多32GiB原片、既有CPU显示时钟扫描；动作CSV/模型/GPU0 | 候选/预算/工具与监督前置已写明；本轮仅公开元数据选单，媒体实际时钟未读。须明确批准下载及CPU范围才改唯一READY；SOURCE_CLOCK通过也不等于标签/题目/processor准入 |
 | VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；当前0 READY，不自动042/GPU/Issue/投稿 |
 | VLM-ENGINEERING-EVIDENCE-040 | P0 | **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)：540格公开CPU比较；F与B1各0违规/0重复、正常30/30及可完成故障30/30 | [负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)：独立复算一致，B1匹敌F且无稳定成本收益；停止框架创新包装；后续041仅具体缓存输入资格，不恢复040 |
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
@@ -103,7 +104,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；当前唯一READY为041 |
+| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；042待明确下载/CPU许可，当前0 READY |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -2114,3 +2115,21 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   该停止是输入条件未满足，不是实验阴性；不创Codex父结果、代码/tests、实验根、GPU或安装任务。
   040/041、原C/D及038–039停止、144格选帧候选/路径交接PARKED、NOVELTY=RETAIN0、
   NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 042逐文件获取与CPU时钟资格合同已冻结；等明确媒体许可
+
+- 用户要求“一直继续”，负责人完成可审查的[042整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)和[16项manifest](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)，不再要求用户先搜索本地旧盘，也不重复派入口综述微包。
+- 从固定官方video_info/split/MD5元数据选取：700行中333条时长合格，189条为55代；其中validation为66条/25参与者。
+  按SHA256(“19\\n”+video_id+“\\n”)排序、每参与者最多1条取前16。16项均唯一媒体校验记录，URL使用发布路径，不误拼validation目录。
+  仅公开nongold入围，未读取实际媒体、动作行或模型结果；16个不同参与者不等于独立性已认证。
+- 拟授权媒体总≤32GiB、单项≤4GiB、各≤1 HEAD/1 GET、无重试/跳转；既有CPU工具与监督能力须在媒体HTTP之前核齐。
+  新根、逐帧显示时钟、PTS有理数/48点舍入、全名单失败分母与停止条件、统一交付已写明。
+  这些是待批准上限，不是已用额度或当前文件体积；未向名单MP4发HEAD/GET，未解码、安装、读动作CSV或运行模型。
+- 核到[EPIC100原论文](https://link.springer.com/article/10.1007/s11263-021-01531-2)明确同一动作可反复发生，标注者由粗时刻区分实例。
+  因而只给动作文本不能自动指定一个隐藏实例；64格设计若落到EPIC，须先解决有效答案集合/问题可识别性，不能给模型泄漏粗时刻或事后挑gold。
+  单位、video_id与MD5也不代替标注播放器到原MP4的时钟桥接。
+- **ACQUISITION_SCOPE_COMPLETE / BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION；当前0 READY。**
+  042作为待批准合同登记，未产生执行父结果；只在明确媒体/CPU范围获批后才转唯一READY，不把笼统继续视为受控操作许可。
+  时钟6+2通过最多支持SOURCE_CLOCK_FEASIBLE，标签/题目/实际输入门仍HOLD；不自动GPU、P适配或扩样。
+  修正当前PARKED行遗留“唯一READY为041”的过时措辞；历史执行日志保留。040/041关闭、NOVELTY=RETAIN0、
+  NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP及既有停止结论不变。
