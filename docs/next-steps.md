@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；用户要求尽快取得科研价值突破，ChatGPT已完成定向先例核查和[一个候选测量设计](./research-proposals/selection-coordinate-channel-2026-10-24.md)：自然长视频选帧时间表是否在画面之外成为问答信息通道。一般选择模式传递信息已有TACL2021先例，不能当首次机制；本候选仅拟研究冻结、非联合训练的视频选择器接口。草案四登记源×六既有题，灰色画面下题目—同源时间表完整交叉144格，加Uniform-clock/纯文字48格，共≤192逻辑槽；主要看自己的表相对错配表是否帮助答对，而非只看答案flip。直接近邻全文及本地逐题选择记录/当前gold入口仍未解决，**CANDIDATE_DESIGN_COMPLETE / NOVELTY_AND_INPUT_UNRESOLVED；当前0 READY，040未立项，未授权/执行新GPU**。不先搭框架、不重跑旧真实画面问答；038–039图形变体停止及原C/D NO_GO_AS_CORE保持。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；此页首/当前看板/末尾最新状态优先于历史READY表述。）
+> 更新日期：2026-10-24（北京时间；继续审查发现前一版192槽方案的识别缺口：selector可完全忽略视频，只编码问题，也得到正的对角优势；纯文字baseline不能排除这种辅助编码。已取消旧设计并完成[同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)：固定q_i，分别计算S(q_i,X_v)，统一候选槽坐标/灰色视觉输入；24题×4源96格＋Uniform/Q各24，≤144逻辑格。若选择器忽略源，同题输入合并后新差严格0；正差仍不等于事件定位或神经机制。新版需要跨源特征/RGB和nongold清单，旧self-only时间表不足。BPO主文必要view定义已读，Frames Don't Add Up正文仍被验证页阻挡；已写仅元数据的本地输入交接消息。**IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED / NOVELTY_UNRESOLVED；当前0 READY，040未立项，新版未执行**。完整私人路径/JSON/QA/gold/帧不上传；不重开036或旧问答，不以缺路径提交新的HOLD微批次。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、原C/D NO_GO_AS_CORE、038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/看板及最新修订优先于历史设计/READY表述。）
 
 ## 一、任务看板
 
@@ -101,7 +101,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P0 | **CANDIDATE_DESIGN_COMPLETE / NOVELTY_AND_INPUT_UNRESOLVED / NOT_READY（2026-10-24；当前0 READY）** | ChatGPT研究负责人 | [一个新候选测量设计](./research-proposals/selection-coordinate-channel-2026-10-24.md)：自然来源题目—选帧时间表完整交叉，判别时间表是否提供正确性信息 | 概念已有先例；直接近邻全文/当前逐题选择记录及末尾gold入口尚未解决，040未立项；不派占位工程/重复综述或重跑旧画面问答，未发GPU/数据新许可 |
+| VLM-POST039-SCIENCE-DESIGN | P0 | **IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED / NOVELTY_UNRESOLVED / NOT_READY（当前0 READY）** | ChatGPT研究负责人；用户本地交接入口 | [同题跨视频选择修订及输入交接消息](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)：旧192槽纯问题编码混杂已反证，拟144格同题/跨源对照 | 必须有跨源特征或候选RGB，self-only选择记录不足；直接近邻正文/确切nongold与末尾评分入口待补；040未立项，无新正文/模型/GPU许可，不派HOLD微批次 |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -1874,4 +1874,48 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 - 038–039图形时钟变体停止、旧C/D NO_GO_AS_CORE、
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+
+### 2026-10-24 · 继续反证：取消192槽设计，完成同题跨视频修订并准备输入交接
+
+- 对上一候选做识别检查，发现S(q_j,X_i)交叉混合问题变化与视频变化；
+  selector可只编码问题而完全忽略视频，有限能力下游再从时间表读取这个编码，
+  仍可产生正对角优势并胜过纯文字Q。这时不能归因为视频来源的信息。
+  研究负责人在内存算六题五类别抽象反例：
+  self命中6/6、错配2/30、Q2/6，旧D=14/15，未使用任何视频信息。
+  这是逻辑反例，不是Qwen/真实QA成绩、新suite或数据标签读取。
+- **取消旧192槽作为当前待执行设计**，原提案加SUPERSEDED通知保留原文；
+  完成[识别修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)。
+  固定同题q_i/选项，计算它在四源上的S(q_i,X_v)，不能把旧self-only选择记录转置冒充。
+  统一48候选槽/12选择/序数时间坐标，去掉时长/fps/alias等显式源身份，
+  由原生processor构造同灰色视觉tensor与各自六块时间码。
+- 新拟规模24题×4源=96格、Uniform/Q各24，≤144逻辑格；
+  实际全输入相同只调用一次，保留别名/逻辑分母。
+  selector若忽略源，则同题四列输入相同、标签命中差严格0，
+  排除了上一纯问题编码反例；这只是直接实验控制性质，不是新定理。
+  正差仍可能涉及源指纹/答案位置偏差等，不证明事件定位或新神经机制；
+  灰色条件原gold只是外部预测目标，不是灰色片段自身的视觉真值。
+- 明确输入充分性：需四源完整image embedding/问题embedding及预处理绑定，
+  或各48候选RGB供以后经合同授权的新特征提取；
+  原self-score/12indices列表通常不能恢复跨源投影。
+  特征路线可CPU算选帧，RGB路线若用SigLIP就是新增模型计算，
+  不能借“只读元数据”授权启动。当前均未读取或执行。
+- 本轮已取得BPO arXiv:2610.03141v1主文、读摘要/§3.1–3.5，
+  已列view pool为原片、key/non-key mask、span-drop、reverse、shuffle，
+  并用于跨view合同与RL后训练；普通多view方法不新。
+  所读定义未列本修订的跨源选帧时间表比较，不等于已排除全部相关变体。
+  Frames Don't Add Up主页面/PDF及公开API仍未取得正文，
+  搜索片段不作方法排除证据；该近邻重合尚未核清。
+- 修订文件给出一条可发本地Codex的**输入交接消息**：
+  先索取当前原标注、nongold题/选项/源别名、四源候选RGB或特征的确切路径，
+  路径缺失就等待用户；最多16个明确文件各一次lstat，仅存在性/类型/大小。
+  不读正文/QA/gold/帧/特征，不跟随链接、不扫描目录，
+  不创建代码/tests/run/账本/结果，不调用模型/GPU或创建HOLD父结果。
+  这只是新的明确元数据交接范围，不能当作实验READY或内容/许可通过。
+- **当前0 READY，040未立项；IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED /
+  NOVELTY_UNRESOLVED。** 输入和必要近邻明确后才形成一个可审正式合同。
+  没有新自然实证效应或论文突破；不派重复综述/工程恢复，不重跑旧真实画面问答。
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、
+  原C/D及038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
+  Charades FINAL_MEDIA_STOP保持。
 

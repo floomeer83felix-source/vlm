@@ -1,5 +1,7 @@
 # 2026-10-24研究候选：自然长视频选帧时间表是否携带问答信息
 
+> **后续审查修订（2026-10-24）：SUPERSEDED / NOT_EXECUTABLE。** 本文192槽草案不能排除纯问题编码反例，已取消作为当前待执行设计；以[固定问题、跨视频选择的修订](./selection-channel-identifiability-revision-2026-10-24.md)为准。下面保留最初提案原文供追溯，不表示其仍可执行。
+
 ChatGPT研究负责人完成的候选设计，**CANDIDATE_MEASUREMENT_DESIGN / NOT_READY**。
 这不是040执行合同、创新通过或已经取得的实验结果。
 当前0 READY；038–039图形时钟路线及旧C/D核心停止决定保持。

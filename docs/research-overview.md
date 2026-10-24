@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；用户要求尽快取得科研价值突破，ChatGPT已完成定向先例核查和[一个候选测量设计](./research-proposals/selection-coordinate-channel-2026-10-24.md)：自然长视频选帧时间表是否在画面之外成为问答信息通道。一般选择模式传递信息已有TACL2021先例，不能当首次机制；本候选仅拟研究冻结、非联合训练的视频选择器接口。草案四登记源×六既有题，灰色画面下题目—同源时间表完整交叉144格，加Uniform-clock/纯文字48格，共≤192逻辑槽；主要看自己的表相对错配表是否帮助答对，而非只看答案flip。直接近邻全文及本地逐题选择记录/当前gold入口仍未解决，**CANDIDATE_DESIGN_COMPLETE / NOVELTY_AND_INPUT_UNRESOLVED；当前0 READY，040未立项，未授权/执行新GPU**。不先搭框架、不重跑旧真实画面问答；038–039图形变体停止及原C/D NO_GO_AS_CORE保持。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；此页首/当前看板/末尾最新状态优先于历史READY表述。）
+> 更新：2026-10-24（北京时间；继续审查发现前一版192槽方案的识别缺口：selector可完全忽略视频，只编码问题，也得到正的对角优势；纯文字baseline不能排除这种辅助编码。已取消旧设计并完成[同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)：固定q_i，分别计算S(q_i,X_v)，统一候选槽坐标/灰色视觉输入；24题×4源96格＋Uniform/Q各24，≤144逻辑格。若选择器忽略源，同题输入合并后新差严格0；正差仍不等于事件定位或神经机制。新版需要跨源特征/RGB和nongold清单，旧self-only时间表不足。BPO主文必要view定义已读，Frames Don't Add Up正文仍被验证页阻挡；已写仅元数据的本地输入交接消息。**IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED / NOVELTY_UNRESOLVED；当前0 READY，040未立项，新版未执行**。完整私人路径/JSON/QA/gold/帧不上传；不重开036或旧问答，不以缺路径提交新的HOLD微批次。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、原C/D NO_GO_AS_CORE、038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/看板及最新修订优先于历史设计/READY表述。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -2213,4 +2213,48 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 038–039图形时钟变体停止、旧C/D NO_GO_AS_CORE、
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+
+### 2026-10-24 · 继续反证：取消192槽设计，完成同题跨视频修订并准备输入交接
+
+- 对上一候选做识别检查，发现S(q_j,X_i)交叉混合问题变化与视频变化；
+  selector可只编码问题而完全忽略视频，有限能力下游再从时间表读取这个编码，
+  仍可产生正对角优势并胜过纯文字Q。这时不能归因为视频来源的信息。
+  研究负责人在内存算六题五类别抽象反例：
+  self命中6/6、错配2/30、Q2/6，旧D=14/15，未使用任何视频信息。
+  这是逻辑反例，不是Qwen/真实QA成绩、新suite或数据标签读取。
+- **取消旧192槽作为当前待执行设计**，原提案加SUPERSEDED通知保留原文；
+  完成[识别修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)。
+  固定同题q_i/选项，计算它在四源上的S(q_i,X_v)，不能把旧self-only选择记录转置冒充。
+  统一48候选槽/12选择/序数时间坐标，去掉时长/fps/alias等显式源身份，
+  由原生processor构造同灰色视觉tensor与各自六块时间码。
+- 新拟规模24题×4源=96格、Uniform/Q各24，≤144逻辑格；
+  实际全输入相同只调用一次，保留别名/逻辑分母。
+  selector若忽略源，则同题四列输入相同、标签命中差严格0，
+  排除了上一纯问题编码反例；这只是直接实验控制性质，不是新定理。
+  正差仍可能涉及源指纹/答案位置偏差等，不证明事件定位或新神经机制；
+  灰色条件原gold只是外部预测目标，不是灰色片段自身的视觉真值。
+- 明确输入充分性：需四源完整image embedding/问题embedding及预处理绑定，
+  或各48候选RGB供以后经合同授权的新特征提取；
+  原self-score/12indices列表通常不能恢复跨源投影。
+  特征路线可CPU算选帧，RGB路线若用SigLIP就是新增模型计算，
+  不能借“只读元数据”授权启动。当前均未读取或执行。
+- 本轮已取得BPO arXiv:2610.03141v1主文、读摘要/§3.1–3.5，
+  已列view pool为原片、key/non-key mask、span-drop、reverse、shuffle，
+  并用于跨view合同与RL后训练；普通多view方法不新。
+  所读定义未列本修订的跨源选帧时间表比较，不等于已排除全部相关变体。
+  Frames Don't Add Up主页面/PDF及公开API仍未取得正文，
+  搜索片段不作方法排除证据；该近邻重合尚未核清。
+- 修订文件给出一条可发本地Codex的**输入交接消息**：
+  先索取当前原标注、nongold题/选项/源别名、四源候选RGB或特征的确切路径，
+  路径缺失就等待用户；最多16个明确文件各一次lstat，仅存在性/类型/大小。
+  不读正文/QA/gold/帧/特征，不跟随链接、不扫描目录，
+  不创建代码/tests/run/账本/结果，不调用模型/GPU或创建HOLD父结果。
+  这只是新的明确元数据交接范围，不能当作实验READY或内容/许可通过。
+- **当前0 READY，040未立项；IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED /
+  NOVELTY_UNRESOLVED。** 输入和必要近邻明确后才形成一个可审正式合同。
+  没有新自然实证效应或论文突破；不派重复综述/工程恢复，不重跑旧真实画面问答。
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、
+  原C/D及038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
+  Charades FINAL_MEDIA_STOP保持。
 
