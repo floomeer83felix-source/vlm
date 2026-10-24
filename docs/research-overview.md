@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-23（北京时间；[039交付995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)已审结：120实际生成/113合法返回/7格式无效，NG原生间隔0/24、NR原生角色读出1/24、SG拼图间隔3/24、SR拼图读出15/24、OG文字算术24/24。ChatGPT已独立复算公开120行、truth/队列/配对/关系，未独立访问私人账本或重跑模型。[正式处置](./research-decisions/post-039-scientific-disposition-2026-10-23.md)：ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION。普通读数、指令与呈现解释仍未排除，触发事前停止条件；结束当前图形时钟变体投入，**当前0 READY，未下达040**。后续由ChatGPT先形成自然长视频可失败问题/近邻实质差异/可用证据与强基线的新设计，不派占位工程或重复综述。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN；原C/D NO_GO_AS_CORE、真实P2 PARKED、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/当前看板/末尾最新审结取代历史时点的READY表述。）
+> 更新：2026-10-24（北京时间；用户要求尽快取得科研价值突破，ChatGPT已完成定向先例核查和[一个候选测量设计](./research-proposals/selection-coordinate-channel-2026-10-24.md)：自然长视频选帧时间表是否在画面之外成为问答信息通道。一般选择模式传递信息已有TACL2021先例，不能当首次机制；本候选仅拟研究冻结、非联合训练的视频选择器接口。草案四登记源×六既有题，灰色画面下题目—同源时间表完整交叉144格，加Uniform-clock/纯文字48格，共≤192逻辑槽；主要看自己的表相对错配表是否帮助答对，而非只看答案flip。直接近邻全文及本地逐题选择记录/当前gold入口仍未解决，**CANDIDATE_DESIGN_COMPLETE / NOVELTY_AND_INPUT_UNRESOLVED；当前0 READY，040未立项，未授权/执行新GPU**。不先搭框架、不重跑旧真实画面问答；038–039图形变体停止及原C/D NO_GO_AS_CORE保持。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；此页首/当前看板/末尾最新状态优先于历史READY表述。）
 > 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
 
 ## 0. 研究协作入口
@@ -2169,4 +2169,48 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   不把普通组合/控制或成功运行视为核心创新。
   **NOVELTY=RETAIN0；NATURAL_VIDEO_EFFECT_UNKNOWN；原C/D NO_GO_AS_CORE；
   TRAIN-GPU HOLD；历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
+
+
+### 2026-10-24 · 按科研价值优先完成一个新候选设计，尚未放行040
+
+- 用户同意停止039后的低价值合成变体，要求尽快有新的科研价值突破。
+  本轮由ChatGPT研究负责人亲自核查公开主文/摘要与现有项目证据，
+  没有把普通综述/路径修复/软件框架再派给Codex，没有私人数据/模型/GPU执行。
+  当前仍没有新的实证突破或已通过的新机制，不用用户的急迫目标替代证据。
+- 筛掉普通“读出再交程序运算”“按答案假设找线索”“显式证据充分性核验”
+  作为新核心的捷径；PACE原始摘要、REVEAL原始框架、VisualTrust受控断言对照已有近邻。
+  TACL2021 Jacovi/Goldberg §4.1明确已有选择mask位置/模式传递类别的讨论；
+  一般选择通道概念不新，不能换成视频名称就宣称新理论。
+- 完成[候选设计：自然长视频选帧时间表的信息通道](./research-proposals/selection-coordinate-channel-2026-10-24.md)：
+  固定既有问题/五选项/灰色视觉tensor，让每题收到同视频六道题各自产生的时间表，
+  全交叉比较自己的表和全部错配表。四登记自然源×六题×六表=144格，
+  Uniform-clock/纯文字各24格，≤192逻辑槽；按实际全输入等价类去重调用并保留逻辑权重。
+  六块原生timecodes须实测，不把12选择indices当12个模型可见时间码。
+- 固定主要描述量为每题“自己的表正确性−其余五表平均正确性”，按源等权汇总；
+  答案flip本身不够，必须有可评分正确性差异。
+  选择器观察源视频获得合法压缩信息不等于gold泄漏或作弊；
+  所有候选帧/选择成本仍需计入完整系统。
+  去画面是反事实/分布外干预，不能据此唯一分解真实画面收益的中介比例。
+- 本候选有明确失败/停止解释和简单强对照，但只是**CANDIDATE_MEASUREMENT_DESIGN**，
+  不是创新通过或自然长视频视觉能力成绩。旧开发来源已经暴露，
+  不能假装独立holdout，登记源也不自动等于独立物理录制。
+  不按旧成绩/本轮输出挑题，不拿少数题/重复clock格报显著性。
+- 本轮读取013/017公开真实探索收据与036 reference收据、当前public worker：
+  自然来源与实际选帧曾存在，公开聚合值却不足以重建逐题时间表；
+  当前原标注路径在036时未定位，不能直接继承旧hash/许可为现存入口。
+  public worker还调用私人factory，不能用其接口签名假定历史真实timecodes已核。
+  新草案优先只用旧冻结nongold题/选项/选择表，不需要开视频/旧RGB、解码或再跑SigLIP；
+  不重跑旧已STARTED的真实画面问答。
+- 当前直接近邻Frames Don't Add Up（ICLR2027投稿入口）forum/PDF均遇验证页，
+  未取得正文；BPO原始页面读取失败，也未完成方法审查。
+  这些是**未解决重合风险**，不能因抓取失败就宣称新颖，也不从标题推断完全重复。
+  需核必要方法后再判断此经验问题是否足以投入。
+- 更新科研设计状态为 **CANDIDATE_DESIGN_COMPLETE / NOVELTY_AND_INPUT_UNRESOLVED /
+  NOT_READY**。正式执行合同需先有近邻实质差异与本地确切nongold选择表、
+  当前末尾评分文件入口；不上传私人JSON/QA/gold，不重开036或全盘搜索。
+  当前拟192逻辑槽/GPU600s等只属方案上限，未获新私人读入/GPU权限，
+  也没有开始计费或许诺结果。**0 READY，040未立项**，不派占位任务。
+- 038–039图形时钟变体停止、旧C/D NO_GO_AS_CORE、
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、
+  历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
 
