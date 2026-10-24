@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；041已审结为 **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY**，见[负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。公开288序列/576查询独立复算一致：固定身份40次不兼容复用，完整源命名空间/有效输入身份/关闭缓存均0；已有源命名空间足以处理本轮案例，未形成新机制或真实工作流污染证据。**当前0 READY，042未立项；041关闭不可重跑**。资源快照与阶段计量限制保留，不写全合同独立认证。040结论、144格候选及路径交接PARKED、算法RETAIN0和既有科学/媒体/训练停止条件不变；页首及最新验收优先于历史任务状态。）
+> 更新：2026-10-24（北京时间；041已关闭为ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY，见[验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。本轮完成[真实输入链路公开筛查](./research-proposals/post-041-real-input-source-screen-2026-10-24.md)：Meta-Video已覆盖广义评测配方/后端差异；Qwen的索引与平均fps重建时间码限制有源码依据，但VeOmni已明确记录VFR/PTS边界，尚无本项目真实任务影响或独立技术增量。**当前0 READY，042未立项，041不可重跑；NOVELTY=RETAIN0**。040结论、144格候选及路径交接PARKED、既有科学/媒体/训练停止条件保持；页首和最新日志优先于历史任务状态。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前任务：唯一READY为041 CPU缓存输入资格包，尚未执行；NOVELTY_UNVERIFIED。** 040已关闭且无独立新机制的结论不变。负责人已完成视觉callback内容变化而静态缓存身份不变的有限真实组件复现；041接实际Qwen CPU边界与强对照，仍不宣称模型/完整CLI故障或创新成立。选帧通道候选及路径交接PARKED。下文早期状态和看板为历史记录，当前范围以页首/041合同为准。
+**2026-10-24当前状态：041已验收关闭；0 READY，042未立项；NOVELTY=RETAIN0。** 040强SQLite比较与041完整源命名空间对照均未形成独立新机制。最新公开源码筛查确认VFR时间表示限制已有明确先例，真实任务影响与技术增量仍待证明。选帧候选及路径交接PARKED；下文早期看板和带日期的READY叙述为历史，当前范围以页首及最新验收/筛查记录为准。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -54,7 +54,7 @@
 - 不可说：模型一定忽略了视觉、必需证据一定未被看到、所有主动视觉方法无效、或另一骨干上必然相同。
 - 尚缺：同版本原视频时间桥接、独立长视频外部验证、第二模型泛化、训练方法多种子验证及可信创新性审查。
 
-## 3. 历史机制路线（DECISION-007；当前任务见页首040）
+## 3. 历史机制路线（DECISION-007；当前状态见页首）
 
 **2026-10-09 用户最新选择B**：继续长视频VLM研究与高水平论文目标，但放弃以query-aware/uniform采帧比较、selector-only×prompt-only措辞敏感性为本次**核心算法贡献**。上述内容仍是历史测量草案，不再是当前READY执行命题。项目目前**retain 0**，没有新颖算法已成立或GPU实验已批准。
 
@@ -2389,3 +2389,22 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   不派占位包；144格候选/路径交接继续PARKED。
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D及038–039停止、TRAIN-GPU HOLD、
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 真实输入链路公开筛查：确认直接先例，暂不立042
+
+- 已核[公开论文与固定源码记录](./research-proposals/post-041-real-input-source-screen-2026-10-24.md)，只做负责人静态审查与数值说明；
+  未执行新Codex父任务、读取私人目录、运行processor/模型或创建实验run。
+- Meta-Video已有后端/输入形式差异及评测卡研究；ExtremeWhenBench已讨论原生视频路径与时间信号。
+  宽泛标准化、metadata转发或改video URL不足以直接构成本项目新贡献。
+- 固定Qwen工具与HF源码可见average_fps/frames_indices到原生时间码的路径；
+  v4.57.6公开processor源码17,149B/SHA256与041安装源码收据匹配，
+  不需要本轮访问私人安装目录。VeOmni官方文档已明确指出VFR精确时刻需保留PTS，
+  因而该认识本身有先例，不能包装新发现。
+- 12帧不均匀时刻的公式示意中，索引重建中点与PTS中点最大差4.05秒；
+  仅为数值反例，无容器/解码/真实任务/模型测量，不是自然发生率或答案错误证据。
+  041缓存身份一致性不能认证输入metadata与媒体时钟相符，也不因此恢复041。
+- **PUBLIC_SOURCE_SCREEN_COMPLETE / NO_NEW_TASK；当前0 READY，042未立项。**
+  尚缺真实合法工作流影响、现有保留PTS/规范化方案不足的证据及实际收益，
+  不下达重复合成或路径占位包；Frames Don’t Add Up全文未得的限制仍保留。
+  040/041裁决、144格候选/路径交接PARKED、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、
+  原C/D及038–039停止、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。

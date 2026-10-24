@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；041已审结为 **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY**，见[负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。公开288序列/576查询独立复算一致：固定身份40次不兼容复用，完整源命名空间/有效输入身份/关闭缓存均0；已有源命名空间足以处理本轮案例，未形成新机制或真实工作流污染证据。**当前0 READY，042未立项；041关闭不可重跑**。资源快照与阶段计量限制保留，不写全合同独立认证。040结论、144格候选及路径交接PARKED、算法RETAIN0和既有科学/媒体/训练停止条件不变；页首及最新验收优先于历史任务状态。）
+> 更新日期：2026-10-24（北京时间；041已关闭为ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY，见[验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)。本轮完成[真实输入链路公开筛查](./research-proposals/post-041-real-input-source-screen-2026-10-24.md)：Meta-Video已覆盖广义评测配方/后端差异；Qwen的索引与平均fps重建时间码限制有源码依据，但VeOmni已明确记录VFR/PTS边界，尚无本项目真实任务影响或独立技术增量。**当前0 READY，042未立项，041不可重跑；NOVELTY=RETAIN0**。040结论、144格候选及路径交接PARKED、既有科学/媒体/训练停止条件保持；页首和最新日志优先于历史任务状态。）
 
 ## 一、任务看板
 
@@ -2050,3 +2050,22 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   不派占位包；144格候选/路径交接继续PARKED。
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D及038–039停止、TRAIN-GPU HOLD、
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 真实输入链路公开筛查：确认直接先例，暂不立042
+
+- 已核[公开论文与固定源码记录](./research-proposals/post-041-real-input-source-screen-2026-10-24.md)，只做负责人静态审查与数值说明；
+  未执行新Codex父任务、读取私人目录、运行processor/模型或创建实验run。
+- Meta-Video已有后端/输入形式差异及评测卡研究；ExtremeWhenBench已讨论原生视频路径与时间信号。
+  宽泛标准化、metadata转发或改video URL不足以直接构成本项目新贡献。
+- 固定Qwen工具与HF源码可见average_fps/frames_indices到原生时间码的路径；
+  v4.57.6公开processor源码17,149B/SHA256与041安装源码收据匹配，
+  不需要本轮访问私人安装目录。VeOmni官方文档已明确指出VFR精确时刻需保留PTS，
+  因而该认识本身有先例，不能包装新发现。
+- 12帧不均匀时刻的公式示意中，索引重建中点与PTS中点最大差4.05秒；
+  仅为数值反例，无容器/解码/真实任务/模型测量，不是自然发生率或答案错误证据。
+  041缓存身份一致性不能认证输入metadata与媒体时钟相符，也不因此恢复041。
+- **PUBLIC_SOURCE_SCREEN_COMPLETE / NO_NEW_TASK；当前0 READY，042未立项。**
+  尚缺真实合法工作流影响、现有保留PTS/规范化方案不足的证据及实际收益，
+  不下达重复合成或路径占位包；Frames Don’t Add Up全文未得的限制仍保留。
+  040/041裁决、144格候选/路径交接PARKED、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、
+  原C/D及038–039停止、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
