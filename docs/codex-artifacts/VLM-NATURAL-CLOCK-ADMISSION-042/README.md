@@ -1,8 +1,17 @@
-# 042：EPIC原视频与自然时钟资格核验（待授权合同）
+# 042：EPIC原视频与自然时钟资格核验（已授权执行合同）
 
-2026-10-24（北京时间）。**BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY。**
-本合同已写成可审查的一次整包；“一直继续”用于继续负责人准备工作，不冒充媒体下载、解码或模型许可。
-任务ID：VLM-NATURAL-CLOCK-ADMISSION-042。未收到明确范围批准并由负责人改看板为唯一READY前，本地Codex不得领取或实施本文件。
+2026-10-24（北京时间）。**READY / USER_APPROVED_BOUNDED_MEDIA_CPU / NOT_RUN。**
+任务ID：VLM-NATURAL-CLOCK-ADMISSION-042。本文件及最新看板将本包设为唯一READY；本地Codex须安全同步main并确认该父任务尚无既报结果后，才执行一次整包。
+“准备就绪/READY”是授权状态，不是媒体已下载、时钟已通过或实验已完成。
+
+### 用户授权记录
+
+用户在本对话收到[已冻结的完整范围](https://github.com/floomeer83felix-source/vlm/tree/b328f291d8e472e60495f54ec5a66d20a3708b45/docs/codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042)和明确提问后，原话回复“好的”（2026-10-24，北京时间）。
+提问明确为：固定16个视频，实际下载累计最多32GiB，CPU核验最多2小时，不读取标注、不运行GPU，并询问是否批准。
+本次“好的”是对上述具体行动的肯定答复，负责人据此授权本文件既定范围；不要求用户重复输入指定批准口令。
+这不把此前笼统“继续”追认为下载许可，也不扩大到其他数据、模型、GPU、旧任务或后台续跑。
+每项单4GiB、请求次数、工具/监督前置、新根和其余硬上限均沿用该冻结合同，无新增额度。
+本包允许本地Codex在已授权边界内连续完成独立步骤，统一交付一次；无需逐文件再次确认。
 
 ## 1. 要取得的证据
 
@@ -16,8 +25,9 @@
 ## 2. 冻结候选与依据
 
 同目录[manifest.json](./manifest.json)是唯一媒体allowlist，UTF-8/LF文件SHA256：
-`4ce946c30f112299daa95e57e7df03536d7cfcfe5e58112ec04891f49fc1430d`。
-其中actual_bytes/actual_sha256为空，PTS=NOT_READ、bridge=UNKNOWN、admission=PROPOSED_NOT_AUTHORIZED；均不是实测资产。
+`24d2177a27a376da48bd6a3c9e7dfa12bf2396066d690056d3e743847d4b760c`。
+其中actual_bytes/actual_sha256为空，PTS=NOT_READ、bridge=UNKNOWN、admission=AUTHORIZED_NOT_RUN；均不是实测资产。
+相较待授权版manifest，仅16项admission_status改为AUTHORIZED_NOT_RUN；URL、校验值、候选/顺序、科学与资源范围完全不变。
 
 候选仅用三份公开nongold元数据生成：
 - EPIC100 annotations提交ea8b40457a400c3fffa1c7f406ef3dc169cc2522的video_info，blob be226d778c0c80dd68cddc041fac9f6761949cd2。
@@ -53,9 +63,9 @@
 
 MD5只核与出版者清单一致，不能作安全哈希/许可/时钟证明；成功后另算实际SHA256。
 来源许可及资源声明沿用[入口核查](../../research-proposals/natural-clock-source-entry-screen-2026-10-24.md)，不混用注释、代码和媒体许可证。
-本包仅拟非商业研究用途；发布服务有新条款/登录门/权利限制即停，不替用户接受条款或换镜像。
+本包仅用于非商业研究；发布服务有新条款/登录门/权利限制即停，不替用户接受条款或换镜像。
 
-## 3. 拟授权资源（全是硬上限，尚未授予）
+## 3. 已授权资源（均为硬上限，不要求耗完）
 
 | 项目 | 上限与口径 |
 |---|---|
@@ -125,9 +135,9 @@ F. 统一报告每个候选状态、实际字节/SHA/校验、是否完整时钟
 EPIC55的帧索引说明针对其规定抽帧方法；不得据此直接映射原始解码帧。
 后续时钟桥接仍需固定版本、原点/编辑规则或可核映射；缺失时不臆定恒等桥接。
 
-## 6. 本地Codex未来准许交付与结束
+## 6. 本地Codex准许交付与结束
 
-当前尚未执行；下面是批准后同一包的准许变更，不能提前跑：
+当前尚未执行；确认唯一READY、该父任务无既报结果并满足前置后，准许以下同一包变更：
 - 可新增prototypes/epic_clock_admission_042.py及prototypes/test_epic_clock_admission_042.py；
   tests只覆盖有实际风险的硬预算/一次发送/非重试、帧时钟算术、B帧显示顺序和不确定条件拒绝，不重开toy科研任务。
 - 新增本目录clock-admission-receipt.md、candidate-clock-summary.csv；只追加docs/codex-results.md末尾一条042父结果。
@@ -136,13 +146,13 @@ EPIC55的帧索引说明针对其规定抽帧方法；不得据此直接映射�
   不启动P适配、模型、扩样、第二下载或后台监控。
 - 一旦产生completed/partial/blocked父回报，042即已消费，不能把未用额度迁移重跑。
 
-批准语句应明确“同意042：最多16个清单原视频、媒体累计32GiB/单项4GiB、既有CPU工具核时钟，GPU和标签0”。
-用户的原话与范围由负责人记入授权记录，再把本文件及看板同步为唯一READY。
-本合同不会唤醒另一聊天中的本地Codex；执行仍需用户在那里发一次启动指令。
+授权记录已见页首；不需再次批准同一范围。本合同不会唤醒另一聊天中的本地Codex；用户在当前本地Codex聊天发送一次启动指令即可：
+“安全同步文档仓库main，重读AGENTS.md、docs/next-steps.md、docs/codex-results.md及042 README，执行唯一尚未交付的READY父任务VLM-NATURAL-CLOCK-ADMISSION-042。
+已批准清单内16个原视频累计最多32GiB、单项最多4GiB和既有CPU工具核时钟最多2小时；严格按README连续完成允许的独立步骤，统一脱敏推送后停止，标签和GPU均0。”
 
 ## 7. 负责人本轮完成与边界
 
 负责人已从公开nongold清单独立生成/验证16项：ID/URL/参与者唯一、均55代validation、时长合格、每项唯一MD5匹配；
 未向这些MP4发HEAD/GET，未读视频或动作CSV，未测试本机工具、PTS/时钟桥接、processor或GPU。
-本包建立为待明确下载/CPU许可的042提案，不是READY，也不是实验结果。
+本包已依据本次肯定答复转唯一READY，等待本地Codex启动；本轮负责人仅更新授权与交接文档，未代替执行、未下载媒体，也未写执行结果。
 040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN和既有媒体/训练停止结论不变。

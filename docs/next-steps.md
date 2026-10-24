@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；负责人已冻结[042素材获取与CPU时钟资格合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及[16项逐文件清单](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)：从66条符合条件的55代validation元数据按seed19与参与者去重选出，URL/出版者MD5已匹配。**ACQUISITION_SCOPE_COMPLETE / BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / 当前0 READY**。拟媒体累计≤32GiB/单项≤4GiB、仅既有CPU工具；未下载/解码/读动作CSV，模型/GPU0。EPIC重复动作实例的题目语义与标注时钟桥接仍HOLD；不据此启动64格实验。040/041及既有科学/媒体/训练停止结论保持。）
+> 更新日期：2026-10-24（北京时间；用户对[042完整范围](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)的明确批准提问回复“好的”，已登记授权。**唯一READY：VLM-NATURAL-CLOCK-ADMISSION-042 / USER_APPROVED_BOUNDED_MEDIA_CPU / 尚未执行**。限[固定16项](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/manifest.json)原视频累计≤32GiB、单项≤4GiB、既有CPU工具核时钟≤2小时；工具/监督前置须在媒体HTTP之前通过，统一脱敏交付后停止。动作CSV/标签、processor/模型、GPU、环境安装均0。EPIC题目实例语义与标注时钟桥接仍HOLD，不据此启动64格实验；040/041及既有停止结论不变。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY（拟定，不领取）** | ChatGPT冻结范围；本地Codex待许可 | [一次整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)与16项manifest，最多32GiB原片、既有CPU显示时钟扫描；动作CSV/模型/GPU0 | 候选/预算/工具与监督前置已写明；本轮仅公开元数据选单，媒体实际时钟未读。须明确批准下载及CPU范围才改唯一READY；SOURCE_CLOCK通过也不等于标签/题目/processor准入 |
+| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **READY / USER_APPROVED_BOUNDED_MEDIA_CPU（唯一，尚未执行）** | 本地Codex执行；ChatGPT验收 | [已授权整包合同](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)及16项manifest，媒体累计≤32GiB/单项≤4GiB、既有CPU核验≤2小时；动作CSV/模型/GPU0 | 用户2026-10-24对具体范围回复“好的”；前置工具/监督失败则媒体HTTP0，否则按固定清单连续完成独立步骤，统一回报后STOP。SOURCE_CLOCK通过不等于标签/题目/processor准入 |
 | VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；当前0 READY，不自动042/GPU/Issue/投稿 |
 | VLM-ENGINEERING-EVIDENCE-040 | P0 | **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)：540格公开CPU比较；F与B1各0违规/0重复、正常30/30及可完成故障30/30 | [负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)：独立复算一致，B1匹敌F且无稳定成本收益；停止框架创新包装；后续041仅具体缓存输入资格，不恢复040 |
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
@@ -104,7 +104,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；042待明确下载/CPU许可，当前0 READY |
+| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；当前唯一READY为042新源原片/CPU整包，本选帧候选仍PARKED |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -2133,3 +2133,17 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   时钟6+2通过最多支持SOURCE_CLOCK_FEASIBLE，标签/题目/实际输入门仍HOLD；不自动GPU、P适配或扩样。
   修正当前PARKED行遗留“唯一READY为041”的过时措辞；历史执行日志保留。040/041关闭、NOVELTY=RETAIN0、
   NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、Charades FINAL_MEDIA_STOP及既有停止结论不变。
+
+### 2026-10-24 · 用户批准042下载与CPU范围，已转唯一READY
+
+- 用户收到固定16视频、累计≤32GiB下载及≤2小时CPU核验、标签/GPU0的具体范围和“是否批准”提问后，原话回复“好的”。
+  该肯定答复已构成此范围许可，不再要求重复批准口令；不追认早前笼统继续为媒体许可。
+- [042 README](./codex-artifacts/VLM-NATURAL-CLOCK-ADMISSION-042/README.md)与看板同步为**唯一READY / USER_APPROVED_BOUNDED_MEDIA_CPU**；
+  现main中该父任务无completed/partial/blocked执行结果。16项manifest只将admission_status由PROPOSED_NOT_AUTHORIZED改为AUTHORIZED_NOT_RUN，
+  候选ID、排序、URL、出版者MD5及科学/资源边界不变；新manifest SHA256为24d2177a27a376da48bd6a3c9e7dfa12bf2396066d690056d3e743847d4b760c。
+- 本地Codex在一次用户启动消息后按合同连续做允许的独立步骤，统一脱敏交付/安全push后停止；
+  工具、监督或新根前置失败则媒体HEAD/GET0；不安装、不扩大名单、不重试/续传、不继承旧额度。
+  原片累计≤32GiB、单项≤4GiB，CPU核验≤7200秒；其余HTTP/进程树/新根/父wall上限沿用合同。
+- 负责人本轮仅登记授权和交接，未访问用户Windows机器、发送媒体HTTP、解码或生成执行结果；docs/codex-results.md保持不动。
+  READY不是时钟通过或数据已取得；EPIC题目实例语义、标签时钟桥接及实际processor输入仍HOLD。
+  标签/模型/GPU均0，040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。
