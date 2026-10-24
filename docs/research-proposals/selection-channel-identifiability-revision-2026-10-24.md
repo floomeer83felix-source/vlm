@@ -1,5 +1,7 @@
 # 选帧信息通道候选修订：固定问题、跨视频计算选择
 
+> **2026-10-24后续处置：PARKED / NOT_READY。** 用户决定先推进[工程比较040](../codex-artifacts/VLM-ENGINEERING-EVIDENCE-040/README.md)。本候选及文末元数据交接消息暂缓，不由040索要/读取旧标注、nongold、特征/RGB或私人路径。以下保留为当时的未执行设计；当前唯一READY及许可见最新next-steps，不继承本候选的拟议模型范围。
+
 2026-10-24（北京时间）。ChatGPT研究负责人。
 **IDENTIFIABILITY_REPAIRED / MEASUREMENT_CANDIDATE_ONLY / INPUT_INTAKE_REQUIRED / NOT_READY。**
 上一版[192槽设计](./selection-coordinate-channel-2026-10-24.md)被本修订替代，未执行。

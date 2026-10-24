@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；继续审查发现前一版192槽方案的识别缺口：selector可完全忽略视频，只编码问题，也得到正的对角优势；纯文字baseline不能排除这种辅助编码。已取消旧设计并完成[同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)：固定q_i，分别计算S(q_i,X_v)，统一候选槽坐标/灰色视觉输入；24题×4源96格＋Uniform/Q各24，≤144逻辑格。若选择器忽略源，同题输入合并后新差严格0；正差仍不等于事件定位或神经机制。新版需要跨源特征/RGB和nongold清单，旧self-only时间表不足。BPO主文必要view定义已读，Frames Don't Add Up正文仍被验证页阻挡；已写仅元数据的本地输入交接消息。**IDENTIFIABILITY_REPAIRED / INPUT_INTAKE_REQUIRED / NOVELTY_UNRESOLVED；当前0 READY，040未立项，新版未执行**。完整私人路径/JSON/QA/gold/帧不上传；不重开036或旧问答，不以缺路径提交新的HOLD微批次。NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、原C/D NO_GO_AS_CORE、038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/看板及最新修订优先于历史设计/READY表述。）
-> 研究目标：形成经严格实验、创新性审查和跨来源/模型复核支持的长视频视觉推理研究，目标投稿层次参考《计算机学报》，不保证录用。
+> 更新：2026-10-24（北京时间；用户同意优先推进工程/系统论文。已冻结[040工程比较协议](./research-protocols/engineering-runner-comparison-2026-10-24.md)，下达唯一[VLM-ENGINEERING-EVIDENCE-040 A–H任务包](./codex-artifacts/VLM-ENGINEERING-EVIDENCE-040/README.md)：B0普通监督、B1强SQLite、F及三消融，9家族×10重复×6配置=540个CPU对照格，另做干净目录复现。**READY / NOT_EXECUTED / ENGINEERING_NOVELTY_UNVERIFIED**，须用户在本地Codex发送完整启动消息。144格选帧通道候选及其元数据交接PARKED，不在040索要旧路径/读私人正文；旧192槽仍取消。新任务只用公开生成CPU负载，不是新VLM推理或论文创新已成立。算法NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、原C/D与038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/当前040合同优先于历史状态。）
+> 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
 
@@ -21,6 +21,8 @@
 ## 1. 目前研究状态
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
+
+**2026-10-24当前推进：唯一READY为工程证据040，尚未执行；工程新颖性UNVERIFIED。** 先用公开CPU实际子进程负载检验基线/消融/成本和独立工具复现，再决定是否值得进入真实推理系统比较。选帧信息通道候选PARKED，用户无需为040寻找旧路径。下文早期状态和看板为历史记录，当前范围以页首及040合同为准。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -52,7 +54,7 @@
 - 不可说：模型一定忽略了视觉、必需证据一定未被看到、所有主动视觉方法无效、或另一骨干上必然相同。
 - 尚缺：同版本原视频时间桥接、独立长视频外部验证、第二模型泛化、训练方法多种子验证及可信创新性审查。
 
-## 3. 最新科学问题（原DECISION-007已选择B：重新寻找核心计算机制）
+## 3. 历史机制路线（DECISION-007；当前任务见页首040）
 
 **2026-10-09 用户最新选择B**：继续长视频VLM研究与高水平论文目标，但放弃以query-aware/uniform采帧比较、selector-only×prompt-only措辞敏感性为本次**核心算法贡献**。上述内容仍是历史测量草案，不再是当前READY执行命题。项目目前**retain 0**，没有新颖算法已成立或GPU实验已批准。
 
@@ -68,7 +70,7 @@
 
 **最新验收决定**：[BATCH-007十项交付](./codex-artifacts/VLM-BATCH-007/downselect-and-stop-decision.md)已按[d82e30e](https://github.com/floomeer83felix-source/vlm/commit/d82e30e43ec31fb8600b0a61d62021017a6d59aa)完成并通过文档/静态代码验收，但**三个当前形式候选均被同输入的经典强基线模拟而不保留（retain0）**：M1=三值/开放世界监控，M2=依赖缓存，M3=version-space判别线索；这是具体算子的NO-GO，不是全领域不可能创新。真实证据标签、视频许可、PTS/来源、视觉感知可信性和费用门均未通过，GPU/HOLD。当前**没有READY**，进入VLM-RESEARCH-GATE-008等用户提供实质新问题或证据资源，不自动安排BATCH-008。
 
-## 4. 当前执行看板（2026-10-09）
+## 4. 历史执行看板（始于2026-10-09；当前范围见页首及next-steps）
 
 | 项目 | 状态 | 负责方 |
 |---|---|---|
@@ -2258,3 +2260,39 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   原C/D及038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
   Charades FINAL_MEDIA_STOP保持。
 
+
+
+### 2026-10-24 · 用户选择工程论文推进；下达唯一040比较与复现包
+
+- 用户询问工程稿与核心期刊可行性后同意继续。当前目标优先验证工程/系统贡献：
+  候选主题“资源受限环境下视觉语言模型实验的可审计执行与输入一致性验证”。
+  现有执行史与工具代码是基础，不是新颖性、优势或核心期刊录用的证据。
+- 研究负责人已读MLflow Tracking/System Metrics、Ray Tune FailureConfig、
+  lmms-eval命令文档、SQLite事务/原子提交、Python subprocess与Windows Job官方说明，
+  冻结[工程证据协议](./research-protocols/engineering-runner-comparison-2026-10-24.md)。
+  记录/缓存/恢复/事务/进程监督都有先例；不把普通组件重命名为新机制。
+  前三项只做官方文档能力对照，不将自实现配置冒充这些工具的实测。
+- 唯一 **READY / NOT_EXECUTED**：
+  [VLM-ENGINEERING-EVIDENCE-040 A–H](./codex-artifacts/VLM-ENGINEERING-EVIDENCE-040/README.md)。
+  一包完成新public stdlib runner/benchmark/关键验证、合理B0、
+  具有同等保护目标的强SQLite B1、F与三单组件消融；
+  9家族×10重复×6配置=540个正式格，实际工作子进程/独立调度进程/受控后代，
+  输入变化、重复、工作后异常退出、收据错配、早评分及后代仍活。
+- 将正常任务合法完成率、准入违反、实际重复工作、崩溃不确定性和开销分开报告，
+  独立oracle不能调用F validator代替判断；未送达/未知/失败/NOT_RUN保留完整分母。
+  Windows Job只作共同安全外包络，不能把它替B0清理后代算为B0的保护能力。
+  新空目录只复制3个新模块复现，不导入030/038/039或任何私人helper。
+- F与B1可能完全等价，结果应允许 **NO_DISTINCT_MECHANISM_EVIDENCE**；
+  F胜普通B0只证明已知机制在受控案例的用途，不是事务或exactly-once创新。
+  CPU哈希负载不估计Qwen推理性能；已有018/039真实执行成本仅作历史可行性材料，
+  不和本轮配对试验混算。工程新颖性保持 **UNVERIFIED**。
+- 范围是全新CPU程序，父5400s/受监督wall1500s，正式benchmark900s，
+  新临时输出≤128MiB/10000文件，首输出前配额外≥2GiB余量；
+  只清理本轮归属可证工作组，实际退出核查。GPU/模型/真实QA/gold/旧媒体/
+  私人交接根/安装/实验网络均0；一次七处allowlist交付、普通安全push后STOP。
+  用户发送README完整消息才激活，不由GitHub编辑唤醒，也不自动041。
+- 144格同题跨源选帧信息通道候选及其元数据交接改为 **PARKED / NOT_READY**，
+  不在040继续索要缺失路径/PDF或新开HOLD占位包；科学设计保留供以后另议。
+  旧192槽SUPERSEDED、038–039合成变体停止、原C/D NO_GO_AS_CORE不变。
+  **算法NOVELTY=RETAIN0；NATURAL_VIDEO_EFFECT_UNKNOWN；TRAIN-GPU HOLD；
+  历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
