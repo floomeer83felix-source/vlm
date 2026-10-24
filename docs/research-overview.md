@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
+> 更新：2026-10-24（北京时间；已制定[043下载截止与持久记账修复整包](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)。**唯一READY：VLM-FETCH-DEADLINE-ACCOUNTING-043 / CPU_OFFLINE_REPAIR_ONLY / 尚未执行**。只修公开代码，以12个固定本地故障case验证独立截止、退出后元数据/字节责任回放，统一给出下一获取交接；应用网络/媒体/标签/模型/GPU均0，不重跑042、不续传、不迁移旧额度。042已关闭且资源合同未全部满足；真实时钟/任务效果UNKNOWN，NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。**
+**2026-10-24当前状态：唯一READY为043无网络CPU修复，尚未执行。** 042首次获取超时且元数据持久化不足，完整媒体/时钟均0/16；043只处理这些执行缺口，不宣称科研进展或恢复042。新媒体获取仍需单独具体范围；标签/模型/GPU继续HOLD，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2492,3 +2492,17 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
 
 核3630e87回执及代码：HEAD1/GET1均200；超时后自有Job active0，其余15项NOT_RUN。13项测试为执行者报告，未独立复跑Windows。deadline只在阻塞read之间检查，收取状态未及时持久化，故ACCEPTED_BOUNDED_FAILURE_REPORT / RESOURCE_CONTRACT_NOT_FULLY_MET。0/16未测不是VFR不存在或模型阴性。后续先设计无网络截止/持久记账修复，不创建占位READY、不迁移下载余量。NOVELTY=RETAIN0及既有停止结论保持。
+
+### 2026-10-24 · 下达043无网络CPU修复整包，唯一READY
+
+- 用户要求“一直继续下去，直到给出新的codex任务指令”，负责人已完成[043合同](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)并设为唯一READY；不再停在“下一步修复”的口头建议。
+- 冻结042公开代码/回执作为依据：声明长度/ETag只留内存，worker finally不足以抗强杀；截止依赖阻塞读之间检查及监督轮询。
+  未确定913.25秒延迟的逐段因果，不把单次read timeout当整个请求期限。
+- 043一次包覆盖最小新模块、独立监督与写前持久状态、12个固定本地故障case/退出后回放及具体下一获取交接。
+  显式分工作截止/清理余量，记录真实active0而非kill调用时刻；应用已持久块、保守责任与网络缓冲未知分开。
+- 仅标准库CPU，应用socket/HTTP、真实媒体/旧私有日志/标签/模型/GPU0。新根32MiB/512文件、单组512MiB；
+  受监督执行累计≤600秒、父≤1800秒；初轮一次，只有定位实现错误才允许一次有理由修复回归，旧任务与预算均不重开。
+- 交付限定两个新Python、统一回执、固定case CSV及results末尾一条；本轮负责人只写合同/看板/总览，未运行本地代码或追加执行事实。
+  PASS最多支持OFFLINE_DEADLINE_ACCOUNTING_REPAIR_PASS / REAL_FETCH_UNTESTED，不能证明慢网下载、自然时钟或VLM收益。
+  042已消费，旧11MiB及不完整GET≤4GiB责任保留，不自动续传/新HEAD/GET/扩大下载或044。
+  040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、标签/模型/GPU及其余旧停止结论保持。

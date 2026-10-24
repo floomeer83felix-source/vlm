@@ -4,14 +4,15 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
+> 更新日期：2026-10-24（北京时间；已制定[043下载截止与持久记账修复整包](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)。**唯一READY：VLM-FETCH-DEADLINE-ACCOUNTING-043 / CPU_OFFLINE_REPAIR_ONLY / 尚未执行**。只修公开代码，以12个固定本地故障case验证独立截止、退出后元数据/字节责任回放，统一给出下一获取交接；应用网络/媒体/标签/模型/GPU均0，不重跑042、不续传、不迁移旧额度。042已关闭且资源合同未全部满足；真实时钟/任务效果UNKNOWN，NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；0 READY，不续传或自动新下载/GPU |
-| VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；当前0 READY，不自动042/GPU/Issue/投稿 |
+| VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **READY / CPU_OFFLINE_REPAIR_ONLY（唯一，尚未执行）** | 本地Codex执行；ChatGPT验收 | [一次修复整包](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)：独立截止、HEAD/GET写前持久记账、固定12个本地故障case及独立回放、下一获取交接 | 新标准库代码与实际Windows进程证据，应用网络/媒体/标签/模型/GPU0；统一回报后STOP，不继承042下载额度，不自动044 |
+| VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；本父已消费，不续传或自动新下载/GPU；当前任务见页首 |
+| VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；041结案时0 READY，不自动恢复本任务/GPU/Issue/投稿 |
 | VLM-ENGINEERING-EVIDENCE-040 | P0 | **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)：540格公开CPU比较；F与B1各0违规/0重复、正常30/30及可完成故障30/30 | [负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)：独立复算一致，B1匹敌F且无稳定成本收益；停止框架创新包装；后续041仅具体缓存输入资格，不恢复040 |
 | VLM-001 | P0 | **ACCEPTED（2026-10-08）** | Codex | Windows 本地实验工作区**只读状态盘点** | [回报](./codex-results.md)与[审计附件](./codex-artifacts/VLM-001/workspace-audit.md)已提交；仅文档交付验收通过，非GPU运行放行 |
 | VLM-002 | P1 | **ACCEPTED（G1 HOLD）** | Codex | 公开证据数据集许可、schema、版本与时间桥接元数据核查 | [结果报告](./codex-artifacts/VLM-002/dataset-metadata-review.md)已审查，3候选均未满足G1；不可据此运行新实验 |
@@ -104,7 +105,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；当前唯一READY为042新源原片/CPU整包，本选帧候选仍PARKED |
+| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；当前唯一READY为043无网络CPU修复，本选帧候选仍PARKED |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -2154,3 +2155,17 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 2026-10-24：042已关闭，当前0 READY。完整媒体0/16、时钟认证0/16；首下载913.25秒超时，已落盘11534336B（11MiB）。接受失败回执，不认证资源合同全部通过：900秒截止超出，HEAD长度/ETag未持久化，实际接收正文精确值UNKNOWN、该GET保守上界4GiB。禁止042重跑/自动续传；标签/模型/GPU0，科研效应UNKNOWN。
 
 核3630e87回执及代码：HEAD1/GET1均200；超时后自有Job active0，其余15项NOT_RUN。13项测试为执行者报告，未独立复跑Windows。deadline只在阻塞read之间检查，收取状态未及时持久化，故ACCEPTED_BOUNDED_FAILURE_REPORT / RESOURCE_CONTRACT_NOT_FULLY_MET。0/16未测不是VFR不存在或模型阴性。后续先设计无网络截止/持久记账修复，不创建占位READY、不迁移下载余量。NOVELTY=RETAIN0及既有停止结论保持。
+
+### 2026-10-24 · 下达043无网络CPU修复整包，唯一READY
+
+- 用户要求“一直继续下去，直到给出新的codex任务指令”，负责人已完成[043合同](./codex-artifacts/VLM-FETCH-DEADLINE-ACCOUNTING-043/README.md)并设为唯一READY；不再停在“下一步修复”的口头建议。
+- 冻结042公开代码/回执作为依据：声明长度/ETag只留内存，worker finally不足以抗强杀；截止依赖阻塞读之间检查及监督轮询。
+  未确定913.25秒延迟的逐段因果，不把单次read timeout当整个请求期限。
+- 043一次包覆盖最小新模块、独立监督与写前持久状态、12个固定本地故障case/退出后回放及具体下一获取交接。
+  显式分工作截止/清理余量，记录真实active0而非kill调用时刻；应用已持久块、保守责任与网络缓冲未知分开。
+- 仅标准库CPU，应用socket/HTTP、真实媒体/旧私有日志/标签/模型/GPU0。新根32MiB/512文件、单组512MiB；
+  受监督执行累计≤600秒、父≤1800秒；初轮一次，只有定位实现错误才允许一次有理由修复回归，旧任务与预算均不重开。
+- 交付限定两个新Python、统一回执、固定case CSV及results末尾一条；本轮负责人只写合同/看板/总览，未运行本地代码或追加执行事实。
+  PASS最多支持OFFLINE_DEADLINE_ACCOUNTING_REPAIR_PASS / REAL_FETCH_UNTESTED，不能证明慢网下载、自然时钟或VLM收益。
+  042已消费，旧11MiB及不完整GET≤4GiB责任保留，不自动续传/新HEAD/GET/扩大下载或044。
+  040/041关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、标签/模型/GPU及其余旧停止结论保持。
