@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-24（北京时间；负责人已完成[一页贡献定义](./research-proposals/natural-video-clock-contribution-brief-2026-10-24.md)与[最小真实对照设计](./research-protocols/natural-video-clock-feasibility-design-2026-10-24.md)：拟8独立原录制×2既有问题×B0/P/N/T=64逻辑格，分别比较同画面PTS诊断与现有均匀时间重采样，并保留文字/时长对照。**DESIGN_COMPLETE / DATA_AND_API_ENTRY_UNRESOLVED / NOT_READY；当前0 READY，042未立项**。素材/现有标注时钟桥接、可用解码与PTS适配尚未核齐，不授权媒体/模型/GPU或旧run恢复。040/041裁决、算法NOVELTY=RETAIN0、144格候选/路径交接PARKED及既有科学/媒体/训练停止条件保持；页首和最新设计优先于历史任务状态。）
+> 更新日期：2026-10-24（北京时间；已完成[素材与接口入口筛查](./research-proposals/natural-clock-source-entry-screen-2026-10-24.md)，EPIC官方自然VFR说明、单视频获取路径与区间schema已定位，列为优先入口候选；700行nongold元数据中333行仅符合时长条件，未认证PTS、独立性或时钟桥接。HoloAssist/TimeLens2有真实资产入口，但本轮未取得可用小样本。**PUBLIC_ENTRY_SCREEN_COMPLETE / EXACT_ASSET_REQUIRED / NOT_READY；当前0 READY，042未立项**。64格设计的180–900秒范围不改；需明确现有素材引用或新的有界获取范围后才写一次CPU资格合同，不继续下发同类综述/搜路径微包。媒体/解码/模型/GPU均未放行；040/041和既有科学/媒体/训练停止结论保持。）
 
 ## 一、任务看板
 
@@ -2091,3 +2091,26 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   040/041、原C/D与038–039停止、144格候选/路径交接PARKED、NOVELTY=RETAIN0、
   NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、
   Charades FINAL_MEDIA_STOP保持。
+
+### 2026-10-24 · 素材与接口入口核查完成；EPIC列优先候选，等待确切资产
+
+- 研究负责人完成[素材与接口入口筛查](./research-proposals/natural-clock-source-entry-screen-2026-10-24.md)；EPIC官方README明确低光自动降帧率，
+  原视频下载定位、已有动作区间schema及nongold视频/split/校验元数据可查。
+  这些是来源入口证据，不是6个高偏移源、时钟桥接或新颖性通过。
+- 独立核700行nongold视频表：ID唯一、数值有效，333条符合180–900秒，涉及36个匿名参与者ID。
+  表中没有逐帧PTS/显示时长/time_base/媒体字节身份；不将平均fps或参与者数冒充CFR/VFR或独立录制认证。
+  未读动作标签CSV、QA/gold、原视频或帧。
+- EILeV点名的P29_05/P30_08分别1821.736567/1122.14秒，超出本设计范围；
+  不改时长阈值、裁剪或直接充作阳性。64格设计和源级分母保持。
+- HoloAssist说明列出VideoMp4Timing.txt及原/压缩视频，实际下载入口为大型归档；
+  三个归档链接返回unsupported content-type，没有取得可用正文，不声称HTTP请求0或已检查归档。
+  TimeLens2真实视频分18片，多数约106–107GB，末片约888MB，未核到目标小样本成员/PTS索引。
+  均未取得媒体/旁表/标签内容，不能把公开列出资产写成已准入。
+- P的公开时间计算入口及原生调用点已识别，实际CPU分派、时码、BF16视觉相等仍未测试；
+  不能以静态签名代替真实输入门。
+- **PUBLIC_ENTRY_SCREEN_COMPLETE / EXACT_ASSET_REQUIRED / NOT_READY；0 READY，042未立项。**
+  下一动作应由明确现有素材引用或新的有界获取范围驱动，再形成一次CPU资格整包；
+  没有实物入口就暂停该候选的入口推进，不续搜路径/扩大综述/整理文件微包。
+  该停止是输入条件未满足，不是实验阴性；不创Codex父结果、代码/tests、实验根、GPU或安装任务。
+  040/041、原C/D及038–039停止、144格选帧候选/路径交接PARKED、NOVELTY=RETAIN0、
+  NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
