@@ -2,7 +2,8 @@
 
 - 冻结日期：2026-10-24（北京时间）。
 - 父任务：[VLM-ENGINEERING-EVIDENCE-040](../codex-artifacts/VLM-ENGINEERING-EVIDENCE-040/README.md)。
-- 状态：**PROTOCOL_FROZEN / NOT_EXECUTED / ENGINEERING_NOVELTY_UNVERIFIED**。
+- 冻结时状态：**PROTOCOL_FROZEN / NOT_EXECUTED / ENGINEERING_NOVELTY_UNVERIFIED**。
+- 执行后处置（2026-10-24）：**040 CLOSED / NO_DISTINCT_MECHANISM_EVIDENCE**，见[负责人验收](../research-decisions/post-040-engineering-disposition-2026-10-24.md)。以下第1–7节保留冻结定义与判据，不据结果改写；不可据本历史协议重跑040。
 - 本协议由研究负责人维护；执行者不得按观测结果修改任务、对照、分母或判据。
 
 ## 1. 本轮要回答的论文问题

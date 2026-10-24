@@ -1,10 +1,10 @@
 # VLM-ENGINEERING-EVIDENCE-040 — 工程论文的比较、消融与独立复现
 
 - 日期：2026-10-24（北京时间）。
-- 状态：**READY / PUBLIC_CPU_ENGINEERING_BUNDLE / NOT_EXECUTED**。
+- 当前状态：**ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE / CLOSED**。
 - 权威协议：[engineering-runner-comparison-2026-10-24.md](../../research-protocols/engineering-runner-comparison-2026-10-24.md)。
-- 执行者：用户当前本地Codex。研究负责人下达协议，不把拟定任务当成本机已执行。
-- 启动条件：最新main仅本父包READY、results没有本ID交付，且用户发送第6节完整新消息。远端READY不自行唤醒或继承GPU权限。
+- 交付：[bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)。[负责人验收](../../research-decisions/post-040-engineering-disposition-2026-10-24.md)：完整公开数据独立复算一致；B1匹敌F，无独立新机制证据。
+- **已关闭，不可重跑；当前0 READY、041未立项。** 以下A–H/资源/启动消息保留为执行前合同历史，不再激活040；不继承未用额度或自动进行下一轮。
 
 ## 1. 目的与一次性工作范围
 
@@ -84,7 +84,7 @@ benchmark-rows.csv：
 
 不改本README、冻结协议、AGENTS、next-steps、overview、旧代码/tests/报告和历史记录。实现只用标准库，三个新模块足以运行；勿复制旧庞大项目或上传临时实验根。stage前查路径和内容，只一次安全push；若main已变按AGENTS处理，不force/reset/rebase/绕过冲突。交付STOP，不自行041、真实QA/GPU或论文投稿。
 
-## 6. 用户完整启动消息
+## 6. 历史完整启动消息（已执行结案，不再发送或执行）
 
 以下作为一条新消息发送当前本地Codex；若旧聊天已满，可开新聊天按GitHub-first交接。此消息激活整个A–H包，不需逐项再问。
 

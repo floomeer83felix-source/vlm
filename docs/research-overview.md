@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；用户同意优先推进工程/系统论文。已冻结[040工程比较协议](./research-protocols/engineering-runner-comparison-2026-10-24.md)，下达唯一[VLM-ENGINEERING-EVIDENCE-040 A–H任务包](./codex-artifacts/VLM-ENGINEERING-EVIDENCE-040/README.md)：B0普通监督、B1强SQLite、F及三消融，9家族×10重复×6配置=540个CPU对照格，另做干净目录复现。**READY / NOT_EXECUTED / ENGINEERING_NOVELTY_UNVERIFIED**，须用户在本地Codex发送完整启动消息。144格选帧通道候选及其元数据交接PARKED，不在040索要旧路径/读私人正文；旧192槽仍取消。新任务只用公开生成CPU负载，不是新VLM推理或论文创新已成立。算法NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、TRAIN-GPU HOLD、原C/D与038–039停止、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；页首/当前040合同优先于历史状态。）
+> 更新：2026-10-24（北京时间；已审查040交付[bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)，读取全部实现/报告/540行数据，独立重建队列及输入/收据/汇总。**ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE；040关闭，当前0 READY，041未立项**。F与强SQLite B1各90格0违规、正常30/30及可完成故障30/30；F未显示稳定成本优势，遵守事前条件停止堆框架包装创新。详见[负责人验收](./research-decisions/post-040-engineering-disposition-2026-10-24.md)。本轮是受控CPU工作负载/同机新目录复现，不是新VLM成绩、生产可靠性证明或核心期刊资格通过；研究负责人下一步先形成有真实VLM收益的新问题，暂不派占位包。144格候选及元数据交接继续PARKED；算法NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D及038–039停止、TRAIN-GPU HOLD、历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持；本页当前结论优先于历史READY/启动文本。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前推进：唯一READY为工程证据040，尚未执行；工程新颖性UNVERIFIED。** 先用公开CPU实际子进程负载检验基线/消融/成本和独立工具复现，再决定是否值得进入真实推理系统比较。选帧信息通道候选PARKED，用户无需为040寻找旧路径。下文早期状态和看板为历史记录，当前范围以页首及040合同为准。
+**2026-10-24当前处置：040已验收关闭；NO_DISTINCT_MECHANISM_EVIDENCE，当前0 READY、041未立项。** 新增540格工程比较与同机复现证据，但强SQLite B1匹敌F且无稳定成本优势，不把普通机制组合包装成核心贡献。下一步由研究负责人先明确真实VLM流程中未被强现有配置解决的问题及实际收益；不派占位执行包。选帧通道候选及路径交接仍PARKED。下文早期状态和看板为历史记录，当前范围以页首及040验收为准。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2296,3 +2296,36 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   旧192槽SUPERSEDED、038–039合成变体停止、原C/D NO_GO_AS_CORE不变。
   **算法NOVELTY=RETAIN0；NATURAL_VIDEO_EFFECT_UNKNOWN；TRAIN-GPU HOLD；
   历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED；Charades FINAL_MEDIA_STOP。**
+
+
+### 2026-10-24 · 040受控比较验收；强SQLite匹敌F，停止机制包装
+
+- 已审查[bedcc78](https://github.com/floomeer83felix-source/vlm/commit/bedcc78f70e128d0e05ea4132aedaaea68552e1a)，直接父ee24885，
+  恰七处allowlist：三源码/两报告/540行CSV/results一个父追加。
+  读取完整公开交付，独立核验原始源码/Git blob、重建540格队列与SHAKE输入、
+  全部manifest/config/收据/580个worker观察和630个准入决定；汇总与配对成本一致。
+  不运行用户Windows/私人目录、suite、模型或GPU；不是独立OS事件见证/跨机复现。
+- 正式540/540尝试、360/360故障证据字段送达、580工作入口/完成、660调度请求；
+  RETURNED310/VIOLATION90/REJECTED100/UNKNOWN40，FAILED/NOT_RUN/UNSUPPORTED0，
+  所有格记录最终group0。完整F与SQLite B1各0/90违规、0重复，
+  正常各30/30、可安全完成故障各30/30，崩溃各10 UNKNOWN。
+  消融违规依次NOBIND10、NOCONSUME20、NOEXIT20；B0为40/90、额外工作20。
+- F/B1正常1KiB/64KiB/1MiB配对wall比值中位数1.013485/0.963456/0.996761，
+  各差值范围跨0，未显示跨大小稳定成本收益。消费后不确定性仍存在，不宣称exactly-once。
+  六开发格与同机三文件clean复现独立记录，不混入正式540分母。
+- 接受为 **ACCEPTED_CONTROLLED_ENGINEERING_COMPARISON / NO_DISTINCT_MECHANISM_EVIDENCE**，
+  详见[负责人验收与论文处置](./research-decisions/post-040-engineering-disposition-2026-10-24.md)。
+  新增的是可复核故障比较/负结果/复现材料，未新增独立可靠性机制、真实VLM或现成工具优势。
+  B1能实现同样目标是实质否定证据，按040事前停止条件，不继续堆框架包装创新。
+- 代码边界明确：admit未独立验证已消费claim或JSONL链，依赖控制器调用序；
+  未覆盖断电/I/O/真实事务争用/完整正向缓存工作流；三文件入口仍需外层资源监督。
+  本轮不是任意API顺序、恶意代码或生产可靠性认证；不追加纯补丁微批次修饰论文。
+  执行者资源/磁盘/父时钟按其报告接受，不冒充负责人本机重测；
+  suite外层一次终止请求及B0/NOEXIT后代fallback保留。
+- **040关闭不可重跑，当前0 READY，041未立项**；README启动消息改为历史不可执行。
+  工程稿可用证据增加，但“当前足以投核心期刊”的核心贡献问题未解决。
+  下一项应先由研究负责人明确真实VLM流程特有、可重复且强现成配置未解决的问题及实际收益；
+  有效输入/上游配方一致性仅是待核候选，不是本轮已发现的新故障。无占位包或自动GPU/投稿。
+  144格选帧候选/路径交接继续PARKED；算法NOVELTY=RETAIN0，
+  NATURAL_VIDEO_EFFECT_UNKNOWN、原C/D/038–039停止、TRAIN-GPU HOLD、
+  历史CLOCK_ZERO_ASSUMED_NOT_CERTIFIED、Charades FINAL_MEDIA_STOP保持。
