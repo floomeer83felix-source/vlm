@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；已完成[044负责人验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP；044关闭，当前0 READY**。唯一C02 HEAD/GET均200，声明2034460331B，落盘下界72MiB，完整媒体未验、验钟NOT_RUN；独立复算受控finish839.9503246秒符合900秒包络，元数据/完整责任已保留。暂停当前直接获取入口，不加时/续传/换候选续试，不派同类修复微包或占位045。下一步须明确已有完整合法素材引用或不同实物来源条件；标签/模型/GPU0，NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；用户要求继续到下一任务，已下达[045精确PTS原生processor适配包](./codex-artifacts/VLM-NATIVE-PTS-ADAPTER-045/README.md)。**唯一READY：VLM-NATIVE-PTS-ADAPTER-045 / CPU_PROCESSOR_ADAPTER_ONLY / 尚未执行**。044素材获取路线继续暂停；本包推进独立的P接口实现与9槽真实CPU输入边界验证，使用现有processor/tokenizer配置，无媒体/解码/下载/模型推理/GPU。受控PTS只验证组件，不当自然VFR或模型收益；NOVELTY=RETAIN0，64格数据/标签/题目准入仍HOLD。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：044受控获取失败已关闭，当前直接官方获取路线暂停；0 READY。** C02元数据/责任与900秒包络已核相容，但仅取得72MiB下界，完整同版原片与时钟未得。按预先约定不再延时、续传或换候选重试；需明确已有完整合法素材或另选可得来源。未运行模型/GPU，科学效果UNKNOWN、NOVELTY=RETAIN0。
+**2026-10-25当前状态：唯一READY为045无媒体CPU接口实现，尚未执行；044直接获取路线保持暂停。** 暂时把工作转到独立的精确PTS原生processor适配与输入关系验证，解决设计中另一项未完成的实现门；不恢复下载或旧合成行为实验。使用受控表与既有本地配置，无权重/模型推理/GPU；素材、标签桥接和题目可识别性仍缺，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2548,3 +2548,19 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   后续须明确已有完整合法文件的本地引用/来源依据，或不同可得实物来源；路径留本地，不自动扫描或读取它们。
 - 本轮负责人只写验收/归档/看板/总览；codex-results、044代码/tests/回执/CSV和旧manifest不改。
   标签/问题/模型输入/GPU及训练未放行，NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。
+
+### 2026-10-25 · 素材入口继续暂停；下达独立的045 CPU原生PTS适配包
+
+- 用户要求“继续直到下一任务”。负责人未重开044/下载修复或换候选续取；将可独立推进的[045接口实现包](./codex-artifacts/VLM-NATIVE-PTS-ADAPTER-045/README.md)设为唯一READY。
+  这不是占位素材资格任务：实际产出新PTS适配模块、验证器、9槽CPU输入证据与一条统一回报。
+- 已重新核固定Transformers4.57.6公开processor blob17bdd975eef337371aa763824edc7e6ec1987dbf，
+  原生__call__确实调用self._calculate_timestamps后沿原生一位小数格式/tokenizer生成输入；041公开实现证明本地CPU正常加载/metadata调用方法此前已工作。
+  不以静态签名宣布045实际回调已通过；新类/请求作用域及真实BF16/文本边界须由045实测。
+- 固定96源帧索引、48个受控RGB、CFR/A/B/Q四表，正式仅9槽；负责人有理数预计算已核A/B原生时码关系及Q量化等价，
+  这是设计算术，不是自然媒体/processor实测或模型效应。P不伪造indices/fps、不改最终tokens、不修改安装库或base全局状态。
+- 新CPU许可只限当前本地Codex已明确目录中的既有processor/tokenizer配置与正常CPU库；不读取旧runtime/私有helpers来找路径，
+  入口不可恢复则真实部分NOT_RUN，仍交新实现及可做检查；不派找路径/纯假传输/综述微包。
+  权重/媒体/解码/标签/网络/模型推理/GPU0，实际processor≤12、受监督≤600秒、父≤3600秒、RAM≤4GiB、输出≤64MiB。
+- 即使CPU_NATIVE_PTS_ADAPTER_BOUNDARY_PASS，也只关闭一个组件实现缺口；真实资产、标注时钟、重复动作题目、强N基线及64格准入仍HOLD。
+  045仅一次整包/统一推送后STOP，不自动046/GPU/新下载。044路线停止、040–044关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论保持。
+  本轮负责人只写合同/看板/设计补充，未运行processor、读取配置/真实媒体或改codex-results。
