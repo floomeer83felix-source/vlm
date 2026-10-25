@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；用户对[已冻结046完整方案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)明确回复“批准”，已登记**唯一READY：VLM-HOLOASSIST-REAL-INPUT-046**。仅H01/R015固定分发副本，新媒体≤128MiB，获取840/870/900秒，CPU累计≤1800秒；符合实际时钟/时长/高漂移等门后同包核B0/P/N输入。manifest字节/版本/对象/额度/停止条件不变，尚未执行；原片同版身份/PTS/标签桥接及任务效果仍UNKNOWN。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；已完成[046负责人验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED；046关闭，当前0 READY**。HEAD尝试在无发送确认/响应头前超时，GET0、媒体0、时钟与B0/P/N均NOT_RUN。独立复算本次父active0为30.5072339秒、关闭30.5389293秒，均在限内；worker跨解释器绝对时长相减未获验证，不能认证真实传输整体资格。暂停此自动获取尝试，不重试/加时/换源或派下载修复；下一实质入口需当前已完整取得且来源/使用范围明确的视频，私有路径留本地。标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：用户已批准046完整范围，唯一READY为VLM-HOLOASSIST-REAL-INPUT-046，尚未执行。** Codex按已授权合同连续完成固定HoloAssist副本获取、CPU验钟及有条件真实F/T B0/P/N输入；新媒体≤128MiB、获取≤900秒、CPU累计≤1800秒。只有完整性、180–900秒、实际高漂移和资源门通过才运行三个CPU槽；不需要再确认子步骤。分发SHA不认证原片或标注桥接；044路线继续暂停，标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。
+**2026-10-25当前状态：046按失败回执验收并关闭，当前0 READY。** 初始HEAD尝试超时，完整发送/响应均未确认；GET0、媒体0，时钟及真实B0/P/N输入未运行。已暴露父/worker时钟原点不一致，worker剩余时长绑定未过；本次独立父关闭包络在限内不代表传输整体资格。停止自动下载修复轮转，下一入口需当前已完整取得、来源与使用范围明确的实物；不扫描旧资产，不自动047。原片/标签/题目及自然任务效果仍UNKNOWN，044路线停、GPU/64格HOLD、NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2612,3 +2612,20 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 负责人本轮只登记授权/规划；codex-results、manifest、旧源码/证据不改，未访问Windows/媒体正文或运行decoder/processor。
   READY不是媒体或科学门已过；原片同版/标签桥接/问题身份/6+2/64格及模型效果仍UNKNOWN/HOLD。
   042–045已消费、044路线停止、标签/模型/GPU/训练/后台未授权，NOVELTY=RETAIN0保持。
+
+
+### 2026-10-25 · 验收046有界失败回执，关闭本父与本轮自动获取
+
+- 核[ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)恰六处allowlist及results旧内容逐字前缀/新增10行单条，
+  形成[负责人验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)；两源码/manifest字节SHA独立匹配封存，未重跑tests/Windows或访问私人日志。
+- 独立CSV/Decimal核1源+3臂：HEAD完整发送下界0/尝试上界1，无响应；GET/跳转/媒体/责任0与NO_GET_INTENT相容，
+  不能写HEAD一定发出或网络0。源F/T/PTS/fps/漂移及hash未知，B0/P/N全部NOT_RUN，不作自然时钟/模型科研阴性。
+- fetch父active0差30.5072339秒、关闭30.5389293秒在870/900秒门内；CPU五阶段outer和27.1766177秒、4项显式API检查376061B独立复算相符。
+  初36断言与唯一修复后39通过只是必要预检；未获得真实媒体或processor调用，不把测试数或exit0当成功证据。
+- worker时钟为约0–30秒，父起点约113万秒，源码将两域绝对值相减；WORKER_CLOCK_BINDING_NOT_QUALIFIED。
+  独立父本次包络仍有测量支持，不能因此认证跨runtime worker剩余时长或给通用timeout归因；不倒推旧043/044的未公开原点/改旧事实。
+- **ACCEPTED_BOUNDED_FAILURE_REPORT / CLOSED，当前0 READY。** 本自动获取尝试暂停，不重试H01/续传/加时/扩主机/换文件，
+  不派下载修复、纯受控扩展或找路径占位任务；许可已消费，余量不迁移，不自动047。
+  下一实质输入需当前已完整取得、原始来源/版本与使用范围明确的视频，准确私有路径可只交本地Codex；本轮不扫盘/读取旧资产。
+- 本轮只负责人验收、README归档、看板/总览和设计补充，codex-results/manifest/046代码及原证据不改。
+  042–045/EPIC16/既有责任保持，标签同钟/问题身份/强N真实输入及8源/16题/64格/模型效果仍HOLD或UNKNOWN，NOVELTY=RETAIN0。

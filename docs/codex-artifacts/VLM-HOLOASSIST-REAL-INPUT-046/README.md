@@ -1,6 +1,15 @@
+# 046已归档：失败回执验收，媒体与真实输入未准入
+
+2026-10-25：[负责人验收](../../research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)已关闭046。
+**ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED；当前0 READY。**
+唯一H01在初始HEAD尝试超时，GET0、媒体0，时钟及B0/P/N均NOT_RUN；
+worker与父时钟原点不一致，剩余时长计算未获验证。独立父监督记录的本次关闭包络仍在限内。
+本父已消费，不重试/续传/加时/扩主机/换源，不派下载修复或自动047；不得继承余量。
+以下为原执行合同历史，其中READY、授权额度及启动消息不再有效。
+
 # 046：一个HoloAssist分发副本的获取、真实CPU时钟与B0/P/N输入（已授权执行合同）
 
-2026-10-25（北京时间）。**READY / USER_APPROVED_MEDIA_AND_CPU_INPUT / NOT_YET_EXECUTED。**
+2026-10-25（北京时间）。**CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT / NOT_RERUNNABLE。**
 父任务：VLM-HOLOASSIST-REAL-INPUT-046。用户对已冻结完整提案明确回复“批准”，新媒体获取和限定CPU解码/输入范围已获授权。
 最新任务板将本父设为唯一READY；本地Codex安全同步main，确认本父无既报结果后，一次连续完成本合同允许的A→B→C→D。
 各阶段按门自动继续或停止，不需要再次确认本范围；授权记录和启动消息见第6节。
