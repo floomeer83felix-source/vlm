@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-24（北京时间；已完成[043负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)：限定离线修复通过、真实获取未测试，043关闭。独立复算实际12/12故障PASS，初轮12 NOT_RUN保留；当前0 READY。已准备[044单个C02真实获取与CPU验钟整包](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)，**BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY**：新媒体≤4GiB、获取≤900秒、CPU准备/验钟≤1200秒，尚未许可/执行。042不重跑不续传，标签/模型/GPU0，NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；用户原话“批准044”，已记录[044授权合同](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)。**唯一READY：VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU / 尚未执行**。限原C02/P31_10一个原MP4，HEAD≤1/GET≤1、新媒体≤4GiB、获取总包络≤900秒、CPU准备/预检/验钟≤1200秒；预检与监督门通过后一次整包连续执行，统一脱敏交付后STOP。042/043已关闭、旧额度不继承；标签/模型/GPU0，NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-24当前状态：043限定离线修复通过并关闭；当前0 READY，044已冻结待新范围许可。** 独立复算实际12/12故障、字节责任与时限记录一致，未重跑Windows。新核心仍只允许FakeTransport；044合并真实传输适配与单个原C02获取/验钟，避免再拆纯假传输微包。尚无新媒体或模型结果，NOVELTY=RETAIN0。
+**2026-10-25当前状态：用户批准044，已设唯一READY，尚未执行。** 只限原C02/P31_10的新单对象获取与CPU时钟核验（≤4GiB/900秒获取/1200秒CPU）；真实适配及必要预检合在同包，门未过则HTTP0。042/043已关闭，标签/模型/GPU不放行，科学效果仍UNKNOWN、NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2521,3 +2521,15 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 042的11MiB与不完整GET≤4GiB历史责任原样保留，C01关闭、C03–C16不发、第17源不加。
   单个源即使验钟成功也不代表6+2/64格或标注/模型输入准入；标签/模型/GPU0，NOVELTY=RETAIN0及旧停止结论不变。
   本轮仅负责人文档与待授权清单，codex-results、043代码/回执/CSV及042历史证据未改。
+
+### 2026-10-25 · 用户批准044，设为唯一READY
+
+- 用户在收到044完整范围及批准提问后，原话回复“批准044”。已将[044 README](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)与看板同步为**READY / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU**，当前仅此一个READY，尚无044父执行结果。
+- 许可仅原C02/P31_10：≤1 HEAD/≤1 GET、新媒体≤4GiB；获取总包络≤900秒（840工作/870退出/900收尾），
+  CPU准备/预检/验钟累计≤1200秒；RAM、新根、父5400秒及其他边界沿用冻结合同。无需再逐子步骤确认。
+- manifest保持原blob e1bf9ddfa5b9d529b4b155c467c582851e31dab2 / SHA256 0f21ca3a765a5dd5ed264fca5147676d762b32f0dc4526db87b26153778b75c4，
+  对象、rank/URL/MD5及科学门槛未改；REGISTERED_UNTESTED表示素材未测，授权记录由README/看板承载。
+- 本地Codex一次启动后按合同连续做适配/预检/获取/成功后验钟，统一脱敏推送后停止；前置失败则HTTP0。
+  再次超时或记账失败暂停该直接获取入口，不加时、不换候选续试、不自动045。
+- 负责人本轮仅登记授权与交接，未访问用户机器、发媒体HTTP、解码或写执行结果；codex-results与旧代码/证据不动。
+  READY不是媒体已取得或时钟已过，042/043关闭和042旧责任不变；标签/模型/GPU0，NOVELTY=RETAIN0及旧停止结论保持。

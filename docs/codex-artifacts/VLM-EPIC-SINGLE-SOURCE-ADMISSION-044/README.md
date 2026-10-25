@@ -1,10 +1,11 @@
-# 044：单个EPIC原片的真实获取与CPU时钟核验（待授权）
+# 044：单个EPIC原片的真实获取与CPU时钟核验（已授权执行合同）
 
-2026-10-24（北京时间）。**BLOCKED_PENDING_EXPLICIT_MEDIA_CPU_AUTHORIZATION / NOT_READY / NOT_RUN。**
+2026-10-25（北京时间）。**READY / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU / NOT_RUN。**
 父任务：VLM-EPIC-SINGLE-SOURCE-ADMISSION-044。先读[043负责人验收](../../research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)。
 本包将真实传输适配、必要预检、一次媒体获取和成功后的时钟扫描合并；不再分派纯假传输任务。
-043已关闭；其PASS不是下载许可。用户此前的042许可已消费，本文件没有新HEAD/GET、解码或GPU许可。
-负责人只有在用户明确批准本文件的新范围后，才将其及看板改为唯一READY。
+043与042已关闭，旧许可/额度均不继承。本包的新媒体获取与CPU解码许可来自用户2026-10-25明确回复“批准044”。
+最新看板将本包设为唯一READY；本地Codex安全同步main，确认本父无既报结果后，在本合同范围执行一次整包。
+READY是授权状态，当前尚未下载原片或运行验钟；标签、模型与GPU仍未授权。
 
 ## 1. 唯一对象与目的
 
@@ -24,9 +25,9 @@
 C01维持042失败，旧11MiB及该GET≤4GiB责任不动；C03–C16保持NOT_RUN，不补源、不变6+2门或原16候选分母。
 本包媒体上限是**新许可上限**，不使用旧预算，也不重试/续传C01。用单对象固定责任避开未验证的多对象分配器。
 
-## 2. 新范围与硬上限（尚未授予）
+## 2. 已授权的新范围与硬上限
 
-| 项目 | 拟授权上限 |
+| 项目 | 已授权上限 |
 |---|---|
 | 应用HTTP | 上述唯一URL，≤1 HEAD及其通过后的≤1 GET；合计≤2次发送 |
 | 媒体正文/磁盘 | 新GET累计≤4GiB（4294967296B），完整+partial合计≤4GiB；仅一个副本 |
@@ -122,9 +123,16 @@ Job CPU/内存、根内存储及新适配尚未覆盖的真实环境限制。共
 本README/manifest由负责人冻结，不改看板/总览/旧代码/旧收据，不上传视频、逐帧原表、标签或私人路径。
 核stage严格上述五处，安全push main一次后STOP；已报completed/partial/blocked即消费，不自动045或迁移余量。
 
-## 6. 授权与启动状态
+## 6. 用户授权记录与启动指令
 
-当前仅负责人已准备此完整合同，**没有READY任务、没有新下载许可**。
-需用户明确同意“044：唯一C02原视频，新媒体累计≤4GiB；下载总包络≤900秒，CPU准备/验钟≤1200秒；标签/模型/GPU0”后，
-负责人同步授权记录、README与看板为唯一READY，再交本地Codex一次启动指令。
-批准此范围只作用于本包，不追认旧失败下载，不接受任何新站点条款，不授权后台任务。
+2026-10-25（北京时间），用户对[已冻结的044完整方案](https://github.com/floomeer83felix-source/vlm/tree/cf541893ea90f3a572b48d61bf2057ccf6150ca9/docs/codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044)原话回复“批准044”。
+该答复确认唯一C02/P31_10原片的新范围：媒体累计≤4GiB，获取总包络≤900秒，CPU准备/预检/验钟≤1200秒；
+其余HEAD/GET次数、840/870/900分段、RAM/新根/父5400秒及输出上限沿用已冻结合同，不扩大对象或额度。
+无需重复确认本范围或每个子步骤；在预检及资源门通过后按A→B→C→D连续执行，失败依合同保留未知并停止。
+manifest原字节、source identity、URL、MD5、原候选rank及科学门槛均未改变；REGISTERED_UNTESTED是素材状态，不是未获授权标志。
+批准仅作用于本包，不追认旧失败下载、不接受新站点条款、不授权其他数据、标签/模型/GPU或后台任务。
+
+负责人本轮只更新授权、看板和总览；未访问本地Windows、向原片发HTTP、读取视频或追加执行结果。
+本GitHub变更不会唤醒另一聊天中的Codex；用户在当前本地Codex聊天发一次启动指令即可：
+
+> 安全同步GitHub文档仓库main，重读AGENTS.md、docs/next-steps.md、docs/research-overview.md、docs/codex-results.md及docs/codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md，确认唯一尚未交付的READY父任务VLM-EPIC-SINGLE-SOURCE-ADMISSION-044。按合同连续完成真实传输适配、必要预检、唯一C02一次获取及成功后的CPU验钟，统一脱敏推送后停止。新媒体≤4GiB、获取≤900秒、CPU准备/验钟≤1200秒；标签/模型/GPU均0，不重跑042/043、不续传或继承旧额度。
