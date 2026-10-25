@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+  "parent_task_id": "VLM-OFFLINE-EVALUATION-047",
+  "scope": "Strict interval scoring, fixed-denominator source-paired summaries, declared input-class mapping and nonduplicated cost accounting. No real media, labels, predictions, processor, model, GPU or network execution.",
+  "plan": {
+    "sources": 8,
+    "high_offset_sources": 6,
+    "cfr_sources": 2,
+    "queries_per_source": 2,
+    "arms": [
+      "B0",
+      "P",
+      "N",
+      "T"
+    ],
+    "logical_cells": 64,
+    "duration_seconds": 240
+  },
+  "numeric_policy": {
+    "prediction_numbers": "JSON numbers converted to finite IEEE754 binary64; booleans and nonstandard constants rejected; exact as_integer_ratio for subsequent arithmetic",
+    "gold_numbers": "explicit bounded rational strings",
+    "min_iou_hit": "1/2",
+    "practical_mean_delta": "1/10",
+    "practical_positive_high_sources": 4,
+    "unknown_gold_or_bridge": "SCORING_UNKNOWN; never zero-filled",
+    "invalid_or_failed_with_valid_gold": "IoU 0; remains in full denominator"
+  },
+  "parser_cases": [
+    {
+      "id": "P01",
+      "raw": "{\"start\":30,\"end\":60}",
+      "expected": "VALID"
+    },
+    {
+      "id": "P02",
+      "raw": "{\"end\":60,\"start\":30}",
+      "expected": "VALID"
+    },
+    {
+      "id": "P03",
+      "raw": " \n{\"start\":0,\"end\":240}\n",
+      "expected": "VALID"
+    },
+    {
+      "id": "P04",
+      "raw": "{\"start\":3e1,\"end\":6e1}",
+      "expected": "VALID"
+    },
+    {
+      "id": "P05",
+      "raw": "{\"start\":30,\"start\":0,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P06",
+      "raw": "{\"start\":30,\"end\":60,\"confidence\":1}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P07",
+      "raw": "{\"start\":30}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P08",
+      "raw": "{\"start\":true,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P09",
+      "raw": "{\"start\":\"30\",\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P10",
+      "raw": "{\"start\":null,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P11",
+      "raw": "{\"start\":NaN,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P12",
+      "raw": "{\"start\":0,\"end\":Infinity}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P13",
+      "raw": "{\"start\":0,\"end\":1e309}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P14",
+      "raw": "{\"start\":-1,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P15",
+      "raw": "{\"start\":30,\"end\":241}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P16",
+      "raw": "{\"start\":60,\"end\":30}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P17",
+      "raw": "{\"start\":30,\"end\":30}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P18",
+      "raw": "[{\"start\":30,\"end\":60}]",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P19",
+      "raw": "```json\n{\"start\":30,\"end\":60}\n```",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P20",
+      "raw": "Answer: {\"start\":30,\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P21",
+      "raw": "{\"start\":30,\"end\":60} {\"start\":0,\"end\":240}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P22",
+      "raw": "{\"start\":30,\"end\":60,}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P23",
+      "raw": "{\"start\":{\"value\":30},\"end\":60}",
+      "expected": "INVALID"
+    },
+    {
+      "id": "P24",
+      "raw": "{\"start\":30,\"end\":[60]}",
+      "expected": "INVALID"
+    }
+  ],
+  "interval_cases": [
+    {
+      "id": "I01",
+      "gold": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "prediction": [
+        0,
+        10
+      ],
+      "expected_iou": "1"
+    },
+    {
+      "id": "I02",
+      "gold": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "prediction": [
+        20,
+        30
+      ],
+      "expected_iou": "0"
+    },
+    {
+      "id": "I03",
+      "gold": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "prediction": [
+        10,
+        20
+      ],
+      "expected_iou": "0"
+    },
+    {
+      "id": "I04",
+      "gold": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "prediction": [
+        0,
+        20
+      ],
+      "expected_iou": "1/2",
+      "expected_hit": true
+    },
+    {
+      "id": "I05",
+      "gold": [
+        [
+          "0",
+          "10"
+        ],
+        [
+          "100",
+          "110"
+        ]
+      ],
+      "prediction": [
+        0,
+        110
+      ],
+      "expected_iou": "1/11"
+    },
+    {
+      "id": "I06",
+      "gold": [
+        [
+          "0",
+          "10"
+        ],
+        [
+          "100",
+          "110"
+        ]
+      ],
+      "prediction": [
+        100,
+        110
+      ],
+      "expected_iou": "1"
+    },
+    {
+      "id": "I07",
+      "gold": [
+        [
+          "0",
+          "10"
+        ],
+        [
+          "100",
+          "110"
+        ]
+      ],
+      "prediction": [
+        5,
+        15
+      ],
+      "expected_iou": "1/3"
+    }
+  ],
+  "grids": [
+    {
+      "id": "G01",
+      "rule": "All 8 sources x2 questions: gold[30,60], all4 arms RETURNED [30,60]. Within each question B0/P share one declared fixture input class; N/T each own class.",
+      "expected": {
+        "logical_cells": 64,
+        "scorable_cells": 64,
+        "declared_input_classes": 48,
+        "high_arm_iou": {
+          "B0": "1",
+          "P": "1",
+          "N": "1",
+          "T": "1"
+        },
+        "high_p_minus_b0": "0",
+        "high_positive_sources": 0,
+        "practical_numeric_trigger": false,
+        "recorded_physical_attempts": 48
+      }
+    },
+    {
+      "id": "G02",
+      "rule": "All gold[0,10]. High S01-S04 both questions: B0[0,20],P/N[0,10],T FAILED. High S05-S06: B0/N[0,10],P[0,20],T FAILED. CFR S07-S08: B0/P/N[0,10],T FAILED. Non-T are RETURNED. All64 declared input classes unique.",
+      "expected": {
+        "logical_cells": 64,
+        "scorable_cells": 64,
+        "declared_input_classes": 64,
+        "high_arm_iou": {
+          "B0": "2/3",
+          "P": "5/6",
+          "N": "1",
+          "T": "0"
+        },
+        "high_p_minus_b0": "1/6",
+        "high_n_minus_b0": "1/3",
+        "high_positive_sources": 4,
+        "practical_numeric_trigger": true,
+        "high_p_b0_hit_pairs": {
+          "both_correct": 12,
+          "correction": 0,
+          "harm": 0,
+          "both_wrong": 0
+        },
+        "recorded_physical_attempts": 64
+      }
+    },
+    {
+      "id": "G03",
+      "rule": "Copy G02; only S01/Q01/P raw response becomes INVALID JSON.",
+      "expected": {
+        "logical_cells": 64,
+        "scorable_cells": 64,
+        "high_p_minus_b0": "1/12",
+        "high_positive_sources": 3,
+        "practical_numeric_trigger": false
+      }
+    },
+    {
+      "id": "G04",
+      "rule": "Copy G02; only S01/Q01 gold clock bridge becomes UNKNOWN for all4 arms.",
+      "expected": {
+        "logical_cells": 64,
+        "scorable_cells": 60,
+        "scoring_unknown_cells": 4,
+        "high_primary_status": "SCORING_UNKNOWN",
+        "practical_numeric_trigger": "UNKNOWN"
+      }
+    }
+  ],
+  "mandatory_faults": [
+    "unknown_question_identity_despite_valid_intervals",
+    "incomplete_answer_set",
+    "invalid_gold_interval_not_dropped",
+    "gold_or_plan_seal_mismatch",
+    "duplicate_or_missing_plan_ids",
+    "changed_source_or_query_denominator",
+    "conflicting_duplicate_generation_record",
+    "one_physical_id_multiple_input_classes",
+    "one_input_class_multiple_physical_attempts",
+    "FAILED_with_valid_json_stays_zero",
+    "input_order_permutation_invariance",
+    "gold_interval_order_permutation_invariance",
+    "logical_aliases_do_not_inflate_physical_count",
+    "same_input_does_not_inflate_independent_sources",
+    "shared_cost_referenced_four_times_charged_once",
+    "inclusive_parent_not_added_to_children",
+    "mixed_clock_domain_not_subtracted",
+    "missing_cost_not_zero",
+    "overlapping_phase_wall_not_latency_sum",
+    "missing_planned_response_becomes_NOT_RUN_zero_only_if_gold_valid",
+    "unknown_gold_precedes_zero_fill_even_if_response_invalid",
+    "oversize_response_is_INVALID_without_partial_salvage"
+  ],
+  "cost_fixture": {
+    "id": "C01",
+    "clock_domain": "FIXTURE_CLOCK_A",
+    "outer": [
+      "0",
+      "10"
+    ],
+    "phases": {
+      "shared_prepare": [
+        "0",
+        "2"
+      ],
+      "generate": [
+        "2",
+        "8"
+      ],
+      "score": [
+        "8",
+        "10"
+      ]
+    },
+    "nested": {
+      "letterbox": {
+        "parent": "shared_prepare",
+        "interval": [
+          "1/2",
+          "1"
+        ]
+      }
+    },
+    "shared_prepare_logical_references": 4,
+    "expected": {
+      "outer_wall": "10",
+      "shared_prepare_once": "2",
+      "phase_sum_if_nonoverlap": "10",
+      "nested_letterbox": "1/2",
+      "phase_sum_plus_nested_wrong": "21/2",
+      "outer_plus_phases_wrong": "20"
+    }
+  },
+  "limits": {
+    "suite_seconds": 60,
+    "max_suites": 2,
+    "cli_total_seconds": 60,
+    "total_supervised_seconds": 180,
+    "parent_seconds": 3600,
+    "job_ram_bytes": 536870912,
+    "threads": 1,
+    "new_output_bytes": 16777216,
+    "new_files": 512,
+    "input_file_bytes": 4194304,
+    "response_utf8_bytes": 8192,
+    "intervals_per_question": 128
+  },
+  "blocked": [
+    "real_labels_or_QA",
+    "old_predictions",
+    "media_or_decode",
+    "processor_or_model_load",
+    "network_execution",
+    "GPU",
+    "install",
+    "directory_search",
+    "download_repair",
+    "new_clock_variants",
+    "historic_task_rerun"
+  ],
+  "authorization": "Routine stdlib CPU implementation and owned mathematical fixtures under user request to continue; no restricted-data or model permission."
+}

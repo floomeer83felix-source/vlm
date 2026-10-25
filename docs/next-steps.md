@@ -4,13 +4,14 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；已完成[046负责人验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED；046关闭，当前0 READY**。HEAD尝试在无发送确认/响应头前超时，GET0、媒体0、时钟与B0/P/N均NOT_RUN。独立复算本次父active0为30.5072339秒、关闭30.5389293秒，均在限内；worker跨解释器绝对时长相减未获验证，不能认证真实传输整体资格。暂停此自动获取尝试，不重试/加时/换源或派下载修复；下一实质入口需当前已完整取得且来源/使用范围明确的视频，私有路径留本地。标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。）
+> 更新日期：2026-10-25（北京时间；用户在046关闭后要求“一直继续下去”，已下达**唯一READY：[VLM-OFFLINE-EVALUATION-047](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)**。一次实现严格区间解析、多有效区间/未知优先级、固定64格/按源配对、声明等价类及共享成本核算的标准库库+CLI+必要验证；仅本轮自造数学夹具，非自然/模型实验。CPU监督≤180秒、父≤3600秒、Job512MiB/单线程、输出≤16MiB；无需新数据或GPU许可。真实实物/标签桥接/题目身份/输入链及模型效果仍UNKNOWN；046/044获取尝试保持关闭，不重试/续传/换源/下载修复。NOVELTY=RETAIN0，GPU/64格真实实验HOLD。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，当前0 READY，不自动修复/换源/047 |
+| VLM-OFFLINE-EVALUATION-047 | P0 | **READY（OFFLINE_STDLIB_SOFTWARE_ONLY；唯一READY）** | Codex | [完整任务包](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)：一次交付评分/固定分母来源聚合/声明物理记录及共享成本库、CLI、tests与封存证据 | 仅冻结数学夹具；24 parser+7 IoU+4×64格规则及故障/成本例，完整失败/未知保留；网络/媒体/真实标签/旧预测/processor/模型/GPU/安装0；一次回报后STOP |
+| VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，046验收时0 READY；当前独立软件任务见页首，不自动修复/换源 |
 | VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
 | VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口；044验收时0 READY，不加时/续传/换候选重试；新任务见页首 |
 | VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)：实际12/12本地故障通过；保留初轮导入失败 | [负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)独立复算一致；FakeTransport/短时进程模型限定，真实TLS与多对象分配未测；043验收时0 READY，后续见页首 |
@@ -2295,3 +2296,22 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   下一实质输入需当前已完整取得、原始来源/版本与使用范围明确的视频，准确私有路径可只交本地Codex；本轮不扫盘/读取旧资产。
 - 本轮只负责人验收、README归档、看板/总览和设计补充，codex-results/manifest/046代码及原证据不改。
   042–045/EPIC16/既有责任保持，标签同钟/问题身份/强N真实输入及8源/16题/64格/模型效果仍HOLD或UNKNOWN，NOVELTY=RETAIN0。
+
+
+### 2026-10-25 · 用户要求继续；下达独立的047离线评测软件整包
+
+- 已刷新761847f及AGENTS/任务板/results/总览，确认046已消费、当前无实物准入；不恢复旧媒体许可或扫描私人材料。
+  [方向说明](./research-decisions/post-046-offline-evaluation-direction-2026-10-25.md)将可独立推进的评测计算层设为新任务，
+  与下载修复/受控时钟扩展区分；用户当前要求继续已授权常规CPU实现，无需再问本包子步骤。
+- [047完整合同](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)一次交付stdlib评分/聚合/声明等价映射/共享成本库、CLI、必要验证及统一回执。
+  固定8源×2题×4臂只是数学软件夹具；真实媒体、标签/预测、processor/模型/GPU、安装和应用网络均0。
+- 已核ActivityNet官方segment_iou公式固定blob及Python官方json重复键/非标准常量处理；不运行上游网络/API或移植为新算法。
+  冻结fixture SHA256 5485d7c097b74d78a002c4822c874386a6427faf5567e73c925216abba562063：
+  24 parser例、7 IoU例、4套64格规则与强制故障/成本；闭式期望G02差1/6、G03差1/12已独立设计复算，非执行结果。
+- 明确gold/时钟/题目语义未知优先SCORING_UNKNOWN，不变成0；资格有效时非法/失败/未运行才保留原分母计0。
+  多区间max单区间IoU、原16题/6+2层/0.10与4/6阈值、共享只计一次及跨域不相减均明确实现口径，不认证真实数据或科学GO。
+- **唯一READY为VLM-OFFLINE-EVALUATION-047。** CPU监督≤180秒/父3600秒/Job512MiB/单线程/16MiB输出；
+  最多一次定位修复回归，CLI证据独立核对，保留所有失败后一次安全push并停止，不自动048/后台/下载/GPU。
+- 本轮负责人只下合同/fixture/规划/协议补充，未运行本地Windows、旧tests、媒体或模型，codex-results与旧源码/证据不改。
+  046/044停止、真实资产/标注同钟/问题身份/完整B0-P-N证据及8源/16题/64格真实实验门仍在；
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及GPU/训练HOLD保持。

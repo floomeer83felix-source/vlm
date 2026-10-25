@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；已完成[046负责人验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED；046关闭，当前0 READY**。HEAD尝试在无发送确认/响应头前超时，GET0、媒体0、时钟与B0/P/N均NOT_RUN。独立复算本次父active0为30.5072339秒、关闭30.5389293秒，均在限内；worker跨解释器绝对时长相减未获验证，不能认证真实传输整体资格。暂停此自动获取尝试，不重试/加时/换源或派下载修复；下一实质入口需当前已完整取得且来源/使用范围明确的视频，私有路径留本地。标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；用户在046关闭后要求“一直继续下去”，已下达**唯一READY：[VLM-OFFLINE-EVALUATION-047](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)**。一次实现严格区间解析、多有效区间/未知优先级、固定64格/按源配对、声明等价类及共享成本核算的标准库库+CLI+必要验证；仅本轮自造数学夹具，非自然/模型实验。CPU监督≤180秒、父≤3600秒、Job512MiB/单线程、输出≤16MiB；无需新数据或GPU许可。真实实物/标签桥接/题目身份/输入链及模型效果仍UNKNOWN；046/044获取尝试保持关闭，不重试/续传/换源/下载修复。NOVELTY=RETAIN0，GPU/64格真实实验HOLD。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：046按失败回执验收并关闭，当前0 READY。** 初始HEAD尝试超时，完整发送/响应均未确认；GET0、媒体0，时钟及真实B0/P/N输入未运行。已暴露父/worker时钟原点不一致，worker剩余时长绑定未过；本次独立父关闭包络在限内不代表传输整体资格。停止自动下载修复轮转，下一入口需当前已完整取得、来源与使用范围明确的实物；不扫描旧资产，不自动047。原片/标签/题目及自然任务效果仍UNKNOWN，044路线停、GPU/64格HOLD、NOVELTY=RETAIN0。
+**2026-10-25当前状态：独立离线评测软件047为唯一READY；真实素材入口仍阻塞。** 用户要求继续后，负责人将原设计中的严格评分、未知/失败分母、按源聚合、声明等价类和共享成本合为一次标准库CPU实现。047只使用自造数学夹具，不取得自然视频/真实标签或执行模型；软件通过也不证明实际B0/P/N、问题语义或模型效果。046/044获取尝试保持关闭，不延时/续传/换源或派下载修复；算法NOVELTY=RETAIN0、GPU/64格真实实验HOLD。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2629,3 +2629,22 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   下一实质输入需当前已完整取得、原始来源/版本与使用范围明确的视频，准确私有路径可只交本地Codex；本轮不扫盘/读取旧资产。
 - 本轮只负责人验收、README归档、看板/总览和设计补充，codex-results/manifest/046代码及原证据不改。
   042–045/EPIC16/既有责任保持，标签同钟/问题身份/强N真实输入及8源/16题/64格/模型效果仍HOLD或UNKNOWN，NOVELTY=RETAIN0。
+
+
+### 2026-10-25 · 用户要求继续；下达独立的047离线评测软件整包
+
+- 已刷新761847f及AGENTS/任务板/results/总览，确认046已消费、当前无实物准入；不恢复旧媒体许可或扫描私人材料。
+  [方向说明](./research-decisions/post-046-offline-evaluation-direction-2026-10-25.md)将可独立推进的评测计算层设为新任务，
+  与下载修复/受控时钟扩展区分；用户当前要求继续已授权常规CPU实现，无需再问本包子步骤。
+- [047完整合同](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)一次交付stdlib评分/聚合/声明等价映射/共享成本库、CLI、必要验证及统一回执。
+  固定8源×2题×4臂只是数学软件夹具；真实媒体、标签/预测、processor/模型/GPU、安装和应用网络均0。
+- 已核ActivityNet官方segment_iou公式固定blob及Python官方json重复键/非标准常量处理；不运行上游网络/API或移植为新算法。
+  冻结fixture SHA256 5485d7c097b74d78a002c4822c874386a6427faf5567e73c925216abba562063：
+  24 parser例、7 IoU例、4套64格规则与强制故障/成本；闭式期望G02差1/6、G03差1/12已独立设计复算，非执行结果。
+- 明确gold/时钟/题目语义未知优先SCORING_UNKNOWN，不变成0；资格有效时非法/失败/未运行才保留原分母计0。
+  多区间max单区间IoU、原16题/6+2层/0.10与4/6阈值、共享只计一次及跨域不相减均明确实现口径，不认证真实数据或科学GO。
+- **唯一READY为VLM-OFFLINE-EVALUATION-047。** CPU监督≤180秒/父3600秒/Job512MiB/单线程/16MiB输出；
+  最多一次定位修复回归，CLI证据独立核对，保留所有失败后一次安全push并停止，不自动048/后台/下载/GPU。
+- 本轮负责人只下合同/fixture/规划/协议补充，未运行本地Windows、旧tests、媒体或模型，codex-results与旧源码/证据不改。
+  046/044停止、真实资产/标注同钟/问题身份/完整B0-P-N证据及8源/16题/64格真实实验门仍在；
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及GPU/训练HOLD保持。
