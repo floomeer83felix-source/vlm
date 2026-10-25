@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；用户要求继续到下一任务，已下达[045精确PTS原生processor适配包](./codex-artifacts/VLM-NATIVE-PTS-ADAPTER-045/README.md)。**唯一READY：VLM-NATIVE-PTS-ADAPTER-045 / CPU_PROCESSOR_ADAPTER_ONLY / 尚未执行**。044素材获取路线继续暂停；本包推进独立的P接口实现与9槽真实CPU输入边界验证，使用现有processor/tokenizer配置，无媒体/解码/下载/模型推理/GPU。受控PTS只验证组件，不当自然VFR或模型收益；NOVELTY=RETAIN0，64格数据/标签/题目准入仍HOLD。）
+> 更新：2026-10-25（北京时间；已完成[045负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：**ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / 045关闭，当前0 READY**。9/9实际CPU输入槽通过、10/12调用；独立复算原生时码、整数输入字节hash、视觉/完整签名和3个等价类一致。精确PTS已在受控96源帧/96秒原型沿原生链生效，视觉保持相同；尚非任意自然视频适配或模型收益。044获取路线仍停，真实资产/时钟/标签/题目/N基线/64格仍HOLD，不自动046或新增受控变体；NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：唯一READY为045无媒体CPU接口实现，尚未执行；044直接获取路线保持暂停。** 暂时把工作转到独立的精确PTS原生processor适配与输入关系验证，解决设计中另一项未完成的实现门；不恢复下载或旧合成行为实验。使用受控表与既有本地配置，无权重/模型推理/GPU；素材、标签桥接和题目可识别性仍缺，NOVELTY=RETAIN0。
+**2026-10-25当前状态：045限定CPU原型验收通过并关闭，当前0 READY。** 精确PTS沿原生processor链改变预期时码/文本，BF16视觉保持一致；9槽独立复算一致并归为3个输入等价类。实现固定96源帧/96秒，真实自然源的适用性、数据/标签/题目与模型效果仍未通过；044获取路线继续暂停，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2564,3 +2564,19 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - 即使CPU_NATIVE_PTS_ADAPTER_BOUNDARY_PASS，也只关闭一个组件实现缺口；真实资产、标注时钟、重复动作题目、强N基线及64格准入仍HOLD。
   045仅一次整包/统一推送后STOP，不自动046/GPU/新下载。044路线停止、040–044关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论保持。
   本轮负责人只写合同/看板/设计补充，未运行processor、读取配置/真实媒体或改codex-results。
+
+### 2026-10-25 · 验收045原生PTS链路限定CPU原型，关闭任务
+
+- 核[8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)五处allowlist，核心244行/验证器99行及回执，形成[负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)。
+  两新源码SHA独立计算匹配封存；未运行旧tests、Torch/processor或访问Windows/私人配置。
+- CSV/Fraction/struct独立复算9槽：索引、实际24个回调均值/原生时码、整数ID/attention/grid字节hash、所有kwargs/完整/视觉签名与关系均相容。
+  正式9 PASS、失败/未知/NOT_RUN0；base身份不变，公开视觉hash一致，直接BF16 torch.equal与tokenizer roundtrip保留执行者实测层。
+- Q04/P-A与Q05/P-B只在原生时码文本区改变输入；Q07新显式A复现Q04，Q06原生未污染。
+  Q09首patch 1/200秒、其余1/100秒raw差量化为0，完整输入等于Q08；9槽分为3类，不当独立模型观测。
+- 实际1探针+9正式=10/12调用；初始库导入失败与唯一ImportError兼容修复保留。四阶段wall独立加和110.0447841秒≤600；
+  初始失败worker未到CUDA断言，不追认动态PASS；当前worker未初始化，模型/权重/媒体/解码/网络/GPU0。
+- **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / NATURAL_MEDIA_AND_TASK_EFFECT_UNKNOWN；045关闭，当前0 READY。**
+  实现硬限定F96/T96/48帧/merge2，仅通过窄实现门；任意180–900秒自然资产的F/T/PTS映射仍需真实入口后验证，不能只改常量宣称通用。
+  不自动046或继续纯受控变体；044获取路线停、真实原片/时钟/标签桥接/题目身份/强N/64格及模型效果仍HOLD。
+- 本轮仅负责人验收/归档/规划补充，codex-results与045代码/回执/CSV不改。
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧科学/媒体/训练停止结论保持。

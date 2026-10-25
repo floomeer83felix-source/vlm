@@ -1,6 +1,12 @@
+# 045已归档：限定CPU原型验收通过，执行轮已消费
+
+2026-10-25：[负责人验收](../../research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)已关闭045，当前0 READY。
+9/9正式CPU槽通过，适用范围仍限定本96源帧/96秒夹具，真实媒体/任务效果未验证。
+以下合同保留历史，旧唯一READY和启动语句均失效，不自动扩变体、下载或GPU。
+
 # 045：精确PTS到原生Qwen时间码的CPU适配与输入边界验证
 
-2026-10-25（北京时间）。**READY / CPU_PROCESSOR_ADAPTER_ONLY / NOT_RUN。**
+2026-10-25（北京时间）。**CLOSED / ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / NOT_RERUNNABLE。**
 父任务：VLM-NATIVE-PTS-ADAPTER-045；唯一READY。用户本轮要求“继续直到下一任务”，负责人据此下达本次无媒体/无网络/无模型推理的CPU实现包。
 这是[64格设计第4–5节](../../research-protocols/natural-video-clock-feasibility-design-2026-10-24.md)中尚未完成、可独立于下载推进的P接口工作。
 044直连获取路线仍暂停；本包不换源下载、不续传、不恢复042–044，不创建新的图形时钟问答实验。

@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；用户要求继续到下一任务，已下达[045精确PTS原生processor适配包](./codex-artifacts/VLM-NATIVE-PTS-ADAPTER-045/README.md)。**唯一READY：VLM-NATIVE-PTS-ADAPTER-045 / CPU_PROCESSOR_ADAPTER_ONLY / 尚未执行**。044素材获取路线继续暂停；本包推进独立的P接口实现与9槽真实CPU输入边界验证，使用现有processor/tokenizer配置，无媒体/解码/下载/模型推理/GPU。受控PTS只验证组件，不当自然VFR或模型收益；NOVELTY=RETAIN0，64格数据/标签/题目准入仍HOLD。）
+> 更新日期：2026-10-25（北京时间；已完成[045负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：**ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / 045关闭，当前0 READY**。9/9实际CPU输入槽通过、10/12调用；独立复算原生时码、整数输入字节hash、视觉/完整签名和3个等价类一致。精确PTS已在受控96源帧/96秒原型沿原生链生效，视觉保持相同；尚非任意自然视频适配或模型收益。044获取路线仍停，真实资产/时钟/标签/题目/N基线/64格仍HOLD，不自动046或新增受控变体；NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-NATIVE-PTS-ADAPTER-045 | P0 | **READY / CPU_PROCESSOR_ADAPTER_ONLY（唯一，尚未执行）** | 本地Codex执行；ChatGPT验收 | [045整包](./codex-artifacts/VLM-NATIVE-PTS-ADAPTER-045/README.md)：隔离PTS适配、实际原生回调/时码/BF16视觉关系、固定9输入槽、拒绝与请求隔离验证 | 现有processor仅CPU；≤12实际调用、受监督≤600秒；应用网络/媒体/权重/模型推理/GPU0。组件PASS不等于自然输入/64格准入，统一交付后STOP |
+| VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。当前0 READY，不自动扩变体/下载/GPU |
 | VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口；044验收时0 READY，不加时/续传/换候选重试；新任务见页首 |
 | VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)：实际12/12本地故障通过；保留初轮导入失败 | [负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)独立复算一致；FakeTransport/短时进程模型限定，真实TLS与多对象分配未测；043验收时0 READY，后续见页首 |
 | VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；本父已消费，不续传或自动新下载/GPU；当前任务见页首 |
@@ -107,7 +107,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；043/044已关闭，当前唯一READY为045 CPU接口实现；本选帧候选仍PARKED |
+| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；043/044已关闭，045已关闭，当前0 READY；本选帧候选仍PARKED |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -2229,3 +2229,19 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 - 即使CPU_NATIVE_PTS_ADAPTER_BOUNDARY_PASS，也只关闭一个组件实现缺口；真实资产、标注时钟、重复动作题目、强N基线及64格准入仍HOLD。
   045仅一次整包/统一推送后STOP，不自动046/GPU/新下载。044路线停止、040–044关闭、NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论保持。
   本轮负责人只写合同/看板/设计补充，未运行processor、读取配置/真实媒体或改codex-results。
+
+### 2026-10-25 · 验收045原生PTS链路限定CPU原型，关闭任务
+
+- 核[8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)五处allowlist，核心244行/验证器99行及回执，形成[负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)。
+  两新源码SHA独立计算匹配封存；未运行旧tests、Torch/processor或访问Windows/私人配置。
+- CSV/Fraction/struct独立复算9槽：索引、实际24个回调均值/原生时码、整数ID/attention/grid字节hash、所有kwargs/完整/视觉签名与关系均相容。
+  正式9 PASS、失败/未知/NOT_RUN0；base身份不变，公开视觉hash一致，直接BF16 torch.equal与tokenizer roundtrip保留执行者实测层。
+- Q04/P-A与Q05/P-B只在原生时码文本区改变输入；Q07新显式A复现Q04，Q06原生未污染。
+  Q09首patch 1/200秒、其余1/100秒raw差量化为0，完整输入等于Q08；9槽分为3类，不当独立模型观测。
+- 实际1探针+9正式=10/12调用；初始库导入失败与唯一ImportError兼容修复保留。四阶段wall独立加和110.0447841秒≤600；
+  初始失败worker未到CUDA断言，不追认动态PASS；当前worker未初始化，模型/权重/媒体/解码/网络/GPU0。
+- **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / NATURAL_MEDIA_AND_TASK_EFFECT_UNKNOWN；045关闭，当前0 READY。**
+  实现硬限定F96/T96/48帧/merge2，仅通过窄实现门；任意180–900秒自然资产的F/T/PTS映射仍需真实入口后验证，不能只改常量宣称通用。
+  不自动046或继续纯受控变体；044获取路线停、真实原片/时钟/标签桥接/题目身份/强N/64格及模型效果仍HOLD。
+- 本轮仅负责人验收/归档/规划补充，codex-results与045代码/回执/CSV不改。
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧科学/媒体/训练停止结论保持。
