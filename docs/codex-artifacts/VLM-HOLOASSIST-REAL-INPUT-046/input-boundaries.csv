@@ -1,0 +1,4 @@
+arm,status,reason,processor_calls,source_F,source_T,source_fps,representation_F,representation_fps,source_indices,native_timecodes,kwargs,full_hash,visual_hash,visual_equal_B0,text_only_difference,equivalence_class
+B0,NOT_RUN,FETCH_FAILED_NO_VERIFIED_ASSET,0,,,,,,,,,,,,,
+P,NOT_RUN,FETCH_FAILED_NO_VERIFIED_ASSET,0,,,,,,,,,,,,,
+N,NOT_RUN,FETCH_FAILED_NO_VERIFIED_ASSET,0,,,,,,,,,,,,,
