@@ -1,6 +1,12 @@
+# 044已归档：执行轮已消费，当前直接获取路线暂停
+
+2026-10-25：[负责人验收](../../research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)已关闭044，当前0 READY。
+C02完整获取失败、验钟NOT_RUN；不加时/续传/换候选重试，不迁移余量或自动045。
+以下合同保留历史，旧唯一READY和启动指令均失效。
+
 # 044：单个EPIC原片的真实获取与CPU时钟核验（已授权执行合同）
 
-2026-10-25（北京时间）。**READY / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU / NOT_RUN。**
+2026-10-25（北京时间）。**CLOSED / ACCEPTED_BOUNDED_TRANSPORT_FAILURE / NOT_RERUNNABLE。**
 父任务：VLM-EPIC-SINGLE-SOURCE-ADMISSION-044。先读[043负责人验收](../../research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)。
 本包将真实传输适配、必要预检、一次媒体获取和成功后的时钟扫描合并；不再分派纯假传输任务。
 043与042已关闭，旧许可/额度均不继承。本包的新媒体获取与CPU解码许可来自用户2026-10-25明确回复“批准044”。

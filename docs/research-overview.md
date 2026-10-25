@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；用户原话“批准044”，已记录[044授权合同](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)。**唯一READY：VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU / 尚未执行**。限原C02/P31_10一个原MP4，HEAD≤1/GET≤1、新媒体≤4GiB、获取总包络≤900秒、CPU准备/预检/验钟≤1200秒；预检与监督门通过后一次整包连续执行，统一脱敏交付后STOP。042/043已关闭、旧额度不继承；标签/模型/GPU0，NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；已完成[044负责人验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP；044关闭，当前0 READY**。唯一C02 HEAD/GET均200，声明2034460331B，落盘下界72MiB，完整媒体未验、验钟NOT_RUN；独立复算受控finish839.9503246秒符合900秒包络，元数据/完整责任已保留。暂停当前直接获取入口，不加时/续传/换候选续试，不派同类修复微包或占位045。下一步须明确已有完整合法素材引用或不同实物来源条件；标签/模型/GPU0，NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：用户批准044，已设唯一READY，尚未执行。** 只限原C02/P31_10的新单对象获取与CPU时钟核验（≤4GiB/900秒获取/1200秒CPU）；真实适配及必要预检合在同包，门未过则HTTP0。042/043已关闭，标签/模型/GPU不放行，科学效果仍UNKNOWN、NOVELTY=RETAIN0。
+**2026-10-25当前状态：044受控获取失败已关闭，当前直接官方获取路线暂停；0 READY。** C02元数据/责任与900秒包络已核相容，但仅取得72MiB下界，完整同版原片与时钟未得。按预先约定不再延时、续传或换候选重试；需明确已有完整合法素材或另选可得来源。未运行模型/GPU，科学效果UNKNOWN、NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2533,3 +2533,18 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   再次超时或记账失败暂停该直接获取入口，不加时、不换候选续试、不自动045。
 - 负责人本轮仅登记授权与交接，未访问用户机器、发媒体HTTP、解码或写执行结果；codex-results与旧代码/证据不动。
   READY不是媒体已取得或时钟已过，042/043关闭和042旧责任不变；标签/模型/GPU0，NOVELTY=RETAIN0及旧停止结论保持。
+
+### 2026-10-25 · 验收044并暂停当前直接官方获取路线
+
+- 核[e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)恰五个允许路径、核心/新tests及公开回执，形成[负责人验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)。
+  核心/tests SHA256独立计算匹配封存，未重跑Windows或读取旧私有媒体/日志。
+- CSV/Decimal独立复算唯一C02：HEAD/GET均1且200；声明/保留责任2034460331B，持久read/写盘/partial下界75497472B=72MiB，约声明量3.711%。
+  kill839.9030640、active0为839.9087603、finish839.9503246秒，符合840/870/900门；未见该行计数或时限矛盾。
+  精确接收保留UNKNOWN_PENDING_BODY，完整MD5/SHA未验；验钟NOT_RUN，不将缺失时钟当0或CFR。
+- **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP；044关闭，当前0 READY。**
+  本轮工程截止/持久化在真实传输中有佐证，素材仍未取得；不是模型或自然时钟科研阴性。
+  按事前合同暂停此直接获取入口，不再加时、续传、换候选续试或派同类修复微包，不创建占位045。
+- 原16候选保留C01关闭失败、C02获取失败/时钟未测、C03–C16未请求；042旧11MiB/≤4GiB责任及044新责任不迁移/归零。
+  后续须明确已有完整合法文件的本地引用/来源依据，或不同可得实物来源；路径留本地，不自动扫描或读取它们。
+- 本轮负责人只写验收/归档/看板/总览；codex-results、044代码/tests/回执/CSV和旧manifest不改。
+  标签/问题/模型输入/GPU及训练未放行，NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。

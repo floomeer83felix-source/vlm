@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；用户原话“批准044”，已记录[044授权合同](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)。**唯一READY：VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU / 尚未执行**。限原C02/P31_10一个原MP4，HEAD≤1/GET≤1、新媒体≤4GiB、获取总包络≤900秒、CPU准备/预检/验钟≤1200秒；预检与监督门通过后一次整包连续执行，统一脱敏交付后STOP。042/043已关闭、旧额度不继承；标签/模型/GPU0，NOVELTY=RETAIN0。）
+> 更新日期：2026-10-25（北京时间；已完成[044负责人验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：**ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP；044关闭，当前0 READY**。唯一C02 HEAD/GET均200，声明2034460331B，落盘下界72MiB，完整媒体未验、验钟NOT_RUN；独立复算受控finish839.9503246秒符合900秒包络，元数据/完整责任已保留。暂停当前直接获取入口，不加时/续传/换候选续试，不派同类修复微包或占位045。下一步须明确已有完整合法素材引用或不同实物来源条件；标签/模型/GPU0，NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **READY / USER_APPROVED_SINGLE_SOURCE_MEDIA_CPU（唯一，尚未执行）** | 本地Codex执行；ChatGPT验收 | [已授权整包](./codex-artifacts/VLM-EPIC-SINGLE-SOURCE-ADMISSION-044/README.md)：真实TLS适配、预检、原C02/P31_10一次获取及成功后的CPU验钟 | 用户2026-10-25“批准044”；HEAD≤1/GET≤1、新媒体≤4GiB、获取≤900秒、CPU≤1200秒；统一回报后STOP，无标签/模型/GPU，不继承旧额度 |
+| VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口，当前0 READY，不加时/续传/换候选重试 |
 | VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)：实际12/12本地故障通过；保留初轮导入失败 | [负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)独立复算一致；FakeTransport/短时进程模型限定，真实TLS与多对象分配未测；043验收时0 READY，后续见页首 |
 | VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；本父已消费，不续传或自动新下载/GPU；当前任务见页首 |
 | VLM-CACHE-INPUT-QUALIFICATION-041 | P0 | **ACCEPTED_CPU_BOUNDARY_CONTRACT_REPRODUCED / LOCAL_COMPONENT_REGRESSION_ONLY（已关闭，不重跑）** | Codex交付、ChatGPT验收 | [6bcee08](https://github.com/floomeer83felix-source/vlm/commit/6bcee080ce00c82041d4567ddc2707977d9ae067)：72边界状态、288序列/576查询；条件性不兼容复用40，三控制0 | [负责人验收](./research-decisions/post-041-cache-qualification-disposition-2026-10-24.md)：完整源命名空间已足够；保留测量/同机复现边界，NOVELTY=RETAIN0；041结案时0 READY，不自动恢复本任务/GPU/Issue/投稿 |
@@ -106,7 +106,7 @@
 | VLM-POST037-RESEARCH-DESIGN | P0 | **DESIGN_COMPLETED_FOR_LIMITED_PROBE / NOVELTY_UNKNOWN（2026-10-22）** | ChatGPT研究负责人 | [新科学协议](./research-protocols/clock-visual-binding-probe-2026-10-22.md)：固定像素/位置，合法clock响应与平移不变、逐clock文字算术control，实际processor暴露先行 | 只支持一次低成本候选测量设计；不是论文新机制保留。旧C/D核心停止，原真实P2仍PARKED；自然长域/独立确认/训练未批准 |
 | VLM-CLOCK-BINDING-PROBE-038 | P0 | **ACCEPTED_SYNTHETIC_BEHAVIORAL_FINDING / RESOURCE_RECEIPT_EXCEPTION / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT静态审结 | [c078d0c](https://github.com/floomeer83felix-source/vlm/commit/c078d0cac8a7c9e4a4dee1ef0ada866ab09154bd)：48实际生成/输入门通过，视频3/24、文字22/24；ChatGPT复算公开计数 | 首次有本题合成行为证据，仍不能定位读出/角色/计算；漏前置磁盘余量检查，不签全合同PASS，不重跑038/补证；NOVELTY=RETAIN0 |
 | VLM-CLOCK-COMPONENTS-039 | P0 | **ACCEPTED_COMPONENT_DIAGNOSTIC / STOP_CURRENT_SYNTHETIC_VARIANTS / NO_CORE_INNOVATION（2026-10-23；已关闭）** | Codex交付、ChatGPT审结 | [995d436](https://github.com/floomeer83felix-source/vlm/commit/995d436c2d3572178f4641a4faeca600219e22a2)：120实际生成，NG/NR/SG/SR/OG正确0/1/3/15/24，各N24；公开120行独立复算一致 | 普通读数/指令/呈现解释未排除，触发事前停止条件；结束当前图形时钟变体投入，不重跑/改font或prompt继续扩样，NOVELTY=RETAIN0 |
-| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；043已关闭，当前唯一READY为044单对象获取/CPU整包；本选帧候选仍PARKED |
+| VLM-POST039-SCIENCE-DESIGN | P1 | **PARKED / NOT_READY（路径交接暂缓）** | ChatGPT研究负责人 | [同题跨视频选择修订](./research-proposals/selection-channel-identifiability-revision-2026-10-24.md)保留；旧192槽已取消 | 跨源输入/近邻重合仍未解决；不因040结案复活，不索要私人路径；041已关闭；043/044已关闭，当前0 READY；本选帧候选仍PARKED |
 | VLM-HOURVIDEO-TRAIN-GPU-001 | P0 | **QUEUED / REQUIRES_NEW_GPU_TRAINING_AUTHORIZATION（非READY）** | Codex，待TRAIN-PREP实证PASS并获独立GPU许可 | [真实GPU训练合同](./codex-artifacts/VLM-HOURVIDEO-TRAIN-GPU-001/README.md)：RTX3090上用真实独立训练视频，冻结视觉编码器/Qwen，只优化≤1M参数的temporal head；**真正backward+optimizer.step≤200步、GPU≤60分钟**、独立训练数据，私人checkpoint≤256MiB，记录loss/参数变化/峰值VRAM | **GPU训练当前未授权**；结果只证明真实小头训练，不冒称Qwen微调/QA准确率提升或论文创新，不沿用AB推理预算 |
 | VLM-HOURVIDEO-TRAIN-LORA-001 | P1 | **OPTIONAL_QUEUED / TRAIN_QA_AND_GPU_AUTHORIZATION_HOLD（非READY）** | Codex，待合法独立train QA、现成LoRA依赖和3090显存证据 | [可选Qwen3-VL LoRA真实微调提案](./codex-artifacts/VLM-HOURVIDEO-TRAIN-LORA-001/README.md)：仅合法train split答案、现有权重/PEFT条件过门才拟一次≤100步/≤90GPU分钟Qwen adapter真实训练；无合规train QA则不得用dev替代 | **非本次授权**、不保证3090能做4B LoRA；须后续新用户许可且唯一READY，无法满足就报告LORA_HOLD |
 | VLM-PTS-001 | P1 | **INCLUDED IN VLM-BATCH-003（不可单独执行）** | Codex | 原PTS静态审计需求 | 按任务包子任务A执行，原[说明](./codex-artifacts/VLM-PTS-001/README.md)仅作背景；不重复上传 |
@@ -2197,3 +2197,18 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   再次超时或记账失败暂停该直接获取入口，不加时、不换候选续试、不自动045。
 - 负责人本轮仅登记授权与交接，未访问用户机器、发媒体HTTP、解码或写执行结果；codex-results与旧代码/证据不动。
   READY不是媒体已取得或时钟已过，042/043关闭和042旧责任不变；标签/模型/GPU0，NOVELTY=RETAIN0及旧停止结论保持。
+
+### 2026-10-25 · 验收044并暂停当前直接官方获取路线
+
+- 核[e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)恰五个允许路径、核心/新tests及公开回执，形成[负责人验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)。
+  核心/tests SHA256独立计算匹配封存，未重跑Windows或读取旧私有媒体/日志。
+- CSV/Decimal独立复算唯一C02：HEAD/GET均1且200；声明/保留责任2034460331B，持久read/写盘/partial下界75497472B=72MiB，约声明量3.711%。
+  kill839.9030640、active0为839.9087603、finish839.9503246秒，符合840/870/900门；未见该行计数或时限矛盾。
+  精确接收保留UNKNOWN_PENDING_BODY，完整MD5/SHA未验；验钟NOT_RUN，不将缺失时钟当0或CFR。
+- **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP；044关闭，当前0 READY。**
+  本轮工程截止/持久化在真实传输中有佐证，素材仍未取得；不是模型或自然时钟科研阴性。
+  按事前合同暂停此直接获取入口，不再加时、续传、换候选续试或派同类修复微包，不创建占位045。
+- 原16候选保留C01关闭失败、C02获取失败/时钟未测、C03–C16未请求；042旧11MiB/≤4GiB责任及044新责任不迁移/归零。
+  后续须明确已有完整合法文件的本地引用/来源依据，或不同可得实物来源；路径留本地，不自动扫描或读取它们。
+- 本轮负责人只写验收/归档/看板/总览；codex-results、044代码/tests/回执/CSV和旧manifest不改。
+  标签/问题/模型输入/GPU及训练未放行，NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及既有停止结论保持。
