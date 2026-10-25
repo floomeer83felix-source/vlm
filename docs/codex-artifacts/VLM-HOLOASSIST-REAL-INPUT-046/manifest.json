@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "parent_task_id": "VLM-HOLOASSIST-REAL-INPUT-046",
+  "prepared_date": "2026-10-25",
+  "timezone": "Asia/Shanghai",
+  "asset_status": "REGISTERED_UNTESTED",
+  "purpose": "Single distributed-copy admission and conditional real CPU B0/P/N input boundary; no task inference or original-media/annotation-clock certification.",
+  "candidates": [
+    {
+      "candidate_id": "H01",
+      "dataset_origin": "HoloAssist",
+      "distribution_repository": "lmms-lab/EgoIT-99K",
+      "distribution_revision": "dabc7958c501ce7cb7a0e6082e41ffdee547a1b7",
+      "source_recording_name": "R015-7July-Switch",
+      "repository_path": "HoloAssist/video/R015-7July-Switch.mp4",
+      "media_url": "https://huggingface.co/datasets/lmms-lab/EgoIT-99K/resolve/dabc7958c501ce7cb7a0e6082e41ffdee547a1b7/HoloAssist/video/R015-7July-Switch.mp4",
+      "expected_bytes": 114523050,
+      "publisher_lfs_sha256": "8ee70b404c996a1c823b65744debc9763564ac6bb5e57835f15be8c07d3bac98",
+      "actual_duration_seconds": null,
+      "actual_clock_status": "NOT_READ",
+      "original_unmodified_identity": "UNKNOWN",
+      "annotation_clock_bridge": "UNKNOWN",
+      "selection_reason": "First visible HoloAssist/video directory entry; fixed availability candidate before any media, clock or model observation; not a population sample."
+    }
+  ],
+  "license": {
+    "upstream_declared": "CDLA-Permissive-2.0",
+    "upstream_readme_url": "https://github.com/Ember-HoloAssist/holoassist-release/blob/f53ad2b5c3889784ef068e11fea10ba4ecf99970/README.md",
+    "license_url": "https://cdla.dev/permissive-2-0/",
+    "redistribute_media": false
+  },
+  "limits": {
+    "head_chain_sends": 1,
+    "get_chain_sends": 3,
+    "get_redirects": 2,
+    "total_http_sends": 4,
+    "media_payload_cap_bytes": 134217728,
+    "fetch_work_seconds": 840,
+    "fetch_kill_target_seconds": 839.9,
+    "fetch_active0_seconds": 870,
+    "fetch_finish_seconds": 900,
+    "cpu_supervised_total_seconds": 1800,
+    "clock_scan_seconds": 600,
+    "frame_selection_decode_seconds": 600,
+    "processor_worker_seconds": 300,
+    "processor_calls_total": 5,
+    "formal_processor_calls": 3,
+    "decode_passes": 2,
+    "cpu_media_read_return_cap_bytes": 536870912,
+    "job_ram_bytes": 4294967296,
+    "threads": 4,
+    "parent_seconds": 5400,
+    "other_output_bytes": 67108864,
+    "max_files": 1024,
+    "public_output_bytes": 16777216
+  },
+  "redirect_host_allowlist": [
+    "huggingface.co",
+    "cas-server.xethub.hf.co",
+    "cas-server.xethub-eu.hf.co",
+    "transfer.xethub.hf.co",
+    "transfer.xethub-eu.hf.co",
+    "us.aws.cdn.hf.co",
+    "us.gcp.cdn.hf.co",
+    "cdn-lfs-us-1.hf.co",
+    "cdn-lfs-eu-1.hf.co",
+    "cas-bridge.xethub.hf.co"
+  ],
+  "blocked": [
+    "retry",
+    "resume",
+    "Range",
+    "other_media",
+    "labels_or_QA",
+    "model_weights",
+    "model_inference",
+    "GPU",
+    "install",
+    "private_directory_search",
+    "historical_task_rerun"
+  ],
+  "authorization_source": "Latest task README and task board; asset_status describes measurement only."
+}

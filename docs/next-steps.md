@@ -4,13 +4,14 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；已完成[045负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：**ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / 045关闭，当前0 READY**。9/9实际CPU输入槽通过、10/12调用；独立复算原生时码、整数输入字节hash、视觉/完整签名和3个等价类一致。精确PTS已在受控96源帧/96秒原型沿原生链生效，视觉保持相同；尚非任意自然视频适配或模型收益。044获取路线仍停，真实资产/时钟/标签/题目/N基线/64格仍HOLD，不自动046或新增受控变体；NOVELTY=RETAIN0。）
+> 更新日期：2026-10-25（北京时间；045已按限定CPU原型验收并关闭。已冻结[046完整提案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：**PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY**。新对象为HoloAssist R015公开分发副本，LFS114523050B/固定commit及SHA256；拟新媒体≤128MiB、一次获取≤900秒、CPU≤1800秒，满足真实时钟/时长/高漂移门后同包验证B0/P/N输入。原片同版身份/实际时长/PTS/标注桥接尚UNKNOWN；未下载、未执行，不保证准入。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。当前0 READY，不自动扩变体/下载/GPU |
+| VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL / NOT_READY** | ChatGPT已冻结；待用户批准后Codex执行 | [完整合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：H01单分发副本一次获取→CPU验钟→有条件真实B0/P/N输入 | [来源与边界](./research-decisions/holoassist-single-copy-entry-proposal-2026-10-25.md)：固定版本/114523050B/SHA，≤128MiB；原片/标签桥接UNKNOWN，未授权执行，不恢复EPIC下载或模型/GPU |
+| VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
 | VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口；044验收时0 READY，不加时/续传/换候选重试；新任务见页首 |
 | VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)：实际12/12本地故障通过；保留初轮导入失败 | [负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)独立复算一致；FakeTransport/短时进程模型限定，真实TLS与多对象分配未测；043验收时0 READY，后续见页首 |
 | VLM-NATURAL-CLOCK-ADMISSION-042 | P0 | **CLOSED / ACCEPTED_BOUNDED_FAILURE_REPORT（不重跑）** | Codex交付、ChatGPT验收 | 下载失败，媒体/时钟0/16 | 资源合同未全部满足；本父已消费，不续传或自动新下载/GPU；当前任务见页首 |
@@ -2245,3 +2246,20 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   不自动046或继续纯受控变体；044获取路线停、真实原片/时钟/标签桥接/题目身份/强N/64格及模型效果仍HOLD。
 - 本轮仅负责人验收/归档/规划补充，codex-results与045代码/回执/CSV不改。
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧科学/媒体/训练停止结论保持。
+
+
+### 2026-10-25 · 冻结046确切HoloAssist单副本与真实CPU输入提案，待一次媒体授权
+
+- 用户要求继续下一步。已核main=c7eb259及AGENTS/看板/results/总览，045已消费；不重开旧任务或继续纯受控夹具。
+- 公开来源实查找到HoloAssist在EgoIT发布者仓库的单文件：固定commit dabc7958c501ce7cb7a0e6082e41ffdee547a1b7，
+  R015-7July-Switch，LFS114523050B及SHA256均由发布commit/文件页/三行pointer互证，详见[来源说明](./research-decisions/holoassist-single-copy-entry-proposal-2026-10-25.md)。
+  是不同数据集/分发入口，非EPIC镜像/续传；其完整原片身份、时长、PTS和标注时钟仍UNKNOWN。
+- 未用约111秒的R007小样例凑180–900秒门，也不因目录显示115MB推定H01时长合格。
+  不下载大tar、不从旧盘找视频、不主动读取标注文件；网页自动附带的其它训练样例不参与选择或研究。
+- [046完整合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)合并一次必要真实传输预检、固定文件获取、CPU全帧验钟、
+  满足高漂移/时长/资源门后的真实F/T P适配与强N输入；不用先做假传输/找路径微任务。
+  新媒体128MiB、HEAD1/GET链≤3发送、获取840/870/900秒、CPU累计1800秒、RAM4GiB/线程4、父5400秒，
+  两遍解码、processor≤5/正式三槽；所有失败/未运行保留，原片/标签科学门不能由副本hash替代。
+- **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY。** 这是新媒体范围，按AGENTS需用户对已冻结提案明确批准；
+  批准后登记一次即可，不对子步骤重复询问。负责人本轮只写六处规划文件，codex-results与旧实现/证据保持原样。
+  未访问Windows/获取媒体正文/运行CPU媒体或模型；044直接路线停、042–045已消费、标签/GPU/64格HOLD及NOVELTY=RETAIN0保持。

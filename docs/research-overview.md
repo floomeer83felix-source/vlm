@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；已完成[045负责人验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：**ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / 045关闭，当前0 READY**。9/9实际CPU输入槽通过、10/12调用；独立复算原生时码、整数输入字节hash、视觉/完整签名和3个等价类一致。精确PTS已在受控96源帧/96秒原型沿原生链生效，视觉保持相同；尚非任意自然视频适配或模型收益。044获取路线仍停，真实资产/时钟/标签/题目/N基线/64格仍HOLD，不自动046或新增受控变体；NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；045已按限定CPU原型验收并关闭。已冻结[046完整提案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：**PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY**。新对象为HoloAssist R015公开分发副本，LFS114523050B/固定commit及SHA256；拟新媒体≤128MiB、一次获取≤900秒、CPU≤1800秒，满足真实时钟/时长/高漂移门后同包验证B0/P/N输入。原片同版身份/实际时长/PTS/标注桥接尚UNKNOWN；未下载、未执行，不保证准入。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：045限定CPU原型验收通过并关闭，当前0 READY。** 精确PTS沿原生processor链改变预期时码/文本，BF16视觉保持一致；9槽独立复算一致并归为3个输入等价类。实现固定96源帧/96秒，真实自然源的适用性、数据/标签/题目与模型效果仍未通过；044获取路线继续暂停，NOVELTY=RETAIN0。
+**2026-10-25当前状态：046真实分发副本/CPU输入提案已冻结，待新媒体验证授权，当前0 READY。** 045窄原生链路已通过，现将实现绑定到确切HoloAssist分发文件并纳入已有N输入；只有完整性、180–900秒、实际高漂移和资源门通过才运行三个CPU槽。分发版本SHA不能认证原片或标注桥接；未运行下载/验钟/processor。044路线继续暂停，标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2580,3 +2580,20 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   不自动046或继续纯受控变体；044获取路线停、真实原片/时钟/标签桥接/题目身份/强N/64格及模型效果仍HOLD。
 - 本轮仅负责人验收/归档/规划补充，codex-results与045代码/回执/CSV不改。
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧科学/媒体/训练停止结论保持。
+
+
+### 2026-10-25 · 冻结046确切HoloAssist单副本与真实CPU输入提案，待一次媒体授权
+
+- 用户要求继续下一步。已核main=c7eb259及AGENTS/看板/results/总览，045已消费；不重开旧任务或继续纯受控夹具。
+- 公开来源实查找到HoloAssist在EgoIT发布者仓库的单文件：固定commit dabc7958c501ce7cb7a0e6082e41ffdee547a1b7，
+  R015-7July-Switch，LFS114523050B及SHA256均由发布commit/文件页/三行pointer互证，详见[来源说明](./research-decisions/holoassist-single-copy-entry-proposal-2026-10-25.md)。
+  是不同数据集/分发入口，非EPIC镜像/续传；其完整原片身份、时长、PTS和标注时钟仍UNKNOWN。
+- 未用约111秒的R007小样例凑180–900秒门，也不因目录显示115MB推定H01时长合格。
+  不下载大tar、不从旧盘找视频、不主动读取标注文件；网页自动附带的其它训练样例不参与选择或研究。
+- [046完整合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)合并一次必要真实传输预检、固定文件获取、CPU全帧验钟、
+  满足高漂移/时长/资源门后的真实F/T P适配与强N输入；不用先做假传输/找路径微任务。
+  新媒体128MiB、HEAD1/GET链≤3发送、获取840/870/900秒、CPU累计1800秒、RAM4GiB/线程4、父5400秒，
+  两遍解码、processor≤5/正式三槽；所有失败/未运行保留，原片/标签科学门不能由副本hash替代。
+- **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY。** 这是新媒体范围，按AGENTS需用户对已冻结提案明确批准；
+  批准后登记一次即可，不对子步骤重复询问。负责人本轮只写六处规划文件，codex-results与旧实现/证据保持原样。
+  未访问Windows/获取媒体正文/运行CPU媒体或模型；044直接路线停、042–045已消费、标签/GPU/64格HOLD及NOVELTY=RETAIN0保持。
