@@ -1,8 +1,9 @@
-# 046提案：一个HoloAssist分发副本的获取、真实CPU时钟与B0/P/N输入
+# 046：一个HoloAssist分发副本的获取、真实CPU时钟与B0/P/N输入（已授权执行合同）
 
-2026-10-25（北京时间）。**PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL / NOT_READY。**
-父任务：VLM-HOLOASSIST-REAL-INPUT-046。当前没有执行许可；用户批准本完整提案后，负责人登记授权并将其设为唯一READY。
-“继续下一步工作”已授权负责人准备此提案，不替代AGENTS对新数据下载和CPU媒体解码的单独授权。
+2026-10-25（北京时间）。**READY / USER_APPROVED_MEDIA_AND_CPU_INPUT / NOT_YET_EXECUTED。**
+父任务：VLM-HOLOASSIST-REAL-INPUT-046。用户对已冻结完整提案明确回复“批准”，新媒体获取和限定CPU解码/输入范围已获授权。
+最新任务板将本父设为唯一READY；本地Codex安全同步main，确认本父无既报结果后，一次连续完成本合同允许的A→B→C→D。
+各阶段按门自动继续或停止，不需要再次确认本范围；授权记录和启动消息见第6节。
 本包绑定一个确切新资产；不恢复042–045、不扩纯受控夹具，不修改已安装环境。
 
 ## 1. 对象、目的及已知边界
@@ -32,7 +33,7 @@
 在此确切资产上实现实际F/T的PTS适配和已有均匀时间采样N，构建三个真实CPU输入。
 只做“Describe the video.”输入，不生成答案；任务效果继续UNKNOWN。
 
-## 2. 拟授权上限（批准前不得执行）
+## 2. 已授权上限
 
 | 资源 | 上限 |
 |---|---|
@@ -187,4 +188,24 @@ Job CPU/峰RAM、processor全部调用、两遍解码读入和新根配额；驻
 
 README/manifest/负责人规划、旧代码/旧报告均不改。核stage仅此六处，普通push main一次；冲突安全停止。
 completed/partial/blocked任一回报均消费父任务，不继承未用预算。
-批准并设READY后，用户在当前本地Codex聊天发一次启动消息即可；GitHub更新不会自动唤醒Codex。
+本包已获批准并设为唯一READY；用户在当前本地Codex聊天发一次第6节启动消息即可，GitHub更新不会自动唤醒Codex。
+
+## 6. 用户授权记录与启动消息
+
+2026-10-25（北京时间），用户对[完整冻结提案](https://github.com/floomeer83felix-source/vlm/tree/1ea814cd5e4bcd520516295d67a63a5c26ff6ac4/docs/codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046)
+明确回复原话“批准”。该答复确认上述H01固定分发版本的新媒体与CPU解码/输入范围；不要求额外口令，不对子阶段重复询问。
+授权包含一次必要集成预检、HEAD一次/有条件GET链最多三次发送、完整性通过后的CPU验钟，
+以及全部条件满足后的B0/P/N实际输入核验。资源、科学门槛、文件allowlist与停止条件均沿用冻结提案。
+
+manifest字节未改，SHA256仍为d79a7eeb7ec57e95c4c1c60418db12b794f14736891ed3046fd58712fed63ef9；
+候选仍仅H01/R015，114523050B及既定LFS SHA256、完整commit/URL、主机白名单均未改变。
+新媒体≤128MiB、获取840/870/900秒、CPU累计≤1800秒、父≤5400秒、RAM4GiB/线程4、
+最多两遍解码/processor≤5次/正式三槽和输出配额全部不变。
+REGISTERED_UNTESTED是素材未测状态，不代表缺少执行授权；来源说明中原待批准文字保留提案历史，以本节及最新任务板为准。
+
+本次授权不继承042–045额度，不恢复044直接获取入口，不授权其它媒体、标签/QA/旧私有材料、
+权重/模型推理/GPU、安装/环境改变或后台连续工作。入口/时钟/时长等门失败则依合同保留UNKNOWN/NOT_RUN并结束。
+负责人本轮只登记授权并更新规划，未访问本地Windows、获取媒体正文、运行decoder/processor或追加执行结果。
+本地Codex需用户在当前活跃聊天发送一次消息启动；复制下段即可：
+
+> 安全同步GitHub文档仓库main，重读AGENTS.md、docs/next-steps.md、docs/research-overview.md、docs/codex-results.md及docs/codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md，确认唯一尚未交付的READY父任务VLM-HOLOASSIST-REAL-INPUT-046。046已批准：按冻结manifest和合同连续完成必要预检、唯一H01一次获取、成功后的CPU验钟，满足时长/高漂移等门后继续真实B0/P/N输入核验；统一脱敏推送后停止。新媒体≤128MiB、获取≤900秒、CPU累计≤1800秒，模型/GPU/标签0；不重跑旧任务、不重试/续传/换源或继承旧额度。

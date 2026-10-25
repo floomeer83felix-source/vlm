@@ -1,6 +1,10 @@
 # 046新实物入口提案：HoloAssist单个分发副本
 
-2026-10-25（北京时间）。**PROPOSAL_COMPLETE / MEDIA_APPROVAL_REQUIRED / 0 READY。**
+> 授权更新（2026-10-25，北京时间）：用户已对本冻结提案明确回复“批准”，046现为唯一READY。
+> 执行以[最新046合同第6节](../codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md#6-用户授权记录与启动消息)及任务板为准。
+> 以下保留批准前的来源核查与提案历史；“待批准/0 READY”不是当前授权状态。对象、manifest与额度未改。
+
+2026-10-25（北京时间，批准前提案记录）。**PROPOSAL_COMPLETE / MEDIA_APPROVAL_REQUIRED_AT_PREPARATION。**
 用户在045验收后要求“继续下一步工作啊”。负责人已核远端c7eb259、AGENTS及任务/结果/总览，
 继续解决确切真实输入缺口，未重开已停止的EPIC直接入口或再发纯受控扩展任务。
 

@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；045已按限定CPU原型验收并关闭。已冻结[046完整提案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：**PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY**。新对象为HoloAssist R015公开分发副本，LFS114523050B/固定commit及SHA256；拟新媒体≤128MiB、一次获取≤900秒、CPU≤1800秒，满足真实时钟/时长/高漂移门后同包验证B0/P/N输入。原片同版身份/实际时长/PTS/标注桥接尚UNKNOWN；未下载、未执行，不保证准入。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
+> 更新日期：2026-10-25（北京时间；用户对[已冻结046完整方案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)明确回复“批准”，已登记**唯一READY：VLM-HOLOASSIST-REAL-INPUT-046**。仅H01/R015固定分发副本，新媒体≤128MiB，获取840/870/900秒，CPU累计≤1800秒；符合实际时钟/时长/高漂移等门后同包核B0/P/N输入。manifest字节/版本/对象/额度/停止条件不变，尚未执行；原片同版身份/PTS/标签桥接及任务效果仍UNKNOWN。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL / NOT_READY** | ChatGPT已冻结；待用户批准后Codex执行 | [完整合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：H01单分发副本一次获取→CPU验钟→有条件真实B0/P/N输入 | [来源与边界](./research-decisions/holoassist-single-copy-entry-proposal-2026-10-25.md)：固定版本/114523050B/SHA，≤128MiB；原片/标签桥接UNKNOWN，未授权执行，不恢复EPIC下载或模型/GPU |
+| VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **READY（USER_APPROVED_MEDIA_AND_CPU_INPUT；唯一READY）** | Codex | [已授权完整合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：H01一次获取→CPU验钟→条件满足后真实B0/P/N输入；一次统一回报后停止 | 用户2026-10-25原话“批准”；新媒体128MiB/获取900秒/CPU1800秒/父5400秒；保留失败/UNKNOWN/NOT_RUN，不变manifest、不重试/续传/换源或运行模型/GPU |
 | VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
 | VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口；044验收时0 READY，不加时/续传/换候选重试；新任务见页首 |
 | VLM-FETCH-DEADLINE-ACCOUNTING-043 | P0 | **ACCEPTED_OFFLINE_REPAIR_IN_TESTED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e0b1d1d](https://github.com/floomeer83felix-source/vlm/commit/e0b1d1d113a49ee6ec5763245ac18c541e031da4)：实际12/12本地故障通过；保留初轮导入失败 | [负责人验收](./research-decisions/post-043-fetch-repair-disposition-2026-10-24.md)独立复算一致；FakeTransport/短时进程模型限定，真实TLS与多对象分配未测；043验收时0 READY，后续见页首 |
@@ -2263,3 +2263,18 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 - **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY。** 这是新媒体范围，按AGENTS需用户对已冻结提案明确批准；
   批准后登记一次即可，不对子步骤重复询问。负责人本轮只写六处规划文件，codex-results与旧实现/证据保持原样。
   未访问Windows/获取媒体正文/运行CPU媒体或模型；044直接路线停、042–045已消费、标签/GPU/64格HOLD及NOVELTY=RETAIN0保持。
+
+
+### 2026-10-25 · 用户批准046固定H01媒体与CPU输入范围，设为唯一READY
+
+- 用户对[冻结于1ea814c的完整046提案](https://github.com/floomeer83felix-source/vlm/tree/1ea814cd5e4bcd520516295d67a63a5c26ff6ac4/docs/codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046)原话回复“批准”。
+  已将[本父合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)登记为USER_APPROVED_MEDIA_AND_CPU_INPUT，并设唯一READY；results尚无本父交付。
+- manifest原字节和SHA256 d79a7eeb7ec57e95c4c1c60418db12b794f14736891ed3046fd58712fed63ef9保持；
+  候选仅H01/R015，固定分发commit、114523050B/LFS SHA256、URL/跳转白名单均未改。
+  新媒体128MiB、HEAD1/GET链最多3发送、获取840/870/900秒、CPU1800秒、父5400秒、Job4GiB/线程4、
+  两遍解码/processor最多5次/正式三槽及输出配额均沿用，不扩大授权。
+- 本地Codex一次启动后按A→B→C→D连续完成允许阶段；完整性/时钟/180–900秒/高漂移等门失败如实保留并结束，
+  不对子步骤重复询问、不重试/续传/换源、不给后续任务迁移余量。GitHub更新不会自行唤醒本地聊天，用户只需发README第6节启动消息一次。
+- 负责人本轮只登记授权/规划；codex-results、manifest、旧源码/证据不改，未访问Windows/媒体正文或运行decoder/processor。
+  READY不是媒体或科学门已过；原片同版/标签桥接/问题身份/6+2/64格及模型效果仍UNKNOWN/HOLD。
+  042–045已消费、044路线停止、标签/模型/GPU/训练/后台未授权，NOVELTY=RETAIN0保持。

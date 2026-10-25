@@ -134,8 +134,8 @@ N是完整计费的已有方法参照。若发现可直接实现同一用途的�
 ## 13. 2026-10-25：046单个分发副本的实物/CPU输入提案
 
 [046完整提案](../codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)登记HoloAssist在EgoIT发布者仓库的
-R015-7July-Switch文件，固定commit、LFS大小和SHA256。当前PROPOSED/待新媒体与CPU解码明确批准，0 READY。
-拟128MiB内一次获取、一次实际时钟扫描；仅当该副本180–900秒且认证HIGH_OFFSET时，
+R015-7July-Switch文件，固定commit、LFS大小和SHA256。用户2026-10-25明确回复“批准”，046已为唯一READY，尚未执行。
+已授权128MiB内一次获取、一次实际时钟扫描；仅当该副本180–900秒且认证HIGH_OFFSET时，
 同包在实际F/T/source indices/PTS上验证B0/P及已有均匀时间N的CPU输入。
 这使045后续实现绑定确切实物，非纯受控扩展；只进行Describe输入，不读取任务标签/QA、不生成答案。
 
@@ -144,3 +144,6 @@ R015-7July-Switch文件，固定commit、LFS大小和SHA256。当前PROPOSED/待
 该单副本不并入042冻结16候选，不替换本设计8源/16题/64格、独立性/标签/题目门或实用触发阈值。
 不同分发入口的必要跳转只在046新合同中有界，不恢复044路线。
 该提案及未来CPU通过都不是自然任务效果、N收益、创新性或模型/GPU授权；NOVELTY=RETAIN0。
+
+046授权只作用于其已冻结单副本/CPU合同；manifest字节、科学门槛和该设计64格未改。
+同包各允许阶段不重复确认，失败/未知则结束，不自动扩大或继承旧许可；此更新不是模型/GPU执行授权。

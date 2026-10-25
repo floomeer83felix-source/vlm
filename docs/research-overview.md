@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-25（北京时间；045已按限定CPU原型验收并关闭。已冻结[046完整提案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)：**PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY**。新对象为HoloAssist R015公开分发副本，LFS114523050B/固定commit及SHA256；拟新媒体≤128MiB、一次获取≤900秒、CPU≤1800秒，满足真实时钟/时长/高漂移门后同包验证B0/P/N输入。原片同版身份/实际时长/PTS/标注桥接尚UNKNOWN；未下载、未执行，不保证准入。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
+> 更新：2026-10-25（北京时间；用户对[已冻结046完整方案](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)明确回复“批准”，已登记**唯一READY：VLM-HOLOASSIST-REAL-INPUT-046**。仅H01/R015固定分发副本，新媒体≤128MiB，获取840/870/900秒，CPU累计≤1800秒；符合实际时钟/时长/高漂移等门后同包核B0/P/N输入。manifest字节/版本/对象/额度/停止条件不变，尚未执行；原片同版身份/PTS/标签桥接及任务效果仍UNKNOWN。044路线停及标签/模型/GPU/64格HOLD保持；NOVELTY=RETAIN0。）
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -22,7 +22,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-25当前状态：046真实分发副本/CPU输入提案已冻结，待新媒体验证授权，当前0 READY。** 045窄原生链路已通过，现将实现绑定到确切HoloAssist分发文件并纳入已有N输入；只有完整性、180–900秒、实际高漂移和资源门通过才运行三个CPU槽。分发版本SHA不能认证原片或标注桥接；未运行下载/验钟/processor。044路线继续暂停，标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。
+**2026-10-25当前状态：用户已批准046完整范围，唯一READY为VLM-HOLOASSIST-REAL-INPUT-046，尚未执行。** Codex按已授权合同连续完成固定HoloAssist副本获取、CPU验钟及有条件真实F/T B0/P/N输入；新媒体≤128MiB、获取≤900秒、CPU累计≤1800秒。只有完整性、180–900秒、实际高漂移和资源门通过才运行三个CPU槽；不需要再确认子步骤。分发SHA不认证原片或标注桥接；044路线继续暂停，标签/模型/GPU/64格HOLD，NOVELTY=RETAIN0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2597,3 +2597,18 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
 - **PROPOSED / AWAITING_EXPLICIT_MEDIA_APPROVAL，当前0 READY。** 这是新媒体范围，按AGENTS需用户对已冻结提案明确批准；
   批准后登记一次即可，不对子步骤重复询问。负责人本轮只写六处规划文件，codex-results与旧实现/证据保持原样。
   未访问Windows/获取媒体正文/运行CPU媒体或模型；044直接路线停、042–045已消费、标签/GPU/64格HOLD及NOVELTY=RETAIN0保持。
+
+
+### 2026-10-25 · 用户批准046固定H01媒体与CPU输入范围，设为唯一READY
+
+- 用户对[冻结于1ea814c的完整046提案](https://github.com/floomeer83felix-source/vlm/tree/1ea814cd5e4bcd520516295d67a63a5c26ff6ac4/docs/codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046)原话回复“批准”。
+  已将[本父合同](./codex-artifacts/VLM-HOLOASSIST-REAL-INPUT-046/README.md)登记为USER_APPROVED_MEDIA_AND_CPU_INPUT，并设唯一READY；results尚无本父交付。
+- manifest原字节和SHA256 d79a7eeb7ec57e95c4c1c60418db12b794f14736891ed3046fd58712fed63ef9保持；
+  候选仅H01/R015，固定分发commit、114523050B/LFS SHA256、URL/跳转白名单均未改。
+  新媒体128MiB、HEAD1/GET链最多3发送、获取840/870/900秒、CPU1800秒、父5400秒、Job4GiB/线程4、
+  两遍解码/processor最多5次/正式三槽及输出配额均沿用，不扩大授权。
+- 本地Codex一次启动后按A→B→C→D连续完成允许阶段；完整性/时钟/180–900秒/高漂移等门失败如实保留并结束，
+  不对子步骤重复询问、不重试/续传/换源、不给后续任务迁移余量。GitHub更新不会自行唤醒本地聊天，用户只需发README第6节启动消息一次。
+- 负责人本轮只登记授权/规划；codex-results、manifest、旧源码/证据不改，未访问Windows/媒体正文或运行decoder/processor。
+  READY不是媒体或科学门已过；原片同版/标签桥接/问题身份/6+2/64格及模型效果仍UNKNOWN/HOLD。
+  042–045已消费、044路线停止、标签/模型/GPU/训练/后台未授权，NOVELTY=RETAIN0保持。
