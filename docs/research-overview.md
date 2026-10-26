@@ -2,7 +2,7 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-26（北京时间；已完成[047负责人验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：**ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / REAL_DATA_SCORER_NOT_QUALIFIED；047关闭，当前0 READY**。60例suite/5 CLI均通过；独立重建256格、25份输入SHA及10个输出摘要一致，695项一致性核查完成。共享/包含式成本和未知分母在固定夹具中正确；代码仍硬限定T240/固定ID与synthetic CLI，任意畸形输入及真实scorer未认证。停止追加数学夹具/框架补丁，下一实质步骤需确切完整合法视频及既有题目/标签桥接；046/044获取尝试关闭，GPU/64格真实实验HOLD，NOVELTY=RETAIN0。）
+> 2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
 > 当前目标：先形成有明确用途、强比较、可复现证据的工程/系统论文，研究适配的核心期刊；算法机制探索暂缓。高水平长视频研究保留为长期目标，不保证论文达到任何投稿/录用门槛。
 
 ## 0. 研究协作入口
@@ -2666,3 +2666,10 @@ META-007接受`META_PREFLIGHT_EVIDENCE`并结案，**READY=0**。原LIVE-MEDIA-0
   不自动048、媒体获取/续传/换源/下载修复、旧资产扫描、真实标签/预测访问、模型/GPU/训练或投稿。
   本轮只负责人验收/归档/看板/总览/协议补充，执行代码/fixture/原证据/codex-results保持；
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论不变。
+
+
+### 2026-10-26 · 048现有影片CPU输入任务
+
+2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
+
+这是对已有明确单文件的工程用途另立新合同。当前文件和processor入口须精确前检，不搜旧资产；file-local时轴不认证原始钟/标签。历史0 READY记载保留为当日状态，当前领取以页首唯一048为准。

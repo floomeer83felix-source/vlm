@@ -4,12 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-26（北京时间；已完成[047负责人验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：**ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / REAL_DATA_SCORER_NOT_QUALIFIED；047关闭，当前0 READY**。60例suite/5 CLI均通过；独立重建256格、25份输入SHA及10个输出摘要一致，695项一致性核查完成。共享/包含式成本和未知分母在固定夹具中正确；代码仍硬限定T240/固定ID与synthetic CLI，任意畸形输入及真实scorer未认证。停止追加数学夹具/框架补丁，下一实质步骤需确切完整合法视频及既有题目/标签桥接；046/044获取尝试关闭，GPU/64格真实实验HOLD，NOVELTY=RETAIN0。）
+> 2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
+| VLM-EXISTING-MEDIA-INPUT-048 | P0 | **READY / CPU_INPUT_ONLY** | Codex | [单影片真实解码与B0/P/N输入整包](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md) | 两遍解码/4 processor上限，三行完整状态；仅工程链，不改变科学准入 |
 | VLM-OFFLINE-EVALUATION-047 | P0 | **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)：60 suite例/5 CLI，固定评分/分母/等价声明/成本软件交付 | [验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：独立重建256格/25输入封存/10输出hash一致；限T240数学夹具，真实scorer和通用类型加固未认证；047关闭、当前0 READY，不自动048 |
 | VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，046验收时0 READY；当前独立软件任务见页首，不自动修复/换源 |
 | VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
@@ -2333,3 +2334,10 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
   不自动048、媒体获取/续传/换源/下载修复、旧资产扫描、真实标签/预测访问、模型/GPU/训练或投稿。
   本轮只负责人验收/归档/看板/总览/协议补充，执行代码/fixture/原证据/codex-results保持；
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论不变。
+
+
+### 2026-10-26 · 048现有影片CPU输入任务
+
+2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
+
+这是对已有明确单文件的工程用途另立新合同。当前文件和processor入口须精确前检，不搜旧资产；file-local时轴不认证原始钟/标签。历史0 READY记载保留为当日状态，当前领取以页首唯一048为准。
