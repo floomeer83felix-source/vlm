@@ -1,0 +1,417 @@
+{
+  "CUDA_visible_devices_hidden": true,
+  "actual_model_calls": 0,
+  "assertions": 25,
+  "buffered_unique_frames": 95,
+  "completed_full_decodes": 2,
+  "cuda_initialization_observed": "UNKNOWN_CHECK_NOT_REACHED",
+  "engineering_span_gate": true,
+  "experiment": "NO_MODEL_EXPERIMENT",
+  "formal_calls": 0,
+  "frames": 43924,
+  "independent_verification_scope": "CURRENT_PLAN_AND_COMPLETED_PHASES_ONLY; NO_PROCESSOR_OR_TENSOR_REPRODUCTION",
+  "independent_verification_status": "PASS_AVAILABLE_RECEIPTS",
+  "max_index_rate_offset_seconds": 0.0005,
+  "media_read_by_phase": {
+    "scan": {
+      "demux_metadata_seeks": 8,
+      "reserved": 104005632,
+      "returned": 103909467
+    },
+    "select": {
+      "demux_metadata_seeks": 8,
+      "reserved": 104005632,
+      "returned": 103909467
+    },
+    "sha_pre": {
+      "demux_metadata_seeks": 0,
+      "reserved": 105906176,
+      "returned": 103909467
+    }
+  },
+  "media_read_reservations": 313917440,
+  "media_read_returns": 311728401,
+  "n_different_indices": 47,
+  "n_duplicate_count": 0,
+  "observed_full_equivalence_classes": null,
+  "observed_native_timecodes": null,
+  "probe_calls": 0,
+  "processor_calls": 0,
+  "processor_loads": 0,
+  "qualification": "REAL_SCIENTIFIC_COHORT_NOT_QUALIFIED",
+  "reason": "PROCESSOR_DEPENDENCY_STARTUP_TYPE_ERROR",
+  "rows": [
+    {
+      "arm": "B0",
+      "equivalence_class": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "arm": "P",
+      "equivalence_class": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "arm": "N",
+      "equivalence_class": null,
+      "status": "NOT_RUN"
+    }
+  ],
+  "sha_reads": {
+    "post": 0,
+    "pre": 1
+  },
+  "shared_select_details": {
+    "convert": 0.03100000019185245,
+    "decoder_next_inclusive": 57.39199999906123,
+    "letterbox": 0.21700000017881393,
+    "stack": 0.030999999959021807
+  },
+  "source_annotation_origin_bridge": "UNKNOWN",
+  "status": "INPUT_UNKNOWN",
+  "within_run_byte_stability": "UNKNOWN_NO_POST_SHA",
+  "worker_phase_costs": [
+    {
+      "clock_domain": "W1",
+      "stage": "sha_pre",
+      "wall": 1.2809999999590218
+    },
+    {
+      "clock_domain": "W1",
+      "stage": "scan",
+      "wall": 62.75
+    },
+    {
+      "clock_domain": "W1",
+      "stage": "select",
+      "wall": 58.45299999997951
+    }
+  ],
+  "asset_alias": "A01",
+  "date": "2026-10-26 Asia/Shanghai",
+  "novelty": "RETAIN0",
+  "source_code_sha256": {
+    "prototypes/existing_media_input_048.py": "eae32ea83e18594d328c11fedc3f6f0f8a68021883d0b3d0532f1b82115f372c",
+    "prototypes/test_existing_media_input_048.py": "a8d082ac256f4c314bd3fc157ec2bc9c91b5ecf249d582a3c59c1ad442953f58"
+  },
+  "initial_source_code_sha256": {
+    "prototypes/existing_media_input_048.py": "3e37172ae464de6c8a3ca659004793e4dcb3220323a49bd0633d22800b2bfb1b",
+    "prototypes/test_existing_media_input_048.py": "448a9191410d8257109bdcccd41e94ae1716a544e624593e13d929b074f2aa67"
+  },
+  "pure_suites": [
+    {
+      "round": 1,
+      "cases": [
+        {
+          "name": "exact_ties_even",
+          "status": "PASS"
+        },
+        {
+          "name": "dynamic_endpoints_48_indices",
+          "status": "PASS"
+        },
+        {
+          "name": "engineering_zero_not_origin",
+          "status": "PASS"
+        },
+        {
+          "name": "hold_halfopen",
+          "status": "PASS"
+        },
+        {
+          "name": "hold_exact_boundary",
+          "status": "PASS"
+        },
+        {
+          "name": "unordered_pts_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "insufficient_pts_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "patch_pair_mean",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_callback_index_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_callback_rate_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_merge_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable_request_attribute",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable_mapping",
+          "status": "PASS"
+        },
+        {
+          "name": "letterbox_exact_rational",
+          "status": "PASS"
+        },
+        {
+          "name": "frame_dimension_refusal",
+          "status": "PASS"
+        },
+        {
+          "name": "precharge_before_read_and_no_refund",
+          "status": "PASS"
+        },
+        {
+          "name": "unmetered_media_denied",
+          "status": "PASS"
+        },
+        {
+          "name": "unrelated_public_path_denied",
+          "status": "PASS"
+        },
+        {
+          "name": "network_denied",
+          "status": "PASS"
+        }
+      ],
+      "assertions": 22,
+      "passed": 19,
+      "failed": 0
+    },
+    {
+      "round": 2,
+      "cases": [
+        {
+          "name": "exact_ties_even",
+          "status": "PASS"
+        },
+        {
+          "name": "dynamic_endpoints_48_indices",
+          "status": "PASS"
+        },
+        {
+          "name": "engineering_zero_not_origin",
+          "status": "PASS"
+        },
+        {
+          "name": "hold_halfopen",
+          "status": "PASS"
+        },
+        {
+          "name": "hold_exact_boundary",
+          "status": "PASS"
+        },
+        {
+          "name": "unordered_pts_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "insufficient_pts_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "patch_pair_mean",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_callback_index_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_callback_rate_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_merge_refused",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable_request_attribute",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable_mapping",
+          "status": "PASS"
+        },
+        {
+          "name": "letterbox_exact_rational",
+          "status": "PASS"
+        },
+        {
+          "name": "frame_dimension_refusal",
+          "status": "PASS"
+        },
+        {
+          "name": "cross_runtime_dev_same_runtime_identity",
+          "status": "PASS"
+        },
+        {
+          "name": "precharge_before_read_and_no_refund",
+          "status": "PASS"
+        },
+        {
+          "name": "unmetered_media_denied",
+          "status": "PASS"
+        },
+        {
+          "name": "unrelated_public_path_denied",
+          "status": "PASS"
+        },
+        {
+          "name": "network_denied",
+          "status": "PASS"
+        }
+      ],
+      "assertions": 26,
+      "passed": 20,
+      "failed": 0
+    }
+  ],
+  "pre_media_failure": {
+    "status": "PREFLIGHT_STAT_CHANGED",
+    "media_bytes": 0,
+    "processor_calls": 0,
+    "diagnosis": "st_dev differs across installed Python runtimes; size/mtime_ns/inode agree",
+    "repair": "single pre-media correction: compare inode/size/mtime initially, all fields within worker before/after",
+    "post_media_repairs": 0
+  },
+  "failure_stage": "processor_dependency_startup",
+  "failure_enum": "PROCESSOR_DEPENDENCY_STARTUP_TYPE_ERROR",
+  "failure_diagnostic_scope": "bytes path received where str/PathLike required; exact originating call stack not captured; audit-path compatibility not certified",
+  "completed_worker_costs_are_inclusive": true,
+  "parent_observed_stages": [
+    {
+      "phase": "sha_pre",
+      "clock_domain": "P1",
+      "observed_duration_inclusive": 1.296000000089407,
+      "work_cap": 60
+    },
+    {
+      "phase": "scan",
+      "clock_domain": "P1",
+      "observed_duration_inclusive": 62.76599999982864,
+      "work_cap": 600
+    },
+    {
+      "phase": "select",
+      "clock_domain": "P1",
+      "observed_duration_inclusive": 58.46900000004098,
+      "work_cap": 600
+    },
+    {
+      "phase": "processor",
+      "clock_domain": "P1",
+      "observed_duration_inclusive": 29.140000000130385,
+      "work_cap": 300
+    }
+  ],
+  "resource_receipts": {
+    "phases": [
+      {
+        "phase": "suite",
+        "wall": 0.1559999999590218,
+        "active0_elapsed": 0.1559999999590218,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.046875,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 14221312,
+        "killed": false
+      },
+      {
+        "phase": "preflight-worker",
+        "wall": 0.1720000000204891,
+        "active0_elapsed": 0.1720000000204891,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.0625,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 10448896,
+        "killed": false
+      },
+      {
+        "phase": "diagnostic",
+        "wall": 0.10900000017136335,
+        "active0_elapsed": 0.10900000017136335,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.015625,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 8011776,
+        "killed": false
+      },
+      {
+        "phase": "regression",
+        "wall": 0.18700000015087426,
+        "active0_elapsed": 0.18700000015087426,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.046875,
+        "kernel_seconds": 0.078125,
+        "peak_commit": 14258176,
+        "killed": false
+      },
+      {
+        "phase": "worker",
+        "wall": 151.7960000000894,
+        "active0_elapsed": 151.7960000000894,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 70.59375,
+        "kernel_seconds": 18.015625,
+        "peak_commit": 1055109120,
+        "killed": false
+      },
+      {
+        "phase": "verify",
+        "wall": 1.421000000089407,
+        "active0_elapsed": 1.421000000089407,
+        "exitcode": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 1.15625,
+        "kernel_seconds": 0.03125,
+        "peak_commit": 33198080,
+        "killed": false
+      }
+    ],
+    "supervised_wall_total": 153.84100000048056,
+    "cpu_cap": 1800,
+    "peak_job_commit": 1055109120,
+    "job_limit": 4294967296,
+    "thread_cap": 4,
+    "private_root_snapshot": {
+      "files": 43,
+      "bytes": 1353366,
+      "file_cap": 1024,
+      "byte_cap": 67108864,
+      "snapshot_not_volume_quota_proof": true
+    },
+    "free_before": 349783752704,
+    "parent_conservative_elapsed_at_report": 1377.6203155517578,
+    "parent_cap": 7200
+  },
+  "model_weights_reads": 0,
+  "model_forward_generate": 0,
+  "GPU_operations": 0,
+  "labels_QA_old_predictions": 0,
+  "network_execution": 0,
+  "media_download": 0,
+  "audio_decodes": 0,
+  "user_frame_seek_calls": 0,
+  "formal_inputs_attempted": 0,
+  "observed_grid": null,
+  "observed_dtype_shape": null,
+  "observed_roundtrip": null,
+  "science_scope": "ENGINEERING_SINGLE_ASSET_ONLY; ORIGINAL_IDENTITY_RIGHTS_SOURCE_INDEPENDENCE_UNKNOWN"
+}
