@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新日期：2026-10-25（北京时间；用户在046关闭后要求“一直继续下去”，已下达**唯一READY：[VLM-OFFLINE-EVALUATION-047](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)**。一次实现严格区间解析、多有效区间/未知优先级、固定64格/按源配对、声明等价类及共享成本核算的标准库库+CLI+必要验证；仅本轮自造数学夹具，非自然/模型实验。CPU监督≤180秒、父≤3600秒、Job512MiB/单线程、输出≤16MiB；无需新数据或GPU许可。真实实物/标签桥接/题目身份/输入链及模型效果仍UNKNOWN；046/044获取尝试保持关闭，不重试/续传/换源/下载修复。NOVELTY=RETAIN0，GPU/64格真实实验HOLD。）
+> 更新日期：2026-10-26（北京时间；已完成[047负责人验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：**ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / REAL_DATA_SCORER_NOT_QUALIFIED；047关闭，当前0 READY**。60例suite/5 CLI均通过；独立重建256格、25份输入SHA及10个输出摘要一致，695项一致性核查完成。共享/包含式成本和未知分母在固定夹具中正确；代码仍硬限定T240/固定ID与synthetic CLI，任意畸形输入及真实scorer未认证。停止追加数学夹具/框架补丁，下一实质步骤需确切完整合法视频及既有题目/标签桥接；046/044获取尝试关闭，GPU/64格真实实验HOLD，NOVELTY=RETAIN0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-OFFLINE-EVALUATION-047 | P0 | **READY（OFFLINE_STDLIB_SOFTWARE_ONLY；唯一READY）** | Codex | [完整任务包](./codex-artifacts/VLM-OFFLINE-EVALUATION-047/README.md)：一次交付评分/固定分母来源聚合/声明物理记录及共享成本库、CLI、tests与封存证据 | 仅冻结数学夹具；24 parser+7 IoU+4×64格规则及故障/成本例，完整失败/未知保留；网络/媒体/真实标签/旧预测/processor/模型/GPU/安装0；一次回报后STOP |
+| VLM-OFFLINE-EVALUATION-047 | P0 | **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)：60 suite例/5 CLI，固定评分/分母/等价声明/成本软件交付 | [验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：独立重建256格/25输入封存/10输出hash一致；限T240数学夹具，真实scorer和通用类型加固未认证；047关闭、当前0 READY，不自动048 |
 | VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，046验收时0 READY；当前独立软件任务见页首，不自动修复/换源 |
 | VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
 | VLM-EPIC-SINGLE-SOURCE-ADMISSION-044 | P0 | **ACCEPTED_BOUNDED_TRANSPORT_FAILURE / CURRENT_OFFICIAL_FETCH_ROUTE_STOP（关闭，不重跑）** | Codex交付、ChatGPT验收 | [e27e175](https://github.com/floomeer83felix-source/vlm/commit/e27e1759c187f4a6d668c496dbb50cd6d9868fbf)：C02声明约1.895GiB，落盘下界72MiB，完整性未验/验钟NOT_RUN | [验收](./research-decisions/post-044-single-source-fetch-disposition-2026-10-25.md)：截止/持久记账在本轮符合包络；暂停直连入口；044验收时0 READY，不加时/续传/换候选重试；新任务见页首 |
@@ -2315,3 +2315,21 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 - 本轮负责人只下合同/fixture/规划/协议补充，未运行本地Windows、旧tests、媒体或模型，codex-results与旧源码/证据不改。
   046/044停止、真实资产/标注同钟/问题身份/完整B0-P-N证据及8源/16题/64格真实实验门仍在；
   NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及GPU/训练HOLD保持。
+
+
+### 2026-10-26 · 验收047固定夹具软件，关闭任务
+
+- 核[39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)六处allowlist，results旧正文逐字保留/仅追加9行一条父回报；
+  形成[负责人验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)。两源码及fixture SHA独立匹配封存，未导入交付函数/运行其tests或CLI、未访问Windows私人材料。
+- 独立695项一致性校验：60 suite+5 CLI行完整；依据冻结规则重建4×64格、全部来源/臂分母/均值/阈值配对/未知及端点误差，
+  并重建5×5=25份输入字节SHA和5 JSON+5 CSV输出hash，全部匹配。
+  G01/G02/G03高层P−B0分别为0、1/6、1/12，G04未知4/可计分60且主量/触发null；坏映射保留expected64/无分数。
+- 共享prepare四引用仍记2，outer10与phase10/内含letterbox1/2分列；不把10+1/2或outer+phases当latency。
+  7阶段父域差值和1.469秒、CLI+post-exit1.219秒、峰Job14045184B及状态与公开收据相容；本次为软件与公开记录复核，非第二机实测。
+- **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / REAL_DATA_SCORER_NOT_QUALIFIED；047关闭，当前0 READY。**
+  validate_plan仍固定T240/ID/6+2且CLI只限synthetic；静态异常类型路径并未全面捕获AttributeError，
+  故不宣称任意畸形JSON处理或通用/真实scorer已认证；不为扩大宣称再派夹具/框架补丁。
+- 当前保留可用计算组件，下一实质步骤须有确切完整合法原片和可核已有题目/标签时钟入口；私有路径可只留本地Codex。
+  不自动048、媒体获取/续传/换源/下载修复、旧资产扫描、真实标签/预测访问、模型/GPU/训练或投稿。
+  本轮只负责人验收/归档/看板/总览/协议补充，执行代码/fixture/原证据/codex-results保持；
+  NOVELTY=RETAIN0、NATURAL_VIDEO_EFFECT_UNKNOWN及旧停止结论不变。

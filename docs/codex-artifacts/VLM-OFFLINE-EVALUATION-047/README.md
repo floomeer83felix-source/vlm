@@ -1,6 +1,15 @@
+# 047已归档：固定夹具软件验收通过
+
+2026-10-26：[负责人验收](../../research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)已关闭047。
+**ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / REAL_DATA_SCORER_NOT_QUALIFIED；当前0 READY。**
+60个suite例与5个CLI核查均通过；负责人独立重建256格、25份输入封存及10个输出摘要一致。
+实现/CLI限本轮数学夹具，真实标签/视频/模型/GPU均未运行；通用输入类型加固与真实scorer资格未认证。
+本父已消费，不重跑、不自动048或继续增加夹具/框架补丁，不继承旧额度。
+以下执行合同保留历史，其中READY/启动消息已失效。
+
 # 047：离线区间评测与结果核算整包
 
-2026-10-25（北京时间）。**READY / OFFLINE_STDLIB_SOFTWARE_ONLY / NO_REAL_EXPERIMENT。**
+2026-10-25（北京时间）。**CLOSED / ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / NOT_RERUNNABLE。**
 父任务：VLM-OFFLINE-EVALUATION-047，当前唯一READY。用户在046关闭后要求“一直继续下去”，
 据此下达常规标准库CPU实现，不需要再次确认本范围；不包含新下载、媒体、真实标签/预测、模型或GPU。
 
