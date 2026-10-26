@@ -1,0 +1,4986 @@
+{
+  "synthetic": true,
+  "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+  "status": "OFFLINE_SOFTWARE_CONTRACT_PASS",
+  "not_research_observations": true,
+  "actual_model_calls": 0,
+  "novelty": "RETAIN0",
+  "fixture_sha256": "5485d7c097b74d78a002c4822c874386a6427faf5567e73c925216abba562063",
+  "source_seals": {
+    "prototypes/offline_evaluation_047.py": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+    "prototypes/test_offline_evaluation_047.py": "4f9da867ef3c5f9a96e84303643c5a80873a2ff58ffdce223052c6b4e8e9588a"
+  },
+  "frozen_config": {
+    "suite_max": 2,
+    "suite_seconds": 60,
+    "cli_total_seconds": 60,
+    "total_supervised_seconds": 180,
+    "job_ram": 536870912,
+    "threads": 1,
+    "fixtures": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "BAD_MAP"
+    ],
+    "limits_frozen": true
+  },
+  "suite": {
+    "synthetic": true,
+    "rounds": 1,
+    "cases": 60,
+    "assertions": 148,
+    "failed": 0
+  },
+  "independent_post_exit": {
+    "synthetic": true,
+    "status": "PASS",
+    "assertions": 1128,
+    "imports_tested_library": false
+  },
+  "cli_examples": {
+    "BAD_MAP": {
+      "synthetic": true,
+      "csv_sha256": "c1007181b4f3dedf439f6bb296a86dfca39694972c4f1931e2e14b604934a138",
+      "input_seals": {
+        "classes": "252545dc9f04c875d569b82f943bae0c6caae6de188e6bf313deb0c02e881876",
+        "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+        "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+        "records": "039e507faabcf497400ece6e1624fba39928620952205234c5b9c54b8e3e02e6",
+        "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+      },
+      "json_sha256": "db69ca7dfcc8d11d3a3a5bb7c4a5bdd3541721eadaec1917f44912511b64c590",
+      "result": {
+        "code_sha256": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+        "expected_logical_cells": 64,
+        "input_seals": {
+          "classes": "252545dc9f04c875d569b82f943bae0c6caae6de188e6bf313deb0c02e881876",
+          "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+          "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+          "records": "039e507faabcf497400ece6e1624fba39928620952205234c5b9c54b8e3e02e6",
+          "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+        },
+        "practical_numeric_condition": null,
+        "reason": "REJECTED_RESULT_MAP",
+        "scores": null,
+        "status": "REJECTED_RESULT_MAP",
+        "synthetic": true
+      }
+    },
+    "G01": {
+      "synthetic": true,
+      "csv_sha256": "34f581e776874339a9edc730928bcc02d7aac674d4ed45f0c57d043c7bf2dd52",
+      "input_seals": {
+        "classes": "1353b5eb8b7acfd25876ac44935fc0df1230cf76fa228a6a9f863a3cda834417",
+        "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+        "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+        "records": "09877b05a952e7c2cbed676bf7685e950c57deb0e526bd2837abbe8d0193f451",
+        "registry": "b895608a36bbe8e4ad39daf6a8c88af188ce56554111c631aabe717d25fb1836"
+      },
+      "json_sha256": "b801bcdd08a18f4c25c7cf8e12c97be2f4bd56ec93e80ad3895c0ab5f73076cb",
+      "result": {
+        "actual_model_calls": 0,
+        "code_sha256": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+        "costs": {
+          "charged_event_ids": [
+            "generate",
+            "letterbox",
+            "prepare",
+            "score"
+          ],
+          "clock_synchronization": "NOT_CERTIFIED_BY_DOMAIN_STRING",
+          "durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "outer": "10",
+            "prepare": "2",
+            "score": "2"
+          },
+          "outer_wall": "10",
+          "phase_latency_status": "COVERED_SAME_DECLARED_DOMAIN",
+          "phase_sum_if_nonoverlap": "10",
+          "referenced_unique_event_durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "prepare": "2",
+            "score": "2"
+          },
+          "status": "KNOWN",
+          "total_latency": "10"
+        },
+        "declared_input_classes": 48,
+        "declared_sources": 8,
+        "expected_logical_cells": 64,
+        "groups": {
+          "ALL": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "N": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "P": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "T": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "0",
+                  "S03": "0",
+                  "S04": "0",
+                  "S05": "0",
+                  "S06": "0",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "0",
+                  "S03": "0",
+                  "S04": "0",
+                  "S05": "0",
+                  "S06": "0",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 16,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 16,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S02": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S03": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S04": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              }
+            }
+          },
+          "CFR": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "N": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "P": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "T": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              }
+            }
+          },
+          "HIGH_OFFSET": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "N": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "P": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "T": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "0",
+                  "S03": "0",
+                  "S04": "0",
+                  "S05": "0",
+                  "S06": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "0",
+                  "S03": "0",
+                  "S04": "0",
+                  "S05": "0",
+                  "S06": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 12,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 12,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S02": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S03": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S04": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "1"
+              }
+            }
+          }
+        },
+        "identity_kind": "DECLARED_FIXTURE_IDENTITY_NOT_REAL_MODEL_INPUT",
+        "independent_sources_certified": false,
+        "input_seals": {
+          "classes": "1353b5eb8b7acfd25876ac44935fc0df1230cf76fa228a6a9f863a3cda834417",
+          "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+          "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+          "records": "09877b05a952e7c2cbed676bf7685e950c57deb0e526bd2837abbe8d0193f451",
+          "registry": "b895608a36bbe8e4ad39daf6a8c88af188ce56554111c631aabe717d25fb1836"
+        },
+        "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+        "practical_numeric_condition": false,
+        "recorded_physical_attempts": 48,
+        "rows": [
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6fc4d42cdcf9bb0a0f6b0640e4f559ef1eb3ede164d7f72350a6778e67f129dd",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          }
+        ],
+        "run_status_counts": {
+          "RETURNED": 64
+        },
+        "scientific_go": "NOT_GRANTED",
+        "scorable_cells": 64,
+        "scoring_unknown_cells": 0,
+        "status": "EVALUATED",
+        "synthetic": true
+      }
+    },
+    "G02": {
+      "synthetic": true,
+      "csv_sha256": "1753398e4768bd319eeb01547fd338bc992666422278a22cffdd7edce63de9b2",
+      "input_seals": {
+        "classes": "252545dc9f04c875d569b82f943bae0c6caae6de188e6bf313deb0c02e881876",
+        "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+        "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+        "records": "2440f2900909d3e7ced7977f5d0442243303291c72520559202687918e1e76e6",
+        "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+      },
+      "json_sha256": "5063e1ef626bd0a5e8ae92d382dd13c5e818f03ac3720f5bf287c5a8c6b99ed0",
+      "result": {
+        "actual_model_calls": 0,
+        "code_sha256": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+        "costs": {
+          "charged_event_ids": [
+            "generate",
+            "letterbox",
+            "prepare",
+            "score"
+          ],
+          "clock_synchronization": "NOT_CERTIFIED_BY_DOMAIN_STRING",
+          "durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "outer": "10",
+            "prepare": "2",
+            "score": "2"
+          },
+          "outer_wall": "10",
+          "phase_latency_status": "COVERED_SAME_DECLARED_DOMAIN",
+          "phase_sum_if_nonoverlap": "10",
+          "referenced_unique_event_durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "prepare": "2",
+            "score": "2"
+          },
+          "status": "KNOWN",
+          "total_latency": "10"
+        },
+        "declared_input_classes": 64,
+        "declared_sources": 8,
+        "expected_logical_cells": 64,
+        "groups": {
+          "ALL": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "3/4",
+                "legal_endpoint_error_mean": "5/2",
+                "mean_iou": "3/4",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "N": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "P": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "7/8",
+                "legal_endpoint_error_mean": "5/4",
+                "mean_iou": "7/8",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 16,
+                "recall_at_half": "0",
+                "scorable_questions": 16
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "1/4",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 4
+              },
+              "P_minus_B0": {
+                "mean": "1/8",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 4
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 16,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 16,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "CFR": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "N": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "P": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 4,
+                "recall_at_half": "0",
+                "scorable_questions": 4
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "HIGH_OFFSET": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "2/3",
+                "legal_endpoint_error_mean": "10/3",
+                "mean_iou": "2/3",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "N": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "P": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "5/6",
+                "legal_endpoint_error_mean": "5/3",
+                "mean_iou": "5/6",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 12,
+                "recall_at_half": "0",
+                "scorable_questions": 12
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "1/3",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0"
+                },
+                "positive_sources": 4
+              },
+              "P_minus_B0": {
+                "mean": "1/6",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2"
+                },
+                "positive_sources": 4
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 12,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 12,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              }
+            }
+          }
+        },
+        "identity_kind": "DECLARED_FIXTURE_IDENTITY_NOT_REAL_MODEL_INPUT",
+        "independent_sources_certified": false,
+        "input_seals": {
+          "classes": "252545dc9f04c875d569b82f943bae0c6caae6de188e6bf313deb0c02e881876",
+          "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+          "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+          "records": "2440f2900909d3e7ced7977f5d0442243303291c72520559202687918e1e76e6",
+          "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+        },
+        "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+        "practical_numeric_condition": true,
+        "recorded_physical_attempts": 64,
+        "rows": [
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          }
+        ],
+        "run_status_counts": {
+          "FAILED": 16,
+          "RETURNED": 48
+        },
+        "scientific_go": "NOT_GRANTED",
+        "scorable_cells": 64,
+        "scoring_unknown_cells": 0,
+        "status": "EVALUATED",
+        "synthetic": true
+      }
+    },
+    "G03": {
+      "synthetic": true,
+      "csv_sha256": "b4412895fb206abf18dd30367b66d7e1603cdff232bcfd0b97673cd84ef969b7",
+      "input_seals": {
+        "classes": "ec9b5e175996e7c4c2aa13ebf96f0d74d5a61a96fe288a46986066c9bd32df70",
+        "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+        "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+        "records": "1bcbaff1e526e61976df0f587870b31a7e02676e3a669c4689353b75886944a5",
+        "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+      },
+      "json_sha256": "a8d7dee77fe8abdc1a3ea0d5e6c881dba712c7b5a59ca7e1b96b57c64ea7b588",
+      "result": {
+        "actual_model_calls": 0,
+        "code_sha256": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+        "costs": {
+          "charged_event_ids": [
+            "generate",
+            "letterbox",
+            "prepare",
+            "score"
+          ],
+          "clock_synchronization": "NOT_CERTIFIED_BY_DOMAIN_STRING",
+          "durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "outer": "10",
+            "prepare": "2",
+            "score": "2"
+          },
+          "outer_wall": "10",
+          "phase_latency_status": "COVERED_SAME_DECLARED_DOMAIN",
+          "phase_sum_if_nonoverlap": "10",
+          "referenced_unique_event_durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "prepare": "2",
+            "score": "2"
+          },
+          "status": "KNOWN",
+          "total_latency": "10"
+        },
+        "declared_input_classes": 64,
+        "declared_sources": 8,
+        "expected_logical_cells": 64,
+        "groups": {
+          "ALL": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "3/4",
+                "legal_endpoint_error_mean": "5/2",
+                "mean_iou": "3/4",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "N": {
+                "endpoint_error_coverage": 16,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 16,
+                "recall_at_half": "1",
+                "scorable_questions": 16
+              },
+              "P": {
+                "endpoint_error_coverage": 15,
+                "known_subset_descriptive": "13/16",
+                "legal_endpoint_error_mean": "4/3",
+                "mean_iou": "13/16",
+                "planned_questions": 16,
+                "recall_at_half": "15/16",
+                "scorable_questions": 16
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 16,
+                "recall_at_half": "0",
+                "scorable_questions": 16
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "1/4",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 4
+              },
+              "P_minus_B0": {
+                "mean": "1/16",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 3
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 16,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 15,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 1,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "CFR": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "N": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "P": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 4,
+                "recall_at_half": "0",
+                "scorable_questions": 4
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "HIGH_OFFSET": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "2/3",
+                "legal_endpoint_error_mean": "10/3",
+                "mean_iou": "2/3",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "N": {
+                "endpoint_error_coverage": 12,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 12,
+                "recall_at_half": "1",
+                "scorable_questions": 12
+              },
+              "P": {
+                "endpoint_error_coverage": 11,
+                "known_subset_descriptive": "3/4",
+                "legal_endpoint_error_mean": "20/11",
+                "mean_iou": "3/4",
+                "planned_questions": 12,
+                "recall_at_half": "11/12",
+                "scorable_questions": 12
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 12,
+                "recall_at_half": "0",
+                "scorable_questions": 12
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "1/3",
+                "per_source": {
+                  "S01": "1/2",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0"
+                },
+                "positive_sources": 4
+              },
+              "P_minus_B0": {
+                "mean": "1/12",
+                "per_source": {
+                  "S01": "0",
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2"
+                },
+                "positive_sources": 3
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 12,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 11,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 1,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S01": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              }
+            }
+          }
+        },
+        "identity_kind": "DECLARED_FIXTURE_IDENTITY_NOT_REAL_MODEL_INPUT",
+        "independent_sources_certified": false,
+        "input_seals": {
+          "classes": "ec9b5e175996e7c4c2aa13ebf96f0d74d5a61a96fe288a46986066c9bd32df70",
+          "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+          "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+          "records": "1bcbaff1e526e61976df0f587870b31a7e02676e3a669c4689353b75886944a5",
+          "registry": "f3d997ed730523fe79d5beb069aeec2390a03c0b638abe5d023a8555c73cb937"
+        },
+        "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+        "practical_numeric_condition": false,
+        "recorded_physical_attempts": 64,
+        "rows": [
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "40b5cafe045b9c9e31a1c3fdcfbc89f934906ff06a6276b55c2a0e517be21655",
+            "reason": "JSONDecodeError",
+            "run_status": "INVALID",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          }
+        ],
+        "run_status_counts": {
+          "FAILED": 16,
+          "INVALID": 1,
+          "RETURNED": 47
+        },
+        "scientific_go": "NOT_GRANTED",
+        "scorable_cells": 64,
+        "scoring_unknown_cells": 0,
+        "status": "EVALUATED",
+        "synthetic": true
+      }
+    },
+    "G04": {
+      "synthetic": true,
+      "csv_sha256": "3307ad81728a461a04ef613ab5fc87cdf5dec94612ece2e0a523a5e00fdb36f9",
+      "input_seals": {
+        "classes": "2e9643fa4e785473b11183c0114d554f0b01b31c9307c3db7d25558315031031",
+        "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+        "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+        "records": "4e6ae77ff0d2e009625207c9a2ba0cd263b28ba24e93c35bcac1b18c8f1f7094",
+        "registry": "c1a908e3738b241f141a857127e8d8cdacc5e40068666ff83500521aaa811312"
+      },
+      "json_sha256": "2aeb2fe9b01837f0542d49bf433e6c368f9a2772119a2933c553b5c419abd217",
+      "result": {
+        "actual_model_calls": 0,
+        "code_sha256": "6269fbdff13ea101db46d1bdd292f5f66fc45ace23966dabefc5a2dd58878825",
+        "costs": {
+          "charged_event_ids": [
+            "generate",
+            "letterbox",
+            "prepare",
+            "score"
+          ],
+          "clock_synchronization": "NOT_CERTIFIED_BY_DOMAIN_STRING",
+          "durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "outer": "10",
+            "prepare": "2",
+            "score": "2"
+          },
+          "outer_wall": "10",
+          "phase_latency_status": "COVERED_SAME_DECLARED_DOMAIN",
+          "phase_sum_if_nonoverlap": "10",
+          "referenced_unique_event_durations": {
+            "generate": "6",
+            "letterbox": "1/2",
+            "prepare": "2",
+            "score": "2"
+          },
+          "status": "KNOWN",
+          "total_latency": "10"
+        },
+        "declared_input_classes": 64,
+        "declared_sources": 8,
+        "expected_logical_cells": 64,
+        "groups": {
+          "ALL": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 15,
+                "known_subset_descriptive": "23/30",
+                "legal_endpoint_error_mean": "7/3",
+                "mean_iou": null,
+                "planned_questions": 16,
+                "recall_at_half": null,
+                "scorable_questions": 15
+              },
+              "N": {
+                "endpoint_error_coverage": 15,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": null,
+                "planned_questions": 16,
+                "recall_at_half": null,
+                "scorable_questions": 15
+              },
+              "P": {
+                "endpoint_error_coverage": 15,
+                "known_subset_descriptive": "13/15",
+                "legal_endpoint_error_mean": "4/3",
+                "mean_iou": null,
+                "planned_questions": 16,
+                "recall_at_half": null,
+                "scorable_questions": 15
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": null,
+                "planned_questions": 16,
+                "recall_at_half": null,
+                "scorable_questions": 15
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": null,
+                "per_source": {
+                  "S01": null,
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": null
+              },
+              "P_minus_B0": {
+                "mean": null,
+                "per_source": {
+                  "S01": null,
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2",
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": null
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 15,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 1
+              },
+              "P_B0": {
+                "both_correct": 15,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 1
+              }
+            },
+            "primary_status": "SCORING_UNKNOWN",
+            "sources": {
+              "S01": {
+                "B0": null,
+                "N": null,
+                "P": null,
+                "T": null
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "CFR": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "N": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "P": {
+                "endpoint_error_coverage": 4,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": "1",
+                "planned_questions": 4,
+                "recall_at_half": "1",
+                "scorable_questions": 4
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": "0",
+                "planned_questions": 4,
+                "recall_at_half": "0",
+                "scorable_questions": 4
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              },
+              "P_minus_B0": {
+                "mean": "0",
+                "per_source": {
+                  "S07": "0",
+                  "S08": "0"
+                },
+                "positive_sources": 0
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              },
+              "P_B0": {
+                "both_correct": 4,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 0
+              }
+            },
+            "primary_status": "SCORABLE",
+            "sources": {
+              "S07": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S08": {
+                "B0": "1",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              }
+            }
+          },
+          "HIGH_OFFSET": {
+            "arms": {
+              "B0": {
+                "endpoint_error_coverage": 11,
+                "known_subset_descriptive": "15/22",
+                "legal_endpoint_error_mean": "35/11",
+                "mean_iou": null,
+                "planned_questions": 12,
+                "recall_at_half": null,
+                "scorable_questions": 11
+              },
+              "N": {
+                "endpoint_error_coverage": 11,
+                "known_subset_descriptive": "1",
+                "legal_endpoint_error_mean": "0",
+                "mean_iou": null,
+                "planned_questions": 12,
+                "recall_at_half": null,
+                "scorable_questions": 11
+              },
+              "P": {
+                "endpoint_error_coverage": 11,
+                "known_subset_descriptive": "9/11",
+                "legal_endpoint_error_mean": "20/11",
+                "mean_iou": null,
+                "planned_questions": 12,
+                "recall_at_half": null,
+                "scorable_questions": 11
+              },
+              "T": {
+                "endpoint_error_coverage": 0,
+                "known_subset_descriptive": "0",
+                "legal_endpoint_error_mean": null,
+                "mean_iou": null,
+                "planned_questions": 12,
+                "recall_at_half": null,
+                "scorable_questions": 11
+              }
+            },
+            "deltas": {
+              "N_minus_B0": {
+                "mean": null,
+                "per_source": {
+                  "S01": null,
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "0",
+                  "S06": "0"
+                },
+                "positive_sources": null
+              },
+              "P_minus_B0": {
+                "mean": null,
+                "per_source": {
+                  "S01": null,
+                  "S02": "1/2",
+                  "S03": "1/2",
+                  "S04": "1/2",
+                  "S05": "-1/2",
+                  "S06": "-1/2"
+                },
+                "positive_sources": null
+              }
+            },
+            "pairs": {
+              "N_B0": {
+                "both_correct": 11,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 1
+              },
+              "P_B0": {
+                "both_correct": 11,
+                "both_wrong": 0,
+                "correction": 0,
+                "harm": 0,
+                "unknown": 1
+              }
+            },
+            "primary_status": "SCORING_UNKNOWN",
+            "sources": {
+              "S01": {
+                "B0": null,
+                "N": null,
+                "P": null,
+                "T": null
+              },
+              "S02": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S03": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S04": {
+                "B0": "1/2",
+                "N": "1",
+                "P": "1",
+                "T": "0"
+              },
+              "S05": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              },
+              "S06": {
+                "B0": "1",
+                "N": "1",
+                "P": "1/2",
+                "T": "0"
+              }
+            }
+          }
+        },
+        "identity_kind": "DECLARED_FIXTURE_IDENTITY_NOT_REAL_MODEL_INPUT",
+        "independent_sources_certified": false,
+        "input_seals": {
+          "classes": "2e9643fa4e785473b11183c0114d554f0b01b31c9307c3db7d25558315031031",
+          "costs": "5e659e78d78bb5d5e2e90b2f35061edafc01ec5819dfffe3f0d7243fd81ebcc2",
+          "plan": "1dade52e5d69b8d6bc67ee45070653f506159ba5a90be445f52766ed863b6614",
+          "records": "4e6ae77ff0d2e009625207c9a2ba0cd263b28ba24e93c35bcac1b18c8f1f7094",
+          "registry": "c1a908e3738b241f141a857127e8d8cdacc5e40068666ff83500521aaa811312"
+        },
+        "kind": "SYNTHETIC_SOFTWARE_CONTRACT_NOT_RESEARCH_DATA",
+        "practical_numeric_condition": null,
+        "recorded_physical_attempts": 64,
+        "rows": [
+          {
+            "arm": "B0",
+            "endpoint_error": null,
+            "hit": null,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": "CLOCK_BRIDGE_UNKNOWN",
+            "run_status": "RETURNED",
+            "score": null,
+            "scoring_status": "SCORING_UNKNOWN",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": null,
+            "hit": null,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": "CLOCK_BRIDGE_UNKNOWN",
+            "run_status": "RETURNED",
+            "score": null,
+            "scoring_status": "SCORING_UNKNOWN",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": null,
+            "hit": null,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": "CLOCK_BRIDGE_UNKNOWN",
+            "run_status": "RETURNED",
+            "score": null,
+            "scoring_status": "SCORING_UNKNOWN",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": null,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": "CLOCK_BRIDGE_UNKNOWN",
+            "run_status": "FAILED",
+            "score": null,
+            "scoring_status": "SCORING_UNKNOWN",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S01"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S02"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S03"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S04"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S05"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "5",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "6454fd75eef83cab737ebd699285eb8c0124dd1f0a531275632de0bb376e002b",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1/2",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S06"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S07"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q01",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "B0",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "N",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "P",
+            "endpoint_error": "0",
+            "hit": true,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "RETURNED",
+            "score": "1",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          },
+          {
+            "arm": "T",
+            "endpoint_error": null,
+            "hit": false,
+            "query": "Q02",
+            "raw_sha256": "19e658677a2a48e5943a2d214f530a0031991d80e6ff40d19167c8e040f69a05",
+            "reason": null,
+            "run_status": "FAILED",
+            "score": "0",
+            "scoring_status": "SCORABLE",
+            "source": "S08"
+          }
+        ],
+        "run_status_counts": {
+          "FAILED": 16,
+          "RETURNED": 48
+        },
+        "scientific_go": "NOT_GRANTED",
+        "scorable_cells": 60,
+        "scoring_unknown_cells": 4,
+        "status": "EVALUATED",
+        "synthetic": true
+      }
+    }
+  },
+  "cost_examples": [
+    {
+      "synthetic": true,
+      "id": "C01",
+      "evidence": "suite C01/shared_cost/inclusive and post-exit G01-G04 assertions",
+      "observed": {
+        "charged_event_ids": [
+          "generate",
+          "letterbox",
+          "prepare",
+          "score"
+        ],
+        "clock_synchronization": "NOT_CERTIFIED_BY_DOMAIN_STRING",
+        "durations": {
+          "generate": "6",
+          "letterbox": "1/2",
+          "outer": "10",
+          "prepare": "2",
+          "score": "2"
+        },
+        "outer_wall": "10",
+        "phase_latency_status": "COVERED_SAME_DECLARED_DOMAIN",
+        "phase_sum_if_nonoverlap": "10",
+        "referenced_unique_event_durations": {
+          "generate": "6",
+          "letterbox": "1/2",
+          "prepare": "2",
+          "score": "2"
+        },
+        "status": "KNOWN",
+        "total_latency": "10"
+      }
+    },
+    {
+      "synthetic": true,
+      "id": "mixed_endpoint_domains",
+      "evidence": "mandatory mixed_clock_domain_not_subtracted PASS",
+      "observed_status": "COST_UNKNOWN",
+      "duration_not_computed": true
+    },
+    {
+      "synthetic": true,
+      "id": "different_child_parent_domains",
+      "evidence": "same case second assertion PASS",
+      "observed_outer_wall": "10",
+      "observed_phase_sum_if_nonoverlap": null
+    },
+    {
+      "synthetic": true,
+      "id": "missing_or_duplicate_cost",
+      "evidence": "mandatory missing_cost_not_zero and X01 PASS",
+      "observed_status": "COST_UNKNOWN"
+    },
+    {
+      "synthetic": true,
+      "id": "overlap",
+      "evidence": "mandatory overlapping_phase_wall_not_latency_sum PASS",
+      "observed_outer_wall": "10",
+      "observed_phase_sum_if_nonoverlap": null
+    }
+  ],
+  "resource_receipts": {
+    "synthetic": true,
+    "phases": [
+      {
+        "phase": "suite",
+        "start_parent_monotonic": 1214356.265,
+        "active0_parent_monotonic": 1214356.515,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.125,
+        "kernel_seconds": 0.078125,
+        "peak_commit": 14045184,
+        "killed": false,
+        "wall": 0.25
+      },
+      {
+        "phase": "cli-BAD_MAP",
+        "start_parent_monotonic": 1214363.296,
+        "active0_parent_monotonic": 1214363.468,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.03125,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 13250560,
+        "killed": false,
+        "wall": 0.1720000000204891
+      },
+      {
+        "phase": "cli-G01",
+        "start_parent_monotonic": 1214363.468,
+        "active0_parent_monotonic": 1214363.625,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.0625,
+        "kernel_seconds": 0.03125,
+        "peak_commit": 13012992,
+        "killed": false,
+        "wall": 0.15699999989010394
+      },
+      {
+        "phase": "cli-G02",
+        "start_parent_monotonic": 1214363.625,
+        "active0_parent_monotonic": 1214363.796,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.046875,
+        "kernel_seconds": 0.03125,
+        "peak_commit": 12939264,
+        "killed": false,
+        "wall": 0.17100000008940697
+      },
+      {
+        "phase": "cli-G03",
+        "start_parent_monotonic": 1214363.796,
+        "active0_parent_monotonic": 1214363.953,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.03125,
+        "kernel_seconds": 0.0625,
+        "peak_commit": 13012992,
+        "killed": false,
+        "wall": 0.15699999989010394
+      },
+      {
+        "phase": "cli-G04",
+        "start_parent_monotonic": 1214363.953,
+        "active0_parent_monotonic": 1214364.125,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.015625,
+        "kernel_seconds": 0.09375,
+        "peak_commit": 12967936,
+        "killed": false,
+        "wall": 0.1720000000204891
+      },
+      {
+        "phase": "independent-verify",
+        "start_parent_monotonic": 1214435.703,
+        "active0_parent_monotonic": 1214436.093,
+        "exit": 0,
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.03125,
+        "kernel_seconds": 0.015625,
+        "peak_commit": 11141120,
+        "killed": false,
+        "wall": 0.39000000013038516
+      }
+    ],
+    "summed_supervised_wall": 1.4690000000409782,
+    "cli_group_including_post_exit_wall_upper": 1.2190000000409782,
+    "parent_conservative_elapsed_at_report": 789.8491086959839,
+    "private_output_snapshot": {
+      "synthetic": true,
+      "files": 61,
+      "bytes": 510341,
+      "file_limit": 512,
+      "byte_limit": 16777216,
+      "snapshot_not_volume_quota_proof": true
+    },
+    "peak_job_commit": 14045184,
+    "disk_free_before": 348047507456
+  }
+}

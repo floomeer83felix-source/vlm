@@ -1,0 +1,66 @@
+case_id,category,round,status,detail,synthetic
+P01,parser,initial,PASS,,True
+P02,parser,initial,PASS,,True
+P03,parser,initial,PASS,,True
+P04,parser,initial,PASS,,True
+P05,parser,initial,PASS,,True
+P06,parser,initial,PASS,,True
+P07,parser,initial,PASS,,True
+P08,parser,initial,PASS,,True
+P09,parser,initial,PASS,,True
+P10,parser,initial,PASS,,True
+P11,parser,initial,PASS,,True
+P12,parser,initial,PASS,,True
+P13,parser,initial,PASS,,True
+P14,parser,initial,PASS,,True
+P15,parser,initial,PASS,,True
+P16,parser,initial,PASS,,True
+P17,parser,initial,PASS,,True
+P18,parser,initial,PASS,,True
+P19,parser,initial,PASS,,True
+P20,parser,initial,PASS,,True
+P21,parser,initial,PASS,,True
+P22,parser,initial,PASS,,True
+P23,parser,initial,PASS,,True
+P24,parser,initial,PASS,,True
+I01,max_single_interval_iou,initial,PASS,,True
+I02,max_single_interval_iou,initial,PASS,,True
+I03,max_single_interval_iou,initial,PASS,,True
+I04,max_single_interval_iou,initial,PASS,,True
+I05,max_single_interval_iou,initial,PASS,,True
+I06,max_single_interval_iou,initial,PASS,,True
+I07,max_single_interval_iou,initial,PASS,,True
+G01,complete_64_cell_grid,initial,PASS,,True
+G02,complete_64_cell_grid,initial,PASS,,True
+G03,complete_64_cell_grid,initial,PASS,,True
+G04,complete_64_cell_grid,initial,PASS,,True
+unknown_question_identity_despite_valid_intervals,mandatory_fault,initial,PASS,,True
+incomplete_answer_set,mandatory_fault,initial,PASS,,True
+invalid_gold_interval_not_dropped,mandatory_fault,initial,PASS,,True
+gold_or_plan_seal_mismatch,mandatory_fault,initial,PASS,,True
+duplicate_or_missing_plan_ids,mandatory_fault,initial,PASS,,True
+changed_source_or_query_denominator,mandatory_fault,initial,PASS,,True
+conflicting_duplicate_generation_record,mandatory_fault,initial,PASS,,True
+one_physical_id_multiple_input_classes,mandatory_fault,initial,PASS,,True
+one_input_class_multiple_physical_attempts,mandatory_fault,initial,PASS,,True
+FAILED_with_valid_json_stays_zero,mandatory_fault,initial,PASS,,True
+input_order_permutation_invariance,mandatory_fault,initial,PASS,,True
+gold_interval_order_permutation_invariance,mandatory_fault,initial,PASS,,True
+logical_aliases_do_not_inflate_physical_count,mandatory_fault,initial,PASS,,True
+same_input_does_not_inflate_independent_sources,mandatory_fault,initial,PASS,,True
+shared_cost_referenced_four_times_charged_once,mandatory_fault,initial,PASS,,True
+inclusive_parent_not_added_to_children,mandatory_fault,initial,PASS,,True
+mixed_clock_domain_not_subtracted,mandatory_fault,initial,PASS,,True
+missing_cost_not_zero,mandatory_fault,initial,PASS,,True
+overlapping_phase_wall_not_latency_sum,mandatory_fault,initial,PASS,,True
+missing_planned_response_becomes_NOT_RUN_zero_only_if_gold_valid,mandatory_fault,initial,PASS,,True
+unknown_gold_precedes_zero_fill_even_if_response_invalid,mandatory_fault,initial,PASS,,True
+oversize_response_is_INVALID_without_partial_salvage,mandatory_fault,initial,PASS,,True
+C01,cost_fixture,initial,PASS,,True
+X01,numeric_limits_and_duplicate_cost,initial,PASS,,True
+X02,policy_denials,initial,PASS,,True
+CLI_BAD_MAP,post_exit_json_csv_seal_check,initial,PASS,independent frozen-constant oracle; no tested-function imports,True
+CLI_G01,post_exit_json_csv_seal_check,initial,PASS,independent frozen-constant oracle; no tested-function imports,True
+CLI_G02,post_exit_json_csv_seal_check,initial,PASS,independent frozen-constant oracle; no tested-function imports,True
+CLI_G03,post_exit_json_csv_seal_check,initial,PASS,independent frozen-constant oracle; no tested-function imports,True
+CLI_G04,post_exit_json_csv_seal_check,initial,PASS,independent frozen-constant oracle; no tested-function imports,True
