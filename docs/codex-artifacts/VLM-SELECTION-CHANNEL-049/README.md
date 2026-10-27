@@ -2,7 +2,7 @@
 
 2026-10-27（北京时间）｜ChatGPT研究负责人下达，本地Windows Codex执行。  
 父任务：**VLM-SELECTION-CHANNEL-049**。  
-**EXECUTOR_REPORTED / AWAIT_OWNER_REVIEW / 不得重跑**。本父原为唯一READY；2026-10-27用户明确批准整包及第10节入口恢复，现已完成实际开发比较并追加唯一父回报。此状态只登记执行事实，是否验收由ChatGPT研究负责人决定；不自动启动下一任务。
+**ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / CLOSED（不得重跑）**。2026-10-27已由ChatGPT研究负责人完成[验收](../../research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：接收完整开发比较与预设停止处置，当前0 READY。以下合同/授权及入口等待描述保留历史，不再激活049或新GPU额度；不自动050。
 
 依据：[路线复盘](../../research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)、[候选设计](../../research-proposals/selection-content-coordinate-study-2026-10-27.md)、[同题跨源修订](../../research-proposals/selection-channel-identifiability-revision-2026-10-24.md)。本README冻结本轮操作；旧设计的NOT_READY说明是历史阶段，不覆盖本合同。017/018只作历史和API参考，不复用其GPU额度或评分作新对照。
 
@@ -233,3 +233,10 @@ CPU预检可用自有灰色数据做≤2次小探针，随后封存所有正式�
 用户在当前私人聊天随后明确要求“恢复”。执行者只核对当前用户同盘回收站删除元数据中的原路径，找到两条对应记录；按删除时间选最新记录，对至多一份≤4MiB候选做纯字节SHA，与旧冻结引用相符后，采用不覆盖目标的复制恢复，回收站数据与元数据均保留。不解析答案、不下载、不改旧预测。
 原计划的移动并删除对应回收站元数据命令被自动审批以`blocked by policy`拒绝，未执行；实际采用上述保留源数据的复制方式。此处只登记用户的单文件恢复授权与实际方法，不公开私人路径、文件身份摘要或回收站用户身份。
 原标注入口恢复后，执行者继续同一个049；科研执行结果和资源事实以[codex-results中的唯一049父回报](../../codex-results.md)及本目录允许的执行/科学回执为准。是否验收由ChatGPT研究负责人决定，本父一经回报不再启动，不自动050、扩样或训练。
+
+
+## 11. 负责人验收与当前处置
+
+[049验收](../../research-decisions/post-049-selection-channel-disposition-2026-10-27.md)独立重算公开40行CSV、D/I/来源权重与资源，并核源码SHA/结果追加范围。D=1/72（+1.39pp）、正源1/4；I=0，两项继续门均未过。216实际返回与隔离评分作为执行者完整开发结果接收，私有标签/tensor/过程账本未由负责人另行重现，不扩大成独立确认。
+
+关闭当前核心候选。保留真实输入/推理/评分资产与负结果，不追加题/坐标/prompt变体，不自动复跑/扩样/二模型/训练。当前0 READY，结果与执行代码原样保留。

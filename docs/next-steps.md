@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-27（北京时间；049执行者已提交完整开发比较，**EXECUTOR_REPORTED / AWAIT_OWNER_REVIEW，当前无可重新领取的READY父任务**。用户批准的同包恢复与必要CPU候选重建见[049§10](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)，实际运行事实见codex-results唯一049记录；是否验收及下一方向仍由负责人维护，不自动050。旧任务不重跑，已证实核心贡献仍0。）
+> 更新：2026-10-27（北京时间；已完成[049负责人验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：**ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / 049关闭，当前0 READY**。24题/240逻辑格/216次实际生成及隔离评分有完整交付；公开逐源复算D=1/72、正源1/4，I=0，均未达预设继续门。干预确实改变完整输入，SO/SR有一纠正一误伤，不能把总体0写成逐题不敏感。停止当前候选，不自动050/扩样/换提示/第二模型；NOVELTY=RETAIN0。）
 >
-> 有限文件名核对已完成，指定两父目录/固定深度未恢复原标注评分入口，范围以049§10.4为准；当前仍等待实际数据，不用旧答案补齐、不提交空父结果、不消耗GPU。
+> 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
 > 后续执行事实更新：用户要求恢复原文件后，同版标注已用保留回收站源数据的不覆盖复制方式恢复，执行者继续同一049。最新实际运行/评分及是否已消费本父，以codex-results唯一049记录为准；本表原READY立项不授权重跑已回报父任务，验收结论仍由负责人维护。
 
@@ -14,7 +14,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-SELECTION-CHANNEL-049 | P0 | **EXECUTOR_REPORTED / AWAIT_OWNER_REVIEW（已回报，不得重跑）** | 本地Codex已交付，ChatGPT待验收 | [合同与允许的执行回执](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)：24题/240逻辑格/216实际generate，恢复及CPU候选准备后完整比较/隔离评分 | 执行事实已追加唯一父结果；是否验收/下一任务由负责人决定，本条不自动放行050/扩样/模型或训练 |
+| VLM-SELECTION-CHANNEL-049 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2e9124f](https://github.com/floomeer83felix-source/vlm/commit/2e9124faed6f4bd7e37157f9dc40edff4e26b17f)：24题/240逻辑格/216实际生成及隔离评分完整 | [验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：D=1/72、正源1/4；I=0、SO/SR一纠正一误伤；两门均未过，当前0 READY，当前候选停止，不自动050/改提示/扩样/二模型 |
 | VLM-PORTFOLIO-REVIEW-2026-10-27 | P0 | **OWNER_REVIEW_COMPLETE / PLANNING_ONLY（历史复盘，非执行任务）** | ChatGPT | [复盘与路线重设](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)：优先研究选择坐标通道及自然画面影响；拟完整开发比较而非工程微批次 | [候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)：4源/24题、≤240逻辑格仅为提案，确切输入与新模型授权尚缺；不创建占位049，不继承任何旧预算 |
 | VLM-EXISTING-MEDIA-INPUT-048 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bd1f110](https://github.com/floomeer83felix-source/vlm/commit/bd1f1107f2bea2291884a211706dfd0b3598d275)：两遍解码/共享准备后依赖启动失败，实际processor0 | [验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：三行NOT_RUN/全轮稳定性UNKNOWN，私有PTS与fallback未公开重现；仅验收有界失败报告，当前0 READY，不自动修补/049/模型 |
 | VLM-OFFLINE-EVALUATION-047 | P0 | **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)：60 suite例/5 CLI，固定评分/分母/等价声明/成本软件交付 | [验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：独立重建256格/25输入封存/10输出hash一致；限T240数学夹具，真实scorer和通用类型加固未认证；047关闭、当前0 READY，不自动048 |
@@ -2375,3 +2375,10 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 任务一次包括准确本地资产交接、必要CPU验证、条件SigLIP特征、灰色跨源位置控制、自然RGB/坐标比较、独立评分及成本复核。原设计4×6细化为按R1–R6顺序最前四个合格来源、各按原ordinal取3–6题，总N≤24；规则在输出前冻结。最多240逻辑格、去重后新增Qwen≤216；GPU≤1800秒、父≤7200秒。具体启动授权与确切输入表是前提；仓库编辑不自行启动模型。
 
 本地Codex先集中核对README第2节缺入口并等待，不扫盘、不上传空HOLD、不新增入口任务号。入口齐备后同一父包连续执行，按七处allowlist一次普通安全push后停止。模板见[README第9节](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md#9-用户发给当前本地codex的完整启动消息)。048本片及旧路线停止、环境/下载/训练限制、NOVELTY=RETAIN0保持。
+
+
+## 2026-10-27 · 049完整开发结果验收并停止候选
+
+[负责人验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)接收216次实际生成与隔离评分的完整开发交付；40行公开CSV独立重算与JSON/源码/计数/成本一致。D=1/72（+1.39pp）、只有1/4来源为正，I=0；SO/SR有2题改变，一纠正一误伤。输入差异已实现，结果是未过预设投入门，不是准备失败，也不证明普遍零效应。
+
+**当前0 READY，049关闭；当前选帧内容/坐标通道候选停止作为核心主线。** 保留完整管线和负结果，不新派050继续换提示/题目/坐标/第二模型或扩样。下一研究须另有明确科学问题与强近邻差异，不以保持编号连续为立项理由。原执行代码、CSV/JSON、报告及codex-results不改；旧停止与NOVELTY=RETAIN0保持。
