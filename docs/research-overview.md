@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-27（北京时间；用户要求继续到下一任务，已下达[050完整机会实验](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)。**唯一READY为VLM-COVERAGE-AGGREGATION-050，等待具体本地启动消息，尚未执行。** 复用049同24题/四源48帧缓存，比较48帧联合读出与四个互补12帧固定投票；新增generate≤120、GPU≤1200秒。不重跑旧输入、不重新解码/下载/提特征；这是可利用空间核验，非新算法认证。049候选停止、NOVELTY=RETAIN0保持。）
-> 当前目标：用完整真实比较与强基线确定值得投入的新科学问题。049坐标通道候选已停止；050先核验同一48候选的联合/分组读出空间，结果不直接计为新算法贡献。长视频研究目标保留，NOVELTY=RETAIN0。
+> 更新：2026-10-27（北京时间；已完成[050验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：**有界输入失败报告接收，050关闭，科学比较未运行**。原字段契约漏列作者mcq_test显示格式；已发布纯CPU绑定器及16例自有测试。**当前唯一READY为[VLM-COVERAGE-AGGREGATION-051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)，等待独立本地启动**：先核齐同24题官方显示字段，再连续完成原F48/四P/固定投票，新增generate≤120、GPU≤1200秒。050未用额度不结转，049原记录不改；NOVELTY=RETAIN0。）
+> 当前目标：用完整真实比较与强基线确定新科学空间。050没有产生模型结果，051按官方展示字段纠正绑定后执行同一覆盖/读出问题；全帧/投票是机会核验基线，不计新算法贡献。049坐标候选停止、NOVELTY=RETAIN0保持。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -24,7 +24,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-27当前状态：用户要求继续，唯一READY为[VLM-COVERAGE-AGGREGATION-050](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)，等待README第8节具体本地启动，尚未执行。** 先用049现有四源48帧数组及同24题检验全候选F48和四个互补12帧固定投票V4；只读旧自然条件参照，不重跑049、不加载SigLIP/解码媒体。≤120新增generate、GPU包络≤1200秒。该包是已知强基线下的研发空间核验，不认证新算法或恢复049候选；当前获证实核心贡献仍0。
+**2026-10-27当前状态：050按[有界输入失败报告](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)验收关闭；当前唯一READY为[VLM-COVERAGE-AGGREGATION-051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)，尚未执行。** 原字段门未请求作者mcq_test，第一条规范化失败，120格全部NOT_RUN；原字节一致不等于选项语义join通过，全帧/投票效果保持未知。负责人已实现并用16个自有CPU夹具验证显示字段绑定器；051必须先实际核齐同24题，再连续完成原实验，不改变题/模型/阈值。旧049结果不覆盖，新的严格字段/评分一致性核对尚待进行；模型新预算须051明确本地启动，旧parent不恢复。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2724,3 +2724,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 - 固定同24题、四源48候选：F48一次联合读出，P0–P3互补视图固定投票；每程序恰看同一48候选，总visual tokens1296，但多次文本/生成/布局与实际成本不同。新5N≤120次generate，同模型/提示/选项顺序/严格parser，旧自然结果只读核齐。
 - 预设F48或V4相对旧SO来源等权净多至少4/24且3/4来源正，才保留OBSERVED_HEADROOM供负责人研究；有限oracle/独有成功等仅诊断，不是可部署方法或真证据标注，不自动训练/挑视图。
 - CPU完整join在权重前核对（支持原五选项的三种明确schema，无缺字段回退），gold在模型实际退出后另一次读取24题；无新媒体/解码/特征/下载/环境修改。新GPU≤1200秒/allocated18GiB、RAM32GiB、父7200秒，按README具体启动消息激活；七处allowlist一次安全push后STOP，不自动051。负责人未运行Windows/模型或读取私有资料，NOVELTY=RETAIN0保持。
+
+
+### 2026-10-27 · 050输入契约失败验收，提供官方字段绑定器并下达051
+
+- 核987aa3a恰原7处交付/results前缀逐字保留及唯一父追加，接收有界输入失败报告。第一条canonical_question以MISSING_OR_CONFLICTING_OPTIONS停止；原JSON一次1,854,695B/SHA匹配、gold值解码0，模型/processor/数组payload/标签评分/GPU0。120格NOT_RUN、V4及H_F/H_V/O4/O5均UNKNOWN，未产生科学阴性。
+- 公开CSV/JSON/源码SHA/AST与成本独立复核一致：四Job active0/no kill，CPU outer2.031秒，peak17,506,304B，root17文件/7708B，父约1426秒；实际私有读取/退出依赖回执，真实模型路径本轮未验证。
+- 050契约枚举三种options结构漏掉作者公开mcq_test格式；官方HF数据卡及固定提交1ac83c2的hv_utils.py用question+mcq_test构题，blob0b243332edddb518f0db7ee06921817cf8c5a605。负责人承认契约漏项；尚不能据公开文档认定本地24题全部匹配，或把首条失败扩大为全部数据无效。
+- 新增纯stdlib hourvideo_mcq_schema_051.py及test_hourvideo_mcq_schema_051.py，16个自有CPU测试实际通过，无私有题/标签/模型。严格显示A–E→冻结选项比对，禁止回填/重排/语义规范化；交给模型的冻结文本不改。
+- [051完整纠正版](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)为唯一READY，等待第7节新启动。科学五条件/同24题/缓存/模型/门槛均同050，先一次核齐所有官方显示字段，再CPU→模型→退出后隔离评分/旧正确性核对；新≤120generate/GPU1200秒/父7200秒，050额度不迁移。只读旧结果与输入，不单独派schema检查/恢复/解码任务，不自动052或扩样；NOVELTY=RETAIN0。

@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-27（北京时间；用户要求继续到下一任务，已下达[050完整机会实验](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)。**唯一READY为VLM-COVERAGE-AGGREGATION-050，等待具体本地启动消息，尚未执行。** 复用049同24题/四源48帧缓存，比较48帧联合读出与四个互补12帧固定投票；新增generate≤120、GPU≤1200秒。不重跑旧输入、不重新解码/下载/提特征；这是可利用空间核验，非新算法认证。049候选停止、NOVELTY=RETAIN0保持。）
+> 更新：2026-10-27（北京时间；已完成[050验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：**有界输入失败报告接收，050关闭，科学比较未运行**。原字段契约漏列作者mcq_test显示格式；已发布纯CPU绑定器及16例自有测试。**当前唯一READY为[VLM-COVERAGE-AGGREGATION-051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)，等待独立本地启动**：先核齐同24题官方显示字段，再连续完成原F48/四P/固定投票，新增generate≤120、GPU≤1200秒。050未用额度不结转，049原记录不改；NOVELTY=RETAIN0。）
 >
 > 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
@@ -14,7 +14,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-COVERAGE-AGGREGATION-050 | P0 | **唯一READY / AWAIT_EXPLICIT_START（尚未执行）** | 本地Codex，ChatGPT验收 | [完整合同](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)：[立项](./research-decisions/post-049-coverage-aggregation-direction-2026-10-27.md)复用049同24题/48候选，F48对四个互补12帧及固定投票，旧自然结果只读 | ≤120新generate/GPU≤1200秒；严格nongold/标签join与旧评分核齐；交付逐源净收益/误伤/有限oracle/全部成本，不把投票或全帧称创新，不自动051 |
+| VLM-COVERAGE-AGGREGATION-051 | P0 | **唯一READY / AWAIT_EXPLICIT_START（尚未执行）** | 本地Codex，ChatGPT验收 | [完整纠正版](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)：官方mcq_test原字段逐题绑定＋原F48/四P/投票/完整评分；两份CPU绑定器已由负责人提供 | 同24题/四缓存不换，严格A–E显示映射先齐再模型，≤120新generate/GPU≤1200秒；新授权/新根/新账本，不重启050、不自动052 |
+| VLM-COVERAGE-AGGREGATION-050 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [987aa3a](https://github.com/floomeer83felix-source/vlm/commit/987aa3a1dbaccc3bfc3672d6b622a0b15bac7138)：原选项格式绑定失败，模型/processor/GPU0 | [验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：120格NOT_RUN、投票/效果UNKNOWN，不判机会门通过或失败；不得沿用050余额继续 |
 | VLM-SELECTION-CHANNEL-049 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2e9124f](https://github.com/floomeer83felix-source/vlm/commit/2e9124faed6f4bd7e37157f9dc40edff4e26b17f)：24题/240逻辑格/216实际生成及隔离评分完整 | [验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：D=1/72、正源1/4；I=0、SO/SR一纠正一误伤；两门均未过，当前0 READY，当前候选停止，不自动050/改提示/扩样/二模型 |
 | VLM-PORTFOLIO-REVIEW-2026-10-27 | P0 | **OWNER_REVIEW_COMPLETE / PLANNING_ONLY（历史复盘，非执行任务）** | ChatGPT | [复盘与路线重设](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)：优先研究选择坐标通道及自然画面影响；拟完整开发比较而非工程微批次 | [候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)：4源/24题、≤240逻辑格仅为提案，确切输入与新模型授权尚缺；不创建占位049，不继承任何旧预算 |
 | VLM-EXISTING-MEDIA-INPUT-048 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bd1f110](https://github.com/floomeer83felix-source/vlm/commit/bd1f1107f2bea2291884a211706dfd0b3598d275)：两遍解码/共享准备后依赖启动失败，实际processor0 | [验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：三行NOT_RUN/全轮稳定性UNKNOWN，私有PTS与fallback未公开重现；仅验收有界失败报告，当前0 READY，不自动修补/049/模型 |
@@ -2392,3 +2393,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 固定049同24题、四源各6题和既有192×288候选数组。F48一次全部48帧；P0–P3按候选index mod4划分四个互补12帧视图，固定投票V4不再调模型。五新条件共120逻辑格/至多120新增generate，完整输入匹配旧STARTED只复用关闭结果。F48与四P累计均1296视觉tokens，但四P多文本前缀/生成及布局差异，必须报告实际总成本，不宣称同FLOPs或唯一机制因果。
 
 无媒体读取/解码、SigLIP、下载/训练/新标注。模型前一次隔离nongold完整字段核对、模型退出后一次隔离24题评分，两次原JSON物理open须披露，gold值只后者解析。F48或V4相对旧SO净收益≥1/6且至少3/4正源才记OBSERVED_HEADROOM，不是核心创新GO；均未过记NO_MATERIAL_DEPLOYABLE_GAIN，未知/不完整不记阴性。启动范围见README第8节；一次七处allowlist交付后停止，不自动扩样/051。
+
+
+## 2026-10-27 · 050仅输入失败；下达051官方字段完整纠正版
+
+[050验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)核7处allowlist/唯一results追加，48行分母/NOT_RUN/UNKNOWN与零模型计数一致；监督CPU2.031秒、四Job退出，实际推理/评分路径未验证。不能把它写成全帧或投票无益。
+
+发现原契约漏掉作者mcq_test显示选项；官方数据卡和固定hv_utils.py构题逻辑提供定向纠正依据，但本地24题实际字段仍需核齐。负责人已发布hourvideo_mcq_schema_051.py及16例自有CPU测试，全部通过，不涉及真实题/标签。当前唯一READY为[051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)：一次完整包先核同24题question/mcq_test，再运行原五条件和严格隔离评分；不单派schema预检父任务、不扩大科学范围。
+
+新预算≤120generate/GPU1200秒/allocated18GiB/RAM32GiB/父7200秒，按README第7节新启动消息激活。050已消费且旧余额不迁移，049原结果保留、选项绑定及旧评分一致性由051补核；未核前不追加新科学结论。只读既有缓存，无原视频/下载/训练/重筛题或环境变化。

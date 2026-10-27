@@ -2,7 +2,7 @@
 
 2026-10-27（北京时间）｜ChatGPT研究负责人；本地Windows Codex执行。  
 父任务：**VLM-COVERAGE-AGGREGATION-050**。  
-**唯一READY / AWAIT_EXPLICIT_START，尚未执行。**
+**050_CLOSED / ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / SCIENTIFIC_NOT_RUN。** 2026-10-27已完成[负责人验收](../../research-decisions/post-050-input-binding-disposition-2026-10-27.md)：严格原选项格式未通过，120模型格NOT_RUN，效果未知；不得重启本父。原合同/启动语句保留历史。完整纠正版见[051](../VLM-COVERAGE-AGGREGATION-051/README.md)，需其独立启动范围，不继承050余额。
 
 依据：[立项说明](../../research-decisions/post-049-coverage-aggregation-direction-2026-10-27.md)、[049已完成验收](../../research-decisions/post-049-selection-channel-disposition-2026-10-27.md)。049坐标通道候选保持停止；本包是新RGB覆盖/读出程序比较，不重跑049，不为它增加坐标/提示变体。
 
@@ -135,3 +135,10 @@ README/看板/总览属于负责人，本次执行者不改。QA/选项/gold/逐
 
 允许模型前隔离CPU投影器一次打开原混合JSON核对24题nongold完整字段，词法跳过gold值；原标签值仅在本轮模型实际退出后由隔离scorer再打开一次读取同24题，并严格核对旧自然条件评分绑定。按合同统一交付完整结果、有限oracle和全部成本，仅七处allowlist一次安全push main后停止，等ChatGPT验收。不自动进入下一任务。
 ```
+
+
+## 9. 负责人处置与官方字段纠正
+
+[负责人验收](../../research-decisions/post-050-input-binding-disposition-2026-10-27.md)接收本次有界输入失败报告。原规范漏列发布者mcq_test显示选项；官方hv_utils.py直接使用该字段构题。原字节SHA一致不等于严格选项join已过，当前效果/机会门均UNKNOWN，不能记NO_MATERIAL_DEPLOYABLE_GAIN。
+
+当前050已消费、不得重跑。后续[051完整包](../VLM-COVERAGE-AGGREGATION-051/README.md)采用已发布的纯CPU官方显示绑定器，先一次核齐同24题后才允许连续执行原科学对照；不恢复050，不改其代码/原结果。
