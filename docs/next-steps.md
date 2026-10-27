@@ -4,13 +4,14 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-27（北京时间；用户要求审视全部工作、确定走向与可实现核心创新，已完成[全项目复盘](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)。**优先验证“选帧画面与坐标信息通道”一条实证候选，已证实核心贡献仍0，当前0 READY。** [完整候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)把同题跨源控制与自然画面比较合并；不再自动延续下载/缓存/时钟/启动修补任务。048已关闭，其processor调用0及稳定性UNKNOWN不改；旧停止、GPU/训练HOLD保持。本次仅研究规划，无新模型/私有数据授权。）
+> 更新：2026-10-27（北京时间；用户要求按复盘路线安排下一任务，已下达[049完整开发比较](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)。**唯一READY为VLM-SELECTION-CHANNEL-049，等待准确本地输入及README第9节具体启动消息；尚未执行。** 四源各3–6题、最多24题/240逻辑格，完整输入去重后新增Qwen generate≤216；条件SigLIP与全部GPU阶段≤1800秒。缺入口先在本地一次交接，不扫盘、不生成空HOLD；旧任务不重跑，已证实核心贡献仍0。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-PORTFOLIO-REVIEW-2026-10-27 | P0 | **OWNER_REVIEW_COMPLETE / PLANNING_ONLY（非执行任务，0 READY）** | ChatGPT | [复盘与路线重设](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)：优先研究选择坐标通道及自然画面影响；拟完整开发比较而非工程微批次 | [候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)：4源/24题、≤240逻辑格仅为提案，确切输入与新模型授权尚缺；不创建占位049，不继承任何旧预算 |
+| VLM-SELECTION-CHANNEL-049 | P0 | **唯一READY / AWAIT_EXACT_LOCAL_INPUTS_AND_EXPLICIT_START（尚未执行）** | 本地Codex，ChatGPT验收 | [完整合同](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)：一次入口交接→CPU准备→条件SigLIP→固定问题跨源对照＋自然画面配对→隔离评分与统一交付 | 四源各3–6题，≤240逻辑格/≤216新generate；输入不全先等本地交接，不产空HOLD；必须同时报告D/I、失败/成本与GO/STOP，GPU范围须用户发送README§9激活 |
+| VLM-PORTFOLIO-REVIEW-2026-10-27 | P0 | **OWNER_REVIEW_COMPLETE / PLANNING_ONLY（历史复盘，非执行任务）** | ChatGPT | [复盘与路线重设](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)：优先研究选择坐标通道及自然画面影响；拟完整开发比较而非工程微批次 | [候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)：4源/24题、≤240逻辑格仅为提案，确切输入与新模型授权尚缺；不创建占位049，不继承任何旧预算 |
 | VLM-EXISTING-MEDIA-INPUT-048 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bd1f110](https://github.com/floomeer83felix-source/vlm/commit/bd1f1107f2bea2291884a211706dfd0b3598d275)：两遍解码/共享准备后依赖启动失败，实际processor0 | [验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：三行NOT_RUN/全轮稳定性UNKNOWN，私有PTS与fallback未公开重现；仅验收有界失败报告，当前0 READY，不自动修补/049/模型 |
 | VLM-OFFLINE-EVALUATION-047 | P0 | **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)：60 suite例/5 CLI，固定评分/分母/等价声明/成本软件交付 | [验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：独立重建256格/25输入封存/10输出hash一致；限T240数学夹具，真实scorer和通用类型加固未认证；047关闭、当前0 READY，不自动048 |
 | VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，046验收时0 READY；当前独立软件任务见页首，不自动修复/换源 |
@@ -2361,3 +2362,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 下一实质交付应把输入确认、必要预检、固定问题跨源控制、自然画面配对、评分/成本/结论放进一个有明确授权的完整研究父包。一次精确本地资产交接，不搜索私人路径，不以每个缺项再派HOLD任务；当前输入完整性与新模型范围未冻结，故0 READY、不自动049。
 
 048及旧已消费任务保持关闭；停止追加本片修补/解码，不恢复C/D、040/041框架或自然PTS获取线。特定PTS的180–900秒窗口只约束其旧方案；本新序数开发候选不要求绝对时间真值，也不得冒充时间定位或独立确认实验。数据有效性、合法范围、保护信息隔离与实际成本要求仍在。
+
+
+## 2026-10-27 · 用户要求落实下一任务：049完整研究包
+
+当前唯一READY为[VLM-SELECTION-CHANNEL-049](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)；前一条“复盘后0 READY/不自动049”是下达本任务前的历史状态。049是新下达、未执行的有界完整研究任务，不恢复旧parent或额度。
+
+任务一次包括准确本地资产交接、必要CPU验证、条件SigLIP特征、灰色跨源位置控制、自然RGB/坐标比较、独立评分及成本复核。原设计4×6细化为按R1–R6顺序最前四个合格来源、各按原ordinal取3–6题，总N≤24；规则在输出前冻结。最多240逻辑格、去重后新增Qwen≤216；GPU≤1800秒、父≤7200秒。具体启动授权与确切输入表是前提；仓库编辑不自行启动模型。
+
+本地Codex先集中核对README第2节缺入口并等待，不扫盘、不上传空HOLD、不新增入口任务号。入口齐备后同一父包连续执行，按七处allowlist一次普通安全push后停止。模板见[README第9节](./codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md#9-用户发给当前本地codex的完整启动消息)。048本片及旧路线停止、环境/下载/训练限制、NOVELTY=RETAIN0保持。

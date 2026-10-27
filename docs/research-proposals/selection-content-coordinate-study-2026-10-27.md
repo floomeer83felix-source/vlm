@@ -1,5 +1,8 @@
 # 候选设计：查询相关选帧的画面与坐标信息通道
 
+> **2026-10-27正式实施更新：** 用户要求安排下一任务后，已下达[049完整合同](../codex-artifacts/VLM-SELECTION-CHANNEL-049/README.md)，为当前唯一READY、尚未执行。下文保留候选形成时的NOT_READY/0 READY记录；实际执行以049为准。049在任何Qwen输出前固定四个输入合格来源各3–6题、总N≤24、10N逻辑格/最多9N新generate，具体Uniform/资格/prompt/资源与一次本地启动消息见合同；只有准确输入和用户实际启动才能激活，本文本身不授予模型/私有访问。
+
+
 2026-10-27（北京时间）｜ChatGPT 研究负责人  
 **DESIGN_FOR_FEASIBILITY / NOT_READY / NO_GPU_OR_PRIVATE_INPUT_AUTHORIZATION**。  
 所属主线：[全项目复盘与路线重设](../research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)。
