@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-27（北京时间；已完成[049负责人验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：**ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / 049关闭，当前0 READY**。24题/240逻辑格/216次实际生成及隔离评分有完整交付；公开逐源复算D=1/72、正源1/4，I=0，均未达预设继续门。干预确实改变完整输入，SO/SR有一纠正一误伤，不能把总体0写成逐题不敏感。停止当前候选，不自动050/扩样/换提示/第二模型；NOVELTY=RETAIN0。）
-> 当前目标：保留长视频研究目标，以完整真实配对比较和强基线差异筛选研究命题。049当前候选已按预设门停止，尚无进入确认阶段的核心贡献；可用管线与负结果继续作为研究资产，不保证投稿或录用。
+> 更新：2026-10-27（北京时间；用户要求继续到下一任务，已下达[050完整机会实验](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)。**唯一READY为VLM-COVERAGE-AGGREGATION-050，等待具体本地启动消息，尚未执行。** 复用049同24题/四源48帧缓存，比较48帧联合读出与四个互补12帧固定投票；新增generate≤120、GPU≤1200秒。不重跑旧输入、不重新解码/下载/提特征；这是可利用空间核验，非新算法认证。049候选停止、NOVELTY=RETAIN0保持。）
+> 当前目标：用完整真实比较与强基线确定值得投入的新科学问题。049坐标通道候选已停止；050先核验同一48候选的联合/分组读出空间，结果不直接计为新算法贡献。长视频研究目标保留，NOVELTY=RETAIN0。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -24,7 +24,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-27当前状态：049已完成[负责人验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)并关闭，当前0 READY。** 接收24题/240逻辑格/216实际生成与隔离评分的完整开发交付；D=1/72、正源1/4，I=0，均未达预设投入门。当前“选帧内容与坐标通道的稳定应用影响”候选停止。SO/SR确有一纠正一误伤，不能把总体0写成完全不敏感。核心贡献尚未获证实，不自动050/改提示/扩样/第二模型/训练。负责人只复核公开材料，未重开私人标签或运行模型。
+**2026-10-27当前状态：用户要求继续，唯一READY为[VLM-COVERAGE-AGGREGATION-050](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)，等待README第8节具体本地启动，尚未执行。** 先用049现有四源48帧数组及同24题检验全候选F48和四个互补12帧固定投票V4；只读旧自然条件参照，不重跑049、不加载SigLIP/解码媒体。≤120新增generate、GPU包络≤1200秒。该包是已知强基线下的研发空间核验，不认证新算法或恢复049候选；当前获证实核心贡献仍0。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2715,3 +2715,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 - D=1/72（+1.39pp）、正源1/4；I=0，逐源0/0/−1/6/+1/6。SO=SR9/24、UO=UR8/24，SO/SR有1纠正1误伤、8双对14双错。两项开发投入门均失败，接受STOP_CURRENT_HYPOTHESIS，不把小样本零均值写成普遍无效或等价证明。
 - 11个监督Job报告均active0/child exit0；outer191.298秒、CPU120.860秒、GPU保守包络70.438秒；allocated峰8.656GiB、Job峰18,486,960,128B，预算内。缓存底层精确I/O未知、旧索引缺完整输入hash、公开代码非通用fail-closed评分器及私人监督器未公开等限制明确保留。
 - **ACCEPTED_DEVELOPMENT_COMPARISON / 049_CLOSED，当前0 READY。** 当前内容/坐标通道候选停止作为核心主线，不自动050或继续变体/扩样/第二模型；可用真实管线与负结果保留，NOVELTY=RETAIN0。下一立项须新的具体科学主张与强近邻差异，不为任务数量延续而投入。
+
+
+### 2026-10-27 · 下达050完整机会核验：同48候选的联合与分组读出
+
+- 刷新d7369e5及AGENTS/看板/results/总览/049裁决和结果，确认无待领任务且050未回报。下达[VLM-COVERAGE-AGGREGATION-050](./codex-artifacts/VLM-COVERAGE-AGGREGATION-050/README.md)与[科学立项说明](./research-decisions/post-049-coverage-aggregation-direction-2026-10-27.md)，不改执行者结果/旧源码/旧证据。
+- 新查一手近邻：Select, Compress, Reinvest已有帧数/预算控制，SeViLA已比较投票与拼接回答，官方Qwen文档支持核对原生processor字段；本轮不把常规更多帧或投票包装新机制，未取得的论文正文缺口不冒充已排除。
+- 固定同24题、四源48候选：F48一次联合读出，P0–P3互补视图固定投票；每程序恰看同一48候选，总visual tokens1296，但多次文本/生成/布局与实际成本不同。新5N≤120次generate，同模型/提示/选项顺序/严格parser，旧自然结果只读核齐。
+- 预设F48或V4相对旧SO来源等权净多至少4/24且3/4来源正，才保留OBSERVED_HEADROOM供负责人研究；有限oracle/独有成功等仅诊断，不是可部署方法或真证据标注，不自动训练/挑视图。
+- CPU完整join在权重前核对（支持原五选项的三种明确schema，无缺字段回退），gold在模型实际退出后另一次读取24题；无新媒体/解码/特征/下载/环境修改。新GPU≤1200秒/allocated18GiB、RAM32GiB、父7200秒，按README具体启动消息激活；七处allowlist一次安全push后STOP，不自动051。负责人未运行Windows/模型或读取私有资料，NOVELTY=RETAIN0保持。
