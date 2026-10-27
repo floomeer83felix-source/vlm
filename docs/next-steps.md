@@ -4,13 +4,13 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
+> 更新：2026-10-27（北京时间；已完成[048负责人验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：**ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / REAL_PROCESSOR_INPUT_NOT_QUALIFIED；048关闭，当前0 READY**。两遍43924帧解码/95帧准备有报告，processor启动失败、load/calls0，B0/P/N均NOT_RUN；后SHA未执行，全轮稳定性UNKNOWN。公开算术/源码复核一致，但私有PTS及25项fallback未由负责人重现。停止为本片追加启动修补/解码/模型任务，先形成真实问题、强比较和收益的研究主张；原科学窗口与各HOLD/NOVELTY=RETAIN0保持。）
 
 ## 一、任务看板
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-EXISTING-MEDIA-INPUT-048 | P0 | **READY / CPU_INPUT_ONLY** | Codex | [单影片真实解码与B0/P/N输入整包](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md) | 两遍解码/4 processor上限，三行完整状态；仅工程链，不改变科学准入 |
+| VLM-EXISTING-MEDIA-INPUT-048 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bd1f110](https://github.com/floomeer83felix-source/vlm/commit/bd1f1107f2bea2291884a211706dfd0b3598d275)：两遍解码/共享准备后依赖启动失败，实际processor0 | [验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：三行NOT_RUN/全轮稳定性UNKNOWN，私有PTS与fallback未公开重现；仅验收有界失败报告，当前0 READY，不自动修补/049/模型 |
 | VLM-OFFLINE-EVALUATION-047 | P0 | **ACCEPTED_OFFLINE_SOFTWARE_IN_FIXED_SCOPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [39fa753](https://github.com/floomeer83felix-source/vlm/commit/39fa753f9f3f3862bc26c3484cc934143e62e589)：60 suite例/5 CLI，固定评分/分母/等价声明/成本软件交付 | [验收](./research-decisions/post-047-offline-evaluation-disposition-2026-10-26.md)：独立重建256格/25输入封存/10输出hash一致；限T240数学夹具，真实scorer和通用类型加固未认证；047关闭、当前0 READY，不自动048 |
 | VLM-HOLOASSIST-REAL-INPUT-046 | P0 | **ACCEPTED_BOUNDED_FAILURE_REPORT / WORKER_CLOCK_BINDING_NOT_QUALIFIED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [ad37b05](https://github.com/floomeer83felix-source/vlm/commit/ad37b05241f1218e5d974e88f6c4ac3f964ba234)：HEAD尝试超时，GET/媒体0，时钟及B0/P/N均NOT_RUN | [验收](./research-decisions/post-046-holoassist-input-disposition-2026-10-25.md)：本次独立父包络在限内；worker时钟绑定未过，不认证传输/媒体/输入；本父已消费，046验收时0 READY；当前独立软件任务见页首，不自动修复/换源 |
 | VLM-NATIVE-PTS-ADAPTER-045 | P0 | **ACCEPTED_CPU_NATIVE_PTS_BOUNDARY_PROTOTYPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [8f648e8](https://github.com/floomeer83felix-source/vlm/commit/8f648e875e8339fe2fb3c1c78dea9ef2df64bc30)：9槽实际CPU输入通过，10/12调用，3完整输入等价类 | [验收](./research-decisions/post-045-native-pts-adapter-disposition-2026-10-25.md)：窄原生PTS链路成立；固定96源帧/96秒原型，不代表自然媒体或模型效果。045验收时0 READY，不自动扩变体/下载/GPU；新提案见页首 |
@@ -2341,3 +2341,13 @@ ChatGPT调研发现Video-MME-Logical数据集2026 Mini375/约352MB且标注CC BY
 2026-10-26：用户要求继续直到新任务。唯一READY为[048现有单影片CPU输入验收](./codex-artifacts/VLM-EXISTING-MEDIA-INPUT-048/README.md)。022所指影片1465.597秒超出180–900秒科学窗口，本轮仅验证真实解码到B0/P/N输入，不计入64格/6+2科学样本。047和旧任务保持关闭；无下载、标签、模型或GPU。
 
 这是对已有明确单文件的工程用途另立新合同。当前文件和processor入口须精确前检，不搜旧资产；file-local时轴不认证原始钟/标签。历史0 READY记载保留为当日状态，当前领取以页首唯一048为准。
+
+
+### 2026-10-27 · 048有界输入失败报告验收并关闭，停止本片工程延伸
+
+[048验收](./research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)：公开源码/三行状态/成本/读预算一致，
+两遍各43924显示帧、95选中帧准备是执行者实物记录；最大报告偏移0.0005秒，非高偏移科学源。
+processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，后SHA缺失，全轮稳定性UNKNOWN。
+负责人104项公开一致性检查未读取媒体/私有PTS或重跑代码；回执25项fallback的完整实现未公开，不能补签独立复现。
+当前0 READY，不重跑048，不为本片追加启动修补/解码/模型任务；下一立项先要有真实问题、强方案缺口和可测收益。
+任务数/软件通过不替代科研贡献，NOVELTY=RETAIN0及原科学/训练/数据停止结论保持。代码和执行者证据/results原样保留。

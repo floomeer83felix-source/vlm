@@ -1,6 +1,15 @@
+# 048已归档：有界输入失败报告验收，真实processor输入未取得
+
+2026-10-27：[负责人验收](../../research-decisions/post-048-existing-media-input-disposition-2026-10-27.md)。
+**ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / REAL_PROCESSOR_INPUT_NOT_QUALIFIED / CLOSED。**
+两遍各43924显示帧的CPU解码与95帧准备有报告；processor依赖启动失败，load/calls0，
+B0/P/N均NOT_RUN，完整输入和最终SHA稳定性UNKNOWN。25项fallback缺完整公开实现，复现范围受限。
+048已消费，当前0 READY，不重跑、不自动049或追加本片启动修补/解码/模型任务。
+以下合同保留历史，其中READY及启动指令失效。
+
 # 048：现有单影片真实解码与CPU输入验收
 
-2026-10-26。**READY / CPU_INPUT_ONLY**。父任务VLM-EXISTING-MEDIA-INPUT-048。
+2026-10-26。**CLOSED / NOT_RERUNNABLE**。父任务VLM-EXISTING-MEDIA-INPUT-048。
 用户要求继续直到新任务，本包一次完成以下工程链，不继承任何旧任务预算。由用户在当前本地Codex聊天发送启动消息并附单个文件路径。
 
 ## 输入与依据
