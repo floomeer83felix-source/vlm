@@ -1,0 +1,1595 @@
+{
+  "task": "VLM-FINITE-VIEW-HEADROOM-054",
+  "date": "2026-10-28 Asia/Shanghai",
+  "status": "SIMPLE_CONFIDENCE_USES_MOST_HEADROOM",
+  "complete": true,
+  "novelty": "RETAIN0",
+  "new_core_contribution_claimed": false,
+  "N": 24,
+  "source_n": {
+    "S01": 6,
+    "S02": 6,
+    "S03": 6,
+    "S04": 6
+  },
+  "known_052_time_scope_caveat_retained": 1,
+  "initial_fixed_state_vectors": 384,
+  "nonempty_state_vectors": 360,
+  "selective_zero_fill_records_excluded": 53,
+  "unit_warning": "QUESTION_N24_NOT_360_OR384_INDEPENDENT_QUESTIONS",
+  "conditions": [
+    {
+      "N": 24,
+      "condition": "F",
+      "correct": 9,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "M",
+      "correct": 7,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "A",
+      "correct": 10,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "I",
+      "correct": 8,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "C",
+      "correct": 10,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "R",
+      "correct": 11,
+      "kind": "FROZEN_053_METHOD",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "E15",
+      "correct": 10,
+      "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "B0",
+      "correct": 5,
+      "kind": "MASKED_CONTROL",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "O15",
+      "correct": 13,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "O1",
+      "correct": 13,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "O2",
+      "correct": 13,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 24,
+      "condition": "O3",
+      "correct": 13,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "ALL",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "F",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "M",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "A",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "I",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "C",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "R",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "E15",
+      "correct": 2,
+      "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "B0",
+      "correct": 2,
+      "kind": "MASKED_CONTROL",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O15",
+      "correct": 3,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O1",
+      "correct": 3,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O2",
+      "correct": 3,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O3",
+      "correct": 3,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S01",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "F",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "M",
+      "correct": 1,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "A",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "I",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "C",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "R",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "E15",
+      "correct": 2,
+      "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "B0",
+      "correct": 1,
+      "kind": "MASKED_CONTROL",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O15",
+      "correct": 2,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O1",
+      "correct": 2,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O2",
+      "correct": 2,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O3",
+      "correct": 2,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S02",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "F",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "M",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "A",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "I",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "C",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "R",
+      "correct": 4,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "E15",
+      "correct": 3,
+      "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "B0",
+      "correct": 1,
+      "kind": "MASKED_CONTROL",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O15",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O1",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O2",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O3",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S03",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "F",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "M",
+      "correct": 1,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "A",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "I",
+      "correct": 2,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "C",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "R",
+      "correct": 3,
+      "kind": "FROZEN_053_METHOD",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "E15",
+      "correct": 3,
+      "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "B0",
+      "correct": 1,
+      "kind": "MASKED_CONTROL",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O15",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O1",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O2",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S04",
+      "unknown": 0
+    },
+    {
+      "N": 6,
+      "condition": "O3",
+      "correct": 4,
+      "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+      "source": "S04",
+      "unknown": 0
+    }
+  ],
+  "headroom": [
+    {
+      "A_candidate_mismatch": 2,
+      "A_final_changed": 5,
+      "A_final_correct": 10,
+      "A_top_match_correct": 8,
+      "A_top_match_wrong": 14,
+      "E15": 10,
+      "F": 9,
+      "H": 4,
+      "I_candidate_mismatch": 1,
+      "I_final_changed": 3,
+      "I_final_correct": 8,
+      "I_top_match_correct": 8,
+      "I_top_match_wrong": 15,
+      "K1": 13,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "N": 24,
+      "NONE": 11,
+      "O15": 13,
+      "harm": 2,
+      "missed": 1,
+      "recovered": 3,
+      "source": "ALL"
+    },
+    {
+      "A_candidate_mismatch": 0,
+      "A_final_changed": 1,
+      "A_final_correct": 3,
+      "A_top_match_correct": 3,
+      "A_top_match_wrong": 3,
+      "E15": 2,
+      "F": 2,
+      "H": 1,
+      "I_candidate_mismatch": 0,
+      "I_final_changed": 2,
+      "I_final_correct": 2,
+      "I_top_match_correct": 2,
+      "I_top_match_wrong": 4,
+      "K1": 3,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "N": 6,
+      "NONE": 3,
+      "O15": 3,
+      "harm": 1,
+      "missed": 0,
+      "recovered": 1,
+      "source": "S01"
+    },
+    {
+      "A_candidate_mismatch": 0,
+      "A_final_changed": 1,
+      "A_final_correct": 2,
+      "A_top_match_correct": 1,
+      "A_top_match_wrong": 5,
+      "E15": 2,
+      "F": 2,
+      "H": 0,
+      "I_candidate_mismatch": 1,
+      "I_final_changed": 0,
+      "I_final_correct": 2,
+      "I_top_match_correct": 2,
+      "I_top_match_wrong": 3,
+      "K1": 2,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "N": 6,
+      "NONE": 4,
+      "O15": 2,
+      "harm": 0,
+      "missed": 0,
+      "recovered": 0,
+      "source": "S02"
+    },
+    {
+      "A_candidate_mismatch": 1,
+      "A_final_changed": 1,
+      "A_final_correct": 2,
+      "A_top_match_correct": 2,
+      "A_top_match_wrong": 3,
+      "E15": 3,
+      "F": 3,
+      "H": 1,
+      "I_candidate_mismatch": 0,
+      "I_final_changed": 1,
+      "I_final_correct": 2,
+      "I_top_match_correct": 2,
+      "I_top_match_wrong": 4,
+      "K1": 4,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "N": 6,
+      "NONE": 2,
+      "O15": 4,
+      "harm": 1,
+      "missed": 0,
+      "recovered": 1,
+      "source": "S03"
+    },
+    {
+      "A_candidate_mismatch": 1,
+      "A_final_changed": 2,
+      "A_final_correct": 3,
+      "A_top_match_correct": 2,
+      "A_top_match_wrong": 3,
+      "E15": 3,
+      "F": 2,
+      "H": 2,
+      "I_candidate_mismatch": 0,
+      "I_final_changed": 0,
+      "I_final_correct": 2,
+      "I_top_match_correct": 2,
+      "I_top_match_wrong": 4,
+      "K1": 4,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "N": 6,
+      "NONE": 2,
+      "O15": 4,
+      "harm": 0,
+      "missed": 1,
+      "recovered": 1,
+      "source": "S04"
+    }
+  ],
+  "H_positive_sources": 3,
+  "primary_decision_inputs": {
+    "H": 4,
+    "H_required": 4,
+    "H_positive_sources": 3,
+    "sources_required": 3,
+    "E15_recovered": 3,
+    "E15_harm": 2,
+    "E15_missed": 1,
+    "ranking_gap_missed_required": 2,
+    "decision_priority": "SMALL_HEADROOM_THEN_MISSED_GE2_THEN_SIMPLE_CONFIDENCE",
+    "E15_minus_F": 1,
+    "O15_minus_E15": 3,
+    "O15_minus_E15_decomposition": {
+      "missed_recoveries": 1,
+      "harms": 2
+    }
+  },
+  "oracles": {
+    "O15": 13,
+    "O1": 13,
+    "O2": 13,
+    "O3": 13,
+    "N": 24,
+    "kind": "FINITE_GOLD_ORACLE_NOT_DEPLOYABLE",
+    "cardinality_monotonicity_not_assumed": true,
+    "not_necessary_evidence_or_future_model_bound": true
+  },
+  "minimum_successful_blocks": {
+    "K1": 13,
+    "K2": 0,
+    "K3": 0,
+    "K4": 0,
+    "NONE": 11,
+    "not_MRFS_or_natural_necessity": true
+  },
+  "E15": {
+    "kind": "POSTHOC_UNGATED_CONFIDENCE_CONTROL",
+    "nongold_sealed_before_old_correct_and_original_labels": true,
+    "mask0_excluded": true,
+    "exact_tie": "MORE_BLOCKS_THEN_SMALLER_MASK_THEN_EARLIER_LETTER",
+    "renormalization_or_temperature_or_learned_threshold": false,
+    "second_fill_gate": false,
+    "not_same_gated_method_improvement_or_confirmed_deployment": true
+  },
+  "B0": {
+    "correct": 5,
+    "N": 24,
+    "kind": "MASKED_CONTROL",
+    "still_48_slots_1296_visual_tokens": true,
+    "not_no_video_or_text_only": true
+  },
+  "IA_candidate_categories": {
+    "I": {
+      "candidate_mismatch": 1,
+      "top_match_wrong": 15,
+      "top_match_correct": 8,
+      "final_correct": 8,
+      "final_changed": 3
+    },
+    "A": {
+      "candidate_mismatch": 2,
+      "top_match_wrong": 14,
+      "top_match_correct": 8,
+      "final_correct": 10,
+      "final_changed": 5
+    }
+  },
+  "rank_margin_profiles": [
+    {
+      "group": "ALL_STATES",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 384,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -1.7317708351341328,
+        "median": -1.4999999552965164,
+        "min": -10.50000013411045,
+        "q25": -4.3750001937150955,
+        "q75": 0.875
+      },
+      "target_rank_histogram": {
+        "1": 134,
+        "2": 81,
+        "3": 53,
+        "4": 79,
+        "5": 37
+      }
+    },
+    {
+      "group": "NONEMPTY",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 360,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -1.6395833335674574,
+        "median": -1.4375,
+        "min": -8.750000048428774,
+        "q25": -4.3750000186264515,
+        "q75": 1.0
+      },
+      "target_rank_histogram": {
+        "1": 129,
+        "2": 79,
+        "3": 46,
+        "4": 73,
+        "5": 33
+      }
+    },
+    {
+      "group": "K0",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 1.7500001192092896,
+        "mean": -3.1145833586342633,
+        "median": -2.8749999552965164,
+        "min": -10.50000013411045,
+        "q25": -5.937500081956387,
+        "q75": -0.4375
+      },
+      "target_rank_histogram": {
+        "1": 5,
+        "2": 2,
+        "3": 7,
+        "4": 6,
+        "5": 4
+      }
+    },
+    {
+      "group": "K1",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 4.875000230036676,
+        "mean": -1.9192708231857978,
+        "median": -1.6250000447034836,
+        "min": -8.750000048428774,
+        "q25": -4.499999910593033,
+        "q75": 0.625
+      },
+      "target_rank_histogram": {
+        "1": 29,
+        "2": 25,
+        "3": 13,
+        "4": 20,
+        "5": 9
+      }
+    },
+    {
+      "group": "K2",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 144,
+      "target_margin": {
+        "max": 4.999999849125743,
+        "mean": -1.6310763942925002,
+        "median": -1.375,
+        "min": -7.500000064726919,
+        "q25": -4.250000023283064,
+        "q75": 0.8750000074505806
+      },
+      "target_rank_histogram": {
+        "1": 53,
+        "2": 29,
+        "3": 20,
+        "4": 30,
+        "5": 12
+      }
+    },
+    {
+      "group": "K3",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -1.4375000006499856,
+        "median": -1.1875000298023224,
+        "min": -7.499999789521098,
+        "q25": -4.187499988824129,
+        "q75": 1.125
+      },
+      "target_rank_histogram": {
+        "1": 38,
+        "2": 19,
+        "3": 11,
+        "4": 19,
+        "5": 9
+      }
+    },
+    {
+      "group": "K4",
+      "question_N": 24,
+      "source": "ALL",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 4.750000040978193,
+        "mean": -1.3802083424137284,
+        "median": -1.0,
+        "min": -6.7500001806765795,
+        "q25": -3.968750037252903,
+        "q75": 1.2187499701976776
+      },
+      "target_rank_histogram": {
+        "1": 9,
+        "2": 6,
+        "3": 2,
+        "4": 4,
+        "5": 3
+      }
+    },
+    {
+      "group": "ALL_STATES",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 2.1249999701976776,
+        "mean": -1.555989579942737,
+        "median": -1.4375,
+        "min": -6.750000113621354,
+        "q25": -3.249999912455678,
+        "q75": 0.40625
+      },
+      "target_rank_histogram": {
+        "1": 34,
+        "2": 27,
+        "3": 24,
+        "4": 10,
+        "5": 1
+      }
+    },
+    {
+      "group": "NONEMPTY",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 90,
+      "target_margin": {
+        "max": 2.1249999701976776,
+        "mean": -1.488888883844225,
+        "median": -1.4375,
+        "min": -6.249999943189323,
+        "q25": -3.125000050291419,
+        "q75": 0.59375
+      },
+      "target_rank_histogram": {
+        "1": 32,
+        "2": 27,
+        "3": 21,
+        "4": 9,
+        "5": 1
+      }
+    },
+    {
+      "group": "K0",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 0.3749999403953552,
+        "mean": -2.562500021420419,
+        "median": -2.2500000782310963,
+        "min": -6.750000113621354,
+        "q25": -4.40624987334013,
+        "q75": -0.0937500149011612
+      },
+      "target_rank_histogram": {
+        "1": 2,
+        "2": 0,
+        "3": 3,
+        "4": 1,
+        "5": 0
+      }
+    },
+    {
+      "group": "K1",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 2.1249999701976776,
+        "mean": -1.6406249897748542,
+        "median": -1.4375,
+        "min": -6.249999943189323,
+        "q25": -3.2499999403953552,
+        "q75": 0.09375
+      },
+      "target_rank_histogram": {
+        "1": 7,
+        "2": 9,
+        "3": 6,
+        "4": 2,
+        "5": 0
+      }
+    },
+    {
+      "group": "K2",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 36,
+      "target_margin": {
+        "max": 1.8750000894069672,
+        "mean": -1.4965277787608404,
+        "median": -1.1874999925494194,
+        "min": -6.000000020489097,
+        "q25": -3.156250014901161,
+        "q75": 0.40625
+      },
+      "target_rank_histogram": {
+        "1": 13,
+        "2": 10,
+        "3": 9,
+        "4": 4,
+        "5": 0
+      }
+    },
+    {
+      "group": "K3",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 1.4999999701976776,
+        "mean": -1.3645833245633792,
+        "median": -1.8124999850988388,
+        "min": -5.125000115483999,
+        "q25": -2.9062500540167093,
+        "q75": 0.84375
+      },
+      "target_rank_histogram": {
+        "1": 10,
+        "2": 6,
+        "3": 5,
+        "4": 3,
+        "5": 0
+      }
+    },
+    {
+      "group": "K4",
+      "question_N": 6,
+      "source": "S01",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 1.5000000596046448,
+        "mean": -1.3333333277453978,
+        "median": -1.4375,
+        "min": -4.624999970197678,
+        "q25": -2.937500041909516,
+        "q75": 0.71875
+      },
+      "target_rank_histogram": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 1
+      }
+    },
+    {
+      "group": "ALL_STATES",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 4.999999849125743,
+        "mean": -2.169270834478084,
+        "median": -2.5625000298023224,
+        "min": -7.000000115483999,
+        "q25": -5.124999932944775,
+        "q75": -0.3125
+      },
+      "target_rank_histogram": {
+        "1": 24,
+        "2": 19,
+        "3": 6,
+        "4": 37,
+        "5": 10
+      }
+    },
+    {
+      "group": "NONEMPTY",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 90,
+      "target_margin": {
+        "max": 4.999999849125743,
+        "mean": -2.126388891434504,
+        "median": -2.5625000298023224,
+        "min": -7.000000115483999,
+        "q25": -5.124999888241291,
+        "q75": 0.34375
+      },
+      "target_rank_histogram": {
+        "1": 23,
+        "2": 19,
+        "3": 4,
+        "4": 35,
+        "5": 9
+      }
+    },
+    {
+      "group": "K0",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 0.25,
+        "mean": -2.812499980131785,
+        "median": -2.124999985098839,
+        "min": -6.250000029802322,
+        "q25": -5.374999918043613,
+        "q75": -0.6562499850988388
+      },
+      "target_rank_histogram": {
+        "1": 1,
+        "2": 0,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      }
+    },
+    {
+      "group": "K1",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 3.5000001080334187,
+        "mean": -2.416666657663882,
+        "median": -1.9999999403953552,
+        "min": -7.000000115483999,
+        "q25": -5.124999949708581,
+        "q75": -0.6249999850988388
+      },
+      "target_rank_histogram": {
+        "1": 5,
+        "2": 5,
+        "3": 2,
+        "4": 10,
+        "5": 2
+      }
+    },
+    {
+      "group": "K2",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 36,
+      "target_margin": {
+        "max": 4.999999849125743,
+        "mean": -2.145833339749111,
+        "median": -3.25,
+        "min": -6.875000048428774,
+        "q25": -4.531250044703484,
+        "q75": -0.3750000149011612
+      },
+      "target_rank_histogram": {
+        "1": 9,
+        "2": 8,
+        "3": 2,
+        "4": 14,
+        "5": 3
+      }
+    },
+    {
+      "group": "K3",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 4.750000042840838,
+        "mean": -1.885416671866551,
+        "median": -2.374999985098839,
+        "min": -6.249999850988388,
+        "q25": -5.124999865889549,
+        "q75": 1.406249925494194
+      },
+      "target_rank_histogram": {
+        "1": 7,
+        "2": 5,
+        "3": 0,
+        "4": 9,
+        "5": 3
+      }
+    },
+    {
+      "group": "K4",
+      "question_N": 6,
+      "source": "S02",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 2.875000111758709,
+        "mean": -1.8125000149011612,
+        "median": -2.625,
+        "min": -6.000000178813934,
+        "q25": -4.968750104308128,
+        "q75": 1.781250087544322
+      },
+      "target_rank_histogram": {
+        "1": 2,
+        "2": 1,
+        "3": 0,
+        "4": 2,
+        "5": 1
+      }
+    },
+    {
+      "group": "ALL_STATES",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -0.933593749020171,
+        "median": 0.125,
+        "min": -10.50000013411045,
+        "q25": -4.906249910593033,
+        "q75": 1.5312500149011612
+      },
+      "target_rank_histogram": {
+        "1": 49,
+        "2": 14,
+        "3": 17,
+        "4": 8,
+        "5": 8
+      }
+    },
+    {
+      "group": "NONEMPTY",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 90,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -0.8083333271555603,
+        "median": 0.25,
+        "min": -6.249999955296516,
+        "q25": -4.843749918043613,
+        "q75": 1.6249999701976776
+      },
+      "target_rank_histogram": {
+        "1": 48,
+        "2": 12,
+        "3": 15,
+        "4": 8,
+        "5": 7
+      }
+    },
+    {
+      "group": "K0",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 1.5,
+        "mean": -2.8125000769893327,
+        "median": -0.8750000894069672,
+        "min": -10.50000013411045,
+        "q25": -4.718750141561031,
+        "q75": -0.3125000149011612
+      },
+      "target_rank_histogram": {
+        "1": 1,
+        "2": 2,
+        "3": 2,
+        "4": 0,
+        "5": 1
+      }
+    },
+    {
+      "group": "K1",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 4.000000054016709,
+        "mean": -1.166666637097175,
+        "median": -0.4374999701976776,
+        "min": -6.249999955296516,
+        "q25": -4.6874998062849045,
+        "q75": 1.6249999701976776
+      },
+      "target_rank_histogram": {
+        "1": 11,
+        "2": 5,
+        "3": 4,
+        "4": 1,
+        "5": 3
+      }
+    },
+    {
+      "group": "K2",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 36,
+      "target_margin": {
+        "max": 4.99999977927655,
+        "mean": -0.7395833456733575,
+        "median": 0.4374999850988388,
+        "min": -6.124999973922968,
+        "q25": -4.999999951571226,
+        "q75": 1.5625000223517418
+      },
+      "target_rank_histogram": {
+        "1": 21,
+        "2": 3,
+        "3": 6,
+        "4": 3,
+        "5": 3
+      }
+    },
+    {
+      "group": "K3",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 5.374999790452421,
+        "mean": -0.6197916674427688,
+        "median": 0.5000000298023224,
+        "min": -6.124999955296516,
+        "q25": -4.624999888241291,
+        "q75": 1.5312500223517418
+      },
+      "target_rank_histogram": {
+        "1": 13,
+        "2": 3,
+        "3": 4,
+        "4": 3,
+        "5": 1
+      }
+    },
+    {
+      "group": "K4",
+      "question_N": 6,
+      "source": "S03",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 4.750000040978193,
+        "mean": -0.5416666151334842,
+        "median": 0.3125,
+        "min": -5.749999940395355,
+        "q25": -3.68749987334013,
+        "q75": 1.6875000298023224
+      },
+      "target_rank_histogram": {
+        "1": 3,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      }
+    },
+    {
+      "group": "ALL_STATES",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 96,
+      "target_margin": {
+        "max": 4.875000230036676,
+        "mean": -2.2682291770955394,
+        "median": -2.375,
+        "min": -10.375000381842256,
+        "q25": -4.281250056810677,
+        "q75": 0.40625
+      },
+      "target_rank_histogram": {
+        "1": 27,
+        "2": 21,
+        "3": 6,
+        "4": 24,
+        "5": 18
+      }
+    },
+    {
+      "group": "NONEMPTY",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 90,
+      "target_margin": {
+        "max": 4.875000230036676,
+        "mean": -2.134722231835541,
+        "median": -2.2500000447034836,
+        "min": -8.750000048428774,
+        "q25": -4.218750030733645,
+        "q75": 0.46875
+      },
+      "target_rank_histogram": {
+        "1": 26,
+        "2": 21,
+        "3": 6,
+        "4": 21,
+        "5": 16
+      }
+    },
+    {
+      "group": "K0",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 1.7500001192092896,
+        "mean": -4.270833355995516,
+        "median": -3.2500000596046448,
+        "min": -10.375000381842256,
+        "q25": -6.624999912455678,
+        "q75": -2.8749999329447746
+      },
+      "target_rank_histogram": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 3,
+        "5": 2
+      }
+    },
+    {
+      "group": "K1",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 4.875000230036676,
+        "mean": -2.45312500820728,
+        "median": -2.249999985098839,
+        "min": -8.750000048428774,
+        "q25": -4.9375001937150955,
+        "q75": -0.4375
+      },
+      "target_rank_histogram": {
+        "1": 6,
+        "2": 6,
+        "3": 1,
+        "4": 7,
+        "5": 4
+      }
+    },
+    {
+      "group": "K2",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 36,
+      "target_margin": {
+        "max": 4.37500000372529,
+        "mean": -2.1423611129866913,
+        "median": -2.1875000596046448,
+        "min": -7.500000064726919,
+        "q25": -4.1562500996515155,
+        "q75": 0.5312500447034836
+      },
+      "target_rank_histogram": {
+        "1": 10,
+        "2": 8,
+        "3": 3,
+        "4": 9,
+        "5": 6
+      }
+    },
+    {
+      "group": "K3",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 24,
+      "target_margin": {
+        "max": 2.9999999552965164,
+        "mean": -1.8802083387272432,
+        "median": -2.3125000447034836,
+        "min": -7.499999789521098,
+        "q25": -3.8437499292194843,
+        "q75": 0.53125
+      },
+      "target_rank_histogram": {
+        "1": 8,
+        "2": 5,
+        "3": 2,
+        "4": 4,
+        "5": 5
+      }
+    },
+    {
+      "group": "K4",
+      "question_N": 6,
+      "source": "S04",
+      "state_vectors": 6,
+      "target_margin": {
+        "max": 1.8749999105930328,
+        "mean": -1.8333334118748705,
+        "median": -1.4375000596046448,
+        "min": -6.7500001806765795,
+        "q25": -3.125000076368451,
+        "q75": -0.031250014901161194
+      },
+      "target_rank_histogram": {
+        "1": 2,
+        "2": 2,
+        "3": 0,
+        "4": 1,
+        "5": 1
+      }
+    }
+  ],
+  "target_rank_ties": "ABCDE_ORDER",
+  "margin_quantiles": "LINEAR_TYPE7_DECLARED_BEFORE_LABELS",
+  "identity": {
+    "053_actual_LF_code_SHA256": "d83f2d1f0e64039f16d973b6dbc2d50943bded8b5a31b40577102f055f51d6f5",
+    "053_source_imported": false,
+    "old_input_score_output_and_selection_seals_verified": true,
+    "old_attempts_returns_steps_437": true,
+    "old_model_single_load_evidence": "FROZEN_PUBLIC053_SUMMARY_AND_CLOSED_INDEPENDENT_REVIEW_NO_LEDGER_REOPEN",
+    "old_model_and_related_CPU_closure_evidence": "PERMITTED_PHASE_RECEIPTS_AND_FROZEN_PUBLIC_SUMMARY",
+    "initial384_identities_unique": true,
+    "initial_each_q_masks0_to15_exactly_once": true,
+    "source_ordinal_UID_mapping_checked_by_coordinator": true,
+    "NONGOLD_config_original_or_old_correct_entry": false,
+    "nongold_actual_exit_before_scoring_handoff": true,
+    "nongold_choices_code_and_data_seals_unchanged": true
+  },
+  "scoring": {
+    "original_physical_opens": 1,
+    "original_Python_returned_bytes": 1854695,
+    "original_cap_bytes": 4194304,
+    "original_frozen_SHA_matched": true,
+    "projected_fields": [
+      "question",
+      "mcq_test",
+      "correct_answer_label"
+    ],
+    "protected_label_values_decoded": 24,
+    "strict_original_question_display_bindings": 24,
+    "old_correctness_cells_rebuilt_and_matched": 144,
+    "old_mismatches": 0,
+    "old_outputs_or_results_modified": false,
+    "raw_mixed_bytes_saved": false,
+    "private_new_integer_labels_use": "ISOLATED_ANALYSIS_AND_INDEPENDENT_REVIEW_ONLY_NOT_FUTURE_POLICY_OR_TRAINING",
+    "OS_access_audit_certificate": false
+  },
+  "tests": {
+    "necessary_owned_fixture_assertions": 16,
+    "status": "PASS",
+    "initial_failures": 0,
+    "repairs": 0,
+    "old_tests_rerun": 0,
+    "independent_review": {
+      "status": "PASS",
+      "assertions": 1869,
+      "state_vectors": 384,
+      "nonempty_state_correctness_rebuilt": 360,
+      "old_correctness_cells_rebuilt": 144,
+      "condition_rows": 60,
+      "headroom_rows": 5,
+      "rank_margin_profiles": 35,
+      "decision": "SIMPLE_CONFIDENCE_USES_MOST_HEADROOM",
+      "tested_E15_or_aggregation_imported": false,
+      "old_data_opens": 0,
+      "original_reopens": 0
+    },
+    "independent_source": "REVIEW_SOURCE_IN_finite_view_audit_054.py"
+  },
+  "reads": {
+    "old_metadata_actual_Python_returned_bytes": 675285,
+    "old_metadata_cap_bytes": 8388608,
+    "old_each_file_cap_bytes": 2097152,
+    "old_opens": 17,
+    "old_read_roles": [
+      {
+        "coordinator_init": 11722
+      },
+      {
+        "nongold": 627198
+      },
+      {
+        "scoring": 36365
+      }
+    ],
+    "nongold_scalar_score_file_contained437_but_only_initial384_retained": true,
+    "visual_payload_reads": 0,
+    "OS_storage_import_control_and_new_private_IO": "NOT_EXHAUSTIVELY_METERED"
+  },
+  "resource": {
+    "CPU_supervised_outer_seconds": 1.531000000424683,
+    "CPU_cap_seconds": 300,
+    "peak_Job_commit_bytes": 17473536,
+    "Job_RAM_cap_bytes": 1073741824,
+    "single_Python_thread_checked": true,
+    "single_CPU_affinity_mask": 1,
+    "owned_Jobs": 5,
+    "all_actual_active0_exit0": true,
+    "kills": 0,
+    "phases": [
+      {
+        "role": "analyze",
+        "wall": 0.5630000000819564,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 17473536,
+        "killed": false
+      },
+      {
+        "role": "nongold",
+        "wall": 0.5,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 15736832,
+        "killed": false
+      },
+      {
+        "role": "review_setup",
+        "wall": 0.1559999999590218,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 12210176,
+        "killed": false
+      },
+      {
+        "role": "suite",
+        "wall": 0.15600000019185245,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 10928128,
+        "killed": false
+      },
+      {
+        "role": "verify",
+        "wall": 0.15600000019185245,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 9629696,
+        "killed": false
+      }
+    ],
+    "parent_elapsed_at_summary_seconds": 914.1112201213837,
+    "parent_cap_seconds": 3600,
+    "disk_free_before_bytes": 349661794304,
+    "private_root_snapshot": {
+      "files": 31,
+      "bytes": 160890,
+      "file_cap": 128,
+      "byte_cap": 8388608,
+      "quota_status": "SNAPSHOT_NOT_HARD_FILESYSTEM_QUOTA"
+    }
+  },
+  "current_source_code_SHA256": "545813e26a977ab2e7ed28aad06a0cfc4e14b2cd5b3e32bc5d515c4e0f671cd5",
+  "prohibited_activity": {
+    "torch_transformers_numpy_PIL_cv2_import": 0,
+    "tokenizer_processor_model": 0,
+    "GPU_nvidia_smi_peer_or_old_lock": 0,
+    "weights_media_images_visual_arrays": 0,
+    "decode_or_features": 0,
+    "research_data_download_or_network": 0,
+    "training": 0,
+    "installation": 0,
+    "permanent_environment_change": 0,
+    "new_model_answers": 0
+  },
+  "historical_053_STOP_CURRENT_ROUTER_unchanged": true,
+  "STOP_after_one_safe_push": true,
+  "automatic_055": false
+}

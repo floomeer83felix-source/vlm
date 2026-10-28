@@ -1,0 +1,6 @@
+source,N,F,O15,E15,H,recovered,harm,missed,K1,K2,K3,K4,NONE,I_candidate_mismatch,I_top_match_wrong,I_top_match_correct,I_final_correct,I_final_changed,A_candidate_mismatch,A_top_match_wrong,A_top_match_correct,A_final_correct,A_final_changed
+ALL,24,9,13,10,4,3,2,1,13,0,0,0,11,1,15,8,8,3,2,14,8,10,5
+S01,6,2,3,2,1,1,1,0,3,0,0,0,3,0,4,2,2,2,0,3,3,3,1
+S02,6,2,2,2,0,0,0,0,2,0,0,0,4,1,3,2,2,0,0,5,1,2,1
+S03,6,3,4,3,1,1,1,0,4,0,0,0,2,0,4,2,2,1,1,3,2,2,1
+S04,6,2,4,3,2,1,0,1,4,0,0,0,2,0,4,2,2,0,1,3,2,3,2
