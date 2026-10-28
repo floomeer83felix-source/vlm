@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-27（北京时间；已完成[050验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：**有界输入失败报告接收，050关闭，科学比较未运行**。原字段契约漏列作者mcq_test显示格式；已发布纯CPU绑定器及16例自有测试。**当前唯一READY为[VLM-COVERAGE-AGGREGATION-051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)，等待独立本地启动**：先核齐同24题官方显示字段，再连续完成原F48/四P/固定投票，新增generate≤120、GPU≤1200秒。050未用额度不结转，049原记录不改；NOVELTY=RETAIN0。）
-> 当前目标：用完整真实比较与强基线确定新科学空间。050没有产生模型结果，051按官方展示字段纠正绑定后执行同一覆盖/读出问题；全帧/投票是机会核验基线，不计新算法贡献。049坐标候选停止、NOVELTY=RETAIN0保持。
+> 更新：2026-10-28（北京时间；已完成[051验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：**完整开发比较接收，NO_MATERIAL_DEPLOYABLE_GAIN，051关闭**。120次生成/严格评分完整；F48=SO9/24，V4=10/24、净+1题，两门均FAIL。049旧自然条件96个正确性标记严格重核一致。**当前0 READY**，同类全帧/分组投票不扩展；负责人已核查选项对比、global/local分配和多证据诊断等强近邻，尚无足够依据下达新机制实验，不创建占位052；NOVELTY=RETAIN0。）
+> 当前目标：依据完整阴性结果收敛研究范围，先建立与强近邻有具体差异、能由真实问题成对检验的新机制，再立完整实验。051当前固定程序停止，049坐标候选保持停止；训练/新GPU任务未激活，NOVELTY=RETAIN0。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -24,7 +24,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-27当前状态：050按[有界输入失败报告](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)验收关闭；当前唯一READY为[VLM-COVERAGE-AGGREGATION-051](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)，尚未执行。** 原字段门未请求作者mcq_test，第一条规范化失败，120格全部NOT_RUN；原字节一致不等于选项语义join通过，全帧/投票效果保持未知。负责人已实现并用16个自有CPU夹具验证显示字段绑定器；051必须先实际核齐同24题，再连续完成原实验，不改变题/模型/阈值。旧049结果不覆盖，新的严格字段/评分一致性核对尚待进行；模型新预算须051明确本地启动，旧parent不恢复。
+**2026-10-28当前状态：051按[完整开发比较](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)验收并关闭，当前0 READY。** 全120次生成有效，F48=SO9/24，V4=10/24；F48来源等权净0、V4净1/24，均仅2/4来源正，未过预设≥1/6且≥3/4门。官方question/mcq_test逐题绑定通过，模型退出后24标签严格评分、049四自然臂96个正确性标记全一致。负责人独立560项公开一致性复核PASS，未重跑私人实验。固定覆盖/投票程序停止作为当前实质收益候选，不据有限oracle12/24或五程序全错12题推断缺证据/分辨率/融合原因；不自动052或继续变体。新近邻核查与下一立项准则见验收§5，尚无获证实核心创新。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2733,3 +2733,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 - 050契约枚举三种options结构漏掉作者公开mcq_test格式；官方HF数据卡及固定提交1ac83c2的hv_utils.py用question+mcq_test构题，blob0b243332edddb518f0db7ee06921817cf8c5a605。负责人承认契约漏项；尚不能据公开文档认定本地24题全部匹配，或把首条失败扩大为全部数据无效。
 - 新增纯stdlib hourvideo_mcq_schema_051.py及test_hourvideo_mcq_schema_051.py，16个自有CPU测试实际通过，无私有题/标签/模型。严格显示A–E→冻结选项比对，禁止回填/重排/语义规范化；交给模型的冻结文本不改。
 - [051完整纠正版](./codex-artifacts/VLM-COVERAGE-AGGREGATION-051/README.md)为唯一READY，等待第7节新启动。科学五条件/同24题/缓存/模型/门槛均同050，先一次核齐所有官方显示字段，再CPU→模型→退出后隔离评分/旧正确性核对；新≤120generate/GPU1200秒/父7200秒，050额度不迁移。只读旧结果与输入，不单独派schema检查/恢复/解码任务，不自动052或扩样；NOVELTY=RETAIN0。
+
+
+### 2026-10-28 · 051完整开发比较验收并关闭，两项机会门均失败
+
+- 核[2afac5e](https://github.com/floomeer83felix-source/vlm/commit/2afac5e4769a6ea0cc3a22fbcea42377f4692d1d)恰7处allowlist、results旧前缀逐字保留/唯一051父追加，形成[负责人验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)。独立560项公开CSV/JSON/配对/阈值/成本及源码身份检查PASS，未导入实现、重跑tests/Windows/模型或读取私有资料。
+- 同24题四源各6题，120独特新generate全部自然EOS/严格A–E有效；真实CPU门/数组内容/实际BF16完整输入封存齐。官方question/mcq_test严格绑定24题通过，隔离scorer在模型实际退出后重核24标签；049自然条件96个正确性标记全一致。一次首generate前仅收据修复保留初失败且原文件body未重开，按窄范围接受，不认证通用恢复器。
+- F48=SO9/24、各P8/24、V4=10/24。F48−SO净0，V4−SO净1/24，均2/4来源正；两门均FAIL。F48/SO配对3纠正3误伤，V4/SO为3/2；有限O4=11、O5=12，full-only1/split-only3/vote-missed1/五程序全错12仅作事后诊断，不是证据标签或未来方法上界。
+- 十Job实际active0/no kill；GPU保守outer61.531秒、全监督95.764秒、CPU-only34.233秒，allocated10,739,961,856字节/Job18,394,619,904字节，均限内。F48和四P的processor+generate实测组件21.015/24.861秒，完整独立部署成本仍UNKNOWN；不叠加包含成本。四源码报告SHA精确匹配仓库LF转Windows CRLF，负责人两模块Git blob内容未变，不混称字节SHA相同。
+- **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / 051_CLOSED，当前0 READY。** 不延续固定覆盖/投票变体、不改门/扩样/二模型/训练或下载；049候选仍停止。负责人已直接阅读FULCRUM、AdaAlloc、HERBench及VURCA公开摘要/方法范围，普通选项margin、global/local预算与检索/融合诊断均有强近邻；未读全文及出版冲突如实保留，不宣称全部创新空间耗尽。下一执行合同先要有具体新算子/主张与强近邻差异及真实问题可检验性，不创建占位052。NOVELTY=RETAIN0。

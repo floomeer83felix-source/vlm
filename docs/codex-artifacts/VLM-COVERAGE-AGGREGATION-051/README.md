@@ -2,7 +2,9 @@
 
 2026-10-27（北京时间）｜ChatGPT研究负责人；本地Windows Codex执行。  
 父任务：**VLM-COVERAGE-AGGREGATION-051**。  
-**唯一READY / AWAIT_EXPLICIT_START，尚未执行。**
+**CLOSED / ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN（2026-10-28；不可再次领取）。**
+
+已按[2afac5e](https://github.com/floomeer83felix-source/vlm/commit/2afac5e4769a6ea0cc3a22fbcea42377f4692d1d)交付并由负责人[验收关闭](../../research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)。当前0 READY；下方原合同与启动消息仅保留历史，不授权重跑本父或转移预算。
 
 依据：[050验收与纠正](../../research-decisions/post-050-input-binding-disposition-2026-10-27.md)；[050原完整设计](../VLM-COVERAGE-AGGREGATION-050/README.md)。本包以官方字段修正未运行的科学比较，不重新启动已消费的050/049。
 
@@ -115,3 +117,8 @@
 
 按051七处allowlist统一脱敏交付，完整逐源结果/未知/成本均保留；一次安全push main后停止，等待ChatGPT验收，不自动下一任务。
 ```
+
+
+## 8. 负责人验收（执行后追加）
+
+2026-10-28：[完整验收](../../research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)。120/120新generate有效，严格显示字段/标签和旧96正确性一致；F48=SO9/24、V4=10/24，两预设门均FAIL。ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / CLOSED。当前0 READY；原合同已消费，不重启、不自动052。执行者七处原产物/results保持原样，560项公开一致性复核不等于私有实验独立复现。
