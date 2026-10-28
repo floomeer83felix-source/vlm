@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-28（北京时间；已完成[051验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：**完整开发比较接收，NO_MATERIAL_DEPLOYABLE_GAIN，051关闭**。120次生成/严格评分完整；F48=SO9/24，V4=10/24、净+1题，两门均FAIL。049旧自然条件96个正确性标记严格重核一致。**当前0 READY**，同类全帧/分组投票不扩展；负责人已核查选项对比、global/local分配和多证据诊断等强近邻，尚无足够依据下达新机制实验，不创建占位052；NOVELTY=RETAIN0。）
+> 更新：2026-10-28（北京时间；用户问下一步后，负责人发现049未投影官方task，已读固定作者代码确认图像选项/预测前缀等分支。**当前唯一READY为[VLM-QUESTION-PROTOCOL-AUDIT-052](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：一次CPU官方任务协议＋持续失败结构审查，等待本地用户启动。** 尚不知24题是否受影响；先nongold分类封存，再联接051既有派生正确性，无新模型/processor/标签值/媒体读取。051原分数和两门失败保持，适格性相关解释待核；NOVELTY=RETAIN0。）
 >
 > 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
@@ -14,7 +14,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-COVERAGE-AGGREGATION-051 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2afac5e](https://github.com/floomeer83felix-source/vlm/commit/2afac5e4769a6ea0cc3a22fbcea42377f4692d1d)：120独特新生成/24题严格绑定与评分完整，F48=SO9/24、V4=10/24 | [验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：两门均失败，固定程序停止；560项公开一致性检查PASS；当前0 READY，不自动052/改门/扩样/换模型/训练 |
+| VLM-QUESTION-PROTOCOL-AUDIT-052 | P0 | **唯一READY / CPU_ONLY / AWAIT_USER_START** | 本地Codex，ChatGPT审查 | [完整合同](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：同24题官方task/特殊协议核对、既有错误结构与独立复算 | 原标注一次question/mcq_test/task投影、gold值解码0；先封存分类再读派生正确性；新generate/媒体/processor0；六处统一交付后STOP，不自动053 |
+| VLM-COVERAGE-AGGREGATION-051 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2afac5e](https://github.com/floomeer83felix-source/vlm/commit/2afac5e4769a6ea0cc3a22fbcea42377f4692d1d)：120独特新生成/24题严格绑定与评分完整，F48=SO9/24、V4=10/24 | [验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：两门均失败，固定程序停止；560项公开一致性检查PASS；原分数不改，官方task适格性补查见052；不恢复模型/改门/扩样/训练 |
 | VLM-COVERAGE-AGGREGATION-050 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [987aa3a](https://github.com/floomeer83felix-source/vlm/commit/987aa3a1dbaccc3bfc3672d6b622a0b15bac7138)：原选项格式绑定失败，模型/processor/GPU0 | [验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：120格NOT_RUN、投票/效果UNKNOWN，不判机会门通过或失败；不得沿用050余额继续 |
 | VLM-SELECTION-CHANNEL-049 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_HYPOTHESIS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2e9124f](https://github.com/floomeer83felix-source/vlm/commit/2e9124faed6f4bd7e37157f9dc40edff4e26b17f)：24题/240逻辑格/216实际生成及隔离评分完整 | [验收](./research-decisions/post-049-selection-channel-disposition-2026-10-27.md)：D=1/72、正源1/4；I=0、SO/SR一纠正一误伤；两门均未过，当前0 READY，当前候选停止，不自动050/改提示/扩样/二模型 |
 | VLM-PORTFOLIO-REVIEW-2026-10-27 | P0 | **OWNER_REVIEW_COMPLETE / PLANNING_ONLY（历史复盘，非执行任务）** | ChatGPT | [复盘与路线重设](./research-decisions/portfolio-reset-and-core-innovation-roadmap-2026-10-27.md)：优先研究选择坐标通道及自然画面影响；拟完整开发比较而非工程微批次 | [候选设计](./research-proposals/selection-content-coordinate-study-2026-10-27.md)：4源/24题、≤240逻辑格仅为提案，确切输入与新模型授权尚缺；不创建占位049，不继承任何旧预算 |
@@ -2411,3 +2412,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 - F48=SO9/24、各P8/24、V4=10/24。F48−SO净0，V4−SO净1/24，均2/4来源正；两门均FAIL。F48/SO配对3纠正3误伤，V4/SO为3/2；有限O4=11、O5=12，full-only1/split-only3/vote-missed1/五程序全错12仅作事后诊断，不是证据标签或未来方法上界。
 - 十Job实际active0/no kill；GPU保守outer61.531秒、全监督95.764秒、CPU-only34.233秒，allocated10,739,961,856字节/Job18,394,619,904字节，均限内。F48和四P的processor+generate实测组件21.015/24.861秒，完整独立部署成本仍UNKNOWN；不叠加包含成本。四源码报告SHA精确匹配仓库LF转Windows CRLF，负责人两模块Git blob内容未变，不混称字节SHA相同。
 - **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / 051_CLOSED，当前0 READY。** 不延续固定覆盖/投票变体、不改门/扩样/二模型/训练或下载；049候选仍停止。负责人已直接阅读FULCRUM、AdaAlloc、HERBench及VURCA公开摘要/方法范围，普通选项margin、global/local预算与检索/融合诊断均有强近邻；未读全文及出版冲突如实保留，不宣称全部创新空间耗尽。下一执行合同先要有具体新算子/主张与强近邻差异及真实问题可检验性，不创建占位052。NOVELTY=RETAIN0。
+
+
+### 2026-10-28 · 下达052：官方task协议与持续失败结构的完整CPU审查
+
+用户问“下一步怎么做”后，负责人核maina4e9273及AGENTS/看板/results/总览/051验收，直接复读049与固定HourVideo作者代码。发现049字段投影及过滤只含task_type/question_type/category，遗漏官方task；gpt4/gemini独立协议分支对三种图像选项题和reasoning/predictive另有输入要求。这是具体字段覆盖缺口，尚未证实实际24题存在受影响题，不先推翻051题干/选项/标签绑定或原得分。
+
+新增[科学理由](./research-decisions/post-051-question-protocol-audit-direction-2026-10-28.md)与[完整052合同](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：一次原文件nongold投影同24题question/mcq_test/task→既有严格binder→固定协议分类先封存→再联接051已关闭的168个所需派生correct/state→任务/协议/来源的持续失败与纠正误伤分布→独立复算。全原分母24保留，不新建清洗集或在子组重新跑门；没有分支冲突则结束该疑点，发现偏离则交负责人审查解释，不自动修复重跑。
+
+**唯一READY为VLM-QUESTION-PROTOCOL-AUDIT-052，CPU_ONLY，等待当前本地用户启动。** CPU累计≤300秒/Job1GiB单线程/父3600秒/新根8MiB、128文件；原标注一次≤4MiB、保护答案值解码0，旧明确元数据≤8MiB。新模型/GPU/processor/特征/视频或数组payload/图像读取/下载/训练/环境修改0，六处统一交付一次push后STOP，不自动053。052是研究诊断而非核心创新；不承诺这24题能产生新机制。051原证据/results/旧源码及AGENTS不改，NOVELTY=RETAIN0。

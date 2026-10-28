@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-28（北京时间；已完成[051验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：**完整开发比较接收，NO_MATERIAL_DEPLOYABLE_GAIN，051关闭**。120次生成/严格评分完整；F48=SO9/24，V4=10/24、净+1题，两门均FAIL。049旧自然条件96个正确性标记严格重核一致。**当前0 READY**，同类全帧/分组投票不扩展；负责人已核查选项对比、global/local分配和多证据诊断等强近邻，尚无足够依据下达新机制实验，不创建占位052；NOVELTY=RETAIN0。）
-> 当前目标：依据完整阴性结果收敛研究范围，先建立与强近邻有具体差异、能由真实问题成对检验的新机制，再立完整实验。051当前固定程序停止，049坐标候选保持停止；训练/新GPU任务未激活，NOVELTY=RETAIN0。
+> 更新：2026-10-28（北京时间；用户问下一步后，负责人发现049未投影官方task，已读固定作者代码确认图像选项/预测前缀等分支。**当前唯一READY为[VLM-QUESTION-PROTOCOL-AUDIT-052](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：一次CPU官方任务协议＋持续失败结构审查，等待本地用户启动。** 尚不知24题是否受影响；先nongold分类封存，再联接051既有派生正确性，无新模型/processor/标签值/媒体读取。051原分数和两门失败保持，适格性相关解释待核；NOVELTY=RETAIN0。）
+> 当前目标：先完成052有明确源码依据的协议/错误结构核对，再据真实问题结构选择一个机制。没有实际task分布前，不推断051失败原因；051固定程序与049坐标候选仍停止，训练/新GPU任务未激活，NOVELTY=RETAIN0。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -24,7 +24,7 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-28当前状态：051按[完整开发比较](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)验收并关闭，当前0 READY。** 全120次生成有效，F48=SO9/24，V4=10/24；F48来源等权净0、V4净1/24，均仅2/4来源正，未过预设≥1/6且≥3/4门。官方question/mcq_test逐题绑定通过，模型退出后24标签严格评分、049四自然臂96个正确性标记全一致。负责人独立560项公开一致性复核PASS，未重跑私人实验。固定覆盖/投票程序停止作为当前实质收益候选，不据有限oracle12/24或五程序全错12题推断缺证据/分辨率/融合原因；不自动052或继续变体。新近邻核查与下一立项准则见验收§5，尚无获证实核心创新。
+**2026-10-28当前状态：唯一READY为[052完整CPU研究审查](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)，尚未执行。** 负责人新核049元数据投影遗漏官方task；作者代码对图像选项及预测前缀另有分支，实际24题是否涉及未知。052只读准确051闭合元数据，原文件一次投影同24题question/mcq_test/task并严格显示绑定，先封存类型再联接既有派生正确性，复核任务/来源/协议的错误结构；不读原答案值，不新增模型、图像/视频/数组payload、processor或特征。051原统计F48=SO9/24、V4=10/24、两门未过保留；题型/协议适格性解释待此次定点核对，不先判整轮无效或清洗后重算主结论。完整科研理由见[052立项说明](./research-decisions/post-051-question-protocol-audit-direction-2026-10-28.md)。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 
@@ -2742,3 +2742,12 @@ processor依赖启动TypeError发生在load/probe前，全部B0/P/N NOT_RUN，�
 - F48=SO9/24、各P8/24、V4=10/24。F48−SO净0，V4−SO净1/24，均2/4来源正；两门均FAIL。F48/SO配对3纠正3误伤，V4/SO为3/2；有限O4=11、O5=12，full-only1/split-only3/vote-missed1/五程序全错12仅作事后诊断，不是证据标签或未来方法上界。
 - 十Job实际active0/no kill；GPU保守outer61.531秒、全监督95.764秒、CPU-only34.233秒，allocated10,739,961,856字节/Job18,394,619,904字节，均限内。F48和四P的processor+generate实测组件21.015/24.861秒，完整独立部署成本仍UNKNOWN；不叠加包含成本。四源码报告SHA精确匹配仓库LF转Windows CRLF，负责人两模块Git blob内容未变，不混称字节SHA相同。
 - **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / 051_CLOSED，当前0 READY。** 不延续固定覆盖/投票变体、不改门/扩样/二模型/训练或下载；049候选仍停止。负责人已直接阅读FULCRUM、AdaAlloc、HERBench及VURCA公开摘要/方法范围，普通选项margin、global/local预算与检索/融合诊断均有强近邻；未读全文及出版冲突如实保留，不宣称全部创新空间耗尽。下一执行合同先要有具体新算子/主张与强近邻差异及真实问题可检验性，不创建占位052。NOVELTY=RETAIN0。
+
+
+### 2026-10-28 · 下达052：官方task协议与持续失败结构的完整CPU审查
+
+用户问“下一步怎么做”后，负责人核maina4e9273及AGENTS/看板/results/总览/051验收，直接复读049与固定HourVideo作者代码。发现049字段投影及过滤只含task_type/question_type/category，遗漏官方task；gpt4/gemini独立协议分支对三种图像选项题和reasoning/predictive另有输入要求。这是具体字段覆盖缺口，尚未证实实际24题存在受影响题，不先推翻051题干/选项/标签绑定或原得分。
+
+新增[科学理由](./research-decisions/post-051-question-protocol-audit-direction-2026-10-28.md)与[完整052合同](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：一次原文件nongold投影同24题question/mcq_test/task→既有严格binder→固定协议分类先封存→再联接051已关闭的168个所需派生correct/state→任务/协议/来源的持续失败与纠正误伤分布→独立复算。全原分母24保留，不新建清洗集或在子组重新跑门；没有分支冲突则结束该疑点，发现偏离则交负责人审查解释，不自动修复重跑。
+
+**唯一READY为VLM-QUESTION-PROTOCOL-AUDIT-052，CPU_ONLY，等待当前本地用户启动。** CPU累计≤300秒/Job1GiB单线程/父3600秒/新根8MiB、128文件；原标注一次≤4MiB、保护答案值解码0，旧明确元数据≤8MiB。新模型/GPU/processor/特征/视频或数组payload/图像读取/下载/训练/环境修改0，六处统一交付一次push后STOP，不自动053。052是研究诊断而非核心创新；不承诺这24题能产生新机制。051原证据/results/旧源码及AGENTS不改，NOVELTY=RETAIN0。
