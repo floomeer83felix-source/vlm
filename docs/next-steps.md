@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-28（北京时间；[052验收](./research-decisions/post-052-protocol-disposition-2026-10-28.md)已完成：1题超原049时间范围，列明图像/预测前缀0；原24题分数和停止结论保留，另11题持续失败原因未知。**当前唯一READY：[VLM-BLOCK-INTERACTION-053](./codex-artifacts/VLM-BLOCK-INTERACTION-053/README.md)，等待用户明确启动的一次完整机制开发比较。** [冻结机制](./research-proposals/answer-conditioned-block-interaction-2026-10-28.md)：二阶块交互路由，对照无交互、置信度与同预算搜索；尚无获证实核心创新。）
+> 更新：2026-10-28（北京时间；[053验收](./research-decisions/post-053-block-interaction-disposition-2026-10-28.md)完成：437个真实新forward/144输出完整，I8/24低于F9、A/C10、R11，预设门全失败。I/A最终不同4题：I独对0、A独对2；更低得分拟合误差未带来问答收益。**停止当前路由，当前0 READY。** 532项公开一致性检查PASS；无自动054/调参/扩样/训练，已证实核心创新仍0。）
 >
 > 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
@@ -14,7 +14,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-BLOCK-INTERACTION-053 | P0 | **唯一READY / AWAIT_EXPLICIT_USER_START** | 本地Codex，ChatGPT审查 | [完整模型合同](./codex-artifacts/VLM-BLOCK-INTERACTION-053/README.md)＋[冻结机制/六方法](./research-proposals/answer-conditioned-block-interaction-2026-10-28.md)：同24题新似然读出、二阶交互与消融/同预算搜索 | 原生CPU门后一次模型/≤480forward；GPU outer≤1200秒/18GiB、CPU-only≤1800秒/Job32GiB、父≤7200秒；全部输出封存后隔离评分，七处交付STOP，不自动054 |
+| VLM-BLOCK-INTERACTION-053 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_ROUTER / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e1da118](https://github.com/floomeer83felix-source/vlm/commit/e1da1180db81ee2c737d943a1ad7501692559681)：437独特forward/144有效输出，F9/M7/A10/I8/C10/R11 | [验收](./research-decisions/post-053-block-interaction-disposition-2026-10-28.md)：全部预设门失败，I/A最终不同4题I独对0/A独对2；532项公开检查PASS，停止此具体路由，当前0 READY，不自动054/调参/扩样/训练 |
 | VLM-QUESTION-PROTOCOL-AUDIT-052 | P0 | **ACCEPTED_PROTOCOL_AUDIT / ONE_SCOPE_CAVEAT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [59d4111](https://github.com/floomeer83felix-source/vlm/commit/59d4111bd6877c8c82d8bf13f08f36dba5d6c874)：同24题nongold分类＋168派生格完整复算 | [验收](./research-decisions/post-052-protocol-disposition-2026-10-28.md)：1题time-scope标志、图像/预测前缀0、11个其余持续失败未归因；1609公开一致性检查PASS；原分数不改，不续协议排查/自动修输入 |
 | VLM-COVERAGE-AGGREGATION-051 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / NO_MATERIAL_DEPLOYABLE_GAIN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2afac5e](https://github.com/floomeer83felix-source/vlm/commit/2afac5e4769a6ea0cc3a22fbcea42377f4692d1d)：120独特新生成/24题严格绑定与评分完整，F48=SO9/24、V4=10/24 | [验收](./research-decisions/post-051-coverage-aggregation-disposition-2026-10-28.md)：两门均失败，固定程序停止；560项公开一致性检查PASS；原分数不改，官方task适格性补查见052；不恢复模型/改门/扩样/训练 |
 | VLM-COVERAGE-AGGREGATION-050 | P0 | **ACCEPTED_BOUNDED_INPUT_FAILURE_REPORT / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [987aa3a](https://github.com/floomeer83felix-source/vlm/commit/987aa3a1dbaccc3bfc3672d6b622a0b15bac7138)：原选项格式绑定失败，模型/processor/GPU0 | [验收](./research-decisions/post-050-input-binding-disposition-2026-10-27.md)：120格NOT_RUN、投票/效果UNKNOWN，不判机会门通过或失败；不得沿用050余额继续 |
