@@ -1,0 +1,1377 @@
+{
+  "task": "VLM-COVERAGE-AGGREGATION-051",
+  "date": "2026-10-28 Asia/Shanghai",
+  "status": "FULL_COVERAGE_AGGREGATION_COMPARISON",
+  "decision": "NO_MATERIAL_DEPLOYABLE_GAIN",
+  "novelty": "RETAIN0",
+  "N": 24,
+  "source_count": 4,
+  "n_s": {
+    "S01": 6,
+    "S02": 6,
+    "S03": 6,
+    "S04": 6
+  },
+  "source_independence": "NOMINAL_RECORDING_ALIASES_PHYSICAL_INDEPENDENCE_NOT_CERTIFIED",
+  "prior_exposure": "PRIOR_QUESTIONS_AND_SOURCES_EXPOSED_DEVELOPMENT_ONLY",
+  "clock": "ORDINAL_FPS1_TOTAL48_DURATION48_NOT_PHYSICAL_SECONDS",
+  "logical_model_cells": 120,
+  "unique_input_classes": 120,
+  "model_loads": 1,
+  "generate_attempts": 120,
+  "generate_returns": 120,
+  "reused_old_inputs": 0,
+  "legacy_started_unavailable": 0,
+  "global_historic_exactly_once_certificate": "NOT_ESTABLISHED",
+  "new_model_invalid": 0,
+  "new_model_failed": 0,
+  "new_model_not_run": 0,
+  "new_model_scoring_unknown": 0,
+  "all_returns_natural_EOS": true,
+  "generated_tokens_per_return": 2,
+  "gates": {
+    "F48": {
+      "mean_net": 0.0,
+      "mean_net_exact": "0",
+      "passed": false,
+      "positive_sources": 2
+    },
+    "V4": {
+      "mean_net": 0.041666666666666664,
+      "mean_net_exact": "1/24",
+      "passed": false,
+      "positive_sources": 2
+    }
+  },
+  "per_source": {
+    "S01": {
+      "arms": {
+        "F48": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "051_GENERATED"
+        },
+        "O4": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "O5": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "P0": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "051_GENERATED"
+        },
+        "P1": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "051_GENERATED"
+        },
+        "P2": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P3": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "051_GENERATED"
+        },
+        "SO": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "SR": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UO": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UR": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "V4": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_VOTE_NO_GENERATION"
+        }
+      },
+      "diagnostics": {
+        "all_five_wrong": 3,
+        "full_only": 1,
+        "split_only": 0,
+        "split_only_recovered_by_vote": 0,
+        "vote_missed": 0
+      },
+      "n": 6,
+      "net_vs_SO_exact": {
+        "F48": "1/6",
+        "V4": "0"
+      },
+      "pairs": {
+        "F48_SO": {
+          "both_correct": 2,
+          "both_wrong": 3,
+          "correction": 1,
+          "harm": 0,
+          "unknown": 0
+        },
+        "V4_F48": {
+          "both_correct": 2,
+          "both_wrong": 3,
+          "correction": 0,
+          "harm": 1,
+          "unknown": 0
+        },
+        "V4_SO": {
+          "both_correct": 1,
+          "both_wrong": 3,
+          "correction": 1,
+          "harm": 1,
+          "unknown": 0
+        }
+      }
+    },
+    "S02": {
+      "arms": {
+        "F48": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "O4": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "O5": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "P0": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P1": {
+          "N": 6,
+          "correct": 0,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 0,
+            "VALID_WRONG": 6
+          },
+          "kind": "051_GENERATED"
+        },
+        "P2": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P3": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "SO": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "SR": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UO": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UR": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "V4": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_VOTE_NO_GENERATION"
+        }
+      },
+      "diagnostics": {
+        "all_five_wrong": 4,
+        "full_only": 0,
+        "split_only": 0,
+        "split_only_recovered_by_vote": 0,
+        "vote_missed": 0
+      },
+      "n": 6,
+      "net_vs_SO_exact": {
+        "F48": "1/6",
+        "V4": "1/6"
+      },
+      "pairs": {
+        "F48_SO": {
+          "both_correct": 1,
+          "both_wrong": 4,
+          "correction": 1,
+          "harm": 0,
+          "unknown": 0
+        },
+        "V4_F48": {
+          "both_correct": 2,
+          "both_wrong": 4,
+          "correction": 0,
+          "harm": 0,
+          "unknown": 0
+        },
+        "V4_SO": {
+          "both_correct": 1,
+          "both_wrong": 4,
+          "correction": 1,
+          "harm": 0,
+          "unknown": 0
+        }
+      }
+    },
+    "S03": {
+      "arms": {
+        "F48": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "051_GENERATED"
+        },
+        "O4": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "O5": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "P0": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P1": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "051_GENERATED"
+        },
+        "P2": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P3": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "051_GENERATED"
+        },
+        "SO": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "SR": {
+          "N": 6,
+          "correct": 4,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 4,
+            "VALID_WRONG": 2
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UO": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UR": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "V4": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_VOTE_NO_GENERATION"
+        }
+      },
+      "diagnostics": {
+        "all_five_wrong": 3,
+        "full_only": 0,
+        "split_only": 0,
+        "split_only_recovered_by_vote": 0,
+        "vote_missed": 1
+      },
+      "n": 6,
+      "net_vs_SO_exact": {
+        "F48": "0",
+        "V4": "-1/6"
+      },
+      "pairs": {
+        "F48_SO": {
+          "both_correct": 2,
+          "both_wrong": 2,
+          "correction": 1,
+          "harm": 1,
+          "unknown": 0
+        },
+        "V4_F48": {
+          "both_correct": 2,
+          "both_wrong": 3,
+          "correction": 0,
+          "harm": 1,
+          "unknown": 0
+        },
+        "V4_SO": {
+          "both_correct": 2,
+          "both_wrong": 3,
+          "correction": 0,
+          "harm": 1,
+          "unknown": 0
+        }
+      }
+    },
+    "S04": {
+      "arms": {
+        "F48": {
+          "N": 6,
+          "correct": 1,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 1,
+            "VALID_WRONG": 5
+          },
+          "kind": "051_GENERATED"
+        },
+        "O4": {
+          "N": 6,
+          "correct": 4,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 4,
+            "VALID_WRONG": 2
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "O5": {
+          "N": 6,
+          "correct": 4,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 4,
+            "VALID_WRONG": 2
+          },
+          "kind": "FINITE_ORACLE_NOT_DEPLOYABLE"
+        },
+        "P0": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "051_GENERATED"
+        },
+        "P1": {
+          "N": 6,
+          "correct": 4,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 4,
+            "VALID_WRONG": 2
+          },
+          "kind": "051_GENERATED"
+        },
+        "P2": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "P3": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "051_GENERATED"
+        },
+        "SO": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "SR": {
+          "N": 6,
+          "correct": 2,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 2,
+            "VALID_WRONG": 4
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UO": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "UR": {
+          "N": 6,
+          "correct": 3,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 3,
+            "VALID_WRONG": 3
+          },
+          "kind": "049_READ_ONLY_BASELINE"
+        },
+        "V4": {
+          "N": 6,
+          "correct": 4,
+          "counts": {
+            "FAILED": 0,
+            "INVALID": 0,
+            "NOT_RUN": 0,
+            "SCORING_UNKNOWN": 0,
+            "VALID_CORRECT": 4,
+            "VALID_WRONG": 2
+          },
+          "kind": "051_VOTE_NO_GENERATION"
+        }
+      },
+      "diagnostics": {
+        "all_five_wrong": 2,
+        "full_only": 0,
+        "split_only": 3,
+        "split_only_recovered_by_vote": 3,
+        "vote_missed": 0
+      },
+      "n": 6,
+      "net_vs_SO_exact": {
+        "F48": "-1/3",
+        "V4": "1/6"
+      },
+      "pairs": {
+        "F48_SO": {
+          "both_correct": 1,
+          "both_wrong": 3,
+          "correction": 0,
+          "harm": 2,
+          "unknown": 0
+        },
+        "V4_F48": {
+          "both_correct": 1,
+          "both_wrong": 2,
+          "correction": 3,
+          "harm": 0,
+          "unknown": 0
+        },
+        "V4_SO": {
+          "both_correct": 3,
+          "both_wrong": 2,
+          "correction": 1,
+          "harm": 0,
+          "unknown": 0
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "F48": {
+      "N": 24,
+      "correct": 9,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 9,
+        "VALID_WRONG": 15
+      }
+    },
+    "P0": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "P1": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "P2": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "P3": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "V4": {
+      "N": 24,
+      "correct": 10,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 10,
+        "VALID_WRONG": 14
+      }
+    },
+    "SO": {
+      "N": 24,
+      "correct": 9,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 9,
+        "VALID_WRONG": 15
+      }
+    },
+    "UO": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "UR": {
+      "N": 24,
+      "correct": 8,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 8,
+        "VALID_WRONG": 16
+      }
+    },
+    "SR": {
+      "N": 24,
+      "correct": 9,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 9,
+        "VALID_WRONG": 15
+      }
+    },
+    "O4": {
+      "N": 24,
+      "correct": 11,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 11,
+        "VALID_WRONG": 13
+      }
+    },
+    "O5": {
+      "N": 24,
+      "correct": 12,
+      "counts": {
+        "FAILED": 0,
+        "INVALID": 0,
+        "NOT_RUN": 0,
+        "SCORING_UNKNOWN": 0,
+        "VALID_CORRECT": 12,
+        "VALID_WRONG": 12
+      }
+    }
+  },
+  "pairs": {
+    "F48_SO": {
+      "correction": 3,
+      "harm": 3,
+      "both_correct": 6,
+      "both_wrong": 12,
+      "unknown": 0
+    },
+    "V4_SO": {
+      "correction": 3,
+      "harm": 2,
+      "both_correct": 7,
+      "both_wrong": 12,
+      "unknown": 0
+    },
+    "V4_F48": {
+      "correction": 3,
+      "harm": 2,
+      "both_correct": 7,
+      "both_wrong": 12,
+      "unknown": 0
+    }
+  },
+  "diagnostics": {
+    "all_five_wrong": 12,
+    "full_only": 1,
+    "split_only": 3,
+    "split_only_recovered_by_vote": 3,
+    "vote_missed": 1
+  },
+  "finite_oracles": {
+    "O4": 11,
+    "O5": 12,
+    "N": 24,
+    "deployable": false,
+    "per_question_bounds_checked": true
+  },
+  "vote": {
+    "tied_questions": 7,
+    "valid_vote_distribution": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 24
+    },
+    "no_valid_votes": 0,
+    "tie_policy": "EARLIEST_P0_TO_P3_AMONG_MAXIMUM_COUNTS",
+    "extra_model_calls": 0
+  },
+  "binding": {
+    "question_count": 24,
+    "question_exact_match": true,
+    "schema": "official_mcq_test",
+    "parse_modes": {
+      "line_labels": 24,
+      "inline_labels": 0
+    },
+    "frozen_option_boundary_normalizations": 0,
+    "normalization_scope": "COMPARISON_ONLY_MODEL_INPUT_UNCHANGED",
+    "interior_normalization": false,
+    "options_reordered": false,
+    "old_nongold_fallback": false,
+    "annotation_size_and_frozen_SHA_match_both_roles": true,
+    "nongold_original_opens": 1,
+    "nongold_original_bytes": 1854695,
+    "nongold_gold_values_decoded": 0,
+    "scoring_original_opens": 1,
+    "scoring_original_bytes": 1854695,
+    "scoring_gold_values_decoded": 24,
+    "baseline_natural_logical_cells_rescored": 96,
+    "baseline_canonical_physical_records": 72,
+    "baseline_mismatch_count": 0,
+    "open_counter_evidence": "EXECUTED_ROLE_CONTROL_FLOW_AND_RECEIPTS_NOT_SEPARATE_OS_AUDIT"
+  },
+  "input": {
+    "arrays": 4,
+    "shape": [
+      48,
+      192,
+      288,
+      3
+    ],
+    "dtype": "uint8",
+    "content_binding_to_049": true,
+    "processor_calls": 122,
+    "CPU_probe_calls": 2,
+    "formal_calls": 120,
+    "CPU_probe_CUDA_initialized": false,
+    "F48_grid": [
+      24,
+      12,
+      18
+    ],
+    "P_grid": [
+      6,
+      12,
+      18
+    ],
+    "F48_visual_tokens": 1296,
+    "P_visual_tokens": 324,
+    "F48_token_range": [
+      1607,
+      1769
+    ],
+    "P_token_range": [
+      477,
+      639
+    ],
+    "F48_native_times": "0.5+2m,m=0..23",
+    "Pj_native_times": "j+2+8m,m=0..5",
+    "actual_callback_and_final_BF16_fields_and_roundtrip_checked": true,
+    "common_model_processor_tokenizer_generation_matches_049": true,
+    "weight_byte_rehash": false,
+    "complete_fields_fingerprint_dedup": true,
+    "formal_queue_sealed_before_weights": true
+  },
+  "generation": {
+    "model_family": "Qwen3-VL-4B-Instruct",
+    "dtype": "BF16",
+    "attention": "SDPA",
+    "seed": 19,
+    "batch_size": 1,
+    "do_sample": false,
+    "max_new_tokens": 64,
+    "use_cache": true,
+    "num_beams": 1,
+    "fresh_context": true,
+    "local_files_only": true,
+    "trust_remote_code": false,
+    "warmup_forwards": 0,
+    "extra_model_forwards": 0,
+    "restart_or_retry": 0
+  },
+  "repair": {
+    "count": 1,
+    "stage": "PRE_GENERATE_RECEIPT_ONLY",
+    "initial_failure": "SHADOWED_RAW_BYTE_VARIABLE_LEN_INT",
+    "initial_binding_phase_exit": 1,
+    "all_24_joins_completed_before_exception": true,
+    "annotation_body_reopened_for_repair": false,
+    "saved_bindings_used_without_reprojection": true,
+    "scientific_constants_changed": false,
+    "original_source_and_failure_retained": true,
+    "owner_modules_or_old_code_modified": false
+  },
+  "tests": {
+    "initial_necessary_cases": 16,
+    "initial_assertions": 34,
+    "initial_failures": 0,
+    "regression_cases": 17,
+    "regression_assertions": 36,
+    "regression_failures": 0,
+    "owner_parser_fixture_cases_in_each_suite": 16,
+    "independent_public_review": {
+      "status": "PASS",
+      "assertions": 328,
+      "decision": "NO_MATERIAL_DEPLOYABLE_GAIN",
+      "gold_reopens": 0,
+      "implementation_imported": false
+    },
+    "independent_cost_pair_assertions": 444,
+    "independent_cost_pair_status": "PASS",
+    "independent_review_gold_reopens": 0
+  },
+  "resources": {
+    "GPU_inclusive_Job_outer_seconds": 61.53099999995902,
+    "GPU_cap_seconds": 1200,
+    "weight_intent_through_unload_child_seconds": 50.51600000006147,
+    "exact_weight_intent_to_actual_exit_seconds": null,
+    "exact_GPU_interval_status": "BOUNDED_BY_INCLUSIVE_MODEL_JOB",
+    "peak_allocated_bytes": 10739961856,
+    "allocated_cap_bytes": 19327352832,
+    "peak_Job_commit_bytes": 18394619904,
+    "Job_RAM_cap_bytes": 34359738368,
+    "CPU_only_Job_outer_seconds": 34.23299999977462,
+    "all_Job_outer_seconds": 95.76399999973364,
+    "conservative_CPU_upper_bound_seconds": 95.76399999973364,
+    "CPU_cap_seconds": 1800,
+    "formal_CPU_loop_seconds_contained_in_model_Job": 2.125,
+    "owned_job_count": 10,
+    "all_owned_jobs_actual_active0": true,
+    "kills": 0,
+    "CPU_threads": 4,
+    "GPU_queries": 2,
+    "GPU_free_mib": [
+      22835.0,
+      22834.0
+    ],
+    "GPU_utilization_percent": [
+      6.0,
+      5.0
+    ],
+    "disk_free_before_bytes": 349723230208,
+    "parent_elapsed_at_summary_seconds": 709.6901443004608,
+    "parent_cap_seconds": 7200,
+    "private_root_snapshot": {
+      "files": 61,
+      "bytes": 428253,
+      "file_cap": 2048,
+      "byte_cap": 134217728,
+      "quota_status": "SNAPSHOT_NOT_HARD_FILESYSTEM_QUOTA"
+    },
+    "phases": [
+      {
+        "role": "bind",
+        "wall": 0.6869999999180436,
+        "exitcode": 1,
+        "active": 0,
+        "peak_commit": 17649664,
+        "killed": false
+      },
+      {
+        "role": "bind_finalize",
+        "wall": 0.1869999999180436,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 16891904,
+        "killed": false
+      },
+      {
+        "role": "cost_review",
+        "wall": 0.14000000013038516,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 11489280,
+        "killed": false
+      },
+      {
+        "role": "infer",
+        "wall": 61.53099999995902,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 18394619904,
+        "killed": false
+      },
+      {
+        "role": "preflight_gpu",
+        "wall": 0.21899999980814755,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 34250752,
+        "killed": false
+      },
+      {
+        "role": "probe",
+        "wall": 31.79700000002049,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 1227644928,
+        "killed": false
+      },
+      {
+        "role": "score",
+        "wall": 0.4220000000204891,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 16482304,
+        "killed": false
+      },
+      {
+        "role": "suite",
+        "wall": 0.18799999984912574,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 14884864,
+        "killed": false
+      },
+      {
+        "role": "suite2",
+        "wall": 0.46800000010989606,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 16265216,
+        "killed": false
+      },
+      {
+        "role": "verify",
+        "wall": 0.125,
+        "exitcode": 0,
+        "active": 0,
+        "peak_commit": 10821632,
+        "killed": false
+      }
+    ]
+  },
+  "I_O": {
+    "metadata": {
+      "unique_bytes": 1588535,
+      "static_upper_bound": 6354140,
+      "fourfold_includes_actual_declared_read_counts": true,
+      "actual_bytes_metered": false
+    },
+    "cache": {
+      "content_sha_matched": true,
+      "file_reads": 4,
+      "payload_bytes": 31851008,
+      "reserved": 31851032,
+      "returned": 31851032
+    },
+    "storage_physical_IO": "UNKNOWN",
+    "arrays_copied_to_output": false,
+    "old_050_closure_bytes": 2995,
+    "old_050_start_queue_infer_paths_absent": true
+  },
+  "cost": {
+    "by_arm": {
+      "F48": {
+        "calls": 24,
+        "input_tokens": 39742,
+        "visual_tokens": 31104,
+        "nonvisual_input_tokens": 8638,
+        "processor_wall": 1.0159999998286366,
+        "generate_wall": 19.999000000068918,
+        "prefill": 18.266999999526888,
+        "decode": 1.4030000001657754,
+        "generated_tokens": 48
+      },
+      "P0": {
+        "calls": 24,
+        "input_tokens": 12622,
+        "visual_tokens": 7776,
+        "nonvisual_input_tokens": 4846,
+        "processor_wall": 0.2050000000745058,
+        "generate_wall": 5.952000000281259,
+        "prefill": 4.453999999212101,
+        "decode": 1.4040000012610108,
+        "generated_tokens": 48
+      },
+      "P1": {
+        "calls": 24,
+        "input_tokens": 12622,
+        "visual_tokens": 7776,
+        "nonvisual_input_tokens": 4846,
+        "processor_wall": 0.18400000082328916,
+        "generate_wall": 6.078999999910593,
+        "prefill": 4.502000000094995,
+        "decode": 1.467000000178814,
+        "generated_tokens": 48
+      },
+      "P2": {
+        "calls": 24,
+        "input_tokens": 12622,
+        "visual_tokens": 7776,
+        "nonvisual_input_tokens": 4846,
+        "processor_wall": 0.2189999995753169,
+        "generate_wall": 5.987999999662861,
+        "prefill": 4.4549999996088445,
+        "decode": 1.4409999996423721,
+        "generated_tokens": 48
+      },
+      "P3": {
+        "calls": 24,
+        "input_tokens": 12622,
+        "visual_tokens": 7776,
+        "nonvisual_input_tokens": 4846,
+        "processor_wall": 0.265999999595806,
+        "generate_wall": 5.967999999644235,
+        "prefill": 4.4359999995213,
+        "decode": 1.4399999994784594,
+        "generated_tokens": 48
+      },
+      "V4": {
+        "calls": 96,
+        "input_tokens": 50488,
+        "visual_tokens": 31104,
+        "nonvisual_input_tokens": 19384,
+        "processor_wall": 0.8740000000689179,
+        "generate_wall": 23.98699999949895,
+        "prefill": 17.84699999843724,
+        "decode": 5.752000000560656,
+        "generated_tokens": 192,
+        "vote_overhead_seconds": null
+      }
+    },
+    "F48_processor_plus_generate_seconds": 21.014999999897555,
+    "V4_processor_plus_generate_seconds": 24.860999999567866,
+    "V4_generate_wall_over_F48": 1.199409970469338,
+    "contained_diagnostics_added_to_outer": false,
+    "standalone_full_deployment_wall": "UNKNOWN_NOT_SEPARATELY_TIMED",
+    "vote_only_overhead_seconds": null,
+    "loading_transfer_startup_teardown_attribution": "SHARED_OR_UNALLOCATED_EXPLICITLY_DISCLOSED",
+    "old_049_costs": "HISTORICAL_SEPARATE_NOT_RERUN_OR_ASSUMED_FREE"
+  },
+  "prohibited_experiment_activity": {
+    "application_network": 0,
+    "download": 0,
+    "media_body_read": 0,
+    "decode": 0,
+    "SigLIP": 0,
+    "new_feature_extraction": 0,
+    "training": 0,
+    "installation": 0,
+    "permanent_environment_ACL_profile_credential_change": 0,
+    "old_task_rerun": 0
+  },
+  "code_sha256": {
+    "prototypes/coverage_aggregation_051.py": "a63d5e4c4ff75d407f186ac1bc107978c29866c0b160187784e86dbc574836c0",
+    "prototypes/test_coverage_aggregation_051.py": "7e95a11dc47a1cae8eed7a8855d13c3d3067ca22187d7fd69bcbac3e1069ba2a",
+    "prototypes/hourvideo_mcq_schema_051.py": "5a0b12397cb26b74956a35d9a5fecd9768a391f258c59add0ebe98f7d3080e18",
+    "prototypes/test_hourvideo_mcq_schema_051.py": "0a8949814f4bbcd1bb98e0f9622f195d48e4d447f6a226563b4859d9ab3e3cf7"
+  },
+  "STOP_after_one_safe_push": true
+}
