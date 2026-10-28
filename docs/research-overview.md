@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-28（北京时间；用户问下一步后，负责人发现049未投影官方task，已读固定作者代码确认图像选项/预测前缀等分支。**当前唯一READY为[VLM-QUESTION-PROTOCOL-AUDIT-052](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)：一次CPU官方任务协议＋持续失败结构审查，等待本地用户启动。** 尚不知24题是否受影响；先nongold分类封存，再联接051既有派生正确性，无新模型/processor/标签值/媒体读取。051原分数和两门失败保持，适格性相关解释待核；NOVELTY=RETAIN0。）
-> 当前目标：先完成052有明确源码依据的协议/错误结构核对，再据真实问题结构选择一个机制。没有实际task分布前，不推断051失败原因；051固定程序与049坐标候选仍停止，训练/新GPU任务未激活，NOVELTY=RETAIN0。
+> 更新：2026-10-28（北京时间；[052验收](./research-decisions/post-052-protocol-disposition-2026-10-28.md)已完成：1题超原049时间范围，列明图像/预测前缀0；原24题分数和停止结论保留，另11题持续失败原因未知。**当前唯一READY：[VLM-BLOCK-INTERACTION-053](./codex-artifacts/VLM-BLOCK-INTERACTION-053/README.md)，等待用户明确启动的一次完整机制开发比较。** [冻结机制](./research-proposals/answer-conditioned-block-interaction-2026-10-28.md)：二阶块交互路由，对照无交互、置信度与同预算搜索；尚无获证实核心创新。）
+> 当前目标：执行[053冻结机制开发比较](./codex-artifacts/VLM-BLOCK-INTERACTION-053/README.md)，验证有符号二阶块交互是否优于无交互和同预算直接搜索。052已关闭，原049/051停止结论保持；053仅候选机制、待明确新启动，未获证实核心创新仍0。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -24,7 +24,9 @@
 
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
-**2026-10-28当前状态：唯一READY为[052完整CPU研究审查](./codex-artifacts/VLM-QUESTION-PROTOCOL-AUDIT-052/README.md)，尚未执行。** 负责人新核049元数据投影遗漏官方task；作者代码对图像选项及预测前缀另有分支，实际24题是否涉及未知。052只读准确051闭合元数据，原文件一次投影同24题question/mcq_test/task并严格显示绑定，先封存类型再联接既有派生正确性，复核任务/来源/协议的错误结构；不读原答案值，不新增模型、图像/视频/数组payload、processor或特征。051原统计F48=SO9/24、V4=10/24、两门未过保留；题型/协议适格性解释待此次定点核对，不先判整轮无效或清洗后重算主结论。完整科研理由见[052立项说明](./research-decisions/post-051-question-protocol-audit-direction-2026-10-28.md)。
+**2026-10-28当前状态：052验收关闭，唯一READY为[053完整开发比较](./codex-artifacts/VLM-BLOCK-INTERACTION-053/README.md)，等待用户在本地Codex明确启动。** [052裁决](./research-decisions/post-052-protocol-disposition-2026-10-28.md)：task未知0/列明图像与预测前缀0/时间范围冲突1；冲突题属于12个五程序全错之一，另11个原因未知。原24题得分与049/051停止结论保持，补上原范围资格不完整的说明，不生成清洗后主分数。负责人1609项公开一致性检查PASS，未访问私有原数据或运行执行者测试。
+
+[机制冻结设计](./research-proposals/answer-conditioned-block-interaction-2026-10-28.md)使用完整48槽/原生tubelet结构，比较单块与双块响应指导组合选择，以直接复核决定改答；不是051交错P投票的变名。F/M/A/I/C/R六方法共享新似然读出；I对新F/A/C/R/M的门、全24开发分母与成本均预先固定。二阶工具/遮挡/选帧已有近邻，新颖性未认证，不能称独立确认或已建立核心贡献。053上限为480个新完整输入forward、GPU监督outer1200秒/allocated18GiB、CPU-only1800秒/Job32GiB、父7200秒；只随本地新启动授权激活，所有旧父不重跑。
 
 用户已于2026-10-08明确要求恢复研究。Codex 已按VLM-001任务执行 Windows 本地工作区只读盘点，并在公开GitHub [提交4b57bff](https://github.com/floomeer83felix-source/vlm/commit/4b57bffdd1422a4ef7be6260aff9d3120cc26986) 中上传[脱敏审计附件](./codex-artifacts/VLM-001/workspace-audit.md)和[反馈](./codex-results.md)；ChatGPT已审查**文档交付、证据边界和GitHub提交范围**，决定接受VLM-001并仅放行VLM-002纯公开元数据核查。ChatGPT未直接登录本地机器验证硬件、原始账本或锁，Codex也没有新GPU问答、数据集媒体下载或新的科学实验结果。
 

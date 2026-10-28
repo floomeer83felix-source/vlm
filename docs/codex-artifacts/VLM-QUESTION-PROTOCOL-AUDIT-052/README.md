@@ -1,3 +1,5 @@
+> **负责人归档（2026-10-28）：052已交付并验收关闭，不可重跑。** 结论为ONE_SCOPE_CAVEAT，见[验收](../../research-decisions/post-052-protocol-disposition-2026-10-28.md)。以下README保留原立项/资源/启动消息的历史内容，原READY状态不再有效；当前任务只看最新看板。
+
 # 052：官方任务协议与持续失败结构的一次CPU审查
 
 2026-10-28（北京时间）｜ChatGPT研究负责人；本地Codex执行。  
