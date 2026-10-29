@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-29（北京时间）。用户已选择**问题条件化的时间关系学习**；[055冻结协议](./research-protocols/question-conditioned-temporal-learning-2026-10-29.md)及[完整任务包/启动指令](./codex-artifacts/VLM-QUESTION-TEMPORAL-055/README.md)已发布。**唯一READY为VLM-QUESTION-TEMPORAL-055 / AWAIT_EXPLICIT_USER_START**：冻结Qwen特征，比较基础模型、同参数普通适配器、仅视频配对监督、打乱分组及真实四格联合监督；4训练臂×2seed，一包完成开发对照及合格外部诊断。尚未执行下载/模型/训练；须用户在本地Codex发送包内完整启动授权。053/054及旧固定组合排序继续关闭；已证实核心创新仍0。
+> 更新：2026-10-29（北京时间；[055验收](./research-decisions/post-055-input-stop-disposition-2026-10-29.md)）。[e1112108](https://github.com/floomeer83felix-source/vlm/commit/e1112108d39d8490cf1217023475bc3e1ce7925a)已按输入门停止：事件媒体仅2,783,546,023B ZIP，超原对象/总媒体额度，来源映射未核实；模型/GPU/训练0。**055关闭、当前0 READY**；接受部分安全停止交付并保留全文阅读未完成的程序性说明，不签完整协议PASS。问题条件化学习配方未测试，不作科学否决；先闭合实际传输、来源映射与可执行输入链，不创建占位056。053/054继续关闭，已证实核心创新仍0。
 >
 > 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
@@ -14,7 +14,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-QUESTION-TEMPORAL-055 | P0 | **READY / AWAIT_EXPLICIT_USER_START（唯一新父）** | 本地Codex执行、ChatGPT审查 | [完整包](./codex-artifacts/VLM-QUESTION-TEMPORAL-055/README.md)、[冻结协议](./research-protocols/question-conditioned-temporal-learning-2026-10-29.md)：新开发数据/来源划分，冻结Qwen，B0/A/V/S/I五臂；8次CPU小头训练/≤2000更新；GPU仅正式冻结特征/B0≤3600秒 | 全分母四格全对率；必须胜过同参数A及V/S，合格外部封存后一次诊断；只胜B0则停止具体配方。下载≤1536MiB媒体/16MiB元数据、主模型不训练；完整启动消息后才激活本包权限，八处交付后停止，不自动056 |
+| VLM-QUESTION-TEMPORAL-055 | P0 | **ACCEPTED_PARTIAL_SAFE_STOP / PROCEDURAL_READING_CAVEAT / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e1112108](https://github.com/floomeer83felix-source/vlm/commit/e1112108d39d8490cf1217023475bc3e1ce7925a)：814行/407候选，379结构一致/28解析未决；媒体ZIP超限、原来源映射未知，模型/训练0 | [验收](./research-decisions/post-055-input-stop-disposition-2026-10-29.md)：142项公开检查PASS，仅输入准入/部分交付；36/32行n0非0%准确率，原配方未测试。055已消费、当前0 READY，不续旧预算或自动056；新任务前须闭合媒体传输与来源划分 |
 | VLM-FINITE-VIEW-HEADROOM-054 | P0 | **ACCEPTED_COMPLETE_CPU_ANALYSIS / SIMPLE_CONFIDENCE_USES_MOST_HEADROOM / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [497e3b9](https://github.com/floomeer83felix-source/vlm/commit/497e3b99c74075e5dc6788b71b5acf7f357e07f3)：384旧状态/144旧正确性核齐，O15=13、F9、E1510 | [验收](./research-decisions/post-054-finite-view-disposition-2026-10-28.md)：H4/3源，恢复3/误伤2/漏1，未过漏>=2的排序缺口门；641公开检查PASS；054验收时0 READY，不从054自动续模型/调参/扩样/训练，新授权路线仅见055 |
 | VLM-BLOCK-INTERACTION-053 | P0 | **ACCEPTED_DEVELOPMENT_COMPARISON / STOP_CURRENT_ROUTER / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e1da118](https://github.com/floomeer83felix-source/vlm/commit/e1da1180db81ee2c737d943a1ad7501692559681)：437独特forward/144有效输出，F9/M7/A10/I8/C10/R11 | [验收](./research-decisions/post-053-block-interaction-disposition-2026-10-28.md)：全部预设门失败，I/A最终不同4题I独对0/A独对2；532项公开检查PASS，停止此具体路由，053验收时0 READY；不恢复路由，当前新主线仅见055 |
 | VLM-QUESTION-PROTOCOL-AUDIT-052 | P0 | **ACCEPTED_PROTOCOL_AUDIT / ONE_SCOPE_CAVEAT / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [59d4111](https://github.com/floomeer83felix-source/vlm/commit/59d4111bd6877c8c82d8bf13f08f36dba5d6c874)：同24题nongold分类＋168派生格完整复算 | [验收](./research-decisions/post-052-protocol-disposition-2026-10-28.md)：1题time-scope标志、图像/预测前缀0、11个其余持续失败未归因；1609公开一致性检查PASS；原分数不改，不续协议排查/自动修输入 |
