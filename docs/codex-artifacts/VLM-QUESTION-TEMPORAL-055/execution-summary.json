@@ -1,0 +1,124 @@
+{
+  "task": "VLM-QUESTION-TEMPORAL-055",
+  "date": "2026-10-29",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "54c2783dfd210a0cccd532f17ae1376c95606889",
+  "execution_status": "PARTIAL_SAFE_STOP_INPUT_NOT_QUALIFIED",
+  "scientific_status": "INCOMPLETE",
+  "disposition": "STOP_BEFORE_MEDIA_AND_GPU",
+  "qualification": {
+    "dybench": {
+      "admitted_instances": 0,
+      "annotation_fields": [
+        "answer",
+        "candidates",
+        "question",
+        "source_category",
+        "source_subcategory",
+        "video"
+      ],
+      "archive_bytes": 2783546023,
+      "candidate_pairs": 407,
+      "category_rows": {
+        "50Salads": 100,
+        "Breakfast": 294,
+        "TempCompass": 38,
+        "VIDHALLUC": 382
+      },
+      "direct_video_objects": 0,
+      "pair_audit": {
+        "annotation_pair_consistent": 379,
+        "unresolved_events_or_question": 28
+      },
+      "provenance": "UNVERIFIED",
+      "rows": 814,
+      "splits_frozen": false
+    },
+    "generate_forward_steps": 0,
+    "gpu_stage_started": false,
+    "head_implemented": false,
+    "model_calls": 0,
+    "network": {
+      "closed": 15,
+      "failed": 0,
+      "media_bytes": 0,
+      "metadata_bytes": 1098994,
+      "started": 15
+    },
+    "novelty": "UNRESOLVED",
+    "optimizer_steps": 0,
+    "scientific_gate": "INCOMPLETE",
+    "scientific_status": "INCOMPLETE",
+    "status": "INPUT_NOT_QUALIFIED",
+    "stop_reasons": [
+      "NO_SELECTED_SINGLE_VIDEO_OBJECTS_IN_FIXED_OFFICIAL_TREE",
+      "PUBLISHED_ARCHIVE_EXCEEDS_SINGLE_OBJECT_AND_TOTAL_MEDIA_CAPS",
+      "ORIGINAL_RECORDING_GROUP_MAP_NOT_VERIFIED"
+    ],
+    "timeblind": {
+      "admitted_instances": 0,
+      "external_gate": "UNKNOWN",
+      "rows": 2400,
+      "strict_qualification": "NOT_COMPLETED_AFTER_DEVELOPMENT_PREREQUISITE_STOP",
+      "temporal_candidate_instances": 108,
+      "temporal_tag_rows": 432
+    }
+  },
+  "revisions": {
+    "dybench": "fc9a9e8dbd11107fa47f953f1367c0bcd2dbb405",
+    "timeblind": "bafceda3a2bd0e5128c390ec25fdc54e470a743d",
+    "crpo": "62089b2af672a6baca4d4859547826c35c0fd4d8",
+    "timeblind_code": "03129551918c0830f3ee727485eb9cfb437e21e5"
+  },
+  "resources": {
+    "preparation_job_outer_s": 25.07700000004843,
+    "job_peak_commit_bytes": 17600512,
+    "jobs": 5,
+    "all_active0": true,
+    "all_exit0": true,
+    "any_owned_kill": false,
+    "gpu_outer_s": 0,
+    "cpu_training_evaluation_outer_s": 0,
+    "parent_elapsed_at_report_s": 293.855931,
+    "root_files_at_snapshot": 42,
+    "root_bytes_at_snapshot": 1179456,
+    "checkpoints_bytes": 0,
+    "initial_free_bytes": 349198016512
+  },
+  "independent_review": {
+    "status": "PASS",
+    "checks": 839,
+    "boundary": "Metadata consistency only; no physical provenance, media, model or scientific effect certification."
+  },
+  "model": {
+    "loads": 0,
+    "video_feature_calls": 0,
+    "question_feature_calls": 0,
+    "b0_generate_calls": 0,
+    "actual_generate_forward_steps": 0,
+    "peak_allocated_bytes": null,
+    "timeline_verified": false
+  },
+  "training": {
+    "status": "NOT_RUN",
+    "implemented": false,
+    "configurations_started": 0,
+    "parameters_measured": null,
+    "backward_calls": 0,
+    "optimizer_steps": 0
+  },
+  "gates": {
+    "development": "INCOMPLETE",
+    "external": "UNKNOWN",
+    "novelty": "UNRESOLVED"
+  },
+  "source_sha256": "e1dbafe47396fdc71328f3b309fc55eec65db126d76986083c16e004951bd088",
+  "limitations": [
+    "No splits or model-input denominators were frozen; CSV zero counts are pre-admission, not accuracy.",
+    "No source grouping, strict non-overlap or physical independence certified.",
+    "No ZIP member range retrieval attempted; no claim that selective retrieval is technically impossible.",
+    "Current board/results/overview sections inspected; requested full historical long-document reading remained incomplete.",
+    "No model/head implementation, fixtures, CPU training, predictions or scientific scoring after prerequisite stop.",
+    "Body-return accounting and directory snapshots are not OS-wide I/O or hard output-quota certificates."
+  ]
+}
