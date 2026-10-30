@@ -1,3 +1,5 @@
+> **负责人归档（2026-10-30）：ACCEPTED_COMPLETE_CPU_2X2_EXPERIMENT / STOP_THIS_MECHANISM / CLOSED，不重跑。** [验收](../../research-decisions/post-059-directed-pair-disposition-2026-10-30.md)：8配置2000真实更新，R1四格7/24、9/24，A5/24、7/24，P1为6/24、12/24；R1−P1 +1/−3，Delta +9/−3，预设开发门FAIL。2004公开检查及8配对/2交互区间独立复算PASS；低分对照原样保留，不调参/修对照/改称P1贡献，当前0 READY。以下原合同完整保留为历史，不是新的执行授权。
+
 # 059：问题条件化的有向特征对交互
 
 2026-10-30（北京时间）｜ChatGPT研究负责人。**READY，唯一新父任务；尚未执行。**

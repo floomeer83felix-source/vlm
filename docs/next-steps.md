@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-30（北京时间；用户在058交付后要求下一步）。**唯一READY：[059问题条件有向特征对交互](./codex-artifacts/VLM-QUESTION-DIRECTED-PAIR-059/README.md)，尚未执行。** 复用057原缓存/划分/实际初始计划，完整2×2：一阶池化P/二阶关系R×关系支路晚期0/早期1接入问题。四头各356673参数/同BCE，seed19/73各250步，8配置2000真实CPU更新；与原A缓存及强对照比较四格全对和2×2交互量。一轮完成实现/训练/评分，模型/媒体请求0，不重跑旧任务；机制与新颖性待检验。
+> 更新：2026-10-30（北京时间；[059验收](./research-decisions/post-059-directed-pair-disposition-2026-10-30.md)）。[2c83bfd](https://github.com/floomeer83felix-source/vlm/commit/2c83bfd0735f51daa2b52ef15af8da8f0306e388)完整2×2、8配置2000真实CPU更新，R1四格7/24、9/24，A5/24、7/24，P1为6/24、12/24；**R1−P1 +1/−3、Delta +9/−3，开发门FAIL，停止此具体结构，059关闭、当前0 READY。** 2004公开检查及8配对/2交互区间独立复算PASS，2040正式项完整，旧头/模型/媒体请求0。低分对照原样保留，P1不改名贡献；不调参/修对照/换seed或自动060，057联合损失仍停。
 >
 > 058已验收关闭：[9654a09](https://github.com/floomeer83felix-source/vlm/commit/9654a09cddeb8251efd4de8a0bac0110e480f5d4)500真实CPU更新，A5/24、7/24对H3/24、4/24，净+2/+3达投入门。[验收](./research-decisions/post-058-order-control-disposition-2026-10-30.md)614公开检查及两区间复算PASS，两区间含0，保留有限已用开发集信号。059为本次新指令下的独立表示机制，不恢复057联合损失、不继承旧预算。
 >
@@ -18,7 +18,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-QUESTION-DIRECTED-PAIR-059 | P0 | **READY（唯一新父任务；尚未执行）** | Codex | [059合同](./codex-artifacts/VLM-QUESTION-DIRECTED-PAIR-059/README.md)：问题调制时序两端的非线性特征并计算有向乘积；P0/P1/R0/R1完整2×2、各356673参数/同BCE/同初始计划；8配置2000CPU更新，原A只复用 | 30条件行/8配对行/两seed交互量/120匿名分层；每seed R1−A≥2、R1−P1≥2、R1−R0≥1、Delta≥1才保留开发信号，否则停止该结构。训练/评分≤1200秒、GPU/数据请求0；七处脱敏交付后STOP |
+| VLM-QUESTION-DIRECTED-PAIR-059 | P0 | **ACCEPTED_COMPLETE_CPU_2X2_EXPERIMENT / STOP_THIS_MECHANISM / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2c83bfd](https://github.com/floomeer83felix-source/vlm/commit/2c83bfd0735f51daa2b52ef15af8da8f0306e388)：8配置2000真实更新；测试A5/7、P08/0、P16/12、R00/0、R17/9，各N24；2040项完整 | [验收](./research-decisions/post-059-directed-pair-disposition-2026-10-30.md)：R1−P1 +1/−3未达双seed≥2，Delta +9/−3未过第二seed；2004公开检查/10区间复算PASS。门FAIL，停止此结构，不修换对照/调参或改称P1贡献，当前0 READY，无自动060 |
 | VLM-TEMPORAL-ORDER-CONTROL-058 | P0 | **ACCEPTED_COMPLETE_CPU_ORDER_CONTROL / ORDER_BENEFIT_DEVELOPMENT_SIGNAL / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [9654a09](https://github.com/floomeer83felix-source/vlm/commit/9654a09cddeb8251efd4de8a0bac0110e480f5d4)：H两seed500真实CPU更新；A5/24、7/24，H3/24、4/24；408新＋408缓存完整，模型/媒体请求0 | [验收](./research-decisions/post-058-order-control-disposition-2026-10-30.md)：A−H净+2/+3投入门PASS；614公开检查/2区间复算PASS。仅保留已用开发集顺序收益信号，两区间含0，不认证新机制；058验收时0 READY，057损失仍停，新059见上行 |
 | VLM-TEMPORAL-TRAIN-PILOT-057 | P0 | **ACCEPTED_COMPLETE_REAL_TRAINING_PILOT_WITH_PRELOAD_REPAIR / STOP_THIS_JOINT_SUPERVISION_RECIPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2b366bf](https://github.com/floomeer83felix-source/vlm/commit/2b366bfc38e005d05599345ac78932f660ea6877)：8配置/2000研究更新；I3/4、A5/7、V2/4、S4/5、B01，各测试N24；1728评估项完整 | [验收](./research-decisions/post-057-real-training-disposition-2026-10-30.md)：门FAIL，I对A净−2/−3，未胜S/V；551公开检查/8个bootstrap区间复算PASS，预加载失败及修复保留。057验收时0 READY，停止此损失配方；新058见上行，外部NOT_RUN |
 | VLM-TEMPORAL-DATA-READY-056 | P0 | **ACCEPTED_PARTIAL_DATA_AND_CPU_IMPLEMENTATION / DATA_HOLD / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [0a4a65c](https://github.com/floomeer83felix-source/vlm/commit/0a4a65c4339b1e298ea8d66d74ab2e3abc23cfd0)：133原记录join/51合格对、25/2/24；同参小头/损失/训练入口已写，8软件更新 | [验收](./research-decisions/post-056-and-first-training-pilot-2026-10-30.md)：55公开检查PASS，原最低量未过、媒体/模型/研究训练0；不称真实数据就绪或原规模门通过。新057明确另立小先导，不改旧文件或继承余额 |
