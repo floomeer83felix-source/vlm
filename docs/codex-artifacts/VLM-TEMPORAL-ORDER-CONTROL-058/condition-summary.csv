@@ -1,0 +1,13 @@
+dataset,split,arm,seed,n_instances,n_cells,complete_cells,correct_cells,video_pair_correct,question_pair_correct,four_way_correct,failed_cells,invalid_cells,not_run_cells,status,prediction_origin
+DyBench_Breakfast_058,train,A_CACHED,19,25,100,100,98,48,49,24,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,train,H,19,25,100,100,88,39,40,19,0,0,0,COMPLETE,058_NEW
+DyBench_Breakfast_058,train,A_CACHED,73,25,100,100,92,44,42,20,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,train,H,73,25,100,100,98,48,49,24,0,0,0,COMPLETE,058_NEW
+DyBench_Breakfast_058,validation,A_CACHED,19,2,8,8,8,4,4,2,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,validation,H,19,2,8,8,4,0,0,0,0,0,0,COMPLETE,058_NEW
+DyBench_Breakfast_058,validation,A_CACHED,73,2,8,8,8,4,4,2,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,validation,H,73,2,8,8,2,0,1,0,0,0,0,COMPLETE,058_NEW
+DyBench_Breakfast_058,development_test,A_CACHED,19,24,96,96,55,15,17,5,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,development_test,H,19,24,96,96,54,9,18,3,0,0,0,COMPLETE,058_NEW
+DyBench_Breakfast_058,development_test,A_CACHED,73,24,96,96,66,24,24,7,0,0,0,COMPLETE,057_CACHED
+DyBench_Breakfast_058,development_test,H,73,24,96,96,45,10,15,4,0,0,0,COMPLETE,058_NEW
