@@ -1,0 +1,244 @@
+{
+  "task": "VLM-TEMPORAL-DATA-READY-056",
+  "date": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "base_sha": "c21974ba75d62d87a7f349374ffe69b624a13398",
+  "status": "DATA_PARTIAL_OR_HOLD",
+  "data_status": "SOURCE_OR_SIZE_HOLD",
+  "gates": {
+    "SOURCE_MAPPING": "PARTIAL_ANNOTATION_JOIN",
+    "SPLIT": "SOURCE_OR_SIZE_HOLD",
+    "MEDIA_HASH_CRC": "NOT_RUN",
+    "FRAME_CACHE": "NOT_RUN",
+    "HEAD_IMPLEMENTATION": "PASS_CPU_SOFTWARE_SCOPE",
+    "FEATURE_RUNTIME": "FEATURE_RUNTIME_UNVERIFIED"
+  },
+  "source": {
+    "annotation_expanded_bytes": 6761790,
+    "annotation_units": "published frame indices; official release15fps; no boundaries used for sampling",
+    "breakfast_pairs": 147,
+    "exclusions": {
+      "EVENT_MISSING_OR_REPEATED": 54,
+      "EVENT_PARSE": 9,
+      "NOT_NONADJACENT_STRICT_ORDER": 28,
+      "ORIGINAL_RECORDING_NOT_UNIQUE": 5
+    },
+    "feature_runtime": "UNVERIFIED",
+    "groups_skipped_cap": 0,
+    "kitchen_independence": "UNKNOWN",
+    "media_permitted": false,
+    "other_category_rows": 520,
+    "qualified_before_split": 51,
+    "recording_joins": 133,
+    "source_mapping": "ANNOTATION_JOIN",
+    "split_groups": {
+      "development_test": 15,
+      "train": 16,
+      "validation": 2
+    },
+    "split_instances": {
+      "development_test": 24,
+      "train": 25,
+      "validation": 2
+    },
+    "status": "SOURCE_OR_SIZE_HOLD"
+  },
+  "official_breakfast_revision": "fff79078e53e2ad6524d1a716bba06f0edb4fb58",
+  "dybench_revision": "fc9a9e8dbd11107fa47f953f1367c0bcd2dbb405",
+  "candidate_split_formal_freeze": false,
+  "minima": {
+    "train": 64,
+    "validation": 8,
+    "development_test": 32,
+    "test_source_groups": 8
+  },
+  "fixture": {
+    "status": "PASS",
+    "checks": 128,
+    "fixture_optimizer_steps": 8,
+    "research_optimizer_steps": 0,
+    "cuda_initialized": false,
+    "records": [
+      {
+        "arm": "A",
+        "seed": 19,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "V",
+        "seed": 19,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "S",
+        "seed": 19,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "I",
+        "seed": 19,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "A",
+        "seed": 73,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "V",
+        "seed": 73,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "S",
+        "seed": 73,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      },
+      {
+        "arm": "I",
+        "seed": 73,
+        "parameters": 30145,
+        "fixture_updates": 1,
+        "exposed_groups": 8,
+        "exposed_cells": 32
+      }
+    ],
+    "feature_runtime": "UNVERIFIED"
+  },
+  "additional_checks": {
+    "status": "PASS",
+    "checks": 7,
+    "optimizer_steps": 0
+  },
+  "independent_review": {
+    "status": "PASS",
+    "checks": 522,
+    "original_joins": 133,
+    "qualified": 51,
+    "split_instances": {
+      "train": 25,
+      "validation": 2,
+      "development_test": 24
+    },
+    "exclusions": {
+      "EVENT_MISSING_OR_REPEATED": 54,
+      "NOT_NONADJACENT_STRICT_ORDER": 28,
+      "ORIGINAL_RECORDING_NOT_UNIQUE": 5,
+      "EVENT_PARSE": 9
+    },
+    "metadata_body_bytes": 1712645,
+    "annotation_expanded_bytes": 6761790,
+    "boundary": "ANNOTATION_JOIN only; media/cache/actual Qwen features not inspected or certified"
+  },
+  "resources": {
+    "metadata_body_bytes": 1712645,
+    "media_body_bytes": 0,
+    "prior_metadata_returned_bytes": 443601,
+    "annotation_expanded_bytes": 6761790,
+    "jobs": {
+      "acquisition-job": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 2.640625,
+        "killed": false,
+        "outer_s": 15.265999999828637,
+        "peak_commit": 17608704,
+        "total_processes": 2,
+        "user_seconds": 0.9375
+      },
+      "additional-job": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.703125,
+        "killed": false,
+        "outer_s": 2.280999999959022,
+        "peak_commit": 647938048,
+        "total_processes": 2,
+        "user_seconds": 1.109375
+      },
+      "implementation-job": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 2.328125,
+        "killed": false,
+        "outer_s": 8.781999999890104,
+        "peak_commit": 721010688,
+        "total_processes": 2,
+        "user_seconds": 2.953125
+      },
+      "review-job": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.140625,
+        "killed": false,
+        "outer_s": 0.48499999986961484,
+        "peak_commit": 29212672,
+        "total_processes": 2,
+        "user_seconds": 0.21875
+      },
+      "sourcejoin-job": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.0625,
+        "killed": false,
+        "outer_s": 0.5150000001303852,
+        "peak_commit": 27791360,
+        "total_processes": 2,
+        "user_seconds": 0.328125
+      }
+    },
+    "implementation_job_outer_s": 11.062999999849126,
+    "preparation_job_outer_s": 16.265999999828637,
+    "cpu_decode_outer_s": 0,
+    "media_outer_s": 0,
+    "parent_elapsed_at_report_s": 553.9771983623505,
+    "initial_free_bytes": 349192241152,
+    "output_snapshot_files": 56,
+    "output_snapshot_bytes": 2404204
+  },
+  "source_code_sha256": {
+    "question_temporal_056.py": "e7dd3130ed88f583c0c2cff94e3d3081f696c38014aa97231d77e9e4caf20f2f",
+    "question_temporal_data_056.py": "30b58afe7eef3ea98b86c232176dca5a984128c547f9c3eb0623e54bff9c20e8"
+  },
+  "counters": {
+    "qwen_weight_loads": 0,
+    "cuda_initializations": 0,
+    "gpu_calls": 0,
+    "qa_calls": 0,
+    "research_backward": 0,
+    "research_optimizer_steps": 0,
+    "fixture_backward": 8,
+    "fixture_optimizer_steps": 8,
+    "media_attempts": 0,
+    "decoded_frames": 0
+  },
+  "limitations": [
+    "No global physical independence or cross-kitchen independence certification.",
+    "Original annotation intervals do not certify actual composite media clocks or selected pixels.",
+    "51 exact-label unique-event matches are a conservative policy-qualified subset, not an assertion that all excluded examples are intrinsically unusable.",
+    "Media/extraction/decoding/handoff utilities were not exercised on real videos due to failed prerequisite; no end-to-end readiness claim.",
+    "Full250-step training, persistence across a real interrupted training, final checkpoint/inference runtime and actual Qwen dimensions remain untested.",
+    "Directory snapshots and role files are not hard filesystem quotas or OS access audits."
+  ]
+}
