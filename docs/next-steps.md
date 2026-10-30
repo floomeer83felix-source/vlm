@@ -4,7 +4,7 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-30（北京时间）。[056交付0a4a65c](https://github.com/floomeer83felix-source/vlm/commit/0a4a65c4339b1e298ea8d66d74ab2e3abc23cfd0)已[验收关闭](./research-decisions/post-056-and-first-training-pilot-2026-10-30.md)：51合格对，原hash分配25/2/24未达056规模门；媒体/模型/研究训练0，小头已实现。用户明确要求实际训练，现**唯一READY为VLM-TEMPORAL-TRAIN-PILOT-057 / LOCAL_START_REQUIRED**：[完整训练包](./codex-artifacts/VLM-TEMPORAL-TRAIN-PILOT-057/README.md)以同51对/原来源隔离作新小规模先导，一包下载/真实特征/8次训练/对照评分；不回写056门、不另拆准备任务。待本地启动，不能声称已训练；已证实核心创新仍0。
+> 更新：2026-10-30（北京时间；[057验收](./research-decisions/post-057-real-training-disposition-2026-10-30.md)）。[2b366bf](https://github.com/floomeer83felix-source/vlm/commit/2b366bfc38e005d05599345ac78932f660ea6877)真实训练完整交付：8配置×250＝2000研究更新、102真缓存、一次Qwen加载/252高层调用。I四格3/24、4/24，A5/24、7/24，I对A净−2/−3、对S均−1；**预设先导门FAIL、停止具体联合监督配方、057关闭、当前0 READY**。加载前监督器失败/修复保留，551公开检查及8个区间复算PASS；无外部确认，不自动058或调参/扩样续训，已证实核心创新仍0。
 >
 > 历史阶段记录（原标注恢复前）：指定两父目录/固定深度核对未找到原标注评分入口，范围见049§10.4；当时等待数据、未启动GPU。其后恢复与完整执行已发生，当前以页首验收状态为准。
 >
@@ -14,7 +14,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-TEMPORAL-TRAIN-PILOT-057 | P0 | **READY / USER_REQUESTED_ACTUAL_TRAINING / LOCAL_START_REQUIRED（唯一新父）** | 本地Codex执行、ChatGPT审查 | [完整先导/启动指令](./codex-artifacts/VLM-TEMPORAL-TRAIN-PILOT-057/README.md)：同51对/25训练2验证24测试，原来源不交叉；一个ZIP与102缓存→冻结Qwen→A/V/S/I×2seed真实250步 | ≤2000研究更新，B0测试96项；高层模型调用≤300/GPUouter≤3600秒，真实训练/评估CPU≤1800秒，媒体≤3GiB/输出≤8GiB/父≤21600秒。25条件行/8配对行，先导门/完整失败分母，无外部确认；八处交付后停，不自动058 |
+| VLM-TEMPORAL-TRAIN-PILOT-057 | P0 | **ACCEPTED_COMPLETE_REAL_TRAINING_PILOT_WITH_PRELOAD_REPAIR / STOP_THIS_JOINT_SUPERVISION_RECIPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [2b366bf](https://github.com/floomeer83felix-source/vlm/commit/2b366bfc38e005d05599345ac78932f660ea6877)：8配置/2000研究更新；I3/4、A5/7、V2/4、S4/5、B01，各测试N24；1728评估项完整 | [验收](./research-decisions/post-057-real-training-disposition-2026-10-30.md)：门FAIL，I对A净−2/−3，未胜S/V；551公开检查/8个bootstrap区间复算PASS，预加载失败及修复保留。当前0 READY，停止此损失配方；不调参/增步/换seed/扩样或自动058，外部NOT_RUN |
 | VLM-TEMPORAL-DATA-READY-056 | P0 | **ACCEPTED_PARTIAL_DATA_AND_CPU_IMPLEMENTATION / DATA_HOLD / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [0a4a65c](https://github.com/floomeer83felix-source/vlm/commit/0a4a65c4339b1e298ea8d66d74ab2e3abc23cfd0)：133原记录join/51合格对、25/2/24；同参小头/损失/训练入口已写，8软件更新 | [验收](./research-decisions/post-056-and-first-training-pilot-2026-10-30.md)：55公开检查PASS，原最低量未过、媒体/模型/研究训练0；不称真实数据就绪或原规模门通过。新057明确另立小先导，不改旧文件或继承余额 |
 | VLM-QUESTION-TEMPORAL-055 | P0 | **ACCEPTED_PARTIAL_SAFE_STOP / PROCEDURAL_READING_CAVEAT / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e1112108](https://github.com/floomeer83felix-source/vlm/commit/e1112108d39d8490cf1217023475bc3e1ce7925a)：814行/407候选，379结构一致/28解析未决；媒体ZIP超限、原来源映射未知，模型/训练0 | [验收](./research-decisions/post-055-input-stop-disposition-2026-10-29.md)：142项公开检查PASS，仅输入准入/部分交付；36/32行n0非0%准确率，原配方未测试。055已消费、当前0 READY，不续旧预算或自动056；新任务前须闭合媒体传输与来源划分 |
 | VLM-FINITE-VIEW-HEADROOM-054 | P0 | **ACCEPTED_COMPLETE_CPU_ANALYSIS / SIMPLE_CONFIDENCE_USES_MOST_HEADROOM / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [497e3b9](https://github.com/floomeer83felix-source/vlm/commit/497e3b99c74075e5dc6788b71b5acf7f357e07f3)：384旧状态/144旧正确性核齐，O15=13、F9、E1510 | [验收](./research-decisions/post-054-finite-view-disposition-2026-10-28.md)：H4/3源，恢复3/误伤2/漏1，未过漏>=2的排序缺口门；641公开检查PASS；054验收时0 READY，不从054自动续模型/调参/扩样/训练，新授权路线仅见055 |
