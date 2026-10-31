@@ -1,3 +1,5 @@
+> **归档：065已交付、验收关闭，不再READY。** [执行bfdf311](https://github.com/floomeer83felix-source/vlm/commit/bfdf311adae75daa7504a03f7905620853a56c7d)内容完整/导出部分：6042汉字、补充与回应、10页PDF已核，Word未生成；[验收](../../research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)708公开检查及全部PDF页面目视通过。不是Word/PDF双格式全部完成，不重跑排版。唯一新READY为[066未评分样本入口核验](../VLM-HELDOUT-ENTRY-AUDIT-066/README.md)。以下原合同逐字保留，READY/未来措辞只代表执行前时点，不得继承旧预算。
+
 # 065 论文实质修订与导师审阅版
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付新父任务；CPU_PUBLIC_DOCUMENT_REVISION。** 依据[064验收与修订意见](../../research-decisions/post-064-draft-review-and-revision-2026-10-31.md)。一轮完成内容修订、补充材料、审稿问题回应和可用的Word/PDF导出；新消息只触发本包，push后STOP，无新增实验。

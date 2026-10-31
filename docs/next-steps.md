@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-10-31（北京时间；[064验收与065修订决策](./research-decisions/post-064-draft-review-and-revision-2026-10-31.md)）。**唯一READY：[065论文实质修订与审阅版](./codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/README.md)，尚未执行；CPU_PUBLIC_DOCUMENT_REVISION。** 064已完成6241汉字正文/中英文摘要、两表三图、25条证据和8条文献；21447公开检查/34区间复现一致，B0回溯200/200相等，交付大小口径待澄清。065突出科学问题、压缩内部验收叙事/移入补充，准确说明unknown/C/N/B0，产出修订稿和经逐页检查的Word/PDF；工具不足仍完成正文并如实报告导出不足。无新增实验/私有读取/模型/数据/安装。
+> 更新：2026-10-31（北京时间；[065验收与066入口核验](./research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)）。**唯一READY：[066未评分样本冻结验证入口核验](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/README.md)，尚未执行；CPU_METADATA_ONLY。** 065内容与10页PDF通过708公开检查/逐页目视，34既有区间/25证据/两表三图一致，Word仍未生成，按部分导出关闭。下一轮只核固定DyBench未评分子来源及TimeBlind的小型公开元数据、原tau兼容与来源关系，给冻结旧头的一次性评估草案或明确NO_DIRECT_ENTRY；无媒体/模型/GPU/训练/新parser/安装，不再开排版轮次。
 >
-> 064已验收关闭：[df50bf1](https://github.com/floomeer83felix-source/vlm/commit/df50bf1c8389d20418bc56b5641f13f8f8392bfa)。接受完整有限实证初稿，尚非投稿就绪/新增科学确认。六新C5%→D17.6667%、相对+12.6667pp而绝对20%目标未达，原顺序/交互门不救门；图/表/负结果保持。原062/063封存限制不因064回溯桥接被追认，核心创新仍0、TimeBlind NOT_RUN。
+> 065已验收关闭：[bfdf311](https://github.com/floomeer83felix-source/vlm/commit/bfdf311adae75daa7504a03f7905620853a56c7d)。修订正文6042汉字、补充/修改回应/8项审稿质疑和PDF完整；PDF全文汉字/小数及原嵌图像素与源稿一致，载荷691504B复算一致，064大小统计已澄清而原差异原因仍UNKNOWN。Word不伪称完成，科研结果与停止结论不变，未增加独立来源或新算法证据。
 >
 > 用户新协作偏好已写入AGENTS：负责人验收交付时，同回合完成下一步设计/下达，不等待用户再次说“继续”；没有合理新实验时给具体研究或写作工作。执行者每轮仍只执行新消息触发的唯一父包并push后STOP，不自醒/后台轮询，不继承受控资源权限。
 >
@@ -28,7 +28,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-PAPER-REVIEW-REVISION-065 | P0 | **READY（唯一尚未交付新父任务；CPU_PUBLIC_DOCUMENT_REVISION）** | Codex | [065合同](./codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/README.md)：实质修订064正文与补充材料，逐条回应意见和六项审稿质疑，生成可用Word/PDF审阅版；澄清Git字节口径 | 冻结科学结果，保留相对收益/绝对失败及全部边界；未知处理/C/N/B0准确，二进制须渲染并逐页目视，现有工具不足不安装而交内容＋导出不足。仅公开材料，11处allowlist，push后STOP |
+| VLM-HELDOUT-ENTRY-AUDIT-066 | P0 | **READY（唯一尚未交付新父任务；CPU_METADATA_ONLY）** | Codex | [066合同](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/README.md)：一次性核固定DyBench未评分VIDHALLUC/TempCompass与TimeBlind公开元数据，严格tau/四格/来源证据，形成冻结旧头评估草案或NO_DIRECT_ENTRY | 不改tau/标签、不据答案选样本；432行不当432实例、未评分条目不当物理独立。最多12显式请求/10MiB，网络CPU≤300秒；媒体/模型/训练0，七处交付push后STOP，新评估须另授权 |
+| VLM-PAPER-REVIEW-REVISION-065 | P0 | **ACCEPTED_COMPLETE_CONTENT_AND_VERIFIED_PDF_WITH_DOCX_NOT_GENERATED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bfdf311](https://github.com/floomeer83felix-source/vlm/commit/bfdf311adae75daa7504a03f7905620853a56c7d)：正文6042汉字、两表三原图、34区间索引/25证据/8质疑，10页PDF逐页核；Word缺项如实保留 | [验收](./research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)：708公开检查，PDF全文汉字/小数/嵌图像素一致，载荷691504B可复算。065为内容完整/导出部分，未新增科学结果；066回到未评分成员验证可行性，不再排版或续训练 |
 | VLM-EMPIRICAL-PAPER-DRAFT-064 | P0 | **ACCEPTED_COMPLETE_EMPIRICAL_DRAFT_WITH_EDITORIAL_AND_SIZE_SCOPE_CORRECTIONS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [df50bf1](https://github.com/floomeer83felix-source/vlm/commit/df50bf1c8389d20418bc56b5641f13f8f8392bfa)：完整6241汉字初稿/两表三图/25证据/8文献，B0原封存→缓存200/200相等，无新模型/训练 | [验收](./research-decisions/post-064-draft-review-and-revision-2026-10-31.md)：21447公开检查/34区间复算及三图目视通过，原报告大小1121474B与Git16路径1105663B口径未知，保留小限制。接受初稿、不认证投稿就绪，065按审稿问题修订/导出，不追加实验 |
 | VLM-ROLE-CONTRAST-REPLICATION-063 | P0 | **ACCEPTED_COMPLETE_CPU_REPLICATION_WITH_B0_CACHE_ORIGIN_CAVEAT / NOT_ROBUST_UNDER_FIXED_REPLICATION_GATE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e91a695](https://github.com/floomeer83felix-source/vlm/commit/e91a6951a610c21453fac3723ef135afd603aeae)：16配置4000步/14840有效项，新六D−C +7/+4/+9/+5/+6/+7，平均D8.8333/50；顺序+9/+8、Delta+9/+2 | [验收](./research-decisions/post-063-disposition-and-paper-plan-2026-10-31.md)：8732公开检查/34区间复算PASS；稳定性仅绝对≥10/50项未过，另外两门不救；B0旧缓存来源限制保留。停止扩张配方，064整理完整实证稿，不追加实验 |
 | VLM-QUESTION-ROLE-CONTRAST-062 | P0 | **ACCEPTED_COMPLETE_CPU_EXPERIMENT_WITH_CODE_PROVENANCE_CAVEAT / ROLE_CONTRAST_DEVELOPMENT_SIGNAL / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [be80767](https://github.com/floomeer83felix-source/vlm/commit/be8076782d2a813af131eff6d8dddb9fc0450e9d)：6配置1500真实更新/6056有效项，来源D15/13、C2/8、N6/4、B0单次7，各N50；两门PASS | [验收](./research-decisions/post-062-role-signal-and-replication-2026-10-31.md)：4639公开检查/16区间复算PASS；保留开发信号、seed73区间含0及私有helper初始seal范围限制。非新算法/独立确认，新063复验另列，不重训062或续旧预算 |

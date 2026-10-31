@@ -1,4 +1,6 @@
-> **最新负责人状态（2026-10-31）：064完整有限实证初稿已验收，唯一READY为065修订与审阅版。** [验收](../research-decisions/post-064-draft-review-and-revision-2026-10-31.md)：21447公开检查/34区间独立复现、两表三图/25证据/8文献通过，B0回溯200/200相等，不追认历史seal；交付大小口径限制保留。科学结果与063原门不变，无新模型/训练或独立来源。[065合同](../codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/README.md)修订科研叙事、精确方法/未知规则，按现有工具导出逐页检查的Word/PDF，缺工具则如实交内容＋导出不足，不恢复实验/安装/私有读取。
+> **最新负责人状态（2026-10-31）：065内容/PDF已验收，Word缺项保持；唯一READY为066未评分样本入口核验。** [验收](../research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)：708公开检查/10页PDF目视，汉字/小数/嵌图与源稿一致，34原区间引用完整。无新增科学运行，旧相对收益/绝对失败与停止结论不变。[066合同](../codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/README.md)只读固定DyBench剩余子来源/TimeBlind小型公开元数据，严核原tau/四格/来源层级，给冻结旧头评估草案或NO_DIRECT_ENTRY，不人工改写/训练/读媒体/用GPU。下一真实评估须另立授权，不能继承旧预算。
+>
+> **先前负责人状态（2026-10-31）：064完整有限实证初稿已验收，唯一READY为065修订与审阅版。** [验收](../research-decisions/post-064-draft-review-and-revision-2026-10-31.md)：21447公开检查/34区间独立复现、两表三图/25证据/8文献通过，B0回溯200/200相等，不追认历史seal；交付大小口径限制保留。科学结果与063原门不变，无新模型/训练或独立来源。[065合同](../codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/README.md)修订科研叙事、精确方法/未知规则，按现有工具导出逐页检查的Word/PDF，缺工具则如实交内容＋导出不足，不恢复实验/安装/私有读取。
 >
 > **先前负责人状态（2026-10-31）：063完整复验验收关闭，稳定性仅绝对D目标未达；唯一READY为064完整实证稿。** [验收](../research-decisions/post-063-disposition-and-paper-plan-2026-10-31.md)：8732公开检查/34区间独立复现PASS；新六D−C 6/6正、均值+12.6667pp，但D17.6667%<事前20%，主门FAIL，原两seed顺序/交互门不救门。B0旧缓存来源限制保留，063完整代码seal不追认062。停止扩张配方，转[064正文/三图/证据索引与窄范围B0只读桥接](../codex-artifacts/VLM-EMPIRICAL-PAPER-DRAFT-064/README.md)，无训练/模型/GPU/媒体；不升级新机制或独立确认，不保证录用。以下原设计与历史门保持。
 >
