@@ -1,3 +1,5 @@
+> **ARCHIVED / 061_CLOSED / 不可执行（2026-10-31）。** [e5e479d交付](https://github.com/floomeer83felix-source/vlm/commit/e5e479d27a5ac4f9b05f931e0602340ea6d006a7)已由[负责人验收](../../research-decisions/post-061-response-audit-disposition-2026-10-31.md)：6056缓存项/1514四格完整，33条件、225标签盲来源行和26区间复核通过；来源小头问题不敏感60–92%，B0单次22%，50/50来源对两事件名称均未见于train68。7837公开检查PASS，因果成因仍未定，无新机制/收益。当前0 READY；不重跑或自动062。以下原合同/启动文字仅作历史保留。
+
 # 061：缓存中的视频—问题响应与迁移缺口分解
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付的新父任务；CPU_ONLY / CACHED_DATA_DIAGNOSTIC。**
