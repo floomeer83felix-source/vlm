@@ -1,3 +1,5 @@
+> **ARCHIVED / 062_CLOSED / 不重跑（2026-10-31）。** [be80767交付](https://github.com/floomeer83felix-source/vlm/commit/be8076782d2a813af131eff6d8dddb9fc0450e9d)已[验收](../../research-decisions/post-062-role-signal-and-replication-2026-10-31.md)：1500真实更新、6056有效项，D15/50、13/50对C2/50、8/50，两门PASS；4639公开检查/16区间复算通过。保留开发信号与私有监督/核验helper未纳入最初代码seal的程序性限制，不认定新算法/独立确认。新063另立种子复验/顺序2×2；以下原合同/启动文字仅为历史，不构成062重跑或续额度授权。
+
 # 062：问题角色差分与普通标准化的同参数训练对照
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付新父任务；CPU_CACHED_TRAINING。**
