@@ -1,0 +1,253 @@
+{
+  "task": "VLM-EMPIRICAL-PAPER-DRAFT-064",
+  "date_asia_shanghai": "2026-10-31",
+  "status": "COMPLETE_EMPIRICAL_PAPER_DRAFT",
+  "sync_sha": "316d04d910c2fdcf74955fc4d6d999a08c820c38",
+  "unique_unreported_READY_at_start": true,
+  "manuscript": {
+    "status": "COMPLETE",
+    "title": "冻结特征时间问答的角色差分与顺序效应",
+    "body_han_characters": 6241,
+    "count_definition": "Sections1-6 including headings/captions; Han U+4E00-U+9FFF only; excludes abstracts, tables, image lines and references",
+    "Chinese_abstract": true,
+    "English_abstract": true,
+    "keywords_bilingual": true,
+    "author_affiliation_funding": "待作者填写",
+    "tables": 2,
+    "evidence_claims": 25,
+    "references": 8
+  },
+  "scientific_findings": {
+    "new_seeds": [
+      137,
+      263,
+      419,
+      557,
+      733,
+      911
+    ],
+    "same_instances_per_seed": 50,
+    "C_mean_percent": 5.0,
+    "D_mean_percent": 17.666666666666668,
+    "paired_gain_pp": 12.666666666666666,
+    "positive_seeds": 6,
+    "absolute_target_percent": 20,
+    "stability_gate": false,
+    "D_order_gate": true,
+    "interaction_gate": true,
+    "relative_gain_retained": true,
+    "absolute_target_not_met": true,
+    "all_eight_not_used_to_rescue_gate": true,
+    "independent_source_confirmation": false,
+    "core_innovation_established": false,
+    "TimeBlind": "NOT_RUN"
+  },
+  "public_recalculation": {
+    "status": "PASS",
+    "generator_checks": 1251,
+    "conditions": 81,
+    "paired": 14,
+    "interactions": 2,
+    "family_rows": 350,
+    "intervals": 34,
+    "bootstrap_replicates": 10000,
+    "family_seed": 55063,
+    "optimization_seed_bootstrap_seed": 55064,
+    "anchors060_061_062": true,
+    "development54_coverage_subsets": true,
+    "new_six_and_all_eight_summaries": true
+  },
+  "b0_bridge": {
+    "binding_check": true,
+    "counts": {
+      "actual060": 200,
+      "actual063": 200,
+      "equal": 200,
+      "missing": 0,
+      "planned": 200,
+      "unequal": 0,
+      "unknown": 0
+    },
+    "current_retrospective_check_only": true,
+    "logical_read_bytes": 9821092,
+    "old_files_unchanged": true,
+    "original060_output_seal": true,
+    "reason": "EXACT_PREDICTIONS_AND_BINDINGS",
+    "status": "PASS"
+  },
+  "figures": {
+    "status": "THREE_SVG_AND_PNG_PAIRS_GENERATED",
+    "visual_review": "ALL_THREE_INSPECTED;FIG1_FORMATTING_REINSPECTED",
+    "structure": "SVG_PARSE_AND_PNG_DIMENSIONS_PASS",
+    "figures": [
+      {
+        "name": "fig1-seed-accuracy",
+        "png_width": 2194,
+        "png_height": 1264,
+        "svg_parsed": true
+      },
+      {
+        "name": "fig2-paired-intervals",
+        "png_width": 2194,
+        "png_height": 1504,
+        "svg_parsed": true
+      },
+      {
+        "name": "fig3-role-order",
+        "png_width": 2194,
+        "png_height": 1144,
+        "svg_parsed": true
+      }
+    ],
+    "B0_single_reference_percent": 14,
+    "no_invented_error_bars": true
+  },
+  "independent_review": {
+    "status": "PASS",
+    "checks": 17973,
+    "body_han_characters": 6241,
+    "body_count_definition": "Sections1-6 including headings/captions; Han U+4E00-U+9FFF only; excludes abstracts, tables, image lines and references",
+    "conditions": 81,
+    "paired": 14,
+    "interactions": 2,
+    "source_family_rows": 350,
+    "independently_recomputed_intervals": 34,
+    "gates": {
+      "stability": false,
+      "D_order": true,
+      "interaction": true
+    },
+    "old_private_inputs_reopened": false,
+    "tested_or_generator_module_imported": false,
+    "figure_structure": "PASS",
+    "manuscript_tables_links_references_evidence": "PASS"
+  },
+  "revisions": {
+    "figure_formatting_only": "cached tick-label spacing and white label backgrounds; bridge/public arithmetic AST unchanged",
+    "verifier_initial_failure": "extra_intervals serialization order differed; changed verifier to key by kind/metric; scientific code/numbers unchanged",
+    "failed_job_retained": true
+  },
+  "literature": {
+    "primary_page_open_requests": 12,
+    "unique_primary_entrypoints": 8,
+    "fresh_successful_entrypoints": 7,
+    "CVF_Winoground": "403;used task reference-brief verified metadata;no fresh full-text claim",
+    "pdf_downloads": 0,
+    "data_downloads": 0,
+    "external_methods_run_as_baselines": 0
+  },
+  "resources": {
+    "public_supervised_outer_s": 4.20299999974668,
+    "public_other_diagnostic_and_final_audit_conservative_charge_s": 20,
+    "public_total_charged_s": 24.20299999974668,
+    "public_outer_cap_s": 300,
+    "bridge_supervised_outer_s": 0.2649999998975545,
+    "bridge_outer_cap_s": 60,
+    "private_logical_read_bytes": 9821092,
+    "private_read_cap_bytes": 16777216,
+    "OS_physical_IO": "UNKNOWN",
+    "job_memory_cap_bytes": 4294967296,
+    "job_peak_commit_bytes": 144572416,
+    "job_active_process_cap": 4,
+    "job_total_processes_observed_max": 2,
+    "threads_cap": 4,
+    "all_jobs_closed_active_zero": true,
+    "killed_jobs": 0,
+    "initial_free_bytes": 342827286528,
+    "parent_elapsed_to_report_s": 1465.163258075714,
+    "parent_wall_cap_s": 10800,
+    "private_output_cap_bytes": 67108864,
+    "private_output_cap_files": 128,
+    "jobs": {
+      "bridge": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_s": 0.2649999998975545,
+        "peak_commit": 37593088,
+        "total_processes": 2,
+        "user_seconds": 0.125
+      },
+      "formatting": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.25,
+        "killed": false,
+        "outer_s": 1.2809999999590218,
+        "peak_commit": 143155200,
+        "total_processes": 2,
+        "user_seconds": 1.03125
+      },
+      "public": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.328125,
+        "killed": false,
+        "outer_s": 2.1719999997876585,
+        "peak_commit": 144572416,
+        "total_processes": 2,
+        "user_seconds": 1.703125
+      },
+      "review": {
+        "active": 0,
+        "exit_code": 1,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_s": 0.125,
+        "peak_commit": 14168064,
+        "total_processes": 2,
+        "user_seconds": 0.015625
+      },
+      "review2": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_s": 0.625,
+        "peak_commit": 23904256,
+        "total_processes": 2,
+        "user_seconds": 0.578125
+      }
+    },
+    "snapshot_scope": "Five completed computation jobs listed; final staging audit uses same Job limits with10s cap inside20s diagnostic reserve; actual final closure retained privately.",
+    "final_staged_audit_cap_s": 10
+  },
+  "prohibited_operations": {
+    "new_training_updates": 0,
+    "model_forward": 0,
+    "Qwen_loads": 0,
+    "torch_imports_in_generation_or_review": 0,
+    "GPU_operations": 0,
+    "feature_reads_or_recomputation": 0,
+    "gold_label_file_reads": 0,
+    "media_downloads": 0,
+    "media_decodes": 0,
+    "environment_changes": 0,
+    "old_file_writes": 0,
+    "old_B0_regeneration": 0
+  },
+  "source_code_lf_sha256": "1b417a1bca590e8681564e69c165c1e1b0c406ac28ab3948158303d7e50ba008",
+  "limitations": [
+    "Used source data; optimization seeds are not new sources",
+    "Publisher-composite QA differs from old strict51 layer",
+    "Family identity, physical independence and pretraining exposure not certified",
+    "HASH retains within-unit/context temporal information",
+    "Second interaction interval includes zero",
+    "062 private helper initial seal gap not retroactively repaired",
+    "064 B0 equality is retrospective and does not retroactively seal062/063",
+    "Public aggregates permit arithmetic reproduction; no complete end-to-end public reproduction",
+    "Relative gain and failed absolute target both retained",
+    "No novel algorithm or journal acceptance claim"
+  ],
+  "automatic_next_task": false,
+  "submission_or_editor_contact": false,
+  "delivery": {
+    "allowlist_files": 16,
+    "public_total_file_bytes": 1121474,
+    "results_append_only": true,
+    "safe_push_required": true,
+    "STOP_after_push": true,
+    "native_SVG_path_trailing_whitespace": "Preserved Matplotlib native path formatting; non-SVG git whitespace check PASS required."
+  }
+}
