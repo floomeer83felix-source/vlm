@@ -1,3 +1,5 @@
+> **归档：063已交付、验收关闭，不再READY。** 执行[e91a695](https://github.com/floomeer83felix-source/vlm/commit/e91a6951a610c21453fac3723ef135afd603aeae)完整；[验收](../../research-decisions/post-063-disposition-and-paper-plan-2026-10-31.md)8732公开检查/34区间复现PASS。新六相对收益6/6正，D均值8.8333/50低于原10/50绝对门，稳定性FAIL；顺序/交互门PASS不救门，保留B0旧缓存来源限制。停止扩张当前配方，唯一新READY为[064实证稿](../VLM-EMPIRICAL-PAPER-DRAFT-064/README.md)。以下原合同逐字保留，其READY/未来措辞仅代表执行前时点，不得重跑或继承预算。
+
 # 063：固定角色差分的种子复验与完整顺序2×2对照
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付新父任务；CPU_CACHED_TRAINING。**
