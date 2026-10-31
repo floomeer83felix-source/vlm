@@ -1,0 +1,367 @@
+{
+  "task": "VLM-PAPER-REVIEW-REVISION-065",
+  "date_asia_shanghai": "2026-10-31",
+  "status": "CONTENT_REVISION_COMPLETE_EXPORT_PARTIAL",
+  "sync_sha": "de3542997fca2c83a9fc7be2d691a1384f7b119d",
+  "unique_unreported_READY_at_start": true,
+  "content": {
+    "status": "COMPLETE",
+    "body_han_characters": 6042,
+    "count_definition": "Sections1-6 including headings/captions;Han U+4E00-U+9FFF;excludes abstracts/tables/image lines/references",
+    "bilingual_abstracts": true,
+    "original_main_tables": 2,
+    "original_figures_reused": 3,
+    "existing_intervals_indexed_exactly": 34,
+    "evidence_claims_remapped": 25,
+    "review_response_topics": 10,
+    "reviewer_substantive_questions": 8,
+    "standalone_references": 8,
+    "performance_rounding": "2 decimal places;counts/hyperparameters unchanged;full original precision retained in evidence/source",
+    "scientific_mainline": "role-conditioned answer and question-swap response;optimization replication;complete order control;development limits",
+    "all_negative_results_retained": true,
+    "relative_gain_pp": 12.666666666666666,
+    "D_mean_percent": 17.666666666666668,
+    "absolute_project_target_percent": 20,
+    "absolute_target_not_met": true,
+    "independent_confirmation_or_algorithm_novelty": false
+  },
+  "exports": {
+    "PDF": {
+      "status": "GENERATED_AND_ALL_PAGES_VISUALLY_VERIFIED",
+      "pages": 10,
+      "pages_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "render_dpi": 150,
+      "render_pixel_size": [
+        1241,
+        1754
+      ],
+      "render_method": "existing bundled Poppler",
+      "authoring": "existing bundled ReportLab;system SimSun and Arial embedded",
+      "formula": "selectable PDF text with structured sub/superscripts;no Word OMML claim",
+      "original_PNGs_pixel_verified": 3,
+      "main_tables": 2,
+      "all_Han_text_matches_MD": true,
+      "full_reference_URLs_verified": 8,
+      "metadata": "AUTHOR_EMPTY_AND_PRIVACY_CHECK_PASS",
+      "staged_blob_equals_visually_reviewed_file": true
+    },
+    "DOCX": {
+      "status": "EXPORT_NOT_GENERATED",
+      "reason": "No reliable existing Word renderer/bundled LibreOffice;Pandoc/python-docx availability alone cannot verify Word pagination",
+      "uploaded": false,
+      "Word_XML_check": "NOT_APPLICABLE_NOT_GENERATED"
+    },
+    "Word_PDF_full_pair_complete": false
+  },
+  "tool_capabilities": {
+    "read_only_check_outer_s": 0.21899999980814755,
+    "cap_s": 30,
+    "python_docx": true,
+    "Pandoc": true,
+    "ReportLab": true,
+    "pypdf": true,
+    "bundled_Poppler": true,
+    "bundled_LibreOffice": false,
+    "Chinese_system_fonts": true,
+    "Office_COM_used": false,
+    "new_dependencies_installed": false,
+    "Windows_fallback": "README4 existing-tool equivalent PDF workflow;container authoring marker/render_docx with bundled LO unavailable"
+  },
+  "verification": {
+    "public_content_checks": 151,
+    "independent_document_checks": 214,
+    "independent_generator_or_research_import": false,
+    "new_bootstrap_draws": 0,
+    "new_significance_tests": 0,
+    "all34_original_interval_values_compared": true,
+    "old064_inputs_unchanged": true,
+    "main_MD_PDF_consistent": true,
+    "metadata_and_links": "PASS",
+    "proof_scope": "public arithmetic quotation/document verification;not independent peer review or new scientific replication"
+  },
+  "old064_size_clarification": {
+    "total16_blob_bytes": 1105663,
+    "new15_blob_bytes": 809017,
+    "results_full_blob_bytes": 296646,
+    "results_increment_bytes": 2704,
+    "new_payload_including_increment_bytes": 811721,
+    "old_reported_bytes": 1121474,
+    "difference_reason": "UNKNOWN;public evidence insufficient"
+  },
+  "payload": {
+    "definition": "Final staged Git blobs for allowlist1-8 actual outputs only;excludes self-referential receipt/summary and historical results",
+    "manifest": [
+      {
+        "path": "prototypes/paper_review_package_065.py",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 13540
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/manuscript.md",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 27464
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/supplement.md",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 12336
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/evidence-map.csv",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 28151
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/revision-response.md",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 4274
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/reviewer-questions.md",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 5722
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/manuscript.docx",
+        "status": "EXPORT_NOT_GENERATED",
+        "bytes": null
+      },
+      {
+        "path": "docs/papers/frozen-role-order-study/review065/manuscript.pdf",
+        "status": "GENERATED_VERIFIED",
+        "bytes": 600017
+      }
+    ],
+    "total_bytes": 691504,
+    "cap_bytes": 16777216,
+    "generated_files": 7,
+    "missing_files": 1
+  },
+  "software_and_layout_history": {
+    "font_preflight_failure": "SimSun lacked U+2212;used existing Arial for minus;no PDF created before correction",
+    "layout_revisions": 3,
+    "layout_revision_cap": 3,
+    "changes": [
+      "restrict subscript recognition to math variables;literal identifiers/URLs retained;proportional Latin and Chinese punctuation",
+      "math variable boundary handling next to Chinese",
+      "function-style scoring indices c(i,v,q)/p(i,v,q) for consistent typography"
+    ],
+    "final_render": "10 pages fully inspected after last layout change",
+    "independent_initial_failure": "Verifier assumed footer was last extracted token;corrected to footer coordinates;PDF unchanged",
+    "failed_costs_retained": true,
+    "final_staging_initial_failure": "Privacy scanner initially included unchanged historical results prefix; corrected to scan only authorized append after byte-identical prefix check; no new content leak or historical edit."
+  },
+  "resources": {
+    "supervised_outer_s_at_report": 19.342999999178573,
+    "remaining_final_audit_cap_s": 15,
+    "other_edit_diagnostic_and_final_audit_conservative_reserve_s": 20,
+    "total_charged_envelope_s": 39.34299999917857,
+    "supervised_total_cap_s": 1200,
+    "job_memory_cap_bytes": 4294967296,
+    "peak_job_commit_bytes": 112009216,
+    "active_process_cap": 4,
+    "threads_cap": 4,
+    "all_recorded_jobs_active_zero": true,
+    "killed_jobs": 0,
+    "jobs": {
+      "capabilities": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.1875,
+        "killed": false,
+        "outer_s": 0.21899999980814755,
+        "peak_commit": 14344192,
+        "total_processes": 2,
+        "user_seconds": 0.015625
+      },
+      "content": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.03125,
+        "killed": false,
+        "outer_s": 0.0779999999795109,
+        "peak_commit": 11874304,
+        "total_processes": 2,
+        "user_seconds": 0.03125
+      },
+      "contentaudit": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.4375,
+        "killed": false,
+        "outer_s": 0.9220000000204891,
+        "peak_commit": 52903936,
+        "total_processes": 38,
+        "user_seconds": 0.4375
+      },
+      "independent": {
+        "active": 0,
+        "exit_code": 1,
+        "kernel_seconds": 0.15625,
+        "killed": false,
+        "outer_s": 0.6719999997876585,
+        "peak_commit": 27779072,
+        "total_processes": 2,
+        "user_seconds": 0.34375
+      },
+      "independent2": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.234375,
+        "killed": false,
+        "outer_s": 1.3440000000409782,
+        "peak_commit": 112009216,
+        "total_processes": 2,
+        "user_seconds": 0.890625
+      },
+      "pdfbuild": {
+        "active": 0,
+        "exit_code": 1,
+        "kernel_seconds": 0.046875,
+        "killed": false,
+        "outer_s": 0.4059999999590218,
+        "peak_commit": 59453440,
+        "total_processes": 2,
+        "user_seconds": 0.265625
+      },
+      "pdfbuild2": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.15625,
+        "killed": false,
+        "outer_s": 0.7339999999385327,
+        "peak_commit": 111087616,
+        "total_processes": 2,
+        "user_seconds": 0.578125
+      },
+      "pdfbuild3": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.171875,
+        "killed": false,
+        "outer_s": 1.125,
+        "peak_commit": 111247360,
+        "total_processes": 2,
+        "user_seconds": 0.75
+      },
+      "pdfbuild4": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.125,
+        "killed": false,
+        "outer_s": 0.9379999998491257,
+        "peak_commit": 111206400,
+        "total_processes": 2,
+        "user_seconds": 0.6875
+      },
+      "pdfbuild5": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.265625,
+        "killed": false,
+        "outer_s": 0.9369999999180436,
+        "peak_commit": 111120384,
+        "total_processes": 2,
+        "user_seconds": 0.546875
+      },
+      "render": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.140625,
+        "killed": false,
+        "outer_s": 2.702999999979511,
+        "peak_commit": 18997248,
+        "total_processes": 2,
+        "user_seconds": 2.5
+      },
+      "render2": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.125,
+        "killed": false,
+        "outer_s": 3.172000000020489,
+        "peak_commit": 19062784,
+        "total_processes": 2,
+        "user_seconds": 2.875
+      },
+      "render3": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.015625,
+        "killed": false,
+        "outer_s": 3.0,
+        "peak_commit": 18989056,
+        "total_processes": 2,
+        "user_seconds": 2.9375
+      },
+      "render4": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.015625,
+        "killed": false,
+        "outer_s": 3.030999999959022,
+        "peak_commit": 19038208,
+        "total_processes": 2,
+        "user_seconds": 2.9375
+      },
+      "supplement": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.046875,
+        "killed": false,
+        "outer_s": 0.06199999991804361,
+        "peak_commit": 10768384,
+        "total_processes": 2,
+        "user_seconds": 0.0625
+      }
+    },
+    "parent_elapsed_s_at_report": 7873.267036914825,
+    "parent_cap_s": 10800,
+    "initial_free_bytes": 342826438656,
+    "private_files_at_report": 92,
+    "private_bytes_at_report": 18328294,
+    "private_file_cap": 512,
+    "private_byte_cap": 134217728,
+    "physical_IO": "UNKNOWN;not inferred from logical document reads",
+    "final_staging_failed_outer_s": 1.0940000000409782
+  },
+  "source_code_lf_sha256": "c057e5396196874cd60e88361f820140beb1f3aaebf2723911bb7f933d09155b",
+  "prohibited_operations": {
+    "new_experiments": 0,
+    "training_updates": 0,
+    "model_forward": 0,
+    "GPU": 0,
+    "torch_import": 0,
+    "private_experiment_reads": 0,
+    "old_B0_cache_reads": 0,
+    "label_or_feature_reads": 0,
+    "media_reads_or_decodes": 0,
+    "research_or_literature_network": 0,
+    "environment_installs_or_dependency_edits": 0
+  },
+  "limitations": [
+    "DOCX export missing;PDF only is visually verified",
+    "Already-used50 source instances;seeds do not add independent sources",
+    "Family physical identities/pretraining exposure unknown",
+    "Publisher QA layer differs from strict51 layer",
+    "N only original2seeds;order2x2 only original2seeds;second Delta interval includes0",
+    "Absolute20%project target unmet;development negative outcomes retained",
+    "No full end-to-end public reproduction;no new algorithm or journal acceptance claim",
+    "064 size discrepancy cause UNKNOWN;old report not modified"
+  ],
+  "results_append_only": true,
+  "automatic_next_task": false,
+  "submission_or_sending_to_others": false,
+  "STOP_after_safe_push": true
+}

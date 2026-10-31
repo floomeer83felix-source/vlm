@@ -1201,3 +1201,11 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - 三张Matplotlib科研图各SVG+PNG，全部目视和结构检查通过：[全部seed](./papers/frozen-role-order-study/figures/fig1-seed-accuracy.svg)、[两种不确定性](./papers/frozen-role-order-study/figures/fig2-paired-intervals.svg)、[角色×顺序](./papers/frozen-role-order-study/figures/fig3-role-order.svg)。公共1251检查PASS；独立17973检查PASS，从原公开表另算81条件/14配对/2交互/350family边际/全部34区间及原门，核摘要、表图、证据和引用。格式微调及一次核验行序匹配修正分别记录，未改科学值或旧表；失败成本保留。
 - 一次[B0回溯窄桥接](./codex-artifacts/VLM-EMPIRICAL-PAPER-DRAFT-064/b0-cache-bridge.md)PASS：200/200逐键相等，绑定相同，原060输出seal验证；逻辑读取9821092B，无标签/特征，旧文件前后相同。单次7/50仅用原公开分数，不是新推理/评分，不追认062/063原seal。文献12次页面请求/8入口，第8入口403如实标记；无PDF/研究数据下载。
 - 所有自有CPU Jobs已active0，无kill，资源和软件修正见回执；Qwen/GPU/torch/model forward/训练/特征读取/媒体下载解码/环境更改/旧文件写入0。只交16处allowlist及单条append，普通安全推送main后STOP，无自动065或期刊投稿。
+
+
+### VLM-PAPER-REVIEW-REVISION-065
+
+- **2026-10-31 Asia/Shanghai; CONTENT_REVISION_COMPLETE_EXPORT_PARTIAL / ALL_NEGATIVE_RESULTS_RETAINED / NO_NEW_EXPERIMENT.** Clean main de35429, sole unreported READY065. [修订正文](./papers/frozen-role-order-study/review065/manuscript.md)6042正文汉字/双语摘要；[补充材料](./papers/frozen-role-order-study/review065/supplement.md)含34既有区间完整原精度索引、判据和分版本状态；[25条证据](./papers/frozen-role-order-study/review065/evidence-map.csv)、[逐条修改回应](./papers/frozen-role-order-study/review065/revision-response.md)、[8项审稿质疑](./papers/frozen-role-order-study/review065/reviewer-questions.md)、[回执](./codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/execution-receipt.md)、[摘要](./codex-artifacts/VLM-PAPER-REVIEW-REVISION-065/execution-summary.json)。原064/图表/科学代码只读。
+- 主线改为角色答题/交换响应、多种子优化复验、完整顺序对照及开发边界；C/N公式、train84标量RMS/锚规则、INVALID与unknown的原版本范围补准。C5.00%→D17.67%、净+12.67pp及D未达20%项目目标同时保留；开发733负值、新组合19例非两seed均改善、D557低于单次B0、第二Delta区间含0未删。B0不同监督/容量/输入处理，非同预算或普遍胜过基础模型；没有新算法/独立来源确认。
+- [PDF审阅版](./papers/frozen-role-order-study/review065/manuscript.pdf)10页，原两表/三PNG图嵌入；最后全部10页150dpi原尺寸目视，中文/公式/负号/表格/图/引用/页码无明显缺陷。独立214检查PASS，PDF全部汉字与MD、8完整URL、3原PNG像素一致，元数据脱敏，未import构建器/研究模块或重采区间。Word EXPORT_NOT_GENERATED：现有python-docx/Pandoc无可靠Word渲染器/bundled LO，不交未目视docx，不安装或使用用户Office会话。字体预检失败、3次排版修订及页码核验假设修正/失败成本保留。
+- 064不可变Git16路径1105663B、15新809017B、results完整296646B/增量2704B、新载荷含增量811721B；原1121474B差异原因UNKNOWN，不猜为已证实换行原因、不回填。065合同1–8实际7个最终暂存blob载荷**691504B**，排除回执/摘要/results，docx缺项，明细见回执。新实验/训练/模型/GPU/torch/私有实验读取/研究文献网络/媒体/环境更改0；只10处allowlist/单条append，普通安全push main后STOP，无自动066。
