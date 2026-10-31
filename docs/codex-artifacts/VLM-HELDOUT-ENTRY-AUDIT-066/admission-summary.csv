@@ -1,0 +1,36 @@
+dataset,subsource,stage,count,denominator,evidence_level,unknown
+DyBench,ALL,raw_rows,814,814,FIXED_PUBLIC_METADATA,physical source unknown
+DyBench,ALL,nominal_pairs,407,407,ORIGINAL_REVERSED_IDENTITY,not independent origins
+DyBench,Breakfast_and_50Salads,excluded_old_pairs,197,407,FIXED_CATEGORY_EXCLUSION,no private score census
+DyBench,VIDHALLUC,complete_pairs,191,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,event_parse_usable,191,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,event_parse_unresolved,0,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,direct_tau_closed_pairs,191,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,selected_pairs,50,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,explicit_higher_origin_keys,0,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,lowest_pair_identity_keys,191,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,duplicate_pair_identity_clusters,0,191,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,VIDHALLUC,publisher_four_cell_consistent,191,191,POST_SELECTION_PUBLISHER_STRUCTURE,not per-event media review
+DyBench,TempCompass,complete_pairs,19,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,event_parse_usable,0,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,event_parse_unresolved,19,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,direct_tau_closed_pairs,0,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,selected_pairs,0,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,explicit_higher_origin_keys,0,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,lowest_pair_identity_keys,19,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,duplicate_pair_identity_clusters,0,19,OBSERVATION_ONLY,physical origin and member-level strict chronology UNKNOWN
+DyBench,TempCompass,publisher_four_cell_consistent,NA,0,NOT_APPLICABLE,not per-event media review
+DyBench,VIDHALLUC_selected,publisher_four_cell_consistent,50,50,POST_SELECTION_PUBLISHER_STRUCTURE,0 failed/0 unknown;no re-selection
+TimeBlind,Temporal_Relation,raw_rows,2400,2400,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,temporal_tag_rows,432,2400,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,nominal_complete_four_index_blocks,108,108,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,qmajor_binding_verified,108,108,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,direct_original_tau_rows,0,432,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,format_incompatible_original_rows,432,432,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,explicit_event_field_rows,0,2400,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,unique_exact_video_pair_keys,108,108,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,Temporal_Relation,duplicate_exact_video_pair_clusters,0,108,STATIC_OFFICIAL_CODE_AND_PUBLIC_METADATA,tag not strict before;physical origin UNKNOWN
+TimeBlind,yes_no,temporal_complete_blocks,54,108,NATIVE_TYPE,DIRECT_ENTRY0
+TimeBlind,yes_no,publisher_diagonal_complement_blocks,54,54,POST_SELECTION_NATIVE_STRUCTURE,not current tau or strict before evidence
+TimeBlind,multiple_choice,temporal_complete_blocks,54,108,NATIVE_TYPE,DIRECT_ENTRY0
+TimeBlind,multiple_choice,publisher_diagonal_complement_blocks,54,54,POST_SELECTION_NATIVE_STRUCTURE,not current tau or strict before evidence

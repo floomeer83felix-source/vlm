@@ -1,0 +1,440 @@
+{
+  "task": "VLM-HELDOUT-ENTRY-AUDIT-066",
+  "date_asia_shanghai": "2026-10-31",
+  "status": "COMPLETE_METADATA_AUDIT_WITH_ONE_PROPOSED_ITEM_TRANSFER_ENTRY",
+  "sync_sha": "e43af758cdbd30e3c96688bc92710cee12644280",
+  "unique_unreported_READY": true,
+  "versions": {
+    "DyBench": "fc9a9e8dbd11107fa47f953f1367c0bcd2dbb405",
+    "TimeBlind_HF": "bafceda3a2bd0e5128c390ec25fdc54e470a743d",
+    "TimeBlind_code": "03129551918c0830f3ee727485eb9cfb437e21e5"
+  },
+  "observation_admission": {
+    "VIDHALLUC": {
+      "counts": {
+        "nominal_pairs": 191,
+        "complete_pairs": 191,
+        "parsed_pairs": 191,
+        "distinct_event_pairs": 191,
+        "direct_format_pairs": 191,
+        "candidate_groups": 191,
+        "repeated_group_clusters": 0,
+        "raw_rows": 382
+      },
+      "source_key_levels": {
+        "TWO_VIDEO_INSTANCE_ONLY": 191
+      }
+    },
+    "TempCompass": {
+      "counts": {
+        "nominal_pairs": 19,
+        "complete_pairs": 19,
+        "excluded_EVENT_PARSE": 19,
+        "candidate_groups": 0,
+        "repeated_group_clusters": 0,
+        "raw_rows": 38
+      },
+      "source_key_levels": {}
+    },
+    "DyBench": {
+      "rows": 814,
+      "nominal_pairs": 407,
+      "category_rows": {
+        "Breakfast": 294,
+        "50Salads": 100,
+        "VIDHALLUC": 382,
+        "TempCompass": 38
+      },
+      "excluded_old_categories": 2
+    },
+    "selection": {
+      "N": 50,
+      "groups": 50,
+      "by_category": {
+        "VIDHALLUC": 50
+      },
+      "unique_V": 100,
+      "unique_q": 100,
+      "tau_closure_union": 100,
+      "maximum": 50,
+      "skipped_whole_groups": 141
+    },
+    "literal_overlap_with_all_excluded_old_categories": {
+      "selected_instances_any_event_seen": 0,
+      "selected_instances_any_question_seen": 0,
+      "not_a_train_only_coverage_claim": true
+    },
+    "TimeBlind": {
+      "counts": {
+        "original_question_format_incompatible": 432,
+        "total_rows": 2400,
+        "temporal_tag_rows": 432,
+        "unique_temporal_indices": 432,
+        "nominal_four_index_blocks": 108,
+        "full_tag_blocks": 108,
+        "direct_tau_rows": 0,
+        "direct_tau_complete_blocks": 0,
+        "explicit_event_field_rows": 0
+      },
+      "observed_question_types": {
+        "yes_no": 1200,
+        "multiple_choice": 1200
+      },
+      "physical_source_independence": "UNKNOWN",
+      "status": "NO_DIRECT_ENTRY",
+      "official_block_semantics_at_admission": "STATIC_SOURCE_REVIEW_REQUIRED"
+    }
+  },
+  "publisher_structure": {
+    "DyBench": {
+      "VIDHALLUC": {
+        "publisher_four_cell_consistent": 191
+      },
+      "selected": {
+        "publisher_four_cell_consistent": 50
+      }
+    },
+    "TimeBlind": {
+      "diagonal_complement_pattern": 54,
+      "answer_structure_unknown": 54
+    }
+  },
+  "static_metadata_details": {
+    "TimeBlind": {
+      "unique_index_count": 2400,
+      "row_index_equals_position": true,
+      "index_collision_rows": 0,
+      "official_group_semantics_verified_static": true,
+      "official_role_order": [
+        "q0_i0",
+        "q0_i1",
+        "q1_i0",
+        "q1_i1"
+      ],
+      "group_checks": {
+        "blocks_yes_no": 54,
+        "qmajor_video_question_binding_pass": 108,
+        "block_aligns_global_index_div4": 108,
+        "blocks_multiple_choice": 54
+      },
+      "temporal_unique_exact_video_pair_keys": 108,
+      "temporal_repeated_exact_video_pair_clusters": 0,
+      "all_dataset_direct_tau_by_type": {},
+      "publisher_structure_by_native_type": {
+        "yes_no_diagonal_complement": 54,
+        "multiple_choice_diagonal_complement": 54
+      },
+      "not_strict_before_or_physical_independence_certification": true
+    },
+    "dy-tree": {
+      "entries": 12,
+      "file_entries": 10,
+      "known_media_bytes": 3955218481,
+      "event_archive_bytes": 2783546023,
+      "listed_direct_mp4_objects": 0
+    },
+    "tb-tree": {
+      "entries": 1000,
+      "file_entries": 999,
+      "event_archive_bytes": null,
+      "listed_direct_mp4_objects": 996,
+      "listed_media_bytes_first_page": 3192915547,
+      "scope": "PARTIAL_FIRST_PAGE_NOT_TOTAL_DATASET"
+    }
+  },
+  "source_relation": {
+    "available_DyBench_keys": [
+      "source_category dataset bucket",
+      "source_subcategory dataset bucket",
+      "original/reversed two-video identity"
+    ],
+    "VIDHALLUC_highest_provable_key": "CATEGORY_NAMESPACED_TWO_VIDEO_INSTANCE",
+    "TempCompass_highest_provable_key": "TWO_VIDEO_IDENTITY_ONLY",
+    "TimeBlind_highest_provable_key": "ROW_INDEX/FOUR_INDEX_INSTANCE/EXACT_TWO_VIDEO_PAIR",
+    "physical_source_independence": "UNKNOWN",
+    "pretraining_exposure": "UNKNOWN",
+    "cross_dataset_name_not_independence": true,
+    "unscored_claim_basis": "published historical task/category scope;no private result read",
+    "literal_old_category_overlap": {
+      "selected_instances_any_event_seen": 0,
+      "selected_instances_any_question_seen": 0,
+      "not_a_train_only_coverage_claim": true
+    }
+  },
+  "proposal": {
+    "main_entry": "DyBench VIDHALLUC selected50",
+    "claim_level": "UNSCORED_ITEM_TRANSFER_DESCRIPTION_ONLY",
+    "N": 50,
+    "heads": 12,
+    "seeds": [
+      137,
+      263,
+      419,
+      557,
+      733,
+      911
+    ],
+    "methods": [
+      "C_NATIVE",
+      "D_NATIVE"
+    ],
+    "train_updates": 0,
+    "V_call_upper": 100,
+    "text_tau_closure_call_upper": 100,
+    "feature_high_level_calls_upper": 200,
+    "head_single_cell_forwards": 2400,
+    "new_B0": 0,
+    "old_normalizer_refit": false,
+    "strict_logit_threshold": ">0 unchanged",
+    "physical_source_confirmed": false,
+    "media_reuse": "UNKNOWN",
+    "selected_decode_bytes": "UNKNOWN",
+    "GPU_outer_and_peak": "UNKNOWN_PENDING_NEW_CONTRACT",
+    "CPU_time_and_peak_disk": "UNKNOWN_PENDING_NEW_CONTRACT",
+    "execution_authorized_by_this_proposal": false
+  },
+  "network": {
+    "explicit_logical_requests": 9,
+    "request_cap": 12,
+    "obtained_raw_body_bytes": 1319344,
+    "body_cap": 10485760,
+    "single_body_max": 558546,
+    "single_body_cap": 2097152,
+    "redirects_observed": 4,
+    "client_visible_fetch_plus_redirects": 13,
+    "service_internal_HTTP_count": "UNKNOWN",
+    "compressed_wire_bytes": "UNKNOWN",
+    "failures": 0,
+    "retries": 0,
+    "switched_versions_or_mirrors": false,
+    "worker_outer_s": 13.171999999787658,
+    "supervised_outer_s": 13.375,
+    "supervised_cap_s": 120,
+    "requests": [
+      {
+        "key": "dy",
+        "state": "CLOSED",
+        "body_bytes": 388049,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": "fc9a9e8dbd11107fa47f953f1367c0bcd2dbb405",
+        "outer_s": 2.1410000000614673
+      },
+      {
+        "key": "dy-card",
+        "state": "CLOSED",
+        "body_bytes": 1906,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": "fc9a9e8dbd11107fa47f953f1367c0bcd2dbb405",
+        "outer_s": 1.7339999999385327
+      },
+      {
+        "key": "tb",
+        "state": "CLOSED",
+        "body_bytes": 558546,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": "bafceda3a2bd0e5128c390ec25fdc54e470a743d",
+        "outer_s": 2.2350000001024455
+      },
+      {
+        "key": "tb-card",
+        "state": "CLOSED",
+        "body_bytes": 2992,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": "bafceda3a2bd0e5128c390ec25fdc54e470a743d",
+        "outer_s": 1.7339999999385327
+      },
+      {
+        "key": "tb-code-card",
+        "state": "CLOSED",
+        "body_bytes": 3979,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": null,
+        "outer_s": 0.9690000000409782
+      },
+      {
+        "key": "tb-tags",
+        "state": "CLOSED",
+        "body_bytes": 46131,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": null,
+        "outer_s": 1.077999999979511
+      },
+      {
+        "key": "tb-utils",
+        "state": "CLOSED",
+        "body_bytes": 11820,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": null,
+        "outer_s": 1.0
+      },
+      {
+        "key": "dy-tree",
+        "state": "CLOSED",
+        "body_bytes": 1861,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": null,
+        "outer_s": 0.9690000000409782
+      },
+      {
+        "key": "tb-tree",
+        "state": "CLOSED",
+        "body_bytes": 304060,
+        "status": 200,
+        "content_encoding": "identity",
+        "revision_header": null,
+        "outer_s": 1.2649999998975545
+      }
+    ],
+    "TimeBlind_tree": "FIRST_PAGE1000_HAS_NEXT_LINK_NOT_FOLLOWED;listed sizes not total"
+  },
+  "roles": {
+    "observation_projection_answer_free": true,
+    "admission_sealed_before_publisher_structure": true,
+    "answers_visible_public_metadata": true,
+    "model_scores_visible_or_used": false,
+    "no_independent_blind_test_claim": true,
+    "selection_unchanged_after_structure": true,
+    "role_scope": "software dataflow separation,not OS access-control attestation"
+  },
+  "independent_review": {
+    "status": "PASS",
+    "checks": 8009,
+    "DyBench_rows": 814,
+    "DyBench_pairs": 407,
+    "VIDHALLUC_observation_candidates": 191,
+    "TempCompass_parse_failure": 19,
+    "selected_N": 50,
+    "publisher_DyBench_consistent": 191,
+    "publisher_selected_consistent": 50,
+    "TimeBlind_rows": 2400,
+    "TimeBlind_temporal_indices": 432,
+    "TimeBlind_nominal_blocks": 108,
+    "TimeBlind_blocks_by_type": {
+      "yes_no": 54,
+      "multiple_choice": 54
+    },
+    "TimeBlind_unique_file_pair_keys": 108,
+    "TimeBlind_direct_original_tau_rows": 0,
+    "publisher_TimeBlind_native_structure": {
+      "yes_no_diagonal_complement": 54,
+      "multiple_choice_diagonal_complement": 54
+    },
+    "tau_unchanged": true,
+    "selection_before_structure": true,
+    "qualified_projection_has_no_answers": true,
+    "model_scores_used": false,
+    "auditor_imported": false,
+    "raw_files_unchanged": true,
+    "original_preread_auditor_identity_verified": true
+  },
+  "software_history": {
+    "type_specific_detail_extension": "Initial yes/no-only TimeBlind structure54unknown retained;official native A/B mapping separately resolves54MC blocks after frozen admission;no parser/tau/selection change",
+    "review_initial_failure": "Independent verifier omitted category namespace from group key;corrected verifier only,original selection unchanged",
+    "failure_cost_retained": true,
+    "original_preread_auditor_hash_reconstructed_and_verified": true
+  },
+  "resources": {
+    "supervised_outer_s_at_report": 14.531000000191852,
+    "other_static_diagnostic_and_final_review_reserve_s": 15,
+    "total_charged_envelope_s": 29.531000000191852,
+    "total_cap_s": 300,
+    "network_in_total": true,
+    "job_memory_cap": 2147483648,
+    "peak_commit_bytes": 25337856,
+    "active_process_cap": 4,
+    "threads_cap": 4,
+    "all_recorded_jobs_active_zero": true,
+    "killed_jobs": 0,
+    "jobs": {
+      "admission": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_s": 0.2660000000614673,
+        "peak_commit": 22016000,
+        "total_processes": 2,
+        "user_seconds": 0.078125
+      },
+      "details": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.03125,
+        "killed": false,
+        "outer_s": 0.23400000017136335,
+        "peak_commit": 24780800,
+        "total_processes": 2,
+        "user_seconds": 0.15625
+      },
+      "network": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.109375,
+        "killed": false,
+        "outer_s": 13.375,
+        "peak_commit": 25337856,
+        "total_processes": 2,
+        "user_seconds": 0.3125
+      },
+      "review": {
+        "active": 0,
+        "exit_code": 1,
+        "kernel_seconds": 0.03125,
+        "killed": false,
+        "outer_s": 0.2029999999795109,
+        "peak_commit": 19288064,
+        "total_processes": 2,
+        "user_seconds": 0.0625
+      },
+      "review2": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.09375,
+        "killed": false,
+        "outer_s": 0.2029999999795109,
+        "peak_commit": 23662592,
+        "total_processes": 2,
+        "user_seconds": 0.0625
+      },
+      "structure": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_s": 0.25,
+        "peak_commit": 21188608,
+        "total_processes": 2,
+        "user_seconds": 0.109375
+      }
+    },
+    "parent_elapsed_s_at_report": 1360.9553742408752,
+    "parent_cap_s": 3600,
+    "initial_free_bytes": 342154407936,
+    "new_root_cap_bytes": 33554432,
+    "new_root_cap_files": 128,
+    "OS_physical_IO": "UNKNOWN"
+  },
+  "source_code_lf_sha256": "35b0111a0701a38a0432551a22bec8629042b1889ce11be7e233aa27418b9f12",
+  "prohibited_operations": {
+    "model_forward": 0,
+    "training": 0,
+    "GPU": 0,
+    "torch_or_scientific_module_import": 0,
+    "media_GET_HEAD_Range": 0,
+    "media_bytes_read": 0,
+    "private_old_asset_reads": 0,
+    "old_predictions_labels_features_weights_normalizers_read": 0,
+    "author_eval_or_judge_execution": 0,
+    "environment_changes": 0
+  },
+  "automatic_next_task": false,
+  "stop_after_safe_push": true
+}

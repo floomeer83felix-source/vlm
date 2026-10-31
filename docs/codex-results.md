@@ -1209,3 +1209,11 @@ time.monotonic限时、无超时强杀或A重试；AWS/新媒体/权重网络请
 - 主线改为角色答题/交换响应、多种子优化复验、完整顺序对照及开发边界；C/N公式、train84标量RMS/锚规则、INVALID与unknown的原版本范围补准。C5.00%→D17.67%、净+12.67pp及D未达20%项目目标同时保留；开发733负值、新组合19例非两seed均改善、D557低于单次B0、第二Delta区间含0未删。B0不同监督/容量/输入处理，非同预算或普遍胜过基础模型；没有新算法/独立来源确认。
 - [PDF审阅版](./papers/frozen-role-order-study/review065/manuscript.pdf)10页，原两表/三PNG图嵌入；最后全部10页150dpi原尺寸目视，中文/公式/负号/表格/图/引用/页码无明显缺陷。独立214检查PASS，PDF全部汉字与MD、8完整URL、3原PNG像素一致，元数据脱敏，未import构建器/研究模块或重采区间。Word EXPORT_NOT_GENERATED：现有python-docx/Pandoc无可靠Word渲染器/bundled LO，不交未目视docx，不安装或使用用户Office会话。字体预检失败、3次排版修订及页码核验假设修正/失败成本保留。
 - 064不可变Git16路径1105663B、15新809017B、results完整296646B/增量2704B、新载荷含增量811721B；原1121474B差异原因UNKNOWN，不猜为已证实换行原因、不回填。065合同1–8实际7个最终暂存blob载荷**691504B**，排除回执/摘要/results，docx缺项，明细见回执。新实验/训练/模型/GPU/torch/私有实验读取/研究文献网络/媒体/环境更改0；只10处allowlist/单条append，普通安全push main后STOP，无自动066。
+
+
+### VLM-HELDOUT-ENTRY-AUDIT-066
+
+- **2026-10-31 Asia/Shanghai; COMPLETE_METADATA_AUDIT_WITH_ONE_PROPOSED_ITEM_TRANSFER_ENTRY / PHYSICAL_SOURCE_INDEPENDENCE_UNKNOWN / NO_NEW_MODEL_RESULT.** Clean e43af75, sole unreported READY066 and required static reading. [准入报告](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/admission-report.md)、[聚合资格表](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/admission-summary.csv)、[冻结评估提案](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/evaluation-proposal.md)、[回执](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/execution-receipt.md)、[执行摘要](./codex-artifacts/VLM-HELDOUT-ENTRY-AUDIT-066/execution-summary.json)。只读固定9份公开元数据，1319344B/9逻辑请求，观察4次redirect，内部HTTP/压缩传输UNKNOWN；无重试/换版本/媒体。
+- DyBench814行/407名义对，旧Breakfast/50Salads197对全排除；VIDHALLUC191对完整、原Action1/2解析/不同规范化事件及未改tau闭包全部兼容，TempCompass19对原解析未决，NO_DIRECT_ENTRY。观察投影不含answer/candidates；资格/规则/50对名单先封存，再核publisher结构，191/191及选50/50一致，无答案或分数驱动换样。最高可证来源键仅子来源命名空间＋两视频身份，不是原录制/参与者。50对可提未评分条目迁移描述，不能叫独立确认。
+- TimeBlind2400行，432个Temporal_Relation行索引按官方静态角色映射为108四格组（yes/no54、多选54）；108视频/问题绑定和原生题型publisher互补通过。432候选原问题及全2400原问题直接tau兼容0，无显式事件字段，关闭直接套用D入口；不改parser/tau、不用另一互补问题替代派生。初始yes/no-only54多选未解释结果与后续官方A/B结构核验分别保留，不制造严格before/非重叠或物理独立证明。
+- 独立8009检查PASS，原始公开元数据重建分母/分区/投影/私有50对哈希顺序/闭包/原生标签结构，未import审计器/研究模块。核验首次漏组键命名空间而停止，修正核验公式后通过，名单/准入/网络未重跑，失败成本保留。只推荐旧六seed×C/D12冻结最终头、N50、V≤100/文本≤100、CPU头2400单格、训练0/B0新生成0的待审提案；媒体复用/解码/GPU/时间磁盘未知，须新合同及用户新指令。旧绝对20%失败不追认；模型/训练/GPU/媒体GET或HEAD/Range/私有旧资产读取/环境变化0。七处统一普通安全push main后STOP，无自动067。
