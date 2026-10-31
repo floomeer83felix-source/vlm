@@ -1,3 +1,5 @@
+> **ARCHIVED / 060_CLOSED / 不可执行（2026-10-31）。** [876eded交付](https://github.com/floomeer83felix-source/vlm/commit/876ededdcaa4038363fc92f9761462c42435e41c)已由[负责人验收](../../research-decisions/post-060-pool-transfer-disposition-2026-10-31.md)：带两次调用前软件检查修复的完整比较，1000真实更新、6056项均有效；来源A25=3/2、A68=3/0、P1_68=5/4、B0单次7，各N50，主门FAIL。停止此扩展配置，当前0 READY；不重跑、续额度或自动061。以下原合同和启动文字仅作历史保留，不构成新授权。
+
 # 060：训练池扩展与50Salads来源留出基线
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一新父任务；尚未执行。**
