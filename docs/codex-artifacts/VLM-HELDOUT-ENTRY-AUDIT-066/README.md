@@ -1,3 +1,5 @@
+> **归档：066已交付、验收关闭，不再READY。** [执行0eb6aae](https://github.com/floomeer83felix-source/vlm/commit/0eb6aae1a6f2f692a8b54bb1735bfbdaed7e432a)与[验收](../../research-decisions/post-066-admission-and-frozen-transfer-2026-10-31.md)：328公开检查/35CSV分母一致，VIDHALLUC固定50/191兼容对，其他两分支直接入口0。媒体/模型均未运行，只有条目迁移候选，不认证物理独立。新[067冻结评估](../VLM-FROZEN-ITEM-TRANSFER-067/README.md)为唯一条件READY，仍待用户本轮明确媒体/GPU授权；不继承066权限。以下原合同逐字保留，其READY/未来措辞只代表执行前时点，不得重跑。
+
 # 066 未评分样本的冻结验证入口核验
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付新父任务；CPU_METADATA_ONLY。** 依据[065验收与研究决策](../../research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)。一轮核实两个具体入口，提出一次性冻结评估方案或明确不可直接开展；不再排版、不训练、不执行模型或下载媒体。push后STOP。
