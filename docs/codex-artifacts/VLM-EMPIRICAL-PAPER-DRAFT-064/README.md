@@ -1,3 +1,5 @@
+> **归档：064已交付、验收关闭，不再READY。** [执行df50bf1](https://github.com/floomeer83felix-source/vlm/commit/df50bf1c8389d20418bc56b5641f13f8f8392bfa)完整初稿/三图/证据包与B0回溯桥接；[验收](../../research-decisions/post-064-draft-review-and-revision-2026-10-31.md)21447公开检查/34区间复现及三图目视通过，保留交付大小口径限制，不认证投稿就绪或新增科学发现。唯一新READY为[065实质修订与审阅版](../VLM-PAPER-REVIEW-REVISION-065/README.md)。以下原合同逐字保留，其READY及未来措辞仅代表执行前时点，不得重跑或继承预算。
+
 # 064：整理证据并完成时间问答实证论文初稿
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付新父任务；CPU_READ_ONLY_PAPER_DRAFT。** 依据[063验收与写作决策](../../research-decisions/post-063-disposition-and-paper-plan-2026-10-31.md)。安全同步文档main后，一轮完成允许的只读核对、复算/图表、完整论文正文和交付；push后STOP。无新训练/模型推理。
