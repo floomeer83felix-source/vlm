@@ -1,0 +1,212 @@
+{
+  "task": "VLM-MULTIEVENT-ENTRY-072",
+  "status": "PARTIAL_OR_NO_MULTIEVENT_ENTRY",
+  "scientific_status": "NOT_RUN_SOURCE_METADATA_UNAVAILABLE",
+  "resource_contract": "NOT_FULLY_MET_CONNECT_TIMEOUT_SCOPE_GAP",
+  "sync_sha": "3ebfb964a9ea21c25c357a76f84f564d0bc47467",
+  "code_lf_sha256": "6b83776dd4ba78e3345e3d8dcca1266bf16aa45439f034f5d366e29acd482fab",
+  "dataset": {
+    "repository": "anonymous-video-benchmark/toc_bench",
+    "requested_revision": "da3065053d958c38151304e33a42e138b1899eaf",
+    "authenticated_revision": "UNKNOWN_NO_API_RESPONSE",
+    "source_bodies_available": 0,
+    "source_identity": "NOT_AUTHENTICATED",
+    "license": "UNKNOWN_NOT_READ",
+    "source_categories": "UNKNOWN",
+    "overlap_original_recordings_pretraining": "UNKNOWN_NO_TEST"
+  },
+  "network": {
+    "planned_logical_GET_entries": 3,
+    "logical_entry_attempts": 1,
+    "HTTP_GET_sent": 0,
+    "HTTP_responses": 0,
+    "redirects": 0,
+    "API_status": "FAILED_TCP_CONNECT",
+    "README_status": "NOT_RUN",
+    "answer_final_status": "NOT_RUN",
+    "actual_body_bytes": 0,
+    "total_body_limit": 4194304,
+    "API_JSON_body_limit": 2097152,
+    "README_body_limit": 32768,
+    "worker_outer_seconds": 30.437000000150874,
+    "supervised_outer_seconds": 30.483999999938533,
+    "network_outer_limit": 180,
+    "supervisor_limit": 175,
+    "worker_deadline": 170,
+    "declared_socket_connect_timeout": 15,
+    "required_total_connect_limit": 15,
+    "aggregate_connect_elapsed": "NOT_SEPARATELY_METERED;trace remained inTCPconnect untilworkerouter30.437seconds",
+    "connect_scope": "stdlib socket.create_connection timeout is per native address,not a total connect deadline",
+    "native_address_attempts": "UNKNOWN",
+    "actual_read_phase": "NOT_REACHED",
+    "configured_no_progress_read_limit": 30,
+    "application_retries": 0,
+    "transport_or_physical_bytes": "UNKNOWN;bodybytecounter is not TCP/TLS traffic"
+  },
+  "stop": {
+    "stage": "TCP_CONNECT",
+    "reason_code": "API_TCP_CONNECT_TIMEOUT",
+    "evidence": "Traceback in socket.connect before conn.request;no HTTP status/body recorded",
+    "actual": {
+      "worker_outer_s": 30.437000000150874,
+      "body_bytes": 0,
+      "logical_entry_attempts": 1,
+      "GETsent": 0
+    },
+    "limit": {
+      "connect_total_s": 15,
+      "network_total_s": 180,
+      "body_bytes": 4194304
+    },
+    "completed_authenticated_files": 0,
+    "remaining_metadata_entries": 2,
+    "no_retry_or_replacement": true
+  },
+  "schema": {
+    "observation_calls": 0,
+    "root": "UNKNOWN",
+    "entry_collection": "UNKNOWN",
+    "QA_count": "NA",
+    "ordering3_actual": "NA",
+    "ordering4_actual": "NA",
+    "contract_claims": {
+      "total_QA": 2323,
+      "ordering_3": 52,
+      "ordering_4": 53
+    },
+    "claims_verified": false,
+    "mutually_exclusive_exclusions": "NOT_EVALUATED",
+    "duplicates": "NOT_OBSERVED"
+  },
+  "selection": {
+    "status": "NOT_RUN",
+    "actual_K": null,
+    "max_K": 24,
+    "eligible": "NA",
+    "selected_valid": "NA",
+    "selected_invalid": "NA",
+    "selected_unknown": "NA",
+    "observation_manifest_frozen": false,
+    "rule": "Ordering3/4;strip/collapse only;explicit temporalword/tau andpublisher uncertainty screening;first3IDs byUTF8;hashcanonical observations pervideo then globally;max24;no order-guided selection",
+    "candidate_content_not_judged": true
+  },
+  "native_plan": {
+    "status": "NOT_CONSTRUCTED",
+    "actual_questions": 0,
+    "label_plan": "NOT_READY",
+    "label_evidence_if_available": "PUBLISHER_ORDER_DERIVED_NOT_STRICT_FINISH_TIME",
+    "unique_V": "UNKNOWN",
+    "unique_q": "UNKNOWN",
+    "media_locators_sizes_identity": "UNKNOWN",
+    "accuracy": "NA",
+    "future_permissions": false
+  },
+  "symbolic_plan": {
+    "status": "NOT_CONSTRUCTED",
+    "actual_cells": 0,
+    "actual_relations": 0,
+    "conditional_max_if_K24": {
+      "native_questions": 144,
+      "permutation_question_cells": 864,
+      "directed_adjacent_edges": 288,
+      "edge_question_relations": 1728,
+      "flips": 576,
+      "holds": 1152
+    },
+    "these_are_arithmetic_contract_caps_not_observed_manifest_counts": true
+  },
+  "controlled_media": {
+    "status": "CONTROLLED_MEDIA_CONSTRUCTION_HOLD",
+    "boundaries": "NOT_OBSERVED",
+    "time_units_clock": "NOT_OBSERVED",
+    "unique_occurrence": "NOT_OBSERVED",
+    "nonoverlap": "NOT_OBSERVED",
+    "splice_rights_and_feasibility": "NOT_OBSERVED",
+    "no_claim_of_missing_fields_from_an_unread_dataset": true
+  },
+  "code_history": {
+    "download_budget_logging_supervisor_sealed_before_first_attempt": true,
+    "one_schema_observation_allowed_but_not_used": true,
+    "selection_constructor_full_code_seal": "NOT_REACHED_NO_AUTHENTICATED_SCHEMA",
+    "production_scope": "Acquisition/schemaobserver as executed;not an implementedvalidatedmanifestbuilder",
+    "download_code_not_retroactively_changed": true,
+    "blocked_review_sealed_after_acquisition": true,
+    "pre_acquisition_all_science_seal_claim": false
+  },
+  "verification": {
+    "status": "PASS_BLOCKED_STATE_WITH_RESOURCE_CAVEAT",
+    "checks": 21,
+    "source_import": false,
+    "network": 0,
+    "model": 0,
+    "raw_metadata_available": false,
+    "actual_body_bytes": 0,
+    "logical_entry_attempts": 1,
+    "HTTP_GET_sent": 0,
+    "HTTP_responses": 0,
+    "redirects": 0,
+    "remaining_entries": "NOT_RUN",
+    "stop_stage": "TCP_CONNECT",
+    "actual_worker_network_outer_s": 30.437000000150874,
+    "actual_supervised_network_outer_s": 30.483999999938533,
+    "declared_connect_timeout_s": 15,
+    "aggregate_connect_elapsed_s": "NOT_SEPARATELY_METERED",
+    "connect_deadline": "PER_ADDRESS_SOCKET_TIMEOUT_IS_NOT_A_TOTAL_PHASE_DEADLINE",
+    "resource_contract": "NOT_FULLY_MET_CONNECT_SCOPE_GAP",
+    "native_socket_address_attempts": "UNKNOWN",
+    "application_retries": 0,
+    "manifest_or_candidate_statistics": "NOT_OBSERVED_NOT_CONSTRUCTED",
+    "limitations": "No metadata/schema/selection/order/text/locator checks possible;no inference about source contents or permanent availability"
+  },
+  "costs": {
+    "network_supervised_outer_s": 30.483999999938533,
+    "CPU_supervised_outer_s": 0.1410000000614673,
+    "CPU_limit": 300,
+    "parent_wall_s_at_reporting": 544.5214400291443,
+    "parent_limit": 3600,
+    "peak_job_commit_bytes": 15118336,
+    "RAM_limit": 1073741824,
+    "active_process_limit": 2,
+    "threads": 1,
+    "new_root_files_at_reporting": 15,
+    "new_root_bytes_at_reporting": 17940,
+    "new_root_limit": 33554432,
+    "new_file_limit": 256,
+    "initial_free_bytes": 342897004544,
+    "minimum_free": 134217728
+  },
+  "supervision": {
+    "jobs": 2,
+    "actual_active_zero": true,
+    "acquisition_exit": 1,
+    "review_exit": 0,
+    "own_kills": 0,
+    "other_kills": 0
+  },
+  "prohibited_actuals": {
+    "old_private_research_reads": 0,
+    "torch_import": 0,
+    "model_forward": 0,
+    "GPU": 0,
+    "nvidia_smi": 0,
+    "media_GET_HEAD_Range": 0,
+    "video_download": 0,
+    "decode": 0,
+    "training": 0,
+    "paper_change": 0,
+    "install": 0,
+    "environment_change": 0
+  },
+  "limitations": [
+    "Transport stop,not a dataset-content rejection or scientific negative",
+    "Connection15s parameter didnot enforce a total logical phase cutoff;do not certifyfullresourcecompliance",
+    "No source body/schema/order/eventtext/locator/license validated;no frozen24orsixquestionmanifest constructed",
+    "No retry,otherentryGET,alternateversion/source,metadata substitution or follow-on task",
+    "Native multiquery and real rearrangement both remain unavailable;unread fields are unknown,not proved absent",
+    "No media/model/GPU authorization produced by this receipt;069paused,070stopped"
+  ],
+  "delivery": {
+    "allowed_paths": 7,
+    "status": "READY_FOR_SINGLE_SAFE_PUSH"
+  }
+}
