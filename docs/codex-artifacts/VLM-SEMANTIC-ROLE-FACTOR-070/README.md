@@ -1,3 +1,5 @@
+> **归档：070已完整交付并验收关闭，不再READY。** [82d6db9](https://github.com/floomeer83felix-source/vlm/commit/82d6db9775ce7d3b3778d08b37c58ef7ff855692)6000更新/33552有效项，FACTOR均值27.67%/23.33%但未过原全对照门，STOP_THIS_RECIPE。[验收](../../research-decisions/post-070-review-and-selector-intervention-2026-11-01.md)10220公开检查/16区间独立复现。下一唯一READY为[071冻结选择器干预](../VLM-FROZEN-SELECTOR-INTERVENTION-071/README.md)，不训练/调参，不把锚对照升级新方法；069继续暂停。以下原合同逐字保留，原READY/额度不再生效。
+
 # 070 交换不变分量选片、角色差分读出的受控CPU实验
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付父任务；BOUNDED_CPU_MECHANISM_PILOT。** 用户已要求继续机制探索、暂停论文。[方向与边界](../../research-decisions/post-068-exploration-priority-and-semantic-role-pilot-2026-11-01.md)。本地收到含本ID及本合同CPU范围的用户新启动指令后，一包完成实现、24配置实际训练、预测/封存评分/独立核验并统一push；不拆准备父任务，不继续069或写论文，不自动071。
