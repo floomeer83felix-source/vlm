@@ -1,0 +1,13 @@
+# 067 scientific disposition
+
+**BLOCKED_INPUT / INCOMPLETE.** No transfer accuracy, D−C difference, response difference, histogram count or confidence interval was observed. The result cannot support either a positive transfer claim or a negative scientific conclusion.
+
+The fixed 066 VIDHALLUC entry contains 50 two-video instances, 100 videos and 100 original-template questions with unchanged tau closure. Model, twelve old C/D heads and frozen normalizer identities passed. The existing archive matched the registered publisher content identity. However, a fixed selected member failed the contractual compressed≤32 MiB / uncompressed≤64 MiB conjunction. The planned set could not enter media preparation without changing the contract. Exact offending sizes/count were not persisted, so they remain unknown; there was no reinspection, replacement, download or cap change.
+
+No media extraction, decode, new feature extraction or head evaluation occurred. All **2,400 planned cells remain NOT_RUN**, with no accuracy denominator reduction. The planned 12 condition rows, six seed comparisons, four mean-interval rows and two complete 13-bin histogram structures are delivered with **NA**, never zero accuracy or fabricated zero frequencies. The 600 repeated four-cell evaluations would still represent only 50 distinct file-pair units; they were not executed.
+
+The intended comparison remains six frozen seeds 137/263/419/557/733/911, C_NATIVE versus D_NATIVE, the original 356,673-parameter head and strict logit>0. No training, checkpoint selection, statistic refitting or parameter change occurred. The planned positive-mean versus nonpositive-mean rule was not applied. Neither conditional bootstrap axis was evaluated; no p-value or substitute threshold was introduced.
+
+This was a publisher-QA-level item-transfer proposal, not certified strict member chronology or physical-source-independent confirmation. Public publisher answers had already been visible; it was not a new blind test. Source and pretraining independence remain UNKNOWN. The prior 063 relative-gain observation and failed 20% absolute target are unchanged; this blocked attempt rescues neither and refutes neither.
+
+Independent verification established the blocked operational state only (19 checks; no model forward, scorer import, archive reread or decode). Full scientific recomputation was impossible without predictions. See [execution receipt](./execution-receipt.md) and [machine-readable accounting](./execution-summary.json). This parent stops here without a revised sample, budget, retry or automatic follow-on experiment.

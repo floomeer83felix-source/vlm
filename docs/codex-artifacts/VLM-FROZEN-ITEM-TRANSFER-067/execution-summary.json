@@ -1,0 +1,222 @@
+{
+  "task": "VLM-FROZEN-ITEM-TRANSFER-067",
+  "status": "BLOCKED_INPUT",
+  "scientific_status": "INCOMPLETE",
+  "conclusion": "NA",
+  "stop": {
+    "status": "BLOCKED_INPUT",
+    "reason": "FIXED_ZIP_MEMBER_SIZE_ADMISSION_FAILED",
+    "evidence": "sealed source per-member compressed<=32MiB AND uncompressed<=64MiB conjunction failed before extraction loop",
+    "which_bound_and_offending_count": "UNKNOWN_NOT_PERSISTED",
+    "no_archive_reopen": true,
+    "archive_hash_bytes": 2783546023,
+    "extracted_members": 0,
+    "decoded_members": 0,
+    "qwen_loads": 0,
+    "head_forwards": 0
+  },
+  "sync_sha": "9f7439f6a7d0396107dced45d091c9302a029656",
+  "code_lf_sha256": "f22658a39d6233fd37308705c09ea298fc44746b4d63d88e90cc249edcb9d355",
+  "authorization": "Explicit current-round user authorization, 2026-11-01; existing package only",
+  "fixed_design": {
+    "dataset": "DyBench event_sequence VIDHALLUC",
+    "fixed_pairs": 50,
+    "fixed_videos": 100,
+    "fixed_questions": 100,
+    "tau_closure": 100,
+    "seeds": [
+      137,
+      263,
+      419,
+      557,
+      733,
+      911
+    ],
+    "heads": 12,
+    "head_parameters": 356673,
+    "planned_cells": 2400,
+    "planned_repeated_four_cells": 600,
+    "independent_pair_units": 50,
+    "source_independence": "UNKNOWN",
+    "publisher_QA_level": true,
+    "strict_member_chronology_certified": false
+  },
+  "admission": {
+    "original066_seals_and_members": "PASS",
+    "no_reselection": true,
+    "tau_interface": "UNCHANGED",
+    "old_head_and_normalizer_identity": "PASS_13_FILES",
+    "old_head_shape_and_finiteness": "PASS",
+    "model_weight_config_tokenizer_identity": "PASS",
+    "native_processor_model_code_identity": "PASS",
+    "old_started_ledger_closure": "PASS",
+    "exact_raw_question_collision_count": 0,
+    "archive_size": 2783546023,
+    "archive_publisher_content_identity": "PASS",
+    "zip_directory_preceding_safety_checks": "PASS",
+    "selected_member_size_conjunction": "FAIL",
+    "selected_directory_complete": false,
+    "archive_reread": false,
+    "model_input_collision_checks": "NOT_REACHED",
+    "media_source_relationship_checks": "NOT_REACHED"
+  },
+  "calls": {
+    "qwen_loads": 0,
+    "video_features": 0,
+    "text_features": 0,
+    "B0": 0,
+    "generate": 0,
+    "root_forward": 0,
+    "visual_forward": 0,
+    "decoder_forward": 0,
+    "decoder_layer_forward": 0,
+    "head_forward": 0,
+    "backward": 0,
+    "optimizer_step": 0,
+    "decoded_videos": 0,
+    "decoded_frames": 0,
+    "extracted_members": 0,
+    "nvidia_smi_commands": 0,
+    "gpu_lock_acquisitions": 0,
+    "network_research_requests": 0,
+    "downloads": 0,
+    "old_predictions_read": 0,
+    "old_training_labels_features_plans_read": 0
+  },
+  "states": {
+    "planned": 2400,
+    "CLOSED": 0,
+    "INVALID": 0,
+    "FAILED": 0,
+    "NOT_RUN": 2400,
+    "execution_unknown": 0,
+    "scoring_unknown": 2400
+  },
+  "costs": {
+    "supervised_outer_seconds": {
+      "asset": 25.79799999995157,
+      "media": 61.53100000019185,
+      "gpu": 0,
+      "evaluation": 0.125
+    },
+    "cpu_job_peak_commit_bytes": 821866496,
+    "gpu_job_peak_allocated_bytes": "NA_GPU_NOT_STARTED",
+    "gpu_job_ram_bytes": "NA_GPU_NOT_STARTED",
+    "parent_elapsed_seconds_at_reporting": 810.9794867038727,
+    "initial_free_bytes": 342591221760,
+    "archive_full_hash_logical_bytes": 2783546023,
+    "archive_full_hash_passes": 1,
+    "archive_directory_logical_bytes": "NOT_INSTRUMENTED_BOUND_16MiB_FROM_PASSED_CHECK",
+    "selected_compressed_payload_bytes": 0,
+    "extracted_bytes": 0,
+    "old_state_logical_bytes": 17222134,
+    "model_weight_identity_hash_bytes": 8875719344,
+    "model_weight_load_bytes": 0,
+    "new_feature_view_logical_bytes": 0,
+    "new_feature_tensor_payload_bytes": 0,
+    "successful_catalog_metadata_bytes": 2762077,
+    "failed_catalog_metadata_bytes": 2762077,
+    "schema_inspection_metadata_bytes": 42641,
+    "old_started_ledger_payload_read_and_hash_bytes": 549504,
+    "additional_static_metadata_reads": "Not individually instrumented; bounded exact-source reads, no recursive private search; no claim of exact physical IO",
+    "new_private_files_at_reporting": 28,
+    "new_private_bytes_at_reporting": 2453020,
+    "instrumented_old_metadata_logical_bytes": 6116299
+  },
+  "supervision": {
+    "jobs": 5,
+    "all_actual_active_zero": true,
+    "own_job_kills": 0,
+    "others_killed": 0,
+    "threads_limit": 4,
+    "CPU_RAM_cap_GiB": 8,
+    "active_process_limit": 4,
+    "phase_caps_seconds": {
+      "asset": 300,
+      "media": 900,
+      "gpu": 600,
+      "evaluation": 600,
+      "parent": 10800
+    }
+  },
+  "software": {
+    "full_science_supervisor_review_sealed_before_archive": true,
+    "integer_fixture_only": true,
+    "pre_media_schema_error": "Catalog expected bytes; registered media-plan uses size. Corrected once before media/decode/weights. Failed catalog cost retained.",
+    "research_failure_retry": 0,
+    "post_archive_scientific_code_changes": 0,
+    "unreached_branches": "GPU/prediction/scoring implementations sealed but not exercised in067"
+  },
+  "independent_review": {
+    "status": "BLOCKED_STATE_VERIFIED",
+    "checks": 19,
+    "scope": "Sealed code, private stop existence, Job closure, budgets and private-root bounds; no scientific table recomputation possible",
+    "limitations": "Offending member size/count was not persisted before assertion. Bound conjunction identified from original traceback, not an independent archive reread.",
+    "forward": 0,
+    "decode": 0,
+    "scorer_import": false
+  },
+  "tables": {
+    "condition_rows": 12,
+    "paired_rows": 6,
+    "interval_rows": 4,
+    "histogram_rows": 26,
+    "accuracy_values": "NA",
+    "histogram_counts": "NA"
+  },
+  "mean_intervals": [
+    {
+      "metric": "four_way",
+      "axis": "paired_unit",
+      "point_pp": "NA",
+      "lower_pp": "NA",
+      "upper_pp": "NA",
+      "draws": 0,
+      "planned_draws": 10000,
+      "status": "INCOMPLETE"
+    },
+    {
+      "metric": "four_way",
+      "axis": "seed",
+      "point_pp": "NA",
+      "lower_pp": "NA",
+      "upper_pp": "NA",
+      "draws": 0,
+      "planned_draws": 10000,
+      "status": "INCOMPLETE"
+    },
+    {
+      "metric": "question_invariant",
+      "axis": "paired_unit",
+      "point_pp": "NA",
+      "lower_pp": "NA",
+      "upper_pp": "NA",
+      "draws": 0,
+      "planned_draws": 10000,
+      "status": "INCOMPLETE"
+    },
+    {
+      "metric": "question_invariant",
+      "axis": "seed",
+      "point_pp": "NA",
+      "lower_pp": "NA",
+      "upper_pp": "NA",
+      "draws": 0,
+      "planned_draws": 10000,
+      "status": "INCOMPLETE"
+    }
+  ],
+  "limitations": [
+    "No frozen-head transfer result; no positive or negative scientific verdict",
+    "No replacement member, relaxed cap, split archive, new download or input retry",
+    "Public publisher answers already visible; this was not a new blind test",
+    "Physical source and pretraining independence remain UNKNOWN",
+    "No change to063 relative-gain observations or failed20percent absolute target",
+    "No follow-on execution authorized"
+  ],
+  "delivery": {
+    "allowed_paths": 9,
+    "status": "READY_FOR_SINGLE_SAFE_PUSH",
+    "final_push_receipt": "Private receipt and final user message after ordinary Git push"
+  }
+}

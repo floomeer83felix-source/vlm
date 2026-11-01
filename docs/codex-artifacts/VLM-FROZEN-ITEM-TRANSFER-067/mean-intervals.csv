@@ -1,0 +1,5 @@
+metric,axis,point_pp,lower_pp,upper_pp,draws,planned_draws,status
+four_way,paired_unit,NA,NA,NA,0,10000,INCOMPLETE
+four_way,seed,NA,NA,NA,0,10000,INCOMPLETE
+question_invariant,paired_unit,NA,NA,NA,0,10000,INCOMPLETE
+question_invariant,seed,NA,NA,NA,0,10000,INCOMPLETE
