@@ -1,0 +1,5 @@
+metric,axis,point_pp,lower_pp,upper_pp,draws,planned_draws,status
+four_way,paired_unit,11.0,5.0,17.666666666666668,10000,10000,CLOSED
+four_way,seed,11.0,8.0,13.333333333333334,10000,10000,CLOSED
+question_invariant,paired_unit,-41.0,-50.0,-32.0,10000,10000,CLOSED
+question_invariant,seed,-41.0,-44.0,-37.0,10000,10000,CLOSED

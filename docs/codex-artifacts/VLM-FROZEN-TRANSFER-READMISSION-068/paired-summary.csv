@@ -1,0 +1,7 @@
+seed,left,right,planned_items,evaluated_items,status,left_only,right_only,both_correct,both_wrong,unknown,net,delta_four_way_pp,invariant_net,question_invariant_delta_pp
+137,D_NATIVE,C_NATIVE,50,50,CLOSED,8,1,0,41,0,7,14,-22,-44
+263,D_NATIVE,C_NATIVE,50,50,CLOSED,7,0,0,43,0,7,14,-21,-42
+419,D_NATIVE,C_NATIVE,50,50,CLOSED,6,0,0,44,0,6,12,-16,-32
+557,D_NATIVE,C_NATIVE,50,50,CLOSED,2,0,0,48,0,2,4,-23,-46
+733,D_NATIVE,C_NATIVE,50,50,CLOSED,6,0,1,43,0,6,12,-20,-40
+911,D_NATIVE,C_NATIVE,50,50,CLOSED,7,2,0,41,0,5,10,-21,-42
