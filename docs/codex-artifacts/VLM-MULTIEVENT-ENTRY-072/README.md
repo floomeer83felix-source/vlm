@@ -1,3 +1,5 @@
+> **2026-11-01归档：072_CLOSED / ACCEPTED_BLOCKED_DELIVERY_WITH_CONNECT_DEADLINE_CAVEAT / SCIENTIFIC_NOT_RUN。** [9af6b12](https://github.com/floomeer83felix-source/vlm/commit/9af6b121b8253823469c93f3e9a7bcee3a81a662)首入口停于TCP连接，实际HTTP GET/响应/正文0，另两入口未运行；15秒socket timeout未落实整个连接阶段总deadline，不能认证完全资源合规。[负责人验收](../../research-decisions/post-072-connect-stop-and-offline-handoff-2026-11-01.md)106项公开检查通过，只验收阻断事实，未审查数据或构建清单。下文是原合同完整归档，不是当前许可；唯一条件READY转[073用户文件离线构建](../VLM-MULTIEVENT-OFFLINE-073/README.md)，文件未齐只等待，不重试下载器、不交空包。069继续暂停、070关闭。
+
 # 072 固定多事件数据入口、构建多问题清单，停止两事件换头
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一条件READY：METADATA_ONLY_AWAIT_EXPLICIT_START。** 用户要求继续探索且不写论文，071已完整验收，070配方仍关闭。依据[071验收/下一步](../../research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)。本包涉及一个新公开数据源，只有用户在本地Codex新消息明确072和**公开小元数据累计≤4MiB**后执行；原071下载0不转余额。未授权不发请求、不建研究根或消费父任务。这里无媒体/模型/GPU或训练权限。
