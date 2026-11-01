@@ -4,7 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-01（北京时间；[067阻断验收与068重准入](./research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)）。**唯一条件READY：[068同50对的新媒体预算准入与冻结评估](./codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/README.md)；AWAITING_REVISED_MEDIA_BUDGET_AUTHORIZATION。** 067按原单文件32/64MiB门在抽取前停止，709公开检查确认2400项NOT_RUN/统计NA，具体超限尺寸未持久化。068先保存100成员完整目录及聚合，再按总压缩3GiB/总解压4GiB、新根8GiB/free12GiB、解码50万帧/媒体CPU1800秒判定；通过则同包直接完成评估，不另拆准备。成员/模型/参数不变，GPU仍600秒/16GiB，训练下载0。待用户批准扩大媒体/解码/磁盘范围，不自动执行。
+> 更新：2026-11-01（北京时间；[068验收与069论文整合](./research-decisions/post-068-transfer-review-and-paper-integration-2026-11-01.md)）。**唯一READY：[069整合迁移结果并完成投稿准备稿](./codex-artifacts/VLM-TRANSFER-PAPER-INTEGRATION-069/README.md)。** 068完整2400有效项，冻结旧六组头在VIDHALLUC50对均D>C，C1.33%→D12.33%、+11pp，两轴95%区间[5,17.67]/[8,13.33]pp；问题不敏感71%→30%。负责人792公开检查和四区间独立复现通过。新条目迁移证据增强，绝对分数低、同构造管线/物理来源未知、原06320%失败保留，未证成核心新机制。
+>
+> 069一包修订双语摘要/正文/补充/证据映射，新增六seed迁移表图、完整38区间索引、投稿前贡献与限制清单，现有工具可核对的PDF/Word条件导出。只读公开材料，无训练/调参/私有读取/媒体/模型/GPU/下载或实际投稿，不为排版或追阳性再开实验；普通push后STOP。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -28,7 +30,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-FROZEN-TRANSFER-READMISSION-068 | P0 | **READY_WITH_REVISED_MEDIA_AUTH_GATE（唯一条件READY；AWAITING_REVISED_MEDIA_BUDGET_AUTHORIZATION）** | Codex，用户新批准后 | [068合同](./codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/README.md)：同50对先完整记录100成员目录/旧门超限计数，再按新总媒体预算连续进行同一次冻结评估；不单交目录准备 | 总压缩3GiB/解压4GiB、根8GiB/free12GiB、50万帧/媒体CPU1800秒；GPU600秒/16GiB/200特征、12旧头2400单格不变。无新授权不启动，超限先落事实再停止；10处交付push后STOP |
+| VLM-TRANSFER-PAPER-INTEGRATION-069 | P0 | **READY（唯一尚未交付；CPU_PUBLIC_PAPER_INTEGRATION）** | Codex，用户新指令触发 | [069合同](./codex-artifacts/VLM-TRANSFER-PAPER-INTEGRATION-069/README.md)：整合063及068新条目迁移，完成新版论文/补充/证据映射/六seed新图表/投稿前清单与条件导出 | 新旧样本/两轴分开，原34+新4区间、负结果/低绝对率/来源限制完整；无新实验/私有读取/下载/实际投稿，精确13处allowlist（2二进制可有据缺失），push后STOP |
+| VLM-FROZEN-TRANSFER-READMISSION-068 | P0 | **ACCEPTED_COMPLETE_FROZEN_ITEM_TRANSFER_WITH_SCOPE_LIMITS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [7884f83](https://github.com/floomeer83felix-source/vlm/commit/7884f830d61eb3f7d4b016726d374d6e0901c77f)：同50新条目、12冻结旧头/2400有效单格，六seed四格净+7/+7/+6/+2/+6/+5，均值+11pp | [验收](./research-decisions/post-068-transfer-review-and-paper-integration-2026-11-01.md)792公开检查/4区间独立复现。D12.33%低绝对水平、557单项下降/911不变、来源/像素token摘要未知保留，原20%失败不改，无新训练/调参 |
 | VLM-FROZEN-ITEM-TRANSFER-067 | P0 | **ACCEPTED_SAFE_INPUT_STOP_WITH_DIAGNOSTIC_GAP / SCIENTIFIC_NOT_RUN / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)：身份核验通过，原单文件32/64MiB conjunction失败；没有保存具体尺寸/计数，抽取/解码/模型0 | [验收](./research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)709公开检查、2400NOT_RUN和12/6/4/26NA一致，19私有检查仅核阻断状态。不是迁移完成或科学阴性；067关闭，新预算只在明确授权的068执行，固定名单不替换 |
 | VLM-HELDOUT-ENTRY-AUDIT-066 | P0 | **ACCEPTED_COMPLETE_METADATA_AUDIT / ONE_UNSCORED_ITEM_TRANSFER_CANDIDATE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [0eb6aae](https://github.com/floomeer83felix-source/vlm/commit/0eb6aae1a6f2f692a8b54bb1735bfbdaed7e432a)：固定VIDHALLUC50/191兼容对、100V/q闭包；TempCompass/TimeBlind直接入口0，媒体模型0 | [验收](./research-decisions/post-066-admission-and-frozen-transfer-2026-10-31.md)328公开检查/35CSV分母一致，不替代私有8009原文核验。只有未评分条目迁移候选，来源/解码/GPU可行性未认证；067等待新增授权，不自动评估 |
 | VLM-PAPER-REVIEW-REVISION-065 | P0 | **ACCEPTED_COMPLETE_CONTENT_AND_VERIFIED_PDF_WITH_DOCX_NOT_GENERATED / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [bfdf311](https://github.com/floomeer83felix-source/vlm/commit/bfdf311adae75daa7504a03f7905620853a56c7d)：正文6042汉字、两表三原图、34区间索引/25证据/8质疑，10页PDF逐页核；Word缺项如实保留 | [验收](./research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)：708公开检查，PDF全文汉字/小数/嵌图像素一致，载荷691504B可复算。065为内容完整/导出部分，未新增科学结果；066回到未评分成员验证可行性，不再排版或续训练 |

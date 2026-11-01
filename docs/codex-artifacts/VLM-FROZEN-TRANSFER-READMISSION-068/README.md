@@ -1,3 +1,5 @@
+> **归档：068已完整交付并验收关闭，不再READY。** [执行7884f83](https://github.com/floomeer83felix-source/vlm/commit/7884f830d61eb3f7d4b016726d374d6e0901c77f)2400有效项，六旧D头均优于C，均值1.33%→12.33%、+11pp；原20%失败/来源未知保留。[验收](../../research-decisions/post-068-transfer-review-and-paper-integration-2026-11-01.md)792公开检查/四区间独立复现，下一唯一READY为[069论文整合](../VLM-TRANSFER-PAPER-INTEGRATION-069/README.md)。以下原合同逐字保留，条件READY/授权等待仅代表执行前，不继承其额度。
+
 # 068 同50对的新媒体预算准入与一次冻结评估
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一条件READY：AWAITING_REVISED_MEDIA_BUDGET_AUTHORIZATION。** [067验收](../../research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)确认其在抽取/解码/模型之前停止；当前待批准的是本地媒体/解码/磁盘上限调整，**不是加大GPU或改变科学设计**。仅用户新消息明确批准068及本合同新限额后执行，一般“继续”或未用旧额度不自动启动。未获授权只报NEEDS_REVISED_068_BUDGET_AUTHORIZATION，不建实验根、不消耗任务或append结果。
