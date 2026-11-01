@@ -1,3 +1,5 @@
+> **2026-11-01归档：074_CLOSED / ACCEPTED_COMPLETE_FROZEN_NATIVE_EVALUATION_WITH_EXECUTION_CAVEATS / STOP_CURRENT_D_MULTIEVENT_TRANSFER。** [43379e6](https://github.com/floomeer83felix-source/vlm/commit/43379e60f4e388a4e976f7aa9611396d2078ed93)36头5184项全部有效，D−C均值+1.3889pp但仅2/6正、未过5/6门；FACTOR11.1111%仍低于ANCHOR13.1944%。[验收](../../research-decisions/post-074-review-and-video-dependence-audit-2026-11-01.md)1112项公开/交接元数据检查及10区间独立重算通过，后置核验/宿主资源缺口保留；不重跑/改门/复活070。唯一READY转[075缓存CPU视频依赖/结构校准](../VLM-VIDEO-DEPENDENCE-AUDIT-075/README.md)，无GPU/媒体/训练/论文。下文原074合同完整归档，原授权不转新任务。
+
 # 074 修正版24视频原生六问：一次冻结模型评估
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一条件READY：APPROVED_074_SCOPE / AWAITING_LOCAL_PACKAGE_HANDOFF。** [073验收](../../research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)接受部分交付但原清单准入FAIL；新任务修复已知根资格漏项并直接评估，不修跑073、不再单独交一轮准备报告。070继续关闭、069继续暂停。
