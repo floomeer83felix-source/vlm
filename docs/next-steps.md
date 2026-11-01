@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-01（北京时间；[072阻断验收与离线交接](./research-decisions/post-072-connect-stop-and-offline-handoff-2026-11-01.md)）。**唯一条件READY：[073本地元数据离线核验与完整清单构建](./codex-artifacts/VLM-MULTIEVENT-OFFLINE-073/README.md)，WAITING_USER_METADATA_FILES / OFFLINE_INPUT_GATE。** 072首入口停于TCP连接、实际HTTP GET/响应/正文0，另两项未运行；15秒socket timeout不是整个连接阶段硬deadline，全部资源合规不认证。106项公开检查通过，科学未运行，候选未被否定。069继续暂停、070保持关闭。
+> 更新：2026-11-01（北京时间；[073验收/074实际评估](./research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)）。**唯一条件READY：[074修正版24原生视频六问冻结评估](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)，AWAITING_074_MEDIA_AND_GPU_AUTHORIZATION_AND_PACKAGE。** 073真实构建但漏根无效标记，原24组含1无效/6未知标签，1952项负责人复核确认ADMISSION_FAIL；原失败保留，不当模型负结果。069暂停、070关闭。
 >
-> 下一步由用户提供固定revision三份原文件（api.json、README.md、answer_final.json，同目录总≤4MiB），073本身网络0。输入门通过后一包完成真正构造器、最多24组三事件六问及原排序派生标签、符号关系清单、独立核验和未来评估提案；选择域/原规则不变。缺失或身份不符只等待具体输入，不建073研究根、不交空阻断包、不重试网络；无视频/模型/GPU/训练/论文。未来媒体/物理时序仍HOLD，不把用户副本交叉一致冒充上游下载认证。七处交付push后STOP。
+> 下一步不单交准备包：负责人已按明确事后修正规则做元数据预览，先排2条根无效再保持原VLM072观察排名，新24组/144标签有效，保留原23组/改变1组，28精确问题/24媒体103041283B（98.27MiB）。待用户明确批准固定24媒体≤512MiB及GPU600秒/16GiB后，负责人打包媒体，本地Codex研究网络0，一包独立重建→解码→最多52高层Qwen特征→36冻结旧头5184单项→六问全对及配对区间。无新训练/剪接/论文；未授权或包未齐仅等待、不建根/交空包，旧073/070不恢复，原生分数不证明相关/无关时间干预。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-MULTIEVENT-OFFLINE-073 | P0 | **READY_WITH_USER_FILES（唯一条件READY；WAITING_USER_METADATA_FILES / OFFLINE_INPUT_GATE）** | Codex，用户明确交接本地三文件目录后 | [073合同](./codex-artifacts/VLM-MULTIEVENT-OFFLINE-073/README.md)：固定revision三文件总≤4MiB，输入门通过后一包实现构造器/最多24组三事件六问/原排序标签/独立核验 | 执行者网络0；缺文件仅等待不交空包，用户副本来源不冒称HTTPS认证；媒体/模型/GPU/训练/论文0，七处push后STOP |
+| VLM-MULTIEVENT-FROZEN-074 | P0 | **READY_WITH_EXPLICIT_MEDIA_GPU_AND_PACKAGE（唯一条件READY；AWAITING_074_MEDIA_AND_GPU_AUTHORIZATION_AND_PACKAGE）** | ChatGPT准备固定包、Codex明确新授权后执行 | [074合同](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)：根标记先排的事后修正版24V/144问，媒体发布103041283B/≤512MiB；GPU600秒16GiB/最多52特征高层调用，36旧头5184逻辑预测 | 修正规则/分母/36条件30配对65箱10区间已固定，一包直接实际评估；本地研究网络0、训练0、重排HOLD、论文0，未授权/包不齐不交空包，十处push后STOP |
+| VLM-MULTIEVENT-OFFLINE-073 | P0 | **ACCEPTED_PARTIAL_DELIVERY_WITH_IMPLEMENTATION_FAILURE / ADMISSION_FAIL / SCIENTIFIC_NOT_RUN / CLOSED（不修跑）** | Codex交付、ChatGPT验收 | [bb2adae](https://github.com/floomeer83felix-source/vlm/commit/bb2adae8dd640916a3903ebad07cec12b8fe339d)：24组144问/138有效6未知，漏根2无效标记中的1条选入；864符号格1728关系确实构建，无模型分数 | [验收](./research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)1952项原副本/公开检查确认覆盖FAIL；963复现不等于资格通过，原清单不准入，资源覆盖缺口保留，明确新074不倒填073 |
 | VLM-MULTIEVENT-ENTRY-072 | P0 | **ACCEPTED_BLOCKED_DELIVERY_WITH_CONNECT_DEADLINE_CAVEAT / SCIENTIFIC_NOT_RUN / CLOSED（不重试）** | Codex交付、ChatGPT验收 | [9af6b12](https://github.com/floomeer83felix-source/vlm/commit/9af6b121b8253823469c93f3e9a7bcee3a81a662)：连接阶段失败，GET/响应/正文0，源与清单未观察，K为NA | [验收](./research-decisions/post-072-connect-stop-and-offline-handoff-2026-11-01.md)106项公开检查通过；socket timeout不能认证总连接deadline，不把阻断当候选资格或科学负结果 |
 | VLM-FROZEN-SELECTOR-INTERVENTION-071 | P0 | **ACCEPTED_COMPLETE_FROZEN_SELECTOR_INTERVENTION / RETROSPECTIVE_DIAGNOSTIC / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e3f65b2](https://github.com/floomeer83felix-source/vlm/commit/e3f65b2c997f03b54ee0c9ad5d07d61dd2140f19)：训练均值对FACTOR/ANCHOR近似保分但21–22%单项改变，均匀权重明显降分，原完整答案0重算 | [验收](./research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)11414公开检查/32区间独立复现，28800有效项/精确别名守恒；无等效/定位/创新或冠军选择结论，070关闭/069暂停 |
 | VLM-SEMANTIC-ROLE-FACTOR-070 | P0 | **ACCEPTED_COMPLETE_CPU_PILOT_WITH_FAILED_ALL_CONTROLS_GATE / STOP_THIS_RECIPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [82d6db9](https://github.com/floomeer83felix-source/vlm/commit/82d6db9775ce7d3b3778d08b37c58ef7ff855692)：24配置6000步/33552有效项，FACTOR对D均值+10/+11pp但未稳定胜ANCHOR | [验收](./research-decisions/post-070-review-and-selector-intervention-2026-11-01.md)10220公开检查/16区间复现，原全门FAIL；不调参补seed或升级较好对照，不恢复069 |
