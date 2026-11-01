@@ -1,3 +1,5 @@
+> **用户暂停：PAUSED_BY_USER / NOT_READY（2026-11-01）。** 用户明确要求“继续探索，先不写论文内容”。当前main未见069交付；这不是069完成/失败，不消费其父任务。停止新增正文/图表/排版，保留已有草稿和旧065成果，不丢弃改动或杀其他进程。唯一新READY为[070缓存CPU机制实验](../VLM-SEMANTIC-ROLE-FACTOR-070/README.md)，[方向决策](../../research-decisions/post-068-exploration-priority-and-semantic-role-pilot-2026-11-01.md)。以下原合同逐字保留为历史，READY/写作要求不再生效，无论文恢复授权。
+
 # 069 整合迁移结果，完成普通学报投稿准备稿
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付父任务；CPU_PUBLIC_PAPER_INTEGRATION。** 按[068验收](../../research-decisions/post-068-transfer-review-and-paper-integration-2026-11-01.md)，一包完成实质论文修订、新图表/补充/证据映射、投稿前审查及现有工具可验证的导出。无新实验、选刊调查或实际投稿，push后STOP。
