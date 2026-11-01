@@ -1,3 +1,5 @@
+> **归档：071已完整交付验收关闭，不再READY。** [e3f65b2](https://github.com/floomeer83felix-source/vlm/commit/e3f65b2c997f03b54ee0c9ad5d07d61dd2140f19)28800有效逻辑项/16800新MLP/2400新别名/9600原缓存；训练均值保留FACTOR/ANCHOR的相近聚合成绩，但约21–22%单项预测改变，不能称等效。[验收](../../research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)11414公开检查/32区间独立复现。下一唯一条件READY为[072多事件数据准入和清单构建](../VLM-MULTIEVENT-ENTRY-072/README.md)，须明确新的≤4MiB公开元数据范围；媒体/GPU/模型/训练仍0，069暂停。以下原合同逐字保留，不继承额度或恢复071。
+
 # 071 冻结选择器干预：答题收益是否依赖问题变化的时间权重
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**READY，唯一尚未交付父任务；CPU_FROZEN_DIAGNOSTIC / TRAINING_ZERO。** 依据[070验收](../../research-decisions/post-070-review-and-selector-intervention-2026-11-01.md)，一包完成冻结模块干预、封存输出、配对评分和独立核验。070配方关闭，069继续暂停；不是新头搜索、三事件实验或论文内容。

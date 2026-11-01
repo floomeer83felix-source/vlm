@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-01（北京时间；[070验收与071冻结干预](./research-decisions/post-070-review-and-selector-intervention-2026-11-01.md)）。**唯一READY：[071冻结选择器干预](./codex-artifacts/VLM-FROZEN-SELECTOR-INTERVENTION-071/README.md)，零新训练；069继续PAUSED_BY_USER，不写论文。** 070完成6000更新/33552有效项，FACTOR两池27.67%/23.33%，相对D+10/+11pp；但source对D仅4/6正、两池对ANCHOR仅2/6正，原全对照门失败，关闭此配方。10220公开检查/16区间独立复现，不抹去收益也不把ANCHOR改名贡献。
+> 更新：2026-11-01（北京时间；[071验收与多事件数据入口](./research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)）。**唯一条件READY：[072多事件数据准入与固定问题清单](./codex-artifacts/VLM-MULTIEVENT-ENTRY-072/README.md)，METADATA_ONLY_AWAIT_EXPLICIT_START。** 071完整28800项/16800新MLP/2400新别名/9600原缓存，11414公开检查/32区间复现。FACTOR/ANCHOR的训练均值选择保留近似聚合分数但21–22%预测改变，均匀权重显著降低分数；不支持等效/语义定位，070停止结论不改。069继续暂停，不写论文。
 >
-> 071冻结全部四臂×六seed：只将选择器改成原train84投影后均值或均匀alpha，保持H/readout/MLP不变，复用9600原预测、最多19200新干预输出（精确输入别名不重问）。144条件/96配对/96注意/32区间/304箱，事后模块诊断，不做模型选择或三事件/新算法结论。CPU干预评分≤900秒、其他≤600秒/父10800秒，训练/GPU/Qwen/媒体/下载/论文0，十处交付push后STOP。
+> 下一步不再在两事件上换头：072固定TOC-Bench revision da3065053d958c38151304e33a42e138b1899eaf，最多三个小元数据GET/累计4MiB；核原生三/四事件排序，冻结最多24个唯一发布视频的三事件组并构建六问/原生order标签清单，同时把真实重排所需边界/时钟/许可缺口与仅符号六排列计划分开。必须用户本地新消息明确072及新元数据范围，不继承071下载0；无视频/模型/GPU/训练。七处交付push后STOP，原生媒体评估只有后续待审提案，候选不足不补样/换源/连续准备微批。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-FROZEN-SELECTOR-INTERVENTION-071 | P0 | **READY（唯一尚未交付；CPU_FROZEN_DIAGNOSTIC / TRAINING_ZERO）** | Codex，用户本地新指令触发 | [071合同](./codex-artifacts/VLM-FROZEN-SELECTOR-INTERVENTION-071/README.md)：冻结070全部24头，训练均值/均匀选择器，保持原读出，检验答题收益对问题变化时间权重的依赖 | 原9600缓存＋19200逻辑干预项，实际新答案≤19200/精确别名复用；144/96/96/32/304表，不重算原完整答案、不训练调参；十处push后STOP |
+| VLM-MULTIEVENT-ENTRY-072 | P0 | **READY_WITH_METADATA_START（唯一条件READY；METADATA_ONLY_AWAIT_EXPLICIT_START）** | Codex，用户明确新小元数据范围后 | [072合同](./codex-artifacts/VLM-MULTIEVENT-ENTRY-072/README.md)：固定版三个GET≤4MiB，实际核native多事件/事件文本/order/媒体映射，冻结最多24组并生成每视频六问及原生标签清单 | 原生清单与仅符号6排列/真实重排HOLD分开；无视频/模型/GPU/训练/论文，实际资格不足如实关闭入口，七处push后STOP |
+| VLM-FROZEN-SELECTOR-INTERVENTION-071 | P0 | **ACCEPTED_COMPLETE_FROZEN_SELECTOR_INTERVENTION / RETROSPECTIVE_DIAGNOSTIC / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e3f65b2](https://github.com/floomeer83felix-source/vlm/commit/e3f65b2c997f03b54ee0c9ad5d07d61dd2140f19)：训练均值对FACTOR/ANCHOR近似保分但21–22%单项改变，均匀权重明显降分，原完整答案0重算 | [验收](./research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)11414公开检查/32区间独立复现，28800有效项/精确别名守恒；无等效/定位/创新或冠军选择结论，070关闭/069暂停 |
 | VLM-SEMANTIC-ROLE-FACTOR-070 | P0 | **ACCEPTED_COMPLETE_CPU_PILOT_WITH_FAILED_ALL_CONTROLS_GATE / STOP_THIS_RECIPE / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [82d6db9](https://github.com/floomeer83felix-source/vlm/commit/82d6db9775ce7d3b3778d08b37c58ef7ff855692)：24配置6000步/33552有效项，FACTOR对D均值+10/+11pp但未稳定胜ANCHOR | [验收](./research-decisions/post-070-review-and-selector-intervention-2026-11-01.md)10220公开检查/16区间复现，原全门FAIL；不调参补seed或升级较好对照，不恢复069 |
 | VLM-TRANSFER-PAPER-INTEGRATION-069 | P0 | **PAUSED_BY_USER / NOT_READY（不写论文；无交付结论）** | Codex暂停、ChatGPT改方向 | 用户2026-11-01明确先继续探索，暂停[069论文整合](./codex-artifacts/VLM-TRANSFER-PAPER-INTEGRATION-069/README.md) | 当前main无069结果；保留旧稿和任何本地草稿，不伪造已完成/消费任务。不得继续正文/排版/投稿，只有070是当前执行入口 |
 | VLM-FROZEN-TRANSFER-READMISSION-068 | P0 | **ACCEPTED_COMPLETE_FROZEN_ITEM_TRANSFER_WITH_SCOPE_LIMITS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [7884f83](https://github.com/floomeer83felix-source/vlm/commit/7884f830d61eb3f7d4b016726d374d6e0901c77f)：同50新条目、12冻结旧头/2400有效单格，六seed四格净+7/+7/+6/+2/+6/+5，均值+11pp | [验收](./research-decisions/post-068-transfer-review-and-paper-integration-2026-11-01.md)792公开检查/4区间独立复现。D12.33%低绝对水平、557单项下降/911不变、来源/像素token摘要未知保留，原20%失败不改，无新训练/调参 |
