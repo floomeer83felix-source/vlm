@@ -1,0 +1,296 @@
+{
+  "B0_generate": 0,
+  "CLOSED": 5184,
+  "FAILED": 0,
+  "INVALID": 0,
+  "NOT_RUN": 0,
+  "Qwen_weight_loads": 1,
+  "automatic_followon": false,
+  "backward": 0,
+  "bootstrap_failure": {
+    "attempts": 2,
+    "corrected_worker_flags": "-I -B",
+    "decode_model_head_input_retries": 0,
+    "error": "ModuleNotFoundError torch because -S hides site-packages",
+    "failed_job_exit": 1,
+    "failed_job_retained": true,
+    "initial_worker_flags": "-I -S -B",
+    "no_install_or_environment_change": true,
+    "science_code_modified": false,
+    "stage": "CPU assets startup before any old asset read"
+  },
+  "cached_outputs": 0,
+  "code_lf_sha256": "f21a49142f8dfeca6fc2729a59119458a56295c6ca76259ae98f4369dc80d920",
+  "controlled_video_reordering": "HOLD",
+  "current_core_innovation": "UNCONFIRMED",
+  "data_network_requests": 0,
+  "environment_changes": 0,
+  "evidence_limits": [
+    "post073root-marker correction is retrospective, not preregistration or first blind selection",
+    "24release videoIDs are highest observed units; physical recording dependence unknown",
+    "publisher order is not certified strict completion or nonoverlap",
+    "native six-query answers do not test relevant/irrelevant real-video swaps",
+    "FACTOR controls do not revive070 or establish semantic selection",
+    "B0notrun; old four-cell results have different denominators",
+    "initialSflag bootstrap failure and post-output audit sealing timing retained; no blanket all-Jobs-exit0 or complete preexecution-audit claim",
+    "host/physicalIO/atomicdiskquota limits disclosed"
+  ],
+  "execution_unknown": 0,
+  "feature_aliases": 0,
+  "feature_reused": 0,
+  "feature_shapes": {
+    "V": [
+      6,
+      2560
+    ],
+    "h": [
+      2560
+    ]
+  },
+  "frozen_heads": 36,
+  "git_fetch_attempts": 1,
+  "git_push_attempts_planned": 1,
+  "independent_review": {
+    "learned_forward_replays": 0,
+    "new_current_text_CPU_tokenizations_for_identity_only": 28,
+    "old_token_regeneration": 0,
+    "post_output_closure_checks": 429,
+    "post_output_package_checks": 162,
+    "post_output_supplements_not_in_original_preexecution_seal": true,
+    "post_output_supplements_sealed_before_their_execution": true,
+    "pre_execution_oracle_status": "PASS",
+    "pre_execution_sealed_oracle_checks": 4922,
+    "selector_scorer_imports": 0
+  },
+  "main_gate": {
+    "D_minus_C_net_by_seed": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "disposition": "STOP_CURRENT_D_MULTIEVENT_TRANSFER",
+    "mean_six_way_difference_pp": 1.3888888888888888,
+    "passes": false,
+    "positive_seeds": 2,
+    "required_positive_seeds": 5,
+    "total_net": 2
+  },
+  "media_downloads": 0,
+  "methods": [
+    "C_NATIVE",
+    "D_NATIVE",
+    "CONCAT",
+    "FACTOR",
+    "REVERSE",
+    "ANCHOR"
+  ],
+  "new_feature_calls": {
+    "decoder_forward": 28,
+    "decoder_layer_forward": 1008,
+    "root_forward": 0,
+    "text_feature": 28,
+    "video_feature": 24,
+    "visual_forward": 24
+  },
+  "new_head_forward": 5184,
+  "new_output_aliases": 0,
+  "old_two_event_results": "UNCHANGED",
+  "optimizer": 0,
+  "paper_work": 0,
+  "parameters_per_head": 356673,
+  "peak_allocated_bytes": 8997079040,
+  "planned_logical_cells": 5184,
+  "resources": {
+    "active_process_limit": 4,
+    "cpu_job_ram_limit_bytes": 8589934592,
+    "cpu_threads": 4,
+    "current_free_bytes": 342546661376,
+    "decode_seconds": 33.51599999999962,
+    "extra_extracted_media_read_for_postaudit_bytes": 103041283,
+    "filesystem_scope": "periodic parent monitor and snapshots, not atomic hard filesystem quota",
+    "gpu_job_ram_limit_bytes": 34359738368,
+    "gpu_outer_seconds": 17.04700000000048,
+    "host_scope": "Git, editing, script/seal/report setup and selected metadata-shape reads outside workers not fully CPU/IO metered; parent wall includes them",
+    "initial_free_bytes": 342841692160,
+    "jobs": {
+      "assets": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 8.71875,
+        "killed": false,
+        "outer_limit_seconds": 180.0,
+        "outer_seconds": 53.34400000000096,
+        "peak_commit": 1292984320,
+        "total_processes": 4,
+        "user_seconds": 10.34375
+      },
+      "assets-bootstrap": {
+        "active": 0,
+        "exit_code": 1,
+        "kernel_seconds": 0.0625,
+        "killed": false,
+        "outer_limit_seconds": 180.0,
+        "outer_seconds": 0.14099999999962165,
+        "peak_commit": 14143488,
+        "total_processes": 2,
+        "user_seconds": 0.015625
+      },
+      "closure-audit": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 2.28125,
+        "killed": false,
+        "outer_limit_seconds": 120.0,
+        "outer_seconds": 6.561999999999898,
+        "peak_commit": 1040044032,
+        "total_processes": 4,
+        "user_seconds": 3.265625
+      },
+      "decode": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 3.640625,
+        "killed": false,
+        "outer_limit_seconds": 900.0,
+        "outer_seconds": 33.51599999999962,
+        "peak_commit": 1187835904,
+        "total_processes": 4,
+        "user_seconds": 28.046875
+      },
+      "gate": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.078125,
+        "killed": false,
+        "outer_limit_seconds": 30.0,
+        "outer_seconds": 0.7029999999995198,
+        "peak_commit": 25878528,
+        "total_processes": 2,
+        "user_seconds": 0.46875
+      },
+      "gpu": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 5.734375,
+        "killed": false,
+        "outer_limit_seconds": 600.0,
+        "outer_seconds": 17.04700000000048,
+        "peak_commit": 16997953536,
+        "total_processes": 4,
+        "user_seconds": 7.328125
+      },
+      "independent-review": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.921875,
+        "killed": false,
+        "outer_limit_seconds": 180.0,
+        "outer_seconds": 3.17200000000048,
+        "peak_commit": 784420864,
+        "total_processes": 4,
+        "user_seconds": 2.109375
+      },
+      "package-closure-review": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.109375,
+        "killed": false,
+        "outer_limit_seconds": 60.0,
+        "outer_seconds": 0.25,
+        "peak_commit": 10321920,
+        "total_processes": 2,
+        "user_seconds": 0.046875
+      },
+      "prediction": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 5.71875,
+        "killed": false,
+        "outer_limit_seconds": 200.0,
+        "outer_seconds": 44.57800000000134,
+        "peak_commit": 801021952,
+        "total_processes": 4,
+        "user_seconds": 10.46875
+      },
+      "scoring": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.0625,
+        "killed": false,
+        "outer_limit_seconds": 60.0,
+        "outer_seconds": 0.4849999999987631,
+        "peak_commit": 20099072,
+        "total_processes": 2,
+        "user_seconds": 0.296875
+      },
+      "unpack": {
+        "active": 0,
+        "exit_code": 0,
+        "kernel_seconds": 0.125,
+        "killed": false,
+        "outer_limit_seconds": 60.0,
+        "outer_seconds": 0.7029999999995198,
+        "peak_commit": 17698816,
+        "total_processes": 2,
+        "user_seconds": 0.34375
+      }
+    },
+    "logical_read_scope": "buffered explicit content reads, not physical OS IO or comprehensive OS access attestation",
+    "media_extracted_bytes": 103041283,
+    "model_identity_hash": {
+      "bytes": 8887284080,
+      "seconds": 10.218999999999141,
+      "status": "PASS"
+    },
+    "necessary_model_load_io": "single local load; weight_hash_bytes separately measured; physical load IO unmetered",
+    "old_read_bytes": {
+      "feature": 16803758,
+      "metadata": 3059951,
+      "state": 51646400
+    },
+    "old_read_limits": {
+      "feature": 134217728,
+      "metadata": 67108864,
+      "state": 67108864
+    },
+    "parent_limit_seconds": 10800,
+    "parent_wall_seconds_at_report": 1357.1162338256836,
+    "root_limit_bytes": 3221225472,
+    "root_limit_files": 2048,
+    "root_reporting_bytes": 291324825,
+    "root_reporting_files": 333,
+    "selected_compressed_payload_bytes": 103041283,
+    "source_three_metadata_limit_bytes": 25165824,
+    "source_three_metadata_logical_read_bytes": 5541591,
+    "start_persisted_before_first_sync": true,
+    "supervised_head_score_review_seconds": 55.04700000000048,
+    "supervised_preparation_seconds": 54.89099999999962,
+    "zip_container_hash_bytes": 103339934,
+    "zip_container_hash_passes": 1
+  },
+  "scientific_disposition": "STOP_CURRENT_D_MULTIEVENT_TRANSFER",
+  "scoring_unknown": 0,
+  "seeds": [
+    137,
+    263,
+    419,
+    557,
+    733,
+    911
+  ],
+  "status": "COMPLETE_FROZEN_NATIVE_EVALUATION_WITH_EXECUTION_CAVEATS",
+  "sync_main_sha": "ad55b950c8f65a674fe0f62cfe2e77c1ecdcb269",
+  "tables": {
+    "conditions": 36,
+    "histogram_bins": 65,
+    "intervals": 10,
+    "pairs": 30
+  },
+  "task": "VLM-MULTIEVENT-FROZEN-074",
+  "text_calls": 28,
+  "training_updates": 0,
+  "video_calls": 24
+}

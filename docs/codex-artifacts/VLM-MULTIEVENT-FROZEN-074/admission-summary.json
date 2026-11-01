@@ -1,0 +1,78 @@
+{
+  "actual_decode_frames": 19110,
+  "collision_checks": {
+    "old_RGB_057060068": "NO_EXACT_MATCH",
+    "old_media_057060068": "NO_EXACT_CONTENT_MATCH",
+    "old_prepared_pixels_068": "NO_EXACT_MATCH",
+    "old_prepared_pixels_tokens_057060": "UNKNOWN_NO_REGISTERED_SUMMARY",
+    "old_text_feature_string": "NO_REGISTERED_EXACT_REUSE_NEEDED",
+    "old_text_tokens_068": "NO_EXACT_MATCH; matching original serialization audited post-output"
+  },
+  "controlled_media": "HOLD; no event boundaries, source clock, unique nonoverlap certificate or splice rights established",
+  "eligible_unique_published_videos": 91,
+  "format_counts": {
+    "mcq_4": 1355,
+    "numerical": 300,
+    "ordering_3": 52,
+    "ordering_4": 53,
+    "sp": 563
+  },
+  "handed_selection_vs_rebuilt": "24ordered observation objects equal; generated questions and publisher labels independently match",
+  "label_level": "PUBLISHER_ORDER_DERIVED / EXACT_COMPLETE_ORDER; strict completion, nonoverlap and occurrence uniqueness not certified",
+  "media_hash_crc_size_before_decode": "PASS",
+  "media_max_published_bytes": 10989839,
+  "native_questions": 144,
+  "no_labels": 72,
+  "observed_upstream_https": false,
+  "old_source_and_pretraining_exposure": "UNKNOWN",
+  "package_bytes": 103339934,
+  "package_declared_payload_SHA256_and_handed_label_crosscheck": "PASS_POST_OUTPUT_SUPPLEMENT; not falsely represented as pre-model check",
+  "package_media_members": 24,
+  "package_members": 33,
+  "package_payload_members": 32,
+  "partition": {
+    "ELIGIBLE_OBSERVATION": 91,
+    "EXPLICIT_TEMPORAL_WORD_IN_EVENT": 12,
+    "NOT_ORDERING": 2218,
+    "PUBLISHER_ROOT_INVALID": 2
+  },
+  "physical_source_recording_participant_independence": "UNKNOWN",
+  "prepared_frames_per_video": 12,
+  "previous073_comparison": "23retained/1changed is leader preview; no old073private manifest was read",
+  "processor_grid": [
+    6,
+    14,
+    14
+  ],
+  "processor_pixels_shape": [
+    1176,
+    1536
+  ],
+  "provenance": "USER_SUPPLIED_FIXED_REVISION_COPY / OFFLINE_CROSS_FILE_IDENTITIES_MATCH",
+  "published_and_actual_media_bytes": 103041283,
+  "raw_rows": 2323,
+  "revision": "da3065053d958c38151304e33a42e138b1899eaf",
+  "rights": "mixed-source card does not relicense third-party media; no public redistribution",
+  "root_invalid_rule": "NOT_ORDERING then explicit root list exclusion then unchanged073eligibility",
+  "selected_formats": {
+    "ordering_3": 6,
+    "ordering_4": 18
+  },
+  "selected_k": 24,
+  "selected_order_invalid": 0,
+  "selected_order_valid": 24,
+  "selected_unknown": 0,
+  "selection_rule": "original VLM072/select/full SHA256 then canonical observation UTF8; per release video minimum then first24; first3eventIDs UTF8",
+  "source_bytes": 1847197,
+  "source_files": 3,
+  "source_identity": "API revision/size/Git blob cross-match; ordinary Git metadata identities",
+  "source_transport_exception": "leader reports25logical entries/1storage reacquisition for24files; original zero-reacquisition contract not retrospectively passed; no local data request",
+  "status": "PASS_FIXED_074_NATIVE_INPUTS",
+  "temporal_axis_evidence": "unchanged068interface/runtime source identities and model identities verified; native clock and real prepared grid checked",
+  "unique_exact_question_inputs_including_tau": 28,
+  "unique_published_video_ids": 1951,
+  "unique_qa_ids": 2323,
+  "unknown_labels": 0,
+  "visual_spatial_pool": "main visual merger294x2560 to6x49x2560, mean spatial axis",
+  "yes_labels": 72
+}
