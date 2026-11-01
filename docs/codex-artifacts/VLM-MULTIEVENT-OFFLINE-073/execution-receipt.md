@@ -1,0 +1,31 @@
+# 073 execution receipt
+
+2026-11-01 Asia/Shanghai. **PARTIAL_OR_NO_MULTIEVENT_ENTRY / NOT_ADMITTED_ROOT_REPAIR_MARKER_COVERAGE_FAILURE.** The supplied input passed the offline identity gate and formal construction ran once. A preselection eligibility omission was detected after construction; the frozen diagnostic manifest is not admitted for evaluation. No replacement selection, source substitution or rerun was made.
+
+## Authorization and synchronization
+
+Clean independent document checkout safely fetched and fast-forwarded main from9af6b12 to40fc09eef5941fdcf567d93a6afc8c57d7e60fdf. AGENTS, current task board/overview/results,073README,072contract/acceptance and referenced071public evidence were read.073 was the sole conditional READY and had no earlier result. The user explicitly supplied one local ZIP instead of a directory; only its three uniquely named metadata members were buffered, without general extraction or execution of attached content. Git fetch and final push are the explicitly requested repository transports; all dataset/metadata/media network operations were0.
+
+## Gate, seals and execution
+
+The one input preflight took0.078s, read three original contents totaling1,847,197B and a separately counted278,367B ZIP container. Sizes:API452,690B,README6,416B,answer bundle1,388,091B. No HTML, ambiguous target member, private/gated source, revision mismatch, size mismatch or content-identity mismatch was found. Both registered content files are ordinary Git blob SHA1 identities, not LFS objects. The immutable private source set is one copy, with input identities retained privately. Provenance is USER_SUPPLIED_FIXED_REVISION_COPY / OFFLINE_CROSS_FILE_IDENTITIES_MATCH; no observed upstream download, signature or browser traffic certification.
+
+The input-gate code was hashed before that read. One shape-only observation was made under a bounded Job; a later6,416B card-only read gathered source/rights/semantics evidence without QA selection. Complete producer, independent verifier, input seal and supervisor were frozen before fixtures/formal selection. Code LF SHA256:`9301a77000f78ff9884265358258e8a175712d68b39c36a09a0a7c3af8917755`. This executed code was not patched after STARTED. A later separately sealed coverage diagnostic is explicitly post-formal, not retroactively part of the original seal.
+
+Formal construction persisted STARTED, then observation-only ranked selection/exclusions before accessing selected correct_order. It froze24groups,144native questions,864symbolic cells and1,728symbolic relations.138native labels are valid and6unknown; the24-position denominator is retained. The exact062regex/template and VLM072/select/ domain were retained. A pure integer/text fixture checked six questions/36cells/72relations/24flip/48hold; it is software validation only, with no features or research accuracy.
+
+## Failure and verification scope
+
+The first independent verifier passed963checks, rebuilding source identities, unique collection, observed exclusions/ranking, full frozen manifests, native labels/tau bindings, all symbolic entries/relations and aggregates without importing/calling producer helpers. These checks reproduced the implementation, but omitted a required contract rule: root repair_summary explicitly lists two retained invalid QA IDs. The producer only checked per-row uncertain/unresolved/pending/ambiguous markers and never consulted that root list for eligibility. One flagged record survived to the92eligible observations and was selected; the other was already excluded by the temporal-word rule. The selected flagged record has4event IDs but only3unique original order IDs, omitting1. Its six native labels were correctly left unknown, but that does not cure the earlier selection omission.
+
+A post-formal, separately sealed8-check raw-input diagnostic independently confirmed this coverage failure. Full scientific admission is FAIL, despite reproducibility PASS. No corrected selection or replacement was produced, no failed group was removed, and no scientific negative/accuracy was inferred. Public code is the unchanged executed implementation with this known defect; it is not represented as contract-compliant or ready for future evaluation.
+
+## Resources and closure
+
+Five bounded stdlib/single-thread Jobs (observe/fixture/construct/verify/coverage) all exit0/actualactive0/no kill; outer times0.203/0.140/12.453/1.125/0.125s, total14.046s/300s; peak25,784,320B/1GiB; active limit2. The coverage worker exits normally while reporting scientific FAIL. The input preflight was not Job-supervised and its measured0.078s is separately disclosed; small host-side seal/card/report operations are not all included in these Job times. No physical I/O or process-wide access attestation is claimed.
+
+Three-source logical reads11,542,288B/24MiB include successful gate, observation(two API reads), card evidence, source sealing, construction, verifier and coverage diagnostic. ZIP278,367B is separately counted. Static code, derived artifacts and closure reads are outside the source-content tally. Initial free-space predicate>=128MiB passed before root creation, but its exact free-byte value was not persisted. Root snapshots and current free space are recorded in the summary; these are not filesystem hard quotas. Exact parent start before synchronization was not persistently metered; tracked input-gate creation and final closure times are provided, so full parent-wall coverage is not falsely certified.
+
+No dataset network, media GET/HEAD/Range/read/decode, model/processor/torch/features/GPU/nvidia-smi, training/forward, environment installation/change, old private research read or paper writing. Exactly seven sanitized paths and one append-only result are delivered; original metadata/IDs/member hashes/questions/labels/mappings stay private. One ordinary safe main push, then STOP; no automatic074, retry, model/media or writing.
+
+Delivery-only checker initially compared Git LF content with historical working-tree CRLF bytes and stopped before staging. It was corrected to compare normalized Git content; the historic prefix remained identical, all seven paths/privacy checks passed. No scientific code/input/selection/labels changed.

@@ -1,0 +1,15 @@
+# Conditional native evaluation inventory — HOLD
+
+**Not an execution-ready plan.**073 closes with a known preselection implementation defect and one invalid full order among the24fixed positions. Do not run these artifacts as an admitted dataset, drop the failing group, replace it, repair answers or automatically rerun construction. No follow-on execution is authorized.
+
+The actual inventory is24published video inputs and144logical native questions, of which138labels are valid and6unknown. Only26unique exact question strings occur, including the original062tau closure. Exact feature-input reuse would therefore require at most24video-feature plus26text-feature calls=50high-levelQwen calls, rather than mechanically claiming168; sharing questions never merges video/question prediction cells.36frozen heads(C/D and the070four arms, all six fixed seeds) would still have5,184logical item predictions. No head/seed/checkpoint may be chosen from these outcomes; no actual predictions or accuracy were produced here.
+
+Published size for all24locators sums102,878,207B(~98.11MiB),max10,989,839B, below the former512MiBproposal. These are API-declared bytes with exact-ID filename mappings, not fetched media verification. Passing that size bound does not rescue eligibility, missing label, third-party permission, source dependence or input-interface readiness. Media duration/frame/decode cost and actual token geometry are unknown; the supplied schema supplies no event-time units or media clock.
+
+If an independently reviewed future contract ever admits a valid fixed set, the frozen old interface would still require real12frame inputs/six tubelets and the original layers/statistics/thresholds, with byte-identical question-feature reuse. Prior proposed caps(600sGPU/16GiBallocated,512MiBmedia,newroot3GiB,100,000decodedframes/900s) remain conditional ceilings only, not validated actual costs or this round's permissions. Native unknown/invalid states stay in any predeclared logical denominator; accuracy cannot be computed by removing them. The present invalid selection is not retrospectively approved by such a convention.
+
+Highest available sampling unit is24publisher video IDs, not144independent questions or5,184independent predictions. Original recording/participant dependence, old-source overlap and pretraining exposure remain UNKNOWN. New question surfaces do not make publicly released event-order answers blind.
+
+The separate symbolic inventory comprises144abstract permutation variants,864question cells and1,728relations(576flip/1,152hold). It has no corresponding real reordered media. A real controlled-video proposal cannot be made executable without explicit segment boundaries, time units/source clock, unique occurrences/nonoverlap, and source-specific cutting/distribution/use permission; its144variants cannot consume the native24video budget by implication. **CONTROLLED_MEDIA_CONSTRUCTION_HOLD.**
+
+No automatic074, extra source acquisition, media/model/GPU/training, tuning or paper work. Current disposition:retain diagnostic sealed artifacts and disclosed defect, stop this execution round.
