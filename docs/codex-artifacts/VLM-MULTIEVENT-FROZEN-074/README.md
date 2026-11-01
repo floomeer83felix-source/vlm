@@ -1,6 +1,8 @@
 # 074 修正版24视频原生六问：一次冻结模型评估
 
-2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一条件READY：AWAITING_074_MEDIA_AND_GPU_AUTHORIZATION_AND_PACKAGE。** [073验收](../../research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)接受部分交付但原清单准入FAIL；新任务修复已知根资格漏项并直接评估，不修跑073、不再单独交一轮准备报告。070继续关闭、069继续暂停。
+2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一条件READY：APPROVED_074_SCOPE / AWAITING_LOCAL_PACKAGE_HANDOFF。** [073验收](../../research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)接受部分交付但原清单准入FAIL；新任务修复已知根资格漏项并直接评估，不修跑073、不再单独交一轮准备报告。070继续关闭、069继续暂停。
+
+> **当前状态：用户已明确批准上述074新范围，原生包已完整取得/核验（24视频103041283B；ZIP103339934B/33文件）。** [授权与包回执](./source-package-receipt.md)。本地只待用户新消息交接具体ZIP路径，不再次申请同一媒体/GPU授权；本地执行预算/角色隔离不变；负责人取得发生一次已披露存储补取，原零重取约束不追认，见回执。负责人打包不是本地模型已运行，本ID没有执行结果，模型/解码/训练仍0。包内`source-package-manifest.json`明确33项允许集合，其元数据/规则/观察/标签/取得回执等均为本合同交接内容，不得据此多读其他源。
 
 ## 1 先取得明确授权和完整本地包，不空转
 

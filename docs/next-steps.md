@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-01（北京时间；[073验收/074实际评估](./research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)）。**唯一条件READY：[074修正版24原生视频六问冻结评估](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)，AWAITING_074_MEDIA_AND_GPU_AUTHORIZATION_AND_PACKAGE。** 073真实构建但漏根无效标记，原24组含1无效/6未知标签，1952项负责人复核确认ADMISSION_FAIL；原失败保留，不当模型负结果。069暂停、070关闭。
+> 更新：2026-11-01（北京时间；[074授权与固定媒体包](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/source-package-receipt.md)）。**唯一条件READY：[074原生六问冻结评估](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)，APPROVED_074_SCOPE / AWAITING_LOCAL_PACKAGE_HANDOFF。** 用户已明确批准固定24媒体≤512MiB/GPU600秒16GiB/52以内特征/36旧头5184逻辑预测；负责人已取得/核完24原视频103041283B，完整私有ZIP已准备。只待本地用户新消息交接具体包路径，不再申请相同范围；模型/解码/训练0，073失败保留/070关闭/069暂停。
 >
-> 下一步不单交准备包：负责人已按明确事后修正规则做元数据预览，先排2条根无效再保持原VLM072观察排名，新24组/144标签有效，保留原23组/改变1组，28精确问题/24媒体103041283B（98.27MiB）。待用户明确批准固定24媒体≤512MiB及GPU600秒/16GiB后，负责人打包媒体，本地Codex研究网络0，一包独立重建→解码→最多52高层Qwen特征→36冻结旧头5184单项→六问全对及配对区间。无新训练/剪接/论文；未授权或包未齐仅等待、不建根/交空包，旧073/070不恢复，原生分数不证明相关/无关时间干预。
+> 下一步直接一包实际评估：本地Codex核33项交接包和根标记先排的事后修正版24V/144标签/28问题，再解码/最多52高层Qwen特征/36冻结旧头5184单项及六问全对/配对区间。负责人已完成媒体获取，不让本地重试072下载器；本地研究网络0/训练0/论文0。只缺具体本地路径时等待输入，不交空阻断包；不把数据包完成冒充074科学交付，真实相关/无关重排仍HOLD。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-MULTIEVENT-FROZEN-074 | P0 | **READY_WITH_EXPLICIT_MEDIA_GPU_AND_PACKAGE（唯一条件READY；AWAITING_074_MEDIA_AND_GPU_AUTHORIZATION_AND_PACKAGE）** | ChatGPT准备固定包、Codex明确新授权后执行 | [074合同](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)：根标记先排的事后修正版24V/144问，媒体发布103041283B/≤512MiB；GPU600秒16GiB/最多52特征高层调用，36旧头5184逻辑预测 | 修正规则/分母/36条件30配对65箱10区间已固定，一包直接实际评估；本地研究网络0、训练0、重排HOLD、论文0，未授权/包不齐不交空包，十处push后STOP |
+| VLM-MULTIEVENT-FROZEN-074 | P0 | **READY_APPROVED_SCOPE_LOCAL_PACKAGE_HANDOFF（唯一条件READY；新范围已批准，待本地ZIP路径）** | ChatGPT媒体包已核完、Codex用户新消息后执行 | [074合同](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)及[授权/包回执](./codex-artifacts/VLM-MULTIEVENT-FROZEN-074/source-package-receipt.md)：24媒体103041283B/33项完整包，用户已批准≤512MiB/GPU600秒16GiB/52特征/5184逻辑预测 | 本地独立核包后同轮解码→冻结模型→评分核验；研究网络/训练/论文0，模型尚未运行；不再申请同一授权，包路径缺失只等输入不交空包，十处push后STOP |
 | VLM-MULTIEVENT-OFFLINE-073 | P0 | **ACCEPTED_PARTIAL_DELIVERY_WITH_IMPLEMENTATION_FAILURE / ADMISSION_FAIL / SCIENTIFIC_NOT_RUN / CLOSED（不修跑）** | Codex交付、ChatGPT验收 | [bb2adae](https://github.com/floomeer83felix-source/vlm/commit/bb2adae8dd640916a3903ebad07cec12b8fe339d)：24组144问/138有效6未知，漏根2无效标记中的1条选入；864符号格1728关系确实构建，无模型分数 | [验收](./research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)1952项原副本/公开检查确认覆盖FAIL；963复现不等于资格通过，原清单不准入，资源覆盖缺口保留，明确新074不倒填073 |
 | VLM-MULTIEVENT-ENTRY-072 | P0 | **ACCEPTED_BLOCKED_DELIVERY_WITH_CONNECT_DEADLINE_CAVEAT / SCIENTIFIC_NOT_RUN / CLOSED（不重试）** | Codex交付、ChatGPT验收 | [9af6b12](https://github.com/floomeer83felix-source/vlm/commit/9af6b121b8253823469c93f3e9a7bcee3a81a662)：连接阶段失败，GET/响应/正文0，源与清单未观察，K为NA | [验收](./research-decisions/post-072-connect-stop-and-offline-handoff-2026-11-01.md)106项公开检查通过；socket timeout不能认证总连接deadline，不把阻断当候选资格或科学负结果 |
 | VLM-FROZEN-SELECTOR-INTERVENTION-071 | P0 | **ACCEPTED_COMPLETE_FROZEN_SELECTOR_INTERVENTION / RETROSPECTIVE_DIAGNOSTIC / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [e3f65b2](https://github.com/floomeer83felix-source/vlm/commit/e3f65b2c997f03b54ee0c9ad5d07d61dd2140f19)：训练均值对FACTOR/ANCHOR近似保分但21–22%单项改变，均匀权重明显降分，原完整答案0重算 | [验收](./research-decisions/post-071-review-and-multievent-entry-2026-11-01.md)11414公开检查/32区间独立复现，28800有效项/精确别名守恒；无等效/定位/创新或冠军选择结论，070关闭/069暂停 |

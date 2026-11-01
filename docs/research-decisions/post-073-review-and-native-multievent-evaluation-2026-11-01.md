@@ -1,3 +1,5 @@
+> **同日后续：074新范围已经用户明确批准，固定24段原视频已取得并完成身份/包核验。** [授权与包交接](../codex-artifacts/VLM-MULTIEVENT-FROZEN-074/source-package-receipt.md)。当前仅待用户向本地Codex交接具体ZIP路径，不再申请同一预算；没有074模型/解码/训练结果。下文保留批准前的验收与设计时点，073失败不倒填。
+
 # 073验收：保留选样缺陷，074一次完成修正版原生多问题评估
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。执行：[bb2adae8dd640916a3903ebad07cec12b8fe339d](https://github.com/floomeer83felix-source/vlm/commit/bb2adae8dd640916a3903ebad07cec12b8fe339d)。下一[074合同](../codex-artifacts/VLM-MULTIEVENT-FROZEN-074/README.md)。
