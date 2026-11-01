@@ -1,3 +1,5 @@
+> **归档：067已获对应轮授权并执行前置准入，现已阻断、验收关闭，不再READY。** [执行891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)与[验收](../../research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)：原32/64MiB单文件门在抽取前触发，具体尺寸/计数未持久化，2400项NOT_RUN/科学统计NA，解码/模型0。原067不可放宽或恢复；唯一新[068重准入与冻结评估](../VLM-FROZEN-TRANSFER-READMISSION-068/README.md)待用户批准新媒体预算。以下原合同逐字保留，其待授权/READY/未来措辞只代表执行前时点，不得继承未用余额。
+
 # 067 固定VIDHALLUC条目的一次性冻结评估
 
 2026-10-31（北京时间）｜ChatGPT研究负责人。**唯一条件READY：AWAITING_EXPLICIT_MEDIA_GPU_AUTHORIZATION。** [066验收](../../research-decisions/post-066-admission-and-frozen-transfer-2026-10-31.md)已完成；本合同可供批准，**尚未获得本轮媒体/GPU执行授权**。仅用户新消息明确批准067及本合同既有媒体/解码/一次冻结GPU范围后，才可一轮连续执行。一般“继续”、上轮成功或旧GPU余额不算授权；无明确授权时只报NEEDS_EXPLICIT_067_AUTHORIZATION，不建实验根、不消耗任务、不追加结果。授权后按下列阶段完成/有界停止、统一push后STOP，不中途追加授权/预算。

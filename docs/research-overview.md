@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-10-31（北京时间；[066验收与067合同](./research-decisions/post-066-admission-and-frozen-transfer-2026-10-31.md)）。**066已验收，唯一条件READY：[067固定条目冻结评估](./codex-artifacts/VLM-FROZEN-ITEM-TRANSFER-067/README.md)，仍待本轮明确媒体/GPU授权。** 328公开检查/35CSV行通过；VIDHALLUC191对兼容、固定选50，TempCompass/TimeBlind原接口入口0，无新增模型分数。
-> 当前判断：已有可提出一次冻结评估的未评分条目入口，尚非媒体就绪或独立来源确认。067只拟复用既有包/100视频，单次Qwen≤200特征调用、GPU≤600秒/allocated16GiB，再以六旧seed C/D12头评估2400单格；训练/新B0/统计重拟合0。用户须新消息明确批准，通用继续不授权。结果仅检验条目迁移，原20%失败/停止结论不变，核心创新仍0，TimeBlind模型NOT_RUN。
+> 更新：2026-11-01（北京时间；[067验收与068重准入](./research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)）。**067按原输入门安全阻断，科学未运行；唯一条件READY：[068新媒体预算准入与冻结评估](./codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/README.md)，待用户批准本地媒体/解码/磁盘范围调整。** 709公开检查确认2400项NOT_RUN、统计NA；归档/资产身份通过，具体触限尺寸未落盘，非科学负结果。
+> 当前判断：修正的是资源准入准备和失败诊断，不是模型。068同50名单先存100成员目录，再按总压缩3GiB/解压4GiB、根8GiB/free12GiB、50万帧/媒体CPU1800秒连续准入；合格后直接完成既有12头的首次新条目评估，不再拆准备轮。GPU仍≤600秒/16GiB、特征≤200、头2400单格、训练下载0；新授权前不执行。原相对收益/20%失败/来源未知/核心创新0与TimeBlind模型NOT_RUN均不变。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -25,11 +25,18 @@
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
 
-**2026-10-31最新：066找到一个原接口兼容的未评分条目入口，下一冻结评估仍待新授权。** [交付0eb6aae](https://github.com/floomeer83felix-source/vlm/commit/0eb6aae1a6f2f692a8b54bb1735bfbdaed7e432a)固定DyBench814/407，旧Breakfast/50Salads197对排除；VIDHALLUC191对观察资格/原tau闭包兼容、按最低配对身份＋类别命名空间整体哈希排序固定50对，余141非按分数剔除。100V/100q与tau并集100，publisher191/191及选50/50一致。TempCompass19原解析未决，TimeBlind432标签行/108四格组、yes/no及多选各54，直接tau在432及全2400原题均0；关闭直接套用这两入口，不改题或tau。
+**2026-11-01最新：067停在输入资源门，不能对迁移效果作结论。** [交付891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)同50成员/tau、旧12头/统计、模型/native及旧账本身份通过；2783546023B归档完整SHA一次通过。原单文件compressed≤32MiB AND uncompressed≤64MiB断言在目录快照/抽取循环前失败，具体哪道界、大小/超限数和成员总量未持久化，保持UNKNOWN。抽取/解码/Qwen/GPU/旧头forward/训练全0；2400项全部NOT_RUN，12条件/6配对/4区间/26箱频数NA而非0。负责人709公开检查/静态停止位置核对通过，执行者19检查只核阻断状态，不认证未执行分支。[完整验收](./research-decisions/post-067-input-stop-and-media-readmission-2026-11-01.md)。
+
+原单文件门没有所选目录实测依据，缺少失败前落盘使下一步无法据实判断预算。此为资源准备/诊断不足，不是算法失败，也不能放宽旧067掩盖。资产25.798秒/媒体61.531秒/核验0.125秒共87.454秒，GPU0；身份hash、未计静态读量和目录字节未知范围保留。旧相对收益与绝对20%失败不受影响。
+
+**唯一条件新任务068：一次新预算包，同50对先记录证据，通过就直接评估。** 所有100成员完整目录及公开聚合先于大小门；仅总压缩≤3GiB、解压≤4GiB，不再用单文件32/64MiB门，根≤8GiB/free≥12GiB、解码≤500000帧/1800秒。科学设计、原tau/特征、12旧头/统计、2400单格及四均值区间不变，GPU仍≤600秒/16GiB，无训练/下载。新包先核067没有已STARTED解码/模型，不能用新ID重试科学调用；所有失败存实际值/上限，不再无信息停止。新范围尚待用户批准，未授权不执行；[068合同](./codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/README.md)。
+
+
+**先前066结论：找到一个原接口兼容的未评分条目入口；其后067在媒体准入停止。** [交付0eb6aae](https://github.com/floomeer83felix-source/vlm/commit/0eb6aae1a6f2f692a8b54bb1735bfbdaed7e432a)固定DyBench814/407，旧Breakfast/50Salads197对排除；VIDHALLUC191对观察资格/原tau闭包兼容、按最低配对身份＋类别命名空间整体哈希排序固定50对，余141非按分数剔除。100V/100q与tau并集100，publisher191/191及选50/50一致。TempCompass19原解析未决，TimeBlind432标签行/108四格组、yes/no及多选各54，直接tau在432及全2400原题均0；关闭直接套用这两入口，不改题或tau。
 
 负责人328项公开聚合/静态/Git检查与35CSV分母一致，未读取私有原文/名单重建成员；执行者8009项独立原文核验报告PASS，初次核验遗漏组键命名空间后修正，不改选择。9显式请求/1319344B、4重定向与服务内部未知分报，29.531秒保守监督包络；媒体/模型/GPU/训练/旧私有读取0。最高来源键只有两视频实例，物理同源/预训练UNKNOWN；“未评分”来自公开任务类别范围，不是独立来源证明。完整范围见[验收](./research-decisions/post-066-admission-and-frozen-transfer-2026-10-31.md)。
 
-**唯一条件新任务067：冻结已有配方，评估同50个固定新条目。** 没有新训练：六新seed既有C/D最终头、旧train84统计/阈值，2400单格；新增模型工作仅一次冻结Qwen100V＋100q特征，GPU≤600秒/allocated≤16GiB，既有包身份/100成员解码在GPU前有界准入。完整时按六seed平均答题差正/非正作描述，绝对性能/每seed/不敏感及四个条件区间完整报告；不追认063原20%，不申报独立泛化或新机制。直方图公开复算均值区间，不上传逐例正确性。[067合同](./codex-artifacts/VLM-FROZEN-ITEM-TRANSFER-067/README.md)。当前**AWAITING_EXPLICIT_MEDIA_GPU_AUTHORIZATION**；无用户本轮明确授权只报告待授权，不消费任务或自动启动。
+**067原设计（现已交付阻断并关闭）：冻结已有配方，评估同50个固定新条目。** 没有新训练：六新seed既有C/D最终头、旧train84统计/阈值，2400单格；新增模型工作仅一次冻结Qwen100V＋100q特征，GPU≤600秒/allocated≤16GiB，既有包身份/100成员解码在GPU前有界准入。完整时按六seed平均答题差正/非正作描述，绝对性能/每seed/不敏感及四个条件区间完整报告；不追认063原20%，不申报独立泛化或新机制。直方图公开复算均值区间，不上传逐例正确性。[067合同](./codex-artifacts/VLM-FROZEN-ITEM-TRANSFER-067/README.md)。当前**AWAITING_EXPLICIT_MEDIA_GPU_AUTHORIZATION**；无用户本轮明确授权只报告待授权，不消费任务或自动启动。
 
 
 **先前065结论：修订稿与可审阅PDF通过验收，Word仍未生成；其后066入口核验已完成。** [交付bfdf311](https://github.com/floomeer83felix-source/vlm/commit/bfdf311adae75daa7504a03f7905620853a56c7d)6042正文汉字、中英摘要、两原表三原图、8完整文献、25重映射证据、34原精度区间索引、10项修订回应/8项审稿质疑齐全。负责人708公开检查与10页逐页目视通过，PDF全部汉字和小数token与MD一致，3嵌图像素与原PNG一致；没有新增评分/区间抽样或私有访问。[完整验收](./research-decisions/post-065-review-and-heldout-entry-2026-10-31.md)。
