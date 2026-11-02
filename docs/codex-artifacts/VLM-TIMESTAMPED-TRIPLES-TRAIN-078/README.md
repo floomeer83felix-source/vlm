@@ -1,7 +1,7 @@
 # 078 真实RGB三事件：完整基线、冻结特征与匹配监督训练
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。
-**唯一条件READY：AWAIT_EXPLICIT_078_MEDIA_GPU_TRAIN_APPROVAL。** [077验收](../../research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)后的一次完整新父包；077关闭不续跑，076本入口停止、D/070关闭、069暂停。**用户本次仅反馈077交付，尚未批准078新范围。** 同意后负责人登记授权，本地新消息明确078即可一包执行，不在相同范围再请示。
+**唯一READY：APPROVED_078_INTEGRATED_MEDIA_GPU_TRAIN_SCOPE / AWAIT_FRESH_078_START。** 用户已于2026-11-02明确批准本合同完整媒体/GPU/CPU训练范围，[授权回执](./authorization-receipt.md)。[077验收](../../research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)后的一次完整新父包；077关闭不续跑，076本入口停止、D/070关闭、069暂停。原授权条件已满足，本地新消息明确078即可连续完成本包；同范围不再请示。以下数据、代码、算法、事前门及资源限额保持。
 
 ## 1 启动、范围与来源
 

@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-11-02（北京时间）。**077按启动阻断验收关闭，唯一条件READY为[078完整RGB+匹配训练包](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)，待新媒体/GPU/训练范围明确批准。** [验收](./research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)65公开检查；Windows native4>合同1、0.125秒杀自己Job，正式构建/资格/数据oracle/训练NOT_RUN。原生/compute线程混同的门槛由负责人纠正；不将077说成数据或科学阴性。另有未执行schema/压缩最大值/owner有序绑定问题，已用新078metadata组件在原包实际22987项独立检查通过，不倒填077。
-> 当前判断：076失败与停止当前入口不变，077尚无新模型证据。078一次metadata准入/32源真实RGB六排列/完整B0与只读hook特征/三臂同参数六seed4500步/独立评估，最多1428root、GPU3600秒16GiB、媒体768MiB；旧quota不继承，同范围批准后不重复请示。数据全来自官方train的20/4/8开发划分，138问句、29动作文本，原始物理来源/可见性/预训练重叠UNKNOWN；无新外源/盲测/核心创新认证。077条件提案的B0先胜控制前提在无078结果时移除，I自身对照与25%源全对绝对投入门固定见合同；D/070关闭，069暂停。
+> 更新：2026-11-02（北京时间；[078完整范围已批准](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/authorization-receipt.md)）。**唯一READY：[078实际RGB+匹配训练](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)，APPROVED_078_INTEGRATED_MEDIA_GPU_TRAIN_SCOPE / AWAIT_FRESH_078_START。** 用户明确批准固定32媒体768MiB、GPU3600秒16GiB/最多1428完整root、A/I/S六seed4500CPU更新等原合同；本地新消息明确078后连续执行，同范围不再确认。当前main无078执行结果，不将批准当训练或收益证据。077按启动阻断关闭，076本入口停止，D/070关闭、069暂停。
+> 当前判断：078已具备完整书面授权与负责人metadata组件22987项本地独立检查，尚未构建实际RGB/用模型/训练。一次包括新metadata准入、32源真实RGB六排列、B0三条件与只读hook特征、三臂同参数训练和评估，原门/身份/角色隔离/资源与失败分母保持；九处push后STOP。20/4/8仍是官方train开发划分，原物理来源/可见性/预训练重叠UNKNOWN，不能升级新外源/盲测/核心创新或恢复069。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -25,7 +25,9 @@
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
 
-**2026-11-02最新：077停止验收，修正启动规则与代码后直接打包078真实训练。** [验收](./research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)：077在bootstrap原生线程4>1时关闭自身Job，无metadata构建/数据oracle/媒体/模型/训练；65公开检查不追认资格，22项只是停止后核账。负责人078组件修正raw id→annotation_id、最大压缩71166131/解压70872100、owner有序比对，并已实际完整构建22987独立检查PASS；不等于077成功或RGB已做。[078合同](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)待一次新授权768MiB媒体+GPU3600秒16GiB/最多1428root+4500CPU更新，连续实际RGB/基线/特征/三监督对照/完整评估，不再单设一个CPU审计轮。核心机制仍候选，八源test只是开发留出，069继续暂停。
+**2026-11-02最新：用户已明确批准078整包，待本地启动。** [授权回执](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/authorization-receipt.md)确认原媒体768MiB/GPU3600秒16GiB/最多1428完整root/CPU六seed4500更新，含原合同全部准入、CPU/解码/评分/根与父限额；相同范围不再次请示。执行者新消息明确078后连续完成RGB/基线及特征/匹配训练/评估，九处push后STOP，无自动079或论文。仓库尚无078模型/训练结果，077/076历史裁决和核心机制候选状态不变。
+
+**2026-11-02先前：077停止验收，修正启动规则与代码后直接打包078真实训练。** [验收](./research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)：077在bootstrap原生线程4>1时关闭自身Job，无metadata构建/数据oracle/媒体/模型/训练；65公开检查不追认资格，22项只是停止后核账。负责人078组件修正raw id→annotation_id、最大压缩71166131/解压70872100、owner有序比对，并已实际完整构建22987独立检查PASS；不等于077成功或RGB已做。[078合同](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)待一次新授权768MiB媒体+GPU3600秒16GiB/最多1428root+4500CPU更新，连续实际RGB/基线/特征/三监督对照/完整评估，不再单设一个CPU审计轮。核心机制仍候选，八源test只是开发留出，069继续暂停。
 
 **2026-11-02先前：076完整筛查失败，转有时间段标注的训练数据构造。** [验收](./research-decisions/post-076-review-and-timestamped-triples-2026-11-02.md)：真实/黑屏/文本单项52.7778/50/67.3611%，六问1/0/6，四格0/0/0；316新完整前向，无新训练。停止本入口新适配器投入，不追调。负责人已只读公开标注/目录metadata，无视频payload，固定32组三事件20/4/8，独立重建1376候选/280eligible/1152答案/2304关系；仅为事后开发预览。[077](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-077/README.md)一次CPU离线构造器/完整私有清单/独立核验和后续RGB训练方案，当前不读媒体/GPU/训练/写论文。数据段语义/原来源重叠/小样本边界保持，原076合同完整归档。
 

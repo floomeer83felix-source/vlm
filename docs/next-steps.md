@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-02（北京时间）。**077启动阻断已验收关闭，唯一条件READY：[078真实RGB构建+完整基线/冻结特征+匹配训练](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)，AWAIT_EXPLICIT_078_MEDIA_GPU_TRAIN_APPROVAL。** [077验收](./research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)65公开检查，原生启动线程4>1/0.125秒停止，数据构建/资格/训练NOT_RUN，不作科学负结果。负责人已另建078metadata组件并实际22987项独立检查通过，修正id字段、压缩最大值和有序比对；不倒填077。076本入口新适配器停止，D/070关闭，069暂停。
+> 更新：2026-11-02（北京时间；[078整包授权已确认](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/authorization-receipt.md)）。**唯一READY：[078真实RGB构建+完整基线/冻结特征+匹配训练](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)，APPROVED_078_INTEGRATED_MEDIA_GPU_TRAIN_SCOPE / AWAIT_FRESH_078_START。** 用户已明确批准原合同媒体768MiB/GPU3600秒16GiB/最多1428新完整root及三臂六seed4500CPU更新；同范围不再请示，本地新消息明确078后连续执行。当前仓库无078执行结果，批准不冒称训练已完成。
 >
-> 下一完整078需一次新明确授权：32固定媒体Range正文≤768MiB（≤96请求/1800秒、不下整包）、实际解码≤1800秒/100000帧，同一Qwen一次GPU≤3600秒/allocated16GiB/最多1428完整root，同时捕获必要特征，无分离特征重算；三臂同341633参数、六seed/4500步CPU训练≤1800秒，最终预测/独立评分600秒、根8GiB/4096文件/父14400秒。native辅助线程与compute分开，阈值256/compute4/codec1；完整表见合同。当前用户仅回报077，尚未批准，不读媒体/模型payload、不交空阻断包。批准并本地新消息明确078后同轮连续九处交付push STOP，同范围不重复请示；不自动079/写论文。
+> 078一次做metadata准入、固定32源真实RGB六排列、B0三条件同时只读捕获新特征、同341633参数A/I/S匹配训练和完整评估/独立核验；CPU训练1800秒、预测评分600秒、解码1800秒/100000帧、≤96媒体Range/1800秒、root8GiB/4096文件/父14400秒及全部细项依原合同。Windows native256采样门与compute4/interop1/codec1分开，不再按1个原生线程限制启动。准入/锁/去重/失败分母/事前门不改，原九处统一push STOP，不自动079/写论文。077按阻断关闭、076本入口新适配器停止、D/070关闭和069暂停保持。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-TIMESTAMPED-TRIPLES-TRAIN-078 | P0 | **READY_CONDITIONAL_NEW_MEDIA_GPU_TRAIN（唯一条件READY；AWAIT_EXPLICIT_078_APPROVAL）** | 用户批准整包后Codex本地新消息启动 | [078合同](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)：修正metadata/32源RGB六排列/1428完整root同时取特征，A-I-S六seed4500步/完整对照评估 | 新媒体768MiB、GPU3600秒16GiB及CPU训练须明确新授权；九处完整交付push STOP，不另拆审计/自动续做/写论文 |
+| VLM-TIMESTAMPED-TRIPLES-TRAIN-078 | P0 | **READY_APPROVED_INTEGRATED_MEDIA_GPU_TRAIN（唯一READY；AWAIT_FRESH_078_START）** | Codex本地新消息明确078后执行，同范围不再请示 | [078合同](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)和[授权回执](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-TRAIN-078/authorization-receipt.md)：固定32源RGB/最多1428完整root同时取特征、A-I-S六seed4500步/完整对照评估 | 媒体768MiB、GPU3600秒16GiB及CPU训练1800秒原范围已明确批准；准入通过即连续九处交付push STOP，当前无078科学结果，不自动079/写论文 |
 | VLM-TIMESTAMPED-TRIPLES-077 | P0 | **ACCEPTED_BOOTSTRAP_STOP_WITH_UNEXECUTED_CODE_DEFECTS / METADATA_NOT_RUN / CLOSED（不续跑）** | Codex交付、ChatGPT验收 | [0dc7267](https://github.com/floomeer83felix-source/vlm/commit/0dc7267e90713e53494862a7390bfac2e4f6426a)：native4>1、Job0.125秒停止；构建/数据oracle/GPU训练0 | [验收](./research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)65检查，22只post-stop核账，未执行id字段/最大压缩guard另修078；不把owner预览或资格测试回填077 |
 | VLM-FULL-MODEL-VISUAL-SCREEN-076 | P0 | **ACCEPTED_COMPLETE_FULL_MODEL_SCREEN_WITH_RESOURCE_COVERAGE_CAVEAT / GATE_FAIL / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [382ef12](https://github.com/floomeer83felix-source/vlm/commit/382ef1225d9e7916444b8ba979dd2192666c0d53)：432完整/316新root；真实52.7778%低于文本67.3611%，四格均0/55 | [验收](./research-decisions/post-076-review-and-timestamped-triples-2026-11-02.md)179公开检查；停止此入口新适配器，codec线程未认证/资源覆盖缺口保留，不重放或修门 |
 | VLM-VIDEO-DEPENDENCE-AUDIT-075 | P0 | **ACCEPTED_COMPLETE_CPU_AUDIT_WITH_RESOURCE_COVERAGE_LIMITS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [35643e6](https://github.com/floomeer83felix-source/vlm/commit/35643e6868f9bd9a97a4dddf4a2037c765a7abf4)：FACTOR11.1111→共享均值17.3611/全零10.4167%，72控制配对全改预测；720结构均值16.6667% | [验收](./research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)3670公开/元数据检查，原36行/108条件72配对12汇总25箱自洽；仅保留参照敏感性/结构校准，不证当前视频答题优势，不做更多小头变体 |
