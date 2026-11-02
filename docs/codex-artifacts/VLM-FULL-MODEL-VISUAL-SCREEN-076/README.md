@@ -1,3 +1,5 @@
+> **已于2026-11-02验收关闭，不重跑。** [382ef12](https://github.com/floomeer83felix-source/vlm/commit/382ef1225d9e7916444b8ba979dd2192666c0d53)432项完整；REAL单项76/144低于TEXT97/144、四格均0/55，原门FAIL，停止本入口新适配器训练。[验收](../../research-decisions/post-076-review-and-timestamped-triples-2026-11-02.md)保留codec线程/资源覆盖缺口。当前唯一下一任务[077](../VLM-TIMESTAMPED-TRIPLES-077/README.md)仅CPU离线标注构建，无新媒体/GPU/训练。以下原合同及授权按当时状态逐字保留，旧READY和“暂无结果”均为历史，不构成新授权。
+
 # 076 完整冻结Qwen：32帧真实/同时间戳黑屏/仅文本二选一筛查
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。**唯一READY：APPROVED_076_FULL_MODEL_GPU_SCOPE / AWAIT_FRESH_076_START。** [075验收](../../research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)后不再在当前冻结merger/小头方案上调结构或训练。先补完整主干是否利用当前画面的基础基线；D迁移和070关闭，069暂停。不是新算法或新盲测。

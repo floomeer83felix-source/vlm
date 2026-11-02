@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-02（北京时间；[076用户授权确认](./codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/authorization-receipt.md)）。**唯一READY：[076完整Qwen32帧二选一基线](./codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/README.md)，APPROVED_076_FULL_MODEL_GPU_SCOPE / AWAIT_FRESH_076_START。** 用户已明确批准GPU600秒/allocated16GiB/最多316新完整前向及现有24视频32帧范围；相同预算不再请示，本地用户新消息明确076后执行。仓库暂无076结果；075验收/当前小头停止调参、D/070关闭、069暂停保持。
+> 更新：2026-11-02（北京时间）。**076完整筛查已验收关闭，原门FAIL；唯一READY：[077时间段标注三事件离线构建](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-077/README.md)，CPU_METADATA_CONSTRUCTION / AWAIT_LOCAL_ZIP。** [076验收](./research-decisions/post-076-review-and-timestamped-triples-2026-11-02.md)179项公开检查：REAL76/144、仅文本97/144，三条件四格均0/55；停止当前TOC-Bench入口的新适配器训练，不调prompt/小头、不重放076。D/070关闭，069暂停。
 >
-> 下一步执行已授权076：只用已存24原视频/144问题，32帧完整冻结Qwen对比REAL32、非pixel字段/时钟与真实输入一致的CLOCK_BLACK32、TEXT_ONLY。3条件432逻辑答案/最多316新完整root前向，固定Yes/No单token logit二选一，核55同q反标签观测四格与单项优势；不新下载/训练/生成/写论文，不重放旧QA/小头。准入和GPU可用性仍须核，八处统一交付push后STOP，无后台或自动077。
+> 下一步用户交接`PT_077_timestamp_metadata.zip`（390919B，SHA256950ae2f6766179743f27e512948730682e444eb1c235393d034e508081224cd2）。077仅CPU累计300秒/标准库一次构建：固定官方Perception Test动作时间段标注，32源组三事件、20/4/8开发划分、六排列六问1152符号监督、2304关系，独立核验及实际RGB+匹配训练的后续具体预算方案。研究联网/媒体/模型/GPU/训练/论文0；包无路径只等输入，不交空阻断包。七处统一push后STOP，后续媒体和训练无自动权限。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,8 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-FULL-MODEL-VISUAL-SCREEN-076 | P0 | **READY_APPROVED_FULL_MODEL_GPU（唯一READY；AWAIT_FRESH_076_START）** | Codex用户新消息明确076后执行，同范围不再请示 | [076合同](./codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/README.md)和[已确认授权](./codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/authorization-receipt.md)：现有24视频32帧真实/同时钟黑屏/仅文本，432逻辑项/最多316新root前向；GPU600秒16GiB | 准入通过即一包完整二选一评估/55观测四格/独立核验；无下载/小头推理/训练/生成/论文，八处push后STOP；当前无076科学交付 |
+| VLM-TIMESTAMPED-TRIPLES-077 | P0 | **READY_CPU_METADATA_CONSTRUCTION（唯一READY；AWAIT_LOCAL_ZIP）** | Codex收到本地元数据ZIP后一次执行 | [077合同](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-077/README.md)：32时间段三元组/20-4-8划分、1152符号答案/2304相关关系、独立复核和后续RGB+训练具体方案 | CPU≤300秒，网络/媒体/模型/GPU/训练/论文0；七处push后STOP，不冒称RGB已构建/模型收益/新来源 |
+| VLM-FULL-MODEL-VISUAL-SCREEN-076 | P0 | **ACCEPTED_COMPLETE_FULL_MODEL_SCREEN_WITH_RESOURCE_COVERAGE_CAVEAT / GATE_FAIL / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [382ef12](https://github.com/floomeer83felix-source/vlm/commit/382ef1225d9e7916444b8ba979dd2192666c0d53)：432完整/316新root；真实52.7778%低于文本67.3611%，四格均0/55 | [验收](./research-decisions/post-076-review-and-timestamped-triples-2026-11-02.md)179公开检查；停止此入口新适配器，codec线程未认证/资源覆盖缺口保留，不重放或修门 |
 | VLM-VIDEO-DEPENDENCE-AUDIT-075 | P0 | **ACCEPTED_COMPLETE_CPU_AUDIT_WITH_RESOURCE_COVERAGE_LIMITS / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [35643e6](https://github.com/floomeer83felix-source/vlm/commit/35643e6868f9bd9a97a4dddf4a2037c765a7abf4)：FACTOR11.1111→共享均值17.3611/全零10.4167%，72控制配对全改预测；720结构均值16.6667% | [验收](./research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)3670公开/元数据检查，原36行/108条件72配对12汇总25箱自洽；仅保留参照敏感性/结构校准，不证当前视频答题优势，不做更多小头变体 |
 | VLM-MULTIEVENT-FROZEN-074 | P0 | **ACCEPTED_COMPLETE_FROZEN_NATIVE_EVALUATION_WITH_EXECUTION_CAVEATS / STOP_CURRENT_D_MULTIEVENT_TRANSFER / CLOSED（不重跑）** | Codex交付、ChatGPT验收 | [43379e6](https://github.com/floomeer83felix-source/vlm/commit/43379e60f4e388a4e976f7aa9611396d2078ed93)：5184有效/52新特征；C0.6944%→D2.0833%，+1.3889pp但仅2/6正，FACTOR11.1111%低于ANCHOR13.1944% | [验收](./research-decisions/post-074-review-and-video-dependence-audit-2026-11-01.md)1112项/10区间独立重算；主门FAIL，后置补充核验和bootstrap/宿主覆盖缺口保留，不调参/补seed/复活070；随机完整排序16.6667%仅数学校准 |
 | VLM-MULTIEVENT-OFFLINE-073 | P0 | **ACCEPTED_PARTIAL_DELIVERY_WITH_IMPLEMENTATION_FAILURE / ADMISSION_FAIL / SCIENTIFIC_NOT_RUN / CLOSED（不修跑）** | Codex交付、ChatGPT验收 | [bb2adae](https://github.com/floomeer83felix-source/vlm/commit/bb2adae8dd640916a3903ebad07cec12b8fe339d)：24组144问/138有效6未知，漏根2无效标记中的1条选入；864符号格1728关系确实构建，无模型分数 | [验收](./research-decisions/post-073-review-and-native-multievent-evaluation-2026-11-01.md)1952项原副本/公开检查确认覆盖FAIL；963复现不等于资格通过，原清单不准入，资源覆盖缺口保留，明确新074不倒填073 |
