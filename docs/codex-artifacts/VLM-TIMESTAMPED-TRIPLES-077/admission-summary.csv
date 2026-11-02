@@ -1,0 +1,5 @@
+split,planned_source_groups,actual_constructed_source_groups,planned_variants,actual_variants,planned_questions_answers,actual_questions_answers,planned_FLIP,actual_FLIP,planned_HOLD,actual_HOLD,actual_media_compressed_bytes,actual_media_uncompressed_bytes,qualified_groups,unknown_unverified_planned_groups,status
+train,20,0,120,0,720,0,480,0,960,0,NA,NA,NA,20,NOT_RUN_BOOTSTRAP_THREAD_STOP
+development,4,0,24,0,144,0,96,0,192,0,NA,NA,NA,4,NOT_RUN_BOOTSTRAP_THREAD_STOP
+test,8,0,48,0,288,0,192,0,384,0,NA,NA,NA,8,NOT_RUN_BOOTSTRAP_THREAD_STOP
+total,32,0,192,0,1152,0,768,0,1536,0,NA,NA,NA,32,NOT_RUN_BOOTSTRAP_THREAD_STOP
