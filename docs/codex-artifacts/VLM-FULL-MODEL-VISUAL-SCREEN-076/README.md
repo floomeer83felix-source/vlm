@@ -1,6 +1,8 @@
 # 076 完整冻结Qwen：32帧真实/同时间戳黑屏/仅文本二选一筛查
 
-2026-11-02（北京时间）｜ChatGPT研究负责人。**唯一条件READY：AWAITING_076_FULL_MODEL_GPU_AUTHORIZATION。** [075验收](../../research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)后不再在当前冻结merger/小头方案上调结构或训练。先补完整主干是否利用当前画面的基础基线；D迁移和070关闭，069暂停。不是新算法或新盲测。
+2026-11-02（北京时间）｜ChatGPT研究负责人。**唯一READY：APPROVED_076_FULL_MODEL_GPU_SCOPE / AWAIT_FRESH_076_START。** [075验收](../../research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)后不再在当前冻结merger/小头方案上调结构或训练。先补完整主干是否利用当前画面的基础基线；D迁移和070关闭，069暂停。不是新算法或新盲测。
+
+> **当前授权状态：用户已于2026-11-02明确批准本协议GPU600秒/allocated16GiB/最多316次完整前向及现有24视频32帧范围。** [授权回执](./authorization-receipt.md)。第1节的明确授权条件已满足，相同范围不再次请示；本地用户新消息明确076后执行，全部准入/预算/角色隔离/一次父包STOP规则保持。当前仓库尚无076结果，本回执不作为已经运行模型的证据。
 
 ## 1 新授权、同步与已有资产
 

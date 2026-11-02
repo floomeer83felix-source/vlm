@@ -1,3 +1,5 @@
+> **同日授权更新：用户已明确回复“批准”，076的GPU600秒/allocated16GiB/最多316次完整主干前向及现有24视频32帧范围已获准。** [确认回执](../codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/authorization-receipt.md)。相同范围不再请示；本地新消息明确076后执行全部协议。下文保留验收/申请时点，授权登记不表示已经运行或改变075科学结论。
+
 # 075验收：当前小头未建立视频答题优势，076补完整主干视觉证据基线
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。执行：[35643e6868f9bd9a97a4dddf4a2037c765a7abf4](https://github.com/floomeer83felix-source/vlm/commit/35643e6868f9bd9a97a4dddf4a2037c765a7abf4)。下一[076完整主干基线](../codex-artifacts/VLM-FULL-MODEL-VISUAL-SCREEN-076/README.md)。
