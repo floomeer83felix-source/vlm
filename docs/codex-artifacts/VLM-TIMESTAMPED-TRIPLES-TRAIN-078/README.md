@@ -1,3 +1,5 @@
+> **2026-11-02已按部分交付验收关闭，不修跑。** [7d29576](https://github.com/floomeer83felix-source/vlm/commit/7d295766fa6a6d96e140da26ff196b64d0c82872)metadata32组/22987独立检查PASS，随后registration Accounting.active3>2停止，媒体/GPU/真实训练0、科学门INCOMPLETE。[验收](../../research-decisions/post-078-partial-review-and-authorized-completion-2026-11-02.md)3888公开/符号数学检查保留计量与I/O缺口。新[079](../VLM-TIMESTAMPED-TRIPLES-CONTINUE-079/README.md)明确复用资产，按原已批准且未使用科学范围完成；不是执行者自动续做，不重复请示同范围。以下078原合同/授权按当时状态逐字保留，旧READY不构成重跑许可。
+
 # 078 真实RGB三事件：完整基线、冻结特征与匹配监督训练
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。
