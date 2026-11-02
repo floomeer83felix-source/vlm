@@ -1,0 +1,3 @@
+items_both_correct,items_both_wrong,items_delta_pp,items_left_only,items_net,items_planned,items_right_only,items_unknown,left,quartets_both_correct,quartets_both_wrong,quartets_delta_pp,quartets_left_only,quartets_net,quartets_planned,quartets_right_only,quartets_unknown,right,status,videos_both_correct,videos_both_wrong,videos_delta_pp,videos_left_only,videos_net,videos_planned,videos_right_only,videos_unknown
+69,65,2.7777777777777777,7,4,144,3,0,REAL32,0,55,0.0,0,0,55,0,0,CLOCK_BLACK32,CLOSED,0,23,4.166666666666667,1,1,24,0,0
+50,21,-14.583333333333334,26,-21,144,47,0,REAL32,0,55,0.0,0,0,55,0,0,TEXT_ONLY,CLOSED,0,17,-20.833333333333332,1,-5,24,6,0

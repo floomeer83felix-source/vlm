@@ -1,0 +1,4 @@
+CLOSED,FAILED,INVALID,NOT_RUN,actual_new,aliases,coherent_videos,complementary_pairs,complementary_pct,condition,constant_videos,correct_items,correct_quartets,correct_videos,execution_unknown,finite_items,item_accuracy_pct,parse_status,planned_items,planned_quartets,planned_reverse_pairs,planned_videos,quartet_accuracy_pct,quartet_unknown,reused,scoring_unknown,six_way_accuracy_pct,status,token_status
+144,0,0,0,144,0,1,10,13.88888888888889,REAL32,17,76,0,1,0,144,52.77777777777778,PASS,144,55,72,24,0.0,0,0,0,4.166666666666667,CLOSED,SINGLE_DISTINCT_YES_NO
+144,0,0,0,144,0,0,0,0.0,CLOCK_BLACK32,24,72,0,0,0,144,50.0,PASS,144,55,72,24,0.0,0,0,0,0.0,CLOSED,SINGLE_DISTINCT_YES_NO
+144,0,0,0,28,116,8,49,68.05555555555556,TEXT_ONLY,0,97,0,6,0,144,67.36111111111111,PASS,144,55,72,24,0.0,0,0,0,25.0,CLOSED,SINGLE_DISTINCT_YES_NO

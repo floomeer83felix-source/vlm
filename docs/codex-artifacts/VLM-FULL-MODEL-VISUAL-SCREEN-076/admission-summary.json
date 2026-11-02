@@ -1,0 +1,72 @@
+{
+  "black_pixel_blobs": 1,
+  "canonical_questions": 14,
+  "clock_black": "pervideosamerealmetadata/indices/fps/duration/timetokens;zerosRGBthroughsamenativepreprocessor",
+  "controlled_video_reordering": "HOLD",
+  "controls": [
+    "REAL32",
+    "CLOCK_BLACK32",
+    "TEXT_ONLY"
+  ],
+  "default_chat_template": "oneusercurrentoriginalquestion;add_generation_prompt=True;standardassistantnewlinecontinuation;no thinking prefix adjustment",
+  "legacy_input_guard": "074registeredcallsareseparatedfeatures/rootforward0;075CPUonly;fresh076root/ledger;no complete-root input reuse needed; no disk-wide historical QA attestation",
+  "logical_answers": 432,
+  "media_bytes": 103041283,
+  "media_members": 24,
+  "mixed_label_canonical_questions": 7,
+  "model_hash_bytes": 8887284080,
+  "model_identity": "same registered Qwen3-VL-4B-Instruct weights/config/processor and installed source identities",
+  "native_question_count": 144,
+  "new_downloads": 0,
+  "observational_quartets": 55,
+  "parent_catalog_handoff": "only exact074registered068assetcatalogmetadata read for runtimeidentity; no other old data",
+  "pre_gpu_independent_checks": 2458,
+  "pre_gpu_root_forward": 0,
+  "pre_gpu_weight_loads": 0,
+  "processor_fixture": {
+    "calls": 1,
+    "grid": [
+      16,
+      14,
+      14
+    ],
+    "model_loads": 0,
+    "pixels": [
+      3136,
+      1536
+    ],
+    "root_forward": 0,
+    "split_native_component_exact_match": true,
+    "visual_placeholder_tokens": 784
+  },
+  "real_black_all_nonpixel_bytes_equal": true,
+  "real_black_nonpixel_pairs": 144,
+  "real_pixel_blobs": 24,
+  "resource_certification": "CODEC_THREAD_POLICY_NOT_SEPARATELY_CAPPED_OR_MEASURED; no blanket full resource certification",
+  "revision": "da3065053d958c38151304e33a42e138b1899eaf",
+  "sampling": {
+    "RGB_clip_members": 24,
+    "RGB_shape": [
+      32,
+      224,
+      224,
+      3
+    ],
+    "actual_decoded_frames": 19110,
+    "clock": "originaluniformmidpoints/nearestrealPTS,CFRindexerror<=oneframe;sourcefps/indicespreserved",
+    "distinct_indices_each": 32,
+    "frames_each": 32,
+    "new_real_sampled_frames": 768
+  },
+  "score_labels": "074registeredrootderivedlabelsandhanded144labelscross-boundafterGPUclose;publisherexact-orderderived",
+  "score_position": "lastvalidassistantfirstcontinuation;batch1allattentionmask1;logits_to_keep1",
+  "shared_pixel_blobs": 25,
+  "source": "existing074private24media;user-suppliedfixedrevisioncopywithcross-fileidentities",
+  "source_recording_participant_exposure": "UNKNOWN",
+  "status": "PASS_FIXED_32FRAME_MODEL_INPUTS",
+  "strict_nonoverlap_completion_unique_occurrence": "NOT_CERTIFIED",
+  "text_only_unique_inputs": 28,
+  "unique_complete_inputs": 316,
+  "unique_questions": 28,
+  "yes_no_tokens": "literalYes/literalNoeachsingleanddistinct; IDsprivate"
+}
