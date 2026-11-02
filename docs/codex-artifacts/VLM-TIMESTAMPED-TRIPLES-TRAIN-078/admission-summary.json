@@ -1,0 +1,157 @@
+{
+  "GPU_or_model_calls": 0,
+  "atomic_completion_unique_occurrence_visible_content": "UNKNOWN",
+  "counts": {
+    "actions": 13644,
+    "candidate_triples": 1376,
+    "eligible_segments": 2678,
+    "eligible_videos": 280,
+    "videos": 2135
+  },
+  "independent_metadata": {
+    "checks": 22987,
+    "counts": {
+      "actions": 13644,
+      "candidate_triples": 1376,
+      "eligible_segments": 2678,
+      "eligible_videos": 280,
+      "videos": 2135
+    },
+    "status": "PASS"
+  },
+  "local_packet": {
+    "bytes": 390919,
+    "inner_JSON_bytes": 2692679,
+    "inner_annotation_ZIP_bytes": 222956,
+    "manifest_CRC_all_members": "PASS",
+    "members": 12,
+    "sha256": "950ae2f6766179743f27e512948730682e444eb1c235393d034e508081224cd2",
+    "source_copy": "USER_SUPPLIED_FIXED_REVISION_COPY; not independently observed upstream transport",
+    "uncompressed_outer_bytes": 1104895
+  },
+  "metadata_component_lf_sha256": "c10f863190a6ccc3f4d961d173dade99c80f35453548e8d523704b9b232bbe34",
+  "metadata_logical_reads_bytes": 4188582,
+  "model_input_gold_collision_gate": "NOT_RUN",
+  "model_registration_completion": "NOT_RUN; interrupted role",
+  "new_blind_or_external_test": false,
+  "no_split_crossing": "PASS via independent oracle; six variants inherit source split",
+  "owner_comparison": {
+    "all_32_observations": true,
+    "all_32_ordered_digests": true,
+    "independently_computed_before_reference": true,
+    "status": "PASS"
+  },
+  "physical_recording_participant_pretraining_overlap": "UNKNOWN",
+  "q_only_identity": {
+    "all36_upper_bound": 0,
+    "each_question_no": 3,
+    "each_question_yes": 3,
+    "item_accuracy_pct": 50,
+    "scope": "CONSTRUCTION_IDENTITY_NOT_MODEL_SCORE"
+  },
+  "real_PTS_or_visible_action_validation": "NOT_RUN",
+  "real_RGB_blocks_constructed": 0,
+  "real_input_nonpixel_matching": "NOT_RUN",
+  "real_variants_constructed": 0,
+  "scientific_gate": "INCOMPLETE_NO_SCIENTIFIC_GATE",
+  "segment_rejection_primary_reasons": {
+    "boundary_duration": 401,
+    "empty_or_repeated_label": 10565
+  },
+  "selected": {
+    "FLIP": 768,
+    "HOLD": 1536,
+    "all_flags_zero": true,
+    "compressed_bytes": 581426975,
+    "compression_method": 12,
+    "distinct_questions": 138,
+    "groups": 32,
+    "max_compressed_bytes": 71166131,
+    "max_uncompressed_bytes": 70872100,
+    "relations": 2304,
+    "source_metadata_frames": 28139,
+    "splits": [
+      {
+        "FLIP": 480,
+        "HOLD": 960,
+        "actual_groups": 20,
+        "compressed_bytes": 353048113,
+        "planned_groups": 20,
+        "questions_answers": 720,
+        "split": "train",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 351978944,
+        "unknown_groups": 0,
+        "variants": 120
+      },
+      {
+        "FLIP": 96,
+        "HOLD": 192,
+        "actual_groups": 4,
+        "compressed_bytes": 59901291,
+        "planned_groups": 4,
+        "questions_answers": 144,
+        "split": "development",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 59730086,
+        "unknown_groups": 0,
+        "variants": 24
+      },
+      {
+        "FLIP": 192,
+        "HOLD": 384,
+        "actual_groups": 8,
+        "compressed_bytes": 168477571,
+        "planned_groups": 8,
+        "questions_answers": 288,
+        "split": "test",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 167993544,
+        "unknown_groups": 0,
+        "variants": 48
+      },
+      {
+        "FLIP": 768,
+        "HOLD": 1536,
+        "actual_groups": 32,
+        "compressed_bytes": 581426975,
+        "planned_groups": 32,
+        "questions_answers": 1152,
+        "split": "total",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 579702574,
+        "unknown_groups": 0,
+        "variants": 192
+      }
+    ],
+    "symbolic_answers": 1152,
+    "uncompressed_bytes": 579702574,
+    "unique_action_texts": 29,
+    "variants_symbolic": 192
+  },
+  "selection": {
+    "all_32_ordered_owner_observations_and_digests": "PASS",
+    "digest_observation": "SHA256 domain+canonical observation UTF8; min digest/canonical pervideo then global",
+    "domain": "VLM077/pt-triple-v1/",
+    "no_replacement": true,
+    "source_group_first": true,
+    "split_ranks": "0..19 train /20..23 development /24..31 test"
+  },
+  "source": {
+    "annotation_generation": "1686575055001154",
+    "archive_directory_bytes": 171100,
+    "archive_directory_sha256": "505019446df7a796909c8f00a63bd55a2e214d3ba533de00104001f0a30aac82",
+    "archive_generation": "1685446268139925",
+    "archive_total_bytes": 28404087974,
+    "archive_whole_content_identity": "UNKNOWN; directory/generation/ETag only",
+    "data_license": "CC-BY-4.0",
+    "directory_records": 2184,
+    "repository": "https://github.com/google-deepmind/perception_test",
+    "revision": "3938d2f1ba3a6b502025741cea4cd73c7b3bdfaf",
+    "software_license": "Apache-2.0"
+  },
+  "source_overlap": "POSSIBLE_SHARED_ORIGINAL_SOURCE / OLD_PHYSICAL_OVERLAP_UNKNOWN",
+  "status": "METADATA_ADMISSION_PASS / RGB_MODEL_TRAINING_NOT_RUN",
+  "task": "VLM-TIMESTAMPED-TRIPLES-TRAIN-078",
+  "training_updates": 0
+}
