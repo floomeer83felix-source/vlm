@@ -1,0 +1,168 @@
+{
+  "RGB_blocks": 0,
+  "RGB_variants": 0,
+  "actual_PTS_visible_action_gate": "NOT_RUN",
+  "decoded_frames": 0,
+  "identity": {
+    "canonical_graph": "PASS",
+    "catalog_authenticated_against_closed_076_prepared_seal": true,
+    "component_lf_sha256": "89567c6d5d31166be0e319cf4837292c828d2c593c8d4d6d843fd154df7edf6c",
+    "current_model_files_stat_matched": 12,
+    "installed_source_small_hash": "PASS",
+    "limitation": "cached hashes/current stat continuity, not fresh bytewise weight authentication",
+    "new_full_weight_hash_bytes": 0,
+    "registered_old_hash_bytes": 8887284080,
+    "status": "CACHED_076_HASH_PLUS_UNCHANGED_STATS"
+  },
+  "media": {
+    "all_started_declared_ranges_upper_bound": 36263866,
+    "application_response_body_bytes": 34690881,
+    "failure": "local state-file os.replace PermissionError WinError5",
+    "first_media_SHA_durable_seal": "NOT_CLOSED; computed in memory but manifest not saved",
+    "first_member_localZIP64_BZIP2_size_EOF_CRC": "PASS",
+    "full_media_manifest": "NOT_CLOSED",
+    "fully_verified_written": 1,
+    "partial_response": 1,
+    "planned": 32,
+    "remote_checks": "first5 CLOSED206; sixth reached BODY after sealed header/version checks",
+    "requests_closed": 5,
+    "requests_failed": 1,
+    "requests_started": 6,
+    "retry": 0,
+    "uncompressed_verified_written_bytes": 15770653,
+    "unrequested": 30,
+    "whole_archive_download": false
+  },
+  "metadata": {
+    "FLIP": 768,
+    "HOLD": 1536,
+    "action_texts": 29,
+    "compressed_bytes": 581426975,
+    "counts_reused": {
+      "actions": 13644,
+      "candidate_triples": 1376,
+      "eligible_segments": 2678,
+      "eligible_videos": 280,
+      "videos": 2135
+    },
+    "current_binding_checks": 3556,
+    "current_binding_status": "PASS",
+    "current_hash_not_claimed_historical_seal": true,
+    "current_reuse_hash_manifest": true,
+    "distinct_questions": 138,
+    "full_packet_CRC": "reused078PASS, not repeated",
+    "head_fixture": "REUSED_078_PASS_NOT_REPLAYED",
+    "historical_independent_checks": 22987,
+    "max_compressed_bytes": 71166131,
+    "max_uncompressed_bytes": 70872100,
+    "ordered_32_observation_digest_owner_binding": "PASS",
+    "original_packet_bytes": 390919,
+    "original_packet_sha256": "950ae2f6766179743f27e512948730682e444eb1c235393d034e508081224cd2",
+    "provenance": "078 admitted outputs reused; no full source selection or passed head fixture rerun",
+    "relations": 2304,
+    "source_groups": 32,
+    "source_metadata_frames": 28139,
+    "splits": [
+      {
+        "FLIP": 480,
+        "HOLD": 960,
+        "actual_groups": 20,
+        "compressed_bytes": 353048113,
+        "planned_groups": 20,
+        "questions_answers": 720,
+        "split": "train",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 351978944,
+        "unknown_groups": 0,
+        "variants": 120
+      },
+      {
+        "FLIP": 96,
+        "HOLD": 192,
+        "actual_groups": 4,
+        "compressed_bytes": 59901291,
+        "planned_groups": 4,
+        "questions_answers": 144,
+        "split": "development",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 59730086,
+        "unknown_groups": 0,
+        "variants": 24
+      },
+      {
+        "FLIP": 192,
+        "HOLD": 384,
+        "actual_groups": 8,
+        "compressed_bytes": 168477571,
+        "planned_groups": 8,
+        "questions_answers": 288,
+        "split": "test",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 167993544,
+        "unknown_groups": 0,
+        "variants": 48
+      },
+      {
+        "FLIP": 768,
+        "HOLD": 1536,
+        "actual_groups": 32,
+        "compressed_bytes": 581426975,
+        "planned_groups": 32,
+        "questions_answers": 1152,
+        "split": "total",
+        "status": "QUALIFIED_METADATA_ONLY",
+        "uncompressed_bytes": 579702574,
+        "unknown_groups": 0,
+        "variants": 192
+      }
+    ],
+    "symbolic_answers": 1152,
+    "symbolic_variants": 192,
+    "uncompressed_bytes": 579702574
+  },
+  "processor_fixture": {
+    "cached_identity": {
+      "installed_source_bytes": 82438,
+      "installed_sources": {
+        "modeling_qwen3_vl.py": "dd63ed3b124232735b3dca1bfa28f9d6b0d3f7182afcb75dde8f3e724b2b22da",
+        "video_processing_qwen3_vl.py": "a49a83fc45cd9baa3e391a68af79743c70d47b86d7d6c81a262fda4104f89db7"
+      },
+      "limitation": "cached content hashes with current size/mtime continuity; not fresh content hashing",
+      "model_files_stat_checked": 12,
+      "new_full_weight_hash": false,
+      "new_weight_hash_read_bytes": 0,
+      "registered_model_bytes": 8887284080,
+      "status": "CACHED_076_HASH_PLUS_UNCHANGED_STATS"
+    },
+    "grid": [
+      18,
+      14,
+      14
+    ],
+    "hook_binding": "native main visual merger tuple0, temporal-major 18x49; TEXT native language_model last_hidden_state last valid token",
+    "model_loads": 0,
+    "new_weight_hash_bytes": 0,
+    "pixels": [
+      3528,
+      1536
+    ],
+    "status": "PASS",
+    "synthetic_calls": 1,
+    "visual_tokens": 882
+  },
+  "real_input_gold_collision_gate": "NOT_RUN",
+  "scientific_gate": "INCOMPLETE_NO_SCIENTIFIC_GATE",
+  "source": {
+    "archive_generation": "1685446268139925",
+    "archive_total_bytes": 28404087974,
+    "atomic_completion_unique_occurrence_visibility": "UNKNOWN",
+    "data_license": "CC-BY-4.0",
+    "new_external_or_blind_test": false,
+    "physical_recording_participant_pretraining_overlap": "UNKNOWN / POSSIBLE_SHARED_ORIGINAL_SOURCE_WITH_TOC_BENCH",
+    "repository": "https://github.com/google-deepmind/perception_test",
+    "revision": "3938d2f1ba3a6b502025741cea4cd73c7b3bdfaf",
+    "software_license": "Apache-2.0"
+  },
+  "status": "REUSED_METADATA_CACHED_IDENTITY_PROCESSOR_PASS / MEDIA_PARTIAL / RGB_NOT_CONSTRUCTED",
+  "task": "VLM-TIMESTAMPED-TRIPLES-CONTINUE-079"
+}
