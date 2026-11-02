@@ -1,3 +1,5 @@
+> **2026-11-02已按真实启动阻断验收关闭，不续跑。** [0dc7267](https://github.com/floomeer83felix-source/vlm/commit/0dc7267e90713e53494862a7390bfac2e4f6426a)在native线程4>1时自身Job停止，fixture/构建/数据oracle/训练NOT_RUN。[验收](../../research-decisions/post-077-stop-review-and-integrated-training-2026-11-02.md)65公开检查保留资源覆盖缺口；未执行字段/大小guard问题另建078组件修正，不回写077。唯一下一[078完整RGB训练包](../VLM-TIMESTAMPED-TRIPLES-TRAIN-078/README.md)待新媒体/GPU/训练明确批准。以下原合同按当时状态逐字保留，旧READY不构成新授权。
+
 # 077 时间段标注三事件：离线构建与后续训练方案
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。
