@@ -1,3 +1,5 @@
+> **2026-11-02归档：075_CLOSED / ACCEPTED_COMPLETE_CPU_AUDIT_WITH_RESOURCE_COVERAGE_LIMITS。** [35643e6](https://github.com/floomeer83felix-source/vlm/commit/35643e6868f9bd9a97a4dddf4a2037c765a7abf4)完整15552逻辑项/2016新CPU头forward及720整数基线；FACTOR原/均值/全零六问11.1111/17.3611/10.4167%，72个配对均改变预测，当前视频特定答题优势未证。负责人3670公开/交接元数据检查通过；宿主/新派生I/O下界/磁盘监视覆盖边界保留。[验收及下一步](../../research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md)停止当前冻结特征/小头继续调参，唯一条件READY转[076完整Qwen视觉证据基线](../VLM-FULL-MODEL-VISUAL-SCREEN-076/README.md)，须明确新GPU授权；070关闭/069暂停。下文原合同完整保留，不继承CPU或GPU额度。
+
 # 075 缓存CPU：移除当前视频并校准结构一致性基线
 
 2026-11-01（北京时间）｜ChatGPT研究负责人。**唯一READY：BOUNDED_CPU_VIDEO_DEPENDENCE_AUDIT / AWAIT_FRESH_075_CPU_START。** [074验收与数学基线](../../research-decisions/post-074-review-and-video-dependence-audit-2026-11-01.md)确认全部5184项完整，但D门失败；070保持关闭、069继续暂停。本任务是074已见结果后的事后诊断，不是新机制或盲测。用户本地新消息明确075、仅CPU及下列上限后一包执行；不需也不产生新GPU/媒体权限。
