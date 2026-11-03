@@ -1,3 +1,5 @@
+> **2026-11-03已按部分交付验收关闭，不修写旧轮。** [48dd29c](https://github.com/floomeer83felix-source/vlm/commit/48dd29cb7946433bf6fb4092fce52a05e193e4a4)startup/复用/缓存身份/36帧processor PASS，1媒体完成；第6请求BODY本地state replace WinError5停止，锁持有者UNKNOWN。媒体全局SHA manifest未闭合、解码/GPU/训练0/科学INCOMPLETE。[验收](../../research-decisions/post-079-partial-review-and-progress-repair-2026-11-03.md)2747公开检查；新[080](../VLM-TIMESTAMPED-TRIPLES-FINISH-080/README.md)改追加journal、复用首源并一次恢复未完成下载/原训练，原byte/GPU/step预算累计不刷新。以下079合同按当时状态逐字保留，旧READY不授权重跑。
+
 # 079 复用078合格数据，完成原批准的真实RGB对照训练
 
 2026-11-02（北京时间）｜ChatGPT研究负责人。
