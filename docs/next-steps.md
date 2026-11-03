@@ -4,9 +4,9 @@
 >
 > 基准历史：[research-progress-2026-10-08.md](./research-progress-2026-10-08.md)（原始快照，不覆盖）。
 >
-> 更新：2026-11-03（北京时间）。**082限定缓存诊断交付已验收关闭，CAUSE_UNRESOLVED；唯一READY：[083公开机制与近邻复核/最小决定性实验设计](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)。** [082验收](./research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)2604公开检查，57行与081自洽；dev/test全部18头二元答案对六排列不变，train15配置全不变/3配置仅1view敏感；未发现已查轴绑定或精确输入矛盾，V逆块160/160相等，但P三块重复0/18，失败原因未定。
+> 更新：2026-11-03（北京时间）。**当前无READY；083已由负责人暂停，停止持续追加实验/审计任务，不设置084。** 用户质疑83轮投入产出后，负责人判断应先收束已有证据。[停线决定与证据总表](./research-decisions/research-stop-and-083-pause-2026-11-03.md)保留063/068相对正结果，也保留070强对照失败、075视频优势未建立、081小头未拟合和082成因未定。
 >
-> 083只读公开源码/报告/一手文献，最多一个有明确近邻差异和可否证对照的候选，允许RETAIN0；先设计普通强对照的最小可学性门，再设计机制比较/来源变化，不执行训练。私有cache/真实张量/模型或小头forward/梯度/GPU/媒体/下载数据/论文0，五处push STOP，不自动084。081联合监督原门FAIL/原配方关闭，不补seed/调loss/扩样；081用户暂停排除未证/raw父超限，082pre-sync父钟缺失/全host覆盖未知保留，禁止为补证重跑。D/070/旧排序置信度关闭、069暂停。
+> 当前冻结特征/小头配方关闭，不加seed/步数/loss/结构/数据或缓存审计；083为PAUSED_BY_OWNER / NOT_READY，不要求新交付。069按用户要求继续暂停，不写论文或投稿。现有材料先作一次有限实证选题评估；不把任务数量当贡献，不承诺录用，不删除历史资产。任何未来新方向须先有具体假设、直接先例差异、普通基线可学性和决定性对照/停止门，再谈必要预算；本次不立项。无READY按AGENTS停止，不创建空结果；若另一个聊天已开始083，保留已有工作、停止新增动作，不能由公开main推断私有执行状态。
 >
 > 067已验收关闭：[891443a](https://github.com/floomeer83felix-source/vlm/commit/891443ae281f1a7b71afd0b13526b5116d11e064)。归档完整身份与旧模型/12头/normalizer通过，原大小断言在目录落盘/抽取前触发；提取、解码、GPU、Qwen与头forward全0。12/6/4/26表均NA，原067不放宽/不重开；新068须先核无已STARTED科学输入，持久化每个准入失败实际值与限额。不是科学负结果，原063结论不变。
 >
@@ -30,7 +30,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-TEMPORAL-MECHANISM-RESET-083 | P0 | **READY_PUBLIC_SOURCE_REVIEW_AND_DESIGN（唯一READY）** | Codex收到本轮新指令后执行 | [083合同](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)：公开源码/直接近邻复核，最多一个有算子或可检验假设差异的候选；先设计普通强对照最小可学性门，后设计匹配机制对照 | 五处交付，允许RETAIN0；私有cache/数据模型媒体下载/forward/backward/训练/GPU/论文0；push STOP，不自动084或申请空泛训练 |
+| VLM-TEMPORAL-MECHANISM-RESET-083 | P0 | **PAUSED_BY_OWNER / NOT_READY（当前无READY）** | Codex停止领取、ChatGPT负责研究去留 | [停线决定](./research-decisions/research-stop-and-083-pause-2026-11-03.md)：不再用一轮Codex执行替代负责人路线判断；原[083合同](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)仅保留设计 | 不要求新交付/结果编号，不训练/调用模型/审计私有缓存/写论文，不自动084；已有局部文件保留，未来重开须具体依据与必要新授权 |
 | VLM-TEMPORAL-LEARNABILITY-CACHE-082 | P0 | **ACCEPTED_SCOPED_CACHE_DIAGNOSIS_WITH_CLOCK_AND_COVERAGE_CAVEATS / CAUSE_UNRESOLVED / CLOSED** | Codex交付、ChatGPT验收 | [55e138f](https://github.com/floomeer83felix-source/vlm/commit/55e138f670bbcc690c0b86c53e680dffb609cdf3)：57行/388缓存文件，dev/test头对六排列均不变，无已查绑定缺陷/精确输入矛盾，严格位置重复条件不满足 | [验收](./research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)2604公开检查，父时钟/覆盖不全认证，不推断失败成因，不继续缓存审计/调参；旧配方关闭 |
 | VLM-TIMESTAMPED-TRIPLES-STREAM-081 | P0 | **ACCEPTED_COMPLETE_SCIENCE_GATE_FAIL_WITH_CLOCK_AND_COVERAGE_CAVEATS / STOP_THIS_RECIPE / CLOSED** | Codex交付、ChatGPT验收 | [8ae75ef](https://github.com/floomeer83felix-source/vlm/commit/8ae75ef40616c80c8afaaeaa7f0842876c01e600)：真实192RGB/1428root/4500更新全齐，I/A/S六seedtest全50%/源全对0，低于B0 REAL61.1111% | [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056检查，原门FAIL/transfer8898/science12117；train近50%FLIP0，父clock排除依据和全OS覆盖不认证，不用剩余额度续试 |
 | VLM-TIMESTAMPED-TRIPLES-FINISH-080 | P0 | **ACCEPTED_PARTIAL_WINDOWS_JOURNAL_AND_FIVE_MEDIA_PASS / TRUNCATED_RANGE / SCIENCE_INCOMPLETE / CLOSED** | Codex交付、ChatGPT验收 | [e9044cc](https://github.com/floomeer83felix-source/vlm/commit/e9044cca68e1f9174c508acad0e8c5e1c1bd9929)：journal218PASS、5媒体seal，body32956271/36074829B提前EOF，累计21请求/134757960B保守费 | [验收](./research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746检查，全科学NA；55bookkeeping和6stop-state含2历史Job不冒称新执行/完整oracle，原无retry停止正确，不倒填协议 |
