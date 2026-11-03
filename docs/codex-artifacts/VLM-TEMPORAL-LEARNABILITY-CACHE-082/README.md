@@ -1,3 +1,5 @@
+> **2026-11-03已验收关闭，不重跑。** [55e138f](https://github.com/floomeer83felix-source/vlm/commit/55e138f670bbcc690c0b86c53e680dffb609cdf3)完成限定缓存诊断，`CACHE_INTEGRITY_PASS / CAUSE_UNRESOLVED`；负责人2604公开检查，非私有cache独立重跑。开发/test头六排列二元答案不变，严格位置对称条件未满足，不归因。081暂停排除依据未证/raw超限、082首次fetch前父钟未登记及资源覆盖缺口保留。[验收](../../research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)；唯一新[083](../VLM-TEMPORAL-MECHANISM-RESET-083/README.md)只做公开机制/文献复核和可否证实验设计，训练/forward/GPU/私有cache/论文0。以下原082合同逐字归档，不继承READY或剩余预算。
+
 # 082 只读081缓存：核查未拟合原因，不做新预测/训练
 
 2026-11-03（北京时间）｜ChatGPT研究负责人。

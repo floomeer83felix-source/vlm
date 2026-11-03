@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-11-03（北京时间）。**081完整科学交付验收，原联合监督门FAIL/当前配方关闭；唯一READY为[082只读缓存诊断](./codex-artifacts/VLM-TEMPORAL-LEARNABILITY-CACHE-082/README.md)。** [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056公开检查：真实RGB192、1428完整root、18配置4500更新全齐；I/A/S六seedtest都144/288（50%）、源36全对0/8/FLIP0；B0 REAL176/288（61.1111%）但源全对也0，未证新机制。
-> 当前判断：头在train也仅358–360/720、FLIP0，尚未正常拟合时间关系，不能只叫泛化差或否定所有时序学习；不同state/表示/loss不救答题门。不加seed/调loss/扩样或升级对照，082一次CPU只读原cache/参数/loss/绑定/顺序响应和clock依据，禁止新模型或头forward/训练/GPU。原父raw30640秒、剔除26054秒的用户暂停依据公开未证，保留clock/host资源覆盖限制而不重跑科学输入。官方train20/4/8仍开发划分/物理源独立未知，8只是release分析组数，D/070关闭、069暂停，七处push STOP不自动083。
+> 更新：2026-11-03（北京时间）。**082限定缓存诊断交付验收，CAUSE_UNRESOLVED；唯一READY为[083公开机制/近邻复核与实验设计](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)。** [082验收](./research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)2604公开检查：dev/test18头的二元答案均不随六排列变，train15/18配置全不变/3配置各1view；未发现已查绑定错误/1152精确输入矛盾。V逆块160/160精确相同，最终P严格重复0/18，不能据此强归因池化对称；梯度/head margins未存，原因仍未定。
+> 081三臂六seedtest50%、B0 REAL61.1111%及原门FAIL保持，原配方关闭。083只读公开源码/一手近邻，最多一个具体差异候选或RETAIN0，先设计普通强对照最小可学性门，禁止实际训练/新前向/私有cache/GPU/媒体/论文；069继续暂停。不追认081暂停扣时/raw超限和082pre-sync父钟缺失，host/物理源独立性未知；停止堆训练/重复审计，不自动084。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -25,7 +25,9 @@
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
 
-**2026-11-03最新：081真实完整实验失败，转一次缓存学习性诊断。** [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056检查重算全部表/门/aliases/资源；I−A/I−S源全对净0，六seed I源全对总0/48/严格胜两对照0seed，单项较完整B0低11.1111pp。32视频/192RGB、4500更新和完整独立科学12117检查并非空跑；train近50%FLIP0表明当前表示/参数化/训练链尚需核，不自动归因任何一层。新082纯缓存算术组件12合成检查，CPU300秒核原pred六排列与控制一致性、V/q精确矛盾、P块对称条件、初末state/loss与时钟，无新增预测/训练。当前配方关闭、原科学负结果保留，父clock排除授权及物理独立性不追认。
+**2026-11-03最新：082诊断完成但未定位未拟合成因，转公开机制再立项。** [验收](./research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)2604公开检查，57行与081一致；所有dev/test头对真实六排列决策不变，但ordered V192/q138均不同，1152精确输入无标签矛盾，P不满足严格三块重复。所有参数更新/BCE近ln2不能替代正确时间关系；CAUSE_UNRESOLVED，原配方继续关闭。CPU Job17.829秒/388文件145470129B报告在worker预算，081排除授权未证/raw父超限、082同步前父钟缺失及资源覆盖不全保留。新[083](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)五处公开研究/可否证设计，最多一个候选或RETAIN0，不训练/forward/读取私有cache/写论文，不自动084。
+
+**2026-11-03先前：081真实完整实验失败，转一次缓存学习性诊断。** [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056检查重算全部表/门/aliases/资源；I−A/I−S源全对净0，六seed I源全对总0/48/严格胜两对照0seed，单项较完整B0低11.1111pp。32视频/192RGB、4500更新和完整独立科学12117检查并非空跑；train近50%FLIP0表明当前表示/参数化/训练链尚需核，不自动归因任何一层。新082纯缓存算术组件12合成检查，CPU300秒核原pred六排列与控制一致性、V/q精确矛盾、P块对称条件、初末state/loss与时钟，无新增预测/训练。当前配方关闭、原科学负结果保留，父clock排除授权及物理独立性不追认。
 
 **2026-11-03先前：080 journal实机通过/5媒体完整，081修为持久分块有限恢复。** [验收](./research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746检查确认科学函数AST保持、全部分数NA；5媒体78060287B，原大body截断短少3118558B而无retry规则停止。新stream组件69模拟检查，4MiB/256KiB read+fsync/prefix，只补缺失后缀；明确有限body16/metadata8恢复、新211/总232请求，在原768MiB余670548408B内（最坏新增574888678B），原GPU/4500步继续。不是新网络审计，下载齐后同轮真实训练评估；仍无已证机制或外部确认。
 
