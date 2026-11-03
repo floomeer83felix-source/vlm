@@ -1,0 +1,88 @@
+{
+  "task": "VLM-TEMPORAL-LEARNABILITY-CACHE-082",
+  "status": "CACHE_DIAGNOSTIC_COMPLETE / NO_NEW_PREDICTION_OR_TRAINING / ORIGINAL_RECIPE_CLOSED",
+  "sync_sha": "425626d1ab5753f6be2e68e6cbe9255a90cae772",
+  "unique_READY_unreported_verified": true,
+  "audit_LF_sha256": "d036094c84e8b7f8fef79b64b5090ef97e59ad96efeb12b4f5788fd9efb2ef79",
+  "arithmetic_helper_LF_sha256": "f136b16bc0053e28bd5efe308d431e9dd8e5358eafd0fb098280c4f5b1b9a1f9",
+  "production_and_independent_code_presealed": true,
+  "scientific_entry_replays": 0,
+  "read_scope": {
+    "CUDA_initialized": false,
+    "explicit_read_scope": "unique registered logical bytes; native/OS physical IO not certified",
+    "network_media_processor": 0,
+    "new_model_or_head_forward": 0,
+    "source_file_cap": 512,
+    "source_files": 388,
+    "source_read_bytes": 145470129,
+    "source_read_cap": 268435456,
+    "training_updates": 0,
+    "worker_seconds": 17.312000000005355
+  },
+  "job": {
+    "active": 0,
+    "coverage": "own Job limits/readback; sampled threads; no full OS/physical IO certification",
+    "exit_code": 0,
+    "kernel_seconds": 2.65625,
+    "killed": false,
+    "outer_seconds": 17.828999999997905,
+    "peak_commit": 1198411776,
+    "peak_sampled_active": 3,
+    "peak_sampled_native_threads": 22,
+    "sampling_seconds": 0.02,
+    "stop": null,
+    "total_processes": 4,
+    "user_seconds": 7.109375
+  },
+  "caps": {
+    "statistics_and_independent_seconds": 300,
+    "Job_RAM_bytes": 4294967296,
+    "source_files": 512,
+    "source_bytes": 268435456,
+    "new_root_bytes": 67108864,
+    "new_root_files": 256,
+    "parent_seconds": 3600,
+    "owned_active": 8,
+    "sampled_native_threads": 256
+  },
+  "cpu_threads": {
+    "Torch_BLAS": 4,
+    "interop": 1,
+    "scientific_workers": 1
+  },
+  "initial_free_bytes": 338635071488,
+  "minimum_free_bytes": 536870912,
+  "clock": {
+    "pre_sync_persistent_clock": false,
+    "recorded_parent_elapsed_at_report_seconds": 845.4780879020691,
+    "raw_parent_origin": "UNKNOWN_NOT_PERSISTED_BEFORE_FETCH",
+    "excluded_seconds": 0,
+    "limitation": "First fetch and initial instruction reads occurred before durable 082 parent-clock registration. No retrospective pause exclusion or full-parent compliance certification.",
+    "recorded_parent_elapsed_at_validation_seconds": 899.2575376033783
+  },
+  "independent": {
+    "checks": 1495,
+    "new_predictor_forward": 0,
+    "production_helper_or_old_scorer_used_in_oracle": false,
+    "status": "PASS"
+  },
+  "restrictions": {
+    "model_forward": 0,
+    "head_forward": 0,
+    "partial_forward": 0,
+    "backward": 0,
+    "optimizer_steps": 0,
+    "GPU": 0,
+    "CUDA_initialization": false,
+    "media_decode_or_read": 0,
+    "downloads": 0,
+    "processor_tokenizer": 0,
+    "learned_weight_times_feature": 0,
+    "environment_changes": 0
+  },
+  "coverage": "Own Job hard memory/active limits with readback and sampled native thread counts; exact registered logical reads. Native import/OS physical IO/host/Git and continuous quotas not fully certified.",
+  "new_root_at_validation": {
+    "files": 13,
+    "bytes": 410103
+  }
+}
