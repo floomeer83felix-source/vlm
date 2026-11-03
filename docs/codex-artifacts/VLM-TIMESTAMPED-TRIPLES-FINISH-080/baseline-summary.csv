@@ -1,0 +1,10 @@
+condition,split,planned_source_groups,planned_items,planned_native_variants,planned_quartets,planned_FLIP,planned_HOLD,closed_outputs,unknown_outputs,actual_new,aliases,correct_items,correct_native,correct_sources,correct_quartets,correct_FLIP,correct_HOLD,item_accuracy_pct,native_accuracy_pct,source_accuracy_pct,quartet_accuracy_pct,FLIP_accuracy_pct,HOLD_accuracy_pct,status
+REAL,train,20,720,120,360,120,240,0,720,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+BLACK,train,20,720,120,360,120,240,0,720,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+TEXT,train,20,720,120,360,120,240,0,720,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+REAL,development,4,144,24,72,24,48,0,144,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+BLACK,development,4,144,24,72,24,48,0,144,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+TEXT,development,4,144,24,72,24,48,0,144,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+REAL,test,8,288,48,144,48,96,0,288,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+BLACK,test,8,288,48,144,48,96,0,288,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
+TEXT,test,8,288,48,144,48,96,0,288,0,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_TRUNCATED_MEDIA_RANGE
