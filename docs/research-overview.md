@@ -2,8 +2,8 @@
 
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
 >
-> 更新：2026-11-03（北京时间）。**080部分验收，唯一READY为[081持久分块恢复后完成原科学实验](./codex-artifacts/VLM-TIMESTAMPED-TRIPLES-STREAM-081/README.md)。** [验收](./research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746公开检查，Windowsjournal218已实机通过、5媒体完整seal；新第15请求body提前EOF，精确remote/proxy原因未知，日志/Job门未坏，解码/GPU/真实训练仍0，科学INCOMPLETE。D/070关闭，069暂停。
-> 当前判断：进度通信问题已解决，普通断流不应再由合同强制每次换父；081复用5源、剩27源4MiB持久分块，69模拟检查验证EOF/timeout/IncompleteRead恢复prefix和身份/local错误不retry。新133data+54metadata初始Range、额外body≤16/metadata≤8，新≤211/总≤232请求明确覆盖原99；总byte768MiB/GPU3600秒16GiB1428root/4500更新原授权不增，累计扣账不重请示。下载齐后同轮RGB/完整基线及feature/匹配训练和独立评估，原科学函数/门/小开发与原始来源未知边界保持，无模型收益或创新证据，不自动082/论文。
+> 更新：2026-11-03（北京时间）。**081完整科学交付验收，原联合监督门FAIL/当前配方关闭；唯一READY为[082只读缓存诊断](./codex-artifacts/VLM-TEMPORAL-LEARNABILITY-CACHE-082/README.md)。** [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056公开检查：真实RGB192、1428完整root、18配置4500更新全齐；I/A/S六seedtest都144/288（50%）、源36全对0/8/FLIP0；B0 REAL176/288（61.1111%）但源全对也0，未证新机制。
+> 当前判断：头在train也仅358–360/720、FLIP0，尚未正常拟合时间关系，不能只叫泛化差或否定所有时序学习；不同state/表示/loss不救答题门。不加seed/调loss/扩样或升级对照，082一次CPU只读原cache/参数/loss/绑定/顺序响应和clock依据，禁止新模型或头forward/训练/GPU。原父raw30640秒、剔除26054秒的用户暂停依据公开未证，保留clock/host资源覆盖限制而不重跑科学输入。官方train20/4/8仍开发划分/物理源独立未知，8只是release分析组数，D/070关闭、069暂停，七处push STOP不自动083。
 >
 > 后续执行事实：用户随后要求恢复原文件，同版标注已按049§10.5恢复，执行者继续同一049完整开发比较；结果见codex-results唯一049记录及匿名科学回执。以下入口等待描述保留其发生时点，不代表恢复后的当前执行状态；该执行登记发生时负责人验收尚未完成；现已按页首结论验收关闭，不自动产生下一任务。
 
@@ -25,7 +25,9 @@
 **总体结论：尚无经实验和创新审查证实的期刊核心新机制（retain 0）。**
 
 
-**2026-11-03最新：080 journal实机通过/5媒体完整，081修为持久分块有限恢复。** [验收](./research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746检查确认科学函数AST保持、全部分数NA；5媒体78060287B，原大body截断短少3118558B而无retry规则停止。新stream组件69模拟检查，4MiB/256KiB read+fsync/prefix，只补缺失后缀；明确有限body16/metadata8恢复、新211/总232请求，在原768MiB余670548408B内（最坏新增574888678B），原GPU/4500步继续。不是新网络审计，下载齐后同轮真实训练评估；仍无已证机制或外部确认。
+**2026-11-03最新：081真实完整实验失败，转一次缓存学习性诊断。** [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056检查重算全部表/门/aliases/资源；I−A/I−S源全对净0，六seed I源全对总0/48/严格胜两对照0seed，单项较完整B0低11.1111pp。32视频/192RGB、4500更新和完整独立科学12117检查并非空跑；train近50%FLIP0表明当前表示/参数化/训练链尚需核，不自动归因任何一层。新082纯缓存算术组件12合成检查，CPU300秒核原pred六排列与控制一致性、V/q精确矛盾、P块对称条件、初末state/loss与时钟，无新增预测/训练。当前配方关闭、原科学负结果保留，父clock排除授权及物理独立性不追认。
+
+**2026-11-03先前：080 journal实机通过/5媒体完整，081修为持久分块有限恢复。** [验收](./research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746检查确认科学函数AST保持、全部分数NA；5媒体78060287B，原大body截断短少3118558B而无retry规则停止。新stream组件69模拟检查，4MiB/256KiB read+fsync/prefix，只补缺失后缀；明确有限body16/metadata8恢复、新211/总232请求，在原768MiB余670548408B内（最坏新增574888678B），原GPU/4500步继续。不是新网络审计，下载齐后同轮真实训练评估；仍无已证机制或外部确认。
 
 **2026-11-03先前：079通过processor并取得1视频，修本地进度文件失败后080继续实际实验。** [验收](./research-decisions/post-079-partial-review-and-progress-repair-2026-11-03.md)2747检查确认六科学函数AST保持、全部科学分数NA，媒体6请求/34690881应用B（声明上界36263866B），首成员15770653B/CRC通过但global SHA manifest未闭合；WinError5 os.replace精确锁持有者未知。080追加日志组件213 portable检查，Windows分支待正式HTTP前fixture，逐成员seal避免仅RAM hash；复用首源、针对中断源一次恢复、新≤93请求/总99，原byte/GPU/4500步不增，CPU/时间扣账。正式任务整包至训练评估，不再仅交日志审计，无已证新机制/外源确认或论文。
 

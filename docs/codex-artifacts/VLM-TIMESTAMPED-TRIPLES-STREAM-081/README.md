@@ -1,3 +1,5 @@
+> **2026-11-03已按完整科学交付验收关闭，原门FAIL/STOP_THIS_RECIPE，不调参重跑。** [8ae75ef](https://github.com/floomeer83felix-source/vlm/commit/8ae75ef40616c80c8afaaeaa7f0842876c01e600)32媒体/192RGB、1428完整root/4500更新齐；I/A/S六seed测试均144/288和0/8源全对，B0 REAL176/288。[验收](../../research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056公开检查，父clock剔除26054秒依据未由公开记录认证/其余资源覆盖限制保留。唯一新[082](../VLM-TEMPORAL-LEARNABILITY-CACHE-082/README.md)只读feature/state/loss/原pred缓存诊断，CPU300秒，模型/头forward/训练/GPU0。以下081原合同按当时状态逐字保留，旧READY或未用quota不授权重跑。
+
 # 081 4MiB持久分块下载，完成原真实RGB训练整包
 
 2026-11-03（北京时间）｜ChatGPT研究负责人。
