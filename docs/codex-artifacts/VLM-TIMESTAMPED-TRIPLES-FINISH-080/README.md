@@ -1,3 +1,5 @@
+> **2026-11-03按部分交付验收关闭，不重跑旧轮。** [e9044cc](https://github.com/floomeer83felix-source/vlm/commit/e9044cca68e1f9174c508acad0e8c5e1c1bd9929)Windowsjournal218PASS、5媒体逐成员seal；新第15请求body32956271/36074829B提前EOF，精确传输原因未知，全部decode/GPU/训练0/科学INCOMPLETE。[验收](../../research-decisions/post-080-partial-review-and-bounded-chunk-resume-2026-11-03.md)2746公开检查；新[081](../VLM-TIMESTAMPED-TRIPLES-STREAM-081/README.md)4MiB持久分块/有限suffix恢复，复用5源并完成原训练，byte/GPU/步数额度不刷新。以下080原请求99/无本轮再retry规则按历史逐字保留，081的新232请求恢复方法不倒填旧记录。
+
 # 080 修复下载进度通信，完成同一真实RGB对照实验
 
 2026-11-03（北京时间）｜ChatGPT研究负责人。
