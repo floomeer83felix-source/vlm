@@ -1,0 +1,47 @@
+{
+  "status": "OWNER_EMPIRICAL_REVISION_COMPLETE_FOR_AUTHOR_REVIEW",
+  "authorization": "User agreed to the bounded existing-results revision in this conversation",
+  "source_base_sha": "c2738d4870a59cf1c52252f59effd82955167081",
+  "new_training_updates": 0,
+  "new_model_or_head_forward": 0,
+  "private_experiment_files_read": 0,
+  "new_scientific_resampling": 0,
+  "paper_pdf_pages": 9,
+  "native_word_math_blocks": 19,
+  "main_tables": 2,
+  "main_figures": 2,
+  "references": 8,
+  "visual_review_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "visual_review": "All final page PNGs inspected; no missing glyphs, clipped references, split table rows or figure overlaps observed.",
+  "old_manuscripts_preserved": true,
+  "not_submitted": true,
+  "next_step": "Author information, supervisor review and target journal matching; no new experiment READY",
+  "font_asset": "Noto Serif CJK SC from notofonts/noto-cjk used for rendering; original font not committed",
+  "artifact_sha256": {
+    "manuscript.md": "8d17d014f3ad531fbaa32acd0f9dd1356d5fedf8a4d9bac3bc3b5bcb7fc89808",
+    "manuscript.docx": "4232a360320f0111b61adea19c8f5440fe9e343412356f70f5c4e94735f8574b",
+    "manuscript.pdf": "ab4f4e5afe4495a4195582c9e3cd1339e8e4910f7f66711d990173c0e6f233a9",
+    "tables.json": "421dd4fc48cfaf584a6c77aaef8dc6659a63c0b5d87aeb9677f9740eaf0cc054"
+  },
+  "source_sha256": {
+    "docs/codex-artifacts/VLM-ROLE-CONTRAST-REPLICATION-063/condition-summary.csv": "13a65860db7259bf9833aa6931728ff0bebf173f82e6de5f3d57120e0de94894",
+    "docs/codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/condition-summary.csv": "67d5bc56e170b5f4476cb8083b4059ed91080d5c3229f122dea89eeaa72ae36a",
+    "docs/codex-artifacts/VLM-ROLE-CONTRAST-REPLICATION-063/execution-summary.json": "179eabcab138965980955bc37b069d787d2cffc607189cb3227b39f1166c8ce7",
+    "docs/codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/mean-intervals.csv": "aabfaba12a65ef85d0a5cbd78c16ba0895642a84f0aa5b4f5ef0eef027c877de",
+    "docs/research-decisions/post-070-review-and-selector-intervention-2026-11-01.md": "550b286c2c6a6f57388903e7266f35f2780df9269a4936e8fea7f47391261234",
+    "docs/research-decisions/post-071-review-and-multievent-entry-2026-11-01.md": "5c8fc04f3b1c1fa992518059c04c6f82e49853b62c546ac0781f74b448b2ee0b",
+    "docs/research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md": "06809d4d518f6f49c13e45ab017e30cd7f56010865eb27f85a66da0b6bb55083",
+    "docs/research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md": "b46e5dfed4e9e63061abc31587952af08dce416de955ffe294aee5d1e34bc7ad",
+    "docs/research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md": "22a46343cd75603ae304750c4d146153e45e8196bf0405113e837fc4c19efe45"
+  }
+}

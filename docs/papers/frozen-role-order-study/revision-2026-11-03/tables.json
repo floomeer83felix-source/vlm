@@ -1,0 +1,256 @@
+{
+  "seeds": [
+    137,
+    263,
+    419,
+    557,
+    733,
+    911
+  ],
+  "series": [
+    {
+      "split": "train_pool68",
+      "n_per_seed": 68,
+      "C_NATIVE": {
+        "four_way_correct": [
+          68,
+          67,
+          66,
+          67,
+          67,
+          64
+        ],
+        "question_invariant": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_four_way_pct": 97.79411764705883
+      },
+      "D_NATIVE": {
+        "four_way_correct": [
+          68,
+          68,
+          68,
+          66,
+          66,
+          67
+        ],
+        "question_invariant": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_four_way_pct": 98.77450980392157
+      }
+    },
+    {
+      "split": "validation11",
+      "n_per_seed": 11,
+      "C_NATIVE": {
+        "four_way_correct": [
+          6,
+          6,
+          4,
+          6,
+          4,
+          2
+        ],
+        "question_invariant": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          2
+        ],
+        "mean_four_way_pct": 42.42424242424242
+      },
+      "D_NATIVE": {
+        "four_way_correct": [
+          5,
+          4,
+          5,
+          4,
+          5,
+          4
+        ],
+        "question_invariant": [
+          1,
+          1,
+          2,
+          0,
+          1,
+          1
+        ],
+        "mean_four_way_pct": 40.90909090909091
+      }
+    },
+    {
+      "split": "development54",
+      "n_per_seed": 54,
+      "C_NATIVE": {
+        "four_way_correct": [
+          8,
+          11,
+          8,
+          12,
+          13,
+          9
+        ],
+        "question_invariant": [
+          14,
+          21,
+          15,
+          13,
+          13,
+          15
+        ],
+        "mean_four_way_pct": 18.82716049382716
+      },
+      "D_NATIVE": {
+        "four_way_correct": [
+          14,
+          12,
+          14,
+          14,
+          11,
+          13
+        ],
+        "question_invariant": [
+          7,
+          8,
+          11,
+          6,
+          7,
+          12
+        ],
+        "mean_four_way_pct": 24.074074074074073
+      }
+    },
+    {
+      "split": "source_holdout50",
+      "n_per_seed": 50,
+      "C_NATIVE": {
+        "four_way_correct": [
+          3,
+          6,
+          1,
+          1,
+          2,
+          2
+        ],
+        "question_invariant": [
+          34,
+          29,
+          21,
+          24,
+          25,
+          25
+        ],
+        "mean_four_way_pct": 5.0
+      },
+      "D_NATIVE": {
+        "four_way_correct": [
+          10,
+          10,
+          10,
+          6,
+          8,
+          9
+        ],
+        "question_invariant": [
+          10,
+          7,
+          16,
+          9,
+          8,
+          7
+        ],
+        "mean_four_way_pct": 17.666666666666668
+      }
+    },
+    {
+      "split": "VIDHALLUC_new_items",
+      "n_per_seed": 50,
+      "C_NATIVE": {
+        "four_way_correct": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "question_invariant": [
+          36,
+          35,
+          37,
+          39,
+          33,
+          33
+        ],
+        "mean_four_way_pct": 1.3333333333333333
+      },
+      "D_NATIVE": {
+        "four_way_correct": [
+          8,
+          7,
+          6,
+          2,
+          7,
+          7
+        ],
+        "question_invariant": [
+          14,
+          14,
+          21,
+          16,
+          13,
+          12
+        ],
+        "mean_four_way_pct": 12.333333333333334
+      }
+    }
+  ],
+  "existing_intervals": [
+    {
+      "dataset": "50Salads",
+      "axis": "family",
+      "point": 12.666666666666666,
+      "lower": 5.666666666666667,
+      "upper": 20.333333333333332
+    },
+    {
+      "dataset": "50Salads",
+      "axis": "seed",
+      "point": 12.666666666666666,
+      "lower": 10.333333333333334,
+      "upper": 15.333333333333334
+    },
+    {
+      "dataset": "VIDHALLUC",
+      "axis": "paired_unit",
+      "point": 11,
+      "lower": 5,
+      "upper": 17.666666666666668
+    },
+    {
+      "dataset": "VIDHALLUC",
+      "axis": "seed",
+      "point": 11,
+      "lower": 8,
+      "upper": 13.333333333333334
+    }
+  ],
+  "new_model_evaluation": false,
+  "new_training": false,
+  "new_resampling": false,
+  "scope": "Repeated seeds are not independent source examples."
+}

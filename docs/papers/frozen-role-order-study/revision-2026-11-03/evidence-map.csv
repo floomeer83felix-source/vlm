@@ -1,0 +1,10 @@
+claim,reported_fact,source_path,scope
+main_table1,six-seed original splits,docs/codex-artifacts/VLM-ROLE-CONTRAST-REPLICATION-063/condition-summary.csv,same data repeated across seeds
+main_table1_transfer,1.333333 to 12.333333 percent,docs/codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/condition-summary.csv,same frozen heads; same publisher pipeline
+source_intervals_and_order,12.666667 pp; order interactions 18 and 4 pp,docs/codex-artifacts/VLM-ROLE-CONTRAST-REPLICATION-063/execution-summary.json,existing conditional intervals
+transfer_intervals,11 pp; two conditional axes,docs/codex-artifacts/VLM-FROZEN-TRANSFER-READMISSION-068/mean-intervals.csv,not new resampling
+strong_controls,FACTOR fails original all-controls gate,docs/research-decisions/post-070-review-and-selector-intervention-2026-11-01.md,different readout variant
+selector_intervention,aggregate score preserved with changed predictions,docs/research-decisions/post-071-review-and-multievent-entry-2026-11-01.md,not prediction equivalence
+visual_reference,11.1111 to 17.3611 percent for FACTOR,docs/research-decisions/post-075-review-and-full-model-visual-screen-2026-11-02.md,different three-event task
+new_recipe,three arms near chance on train and test,docs/research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md,different head and data construction
+cache_diagnosis,CAUSE_UNRESOLVED,docs/research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md,no causal localization
