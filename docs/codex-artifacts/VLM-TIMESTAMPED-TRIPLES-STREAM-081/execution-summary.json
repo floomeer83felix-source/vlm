@@ -1,0 +1,475 @@
+{
+  "task": "VLM-TIMESTAMPED-TRIPLES-STREAM-081",
+  "status": "COMPLETE",
+  "scientific_status": "NO_SATISFYING_JOINT_SUPERVISION_SIGNAL / STOP_THIS_RECIPE",
+  "sync_sha": "be0d3cabd6c9b293766c3ee5fac62f1b09b93d60",
+  "unique_READY_and_unreported_at_start": true,
+  "code": {
+    "v1_lf_sha256": "bb0a1736f4fa4d48ace4a91182c96c1841529d52bfe8352d4075c0d69cf4edc3",
+    "v2_lf_sha256": "fdf36ab00a37d98d263b301f36d5edaa633bfdc85e6e4c997c1154fca7e3232f",
+    "scientific_six_AST_unchanged": true,
+    "original_adapter_and_scientific_oracle_presealed": true,
+    "infra_repairs_used": 1,
+    "components": {
+      "ranges.py": "d0cac848be2c6a618d1f532539652186e4412a91be66985aa57f42315a2c81a3",
+      "communication.py": "0b12bfed5a2f74f4856ca841967d648fbd29fd3337e96d0a37ba7b0cf1d44140",
+      "identity.py": "89567c6d5d31166be0e319cf4837292c828d2c593c8d4d6d843fd154df7edf6c"
+    }
+  },
+  "data": {
+    "groups": 32,
+    "splits": [
+      20,
+      4,
+      8
+    ],
+    "questions_unique": 138,
+    "event_texts_unique": 29,
+    "source_frames": 28139,
+    "RGB_blocks": 96,
+    "real_variants": 192,
+    "frames_per_variant": 36,
+    "runtime_fps": 12,
+    "runtime_seconds": 3,
+    "real_nonpixel_pairs": 1152
+  },
+  "network": {
+    "application_bytes": 503192933,
+    "body_retries": 0,
+    "cumulative_uncompressed_closed_bytes": 579702574,
+    "journal_records": 2551,
+    "members_closed": 32,
+    "metadata_retries": 0,
+    "new_charge_cap": 670548408,
+    "new_members_closed": 27,
+    "new_range_charge": 503192933,
+    "new_request_cap": 211,
+    "new_requests": 187,
+    "new_uncompressed_bytes": 501642287,
+    "prior_range_charge": 134757960,
+    "prior_requests": 21,
+    "range_charge": 637950893,
+    "range_charge_cap": 805306368,
+    "request_cap": 232,
+    "requests": 208,
+    "reused_members": 5,
+    "status": "CLOSED32",
+    "writer_failed": false
+  },
+  "model": {
+    "logical": 3456,
+    "actual_complete_root": 1428,
+    "aliases": 2028,
+    "counts": {
+      "decoder": 1428,
+      "decoder_layer": 51408,
+      "lm_head": 1428,
+      "root": 1428,
+      "visual": 1290
+    },
+    "V": 193,
+    "Q": 138,
+    "weight_loads": 1,
+    "independent_feature_forwards": 0,
+    "generate": 0,
+    "backbone_backward": 0,
+    "allocated_peak_bytes": 9563056128
+  },
+  "training": {
+    "configs": 18,
+    "seeds": [
+      19,
+      73,
+      101,
+      137,
+      181,
+      229
+    ],
+    "arms": [
+      "A",
+      "I",
+      "S"
+    ],
+    "parameters_each": 341633,
+    "updates_each": 250,
+    "actual_updates": 4500,
+    "train_groups": 20,
+    "training_label_isolation": true,
+    "final_step_only": true,
+    "matched_init_and_batch_per_seed": true
+  },
+  "heads": {
+    "logical": 62208,
+    "actual_new": 25704,
+    "aliases": 36504
+  },
+  "evaluation": {
+    "baseline_rows": 9,
+    "head_rows": 162,
+    "paired_rows": 42,
+    "all_denominators_complete": true,
+    "test_independent_source_groups": 8,
+    "gate": {
+      "I_item_at_least50pct": true,
+      "I_test_source_sum": 0,
+      "above_own_fixed_controls": false,
+      "complete": true,
+      "item_flip_hold_not_lower": true,
+      "net_source_sums": {
+        "A": 0,
+        "S": 0
+      },
+      "not_lower_B0_items": false,
+      "passes": false,
+      "seeds_strictly_above_both": 0,
+      "software_guards": "PASS",
+      "strictly_above_B0_sources": false
+    },
+    "uncertainty": [
+      {
+        "comparison": "I-A",
+        "exact_sign_flips": 256,
+        "scope": "descriptive source-paired null reference; not independent seeds/confirmatory inference",
+        "tail": 1.0,
+        "two_sided_tail_numerator": 256
+      },
+      {
+        "comparison": "I-S",
+        "exact_sign_flips": 256,
+        "scope": "descriptive source-paired null reference; not independent seeds/confirmatory inference",
+        "tail": 1.0,
+        "two_sided_tail_numerator": 256
+      }
+    ]
+  },
+  "audit": {
+    "transfer": {
+      "checks": 8898,
+      "code_presealed": true,
+      "compressed_prefix_disk_hash_review": true,
+      "model_head_video_decode_replays": 0,
+      "status": "PASS"
+    },
+    "science": {
+      "audit_code_presealed": true,
+      "checks": 12117,
+      "model_head_decode_replays": 0,
+      "producer_training_scoring_imports": 0,
+      "scientific_gate": false,
+      "source_groups_test": 8,
+      "status": "PASS"
+    }
+  },
+  "resources": {
+    "stage_groups_seconds": {
+      "preparation": {
+        "actual": 62.31199999997625,
+        "cap": 536.51
+      },
+      "network": {
+        "actual": 568.8910000000033,
+        "cap": 1544.45
+      },
+      "decode": {
+        "actual": 394.4059999999881,
+        "cap": 1800
+      },
+      "GPU": {
+        "actual": 643.5940000000119,
+        "cap": 3600
+      },
+      "training": {
+        "actual": 117.67200000002049,
+        "cap": 1796.25
+      },
+      "prediction_scoring_independent": {
+        "actual": 38.26700000002165,
+        "cap": 599.16
+      }
+    },
+    "jobs": {
+      "adapter_fixture": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 0.5309999999881256,
+        "user_seconds": 0.09375,
+        "kernel_seconds": 0.109375,
+        "peak_commit": 26542080,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 4,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "reuse081": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 0.7969999999913853,
+        "user_seconds": 0.125,
+        "kernel_seconds": 0.25,
+        "peak_commit": 99631104,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 4,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "network": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 568.8910000000033,
+        "user_seconds": 40.0625,
+        "kernel_seconds": 8.34375,
+        "peak_commit": 31997952,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 6,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "decode_prepare": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 394.4059999999881,
+        "user_seconds": 253.109375,
+        "kernel_seconds": 23.890625,
+        "peak_commit": 3361312768,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 18,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "input_gate": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 52.60899999999674,
+        "user_seconds": 35.265625,
+        "kernel_seconds": 7.640625,
+        "peak_commit": 5525233664,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 18,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "gpu": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 643.5940000000119,
+        "user_seconds": 424.421875,
+        "kernel_seconds": 52.4375,
+        "peak_commit": 17011990528,
+        "peak_observed_active": 4,
+        "peak_observed_threads_per_job_process": 25,
+        "memory_limit_bytes": 34359738368,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 34359738368,
+          "kill_on_close": true,
+          "process_memory": 34359738368
+        }
+      },
+      "feature_pack": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 8.375,
+        "user_seconds": 2.0625,
+        "kernel_seconds": 1.34375,
+        "peak_commit": 960458752,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 13,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "train": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 117.67200000002049,
+        "user_seconds": 109.96875,
+        "kernel_seconds": 13.453125,
+        "peak_commit": 984481792,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 16,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "predict": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 20.875,
+        "user_seconds": 18.296875,
+        "kernel_seconds": 4.671875,
+        "peak_commit": 1241632768,
+        "peak_observed_active": 3,
+        "peak_observed_threads_per_job_process": 13,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "scoring": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 1.235000000015134,
+        "user_seconds": 0.703125,
+        "kernel_seconds": 0.09375,
+        "peak_commit": 75718656,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 4,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      },
+      "independent": {
+        "active": 0,
+        "exit_code": 0,
+        "killed": false,
+        "outer_seconds": 16.15700000000652,
+        "user_seconds": 3.1875,
+        "kernel_seconds": 2.5625,
+        "peak_commit": 884236288,
+        "peak_observed_active": 2,
+        "peak_observed_threads_per_job_process": 10,
+        "memory_limit_bytes": 17179869184,
+        "native_thread_limit": 256,
+        "stop_reason": null,
+        "limit_readback": {
+          "active_limit": 8,
+          "flags": 8968,
+          "job_memory": 17179869184,
+          "kill_on_close": true,
+          "process_memory": 17179869184
+        }
+      }
+    },
+    "initial_free_bytes": 342079115264,
+    "minimum_free_bytes": 12884901888,
+    "four_roots_at_report_snapshot": {
+      "bytes": 3510845059,
+      "files": 1378,
+      "checkpoint_bytes": 32886888
+    },
+    "prior_parent_executed_seconds": 4013.817247390747,
+    "parent081_charged_at_report_snapshot_seconds": 4586.068687677383,
+    "four_parent_charged_at_report_snapshot_seconds": 8599.88593506813,
+    "parent081_wall_including_wait_at_snapshot_seconds": 30640.471719503403,
+    "excluded_user_wait_seconds": 26054.40303182602,
+    "idle_overhead_retained_seconds": 60,
+    "new_parent_cap_seconds": 12000,
+    "four_parent_cap_seconds": 14400,
+    "explicit_read_bytes": {
+      "media": 1665688622,
+      "old": 1133039,
+      "prepared": 4559337579
+    },
+    "explicit_read_caps": {
+      "old": 6504611,
+      "prepared": 12881150647,
+      "media": 4279196643,
+      "model": 0
+    },
+    "outstanding_read_reservations": 0,
+    "prior_unknown_caps_retained": {
+      "old": 33554432,
+      "prepared": 12884901888,
+      "weight_hash": 12884901888
+    },
+    "fresh_weight_hash_read_bytes": 0,
+    "job_active_limit": 8,
+    "science_workers": 1,
+    "Torch_BLAS_threads": 4,
+    "interop_threads": 1,
+    "codec_threads": 1,
+    "native_threads_snapshot_cap": 256,
+    "coverage": "explicit logical buffered read ledger and sampled owned Job accounting; native/OS physical IO, wire prefetch, host/Git and continuous thread coverage UNKNOWN; report snapshot excludes later Git bookkeeping",
+    "post_oracle_report_and_validation_wall_seconds_at_commit_snapshot": 482.10739064216614,
+    "review_total_conservative_wall_seconds_at_commit_snapshot": 520.3743906421878,
+    "review_includes_all_post_oracle_host_wall_until_snapshot": true,
+    "parent081_charged_at_commit_snapshot_seconds": 4700.160005092621,
+    "four_parent_charged_at_commit_snapshot_seconds": 8713.977252483368
+  },
+  "limitations": [
+    "Official train sources with self-defined development split; not external or blind evaluation.",
+    "Physical recording/participant independence, pretraining overlap, visibility, atomic completion and unique occurrence UNKNOWN.",
+    "Only frozen-backbone features and external binary heads; no Qwen finetuning or internal reasoning mechanism claim.",
+    "No tuning, reseeding, sample replacement, paper writing or follow-on execution."
+  ]
+}

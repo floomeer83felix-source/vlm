@@ -1,0 +1,100 @@
+{
+  "task": "VLM-TIMESTAMPED-TRIPLES-STREAM-081",
+  "status": "PASS",
+  "fixed_revision": {
+    "bucket": "dm-perception-test",
+    "object": "zip_data/train_videos.zip",
+    "generation": "1685446268139925",
+    "ETag": "\"-CJXz5tD4nP8CEAE=\"",
+    "archive_bytes": 28404087974,
+    "source": "https://github.com/google-deepmind/perception_test",
+    "data_license": "CC-BY-4.0",
+    "code_license": "Apache-2.0"
+  },
+  "historical_checks_reused": {
+    "metadata": 22987,
+    "source_binding": 3556,
+    "processor": true,
+    "head": true,
+    "Windows_journal": 218
+  },
+  "current_reuse": {
+    "old_members": 5,
+    "old_member_raw_bytes": 78060287,
+    "old_SHA_CRC_read_once": true,
+    "new_members": 27,
+    "all_member_raw_bytes": 579702574,
+    "new_full_weight_hash_bytes": 0,
+    "cached_model_stat_files": 12
+  },
+  "new_adapter_fixture": {
+    "EOF_timeout_IncompleteRead_suffix": "PASS",
+    "cases": 7,
+    "checks": 54,
+    "event_schema_and_prior_charge_mapping": "PASS",
+    "fixture_ledger": "EXPLICIT_NONLIVE_SEPARATE_FROM_FORMAL_HTTP",
+    "identity_local_write_no_retry": "PASS",
+    "model_media_operations": 0,
+    "real_HTTP_requests": 0,
+    "status": "PASS"
+  },
+  "transfer_plan": {
+    "initial_data_chunks": 133,
+    "chunk_max_bytes": 4194304,
+    "metadata_requests": 54,
+    "single_read_max_bytes": 262144,
+    "body_recovery_cap": 16,
+    "metadata_recovery_cap": 8,
+    "one_original_chunk_attempt_cap": 2
+  },
+  "transport": {
+    "new_requests": 187,
+    "requests": 208,
+    "new_range_charge": 503192933,
+    "range_charge": 637950893,
+    "application_bytes": 503192933,
+    "body_retries": 0,
+    "metadata_retries": 0,
+    "members_closed": 32,
+    "journal_records": 2551
+  },
+  "media_validation": {
+    "CRC": true,
+    "raw_size": true,
+    "BZIP2_EOF": true,
+    "no_extra_stream": true,
+    "actual_raw_and_compressed_SHA": true,
+    "global_manifest": true,
+    "persistent_write_reserve_fsync_prefix_chain": true,
+    "independent_transfer_checks": 8898
+  },
+  "RGB": {
+    "source_decode_passes": 32,
+    "source_frames": 28139,
+    "blocks": 96,
+    "real_variants": 192,
+    "distinct_frames_per_segment": 12,
+    "size": [
+      224,
+      224
+    ],
+    "runtime": "36 frames / 12 fps / 3 seconds",
+    "PTS_gap_endpoints_checked": true,
+    "latent_only_permutation": false
+  },
+  "inputs": {
+    "status": "PASS",
+    "checks": 17243,
+    "unique_inputs": 1428,
+    "logical_inputs": 3456,
+    "aliases": 2028,
+    "real_nonpixel_pairs": 1152,
+    "real_gold_collision": "PASS",
+    "controls_opposite_gold": "INTENTIONAL_Q_ONLY_CONTROLS_NOT_REAL_ADMISSION",
+    "historical_signature_intersection": 0
+  },
+  "unknowns": [
+    "Official train sources with self-defined development split; not external or blind evaluation.",
+    "Physical recording/participant independence, pretraining overlap, visibility, atomic completion and unique occurrence UNKNOWN."
+  ]
+}
