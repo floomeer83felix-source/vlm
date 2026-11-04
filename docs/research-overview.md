@@ -1,5 +1,7 @@
 # VLM 长视频研究总览与决策日志（ChatGPT 维护）
 
+> **2026-11-04最新验收：084已关闭，当前0 READY。** [5172a8f](https://github.com/floomeer83felix-source/vlm/commit/5172a8f81870ccf6d757f15f7c55fd5188e635f9)完成数学四角差分一手近邻、14项stdlib合成测试及捷径反例。负责人[审查](./research-decisions/post-084-factorial-interaction-disposition-2026-11-04.md)认定：交付完成、强制符号对称成立，但静态位置与词汇相关的非语义捷径同样满足；该方案无足够新颖性/可识别性，**RETAIN0 / NO_JUSTIFIED_REAL_EXPERIMENT**，不新建085、不恢复083/081/082。原冻结特征论文方向作为受限实证稿独立保存。下一步不是补训练，而是先确认论文投稿或提出一个新问题及可证伪技术差异，再考虑单次有限实验授权。旧下文“唯一084 READY”只代表立项时点。
+>
 > **2026-11-04新决策（覆盖下方2026-11-03时点状态，不修改历史证据）**：用户要求启动原创算法机制研究。负责人经原081/082负结果复核与初步一手近邻检索，决定**只开放一个无GPU/无数据的第一关**：问题角色交换τ与外部时间单元反序R所形成的四角logit交互I=f(V,q)-f(V,τq)-f(RV,q)+f(RV,τq)。本阶段将其标为**待筛查的数学诊断候选**，不是新算法、真实逆放或有效时间理解证明。参考CRPO、TimeBlind、TOGA、NeuS-QA、CF-VQA、Possible Worlds VQA、ETR等直接近邻；只有合成代数自检和假阳性反例，不访问私有科研输入。**唯一READY为[084](./codex-artifacts/VLM-FACTORIAL-INTERACTION-SCREEN-084/README.md)**；旧083维持PAUSED，069不执行，081/082不重跑，旧实验结论与论文稿保持不变。后续真实可学习性实验、GPU、forward、媒体和新监督均未授权；任何创新主张仍为RETAIN0。
 >
 > **定位**：滚动总结，不取代原始实验档案，也不宣称每次都已对本地实验原始账本独立复算。
