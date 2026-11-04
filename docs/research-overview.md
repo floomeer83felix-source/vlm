@@ -1,5 +1,7 @@
 # VLM 长视频研究总览与决策日志（ChatGPT 维护）
 
+> **2026-11-04 DATA_GATE公开核查**：[负责人来源与连续性审查](./research-decisions/temporal-alignment-data-gate-2026-11-04.md)确定Perception Test官方train为现阶段最可能低成本的训练资格候选，既有08132来源历史媒体已处理但不能据此推断私有原视频现存且天然连续；TempCloze仅test元数据，Ego4D受单独许可、SSv2单动作优先级低。下一科研动作需先获明确有限私有seal/manifest元数据读取许可，核是否有真实L/M/R自然连续片段。**目前仅PROPOSED，0 READY，未提出085或任何数据/模型/GPU行动**。文献新颖性与普通baseline可学习性仍各有未过关卡，不得从官方许可证或数学构造推导算法已成立。
+>
 > **2026-11-04科研路线重筛（084之后）**：用户选择继续寻找真正算法创新，负责人用公开最新文献比较视频时间对齐目标与TempCloze/Visual Jigsaw/EventLens/TimeBridge/Foresee-to-Ground/VideoComp。结论：[定向研究备忘](./research-decisions/temporal-alignment-topic-screen-2026-11-04.md)；真实视觉时间衔接比旧角色差分更接近可验证瓶颈，但缺实质差异算子、源独立输入资格和可学强baseline，故**仅HYPOTHESIS / GATE0_HOLD / ALGORITHM_UNCONFIRMED / ZERO_READY**。没有新训练或论文改动，不自动085；原063/068实证成果与085资格研究各自独立。
 >
 > **2026-11-04最新验收：084已关闭，当前0 READY。** [5172a8f](https://github.com/floomeer83felix-source/vlm/commit/5172a8f81870ccf6d757f15f7c55fd5188e635f9)完成数学四角差分一手近邻、14项stdlib合成测试及捷径反例。负责人[审查](./research-decisions/post-084-factorial-interaction-disposition-2026-11-04.md)认定：交付完成、强制符号对称成立，但静态位置与词汇相关的非语义捷径同样满足；该方案无足够新颖性/可识别性，**RETAIN0 / NO_JUSTIFIED_REAL_EXPERIMENT**，不新建085、不恢复083/081/082。原冻结特征论文方向作为受限实证稿独立保存。下一步不是补训练，而是先确认论文投稿或提出一个新问题及可证伪技术差异，再考虑单次有限实验授权。旧下文“唯一084 READY”只代表立项时点。
