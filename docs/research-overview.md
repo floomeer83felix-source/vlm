@@ -1,5 +1,7 @@
 # VLM 长视频研究总览与决策日志（ChatGPT 维护）
 
+> **2026-11-04执行分工更新（最新）**：用户在报告063旧头12/12、辅助文件9/9存在后明确提出“这类任务还是交由codex吧”。负责人保留公开论文与科研审查直接执行；将**下一次私有063固定白名单的封存SHA核验**明确移交Codex，唯一[README READY](./codex-artifacts/VLM-063-LOCAL-SEAL-VERIFY-2026-11-04/README.md)。目标12个C/D冻结`final.pt`+2视图`views.pt/train-views.pt`+两份input/output封存JSON，仅≤96MiB内容流式SHA、≤120秒CPU，不读取特征/视频/答案、Torch加载、GPU、模型forward、训练或新TimeBlind数据；异常安全STOP，用户已提供的旧存在性结果不升格为内容身份真实性。**没有新外部模型准确率，独立数据评测NOT_RUN；旧083仍PAUSED、084/085仍CLOSED**，无需额外创建086。交付由Codex在收到新聊天消息后执行一次，推送后由ChatGPT审核。
+>
 > **2026-11-04独立数据与强对照阶段核查（负责人直接完成）**：用户先做论文第三方面后，ChatGPT已审[TimeBlind 2026官方外部600实例四格与许可](./research-decisions/independent-data-strong-control-stage-review-2026-11-04.md)、[062严格问句解析器](../prototypes/question_role_contrast_062.py)、063/068/070公开配对表，实际复算D−C两池+12.67/+11pp但后续FACTOR−ANCHOR−2.67/+1.33pp门FAIL；按序可见外部问题30组严格062模板匹配0、零样本可比性未建立。负责人本地纯CPU穷举16个预测模式、3/3合成unit tests PASS，脚本/JSON/报告已交付本轮聊天ZIP。**没有新的C/D/N真实外部数据模型预测、没有合法媒体下载/GPU/模型调用/训练。** TimeBlind作者规定只作为诊断，不用于训练，网络视频保留原来源许可；旧论文实际贡献、负结果与发表概率不能因外部数据“已找到”而升级。第三方面数据资格保持HOLD、模型实验NOT_RUN，**当前0 READY**，公开文稿与低成本检查由ChatGPT直接处理不交Codex。
 >
 > **2026-11-04用户执行偏好及文稿实物交付（最新）**：用户要求“能由ChatGPT完成的任务不交Codex”。负责人直接用既有投稿审阅Markdown与已封存公开聚合重绘两图、生成**可编辑Word及8页PDF**，8/8页目视校验、2个可编辑Word表、19处OMML公式、11条参考文献保留、核心负结果不变；附件**在当前聊天**提供（GitHub连接器未上传二进制，旧仓库Word/PDF仍为11月3日旧版），详见[负责人交付/验收](./papers/frozen-role-order-study/revision-2026-11-03/owner-render-audit-2026-11-04.md)。旧委派的公共排版父任务由用户新指示改为**DONE_BY_CHATGPT/CLOSED**，当前0 READY、无Codex虚假回执。科研独立来源验证依旧NOT_RUN；作者署名/单位/基金/中图分类/当期官方模板/导师终审未完成，不自动投稿。以后公开文稿与格式类可直接处理，不额外交Codex。
