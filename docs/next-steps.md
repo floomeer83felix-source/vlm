@@ -1,5 +1,7 @@
 # VLM 下一步工作安排（ChatGPT 维护）
 
+> **2026-11-04后续新选题筛查（不改变084验收）**：用户说“好的，继续”后，负责人已完成一次公开文献定向重筛，见[视觉时间对齐转向资格判断](./research-decisions/temporal-alignment-topic-screen-2026-11-04.md)。TempCloze揭示视觉时间对齐难点，但EventLens、Visual Jigsaw、TimeBridge、F2G和VideoComp已有直接先例；目前仅保留候选科学问题H（来源和外观受控的双侧视觉状态变化是否支撑真实时间衔接），**没有足够新颖算子/可信独立输入/能正常拟合的强baseline，因此GATE0_HOLD，仍0 READY，不新建085**。下一实际行动是完成这三项资格证据的书面设计核对或先推进现有论文的投稿准备；禁止以此为由自动训练、下载或读私有资产。
+>
 > **2026-11-04最新验收（优先于旧084 READY记录）**：084已由Codex在[5172a8f](https://github.com/floomeer83felix-source/vlm/commit/5172a8f81870ccf6d757f15f7c55fd5188e635f9)完成6处公开交付，负责人[验收](./research-decisions/post-084-factorial-interaction-disposition-2026-11-04.md)为**ACCEPTED_SCOPED_PUBLIC_SCREEN / RETAIN0 / NO_JUSTIFIED_REAL_EXPERIMENT / CLOSED**。14项纯stdlib逻辑测试通过，但静态位置捷径也满足强制符号对称；没有可辩护的新算法，无法批准真实实验。**当前0 READY，不设置085**，083仍暂停；GPU/真实模型forward/训练/私有数据/媒体均未授权。下一具体行动是作者/导师审阅现有实证稿与确定投稿目标，或由负责人先提出有独立技术增量的新科学问题，不能按编号继续旧方案。
 >
 > 协作规则：**ChatGPT 负责研究规划与审查；Codex 每轮领取本文件中唯一 READY 的任务或任务包。一个任务包可依书面协议连续完成多项安全子任务，统一反馈后再审核**。执行事实写入 [codex-results.md](./codex-results.md)，脱敏附件上传 [codex-artifacts/](./codex-artifacts/)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
