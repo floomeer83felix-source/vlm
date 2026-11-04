@@ -1,5 +1,7 @@
 # VLM 长视频研究总览与决策日志（ChatGPT 维护）
 
+> **2026-11-04用户明确批准受限私有元数据核查（最新任务状态）**：用户对[先前DATA_GATE提案](./research-decisions/temporal-alignment-data-gate-2026-11-04.md)回复“批准”。负责人登记唯一[085 READY](./codex-artifacts/VLM-PERCEPTION-CONTINUITY-AUDIT-085/README.md)：精确旧081单一受控根下已登记的封存/manifest中核完整自然连续原视频及L/M/R存在性，≤64文件、≤16MiB私有结构性元数据读取、CPU≤60s；root未知、身份冲突、时间戳缺失时BLOCKED/UNKNOWN，不扩搜索、补索引或改标签。**未开始执行；本授权不包括GPU/新model forward/媒体内容/解码/下载/训练/私有标签。** 083维持暂停、084CLOSED、085回执待Codex在当前会话明确新消息后执行，未自动创建086；新算法原创性仍不成立。
+>
 > **2026-11-04 DATA_GATE公开核查**：[负责人来源与连续性审查](./research-decisions/temporal-alignment-data-gate-2026-11-04.md)确定Perception Test官方train为现阶段最可能低成本的训练资格候选，既有08132来源历史媒体已处理但不能据此推断私有原视频现存且天然连续；TempCloze仅test元数据，Ego4D受单独许可、SSv2单动作优先级低。下一科研动作需先获明确有限私有seal/manifest元数据读取许可，核是否有真实L/M/R自然连续片段。**目前仅PROPOSED，0 READY，未提出085或任何数据/模型/GPU行动**。文献新颖性与普通baseline可学习性仍各有未过关卡，不得从官方许可证或数学构造推导算法已成立。
 >
 > **2026-11-04科研路线重筛（084之后）**：用户选择继续寻找真正算法创新，负责人用公开最新文献比较视频时间对齐目标与TempCloze/Visual Jigsaw/EventLens/TimeBridge/Foresee-to-Ground/VideoComp。结论：[定向研究备忘](./research-decisions/temporal-alignment-topic-screen-2026-11-04.md)；真实视觉时间衔接比旧角色差分更接近可验证瓶颈，但缺实质差异算子、源独立输入资格和可学强baseline，故**仅HYPOTHESIS / GATE0_HOLD / ALGORITHM_UNCONFIRMED / ZERO_READY**。没有新训练或论文改动，不自动085；原063/068实证成果与085资格研究各自独立。
