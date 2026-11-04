@@ -1,5 +1,7 @@
 # VLM 长视频研究总览与决策日志（ChatGPT 维护）
 
+> **2026-11-04最新负责人验收：085历史Perception Test视频连续性数据门HOLD，当前0 READY。** Codex[2015bb9](https://github.com/floomeer83felix-source/vlm/commit/2015bb9a2e55fba8c938715a8cccda973c347cb7)完成限定元数据审查：32登记来源，27个批准根内媒体存在且size匹配，5个根外引用未查；没有足够的原录制时长/PTS和L/M/R区间证据，天然连续候选证实数0、32资格UNKNOWN。**这是证据不足而非证明无连续视频**；一次安全修正后18项stdlib合成测试通过，回执≤16MiB/CPU60s约束内。负责人[正式验收](./research-decisions/post-085-perception-continuity-audit-disposition-2026-11-04.md)将085设CLOSED、不自动086、不升级媒体、下载、私有标签、模型或GPU授权，083仍PAUSED，084CLOSED。旧063/068论文仍可进入作者/导师审阅与投稿前准备；原创算法必须先有经独立证实的可用原时钟数据、强基线可学性和与近邻的实质技术增量。
+>
 > **2026-11-04用户明确批准受限私有元数据核查（最新任务状态）**：用户对[先前DATA_GATE提案](./research-decisions/temporal-alignment-data-gate-2026-11-04.md)回复“批准”。负责人登记唯一[085 READY](./codex-artifacts/VLM-PERCEPTION-CONTINUITY-AUDIT-085/README.md)：精确旧081单一受控根下已登记的封存/manifest中核完整自然连续原视频及L/M/R存在性，≤64文件、≤16MiB私有结构性元数据读取、CPU≤60s；root未知、身份冲突、时间戳缺失时BLOCKED/UNKNOWN，不扩搜索、补索引或改标签。**未开始执行；本授权不包括GPU/新model forward/媒体内容/解码/下载/训练/私有标签。** 083维持暂停、084CLOSED、085回执待Codex在当前会话明确新消息后执行，未自动创建086；新算法原创性仍不成立。
 >
 > **2026-11-04 DATA_GATE公开核查**：[负责人来源与连续性审查](./research-decisions/temporal-alignment-data-gate-2026-11-04.md)确定Perception Test官方train为现阶段最可能低成本的训练资格候选，既有08132来源历史媒体已处理但不能据此推断私有原视频现存且天然连续；TempCloze仅test元数据，Ego4D受单独许可、SSv2单动作优先级低。下一科研动作需先获明确有限私有seal/manifest元数据读取许可，核是否有真实L/M/R自然连续片段。**目前仅PROPOSED，0 READY，未提出085或任何数据/模型/GPU行动**。文献新颖性与普通baseline可学习性仍各有未过关卡，不得从官方许可证或数学构造推导算法已成立。
