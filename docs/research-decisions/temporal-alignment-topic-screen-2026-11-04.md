@@ -53,3 +53,15 @@
 **本轮可执行结论**：不创建085，不在main发布Codex READY，保留论文进度。下一次研究负责人动作应该是针对`H`验证三项**缺失条件**：（a）可用合法且源级独立的评价输入；（b）合理且能拟合的标准时序baseline；（c）与TimeBridge/VideoComp/EventLens等方法至少一个明确的非换名算子差异及专门失败反例。三项有任一不足时明确STOP，不以“多做任务”填空。
 
 如果这三项仍无实质进展，算法分支暂停，优先向目标本科高校学报完成现有有限实证稿的投稿准备（当前稿件位于`docs/papers/frozen-role-order-study/revision-2026-11-03/`，待真实作者/单位/投稿格式、合规参考文献）。**论文投稿与算法突破是两种独立目标，不互相假装替代。**
+
+
+## 6. 2026-11-04追加：TempCloze官方数据准入核查（负责人公开只读）
+
+本次下一步判断又核对了[官方GitHub](https://github.com/CedricPei/Temporal-Cloze)、[作者Hugging Face数据卡](https://huggingface.co/datasets/CedPei/TempCloze)、[EMNLP Findings 2026论文页](https://aclanthology.org/2026.findings-emnlp.651/)：
+
+- 官方任务确为左右视频片段之间的四选一中段恢复，1,521条，7个来源；作者代码和evaluation kit公开；Alignment干扰项包含Early/Late/Wide，Progression包含Reverse/Shuffle/Loop。
+- 作者Hugging Face公开表呈现一个`test` split，1.52k行，字段为`source/id/gap_start/gap_end`；这些是指向原视频及缺失区间的**元数据**，不是已可直接合法下载全部媒体的自包含训练集。本次未访问、下载或使用媒体。
+- 因此**不能将TempCloze公开test划分作为本研究训练数据，并同时把其结果当未触碰的独立test**。也不能从项目论文“7来源”推断现有私人资产已获合法使用权限、独立录制和train/test无泄漏。
+- 如果后续考虑TempCloze为未触及的外部测试，必须先确认所需来源媒体的独立许可证/获取途径及访问身份和成本；训练源需另行确定且与该test的源录制/参与者/原始视频严格去重。**当前尚无合格train资产**，故不下达085、不授权任何媒体或模型调用。
+
+**唯一具体下一门（DATA_GATE）**：负责人先提交一页来源资格表：候选训练集名称/授权证据/是否已有合法完整视频/物理录制独立键/与目标test源级去重规则/允许的最小train-only验证输入/不能获证处的STOP决定。若没有合法完整且可证明未泄漏的训练输入，结束此算法路线的数据立项，不把只看元数据变成新一轮Codex占位任务。通过DATA_GATE之后才讨论常规强baseline的单次拟合资格；候选新算子仍需独立经过方法去重GATE0。本追加不改变ZERO_READY。
