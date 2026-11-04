@@ -42,3 +42,11 @@
 ## 5. 2026-11-04续：原063文件存在性待完整核验（不读取私有内容）
 
 用户报告先前指出的063原根中`views.pt`与示例`C_NATIVE-137/final.pt`、`D_NATIVE-137/final.pt`“都在”。这**仅是用户口述的三处样本文件存在，不代表已实证核对六seed共12个头或文件内容身份**。负责人已独立编写仅以明确用户本地选定063根为输入的`vlm_063_asset_check.zip`（四项合成测试4/4通过，ZIP英文ASCII文件名）；检查固定12个`training/{C_NATIVE,D_NATIVE}-{137,263,419,557,733,911}/final.pt`及9个结构辅助文件，使用filesystem stat、无目录枚举/媒体/特征/权重内容读取/网络/GPU，并将脱敏`asset_check_report.json`生成在解压工具目录，**ZIP在当前聊天交付用户，未上传GitHub**。`FILESET_PRESENT_CONTENT_UNVERIFIED`即便全部通过，也仅代表文件存在且非零字节，不是模型身份、外部适配、数据授权或独立验证资格。下一步等待用户自主运行并回传脱敏聚合报告；无执行READY，无新GPU/媒体/模型授权。
+
+## 6. 2026-11-04 用户本地063资产回执验收与下一受控核验
+
+用户直接在会话中提供`vlm_063_asset_check_v1`脱敏JSON：`FILESET_PRESENT_CONTENT_UNVERIFIED`；6个C及6个D的`final.pt`均存在且大小非零（**12/12**），包括`views.pt/train-views.pt/feature-index.json/old-assets.json/code-seal.json/input-seal.json/output-seal.json/training-job.json/prediction-job.json`的**9/9**辅助文件亦均非零，固定21条路径，未读取文件内容/GPU/媒体/模型、未递归枚举，报告没有私有路径。接受该**存在性**结论，但不追认模型内容身份、可加载性、外部数据适配或复现效力。
+
+负责人直接依据已经公开的063源码发现：`output-seal.json`应登记12个`final.pt`和`views.pt/input-seal.json`的SHA256，`input-seal.json`应登记`train-views.pt`。据此直接生成英文ASCII名称的`vlm_063_seal_verify_2026_11_04.zip`，包括纯Python3标准库`check_seals.py`、Windows选择文件夹启动器、说明与7项合成单元测试；**7/7 PASS**，ZIP完整性验证通过。脚本仅在用户本人明确选定单一原063根并自主运行时读取**两份封存JSON＋14个固定模型/视图文件**：SHA256流式比对，累计上限96MiB，单张文件≤24MiB、单封存JSON≤2MiB；不载入torch、不解码视频、不访问私有Q/A/标注/特征、不运行模型/GPU/网络、不扫盘。报告仅输出相对文件名的匹配状态、聚合计数/读取预算，**没有私有路径、原始文件内容或哈希值**。一旦缺封存/摘要冲突/越界/预算不符即BLOCKED，不推断内容可用。
+
+**关键许可区别**：上一次用户只授权了文件存在性stat；下一步摘要检查**会实际读取权重和视图文件的内容字节**，只应在用户阅读README并自主执行后发生，不能当作已经执行的私有内容核验。即使12/12 HASH_MATCH，只能证明本地文件与本地历史封存一致，不能证明封存独立可信、TimeBlind题型兼容、源独立或任何新推理许可。ZIP只在本聊天交付；没有通过GitHub二进制接口提交。科研READY保持0、独立新VLM验证依旧NOT_RUN、未建Codex任务。
