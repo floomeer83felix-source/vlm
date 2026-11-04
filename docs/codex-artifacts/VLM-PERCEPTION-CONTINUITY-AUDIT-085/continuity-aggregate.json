@@ -1,0 +1,172 @@
+{
+  "task": "VLM-PERCEPTION-CONTINUITY-AUDIT-085",
+  "sync_sha": "9bc3500be1e60c5f5f5d1541e1c0db4391ef4d63",
+  "status": "HOLD_INSUFFICIENT_TIMESTAMPS",
+  "root_identity": "081_CURRENT_CONTEXT_ROOT_CONFIRMED_BY_SAFE_CONTROL_AND_REGISTERED_MANIFEST",
+  "registered_sources": 32,
+  "public_protocol_partition": [
+    20,
+    4,
+    8
+  ],
+  "partition_qualification": "Compatible with public 081 rank protocol; protected source-to-split/question maps were not read",
+  "identity_checks": {
+    "parent_task_and_origin_revision": true,
+    "original_object_generation": true,
+    "global_media_manifest_matches_its_registered_gate_SHA": true,
+    "unique_rank_keys_0_through31": true,
+    "registered_raw_size_total": 579702574,
+    "pipeline_version_literal_matches081_v1": true,
+    "current_media_payload_hashes_recomputed": 0
+  },
+  "counts": {
+    "current_root_registered_media_stat_size_match": 27,
+    "current_root_registered_media_missing_observed": 0,
+    "current_root_registered_media_size_mismatch": 0,
+    "external_refs_unverified": 5,
+    "outside_approved_root_not_followed": 5,
+    "complete_original_natural_continuous_recording_proved": 0,
+    "only_cut_or_reassembled_assets_proved": 0,
+    "natural_same_recording_LMR_candidates_proved": 0,
+    "original_LMR_timestamp_or_duration_PTS_qualification_unknown": 32,
+    "missing_registered_metadata_files": 1,
+    "known_mixed_metadata_files_refused_before_open": 1
+  },
+  "count_scopes": {
+    "stat_size_match": "27 internal registered media paths only; no media content opened; 5 external refs never statted",
+    "missing_media": "0 among 27 statted internal paths only; external existence UNKNOWN",
+    "continuous_recording_and_LMR": "Proof counts, not assertions that original media or possible intervals do not exist",
+    "only_cut": "Proof within inspected safe structures only; not an inventory of derived caches",
+    "timestamps_unknown": "All 32 registered entries lack a qualified natural L/M/R timeline in allowed inspected metadata",
+    "metadata_missing": "Optional historical summary absent; no alternate-root search",
+    "mixed": "One known mixed media-plan schema, refused in both v1/v2 attempts; unique-file count1",
+    "counts_are_not_an_exhaustive_partition": true
+  },
+  "unknowns": {
+    "original_recording_content_continuity": "NOT_PROVED_WITHIN_ALLOWED_METADATA",
+    "physical_recording_participant_independence": "UNKNOWN",
+    "middle_candidate_similarity_and_difficulty": "UNKNOWN",
+    "visual_content_and_timestamp_validity": "NOT_ASSESSED",
+    "training_and_model_input_qualification": "NOT_ASSESSED",
+    "new_independent_test": "NOT_ESTABLISHED"
+  },
+  "read_account": {
+    "content_open_attempts_closed": 4,
+    "unique_content_files": 3,
+    "explicit_content_bytes": 25410,
+    "media_stat_calls": 27,
+    "external_media_stat_calls": 0,
+    "max_content_files": 64,
+    "max_bytes": 16777216,
+    "prior_v1_content_files_charged": 1,
+    "prior_v1_bytes_charged": 1282,
+    "known_mixed_payload_opens": 0
+  },
+  "implementation": {
+    "corrections_used": 1,
+    "v1_stop": "MISSING_REGISTERED_METADATA",
+    "v2_fix": "Optional metadata may be absent; inspect only other already-allowlisted safe registration entries, retaining unknowns",
+    "v1_code_LF_SHA256": "9d0feff5686f0f2cee8b1a1ce1abaa3b3b2b2b60ccf6203d5965ab2db5d2d83f",
+    "v2_code_LF_SHA256": "3633b4982006171d5adc61d8085290f8eac9d85c006170bc3da20c53403b5459",
+    "v2_test_LF_SHA256": "7b55baa3e61e0a65593e0b158e1d83e4e7952d5976cda6bba18e4479bf5889a0",
+    "test_v1_methods": 17,
+    "test_v2_methods": 18,
+    "test_failures": 0,
+    "actual_audit_attempts": 2
+  },
+  "resources": {
+    "jobs": {
+      "test": {
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.078125,
+        "kernel_seconds": 0.078125,
+        "peak_commit": 14917632,
+        "killed": false,
+        "exit_code": 0,
+        "outer_seconds": 0.32800000000861473,
+        "cap_seconds": 60,
+        "prior_outer_seconds": 0,
+        "peak_sampled_active": 2,
+        "memory_limit_readback": 536870912,
+        "active_limit_readback": 8,
+        "stop": null
+      },
+      "audit": {
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.03125,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 9404416,
+        "killed": false,
+        "exit_code": 0,
+        "outer_seconds": 0.14100000000325963,
+        "cap_seconds": 60,
+        "prior_outer_seconds": 0.32800000000861473,
+        "peak_sampled_active": 2,
+        "memory_limit_readback": 536870912,
+        "active_limit_readback": 8,
+        "stop": null
+      },
+      "test-v2": {
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.0625,
+        "kernel_seconds": 0.15625,
+        "peak_commit": 15097856,
+        "killed": false,
+        "exit_code": 0,
+        "outer_seconds": 0.28100000001722947,
+        "cap_seconds": 60,
+        "prior_outer_seconds": 0.46900000001187436,
+        "peak_sampled_active": 2,
+        "memory_limit_readback": 536870912,
+        "active_limit_readback": 8,
+        "stop": null
+      },
+      "audit-v2": {
+        "active": 0,
+        "total_processes": 2,
+        "user_seconds": 0.046875,
+        "kernel_seconds": 0.046875,
+        "peak_commit": 9682944,
+        "killed": false,
+        "exit_code": 0,
+        "outer_seconds": 0.17199999999138527,
+        "cap_seconds": 60,
+        "prior_outer_seconds": 0.7500000000291038,
+        "peak_sampled_active": 2,
+        "memory_limit_readback": 536870912,
+        "active_limit_readback": 8,
+        "stop": null
+      }
+    },
+    "total_supervised_outer_seconds": 0.9220000000204891,
+    "total_Job_user_kernel_seconds": 0.546875,
+    "private_audit_Job_user_kernel_seconds": 0.171875,
+    "max_Job_commit_bytes": 15097856,
+    "CPU_cap_seconds": 60,
+    "memory_cap_bytes": 536870912,
+    "worker_process_time_counter_resolution_note": "Audit internal process_time rounded to0; measured nonzero Job CPU is reported instead of claiming zero cost",
+    "source_and_output_scope": "explicit metadata bytes and declared Job limits; filesystem path resolution/stat may consult native metadata, no full OS physical IO certification"
+  },
+  "restricted_operations": {
+    "video_content": 0,
+    "media_hash_or_CRC": 0,
+    "ZIP_or_media_index": 0,
+    "ffprobe_decode_frames": 0,
+    "protected_QA_GT_labels": 0,
+    "Qwen_features_weights_processor": 0,
+    "other_private_roots": 0,
+    "network_except_docs_Git": 0,
+    "GPU_and_inference": 0,
+    "training": 0
+  },
+  "parent_clock": {
+    "started_utc": "2026-11-04T06:01:21.9649823+00:00",
+    "report_cutoff": "2026-11-04T14:09:04.873589+08:00",
+    "raw_charged_elapsed_seconds": 462.90958976745605,
+    "excluded_seconds": 0,
+    "cap_seconds": 3600
+  }
+}
