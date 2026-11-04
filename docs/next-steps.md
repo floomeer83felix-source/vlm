@@ -1,6 +1,6 @@
 # VLM 下一步工作安排（ChatGPT 维护）
 
-> **2026-11-04更新（新阶段，优先于下方2026-11-03历史状态）**：用户明确要求启动算法机制突破阶段。现新设**唯一READY：VLM-FACTORIAL-INTERACTION-SCREEN-084**，仅公开文献/数学诊断及纯stdlib合成测试。原083仍PAUSED_BY_OWNER，069归档，081/082原配方保持关闭。没有GPU、模型forward、数据/媒体下载、真实缓存访问、训练或论文编辑授权；当前不承诺算法创新。执行合同：[084 README](./codex-artifacts/VLM-FACTORIAL-INTERACTION-SCREEN-084/README.md)。
+> **2026-11-04最新验收（优先于旧084 READY记录）**：084已由Codex在[5172a8f](https://github.com/floomeer83felix-source/vlm/commit/5172a8f81870ccf6d757f15f7c55fd5188e635f9)完成6处公开交付，负责人[验收](./research-decisions/post-084-factorial-interaction-disposition-2026-11-04.md)为**ACCEPTED_SCOPED_PUBLIC_SCREEN / RETAIN0 / NO_JUSTIFIED_REAL_EXPERIMENT / CLOSED**。14项纯stdlib逻辑测试通过，但静态位置捷径也满足强制符号对称；没有可辩护的新算法，无法批准真实实验。**当前0 READY，不设置085**，083仍暂停；GPU/真实模型forward/训练/私有数据/媒体均未授权。下一具体行动是作者/导师审阅现有实证稿与确定投稿目标，或由负责人先提出有独立技术增量的新科学问题，不能按编号继续旧方案。
 >
 > 协作规则：**ChatGPT 负责研究规划与审查；Codex 每轮领取本文件中唯一 READY 的任务或任务包。一个任务包可依书面协议连续完成多项安全子任务，统一反馈后再审核**。执行事实写入 [codex-results.md](./codex-results.md)，脱敏附件上传 [codex-artifacts/](./codex-artifacts/)，ChatGPT 审核后更新 [research-overview.md](./research-overview.md)。
 >
@@ -32,7 +32,7 @@
 
 | ID | 优先级 | 状态 | 执行者 | 工作内容 | 完成判据 |
 |---|---|---|---|---|---|
-| VLM-FACTORIAL-INTERACTION-SCREEN-084 | P0 | **READY / PUBLIC_ONLY / NO_GPU_OR_REAL_DATA** | Codex：唯一受控公开审查+纯stdlib合成夹具 | [084合同](./codex-artifacts/VLM-FACTORIAL-INTERACTION-SCREEN-084/README.md)：一手近邻比对；四角交互代数与假阳性测试；仅设计后续可学性门；不碰旧083/旧论文/私有缓存 | 一次6处脱敏交付，报告可为RETAIN0；科学创新仍未确认；GPU/新模型forward/媒体/真实训练0，推送后STOP |
+| VLM-FACTORIAL-INTERACTION-SCREEN-084 | P0 | **ACCEPTED_SCOPED_PUBLIC_SCREEN / RETAIN0 / NO_JUSTIFIED_REAL_EXPERIMENT / CLOSED** | Codex交付、ChatGPT验收 | [5172a8f](https://github.com/floomeer83felix-source/vlm/commit/5172a8f81870ccf6d757f15f7c55fd5188e635f9)六处交付：七篇正文近邻、一篇ETR不可达；14项合成逻辑测试及静态位置捷径反例 | [验收](./research-decisions/post-084-factorial-interaction-disposition-2026-11-04.md)：只确认数学诊断与报告范围，不认独创语义机制；无新训练资格、不自动085，当前0 READY |
 | VLM-TEMPORAL-MECHANISM-RESET-083 | P0 | **PAUSED_BY_OWNER / NOT_READY（当前无READY）** | Codex停止领取、ChatGPT负责研究去留 | [停线决定](./research-decisions/research-stop-and-083-pause-2026-11-03.md)：不再用一轮Codex执行替代负责人路线判断；原[083合同](./codex-artifacts/VLM-TEMPORAL-MECHANISM-RESET-083/README.md)仅保留设计 | 不要求新交付/结果编号，不训练/调用模型/审计私有缓存/写论文，不自动084；已有局部文件保留，未来重开须具体依据与必要新授权 |
 | VLM-TEMPORAL-LEARNABILITY-CACHE-082 | P0 | **ACCEPTED_SCOPED_CACHE_DIAGNOSIS_WITH_CLOCK_AND_COVERAGE_CAVEATS / CAUSE_UNRESOLVED / CLOSED** | Codex交付、ChatGPT验收 | [55e138f](https://github.com/floomeer83felix-source/vlm/commit/55e138f670bbcc690c0b86c53e680dffb609cdf3)：57行/388缓存文件，dev/test头对六排列均不变，无已查绑定缺陷/精确输入矛盾，严格位置重复条件不满足 | [验收](./research-decisions/post-082-cache-diagnosis-and-mechanism-reset-2026-11-03.md)2604公开检查，父时钟/覆盖不全认证，不推断失败成因，不继续缓存审计/调参；旧配方关闭 |
 | VLM-TIMESTAMPED-TRIPLES-STREAM-081 | P0 | **ACCEPTED_COMPLETE_SCIENCE_GATE_FAIL_WITH_CLOCK_AND_COVERAGE_CAVEATS / STOP_THIS_RECIPE / CLOSED** | Codex交付、ChatGPT验收 | [8ae75ef](https://github.com/floomeer83felix-source/vlm/commit/8ae75ef40616c80c8afaaeaa7f0842876c01e600)：真实192RGB/1428root/4500更新全齐，I/A/S六seedtest全50%/源全对0，低于B0 REAL61.1111% | [验收](./research-decisions/post-081-negative-gate-and-cache-learnability-audit-2026-11-03.md)3056检查，原门FAIL/transfer8898/science12117；train近50%FLIP0，父clock排除依据和全OS覆盖不认证，不用剩余额度续试 |
