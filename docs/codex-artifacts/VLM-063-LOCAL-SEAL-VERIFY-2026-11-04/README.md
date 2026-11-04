@@ -20,7 +20,7 @@
 
 **权限：只做SHA256流式原始字节读取，不调用`torch.load`、PyTorch、pickle、不加载权重的任何层、不开模型或processor/tokenizer、不导入现有模型包。** 单个`.pt`文件≤24MiB，封存JSON≤2MiB，合计已实际读取的内容字节≤96MiB（100,663,296 bytes）；已触达失败尝试也累计，断续重读累计计费、不得规避。只允许文件存在性/`stat`和这16个白名单文件流式读取；**其他063或062、060根一律禁止**，特别是`feature-index.json`（可能含私有路径）、`train-views`以外的张量、`old-assets.json`、`code-seal.json`、`training-job.json`、`prediction-job.json`、视频、QA/GT、日志、特征、optimizer状态，不读。可以只根据本根固定相对路径构造文件名，不用`glob/rglob/os.walk/dir`枚举。
 
-- 校验`output-seal.json`内**预存**登记的这14个数据文件及`input-seal.json`的SHA256；校验`input-seal.json`内**预存**登记的`train-views.pt`。期望字面SHA来自本地封存，**不得用本次新计算值回填或覆盖封存**。如某条封存路径是旧的Windows绝对路径，只把它作为已登记项的**相对后缀标识**来匹配上述固定路径，不访问其原绝对位置；针对重复`final.pt`必须匹配完整训练方法/seed/文件的三级后缀、验证唯一性并拒绝任何歧义或重复。采用pathlib/PureWindowsPath和固定允许集合，拒绝反斜杠与大小写绕过、越界、符号链接/junction或封存条目数据结构异常。
+- 校验`output-seal.json`内**预存**登记的12个`final.pt`、`views.pt`与`input-seal.json`的SHA256；校验`input-seal.json`内**预存**登记的`train-views.pt`。期望字面SHA来自本地封存，**不得用本次新计算值回填或覆盖封存**。如某条封存路径是旧的Windows绝对路径，只把它作为已登记项的**相对后缀标识**来匹配上述固定路径，不访问其原绝对位置；针对重复`final.pt`必须匹配完整训练方法/seed/文件的三级后缀、验证唯一性并拒绝任何歧义或重复。采用pathlib/PureWindowsPath和固定允许集合，拒绝反斜杠与大小写绕过、越界、符号链接/junction或封存条目数据结构异常。
 - 本次检查只证明“与同一本地封存SHA是否相符”，**不对原封存的外部可信性或是否被同时修改作新担保**。若`input-seal.json`由`output-seal.json`登记可验，其哈希也应验以保证两个封存之间的内部链；`output-seal.json`本身没有另一份独立受信第三方封存就只能自述。
 
 ## 2. 资源、隔离与软件自测
